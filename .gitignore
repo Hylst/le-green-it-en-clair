@@ -30,3 +30,6 @@ next-env.d.ts
 .DS_Store
 *.pem
 Thumbs.db
+
+# pnpm (using npm instead)
+pnpm-lock.yaml

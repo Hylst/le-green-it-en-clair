@@ -124,11 +124,12 @@ export default function ComprendrePage() {
           </p>
           <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-slate-800">
             <Image
-              src="/visual-representation-of-carbon-footprint-with-tr.webp"
-              alt="Empreinte carbone numérique"
+              src="/images/lifecycle-numerique-hero.webp"
+              alt="Cycle de vie du numérique - de l'extraction au recyclage"
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
+              sizes="(max-width: 768px) 100vw, 896px"
             />
           </div>
         </div>

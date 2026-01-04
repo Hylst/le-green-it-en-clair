@@ -288,19 +288,26 @@ export default function RessourcesPage() {
                             {item.size && <span>{item.size}</span>}
                           </div>
                         </div>
-                        <Link href={item.link}>
+                        {item.link ? (
+                          <Link href={item.link}>
+                            <Button
+                              size="sm"
+                              className={`w-full bg-${category.color}-600 hover:bg-${category.color}-700`}
+                            >
+                              <FileText className="mr-2 h-4 w-4" />
+                              Consulter
+                            </Button>
+                          </Link>
+                        ) : (
                           <Button
                             size="sm"
                             className={`w-full bg-${category.color}-600 hover:bg-${category.color}-700`}
+                            disabled
                           >
-                            {item.type === "PDF" ? (
-                              <Download className="mr-2 h-4 w-4" />
-                            ) : (
-                              <FileText className="mr-2 h-4 w-4" />
-                            )}
-                            {item.type === "PDF" ? "Télécharger" : "Consulter"}
+                            <Download className="mr-2 h-4 w-4" />
+                            Télécharger (bientôt)
                           </Button>
-                        </Link>
+                        )}
                       </Card>
                     ))}
                   </div>

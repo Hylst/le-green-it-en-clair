@@ -124,13 +124,11 @@ export default function ComprendrePage() {
           </p>
           <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-slate-800">
             <Image
-              src="/images/lifecycle-infographic.jpg"
-              alt="Diagramme circulaire détaillé du cycle de vie d'un smartphone montrant les 5 étapes principales : extraction minière de 70kg de matières premières, fabrication en usine, transport sur 15000km, utilisation par le consommateur pendant 2-3 ans, et recyclage à 20% des composants. Chaque étape affiche son impact CO2 et environnemental."
+              src="/visual-representation-of-carbon-footprint-with-tr.webp"
+              alt="Empreinte carbone numérique"
               fill
-              className="object-contain p-4 bg-white dark:bg-slate-800"
-              priority
-              quality={95}
-              sizes="(max-width: 768px) 100vw, 896px"
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         </div>
@@ -264,11 +262,10 @@ export default function ComprendrePage() {
                 <button
                   key={phase.id}
                   onClick={() => setSelectedPhase(index)}
-                  className={`flex items-center gap-2 rounded-xl border-2 px-4 py-3 transition-all ${
-                    isActive
+                  className={`flex items-center gap-2 rounded-xl border-2 px-4 py-3 transition-all ${isActive
                       ? `border-${phase.color}-500 bg-${phase.color}-50`
                       : "border-slate-200 bg-white hover:border-slate-300"
-                  }`}
+                    }`}
                 >
                   <Icon className={`h-5 w-5 ${isActive ? `text-${phase.color}-700` : "text-slate-600"}`} />
                   <span className={`text-sm font-medium ${isActive ? `text-${phase.color}-900` : "text-slate-700"}`}>
@@ -292,27 +289,24 @@ export default function ComprendrePage() {
                     {/* Connector Line */}
                     {index < lifecyclePhases.length - 1 && (
                       <div
-                        className={`absolute left-1/2 top-8 h-1 w-full transition-colors ${
-                          isPast ? "bg-emerald-500" : "bg-slate-200"
-                        }`}
+                        className={`absolute left-1/2 top-8 h-1 w-full transition-colors ${isPast ? "bg-emerald-500" : "bg-slate-200"
+                          }`}
                       />
                     )}
 
                     {/* Icon Circle */}
                     <button
                       onClick={() => setSelectedPhase(index)}
-                      className={`relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-4 transition-all ${
-                        isActive
+                      className={`relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-4 transition-all ${isActive
                           ? "border-emerald-500 bg-emerald-500 shadow-lg"
                           : isPast
                             ? "border-emerald-500 bg-white"
                             : "border-slate-200 bg-white hover:border-slate-300"
-                      }`}
+                        }`}
                     >
                       <Icon
-                        className={`h-7 w-7 ${
-                          isActive ? "text-white" : isPast ? "text-emerald-500" : "text-slate-400"
-                        }`}
+                        className={`h-7 w-7 ${isActive ? "text-white" : isPast ? "text-emerald-500" : "text-slate-400"
+                          }`}
                       />
                     </button>
 

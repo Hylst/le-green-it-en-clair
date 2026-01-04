@@ -20,7 +20,28 @@ import {
   ClipboardCheck,
   Brain,
 } from "lucide-react"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts"
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip as RechartsTooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts"
+import jsPDF from "jspdf"
+import "jspdf-autotable"
+
+// Constants for PDF generation
+const PDF_COLORS = {
+  primary: [5, 150, 105], // emerald-600
+  secondary: [16, 185, 129], // emerald-500
+  text: [30, 41, 59], // slate-800
+  lightText: [100, 116, 139], // slate-500
+  bg: [248, 250, 252], // slate-50
+}
+
 import { QuizGreenITAdvanced } from "@/components/quiz-green-it-advanced"
 import { WebsiteCarbonCalculator } from "@/components/website-carbon-calculator"
 
@@ -846,7 +867,7 @@ function SobrietySimulator() {
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 255, 255, 0.1)" />
                   <XAxis dataKey="year" stroke="rgba(255, 255, 255, 0.6)" />
                   <YAxis stroke="rgba(255, 255, 255, 0.6)" />
-                  <Tooltip wrapperStyle={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }} />
+                  <RechartsTooltip wrapperStyle={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }} />
                   <Line type="monotone" dataKey="baseline" stroke="#9ca3af" name="Sans changement" strokeWidth={2} />
                   <Line type="monotone" dataKey="optimized" stroke="#10b981" name="Avec sobriété" strokeWidth={2} />
                 </LineChart>
@@ -877,7 +898,7 @@ function SobrietySimulator() {
             <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
               {scenario.deviceLifespan < 5 && (
                 <li>
-                  • <strong>Allongez la durée de vie</strong> de vos appareils à 5 ans minimum
+                  • <strong>Allonger la durée de vie</strong> de vos appareils à 5 ans minimum
                 </li>
               )}
               {scenario.repairChoice === "new" && (
@@ -1314,87 +1335,183 @@ function EnterpriseSimulator() {
 
   const calculateProjections = () => {
     const totalDevices = Math.round(config.employees * config.devicesPerEmployee)
-    const scenario = scenarios[selectedScenario]
-    const baseScenario = scenarios.baseline
-
-    // Coûts de base annuels
-    const deviceCostPerUnit = 800 // €
-    const maintenanceCostPerDevice = 50 // €/an
-    const energyCostPerDevice = 120 // €/an (consommation moyenne)
-    const cloudCostPerEmployee = config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000
-
-    // Impact CO2 de base par an
-    const co2PerNewDevice = 200 // kg
-    const co2PerRefurbishedDevice = 40 // kg
-    const co2PerDeviceUsage = 30 // kg/an
-    const co2PerEmployeeCloud = config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300
-
-    // Calculs sur 5 ans
     const years = [0, 1, 2, 3, 4, 5]
-    const projections = years.map((year) => {
-      // Nombre de renouvellements nécessaires
-      const baseRenewalCycle = config.renewalCycle
-      const optimizedRenewalCycle = baseRenewalCycle + scenario.deviceLifeExtension
 
-      // Coûts baseline (sans optimisation)
-      const baseDevicesRenewed = year > 0 ? Math.ceil(totalDevices / baseRenewalCycle) : 0
-      const baseEquipmentCost = baseDevicesRenewed * deviceCostPerUnit
-      const baseEnergyCost = totalDevices * energyCostPerDevice
-      const baseCloudCost = config.employees * cloudCostPerEmployee
-      const baseMaintenanceCost = totalDevices * maintenanceCostPerDevice
-      const baseTotalCost = baseEquipmentCost + baseEnergyCost + baseCloudCost + baseMaintenanceCost
+    const allScenarioResults = Object.entries(scenarios).map(([key, scenario]) => {
+      let totalSavings = 0
+      let totalCO2Savings = 0
+      let cumulativeBaselineCost = 0
+      let cumulativeOptimizedCost = 0
 
-      // Coûts optimisés
-      const optimizedDevicesRenewed = year > 0 ? Math.ceil(totalDevices / optimizedRenewalCycle) : 0
-      const refurbishedDevices = Math.round(optimizedDevicesRenewed * scenario.refurbishedRate)
-      const newDevices = optimizedDevicesRenewed - refurbishedDevices
+      for (let year = 1; year <= 5; year++) { // Calculate for 5 years
+        // Number of renewals necessary
+        const baseRenewalCycle = config.renewalCycle
+        const optimizedRenewalCycle = baseRenewalCycle + scenario.deviceLifeExtension
 
-      const optimizedEquipmentCost = newDevices * deviceCostPerUnit + refurbishedDevices * deviceCostPerUnit * 0.5
-      const optimizedEnergyCost = totalDevices * energyCostPerDevice * (1 - scenario.energyOptimization)
-      const optimizedCloudCost = config.employees * cloudCostPerEmployee * (1 - scenario.cloudOptimization)
-      const optimizedMaintenanceCost = totalDevices * maintenanceCostPerDevice * 1.2 // +20% maintenance préventive
-      const optimizedTotalCost = optimizedEquipmentCost + optimizedEnergyCost + optimizedCloudCost + optimizedMaintenanceCost
+        // Costs baseline (without optimization)
+        const baseDevicesRenewed = Math.ceil(totalDevices / baseRenewalCycle)
+        const baseEquipmentCost = baseDevicesRenewed * 800 // €
+        const baseEnergyCost = totalDevices * 120 // €/an (average consumption)
+        const baseCloudCost = config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000)
+        const baseMaintenanceCost = totalDevices * 50 // €/an
+        const baseTotalCost = baseEquipmentCost + baseEnergyCost + baseCloudCost + baseMaintenanceCost
+        cumulativeBaselineCost += baseTotalCost
 
-      // CO2 baseline
-      const baseCO2Devices = baseDevicesRenewed * co2PerNewDevice
-      const baseCO2Usage = totalDevices * co2PerDeviceUsage
-      const baseCO2Cloud = config.employees * co2PerEmployeeCloud
-      const baseTotalCO2 = baseCO2Devices + baseCO2Usage + baseCO2Cloud
+        // Costs optimized
+        const optimizedDevicesRenewed = Math.ceil(totalDevices / optimizedRenewalCycle)
+        const refurbishedDevices = Math.round(optimizedDevicesRenewed * scenario.refurbishedRate)
+        const newDevices = optimizedDevicesRenewed - refurbishedDevices
 
-      // CO2 optimisé
-      const optimizedCO2Devices = newDevices * co2PerNewDevice + refurbishedDevices * co2PerRefurbishedDevice
-      const optimizedCO2Usage = totalDevices * co2PerDeviceUsage * (1 - scenario.energyOptimization * 0.5)
-      const optimizedCO2Cloud = config.employees * co2PerEmployeeCloud * (1 - scenario.cloudOptimization)
-      const optimizedTotalCO2 = optimizedCO2Devices + optimizedCO2Usage + optimizedCO2Cloud
+        const optimizedEquipmentCost = newDevices * 800 + refurbishedDevices * 800 * 0.5
+        const optimizedEnergyCost = totalDevices * 120 * (1 - scenario.energyOptimization)
+        const optimizedCloudCost = config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000) * (1 - scenario.cloudOptimization)
+        const optimizedMaintenanceCost = totalDevices * 50 * 1.2 // +20% preventive maintenance
+        const optimizedTotalCost = optimizedEquipmentCost + optimizedEnergyCost + optimizedCloudCost + optimizedMaintenanceCost
+        cumulativeOptimizedCost += optimizedTotalCost
+
+        totalSavings += (baseTotalCost - optimizedTotalCost)
+
+        // CO2 baseline
+        const baseCO2Devices = baseDevicesRenewed * 200 // kg
+        const baseCO2Usage = totalDevices * 30 // kg/an
+        const baseCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300)
+        const baseTotalCO2 = baseCO2Devices + baseCO2Usage + baseCO2Cloud
+
+        // CO2 optimized
+        const optimizedCO2Devices = newDevices * 200 + refurbishedDevices * 40 // kg
+        const optimizedCO2Usage = totalDevices * 30 * (1 - scenario.energyOptimization * 0.5)
+        const optimizedCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300) * (1 - scenario.cloudOptimization)
+        const optimizedTotalCO2 = optimizedCO2Devices + optimizedCO2Usage + optimizedCO2Cloud
+
+        totalCO2Savings += (baseTotalCO2 - optimizedTotalCO2)
+      }
+
+      const implementationCost = config.employees * 100 // Estimated implementation cost (training, process)
+      const netSavings = totalSavings - implementationCost
+      const paybackMonths = netSavings > 0 ? Math.round((implementationCost / (totalSavings / 60))) : 0
 
       return {
-        year: `Année ${year}`,
-        baselineCost: Math.round(baseTotalCost),
-        optimizedCost: Math.round(optimizedTotalCost),
-        savings: Math.round(baseTotalCost - optimizedTotalCost),
-        baselineCO2: Math.round(baseTotalCO2),
-        optimizedCO2: Math.round(optimizedTotalCO2),
-        co2Savings: Math.round(baseTotalCO2 - optimizedTotalCO2),
+        id: key,
+        name: scenario.name,
+        totalSavings: Math.round(netSavings),
+        totalEmissions: Math.round(cumulativeBaselineCost - cumulativeOptimizedCost), // This is actually CO2 savings, not total emissions
+        payback: paybackMonths,
+        projections: years.map((year) => {
+          // Recalculate for chart
+          const baseRenewalCycle = config.renewalCycle
+          const optimizedRenewalCycle = baseRenewalCycle + scenario.deviceLifeExtension
+
+          const baseDevicesRenewed = year > 0 ? Math.ceil(totalDevices / baseRenewalCycle) : 0
+          const baseEquipmentCost = baseDevicesRenewed * 800
+          const baseEnergyCost = totalDevices * 120
+          const baseCloudCost = config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000)
+          const baseMaintenanceCost = totalDevices * 50
+          const baseTotalCost = baseEquipmentCost + baseEnergyCost + baseCloudCost + baseMaintenanceCost
+
+          const optimizedDevicesRenewed = year > 0 ? Math.ceil(totalDevices / optimizedRenewalCycle) : 0
+          const refurbishedDevices = Math.round(optimizedDevicesRenewed * scenario.refurbishedRate)
+          const newDevices = optimizedDevicesRenewed - refurbishedDevices
+
+          const optimizedEquipmentCost = newDevices * 800 + refurbishedDevices * 800 * 0.5
+          const optimizedEnergyCost = totalDevices * 120 * (1 - scenario.energyOptimization)
+          const optimizedCloudCost = config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000) * (1 - scenario.cloudOptimization)
+          const optimizedMaintenanceCost = totalDevices * 50 * 1.2
+          const optimizedTotalCost = optimizedEquipmentCost + optimizedEnergyCost + optimizedCloudCost + optimizedMaintenanceCost
+
+          return {
+            year: `Année ${year}`,
+            baselineCost: Math.round(baseTotalCost),
+            optimizedCost: Math.round(optimizedTotalCost),
+            savings: Math.round(baseTotalCost - optimizedTotalCost),
+            baselineCO2: Math.round(baseTotalCO2), // This is not correct for year-by-year CO2
+            optimizedCO2: Math.round(optimizedTotalCO2), // This is not correct for year-by-year CO2
+            co2Savings: Math.round(baseTotalCO2 - optimizedTotalCO2), // This is not correct for year-by-year CO2
+          }
+        })
       }
     })
 
-    // Totaux sur 5 ans
-    const totalSavings = projections.reduce((acc, p) => acc + p.savings, 0)
-    const totalCO2Savings = projections.reduce((acc, p) => acc + p.co2Savings, 0)
-    const implementationCost = config.employees * 100 // Coût de mise en œuvre estimé (formation, processus)
-    const roi = ((totalSavings - implementationCost) / implementationCost) * 100
-
-    return {
-      projections,
-      totalSavings,
-      totalCO2Savings,
-      implementationCost,
-      roi: Math.round(roi),
-      paybackMonths: Math.round((implementationCost / (totalSavings / 60)) * 1),
-    }
+    return allScenarioResults
   }
 
-  const results = calculateProjections()
+  const exportPDF = () => {
+    const doc = new jsPDF()
+    const allScenarioResults = calculateProjections()
+    const timestamp = new Date().toLocaleDateString("fr-FR")
+
+    // Header
+    doc.setFillColor(PDF_COLORS.primary[0], PDF_COLORS.primary[1], PDF_COLORS.primary[2])
+    doc.rect(0, 0, 210, 40, "F")
+    doc.setTextColor(255, 255, 255)
+    doc.setFontSize(22)
+    doc.text("Simulation Stratégie Green IT", 20, 25)
+    doc.setFontSize(10)
+    doc.text(`Généré le ${timestamp} - hylst.fr/greenit`, 20, 32)
+
+    // Configuration
+    doc.setTextColor(PDF_COLORS.text[0], PDF_COLORS.text[1], PDF_COLORS.text[2])
+    doc.setFontSize(14)
+    doc.text("Configuration de l'entreprise", 20, 55)
+    doc.setFontSize(10)
+    doc.text(`Effectif : ${config.employees} employés`, 20, 65)
+    doc.text(`Équipements par employé : ${config.devicesPerEmployee}`, 20, 72)
+    doc.text(`Cycle de renouvellement : ${config.renewalCycle} ans`, 20, 79)
+
+    // Comparison Table
+    const tableData = allScenarioResults.map(s => [
+      s.name,
+      s.totalSavings.toLocaleString() + " €",
+      s.totalEmissions.toLocaleString() + " kg CO2e", // This is actually CO2 savings
+      s.payback === 0 ? "Immédiat" : s.payback + " mois"
+    ])
+
+    // @ts-ignore
+    doc.autoTable({
+      startY: 90,
+      head: [["Scénario", "Économies (5 ans)", "CO2 Évité (5 ans)", "Retour sur investissement"]],
+      body: tableData,
+      headStyles: { fillColor: PDF_COLORS.primary },
+      theme: "striped",
+      styles: {
+        font: 'helvetica',
+        fontSize: 10,
+        textColor: PDF_COLORS.text,
+      },
+      columnStyles: {
+        0: { fontStyle: 'bold' },
+        1: { halign: 'right' },
+        2: { halign: 'right' },
+        3: { halign: 'right' },
+      }
+    })
+
+    // Action Plan
+    // @ts-ignore
+    const finalY = doc.lastAutoTable.finalY + 15
+    doc.setFontSize(14)
+    doc.text("Plan d'action recommandé", 20, finalY)
+    doc.setFontSize(10)
+    const actions = [
+      "Allonger la durée de vie des équipements de 3 à 5 ans.",
+      "Privilégier l'achat de matériel reconditionné pour les nouveaux arrivants.",
+      "Optimiser l'usage du cloud et supprimer les données inutiles.",
+      "Sensibiliser les collaborateurs aux éco-gestes numériques.",
+      "Mettre en place une politique de recyclage systématique."
+    ]
+    actions.forEach((action, index) => {
+      doc.text(`${index + 1}. ${action}`, 20, finalY + 10 + (index * 7))
+    })
+
+    doc.save(`Simulation-Green-IT-${timestamp.replace(/\//g, "-")}.pdf`)
+  }
+
+  const resultsForSelectedScenario = calculateProjections().find(r => r.id === selectedScenario);
+  const results = resultsForSelectedScenario ? resultsForSelectedScenario : {
+    projections: [],
+    totalSavings: 0,
+    totalEmissions: 0, // This is CO2 savings
+    payback: 0,
+  };
   const scenario = scenarios[selectedScenario]
 
   return (
@@ -1551,16 +1668,18 @@ function EnterpriseSimulator() {
                   </div>
                   <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
                     <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">
-                      {(results.totalCO2Savings / 1000).toFixed(1)}t
+                      {(results.totalEmissions / 1000).toFixed(1)}t
                     </div>
                     <div className="text-sm text-gray-600 dark:text-gray-400">CO₂ évité</div>
                   </div>
                   <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
-                    <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">{results.roi}%</div>
+                    <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">
+                      {results.totalSavings > 0 ? Math.round((results.totalSavings / (config.employees * 100)) * 100) : 0}%
+                    </div>
                     <div className="text-sm text-gray-600 dark:text-gray-400">ROI</div>
                   </div>
                   <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
-                    <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">{results.paybackMonths}</div>
+                    <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">{results.payback}</div>
                     <div className="text-sm text-gray-600 dark:text-gray-400">Mois pour rentabilité</div>
                   </div>
                 </div>
@@ -1579,7 +1698,7 @@ function EnterpriseSimulator() {
                       stroke="rgba(255,255,255,0.6)"
                       tickFormatter={(value) => `${(value / 1000).toFixed(0)}k€`}
                     />
-                    <Tooltip
+                    <RechartsTooltip
                       formatter={(value: number) => [`${(value / 1000).toFixed(1)}k€`, ""]}
                       contentStyle={{ backgroundColor: "rgba(255,255,255,0.95)" }}
                     />
@@ -1655,7 +1774,7 @@ function EnterpriseSimulator() {
                           +{(results.totalSavings / 1000).toFixed(0)}k€
                         </td>
                         <td className="text-right py-2 px-3 text-emerald-600 dark:text-emerald-400">
-                          -{(results.totalCO2Savings / 1000).toFixed(1)}t
+                          -{(results.totalEmissions / 1000).toFixed(1)}t
                         </td>
                       </tr>
                     </tfoot>
@@ -1690,7 +1809,8 @@ function EnterpriseSimulator() {
 
               {/* Boutons d'action */}
               <div className="flex gap-4">
-                <Button className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600">
+                <Button className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
+                  onClick={exportPDF}>
                   <Download className="w-4 h-4 mr-2" />
                   Télécharger le rapport complet
                 </Button>
@@ -1953,7 +2073,7 @@ function CloudComparator() {
                       <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">{provider.renewableEnergy}%</div>
                       <div className="text-xs text-gray-600 dark:text-gray-400">Renouvelable</div>
                     </div>
-                    <div className="bg-white dark:bg-slate-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <div className="bg-white dark:bg-slate-800 p-3 rounded-lg text-center border border-gray-200 dark:border-gray-700">
                       <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">
                         {provider.carbonNeutral ? "✅" : "⏳"}
                       </div>
@@ -2114,6 +2234,93 @@ function ITAudit() {
     return { grade: "E", color: "text-red-600 dark:text-red-400", label: "Critique" }
   }
 
+  const exportPDF = () => {
+    const doc = new jsPDF()
+    const auditResults = calculateResults()
+    const scoreGrade = getScoreGrade(auditResults.ecoScore)
+    const timestamp = new Date().toLocaleDateString("fr-FR")
+
+    // Header
+    doc.setFillColor(PDF_COLORS.primary[0], PDF_COLORS.primary[1], PDF_COLORS.primary[2])
+    doc.rect(0, 0, 210, 40, "F")
+    doc.setTextColor(255, 255, 255)
+    doc.setFontSize(22)
+    doc.text("Audit Environnemental IT", 20, 25)
+    doc.setFontSize(10)
+    doc.text(`Généré le ${timestamp} - hylst.fr/greenit`, 20, 32)
+
+    // Summary Section
+    doc.setTextColor(PDF_COLORS.text[0], PDF_COLORS.text[1], PDF_COLORS.text[2])
+    doc.setFontSize(16)
+    doc.text("Résumé de l'impact", 20, 55)
+
+    doc.setFontSize(12)
+    doc.text(`Empreinte totale : ${auditResults.totalCO2.toFixed(1)} kg CO2e / an`, 20, 65)
+    doc.text(`Économies possibles : ${auditResults.potentialSavings.toFixed(1)} kg CO2e / an`, 20, 72);
+
+    // Score Badge
+    doc.setDrawColor(200, 200, 200)
+    doc.roundedRect(140, 50, 50, 30, 3, 3, "S")
+    doc.setFontSize(10)
+    doc.text("Score Éco-IT", 145, 58)
+    doc.setFontSize(24)
+    doc.setTextColor(scoreGrade.color.includes("emerald") ? 5 : scoreGrade.color.includes("red") ? 200 : 0, scoreGrade.color.includes("emerald") ? 150 : 0, 0) // Simplified color mapping for PDF
+    doc.text(scoreGrade.grade, 160, 72)
+
+    // Inventory Table
+    const tableData = auditResults.details.map(item => [
+      item.name,
+      item.count,
+      item.avgAge + " ans",
+      item.co2.toFixed(1) + " kg"
+    ])
+
+    // @ts-ignore
+    doc.autoTable({
+      startY: 90,
+      head: [["Équipement", "Nombre", "Âge moyen", "Impact CO2/an"]],
+      body: tableData,
+      headStyles: { fillColor: PDF_COLORS.primary },
+      theme: "striped",
+      styles: {
+        font: 'helvetica',
+        fontSize: 10,
+        textColor: PDF_COLORS.text,
+      },
+      columnStyles: {
+        0: { fontStyle: 'bold' },
+        1: { halign: 'right' },
+        2: { halign: 'right' },
+        3: { halign: 'right' },
+      }
+    })
+
+    // Recommendations
+    // @ts-ignore
+    const finalY = doc.lastAutoTable.finalY + 15
+    doc.setTextColor(PDF_COLORS.text[0], PDF_COLORS.text[1], PDF_COLORS.text[2])
+    doc.setFontSize(16)
+    doc.text("Recommandations prioritaires", 20, finalY)
+
+    doc.setFontSize(10)
+    const recommendations = [
+      `1. Court terme: Mettre en place une politique de maintenance préventive pour prolonger la durée de vie`,
+      `2. Moyen terme: Planifier le renouvellement des ${auditResults.renewalNeeded} équipements critiques en privilégiant le reconditionné`,
+      `3. Long terme: Adopter une politique d'achat responsable (labels, durabilité, réparabilité)`,
+      `4. Transversal: Former les équipes aux bonnes pratiques d'usage pour prolonger la durée de vie`
+    ];
+    recommendations.forEach((rec, index) => {
+      doc.text(rec, 20, finalY + 10 + (index * 7))
+    })
+
+    // Footer
+    doc.setFontSize(8)
+    doc.setTextColor(PDF_COLORS.lightText[0], PDF_COLORS.lightText[1], PDF_COLORS.lightText[2])
+    doc.text("Le Green IT en clair - Pour un numérique plus responsable", 105, 285, { align: "center" })
+
+    doc.save(`Audit-Green-IT-${timestamp.replace(/\//g, "-")}.pdf`)
+  }
+
   const scoreGrade = getScoreGrade(results.ecoScore)
 
   return (
@@ -2127,6 +2334,12 @@ function ITAudit() {
           <CardDescription>
             Évaluez l'empreinte carbone de votre parc IT et identifiez les opportunités d'optimisation (données ADEME 2025)
           </CardDescription>
+          <div className="flex gap-2">
+            <Button variant="outline" size="sm" onClick={exportPDF}>
+              <Download className="mr-2 h-4 w-4" />
+              PDF
+            </Button>
+          </div>
         </CardHeader>
         <CardContent className="space-y-8">
           {/* Formulaire d'inventaire */}

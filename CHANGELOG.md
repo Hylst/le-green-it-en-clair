@@ -53,18 +53,27 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 - Mode sombre complet
 - Responsive mobile-first
 
-## [1.1.0] - 2025-01-04
+## [1.1.0] - 2026-01-04
+
+### Ajouté - Phase "Upgrade & Polish" 🌿
+- **PWA (Progressive Web App)** : Support hors-ligne complet, manifest.json, service worker et bouton d'installation intégré.
+- **Cartographie Interactive** : Remplacement des placeholders par une carte **Leaflet / OpenStreetMap** réelle sur les pages recyclage et chiffres.
+- **Exports PDF** : Génération dynamique de rapports pour l'Audit IT, le Simulateur Entreprise et un Guide du Recyclage premium.
+- **Référencement (SEO)** : Ajout d'un `sitemap.xml` dynamique, fichier `robots.txt` et méta-données optimisées.
+- **Performance** : Conversion massive de toutes les images en **WebP** et chargement optimisé des polices.
+- **Déploiement Docker** : Création d'un Dockerfile multi-étapes et d'une configuration Nginx optimisée pour Coolify.
 
 ### Ajouté - Outils Interactifs Avancés
-- **Quiz Green IT avancé** : 100 questions en 10 catégories, 4 modes de jeu, système de certification
-- **Calculateur d'empreinte de site web** : Analyse d'URL avec métriques CO2, poids page, recommandations
-- **Comparateur Cloud éco-responsable** : 8 fournisseurs comparés (Infomaniak, Scaleway, OVH, Google Cloud, Azure, AWS, DigitalOcean, Hetzner), tri et filtrage, scores de durabilité (PUE, % renouvelable, neutralité carbone)
-- **Audit de parc informatique** : Inventaire 7 types d'équipements, calcul empreinte carbone, score éco-efficacité A-E, recommandations d'optimisation
-- **Simulateur entreprise** : Projection ROI sur 5 ans, 3 scénarios (baseline, modéré, ambitieux), graphiques interactifs, plan d'action téléchargeable
+- **Quiz Green IT avancé** : 100 questions en 10 catégories, 4 modes de jeu, système de certification.
+- **Calculateur d'empreinte de site web** : Analyse d'URL avec métriques CO2, poids page, recommandations.
+- **Comparateur Cloud éco-responsable** : 8 fournisseurs comparés, scores de durabilité.
+- **Audit de parc informatique** : Inventaire 7 types d'équipements, score éco-efficacité A-E.
+- **Simulateur entreprise** : Projection ROI sur 5 ans, 3 scénarios, graphiques interactifs.
 
 ### Corrigé
-- Liens d'images cassés sur la page d'accueil (hero, e-waste)
-- Références OpenGraph corrigées
+- Liens d'images cassés sur la page d'accueil (hero, e-waste).
+- Erreur TypeScript dans les métadonnées (`authors.email`).
+- Références OpenGraph corrigées.
 
 ## Versions à venir
 

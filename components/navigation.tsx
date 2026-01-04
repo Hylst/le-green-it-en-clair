@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Leaf, Menu, X, ChevronDown, Search, Calculator } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { InstallPWA } from "@/components/install-pwa"
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -120,6 +121,7 @@ export function Navigation() {
             >
               <Search className="h-5 w-5" />
             </button>
+            <InstallPWA />
             <ThemeToggle />
             <Link href="/outils">
               <Button

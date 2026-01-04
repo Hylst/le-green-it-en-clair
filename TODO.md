@@ -86,37 +86,27 @@ Liste des tâches et améliorations prévues pour le site.
 
 ## ✅ Terminé
 
-### Phase 1 - Structure de base (Janvier 2025)
+### Phase 2 - Upgrade & Polish (Janvier 2026)
+- [x] Implémenter le mode offline et PWA (Service Worker)
+- [x] Ajouter le bouton d'installation PWA
+- [x] Créer un sitemap.xml dynamique pour le SEO
+- [x] Configurer le fichier robots.txt
+- [x] Intégrer une carte interactive réelle (Leaflet)
+- [x] Développer la géolocalisation des points de collecte
+- [x] Implémenter l'export PDF pour les outils (Audit, Simulateur)
+- [x] Créer un guide du recyclage premium en PDF
+- [x] Migrer toutes les images vers le format WebP
+- [x] Configurer le déploiement Docker / Nginx / Coolify
+- [x] Corriger les erreurs de typage TypeScript
+
+### Phase 1 - Structure de base & Outils (Janvier 2025 - Janvier 2026)
 - [x] Créer la page d'accueil avec parcours utilisateurs
 - [x] Développer la section "Comprendre" avec cycle de vie
 - [x] Ajouter les visualisations de données interactives
-- [x] Créer les cas pratiques détaillés
-- [x] Développer les guides d'action par profil
-- [x] Ajouter la page datacenters
-- [x] Créer la page recyclage avec carte
-- [x] Développer la page développement éco-responsable
-- [x] Créer les outils interactifs (calculateur, simulateur, quiz)
-- [x] Ajouter la page réglementation
-- [x] Créer la page problématiques et solutions
-- [x] Développer la page perspectives 2040
-- [x] Ajouter la page actualités Green IT 2025
-- [x] Créer la page "Par où commencer"
-- [x] Développer la page "Mythes vs Réalités"
-- [x] Ajouter le flux RSS des actualités
-- [x] Créer la FAQ complète
-- [x] Développer les fiches pratiques téléchargeables
-- [x] Implémenter la navigation avec dropdown thématique
-- [x] Ajouter le fil d'Ariane (breadcrumb)
-- [x] Créer la fonction de recherche globale
-- [x] Développer le mode sombre
-- [x] Créer le glossaire enrichi
+- [x] Développer les outils interactifs (calculateur, simulateur, quiz, audit, cloud)
+- [x] Ajouter la page recyclage et datacenters
 - [x] Optimiser toutes les images en WebP
-- [x] Ajouter le lazy loading sur les images
 - [x] Implémenter les infographies SVG animées
-- [x] Créer les comparaisons d'échelle visuelles
-- [x] Ajouter les transcriptions textuelles
-- [x] Optimiser l'accessibilité (WCAG 2.1)
-- [x] Mettre à jour Next.js 16 et React 19.2
-- [x] Corriger les vulnérabilités CVE
+- [x] Mettre à jour Next.js 16.1 et React 19.2
 - [x] Créer la documentation (README, CHANGELOG, ABOUT, TODO)
 

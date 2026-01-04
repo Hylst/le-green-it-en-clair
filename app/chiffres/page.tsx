@@ -21,6 +21,16 @@ import {
 import { Download, TrendingUp, Globe, MapPin, Zap } from "lucide-react"
 import { AnimatedDataFlow } from "@/components/animated-data-flow"
 import { GrowthAnimation } from "@/components/growth-animation"
+import dynamic from "next/dynamic"
+
+const LeafletMap = dynamic(() => import("@/components/leaflet-map"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-[400px] items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800">
+      <p className="text-slate-500">Chargement de la carte...</p>
+    </div>
+  ),
+})
 
 // Data for E-Waste Evolution
 const eWasteData = [
@@ -354,20 +364,10 @@ export default function ChiffresPage() {
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2">
-            {/* Map Placeholder */}
-            <Card className="border-2 border-slate-200 p-6 lg:p-8">
-              <div className="flex h-[400px] items-center justify-center rounded-lg bg-gradient-to-br from-emerald-50 to-teal-50">
-                <div className="text-center">
-                  <MapPin className="mx-auto mb-4 h-16 w-16 text-emerald-600" />
-                  <p className="mb-2 text-lg font-semibold text-slate-900">Carte interactive</p>
-                  <p className="text-sm text-slate-600">
-                    Visualisation des points de collecte
-                    <br />
-                    (Intégration API Ecosystem à venir)
-                  </p>
-                </div>
-              </div>
-            </Card>
+            {/* Leaflet Map */}
+            <div className="h-[400px]">
+              <LeafletMap points={recyclingPoints} />
+            </div>
 
             {/* City List */}
             <div className="space-y-3">

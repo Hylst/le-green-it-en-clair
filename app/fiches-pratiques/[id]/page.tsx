@@ -92,6 +92,8 @@ const sheets: Record<string, any> = {
     target: "Citoyens",
     duration: "10 minutes de lecture",
     impact: "75% d'économie d'impact vs un appareil neuf",
+    image: "/comparison-chart-new-vs-refurbished-vs-repaire.webp",
+    date: "5 Mars 2025",
     sections: [
       {
         title: "Évaluer le besoin réel",
@@ -154,6 +156,8 @@ const sheets: Record<string, any> = {
     target: "Développeurs",
     duration: "15 minutes de lecture",
     impact: "Sites 3-5x plus légers, temps de chargement -60%",
+    image: "/clean-efficient-code-on-screen-with-green-energy-s.webp",
+    date: "15 Mars 2025",
     sections: [
       {
         title: "Optimiser les algorithmes",

@@ -16,6 +16,16 @@ import {
   Info,
   Phone,
 } from "lucide-react"
+import dynamic from "next/dynamic"
+
+const LeafletMap = dynamic(() => import("@/components/leaflet-map"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-[500px] items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800">
+      <p className="text-slate-500">Chargement de la carte...</p>
+    </div>
+  ),
+})
 
 const recyclingActors = [
   {
@@ -65,60 +75,80 @@ const collectionPoints = [
     city: "Paris",
     region: "Île-de-France",
     points: 245,
+    lat: 48.8566,
+    lng: 2.3522,
     types: ["Déchetteries", "Magasins", "Ressourceries"],
   },
   {
     city: "Lyon",
     region: "Auvergne-Rhône-Alpes",
     points: 98,
+    lat: 45.764,
+    lng: 4.8357,
     types: ["Déchetteries", "Magasins", "Points de collecte"],
   },
   {
     city: "Marseille",
     region: "Provence-Alpes-Côte d'Azur",
     points: 112,
+    lat: 43.2965,
+    lng: 5.3698,
     types: ["Déchetteries", "Magasins", "Ressourceries"],
   },
   {
     city: "Toulouse",
     region: "Occitanie",
     points: 87,
+    lat: 43.6047,
+    lng: 1.4442,
     types: ["Déchetteries", "Magasins", "Points de collecte"],
   },
   {
     city: "Bordeaux",
     region: "Nouvelle-Aquitaine",
     points: 76,
+    lat: 44.8378,
+    lng: -0.5792,
     types: ["Déchetteries", "Magasins", "Ressourceries"],
   },
   {
     city: "Lille",
     region: "Hauts-de-France",
     points: 65,
+    lat: 50.6292,
+    lng: 3.0573,
     types: ["Déchetteries", "Magasins", "Points de collecte"],
   },
   {
     city: "Nantes",
     region: "Pays de la Loire",
     points: 58,
+    lat: 47.2184,
+    lng: -1.5536,
     types: ["Déchetteries", "Magasins", "Ressourceries"],
   },
   {
     city: "Strasbourg",
     region: "Grand Est",
     points: 52,
+    lat: 48.5734,
+    lng: 7.7521,
     types: ["Déchetteries", "Magasins", "Points de collecte"],
   },
   {
     city: "Rennes",
     region: "Bretagne",
     points: 48,
+    lat: 48.1173,
+    lng: -1.6778,
     types: ["Déchetteries", "Magasins", "Ressourceries"],
   },
   {
     city: "Nice",
     region: "Provence-Alpes-Côte d'Azur",
     points: 43,
+    lat: 43.7102,
+    lng: 7.262,
     types: ["Déchetteries", "Magasins", "Points de collecte"],
   },
 ]
@@ -334,17 +364,17 @@ export default function RecyclagePage() {
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2">
-            {/* Map Placeholder */}
-            <Card className="border-2 border-slate-200 p-6 lg:p-8">
-              <div className="flex h-[500px] items-center justify-center rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50">
-                <div className="text-center">
-                  <MapPin className="mx-auto mb-4 h-16 w-16 text-emerald-600" />
-                  <p className="mb-2 text-lg font-semibold text-slate-900">Carte interactive</p>
-                  <p className="mb-4 text-sm text-slate-600">Visualisation des 15 000+ points de collecte en France</p>
-                  <p className="text-xs text-slate-500">Intégration API Ecosystem à venir</p>
-                </div>
-              </div>
-            </Card>
+            {/* Leaflet Map */}
+            <div className="h-[500px]">
+              <LeafletMap
+                points={collectionPoints}
+                center={selectedCity ? [
+                  collectionPoints.find(p => p.city === selectedCity)?.lat || 46.6,
+                  collectionPoints.find(p => p.city === selectedCity)?.lng || 1.8
+                ] : [46.6, 1.8]}
+                zoom={selectedCity ? 11 : 5.5}
+              />
+            </div>
 
             {/* City List */}
             <div className="space-y-3">
@@ -353,11 +383,10 @@ export default function RecyclagePage() {
                 {filteredCities.map((point, index) => (
                   <Card
                     key={index}
-                    className={`cursor-pointer border-2 p-4 transition-all hover:shadow-md ${
-                      selectedCity === point.city
+                    className={`cursor-pointer border-2 p-4 transition-all hover:shadow-md ${selectedCity === point.city
                         ? "border-emerald-500 bg-emerald-50"
                         : "border-slate-200 hover:border-slate-300"
-                    }`}
+                      }`}
                     onClick={() => setSelectedCity(point.city)}
                   >
                     <div className="flex items-center justify-between">

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "écoconception",
     "datacenters verts",
   ],
-  authors: [{ name: "Geoffroy Streit", email: "geoffroy.streit@gmail.com" }],
+  authors: [{ name: "Geoffroy Streit", url: "https://hylst.fr" }],
   creator: "Geoffroy Streit",
   publisher: "Le Green IT en clair",
   openGraph: {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
       "Découvrez l'impact environnemental du numérique et adoptez des pratiques responsables. Informations, outils interactifs et ressources pour un Green IT en France.",
     images: [
       {
-        url: "/abstract-green-technology-network-with-leaves-and-.jpg",
+        url: "/abstract-green-technology-network-with-leaves-and-.webp",
         width: 1200,
         height: 630,
         alt: "Le Green IT en clair - Écologie Numérique",

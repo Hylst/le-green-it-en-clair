@@ -159,13 +159,11 @@ export default function DeveloppementPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="mb-8 relative h-[400px] rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/images/sustainable-coding.jpg"
-                alt="Workspace de développeur éco-responsable avec ordinateur portable affichant du code optimisé, plantes vertes symbolisant la conscience environnementale, et outils de développement durable"
+                src="/clean-efficient-code-on-screen-with-green-energy-s.webp"
+                alt="Code propre et efficace"
                 fill
                 className="object-cover"
-                loading="lazy"
-                quality={90}
-                sizes="(max-width: 768px) 100vw, 600px"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
 

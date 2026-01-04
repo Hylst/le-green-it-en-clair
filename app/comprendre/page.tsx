@@ -158,7 +158,7 @@ export default function ComprendrePage() {
 
           <div className="mb-12 relative h-[500px] rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-slate-800">
             <Image
-              src="/placeholder.svg?height=600&width=800"
+              src="/images/smartphone-impact-infographic.webp"
               alt="Infographie détaillée de l'impact environnemental d'un smartphone : extraction de 70kg de ressources naturelles dont 50 métaux différents, émission de 55kg de CO2, consommation de 13000 litres d'eau, transport de 15000km avant d'arriver chez le consommateur. Comparaisons visuelles avec équivalents concrets : trajets en voiture, arbres nécessaires pour compenser, années d'utilisation recommandées."
               fill
               className="object-contain p-6 bg-white dark:bg-slate-800"
@@ -263,8 +263,8 @@ export default function ComprendrePage() {
                   key={phase.id}
                   onClick={() => setSelectedPhase(index)}
                   className={`flex items-center gap-2 rounded-xl border-2 px-4 py-3 transition-all ${isActive
-                      ? `border-${phase.color}-500 bg-${phase.color}-50`
-                      : "border-slate-200 bg-white hover:border-slate-300"
+                    ? `border-${phase.color}-500 bg-${phase.color}-50`
+                    : "border-slate-200 bg-white hover:border-slate-300"
                     }`}
                 >
                   <Icon className={`h-5 w-5 ${isActive ? `text-${phase.color}-700` : "text-slate-600"}`} />
@@ -298,10 +298,10 @@ export default function ComprendrePage() {
                     <button
                       onClick={() => setSelectedPhase(index)}
                       className={`relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-4 transition-all ${isActive
-                          ? "border-emerald-500 bg-emerald-500 shadow-lg"
-                          : isPast
-                            ? "border-emerald-500 bg-white"
-                            : "border-slate-200 bg-white hover:border-slate-300"
+                        ? "border-emerald-500 bg-emerald-500 shadow-lg"
+                        : isPast
+                          ? "border-emerald-500 bg-white"
+                          : "border-slate-200 bg-white hover:border-slate-300"
                         }`}
                     >
                       <Icon

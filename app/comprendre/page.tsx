@@ -122,12 +122,12 @@ export default function ComprendrePage() {
             De l'extraction des matières premières au recyclage, découvrez l'impact environnemental réel de nos
             équipements électroniques à chaque étape de leur vie.
           </p>
-          <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-slate-800">
+          <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-xl bg-slate-100 dark:bg-slate-800">
             <Image
               src="/images/lifecycle-numerique-hero.webp"
               alt="Cycle de vie du numérique - de l'extraction au recyclage"
               fill
-              className="object-cover"
+              className="object-contain"
               priority
               sizes="(max-width: 768px) 100vw, 896px"
             />
@@ -157,15 +157,15 @@ export default function ComprendrePage() {
             Pour mieux comprendre l'ampleur de l'impact, voici des comparaisons concrètes
           </p>
 
-          <div className="mb-12 relative h-[500px] rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-slate-800">
+          <div className="mb-12 relative aspect-[4/3] w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-slate-800">
             <Image
               src="/images/smartphone-impact-infographic.webp"
               alt="Infographie détaillée de l'impact environnemental d'un smartphone : extraction de 70kg de ressources naturelles dont 50 métaux différents, émission de 55kg de CO2, consommation de 13000 litres d'eau, transport de 15000km avant d'arriver chez le consommateur. Comparaisons visuelles avec équivalents concrets : trajets en voiture, arbres nécessaires pour compenser, années d'utilisation recommandées."
               fill
-              className="object-contain p-6 bg-white dark:bg-slate-800"
+              className="object-contain p-4"
               loading="lazy"
               quality={90}
-              sizes="(max-width: 768px) 100vw, 1200px"
+              sizes="(max-width: 768px) 100vw, 896px"
             />
           </div>
 

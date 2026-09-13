@@ -3,15 +3,15 @@
 
 const CACHE_NAME = 'green-it-v1.1.0';
 const STATIC_ASSETS = [
-    '/',
-    '/comprendre/',
-    '/chiffres/',
-    '/agir/',
-    '/outils/',
-    '/faq/',
-    '/manifest.json',
-    '/icon-light-32x32.png',
-    '/apple-icon.png',
+    '/greenit/',
+    '/greenit/comprendre/',
+    '/greenit/chiffres/',
+    '/greenit/agir/',
+    '/greenit/outils/',
+    '/greenit/faq/',
+    '/greenit/manifest.json',
+    '/greenit/icon-light-32x32.webp',
+    '/greenit/apple-icon.webp',
 ];
 
 // Install event - cache static assets
@@ -75,7 +75,7 @@ self.addEventListener('fetch', (event) => {
             }).catch(() => {
                 // Offline fallback for HTML pages
                 if (event.request.headers.get('accept').includes('text/html')) {
-                    return caches.match('/');
+                    return caches.match('/greenit/');
                 }
             });
         })

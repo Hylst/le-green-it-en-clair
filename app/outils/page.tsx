@@ -47,8 +47,10 @@ export default function OutilsPage() {
 
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12" role="tablist" aria-label="Outils interactifs">
             <button
+              role="tab"
+              aria-selected={activeTab === "calculator"}
               onClick={() => setActiveTab("calculator")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "calculator"
                 ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 shadow-lg"
@@ -71,6 +73,8 @@ export default function OutilsPage() {
             </button>
 
             <button
+              role="tab"
+              aria-selected={activeTab === "website"}
               onClick={() => setActiveTab("website")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "website"
                 ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20 shadow-lg"
@@ -93,6 +97,8 @@ export default function OutilsPage() {
             </button>
 
             <button
+              role="tab"
+              aria-selected={activeTab === "simulator"}
               onClick={() => setActiveTab("simulator")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "simulator"
                 ? "border-teal-500 bg-teal-50 dark:bg-teal-900/20 shadow-lg"
@@ -115,6 +121,8 @@ export default function OutilsPage() {
             </button>
 
             <button
+              role="tab"
+              aria-selected={activeTab === "enterprise"}
               onClick={() => setActiveTab("enterprise")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "enterprise"
                 ? "border-purple-500 bg-purple-50 dark:bg-purple-900/20 shadow-lg"
@@ -137,6 +145,8 @@ export default function OutilsPage() {
             </button>
 
             <button
+              role="tab"
+              aria-selected={activeTab === "cloud"}
               onClick={() => setActiveTab("cloud")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "cloud"
                 ? "border-cyan-500 bg-cyan-50 dark:bg-cyan-900/20 shadow-lg"
@@ -159,6 +169,8 @@ export default function OutilsPage() {
             </button>
 
             <button
+              role="tab"
+              aria-selected={activeTab === "audit"}
               onClick={() => setActiveTab("audit")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "audit"
                 ? "border-orange-500 bg-orange-50 dark:bg-orange-900/20 shadow-lg"
@@ -181,6 +193,8 @@ export default function OutilsPage() {
             </button>
 
             <button
+              role="tab"
+              aria-selected={activeTab === "quiz"}
               onClick={() => setActiveTab("quiz")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "quiz"
                 ? "border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 shadow-lg"
@@ -204,6 +218,7 @@ export default function OutilsPage() {
           </div>
 
           {/* Content */}
+          <div role="tabpanel" aria-label="Outil actif">
           {activeTab === "calculator" && <CarbonCalculator />}
           {activeTab === "website" && <WebsiteCarbonCalculator />}
           {activeTab === "simulator" && <SobrietySimulator />}
@@ -211,6 +226,7 @@ export default function OutilsPage() {
           {activeTab === "enterprise" && <EnterpriseSimulator />}
           {activeTab === "cloud" && <CloudComparator />}
           {activeTab === "audit" && <ITAudit />}
+          </div>
         </div>
       </div>
     </div>

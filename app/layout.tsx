@@ -117,10 +117,16 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Green IT" />
       </head>
       <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`} suppressHydrationWarning>
+        <a
+          href="#contenu"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-emerald-600 focus:px-4 focus:py-2 focus:text-white"
+        >
+          Aller au contenu
+        </a>
         <ThemeProvider>
           <Navigation />
           <Breadcrumb />
-          <main>{children}</main>
+          <main id="contenu">{children}</main>
           <Footer />
         </ThemeProvider>
         <script

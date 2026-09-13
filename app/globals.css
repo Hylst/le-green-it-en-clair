@@ -197,6 +197,10 @@ html {
   body {
     @apply bg-background text-foreground;
   }
+  /* RGAA : indicateur de focus bien visible au clavier */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
 }
 
 /* Theme transition - smooth color changes */

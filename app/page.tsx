@@ -306,6 +306,7 @@ export default function HomePage() {
             ].map((option) => (
               <button
                 key={option.id}
+                aria-pressed={quizAnswer === option.id}
                 onClick={() => {
                   setQuizAnswer(option.id)
                   setShowQuizResult(false)

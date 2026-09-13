@@ -1,147 +1,36 @@
-# À propos du projet "Le Green IT en clair"
+# à propos
 
-## 🌱 Genèse du projet
+## pourquoi ce site ?
 
-**Le Green IT en clair** est né d'un constat simple : malgré l'urgence climatique et l'impact croissant du numérique sur l'environnement, les informations sur le sujet restent dispersées, techniques et peu accessibles au grand public.
+Je suis dev, je passe mes journées sur un ordi, et à force d'entendre que le numérique ça pollue, j'ai voulu creuser. Et en fait les infos sont partout : un rapport ADEME par-ci, un article GreenIT.fr par-là, des chiffres qui datent... pas super accessible quand on n'est pas du milieu.
 
-Ce site a été créé pour combler ce manque en proposant un espace éducatif complet, pédagogique et actionnable sur le numérique responsable.
+Du coup je me suis dit : je fais un endroit qui explique simplement, sans culpabiliser, avec des outils pour tester soi-même. Voilà, c'est né comme ça.
 
-## 👤 L'auteur : Geoffroy Streit
+## moi
 
-Je suis développeur d'applications et concepteur, passionné par la technologie mais également profondément soucieux de l'environnement. Face au paradoxe de travailler dans un secteur à forte empreinte écologique, j'ai décidé d'agir en créant cet espace de sensibilisation et d'éducation.
+Geoffroy Streit, dev d'applis, Baccarat / Nancy côté coeur. Pas expert climat, juste curieux et un peu têtu. Je code, je lis des rapports, je résume, je me trompe parfois aussi.
 
-**Contact** : geoffroy.streit@gmail.com
+Contact : geoffroy.streit@gmail.com
 
-### Ma démarche
+## ce que j'essaie de faire
 
-- **Pédagogie avant tout** : Expliquer sans jargon, rendre accessibles les concepts complexes
-- **Positivité** : Jamais de culpabilisation, toujours des solutions
-- **Transparence** : Sources citées, limites reconnues
-- **Action concrète** : Des outils pratiques pour passer à l'action
+- expliquer sans jargon, avec des exemples concrets
+- rester positif : des solutions, pas des leçons de morale
+- citer mes sources et dire quand je suis pas sûr
+- donner des trucs actionnables : calculateurs, fiches, modèles pour les boîtes
 
-## 🎯 Objectifs du site
+## comment je bosse
 
-### 1. Sensibiliser
-Faire prendre conscience de l'impact environnemental réel du numérique :
-- 4% des émissions mondiales de GES
-- 62,5 millions de tonnes d'e-déchets par an
-- Épuisement des ressources naturelles
+Je pars des sources officielles (ADEME, GreenIT.fr, ONU, Arcep, Shift Project...), je simplifie pour que ce soit lisible, et je mets la méthodo sous les calculateurs (ACV en général). Les images du site, je les ai faites aider par de l'IA générative, je le dis franchement dans le footer.
 
-### 2. Éduquer
-Expliquer les mécanismes et enjeux :
-- Cycle de vie complet des équipements
-- Impact de la fabrication (80% de l'empreinte)
-- Rôle de l'usage et des datacenters
-- Cadre réglementaire français et européen
+Limites : les chiffres bougent vite, je peux me planter, et simplifier ça veut dire perdre un peu en précision. Donc si c'est important pour toi (achat pro, politique interne...), retourne voir les sources de base.
 
-### 3. Outiller
-Fournir des moyens d'action concrets :
-- Calculateurs d'empreinte carbone
-- Guides pratiques par profil
-- Fiches actions téléchargeables
-- Carte des points de recyclage
+## et après ?
 
-### 4. Connecter
-Créer une communauté engagée :
-- Ressources partagées
-- Actualités du secteur
-- Liens vers associations et organismes
+J'aimerais ajouter des success stories, des vidéos, peut-être une newsletter. Et surtout corriger les petits bugs qui traînent (la PWA sous `/greenit`, 2-3 boutons qui font rien...). La liste est dans `todo.md`, je fais au fur et à mesure.
 
-## 📐 Méthodologie
-
-### Sources
-Toutes les données proviennent de sources officielles et scientifiques :
-- **ADEME** : Études sur l'empreinte environnementale du numérique
-- **GreenIT.fr** : Référence française du numérique responsable
-- **ONU** : Rapports Global E-waste Monitor
-- **Arcep** : Régulation et études sectorielles
-- **The Shift Project** : Analyses de la transition numérique
-
-### Calculs
-Les calculateurs utilisent des méthodologies reconnues :
-- Analyse de cycle de vie (ACV)
-- Facteurs d'émission ADEME
-- Données constructeurs et études indépendantes
-
-### Limites reconnues
-- Données évolutives et parfois incomplètes
-- Simplifications nécessaires pour la pédagogie
-- Marges d'erreur dans les estimations
-- Biais possibles dans l'interprétation
-
-## 🛠️ Approche technique
-
-### Éco-conception
-Le site lui-même applique les principes du Green IT :
-- **Images optimisées** : Format WebP, lazy loading
-- **Code efficient** : Next.js 16 avec App Router
-- **Design sobre** : Palette limitée, animations légères
-- **Accessibilité** : WCAG 2.1 AA, mode sombre
-- **Performance** : Score Lighthouse 90+
-
-### Développement durable
-- Framework moderne et maintenu (Next.js, React)
-- Composants réutilisables et modulaires
-- TypeScript pour la robustesse
-- Documentation complète
-
-## 🎨 Philosophie de design
-
-### Couleurs
-Palette inspirée de la nature et de la technologie :
-- **Vert émeraude** : Écologie, vie, croissance
-- **Bleu sarcelle** : Technologie, innovation
-- **Orange** : Action, optimisme
-- **Neutres** : Clarté, lisibilité
-
-### Ton éditorial
-- **Bienveillant** : Jamais culpabilisant
-- **Pédagogique** : Analogies et exemples concrets
-- **Motivant** : Mettre en avant les solutions
-- **Humain** : Langage accessible et direct
-
-## 🚀 Vision et évolution
-
-### Court terme (2025)
-- Enrichissement continu du contenu
-- Ajout de nouveaux outils interactifs
-- Amélioration de la communauté
-- Newsletter et actualités régulières
-
-### Moyen terme
-- Parcours de formation certifiant
-- Plateforme collaborative
-- Success stories d'entreprises
-- Événements et webinaires
-
-### Long terme
-- Réseau d'ambassadeurs Green IT
-- Partenariats institutionnels
-- Impact mesurable sur les pratiques
-- Essaimage du modèle
-
-## 💚 Engagement
-
-Ce site est et restera :
-- **Gratuit** : Accessible à tous sans barrière financière
-- **Indépendant** : Pas de publicité, pas de sponsoring
-- **Transparent** : Sources citées, méthodologie claire
-- **Ouvert** : Contenus partageables, feedback bienvenu
-
-## 🙏 Remerciements
-
-Merci à toutes les organisations et personnes qui œuvrent pour un numérique plus responsable :
-- Les équipes de l'ADEME pour leurs travaux de recherche
-- La communauté GreenIT.fr pour leur expertise
-- Les associations de recyclage et de réparation
-- Les développeurs des outils open source utilisés
-- Les visiteurs et contributeurs de ce site
+Merci de passer par là :)
 
 ---
 
-**Note importante** : Ce site est un projet personnel en développement continu. Les données peuvent contenir des erreurs ou des biais d'interprétation. Des erreurs humaines et d'IA sont possibles. Utilisez ces informations comme point de départ et consultez toujours les sources officielles pour vos décisions importantes.
-
----
-
-**Contact** : geoffroy.streit@gmail.com  
-**Dernière mise à jour** : 4 janvier 2025
+màj septembre 2026

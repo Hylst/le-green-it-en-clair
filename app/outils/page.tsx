@@ -10,7 +10,6 @@ import { Progress } from "@/components/ui/progress"
 import {
   Calculator,
   Lightbulb,
-  Trophy,
   Download,
   Share2,
   RotateCcw,
@@ -59,7 +58,7 @@ export default function OutilsPage() {
               <Lightbulb className="h-4 w-4" />
               Espace Outils Interactifs
             </div>
-            <h1 className="font-heading text-4xl md:text-5xl font-bold mb-6 text-balance">
+            <h1 className="font-poppins text-4xl md:text-5xl font-bold mb-6 text-balance">
               Mesurez, Simulez, Apprenez
             </h1>
             <p className="text-lg text-emerald-50 mb-8 max-w-3xl mx-auto text-pretty">
@@ -242,6 +241,47 @@ export default function OutilsPage() {
   )
 }
 
+function LabeledSlider({ value, min, max, step, onValueChange, unit }: any) {
+  return (
+    <div className="space-y-3">
+      <div className="flex items-center gap-3">
+        <Button
+          size="icon"
+          variant="outline"
+          className="h-8 w-8 shrink-0"
+          onClick={() => onValueChange([Math.max(min, value[0] - step)])}
+          disabled={value[0] <= min}
+        >
+          -
+        </Button>
+        <div className="flex-1 relative pb-6">
+          <Slider value={value} onValueChange={onValueChange} min={min} max={max} step={step} className="my-2" />
+          <div className="absolute top-full left-0 w-full flex justify-between text-[10px] text-gray-500 font-mono -mt-1 select-none pointer-events-none">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <span key={i} className="flex flex-col items-center gap-1">
+                <span className="h-1 w-px bg-gray-300 dark:bg-gray-600" />
+                <span>
+                  {Math.round(min + ((max - min) / 4) * i)}
+                  {unit}
+                </span>
+              </span>
+            ))}
+          </div>
+        </div>
+        <Button
+          size="icon"
+          variant="outline"
+          className="h-8 w-8 shrink-0"
+          onClick={() => onValueChange([Math.min(max, value[0] + step)])}
+          disabled={value[0] >= max}
+        >
+          +
+        </Button>
+      </div>
+    </div>
+  )
+}
+
 function CarbonCalculator() {
   const [devices, setDevices] = useState({
     smartphone: { count: 1, age: 2, usage: 3 },
@@ -362,7 +402,7 @@ function CarbonCalculator() {
                           <Label className="text-sm text-gray-600 dark:text-gray-300">Âge moyen</Label>
                           <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{data.age} ans</span>
                         </div>
-                        <Slider
+                        <LabeledSlider
                           value={[data.age]}
                           onValueChange={([value]) =>
                             setDevices({
@@ -373,19 +413,15 @@ function CarbonCalculator() {
                           min={1}
                           max={10}
                           step={1}
-                          className="mt-2"
+                          unit=" ans"
                         />
-                        <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-1">
-                          <span>1 an</span>
-                          <span>10 ans</span>
-                        </div>
                       </div>
                       <div>
                         <div className="flex items-center justify-between mb-2">
                           <Label className="text-sm text-gray-600 dark:text-gray-300">Usage quotidien</Label>
                           <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{data.usage}h</span>
                         </div>
-                        <Slider
+                        <LabeledSlider
                           value={[data.usage]}
                           onValueChange={([value]) =>
                             setDevices({
@@ -396,12 +432,8 @@ function CarbonCalculator() {
                           min={1}
                           max={16}
                           step={1}
-                          className="mt-2"
+                          unit="h"
                         />
-                        <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-1">
-                          <span>1h</span>
-                          <span>16h</span>
-                        </div>
                       </div>
                     </>
                   )}
@@ -419,72 +451,56 @@ function CarbonCalculator() {
                   <Label className="text-gray-900 dark:text-gray-100">Emails envoyés par jour</Label>
                   <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{cloudUsage.email}</span>
                 </div>
-                <Slider
+                <LabeledSlider
                   value={[cloudUsage.email]}
                   onValueChange={([value]) => setCloudUsage({ ...cloudUsage, email: value })}
                   min={0}
                   max={200}
                   step={10}
-                  className="mt-2"
+                  unit=""
                 />
-                <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-1">
-                  <span>0</span>
-                  <span>200</span>
-                </div>
               </div>
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <Label className="text-gray-900 dark:text-gray-100">Streaming vidéo (heures/semaine)</Label>
                   <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{cloudUsage.streaming}</span>
                 </div>
-                <Slider
+                <LabeledSlider
                   value={[cloudUsage.streaming]}
                   onValueChange={([value]) => setCloudUsage({ ...cloudUsage, streaming: value })}
                   min={0}
                   max={50}
                   step={1}
-                  className="mt-2"
+                  unit="h"
                 />
-                <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-1">
-                  <span>0h</span>
-                  <span>50h</span>
-                </div>
               </div>
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <Label className="text-gray-900 dark:text-gray-100">Stockage cloud (Go)</Label>
                   <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{cloudUsage.cloud}</span>
                 </div>
-                <Slider
+                <LabeledSlider
                   value={[cloudUsage.cloud]}
                   onValueChange={([value]) => setCloudUsage({ ...cloudUsage, cloud: value })}
                   min={0}
                   max={200}
                   step={10}
-                  className="mt-2"
+                  unit="Go"
                 />
-                <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-1">
-                  <span>0 Go</span>
-                  <span>200 Go</span>
-                </div>
               </div>
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <Label className="text-gray-900 dark:text-gray-100">Réseaux sociaux (heures/jour)</Label>
                   <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{cloudUsage.social}</span>
                 </div>
-                <Slider
+                <LabeledSlider
                   value={[cloudUsage.social]}
                   onValueChange={([value]) => setCloudUsage({ ...cloudUsage, social: value })}
                   min={0}
                   max={8}
                   step={0.5}
-                  className="mt-2"
+                  unit="h"
                 />
-                <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-1">
-                  <span>0h</span>
-                  <span>8h</span>
-                </div>
               </div>
             </div>
           </div>
@@ -537,6 +553,7 @@ function CarbonCalculator() {
               <Button
                 className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
                 variant="outline"
+                onClick={() => window.print()}
               >
                 <Download className="w-4 h-4 mr-2" />
                 Télécharger le rapport
@@ -544,6 +561,18 @@ function CarbonCalculator() {
               <Button
                 className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
                 variant="outline"
+                onClick={async () => {
+                  const text = `Mon empreinte numérique : ${totalFootprint} kg CO2e/an`
+                  try {
+                    if (navigator.share) {
+                      await navigator.share({ title: "Mon empreinte numérique", text })
+                    } else {
+                      await navigator.clipboard.writeText(text)
+                    }
+                  } catch {
+                    // partage annulé ou indisponible, on ne fait rien
+                  }
+                }}
               >
                 <Share2 className="w-4 h-4 mr-2" />
                 Partager
@@ -925,7 +954,10 @@ function SobrietySimulator() {
           </div>
 
           <div className="flex gap-2">
-            <Button className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600">
+            <Button
+              className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
+              onClick={() => window.print()}
+            >
               <Download className="w-4 h-4 mr-2" />
               Télécharger mon plan d'action
             </Button>
@@ -954,337 +986,6 @@ function SobrietySimulator() {
         Sources: ADEME 2025, Shift Project, GreenIT.fr • Calculs basés sur des moyennes françaises
       </div>
     </div>
-  )
-}
-
-function GreenITQuiz() {
-  const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [answers, setAnswers] = useState<number[]>([])
-  const [showResults, setShowResults] = useState(false)
-  const [score, setScore] = useState(0)
-
-  const questions = [
-    {
-      question: "Quelle est la phase la plus polluante du cycle de vie d'un smartphone en 2025 ?",
-      options: [
-        "L'utilisation quotidienne",
-        "La fabrication et l'extraction des matériaux",
-        "Le transport depuis l'usine",
-        "Le recyclage en fin de vie",
-      ],
-      correct: 1,
-      explanation:
-        "La fabrication représente 75-80% de l'impact total d'un smartphone. L'extraction des terres rares et l'assemblage sont très énergivores. C'est pourquoi allonger la durée de vie est si important !",
-    },
-    {
-      question: "Combien de kg de CO₂ économise-t-on en gardant son smartphone 5 ans au lieu de 2 ans ?",
-      options: ["5 kg", "15 kg", "35 kg", "55 kg"],
-      correct: 2,
-      explanation:
-        "En gardant son smartphone 5 ans au lieu de 2 ans, on économise environ 35 kg de CO₂, soit l'équivalent de 290 km en voiture ! L'impact de fabrication est ainsi mieux amorti.",
-    },
-    {
-      question: "Quel est le taux de recyclage des smartphones en France en 2025 ?",
-      options: ["15%", "28%", "45%", "67%"],
-      correct: 1,
-      explanation:
-        "Seulement 28% des smartphones sont recyclés en France. 72% dorment dans les tiroirs ou finissent à la poubelle. Pensez à les rapporter en point de collecte !",
-    },
-    {
-      question: "Combien d'eau est nécessaire pour fabriquer un ordinateur portable ?",
-      options: ["50 litres", "200 litres", "1 200 litres", "20 000 litres"],
-      correct: 2,
-      explanation:
-        "Il faut environ 1 200 litres d'eau pour fabriquer un ordinateur portable, principalement pour l'extraction et le raffinage des matériaux. C'est l'équivalent de 8 baignoires !",
-    },
-    {
-      question: "Quelle action réduit le plus l'impact environnemental du streaming vidéo ?",
-      options: [
-        "Regarder en WiFi plutôt qu'en 4G",
-        "Baisser la luminosité de l'écran",
-        "Passer de 4K à 720p",
-        "Utiliser un bloqueur de publicités",
-      ],
-      correct: 2,
-      explanation:
-        "Passer de 4K à 720p réduit la consommation de données de 90% ! La différence de qualité est souvent imperceptible sur smartphone ou petit écran. Le WiFi vs 4G a aussi un impact, mais moindre.",
-    },
-    {
-      question: "Quel pourcentage de l'empreinte carbone numérique mondiale vient des datacenters en 2025 ?",
-      options: ["5%", "15%", "35%", "55%"],
-      correct: 1,
-      explanation:
-        "Les datacenters représentent environ 15% de l'empreinte carbone numérique mondiale. Les équipements utilisateurs (smartphones, ordinateurs) représentent la majorité (65-70%).",
-    },
-    {
-      question: "Combien d'emails non lus stockés équivalent à 1 km en voiture ?",
-      options: ["10 emails", "100 emails", "1 000 emails", "10 000 emails"],
-      correct: 2,
-      explanation:
-        "Environ 1 000 emails stockés pendant un an équivalent à 1 km en voiture. Un email avec pièce jointe peut émettre jusqu'à 50g de CO₂. Pensez à nettoyer votre boîte mail !",
-    },
-    {
-      question: "Quel est le meilleur choix environnemental pour remplacer un smartphone cassé ?",
-      options: [
-        "Acheter le dernier modèle neuf",
-        "Acheter un modèle neuf d'entrée de gamme",
-        "Le faire réparer",
-        "Acheter un modèle reconditionné",
-      ],
-      correct: 2,
-      explanation:
-        "Réparer est toujours le meilleur choix ! Cela évite une nouvelle fabrication. Si impossible, le reconditionné est la 2ème meilleure option (80% d'impact en moins vs neuf).",
-    },
-    {
-      question: "Combien de terres rares différentes contient un smartphone ?",
-      options: ["5 à 10", "15 à 20", "30 à 40", "Plus de 50"],
-      correct: 2,
-      explanation:
-        "Un smartphone contient 30 à 40 métaux différents, dont de nombreuses terres rares (lithium, cobalt, tantale...). Leur extraction est très polluante et souvent dans des conditions sociales difficiles.",
-    },
-    {
-      question: "Quelle est la consommation électrique annuelle d'un datacenter moyen en France ?",
-      options: [
-        "Équivalent à 500 foyers",
-        "Équivalent à 5 000 foyers",
-        "Équivalent à 50 000 foyers",
-        "Équivalent à 500 000 foyers",
-      ],
-      correct: 2,
-      explanation:
-        "Un datacenter moyen consomme l'équivalent de 50 000 foyers français par an. Heureusement, le mix électrique français bas-carbone (nucléaire + renouvelables) limite l'impact CO₂.",
-    },
-  ]
-
-  const handleAnswer = (answerIndex: number) => {
-    const newAnswers = [...answers, answerIndex]
-    setAnswers(newAnswers)
-
-    if (answerIndex === questions[currentQuestion].correct) {
-      setScore(score + 1)
-    }
-
-    if (currentQuestion < questions.length - 1) {
-      setTimeout(() => setCurrentQuestion(currentQuestion + 1), 1500)
-    } else {
-      setTimeout(() => setShowResults(true), 1500)
-    }
-  }
-
-  const resetQuiz = () => {
-    setCurrentQuestion(0)
-    setAnswers([])
-    setShowResults(false)
-    setScore(0)
-  }
-
-  const getScoreMessage = () => {
-    const percentage = (score / questions.length) * 100
-    if (percentage >= 80)
-      return {
-        title: "Expert Green IT !",
-        message:
-          "Bravo ! Vous maîtrisez parfaitement les enjeux du numérique responsable. Partagez vos connaissances autour de vous !",
-        badge: "🏆",
-      }
-    if (percentage >= 60)
-      return {
-        title: "Bon niveau !",
-        message: "Vous avez de bonnes bases sur le Green IT. Continuez à vous informer pour devenir un expert !",
-        badge: "🌟",
-      }
-    if (percentage >= 40)
-      return {
-        title: "En progression",
-        message: "Vous commencez à comprendre les enjeux. Explorez nos ressources pour approfondir vos connaissances.",
-        badge: "📚",
-      }
-    return {
-      title: "Débutant",
-      message:
-        "Le Green IT est un vaste sujet. Parcourez notre site pour découvrir comment réduire votre impact numérique !",
-      badge: "🌱",
-    }
-  }
-
-  if (showResults) {
-    const scoreInfo = getScoreMessage()
-    return (
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Trophy className="w-5 h-5 text-green-600 dark:text-green-400" />
-            Résultats du Quiz Green IT
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="text-center bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-8 rounded-lg border-2 border-green-200 dark:border-green-800">
-            <div className="text-6xl mb-4">{scoreInfo.badge}</div>
-            <h3 className="text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100">{scoreInfo.title}</h3>
-            <div className="text-5xl font-bold text-green-600 dark:text-green-400 mb-2">
-              {score}/{questions.length}
-            </div>
-            <p className="text-gray-700 dark:text-gray-300 mb-4">{scoreInfo.message}</p>
-            <Progress value={(score / questions.length) * 100} className="h-3 mb-2" />
-            <div className="text-sm text-gray-600 dark:text-gray-300">
-              Score: {Math.round((score / questions.length) * 100)}%
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h4 className="font-semibold text-lg text-gray-900 dark:text-gray-100">Récapitulatif de vos réponses</h4>
-            {questions.map((q, index) => (
-              <div
-                key={index}
-                className={`p-4 rounded-lg border-2 ${answers[index] === q.correct
-                  ? "bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800"
-                  : "bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800"
-                  }`}
-              >
-                <div className="flex items-start gap-2 mb-2">
-                  <span className="font-semibold">Q{index + 1}.</span>
-                  <span className="flex-1">{q.question}</span>
-                  <span className="text-xl">{answers[index] === q.correct ? "✓" : "✗"}</span>
-                </div>
-                <div className="ml-6 text-sm">
-                  <div
-                    className={
-                      answers[index] === q.correct
-                        ? "text-green-700 dark:text-green-400"
-                        : "text-red-700 dark:text-red-400"
-                    }
-                  >
-                    Votre réponse: {q.options[answers[index]]}
-                  </div>
-                  {answers[index] !== q.correct && (
-                    <div className="text-green-700 dark:text-green-400 mt-1">Bonne réponse: {q.options[q.correct]}</div>
-                  )}
-                  <div className="text-gray-600 dark:text-gray-300 mt-2 italic">{q.explanation}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex gap-2">
-            <Button
-              onClick={resetQuiz}
-              className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
-            >
-              <RotateCcw className="w-4 h-4 mr-2" />
-              Recommencer le quiz
-            </Button>
-            <Button
-              variant="outline"
-              className="flex-1 bg-transparent text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
-            >
-              <Share2 className="w-4 h-4 mr-2" />
-              Partager mon score
-            </Button>
-          </div>
-
-          <div className="bg-blue-50 dark:bg-blue-900/10 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
-            <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">Pour aller plus loin</h4>
-            <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
-              <li>• Consultez nos guides d'action pour réduire votre impact</li>
-              <li>• Utilisez le calculateur d'empreinte carbone</li>
-              <li>• Explorez les cas pratiques détaillés</li>
-              <li>• Téléchargez nos ressources pédagogiques</li>
-            </ul>
-          </div>
-        </CardContent>
-      </Card>
-    )
-  }
-
-  const question = questions[currentQuestion]
-  const hasAnswered = answers[currentQuestion] !== undefined
-
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Trophy className="w-5 h-5 text-green-600 dark:text-green-400" />
-          Quiz Green IT - Testez vos connaissances
-        </CardTitle>
-        <CardDescription>
-          10 questions pour évaluer votre niveau sur le numérique responsable (données 2025)
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-6">
-        {/* Progress */}
-        <div>
-          <div className="flex justify-between text-sm mb-2 text-gray-900 dark:text-gray-100">
-            <span>
-              Question {currentQuestion + 1}/{questions.length}
-            </span>
-            <span className="font-semibold">
-              {score} bonne{score > 1 ? "s" : ""}
-            </span>
-          </div>
-          <Progress value={((currentQuestion + 1) / questions.length) * 100} className="h-2" />
-        </div>
-
-        {/* Question */}
-        <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-6 rounded-lg border-2 border-green-200 dark:border-green-800">
-          <h3 className="text-xl font-semibold mb-6 text-balance text-gray-900 dark:text-gray-100">
-            {question.question}
-          </h3>
-
-          <div className="space-y-3">
-            {question.options.map((option, index) => {
-              const isSelected = answers[currentQuestion] === index
-              const isCorrect = index === question.correct
-              const showFeedback = hasAnswered
-
-              return (
-                <button
-                  key={index}
-                  onClick={() => !hasAnswered && handleAnswer(index)}
-                  disabled={hasAnswered}
-                  className={`w-full p-4 text-left rounded-lg border-2 transition-all ${!showFeedback
-                    ? "bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-green-300 dark:hover:border-green-400 hover:bg-green-50 dark:hover:bg-green-900/20"
-                    : isSelected && isCorrect
-                      ? "bg-green-100 border-green-500"
-                      : isSelected && !isCorrect
-                        ? "bg-red-100 border-red-500"
-                        : isCorrect
-                          ? "bg-green-100 border-green-500"
-                          : "bg-gray-50 border-gray-200 dark:border-gray-700"
-                    } ${hasAnswered ? "cursor-not-allowed" : "cursor-pointer"}`}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-900 dark:text-gray-100">{option}</span>
-                    {showFeedback && isCorrect && (
-                      <span className="text-2xl text-green-700 dark:text-green-400">✓</span>
-                    )}
-                    {showFeedback && isSelected && !isCorrect && (
-                      <span className="text-2xl text-red-700 dark:text-red-400">✗</span>
-                    )}
-                  </div>
-                </button>
-              )
-            })}
-          </div>
-
-          {hasAnswered && (
-            <div
-              className={`mt-6 p-4 rounded-lg ${answers[currentQuestion] === question.correct ? "bg-green-100" : "bg-blue-100"
-                }`}
-            >
-              <p className="text-sm text-gray-700 dark:text-gray-300">
-                <strong>Explication:</strong> {question.explanation}
-              </p>
-            </div>
-          )}
-        </div>
-
-        {!hasAnswered && (
-          <div className="text-sm text-gray-600 dark:text-gray-300 text-center">
-            Sélectionnez votre réponse pour continuer
-          </div>
-        )}
-      </CardContent>
-    </Card>
   )
 }
 
@@ -1394,7 +1095,7 @@ function EnterpriseSimulator() {
         id: key,
         name: scenario.name,
         totalSavings: Math.round(netSavings),
-        totalEmissions: Math.round(cumulativeBaselineCost - cumulativeOptimizedCost), // This is actually CO2 savings, not total emissions
+        totalEmissions: Math.round(totalCO2Savings),
         payback: paybackMonths,
         projections: years.map((year) => {
           // Recalculate for chart
@@ -1418,14 +1119,25 @@ function EnterpriseSimulator() {
           const optimizedMaintenanceCost = totalDevices * 50 * 1.2
           const optimizedTotalCost = optimizedEquipmentCost + optimizedEnergyCost + optimizedCloudCost + optimizedMaintenanceCost
 
+          // CO2 logic for projections
+          const baseCO2Devices = year > 0 ? baseDevicesRenewed * 200 : 0
+          const baseCO2Usage = totalDevices * 30
+          const baseCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300)
+          const currentBaseTotalCO2 = year === 0 ? 0 : baseCO2Devices + baseCO2Usage + baseCO2Cloud
+
+          const optimizedCO2Devices = year > 0 ? (newDevices * 200 + refurbishedDevices * 40) : 0
+          const optimizedCO2Usage = totalDevices * 30 * (1 - scenario.energyOptimization * 0.5)
+          const optimizedCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300) * (1 - scenario.cloudOptimization)
+          const currentOptimizedTotalCO2 = year === 0 ? 0 : optimizedCO2Devices + optimizedCO2Usage + optimizedCO2Cloud
+
           return {
             year: `Année ${year}`,
             baselineCost: Math.round(baseTotalCost),
             optimizedCost: Math.round(optimizedTotalCost),
             savings: Math.round(baseTotalCost - optimizedTotalCost),
-            baselineCO2: Math.round(baseTotalCO2), // This is not correct for year-by-year CO2
-            optimizedCO2: Math.round(optimizedTotalCO2), // This is not correct for year-by-year CO2
-            co2Savings: Math.round(baseTotalCO2 - optimizedTotalCO2), // This is not correct for year-by-year CO2
+            baselineCO2: Math.round(currentBaseTotalCO2),
+            optimizedCO2: Math.round(currentOptimizedTotalCO2),
+            co2Savings: Math.round(currentBaseTotalCO2 - currentOptimizedTotalCO2),
           }
         })
       }
@@ -1536,17 +1248,14 @@ function EnterpriseSimulator() {
                   <Label className="text-gray-900 dark:text-gray-100">Nombre d'employés</Label>
                   <span className="font-semibold text-gray-900 dark:text-gray-100">{config.employees}</span>
                 </div>
-                <Slider
+                <LabeledSlider
                   value={[config.employees]}
                   onValueChange={([value]) => setConfig({ ...config, employees: value })}
                   min={10}
                   max={1000}
                   step={10}
+                  unit=""
                 />
-                <div className="flex justify-between text-xs text-gray-500">
-                  <span>10</span>
-                  <span>1000</span>
-                </div>
               </div>
 
               <div className="space-y-3">
@@ -1554,17 +1263,14 @@ function EnterpriseSimulator() {
                   <Label className="text-gray-900 dark:text-gray-100">Appareils par employé</Label>
                   <span className="font-semibold text-gray-900 dark:text-gray-100">{config.devicesPerEmployee}</span>
                 </div>
-                <Slider
+                <LabeledSlider
                   value={[config.devicesPerEmployee * 10]}
                   onValueChange={([value]) => setConfig({ ...config, devicesPerEmployee: value / 10 })}
                   min={10}
                   max={50}
                   step={5}
+                  unit=""
                 />
-                <div className="flex justify-between text-xs text-gray-500">
-                  <span>1</span>
-                  <span>5</span>
-                </div>
               </div>
 
               <div className="space-y-3">
@@ -1572,17 +1278,14 @@ function EnterpriseSimulator() {
                   <Label className="text-gray-900 dark:text-gray-100">Cycle de renouvellement actuel</Label>
                   <span className="font-semibold text-gray-900 dark:text-gray-100">{config.renewalCycle} ans</span>
                 </div>
-                <Slider
+                <LabeledSlider
                   value={[config.renewalCycle]}
                   onValueChange={([value]) => setConfig({ ...config, renewalCycle: value })}
                   min={2}
                   max={6}
                   step={1}
+                  unit=" ans"
                 />
-                <div className="flex justify-between text-xs text-gray-500">
-                  <span>2 ans</span>
-                  <span>6 ans</span>
-                </div>
               </div>
 
               <div className="space-y-3">
@@ -2363,7 +2066,7 @@ function ITAudit() {
                           <Label className="text-gray-600 dark:text-gray-400">Quantité</Label>
                           <span className="font-semibold text-gray-900 dark:text-gray-100">{count}</span>
                         </div>
-                        <Slider
+                        <LabeledSlider
                           value={[count]}
                           onValueChange={([value]) =>
                             setInventory({ ...inventory, [type]: { ...inventory[type as keyof typeof inventory], count: value } })
@@ -2371,6 +2074,7 @@ function ITAudit() {
                           min={0}
                           max={type === "servers" ? 20 : 100}
                           step={1}
+                          unit=""
                         />
                       </div>
                       <div>
@@ -2378,7 +2082,7 @@ function ITAudit() {
                           <Label className="text-gray-600 dark:text-gray-400">Âge moyen</Label>
                           <span className="font-semibold text-gray-900 dark:text-gray-100">{avgAge} ans</span>
                         </div>
-                        <Slider
+                        <LabeledSlider
                           value={[avgAge]}
                           onValueChange={([value]) =>
                             setInventory({ ...inventory, [type]: { ...inventory[type as keyof typeof inventory], avgAge: value } })
@@ -2386,6 +2090,7 @@ function ITAudit() {
                           min={1}
                           max={10}
                           step={1}
+                          unit=" ans"
                         />
                       </div>
                     </div>
@@ -2511,7 +2216,10 @@ function ITAudit() {
 
               {/* Boutons d'action */}
               <div className="flex gap-4">
-                <Button className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600">
+                <Button
+                  className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
+                  onClick={exportPDF}
+                >
                   <Download className="w-4 h-4 mr-2" />
                   Télécharger le rapport PDF
                 </Button>

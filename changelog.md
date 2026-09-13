@@ -14,6 +14,9 @@ Je note ici ce qui change, même les petits trucs.
   - PWA le 14/09 : icônes 192/512, manifest complété, SW `v1.2.0`. CI GitHub Actions ajoutée (build à chaque push).
   - re-vérif pessimiste : zéro résidu (`placeholder.svg`, `flux-rss`, `font-heading`, `v0.app`, `GreenITQuiz`...), sitemap exporté vérifié (`offline` + 7 modeles dedans), import `Download` inutilisé viré de `sheet-content`.
   - gitignore : viré les entrées `gemini.md` / `cursor.md` (ces fichiers existent pas, et pour pas dupliquer : tout est dans `agents.md`, valable tous assistants).
+  - accessibilité le 14/09 : lien "Aller au contenu" + `id` sur `main`, focus visible renforcé, onglets outils en `tablist/tab/tabpanel` + `aria-selected`, mini-quiz en `aria-pressed`.
+  - sécu le 14/09 : headers nginx (`Referrer-Policy`, `Permissions-Policy`, viré `X-XSS-Protection` déprécié), `rel="noopener"` partout (manquait que sur actualites), 7 dépendances mortes virées (`@vercel/analytics`, `date-fns`, `embla`, `input-otp`, `vaul`, `react-day-picker`, `sonner`) + 7 composants shadcn orphelins supprimés (dont `sidebar` et son cookie mort).
+  - RGPD le 14/09 : mentions légales réécrites pour de vrai (zéro cookie, thème en localStorage, cache SW, tuiles OSM, pas d'analytics). Contenu : section recyclage ajoutée au guide.
 
 - grosse relecture pessimiste, lecture seule, sans toucher au code. Résultat dans `todo.md` (P0 basePath/PWA + refs mortes).
 - docs passées en minuscules : `readme.md`, `about.md`, `todo.md`, `changelog.md` (les autres `agents.md`, `claude.md`, `structure.md`, `features.md`, `readme_dev.md` restent en local, dans le gitignore).

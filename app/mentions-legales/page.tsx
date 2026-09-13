@@ -67,13 +67,25 @@ export default function MentionsLegalesPage() {
             </div>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                <strong className="text-foreground">Collecte de données :</strong> Ce site ne collecte aucune donnée personnelle. Aucun formulaire ne recueille d'informations nominatives.
+                <strong className="text-foreground">Cookies :</strong> ce site n'utilise aucun cookie. Pas de publicité, pas de mesure d'audience, pas de traceurs.
               </p>
               <p>
-                <strong className="text-foreground">Cookies :</strong> Ce site n'utilise pas de cookies publicitaires ou de suivi analytique (Google Analytics, etc.). Seuls des cookies techniques essentiels au fonctionnement du site (préférence de thème) peuvent être utilisés.
+                <strong className="text-foreground">Stockage local :</strong> votre préférence de thème (clair/sombre) est conservée dans le stockage local de votre navigateur (clé <code>greenIT-theme</code>). Elle ne quitte jamais votre appareil et peut être effacée en vidant les données du site.
               </p>
               <p>
-                <strong className="text-foreground">Conformité RGPD :</strong> Aucune donnée personnelle n'étant collectée, ce site est conforme au RGPD par défaut.
+                <strong className="text-foreground">Hors-ligne :</strong> le site peut mettre en cache des pages et images sur votre appareil (service worker) pour fonctionner sans connexion. Même chose : tout reste chez vous.
+              </p>
+              <p>
+                <strong className="text-foreground">Cartes :</strong> les pages avec carte (Chiffres, Recyclage) chargent des fonds de carte depuis les serveurs d'OpenStreetMap. Votre adresse IP leur est donc transmise, comme pour n'importe quel site qui affiche du contenu tiers. Pas de compte, pas de suivi de notre côté.
+              </p>
+              <p>
+                <strong className="text-foreground">Polices et mesures :</strong> les polices sont hébergées avec le site (aucun appel à Google Fonts) et il n'y a aucun outil d'analyse d'audience.
+              </p>
+              <p>
+                <strong className="text-foreground">Contact :</strong> si vous m'écrivez à geoffroy.streit@gmail.com, votre message sert juste à vous répondre. Rien d'autre.
+              </p>
+              <p>
+                <strong className="text-foreground">Conformité RGPD :</strong> aucune donnée personnelle n'étant collectée ni suivie, ce site est conforme au RGPD par défaut.
               </p>
             </div>
           </Card>

@@ -11,7 +11,8 @@ import {
     Laptop,
     Globe,
     Printer,
-    Download
+    Download,
+    Recycle
 } from "lucide-react"
 
 import { useRouter } from "next/navigation"
@@ -50,6 +51,17 @@ export default function GuidePage() {
                 "Utilisez des favoris pour vos sites fréquents.",
                 "Limitez le nombre d'onglets ouverts simultanément.",
                 "Activez le mode sombre quand l'écran est OLED (économise la batterie)."
+            ]
+        },
+        {
+            title: "Fin de vie & Recyclage",
+            icon: Recycle,
+            color: "orange",
+            tips: [
+                "Ne jetez jamais un appareil à la poubelle : rapportez-le en point de collecte.",
+                "Effacez vos données avant de donner ou recycler (réinitialisation d'usine).",
+                "Pensez au don et au reconditionné avant d'acheter neuf.",
+                "Retrouvez les points de collecte et le mode d'emploi sur la page Recyclage."
             ]
         }
     ]

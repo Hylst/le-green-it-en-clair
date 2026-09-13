@@ -35,12 +35,15 @@ Ma liste, mise à jour le 13/09/2026 après une grosse relecture pessimiste (lec
 
 ## 🟠 contenu, plus tard
 
-- [ ] success stories avec des vrais cas
-- [ ] vidéos
-- [ ] blog, 5 articles pour commencer
+- [x] section "Fin de vie & Recyclage" ajoutée au guide (fait le 14/09)
+- [ ] success stories avec des vrais cas (pistes : Back Market, Fairphone, Envie – demander l'autorisation avant de citer)
+- [ ] vidéos : commencer par embed des confs existantes (ADEME, Shift Project sur YouTube) plutôt que produire
+- [ ] blog, 5 articles pour commencer (idées : "mon premier audit Green IT en PME", "reconditionné vs neuf : le calcul", "comprendre le PUE en 5 min", "AGEC/REEN : ce qui change pour moi", "1 an avec un Fairphone")
+- [ ] page "Choisir son FAI / sa box" ? (données Arcep : comparer Wi-Fi vs 4G/5G, box allumée 24/7) — à sourcer avant d'écrire
+- [ ] FAQ : ajouter "Est-ce que le cloud c'est vraiment dans des nuages ?" + "Mon vieux PC peut-il servir encore ?" (questions que les gens posent vraiment)
 - [ ] version anglaise ? peut-être
 - [ ] infographies en plus, section livres
-- [ ] documenter `guide/` + `mentions-legales/` (pas encore commités)
+- [x] `guide/` + `mentions-legales/` : commités (le 14/09)
 - [x] les 5 outils avancés : fait (site web, entreprise, cloud, audit, quiz)
 
 ## 🟠 communauté

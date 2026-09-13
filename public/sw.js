@@ -1,7 +1,7 @@
 // Service Worker for Le Green IT en clair
 // Enables offline-first functionality
 
-const CACHE_NAME = 'green-it-v1.2.0';
+const CACHE_NAME = 'green-it-v1.2.1';
 const STATIC_ASSETS = [
     '/greenit/',
     '/greenit/comprendre/',
@@ -51,6 +51,24 @@ self.addEventListener('fetch', (event) => {
 
     // Skip external requests
     if (!event.request.url.startsWith(self.location.origin)) return;
+
+    // Navigations (pages HTML) : network-first.
+    // Sinon, après un déploiement, les visiteurs garderaient l'ancien HTML
+    // qui pointe vers des fichiers JS renommés (hash) -> 404, site cassé.
+    if (event.request.mode === 'navigate') {
+        event.respondWith(
+            fetch(event.request).then((response) => {
+                if (response && response.status === 200) {
+                    const copy = response.clone();
+                    caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+                }
+                return response;
+            }).catch(() => {
+                return caches.match(event.request).then((cached) => cached || caches.match('/greenit/'));
+            })
+        );
+        return;
+    }
 
     event.respondWith(
         caches.match(event.request).then((cachedResponse) => {

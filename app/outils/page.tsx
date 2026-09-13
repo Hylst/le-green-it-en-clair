@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, type KeyboardEvent } from "react"
 import dynamic from "next/dynamic"
 import { Calculator, Lightbulb, TrendingUp, Cloud, ClipboardCheck, Globe, Brain } from "lucide-react"
 
@@ -25,6 +25,22 @@ export default function OutilsPage() {
     "calculator" | "simulator" | "quiz" | "website" | "enterprise" | "cloud" | "audit"
   >("calculator")
 
+  // Navigation clavier des onglets (flèches, Home, End) : motif APG tabs
+  const onTabListKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    const tabs = Array.from(e.currentTarget.querySelectorAll<HTMLElement>('[role="tab"]'))
+    const current = tabs.indexOf(document.activeElement as HTMLElement)
+    if (current === -1) return
+    let next = -1
+    if (e.key === "ArrowRight") next = (current + 1) % tabs.length
+    else if (e.key === "ArrowLeft") next = (current - 1 + tabs.length) % tabs.length
+    else if (e.key === "Home") next = 0
+    else if (e.key === "End") next = tabs.length - 1
+    else return
+    e.preventDefault()
+    tabs[next].focus()
+    tabs[next].click()
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white dark:bg-gradient-to-b dark:from-green-900 dark:to-gray-900">
       <div className="bg-gradient-to-br from-emerald-600 to-teal-700 px-6 py-16">
@@ -47,9 +63,12 @@ export default function OutilsPage() {
 
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12" role="tablist" aria-label="Outils interactifs">
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12" role="tablist" aria-label="Outils interactifs" onKeyDown={onTabListKeyDown}>
             <button
               role="tab"
+              id="onglet-calculator"
+              aria-controls="outil-panel"
+              tabIndex={activeTab === "calculator" ? 0 : -1}
               aria-selected={activeTab === "calculator"}
               onClick={() => setActiveTab("calculator")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "calculator"
@@ -74,6 +93,9 @@ export default function OutilsPage() {
 
             <button
               role="tab"
+              id="onglet-website"
+              aria-controls="outil-panel"
+              tabIndex={activeTab === "website" ? 0 : -1}
               aria-selected={activeTab === "website"}
               onClick={() => setActiveTab("website")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "website"
@@ -98,6 +120,9 @@ export default function OutilsPage() {
 
             <button
               role="tab"
+              id="onglet-simulator"
+              aria-controls="outil-panel"
+              tabIndex={activeTab === "simulator" ? 0 : -1}
               aria-selected={activeTab === "simulator"}
               onClick={() => setActiveTab("simulator")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "simulator"
@@ -122,6 +147,9 @@ export default function OutilsPage() {
 
             <button
               role="tab"
+              id="onglet-enterprise"
+              aria-controls="outil-panel"
+              tabIndex={activeTab === "enterprise" ? 0 : -1}
               aria-selected={activeTab === "enterprise"}
               onClick={() => setActiveTab("enterprise")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "enterprise"
@@ -146,6 +174,9 @@ export default function OutilsPage() {
 
             <button
               role="tab"
+              id="onglet-cloud"
+              aria-controls="outil-panel"
+              tabIndex={activeTab === "cloud" ? 0 : -1}
               aria-selected={activeTab === "cloud"}
               onClick={() => setActiveTab("cloud")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "cloud"
@@ -170,6 +201,9 @@ export default function OutilsPage() {
 
             <button
               role="tab"
+              id="onglet-audit"
+              aria-controls="outil-panel"
+              tabIndex={activeTab === "audit" ? 0 : -1}
               aria-selected={activeTab === "audit"}
               onClick={() => setActiveTab("audit")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "audit"
@@ -194,6 +228,9 @@ export default function OutilsPage() {
 
             <button
               role="tab"
+              id="onglet-quiz"
+              aria-controls="outil-panel"
+              tabIndex={activeTab === "quiz" ? 0 : -1}
               aria-selected={activeTab === "quiz"}
               onClick={() => setActiveTab("quiz")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "quiz"
@@ -218,7 +255,7 @@ export default function OutilsPage() {
           </div>
 
           {/* Content */}
-          <div role="tabpanel" aria-label="Outil actif">
+          <div role="tabpanel" id="outil-panel" aria-labelledby={`onglet-${activeTab}`}>
           {activeTab === "calculator" && <CarbonCalculator />}
           {activeTab === "website" && <WebsiteCarbonCalculator />}
           {activeTab === "simulator" && <SobrietySimulator />}

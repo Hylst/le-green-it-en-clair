@@ -4,10 +4,9 @@ WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
-COPY pnpm-lock.yaml* ./
 
 # Install dependencies
-RUN npm install --legacy-peer-deps
+RUN npm ci --legacy-peer-deps
 
 # Copy source code
 COPY . .
@@ -22,7 +21,7 @@ FROM nginx:alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy static files from builder
-COPY --from=builder /app/out /usr/share/nginx/html
+COPY --from=builder /app/out /usr/share/nginx/html/greenit
 
 # Expose port 80
 EXPOSE 80

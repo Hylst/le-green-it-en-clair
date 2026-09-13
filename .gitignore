@@ -53,3 +53,13 @@ FEATURES.md
 .opencode/
 .claude/
 .antigravity/
+.cursor/
+.windsurf/
+
+# autres assistants, au cas où
+gemini.md
+GEMINI.md
+copilot.md
+COPILOT.md
+cursor.md
+CURSOR.md

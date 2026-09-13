@@ -1,7 +1,7 @@
 // Service Worker for Le Green IT en clair
 // Enables offline-first functionality
 
-const CACHE_NAME = 'green-it-v1.1.0';
+const CACHE_NAME = 'green-it-v1.2.0';
 const STATIC_ASSETS = [
     '/greenit/',
     '/greenit/comprendre/',
@@ -12,6 +12,8 @@ const STATIC_ASSETS = [
     '/greenit/manifest.json',
     '/greenit/icon-light-32x32.webp',
     '/greenit/apple-icon.webp',
+    '/greenit/icon-192.webp',
+    '/greenit/icon-512.webp',
 ];
 
 // Install event - cache static assets

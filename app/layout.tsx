@@ -73,7 +73,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://hylst.fr/greenit",
   },
-  generator: 'Next.js'
+  generator: 'Next.js',
+  icons: {
+    icon: [
+      { url: "/greenit/icon-light-32x32.webp", sizes: "32x32", type: "image/webp" },
+      { url: "/greenit/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/greenit/apple-icon.webp", sizes: "180x180", type: "image/webp" },
+    ],
+  },
 }
 
 export default function RootLayout({
@@ -113,6 +122,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#059669" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#10b981" media="(prefers-color-scheme: dark)" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Green IT" />
       </head>

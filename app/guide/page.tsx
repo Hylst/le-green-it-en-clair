@@ -78,10 +78,18 @@ export default function GuidePage() {
                     <p className="text-xl text-muted-foreground mb-8">
                         Les bons réflexes pour réduire votre empreinte numérique au quotidien.
                     </p>
-                    <Button onClick={() => window.print()} className="bg-primary hover:bg-primary/90">
-                        <Printer className="mr-2 h-4 w-4" />
-                        Imprimer le guide (PDF)
-                    </Button>
+                    <div className="flex flex-wrap items-center justify-center gap-4">
+                        <Button onClick={() => window.print()} className="bg-primary hover:bg-primary/90">
+                            <Printer className="mr-2 h-4 w-4" />
+                            Imprimer le guide (PDF)
+                        </Button>
+                        <Button asChild variant="outline">
+                            <a href="/greenit/guide-recyclage-green-it.pdf" download>
+                                <Download className="mr-2 h-4 w-4" />
+                                Guide recyclage (PDF)
+                            </a>
+                        </Button>
+                    </div>
                 </div>
             </section>
 

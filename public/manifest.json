@@ -18,8 +18,7 @@
         {
             "src": "/greenit/apple-icon.webp",
             "sizes": "180x180",
-            "type": "image/webp",
-            "purpose": "apple touch icon"
+            "type": "image/webp"
         },
         {
             "src": "/greenit/icon-192.webp",

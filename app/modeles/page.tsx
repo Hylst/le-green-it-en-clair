@@ -147,7 +147,7 @@ export default function ModelesPage() {
     <div className="min-h-screen">
       <section className="bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 px-6 py-16 lg:py-24 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center justify-center rounded-full bg-emerald-100 p-3 dark:bg-emerald-900/30">
+          <div className="mb-6 inline-flex items-center justify-center rounded-full bg-muted/10 p-3">
             <FileText className="h-8 w-8 text-emerald-700 dark:text-emerald-400" />
           </div>
           <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl dark:text-slate-100">
@@ -180,7 +180,7 @@ export default function ModelesPage() {
                 >
                   <div className="p-6 flex-1">
                     <div className="mb-4 flex items-start justify-between">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-100 dark:bg-emerald-900/30">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-muted/10">
                         <Icon className="h-6 w-6 text-emerald-700 dark:text-emerald-400" />
                       </div>
                       <Badge variant="secondary" className="text-xs">
@@ -222,10 +222,21 @@ export default function ModelesPage() {
                   </div>
 
                   <div className="border-t border-slate-200 p-4 dark:border-slate-700">
-                    <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                      <Download className="mr-2 h-4 w-4" />
-                      Télécharger
-                    </Button>
+                    {template.id === "script-analyse-site" ? (
+                      <a href="/greenit/modeles/script-analyse-site.py" download>
+                        <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                          <Download className="mr-2 h-4 w-4" />
+                          Télécharger
+                        </Button>
+                      </a>
+                    ) : (
+                      <Link href={`/modeles/${template.id}`}>
+                        <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                          <Download className="mr-2 h-4 w-4" />
+                          Consulter / Imprimer PDF
+                        </Button>
+                      </Link>
+                    )}
                   </div>
                 </Card>
               )

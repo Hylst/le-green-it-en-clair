@@ -10,6 +10,8 @@ Je note ici ce qui change, même les petits trucs.
   - outils : boutons télécharger -> `window.print()`, audit -> son `exportPDF`, partager -> `navigator.share` + presse-papier, vieux `GreenITQuiz` viré, recherche complète (23 pages)
   - build : `sheet-content.tsx` avait une `</div>` en trop qui plantait tout, réparé
   - trouvé au passage : `npm run lint` marche pas, eslint est pas dans les dépendances. À trancher.
+  - re-vérif pessimiste : zéro résidu (`placeholder.svg`, `flux-rss`, `font-heading`, `v0.app`, `GreenITQuiz`...), sitemap exporté vérifié (`offline` + 7 modeles dedans), import `Download` inutilisé viré de `sheet-content`.
+  - gitignore : viré les entrées `gemini.md` / `cursor.md` (ces fichiers existent pas, et pour pas dupliquer : tout est dans `agents.md`, valable tous assistants).
 
 - grosse relecture pessimiste, lecture seule, sans toucher au code. Résultat dans `todo.md` (P0 basePath/PWA + refs mortes).
 - docs passées en minuscules : `readme.md`, `about.md`, `todo.md`, `changelog.md` (les autres `agents.md`, `claude.md`, `structure.md`, `features.md`, `readme_dev.md` restent en local, dans le gitignore).

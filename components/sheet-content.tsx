@@ -3,7 +3,7 @@
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Download, Printer, Share2, CheckCircle2 } from "lucide-react"
+import { ArrowLeft, Printer, Share2, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
 
 interface SheetContentProps {

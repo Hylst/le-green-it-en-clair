@@ -56,10 +56,6 @@ FEATURES.md
 .cursor/
 .windsurf/
 
-# autres assistants, au cas où
-gemini.md
-GEMINI.md
+# pas de fichier par assistant (gemini.md, cursor.md...) : tout est dans agents.md, un seul endroit, pas de doublons
 copilot.md
 COPILOT.md
-cursor.md
-CURSOR.md

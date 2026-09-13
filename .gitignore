@@ -33,3 +33,23 @@ Thumbs.db
 
 # pnpm (using npm instead)
 pnpm-lock.yaml
+
+# perso / local - pas besoin de pousser ça
+# readme_dev c'est mon pense-bête, il reste sur mon pc
+readme_dev.md
+README_DEV.md
+
+# fichiers pour les IA - ça me sert en local mais rien à faire sur github
+agents.md
+AGENTS.md
+claude.md
+CLAUDE.md
+structure.md
+STRUCTURE.md
+features.md
+FEATURES.md
+
+# au cas où un outil balance ses dossiers
+.opencode/
+.claude/
+.antigravity/

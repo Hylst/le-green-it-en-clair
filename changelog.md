@@ -9,7 +9,9 @@ Je note ici ce qui change, même les petits trucs.
   - refs mortes : fallback placeholder -> vraie image, breadcrumb sans `flux-rss`, `font-heading` -> `font-poppins` x3, sitemap (+offline + 7 modeles, date en dur + `force-static`), dockerfile (`npm ci`, plus de pnpm)
   - outils : boutons télécharger -> `window.print()`, audit -> son `exportPDF`, partager -> `navigator.share` + presse-papier, vieux `GreenITQuiz` viré, recherche complète (23 pages)
   - build : `sheet-content.tsx` avait une `</div>` en trop qui plantait tout, réparé
-  - trouvé au passage : `npm run lint` marche pas, eslint est pas dans les dépendances. À trancher.
+  - trouvé au passage : `npm run lint` marchait pas (eslint pas installé) -> script viré le 14/09, le check c'est la CI (`npm run build`). Reste : installer eslint + nettoyer les erreurs `tsc`.
+  - perf `/outils` le 14/09 : découpé en 6 modules (`components/outils/`) en `dynamic` + `ssr: false`, la page ne charge chaque outil qu'à l'onglet.
+  - PWA le 14/09 : icônes 192/512, manifest complété, SW `v1.2.0`. CI GitHub Actions ajoutée (build à chaque push).
   - re-vérif pessimiste : zéro résidu (`placeholder.svg`, `flux-rss`, `font-heading`, `v0.app`, `GreenITQuiz`...), sitemap exporté vérifié (`offline` + 7 modeles dedans), import `Download` inutilisé viré de `sheet-content`.
   - gitignore : viré les entrées `gemini.md` / `cursor.md` (ces fichiers existent pas, et pour pas dupliquer : tout est dans `agents.md`, valable tous assistants).
 

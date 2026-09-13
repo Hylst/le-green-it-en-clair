@@ -17,7 +17,10 @@ Ma liste, mise à jour le 13/09/2026 après une grosse relecture pessimiste (lec
 - [x] outils : fonction `GreenITQuiz` morte virée (+ import `Trophy`). La grille 4 colonnes pour 7 cartes je la laisse, en fait c'est pas si mal (4+3). Fait le 14/09.
 - [x] recherche : rajouté les 13 pages manquantes. Fait le 14/09.
 - [x] `sheet-content.tsx` : y'avait une `</div>` en trop qui faisait planter le build (vu le 14/09 en lançant `npm run build`). Réparé + bouton partager branché.
-- [ ] `npm run lint` : le script existe mais eslint est pas installé (`'eslint' n'est pas reconnu`). À décider : j'installe ou je vire le script.
+- [x] `npm run lint` : script viré le 14/09 (eslint était pas installé, ça induisait en erreur). Le check c'est la CI qui fait `npm run build`. Reste à faire : installer eslint pour de vrai + nettoyer les erreurs `tsc` (y'en a une dizaine, voir `npx tsc --noEmit`).
+- [x] `out/` vérifié le 14/09 : pas de sous-dossier `greenit` dedans, `index.html` + `manifest.json` + `sw.js` à la racine -> le `COPY out -> html/greenit` du Dockerfile est bon, pas de double nid.
+- [x] `/outils` découpé le 14/09 : 6 modules dans `components/outils/` chargés en `dynamic` (`ssr: false`) au lieu d'un seul fichier de 2000+ lignes. Build ok.
+- [x] PWA finie le 14/09 : icônes 192/512 générées depuis `apple-icon.webp`, manifest complété, cache SW bumpé `v1.2.0`. Reste à tester l'install + le offline sur `hylst.fr/greenit` pour de vrai.
 
 ## 🔴 important mais pas cassé
 

@@ -252,12 +252,12 @@ export default function ActualitesPage() {
                       {article.source && <span className="text-sm font-medium text-muted-foreground">Source : {article.source}</span>}
 
                       {article.relatedPage && (
-                        <Link href={article.relatedPage}>
-                          <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0 hover:bg-transparent">
+                        <Button asChild variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0 hover:bg-transparent">
+                          <Link href={article.relatedPage}>
                             En savoir plus
                             <ArrowRight className="ml-2 h-4 w-4" />
-                          </Button>
-                        </Link>
+                          </Link>
+                        </Button>
                       )}
                     </div>
                   </Card>

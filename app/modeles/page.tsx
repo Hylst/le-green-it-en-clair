@@ -223,19 +223,19 @@ export default function ModelesPage() {
 
                   <div className="border-t border-slate-200 p-4 dark:border-slate-700">
                     {template.id === "script-analyse-site" ? (
-                      <a href="/greenit/modeles/script-analyse-site.py" download>
-                        <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                      <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700">
+                        <a href="/greenit/modeles/script-analyse-site.py" download>
                           <Download className="mr-2 h-4 w-4" />
                           Télécharger
-                        </Button>
-                      </a>
+                        </a>
+                      </Button>
                     ) : (
-                      <Link href={`/modeles/${template.id}`}>
-                        <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                      <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700">
+                        <Link href={`/modeles/${template.id}`}>
                           <Download className="mr-2 h-4 w-4" />
                           Consulter / Imprimer PDF
-                        </Button>
-                      </Link>
+                        </Link>
+                      </Button>
                     )}
                   </div>
                 </Card>
@@ -252,11 +252,11 @@ export default function ModelesPage() {
                 Nous pouvons créer des templates sur mesure adaptés à votre secteur et vos besoins spécifiques.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Link href="/a-propos">
-                  <Button size="lg" variant="outline">
+                <Button asChild size="lg" variant="outline">
+                  <Link href="/a-propos">
                     Nous contacter
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
                 <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
                   <Download className="mr-2 h-5 w-5" />
                   Tout télécharger (ZIP)

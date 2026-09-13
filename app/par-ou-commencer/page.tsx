@@ -269,12 +269,12 @@ export default function GettingStartedPage() {
                           </div>
                           <StepIcon className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
                         </div>
-                        <Link href={step.link}>
-                          <Button className="mt-4 bg-emerald-600 hover:bg-emerald-700">
+                        <Button asChild className="mt-4 bg-emerald-600 hover:bg-emerald-700">
+                          <Link href={step.link}>
                             Commencer
                             <ArrowRight className="ml-2 h-4 w-4" />
-                          </Button>
-                        </Link>
+                          </Link>
+                        </Button>
                       </Card>
                     </div>
                   )
@@ -298,11 +298,11 @@ export default function GettingStartedPage() {
               <p className="mb-4 text-sm text-slate-600 dark:text-slate-400">
                 Calculateurs, simulateurs et quiz pour mesurer votre impact
               </p>
-              <Link href="/outils">
-                <Button variant="outline" className="w-full bg-transparent">
+              <Button asChild variant="outline" className="w-full bg-transparent">
+                <Link href="/outils">
                   Accéder aux outils
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </Card>
 
             <Card className="p-6 hover:shadow-lg transition-shadow dark:bg-slate-700">
@@ -311,11 +311,11 @@ export default function GettingStartedPage() {
               <p className="mb-4 text-sm text-slate-600 dark:text-slate-400">
                 Déconstruisez les idées reçues sur le numérique responsable
               </p>
-              <Link href="/mythes">
-                <Button variant="outline" className="w-full bg-transparent">
+              <Button asChild variant="outline" className="w-full bg-transparent">
+                <Link href="/mythes">
                   Découvrir
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </Card>
 
             <Card className="p-6 hover:shadow-lg transition-shadow dark:bg-slate-700">
@@ -324,11 +324,11 @@ export default function GettingStartedPage() {
               <p className="mb-4 text-sm text-slate-600 dark:text-slate-400">
                 Guides téléchargeables pour passer à l'action immédiatement
               </p>
-              <Link href="/fiches-pratiques">
-                <Button variant="outline" className="w-full bg-transparent">
+              <Button asChild variant="outline" className="w-full bg-transparent">
+                <Link href="/fiches-pratiques">
                   Télécharger
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </Card>
           </div>
         </div>
@@ -342,16 +342,16 @@ export default function GettingStartedPage() {
             Consultez notre FAQ ou explorez le plan du site pour trouver exactement ce que vous cherchez.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/faq">
-              <Button size="lg" variant="secondary">
+            <Button asChild size="lg" variant="secondary">
+              <Link href="/faq">
                 Voir la FAQ
-              </Button>
-            </Link>
-            <Link href="/sitemap-page">
-              <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white">
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white">
+              <Link href="/sitemap-page">
                 Plan du site
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

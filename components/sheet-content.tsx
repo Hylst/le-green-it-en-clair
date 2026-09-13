@@ -16,12 +16,12 @@ export function SheetContent({ sheet }: SheetContentProps) {
             <article className="px-6 py-12">
                 <div className="mx-auto max-w-4xl">
                     <div className="mb-8 flex items-center justify-between">
-                        <Link href="/fiches-pratiques">
-                            <Button variant="ghost" size="sm">
+                        <Button asChild variant="ghost" size="sm">
+                            <Link href="/fiches-pratiques">
                                 <ArrowLeft className="mr-2 h-4 w-4" />
                                 Retour aux fiches
-                            </Button>
-                        </Link>
+                            </Link>
+                        </Button>
                         <Button variant="outline" size="sm" onClick={() => window.print()}>
                             <Printer className="mr-2 h-4 w-4" />
                             Imprimer / PDF

@@ -13,12 +13,12 @@ export default function OfflinePage() {
                 Pas d'inquiétude ! La plupart des ressources éducatives et des calculateurs de ce site sont accessibles sans
                 connexion internet.
             </p>
-            <Link href="/">
-                <Button className="bg-emerald-600 hover:bg-emerald-700">
+            <Button asChild className="bg-emerald-600 hover:bg-emerald-700">
+                <Link href="/">
                     <Home className="mr-2 h-4 w-4" />
                     Retour à l'accueil
-                </Button>
-            </Link>
+                </Link>
+            </Button>
         </div>
     )
 }

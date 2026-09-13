@@ -291,11 +291,11 @@ export default function MythesPage() {
                         </div>
 
                         {myth.relatedLink && (
-                          <Link href={myth.relatedLink.href}>
-                            <Button variant="link" className="w-full text-emerald-700 dark:text-emerald-400 p-0">
+                          <Button asChild variant="link" className="w-full text-emerald-700 dark:text-emerald-400 p-0">
+                            <Link href={myth.relatedLink.href}>
                               {myth.relatedLink.label} →
-                            </Button>
-                          </Link>
+                            </Link>
+                          </Button>
                         )}
 
                         <Button
@@ -324,16 +324,16 @@ export default function MythesPage() {
             Consultez notre FAQ ou explorez nos ressources pour approfondir vos connaissances sur le Green IT.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/faq">
-              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+            <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+              <Link href="/faq">
                 Voir la FAQ
-              </Button>
-            </Link>
-            <Link href="/ressources">
-              <Button size="lg" variant="outline">
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link href="/ressources">
                 Explorer les ressources
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

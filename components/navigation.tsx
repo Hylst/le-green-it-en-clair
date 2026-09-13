@@ -130,15 +130,16 @@ export function Navigation() {
               <ThemeToggle />
               <InstallPWA />
             </div>
-            <Link href="/outils">
-              <Button
+            <Button
+              asChild
                 size="sm"
                 className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-md hover:shadow-lg transition-all dark:bg-emerald-700 dark:hover:bg-emerald-600"
               >
+              <Link href="/outils">
                 <Calculator className="h-4 w-4 mr-1.5" />
                 Outils
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
 
           <div className="flex items-center gap-4 lg:hidden">
@@ -169,12 +170,12 @@ export function Navigation() {
         {mobileMenuOpen && (
           <div className="animate-in slide-in-from-top-5 border-t border-slate-200 py-4 lg:hidden dark:border-slate-800 max-h-[calc(100vh-4rem)] overflow-y-auto">
             <div className="flex flex-col gap-6 pb-20">
-              <Link href="/outils" onClick={() => setMobileMenuOpen(false)}>
-                <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white justify-center">
+              <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700 text-white justify-center">
+                <Link href="/outils" onClick={() => setMobileMenuOpen(false)}>
                   <Calculator className="h-4 w-4 mr-2" />
                   Accéder aux outils interactifs
-                </Button>
-              </Link>
+                </Link>
+              </Button>
 
               {navCategories.map((category) => (
                 <div key={category.label}>

@@ -960,17 +960,17 @@ export default function ProblematiquesPage() {
             numérique.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/agir" passHref>
-              <Button size="lg" className="bg-background text-emerald-700 hover:bg-emerald-50 dark:bg-slate-900 dark:text-emerald-400 dark:hover:bg-slate-800 border-none shadow-lg">
+            <Button asChild size="lg" className="bg-background text-emerald-700 hover:bg-emerald-50 dark:bg-slate-900 dark:text-emerald-400 dark:hover:bg-slate-800 border-none shadow-lg">
+              <Link href="/agir">
                 Voir les actions concrètes
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link href="/outils" passHref>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent dark:border-white/20">
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent dark:border-white/20">
+              <Link href="/outils">
                 Calculer mon empreinte
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

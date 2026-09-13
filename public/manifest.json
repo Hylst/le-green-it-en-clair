@@ -37,6 +37,21 @@
         "environment",
         "utilities"
     ],
-    "screenshots": [],
+    "screenshots": [
+        {
+            "src": "/greenit/screenshots/accueil.jpg",
+            "sizes": "1280x720",
+            "type": "image/jpeg",
+            "form_factor": "wide",
+            "label": "Page d'accueil"
+        },
+        {
+            "src": "/greenit/screenshots/outils-mobile.jpg",
+            "sizes": "390x844",
+            "type": "image/jpeg",
+            "form_factor": "narrow",
+            "label": "Outils interactifs sur mobile"
+        }
+    ],
     "prefer_related_applications": false
 }

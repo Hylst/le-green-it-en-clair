@@ -1,6 +1,11 @@
 import { FileText, Shield, Globe } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Mentions légales",
+}
 
 export default function MentionsLegalesPage() {
   return (

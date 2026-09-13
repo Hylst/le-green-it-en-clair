@@ -1,6 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Leaf, Target, Users, Heart, Award, Mail, AlertTriangle } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "À propos",
+}
 
 export default function AProposPage() {
   return (

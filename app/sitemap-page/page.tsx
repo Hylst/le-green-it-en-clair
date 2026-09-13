@@ -1,6 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Home, BookOpen, AlertCircle, Zap, FolderOpen } from "lucide-react"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Plan du site",
+}
 
 export default function SitemapPage() {
   const siteStructure = [

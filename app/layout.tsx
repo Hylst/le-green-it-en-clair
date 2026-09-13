@@ -16,7 +16,10 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hylst.fr/greenit"),
-  title: "Le Green IT en clair - Écologie Numérique et Numérique Responsable",
+  title: {
+    default: "Le Green IT en clair - Écologie Numérique et Numérique Responsable",
+    template: "%s | Le Green IT en clair",
+  },
   description:
     "Découvrez l'impact environnemental du numérique et adoptez des pratiques responsables. Informations, outils interactifs et ressources pour un Green IT en France.",
   keywords: [
@@ -44,7 +47,7 @@ export const metadata: Metadata = {
       "Découvrez l'impact environnemental du numérique et adoptez des pratiques responsables. Informations, outils interactifs et ressources pour un Green IT en France.",
     images: [
       {
-        url: "/greenit/abstract-green-technology-network-with-leaves-and-.webp",
+        url: "https://hylst.fr/greenit/og-cover.png",
         width: 1200,
         height: 630,
         alt: "Le Green IT en clair - Écologie Numérique",
@@ -56,7 +59,7 @@ export const metadata: Metadata = {
     title: "Le Green IT en clair - Écologie Numérique et Numérique Responsable",
     description:
       "Découvrez l'impact environnemental du numérique et adoptez des pratiques responsables. Informations, outils interactifs et ressources pour un Green IT en France.",
-    images: ["/greenit/abstract-green-technology-network-with-leaves-and-.webp"],
+    images: ["https://hylst.fr/greenit/og-cover.png"],
     creator: "@greenitenclair",
   },
   robots: {

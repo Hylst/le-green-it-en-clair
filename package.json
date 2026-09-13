@@ -27,7 +27,6 @@
     "build": "next build",
     "convert-images": "node scripts/convert-images-to-webp.js",
     "dev": "next dev",
-    "lint": "eslint .",
     "start": "next start"
   },
   "dependencies": {

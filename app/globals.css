@@ -214,3 +214,18 @@ html {
 .no-transitions * {
   transition: none !important;
 }
+
+/* Impression (bouton "Imprimer le guide") : contenu seul, sans nav ni pied de page */
+@media print {
+  nav,
+  footer {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  main {
+    padding: 0 !important;
+  }
+}

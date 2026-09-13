@@ -271,7 +271,7 @@ export default function HomePage() {
               <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-500 text-white shadow-lg">
                 <Calculator className="h-7 w-7" />
               </div>
-              <h3 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">🎯 Outils interactifs</h3>
+              <h3 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100"><span aria-hidden="true">🎯 </span>Outils interactifs</h3>
               <p className="mb-6 text-slate-600 dark:text-slate-400">
                 Calculez votre empreinte carbone, simulez l'impact de vos choix et testez vos connaissances.
               </p>

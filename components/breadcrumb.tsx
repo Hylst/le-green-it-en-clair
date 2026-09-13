@@ -34,7 +34,6 @@ export function Breadcrumb() {
     "gestes-quotidiens": "Gestes quotidiens",
     "achat-responsable": "Achat responsable",
     "ecoconception-web": "Écoconception web",
-    "flux-rss": "Flux RSS",
     modeles: "Modèles téléchargeables",
   }
 

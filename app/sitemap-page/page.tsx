@@ -78,7 +78,7 @@ export default function SitemapPage() {
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="font-heading text-4xl md:text-5xl font-bold text-slate-900 mb-4 text-balance">
+            <h1 className="font-poppins text-4xl md:text-5xl font-bold text-slate-900 mb-4 text-balance">
               Plan du site
             </h1>
             <p className="text-lg text-slate-700 max-w-2xl mx-auto text-pretty">

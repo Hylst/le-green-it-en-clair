@@ -109,7 +109,7 @@ export default function FichesPratiquesPage() {
               >
                 <div className="relative h-48 w-full overflow-hidden bg-slate-100 dark:bg-slate-700">
                   <Image
-                    src={sheet.image || "/placeholder.svg"}
+                    src={sheet.image || "/images/fiches/gestes-quotidiens.webp"}
                     alt={`Illustration de ${sheet.title} : ${sheet.description}`}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -143,9 +143,11 @@ export default function FichesPratiquesPage() {
                         Consulter
                       </Button>
                     </Link>
-                    <Button variant="outline" size="icon">
-                      <Download className="h-4 w-4" />
-                    </Button>
+                    <a href="#" onClick={(e) => { e.preventDefault(); window.print(); }}>
+                      <Button variant="outline" size="icon" title="Imprimer">
+                        <Printer className="h-4 w-4" />
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </Card>
@@ -165,13 +167,9 @@ export default function FichesPratiquesPage() {
                 </p>
               </div>
               <div className="flex gap-2">
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" onClick={() => window.print()}>
                   <Printer className="mr-2 h-5 w-5" />
-                  Imprimer tout
-                </Button>
-                <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
-                  <Download className="mr-2 h-5 w-5" />
-                  Tout télécharger
+                  Imprimer la liste
                 </Button>
               </div>
             </div>

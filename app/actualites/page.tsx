@@ -312,7 +312,7 @@ export default function ActualitesPage() {
                       <a
                         href={item.link}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center text-sm font-medium text-primary hover:underline"
                       >
                         Lire la suite <ExternalLink className="ml-1 h-3 w-3" />

@@ -31,16 +31,19 @@ export function Breadcrumb() {
     faq: "FAQ",
     "fiches-pratiques": "Fiches pratiques",
     "sitemap-page": "Plan du site",
+    guide: "Guide",
+    "mentions-legales": "Mentions légales",
+    offline: "Hors-ligne",
     "gestes-quotidiens": "Gestes quotidiens",
     "achat-responsable": "Achat responsable",
     "ecoconception-web": "Écoconception web",
     modeles: "Modèles téléchargeables",
+    "404.html": "Page introuvable",
   }
 
   return (
     <nav
-      aria-label="Breadcrumb"
-      className="bg-slate-50 border-b border-slate-200 dark:bg-slate-800 dark:border-slate-700"
+      aria-label="Fil d'Ariane"
     >
       <div className="container mx-auto px-4 py-3">
         <ol className="flex items-center gap-2 text-sm">
@@ -62,7 +65,7 @@ export function Breadcrumb() {
               <li key={href} className="flex items-center gap-2">
                 <ChevronRight className="w-4 h-4 text-slate-400" />
                 {isLast ? (
-                  <span className="font-medium text-emerald-700 dark:text-emerald-400">{label}</span>
+                  <span suppressHydrationWarning className="font-medium text-emerald-700 dark:text-emerald-400">{label}</span>
                 ) : (
                   <Link
                     href={href}

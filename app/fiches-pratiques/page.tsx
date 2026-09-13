@@ -14,7 +14,7 @@ const practicalSheets = [
     target: "Citoyens",
     duration: "5 min",
     impact: "Réduction de 30% de votre impact",
-    image: "/images/fiches/gestes-quotidiens.webp",
+    image: "/greenit/images/fiches/gestes-quotidiens.webp",
   },
   {
     id: "achat-responsable",
@@ -23,7 +23,7 @@ const practicalSheets = [
     target: "Citoyens",
     duration: "10 min",
     impact: "75% d'économie vs neuf",
-    image: "/images/fiches/achat-responsable.webp",
+    image: "/greenit/images/fiches/achat-responsable.webp",
   },
   {
     id: "reparer-prolonger",
@@ -32,7 +32,7 @@ const practicalSheets = [
     target: "Citoyens",
     duration: "8 min",
     impact: "Doublez la durée de vie",
-    image: "/images/fiches/reparer-prolonger.webp",
+    image: "/greenit/images/fiches/reparer-prolonger.webp",
   },
   {
     id: "green-it-entreprise",
@@ -41,7 +41,7 @@ const practicalSheets = [
     target: "Entreprises",
     duration: "20 min",
     impact: "Réduction de 40-60%",
-    image: "/images/fiches/green-it-entreprise.webp",
+    image: "/greenit/images/fiches/green-it-entreprise.webp",
   },
   {
     id: "ecoconception-web",
@@ -50,7 +50,7 @@ const practicalSheets = [
     target: "Développeurs",
     duration: "15 min",
     impact: "Sites 3-5x plus légers",
-    image: "/clean-efficient-code-on-screen-with-green-energy-s.webp",
+    image: "/greenit/clean-efficient-code-on-screen-with-green-energy-s.webp",
   },
   {
     id: "recyclage-mode-emploi",
@@ -59,7 +59,7 @@ const practicalSheets = [
     target: "Tous publics",
     duration: "5 min",
     impact: "Taux de recyclage 85%",
-    image: "/images/recycling-electronics.webp",
+    image: "/greenit/images/recycling-electronics.webp",
   },
   {
     id: "datacenters-verts",
@@ -68,7 +68,7 @@ const practicalSheets = [
     target: "Entreprises",
     duration: "12 min",
     impact: "PUE optimisé < 1.3",
-    image: "/images/green-datacenter.webp",
+    image: "/greenit/images/green-datacenter.webp",
   },
   {
     id: "collectivites-action",
@@ -77,7 +77,7 @@ const practicalSheets = [
     target: "Collectivités",
     duration: "25 min",
     impact: "Exemplarité publique",
-    image: "/city-hall-with-sustainable-technology-infrastructu.webp",
+    image: "/greenit/city-hall-with-sustainable-technology-infrastructu.webp",
   },
 ]
 
@@ -109,7 +109,7 @@ export default function FichesPratiquesPage() {
               >
                 <div className="relative h-48 w-full overflow-hidden bg-slate-100 dark:bg-slate-700">
                   <Image
-                    src={sheet.image || "/images/fiches/gestes-quotidiens.webp"}
+                    src={sheet.image || "/greenit/images/fiches/gestes-quotidiens.webp"}
                     alt={`Illustration de ${sheet.title} : ${sheet.description}`}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -137,17 +137,15 @@ export default function FichesPratiquesPage() {
                     </span>
                   </div>
                   <div className="flex gap-2">
-                    <Link href={`/fiches-pratiques/${sheet.id}`} className="flex-1">
-                      <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                    <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700">
+                      <Link href={`/fiches-pratiques/${sheet.id}`} className="flex-1">
                         <FileText className="mr-2 h-4 w-4" />
                         Consulter
-                      </Button>
-                    </Link>
-                    <a href="#" onClick={(e) => { e.preventDefault(); window.print(); }}>
-                      <Button variant="outline" size="icon" title="Imprimer">
-                        <Printer className="h-4 w-4" />
-                      </Button>
-                    </a>
+                      </Link>
+                    </Button>
+                    <Button variant="outline" size="icon" aria-label="Imprimer la fiche" onClick={() => window.print()}>
+                      <Printer className="h-4 w-4" />
+                    </Button>
                   </div>
                 </div>
               </Card>

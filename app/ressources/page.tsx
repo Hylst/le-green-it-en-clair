@@ -78,14 +78,14 @@ const resources = [
         description: "Infographie complète des 5 phases",
         type: "WEBP",
         size: "0.6 MB",
-        link: "/images/lifecycle-infographic.webp",
+        link: "/greenit/images/lifecycle-infographic.webp",
       },
       {
         title: "Répartition impact CO₂",
         description: "Graphique - Production vs usage vs transport",
         type: "WEBP",
         size: "0.3 MB",
-        link: "/images/co2-distribution.webp",
+        link: "/greenit/images/co2-distribution.webp",
       },
       {
         title: "Carte interactive des points de collecte",
@@ -296,25 +296,27 @@ export default function RessourcesPage() {
                         </div>
                         {typeof item.link === "string" && item.link.length > 0 ? (
                           item.link.startsWith("http") ? (
-                            <a href={item.link} target="_blank" rel="noopener noreferrer">
-                              <Button
+                            <Button
+                              asChild
                                 size="sm"
                                 className="w-full bg-primary hover:bg-primary/90"
                               >
+                              <a href={item.link} target="_blank" rel="noopener noreferrer">
                                 <ExternalLink className="mr-2 h-4 w-4" />
                                 Voir le rapport
-                              </Button>
-                            </a>
+                              </a>
+                            </Button>
                           ) : (
-                            <Link href={item.link}>
-                              <Button
+                            <Button
+                              asChild
                                 size="sm"
                                 className="w-full bg-primary hover:bg-primary/90"
                               >
+                              <Link href={item.link}>
                                 <FileText className="mr-2 h-4 w-4" />
                                 Consulter
-                              </Button>
-                            </Link>
+                              </Link>
+                            </Button>
                           )
                         ) : (
                           <Button

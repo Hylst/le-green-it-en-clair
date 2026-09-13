@@ -90,7 +90,7 @@ const sheets: Record<string, any> = {
     target: "Citoyens",
     duration: "10 minutes de lecture",
     impact: "75% d'économie d'impact vs un appareil neuf",
-    image: "/comparison-chart-new-vs-refurbished-vs-repaire.webp",
+    image: "/greenit/comparison-chart-new-vs-refurbished-vs-repaire.webp",
     date: "5 Mars 2025",
     sections: [
       {
@@ -154,7 +154,7 @@ const sheets: Record<string, any> = {
     target: "Développeurs",
     duration: "15 minutes de lecture",
     impact: "Sites 3-5x plus légers, temps de chargement -60%",
-    image: "/clean-efficient-code-on-screen-with-green-energy-s.webp",
+    image: "/greenit/clean-efficient-code-on-screen-with-green-energy-s.webp",
     date: "15 Mars 2025",
     sections: [
       {
@@ -238,7 +238,7 @@ const sheets: Record<string, any> = {
     target: "Citoyens",
     duration: "8 minutes de lecture",
     impact: "Réduction de 50% de l'impact écologique annuel",
-    image: "/person-repairing-smartphone-with-tools.webp",
+    image: "/greenit/person-repairing-smartphone-with-tools.webp",
     date: "20 Mars 2025",
     sections: [
       {
@@ -309,7 +309,7 @@ const sheets: Record<string, any> = {
     target: "Entreprises",
     duration: "20 minutes de lecture",
     impact: "Réduction de 40% à 60% de l'empreinte carbone IT",
-    image: "/images/fiches/green-it-entreprise.webp",
+    image: "/greenit/images/fiches/green-it-entreprise.webp",
     date: "25 Mars 2025",
     sections: [
       {
@@ -379,7 +379,7 @@ const sheets: Record<string, any> = {
     target: "Tous publics",
     duration: "5 minutes de lecture",
     impact: "Taux de recyclage de 85% des matériaux",
-    image: "/images/recycling-electronics.webp",
+    image: "/greenit/images/recycling-electronics.webp",
     date: "30 Mars 2025",
     sections: [
       {
@@ -450,7 +450,7 @@ const sheets: Record<string, any> = {
     target: "DSI & Développeurs",
     duration: "10 minutes de lecture",
     impact: "Réduction de 30% à 50% des émissions liées à l'hébergement",
-    image: "/modern-green-datacenter-with-solar-panels.webp",
+    image: "/greenit/modern-green-datacenter-with-solar-panels.webp",
     date: "5 Avril 2025",
     sections: [
       {
@@ -511,7 +511,7 @@ const sheets: Record<string, any> = {
     target: "Élus & Agents territoriaux",
     duration: "15 minutes de lecture",
     impact: "Conformité légale et exemplarité publique",
-    image: "/city-hall-with-sustainable-technology-infrastructu.webp",
+    image: "/greenit/city-hall-with-sustainable-technology-infrastructu.webp",
     date: "12 Avril 2025",
     sections: [
       {
@@ -592,12 +592,12 @@ export default async function SheetDetailPage({ params }: { params: Promise<{ id
       <div className="flex min-h-screen items-center justify-center">
         <Card className="p-8 text-center">
           <h2 className="mb-4 text-2xl font-bold">Fiche non trouvée</h2>
-          <Link href="/fiches-pratiques">
-            <Button>
+          <Button asChild>
+            <Link href="/fiches-pratiques">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Retour aux fiches
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </Card>
       </div>
     )

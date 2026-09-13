@@ -125,7 +125,7 @@ export default function ComprendrePage() {
             équipements électroniques à chaque étape de leur vie.
           </p>
           <ImageZoom
-            src="/images/lifecycle-numerique-hero.webp"
+            src="/greenit/images/lifecycle-numerique-hero.webp"
             alt="Cycle de vie du numérique - de l'extraction au recyclage"
             containerClassName="aspect-[16/9] w-full rounded-2xl shadow-xl bg-muted border-2"
             priority
@@ -159,7 +159,7 @@ export default function ComprendrePage() {
           </p>
 
           <ImageZoom
-            src="/images/smartphone-impact-infographic.webp"
+            src="/greenit/images/smartphone-impact-infographic.webp"
             alt="Infographie détaillée de l'impact environnemental d'un smartphone"
             containerClassName="mb-12 aspect-[4/3] w-full max-w-4xl mx-auto rounded-2xl shadow-lg bg-card border"
             className="p-4"
@@ -470,17 +470,17 @@ export default function ComprendrePage() {
             empreinte environnementale.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/agir">
-              <Button size="lg">
+            <Button asChild size="lg">
+              <Link href="/agir">
                 Découvrir les actions
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link href="/chiffres">
-              <Button size="lg" variant="outline">
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link href="/chiffres">
                 Voir les chiffres détaillés
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

@@ -28,8 +28,13 @@ Ma liste, mise à jour le 13/09/2026 après une grosse relecture pessimiste (lec
 - [ ] tester chrome / firefox / safari, en prod `/greenit/` pas juste en dev
 - [ ] tester mobile plusieurs tailles (+ lecteur d'écran NVDA/VoiceOver pour de vrai)
 - [ ] bruit console : les prefetch Next (`*_rsc`, `__PAGE__.txt` en 404) sur l'export statique. Cosmétique (la navigation retombe sur la page complète), mais à surveiller si Next propose une option propre un jour.
-- [ ] breadcrumb : les segments d'URL s'affichent en minuscule ("guide", "mentions legales") au lieu de jolis labels. Faut une table de correspondance.
-- [ ] emoji 🎯 dans un titre (page d'accueil) : le masquer aux lecteurs d'écran (`aria-hidden`) ou le virer.
+- [x] breadcrumb : labels `guide`/`mentions-legales`/`offline` ajoutés + `aria-label` "Fil d'Ariane" (fait le 14/09).
+- [x] emoji 🎯 masqué aux lecteurs d'écran (fait le 14/09).
+- [x] titres uniques par page (fait le 14/09) : template + 19 layouts + 4 pages serveur. Les pages `"use client"` ne peuvent pas exporter `metadata`, d'où les mini-layouts.
+- [x] page 404 (fait le 14/09) : `not-found.tsx` + nginx `error_page`. Fil d'Ariane `_not found` -> fix hydratation.
+- [x] image OG 1200x630 (fait le 14/09) : générée avec Agnes, sans texte (le modèle écrit mal le français), `og-cover.png`.
+- [x] screenshots PWA (fait le 14/09) : vraies captures, déclarés dans le manifest.
+- [x] print CSS (fait le 14/09) : nav/footer masqués, fond blanc.
 - [ ] chasser les liens morts (un petit `lychee` sur `out/` après build, ça serait bien)
 - [ ] audit contrastes WCAG au cas par cas (le clavier est testé : skip-link, menus, onglets, Escape — voir changelog du 14/09)
 - [ ] perfs : le fichier outils fait 1900 lignes, à découper

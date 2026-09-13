@@ -25,6 +25,13 @@ Je note ici ce qui change, même les petits trucs.
   - recherche 100% français (les textes par défaut anglais de shadcn), onglets outils navigables aux flèches (motif APG : ids, roving tabindex, panneau lié).
   - SW : les pages sont en network-first (v1.2.1). Avant, un visiteur qui revenait après un déploiement gardait le vieux HTML qui pointait vers des JS effacés -> site mort. Testé en reproduisant le bug en local.
   - testé au clavier : skip-link visible au 1er Tab, menus + Escape, flèches dans les onglets. Reste du bruit console (prefetch Next `_rsc` en 404 sur l'export statique) : cosmétique, la navigation marche, noté dans `todo.md`.
+  - suggestions implémentées le 14/09 :
+  - titres uniques par page : template `%s | Le Green IT en clair` + 19 mini-layouts (les pages sont en `"use client"`, donc pas de metadata directe possible) + 4 pages serveur en direct. Vérifié dans l'export (`Outils interactifs | Le Green IT en clair`...).
+  - page 404 (`not-found.tsx`, génère `404.html`) + `error_page 404 /greenit/404.html` dans nginx. Au passage : le fil d'Ariane affichait `_not found` au prérendu -> erreur d'hydratation React #418, réparé avec `suppressHydrationWarning` sur le segment.
+  - image OG 1200x630 générée avec Agnes (5 essais : le modèle massacre le texte français, version sans texte adoptée après contrôle visuel) -> `public/og-cover.png`, URLs absolues dans le layout.
+  - screenshots PWA (accueil desktop 1280 + outils mobile 390, vraies captures navigateur) déclarés dans le manifest.
+  - print CSS : nav + footer masqués à l'impression (pour le bouton "Imprimer le guide"), fond blanc forcé. Emoji 🎯 du titre masqué aux lecteurs d'écran.
+  - fil d'Ariane : labels `guide`/`mentions-legales`/`offline` ajoutés + `aria-label` en français.
 
 - grosse relecture pessimiste, lecture seule, sans toucher au code. Résultat dans `todo.md` (P0 basePath/PWA + refs mortes).
 - docs passées en minuscules : `readme.md`, `about.md`, `todo.md`, `changelog.md` (les autres `agents.md`, `claude.md`, `structure.md`, `features.md`, `readme_dev.md` restent en local, dans le gitignore).

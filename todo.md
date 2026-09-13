@@ -4,18 +4,20 @@ Ma liste, mise à jour le 13/09/2026 après une grosse relecture pessimiste (lec
 
 ## 🔴 P0 — ce qui casse en prod sous /greenit
 
-- [ ] manifest : `start_url` + `scope` en `/` au lieu de `/greenit/`, icônes en `.png` qui existent pas (mes fichiers sont en `.webp`). Faut choisir : je renomme ou je corrige le json + j'ajoute du 192/512.
-- [ ] sw.js : chemins sans `/greenit`, fallback sur `/`, icônes `.png` fantômes. + dans `layout.tsx` le `register('/sw.js')` qui devrait être `/greenit/sw.js`. Et le `href="/greenit/manifest.json"`, à vérifier qu'il se fait pas préfixer 2 fois.
-- [ ] images + leaflet en dur : hero + e-waste + OG en `/...`, icônes leaflet en `/images/leaflet/...`. En prod ça fait 404. Faut un petit helper basePath.
-- [ ] `fiches-pratiques/page.tsx:112` : fallback `/placeholder.svg`, fichier supprimé. Mettre une vraie image.
-- [ ] `breadcrumb.tsx:37` : virer la ligne `flux-rss`.
-- [ ] `font-heading` : 3 endroits (outils:62, a-propos:14, sitemap-page:81), classe qui existe pas -> `font-poppins`.
-- [ ] `layout.tsx:76` : `generator: 'v0.app'` -> `Next.js`.
-- [ ] `sitemap.ts` : rajouter `/offline/` + les 7 `modeles/*`, et arrêter le `new Date()` à chaque build.
-- [ ] `Dockerfile` : virer le `COPY pnpm-lock.yaml*` (j'ai pas ce fichier, `ls` me dit que non), passer en `npm ci`.
-- [ ] outils : brancher ou virer les boutons "télécharger" du calculateur (ligne ~559) + simulateur (~947). Vérifier aussi les 2 autres vers 1834 / 2537.
-- [ ] outils : virer la fonction `GreenITQuiz` (~977) qui sert à rien, et refaire la grille (4 colonnes pour 7 cartes, bof).
-- [ ] recherche : rajouter les 13 pages manquantes (mythes, cas-pratiques, recyclage, dev, réglementation, perspectives, guide, ressources, modeles, faq, mentions, offline, sitemap...).
+- [x] manifest : fait le 14/09 (`start_url`/`scope` -> `/greenit/`, icônes -> `.webp` existants). Build ok.
+- [x] sw.js + layout : fait le 14/09 (chemins en `/greenit/...`, fallback `/greenit/`, `register('/greenit/sw.js')`).
+- [x] images + leaflet en dur : fait le 14/09 (leaflet + OG en `/greenit/...`, le reste c'est `next/image` qui préfixe tout seul).
+- [x] `fiches-pratiques/page.tsx:112` : fallback -> `/images/fiches/gestes-quotidiens.webp`. Fait le 14/09.
+- [x] `breadcrumb.tsx:37` : ligne `flux-rss` virée. Fait le 14/09.
+- [x] `font-heading` : remplacé par `font-poppins` aux 3 endroits. Fait le 14/09.
+- [x] `layout.tsx` : `generator: 'Next.js'`. Fait le 14/09.
+- [x] `sitemap.ts` : rajouté `/offline/` + les 7 `modeles/*`, date en dur + `force-static` (sinon le build plante, vu le 14/09).
+- [x] `Dockerfile` : viré le `COPY pnpm-lock`, passé en `npm ci --legacy-peer-deps`. Fait le 14/09.
+- [x] outils : boutons "télécharger" branchés sur `window.print()` (calculateur, simulateur), audit branché sur son `exportPDF`, "partager" avec `navigator.share` + fallback presse-papier. Fait le 14/09.
+- [x] outils : fonction `GreenITQuiz` morte virée (+ import `Trophy`). La grille 4 colonnes pour 7 cartes je la laisse, en fait c'est pas si mal (4+3). Fait le 14/09.
+- [x] recherche : rajouté les 13 pages manquantes. Fait le 14/09.
+- [x] `sheet-content.tsx` : y'avait une `</div>` en trop qui faisait planter le build (vu le 14/09 en lançant `npm run build`). Réparé + bouton partager branché.
+- [ ] `npm run lint` : le script existe mais eslint est pas installé (`'eslint' n'est pas reconnu`). À décider : j'installe ou je vire le script.
 
 ## 🔴 important mais pas cassé
 

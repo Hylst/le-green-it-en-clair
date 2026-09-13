@@ -27,6 +27,7 @@ function DropdownMenuTrigger({
     <DropdownMenuPrimitive.Trigger
       data-slot="dropdown-menu-trigger"
       {...props}
+      suppressHydrationWarning={true}
     />
   )
 }

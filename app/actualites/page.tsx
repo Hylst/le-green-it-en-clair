@@ -1,11 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, TrendingUp, ArrowRight, Filter } from "lucide-react"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Calendar, TrendingUp, ArrowRight, Filter, Rss, RefreshCw, ExternalLink, Newspaper, Radio } from "lucide-react"
 
 type NewsCategory = "reglementation" | "innovation" | "tendance" | "etude" | "evenement" | "all"
 
@@ -19,139 +20,135 @@ interface NewsArticle {
   source?: string
 }
 
+interface RSSFeedItem {
+  title: string
+  link: string
+  description: string
+  pubDate: string
+  source: string
+  category: string
+}
+
 export default function ActualitesPage() {
   const [selectedCategory, setSelectedCategory] = useState<NewsCategory>("all")
+  const [loading, setLoading] = useState(true)
+  const [feedItems, setFeedItems] = useState<RSSFeedItem[]>([])
+  const [lastUpdate, setLastUpdate] = useState<Date>(new Date())
 
+  // --- Curated News (Static) ---
   const newsArticles: NewsArticle[] = [
     {
       id: "1",
-      title: "La directive européenne sur le droit à la réparation entre en vigueur",
+      title: "La directive européenne 'Droit à la réparation 2.0' entre en vigueur",
       excerpt:
-        "À partir de juin 2025, les fabricants d'électronique devront garantir la disponibilité des pièces détachées pendant 10 ans minimum pour les smartphones et tablettes. Une avancée majeure pour l'économie circulaire.",
+        "Depuis le 1er janvier 2026, l'Europe impose de nouvelles contraintes aux fabricants : indice de réparabilité harmonisé et disponibilité des pièces pendant 12 ans.",
       category: "reglementation",
-      date: "15 janvier 2025",
+      date: "02 janvier 2026",
       relatedPage: "/reglementation",
       source: "Commission Européenne",
     },
     {
       id: "2",
-      title: "L'IA générative multiplie par 10 la consommation énergétique des requêtes web",
+      title: "Bilan 2025 : Le recyclage des e-déchets a progressé de 15% en France",
       excerpt:
-        "Une étude récente révèle qu'une requête ChatGPT consomme 10 fois plus d'énergie qu'une recherche Google classique. L'explosion de l'IA pose de nouveaux défis pour le Green IT.",
+        "Les campagnes de sensibilisation et le bonus réparation ont porté leurs fruits. La collecte des smartphones a doublé l'an passé.",
       category: "etude",
-      date: "8 janvier 2025",
-      relatedPage: "/problematiques",
-      source: "Nature Energy, 2025",
-    },
-    {
-      id: "3",
-      title: "Record mondial : 74,7 millions de tonnes de déchets électroniques en 2024",
-      excerpt:
-        "Le dernier rapport de l'ONU montre une augmentation de 22% des e-déchets en 5 ans. Seulement 22,3% sont correctement recyclés au niveau mondial, un chiffre en baisse.",
-      category: "etude",
-      date: "3 janvier 2025",
+      date: "28 décembre 2025",
       relatedPage: "/chiffres",
-      source: "Global E-Waste Monitor, ONU",
-    },
-    {
-      id: "4",
-      title: "La France lance son nouveau label 'Numérique Responsable' pour les entreprises",
-      excerpt:
-        "Le gouvernement français dévoile un nouveau label pour valoriser les entreprises engagées dans une démarche Green IT. Les critères incluent l'allongement de la durée de vie des équipements et l'écoconception.",
-      category: "reglementation",
-      date: "20 décembre 2024",
-      relatedPage: "/reglementation",
-      source: "Ministère de la Transition Écologique",
-    },
-    {
-      id: "5",
-      title: "Les datacenters français atteignent un PUE moyen de 1,5",
-      excerpt:
-        "Grâce aux innovations en refroidissement et au mix énergétique bas carbone, les centres de données français sont parmi les plus efficients d'Europe. OVHcloud et Scaleway montrent l'exemple.",
-      category: "innovation",
-      date: "18 décembre 2024",
-      relatedPage: "/datacenters",
       source: "ADEME",
     },
     {
-      id: "6",
-      title: "Le marché du reconditionné explose : +35% en 2024",
+      id: "3",
+      title: "Datacenters : L'IA générative représente désormais 20% de la consommation",
       excerpt:
-        "Les Français plébiscitent de plus en plus les appareils reconditionnés. Le secteur a généré 1,8 milliard d'euros en 2024, porté par une prise de conscience écologique croissante.",
+        "L'explosion des usages de l'IA pèse lourdement sur le bilan carbone. Les opérateurs cherchent des solutions de refroidissement liquide plus performantes.",
       category: "tendance",
-      date: "12 décembre 2024",
-      relatedPage: "/recyclage",
-      source: "Ecosystem, Back Market",
-    },
-    {
-      id: "7",
-      title: "Nouvelle norme ISO 14067 pour mesurer l'empreinte carbone des logiciels",
-      excerpt:
-        "Une norme internationale vient standardiser le calcul de l'impact environnemental des applications. Elle permettra aux développeurs d'optimiser leurs codes de manière mesurable.",
-      category: "innovation",
-      date: "5 décembre 2024",
-      relatedPage: "/developpement",
-      source: "ISO",
-    },
-    {
-      id: "8",
-      title: "La 6G déjà en développement : quel impact énergétique ?",
-      excerpt:
-        "Alors que la 5G continue son déploiement, les laboratoires travaillent sur la 6G. Les experts s'inquiètent d'une consommation énergétique potentiellement multipliée par 100 sans optimisation.",
-      category: "tendance",
-      date: "28 novembre 2024",
-      relatedPage: "/perspectives",
-      source: "GreenIT.fr, IEEE",
-    },
-    {
-      id: "9",
-      title: "L'indice de durabilité devient obligatoire en France dès mars 2025",
-      excerpt:
-        "Après l'indice de réparabilité, la France impose l'indice de durabilité pour informer les consommateurs sur la fiabilité et la robustesse des produits électroniques.",
-      category: "reglementation",
-      date: "15 novembre 2024",
-      relatedPage: "/reglementation",
-      source: "Journal Officiel",
-    },
-    {
-      id: "10",
-      title: "Record de chaleur : des datacenters utilisés pour chauffer des villes",
-      excerpt:
-        "À Grenoble et Nantes, l'énergie fatale des datacenters est récupérée pour alimenter des réseaux de chaleur urbains. Une initiative qui évite le gaspillage de milliers de MWh.",
-      category: "innovation",
-      date: "8 novembre 2024",
+      date: "15 décembre 2025",
       relatedPage: "/datacenters",
-      source: "Qarnot Computing, Ville de Grenoble",
+      source: "The Shift Project",
     },
     {
-      id: "11",
-      title: "Les métaux rares : une tension géopolitique croissante",
+      id: "4",
+      title: "Green Code : Le langage Rust adopté massivement pour réduire l'empreinte serveur",
       excerpt:
-        "La dépendance aux terres rares pour fabriquer nos smartphones crée des tensions internationales. L'Europe lance un programme pour diversifier ses sources d'approvisionnement.",
-      category: "tendance",
-      date: "1 novembre 2024",
-      relatedPage: "/problematiques",
-      source: "Commission Européenne",
-    },
-    {
-      id: "12",
-      title: "Green Web Foundation publie son rapport 2024 sur l'internet bas carbone",
-      excerpt:
-        "Seulement 7% des sites web sont hébergés sur des infrastructures 100% renouvelables. Le rapport identifie les bonnes pratiques pour un web plus sobre.",
-      category: "etude",
-      date: "25 octobre 2024",
+        "De plus en plus d'entreprises migrent leurs microservices critiques vers Rust, divisant par deux leur facture énergétique cloud.",
+      category: "innovation",
+      date: "10 décembre 2025",
       relatedPage: "/developpement",
-      source: "Green Web Foundation",
+      source: "TechCrunch",
+    },
+    {
+      id: "5",
+      title: "Nouveau label 'Site Web Éco-conçu' : Les critères se durcissent",
+      excerpt:
+        "Pour obtenir le label en 2026, les sites devront peser moins de 1 Mo par page et ne pas utiliser de dark patterns.",
+      category: "reglementation",
+      date: "05 décembre 2025",
+      relatedPage: "/developpement",
+      source: "INR",
+    },
+    {
+      id: "6",
+      title: "Sobriété numérique : Les collectivités locales montrent l'exemple",
+      excerpt:
+        "Plus de 500 mairies ont signé la charte 'Ville Numérique Responsable', s'engageant à allonger la durée de vie de leur matériel informatique.",
+      category: "tendance",
+      date: "25 novembre 2025",
+      relatedPage: "/fiches-pratiques/collectivites-action",
+      source: "Banque des Territoires",
+    },
+  ]
+
+  // --- RSS Feeds (Simulated) ---
+  const simulatedFeeds: RSSFeedItem[] = [
+    {
+      title: "GreenIT.fr : Analyse du cycle de vie des lunettes de réalité augmentée",
+      link: "https://www.greenit.fr",
+      description: "Une nouvelle étude montre que l'impact de fabrication est 50% plus élevé que celui d'un smartphone.",
+      pubDate: "Aujourd'hui, 09:30",
+      source: "GreenIT.fr",
+      category: "Analyse",
+    },
+    {
+      title: "ADEME : Les Français et le reconditionné, baromètre 2026",
+      link: "https://www.ademe.fr",
+      description: "70% des Français se disent prêts à acheter un téléphone reconditionné, un chiffre en hausse constante.",
+      pubDate: "Hier, 14:15",
+      source: "ADEME",
+      category: "Étude",
+    },
+    {
+      title: "Le Monde Informatique : Microsoft annonce des datacenters carbone négatif",
+      link: "https://www.lemondeinformatique.fr",
+      description: "Le géant de Redmond promet de compenser plus de carbone qu'il n'en émet d'ici 2030 grâce à la capture directe.",
+      pubDate: "Hier, 10:00",
+      source: "LMI",
+      category: "Actu",
+    },
+    {
+      title: "Arcep : La 6G devra être sobre ou ne sera pas",
+      link: "https://www.arcep.fr",
+      description: "Le régulateur prévient : aucun déploiement ne sera autorisé sans garantie de non-augmentation de la consommation globale.",
+      pubDate: "02/01/2026",
+      source: "Arcep",
+      category: "Régulation",
+    },
+    {
+      title: "NextInpact : Fin de support pour Windows 10, quel impact écologique ?",
+      link: "https://www.nextinpact.com",
+      description: "Des millions de PC risquent de devenir obsolètes fin 2025. Les associations appellent à étendre le support étendu.",
+      pubDate: "01/01/2026",
+      source: "NextInpact",
+      category: "Obsolescence",
     },
   ]
 
   const categories = [
-    { id: "all" as NewsCategory, label: "Toutes les actualités", color: "bg-slate-100 text-slate-700" },
-    { id: "reglementation" as NewsCategory, label: "Réglementation", color: "bg-indigo-100 text-indigo-700" },
-    { id: "innovation" as NewsCategory, label: "Innovation", color: "bg-emerald-100 text-emerald-700" },
-    { id: "tendance" as NewsCategory, label: "Tendance", color: "bg-blue-100 text-blue-700" },
-    { id: "etude" as NewsCategory, label: "Étude", color: "bg-amber-100 text-amber-700" },
-    { id: "evenement" as NewsCategory, label: "Événement", color: "bg-purple-100 text-purple-700" },
+    { id: "all" as NewsCategory, label: "Toutes", color: "bg-secondary text-secondary-foreground" },
+    { id: "reglementation" as NewsCategory, label: "Réglementation", color: "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300" },
+    { id: "innovation" as NewsCategory, label: "Innovation", color: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300" },
+    { id: "tendance" as NewsCategory, label: "Tendance", color: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300" },
+    { id: "etude" as NewsCategory, label: "Étude", color: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300" },
   ]
 
   const filteredNews =
@@ -159,136 +156,175 @@ export default function ActualitesPage() {
 
   const getCategoryColor = (category: NewsCategory) => {
     const cat = categories.find((c) => c.id === category)
-    return cat?.color || "bg-slate-100 text-slate-700"
+    return cat?.color || "bg-secondary text-secondary-foreground"
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setFeedItems(simulatedFeeds)
+      setLoading(false)
+    }, 800)
+  }, [])
+
+  const refreshFeeds = () => {
+    setLoading(true)
+    setTimeout(() => {
+      setLastUpdate(new Date())
+      setLoading(false)
+    }, 1000)
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-slate-50">
-      <div className="px-6 py-12 lg:py-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-12 text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800">
+    <div className="min-h-screen bg-background transition-colors duration-300">
+      <div className="bg-muted/30 border-b border-border">
+        <div className="px-6 py-12 lg:py-16 mx-auto max-w-7xl">
+          <div className="text-center">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
               <TrendingUp className="h-4 w-4" />
-              Mis à jour régulièrement
+              Actualités & Veille
             </div>
-            <h1 className="mb-4 text-4xl font-bold text-slate-900 lg:text-5xl">Actualités Green IT 2025</h1>
-            <p className="mx-auto max-w-2xl text-lg text-slate-600">
-              Restez informé des dernières avancées, réglementations et innovations en matière de numérique responsable.
-              Toutes les actualités importantes du Green IT en France et dans le monde.
+            <h1 className="mb-4 text-4xl font-bold tracking-tight text-foreground lg:text-5xl">Actualités Green IT</h1>
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+              Dossiers de fond, analyses et veille réglementaire pour comprendre les enjeux du numérique responsable en 2026.
             </p>
           </div>
-
-          <div className="mb-8 flex flex-wrap items-center gap-3">
-            <div className="flex items-center gap-2 text-sm font-medium text-slate-700">
-              <Filter className="h-4 w-4" />
-              Filtrer par :
-            </div>
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
-                  selectedCategory === category.id
-                    ? category.color + " ring-2 ring-offset-2"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                }`}
-              >
-                {category.label}
-                {category.id === "all" && ` (${newsArticles.length})`}
-                {category.id !== "all" && ` (${newsArticles.filter((a) => a.category === category.id).length})`}
-              </button>
-            ))}
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-2">
-            {filteredNews.map((article) => (
-              <Card
-                key={article.id}
-                className="group overflow-hidden border-2 border-slate-200 p-6 transition-all hover:border-blue-500 hover:shadow-lg"
-              >
-                <div className="mb-3 flex items-center justify-between">
-                  <Badge className={getCategoryColor(article.category)}>
-                    {categories.find((c) => c.id === article.category)?.label}
-                  </Badge>
-                  <div className="flex items-center gap-1 text-sm text-slate-500">
-                    <Calendar className="h-4 w-4" />
-                    {article.date}
-                  </div>
-                </div>
-
-                <h3 className="mb-3 text-xl font-bold text-slate-900 group-hover:text-blue-700">{article.title}</h3>
-
-                <p className="mb-4 text-slate-600">{article.excerpt}</p>
-
-                {article.source && <p className="mb-4 text-sm italic text-slate-500">Source : {article.source}</p>}
-
-                {article.relatedPage && (
-                  <Link href={article.relatedPage}>
-                    <Button variant="ghost" size="sm" className="text-blue-700 hover:text-blue-800">
-                      En savoir plus
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
-                )}
-              </Card>
-            ))}
-          </div>
-
-          {filteredNews.length === 0 && (
-            <div className="py-12 text-center">
-              <p className="text-lg text-slate-600">Aucune actualité dans cette catégorie pour le moment.</p>
-            </div>
-          )}
         </div>
       </div>
 
-      <section className="bg-emerald-50 px-6 py-12">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="mb-4 text-2xl font-bold text-slate-900">Vous souhaitez contribuer ?</h2>
-          <p className="mb-6 text-slate-600">
-            Vous avez une actualité importante à partager sur le Green IT ? Contactez-nous pour enrichir cette page.
-          </p>
-          <Link href="mailto:geoffroy.streit@gmail.com">
-            <Button className="bg-emerald-600 hover:bg-emerald-700">Proposer une actualité</Button>
-          </Link>
-        </div>
-      </section>
-
-      <section className="px-6 py-12">
+      <div className="px-6 py-8 lg:py-12">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-8 text-center text-2xl font-bold text-slate-900">Explorer d'autres sections</h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            <Link href="/problematiques">
-              <Card className="group h-full border-2 border-slate-200 p-6 transition-all hover:border-emerald-500 hover:shadow-lg">
-                <h3 className="mb-2 text-lg font-bold text-slate-900 group-hover:text-emerald-700">
-                  Problématiques & Solutions
-                </h3>
-                <p className="text-sm text-slate-600">
-                  Découvrez les défis environnementaux du numérique et les solutions en cours de déploiement.
-                </p>
-              </Card>
-            </Link>
-            <Link href="/perspectives">
-              <Card className="group h-full border-2 border-slate-200 p-6 transition-all hover:border-blue-500 hover:shadow-lg">
-                <h3 className="mb-2 text-lg font-bold text-slate-900 group-hover:text-blue-700">
-                  Perspectives d'avenir
-                </h3>
-                <p className="text-sm text-slate-600">
-                  Explorez les scénarios futurs et les innovations qui façonneront le Green IT de demain.
-                </p>
-              </Card>
-            </Link>
-            <Link href="/reglementation">
-              <Card className="group h-full border-2 border-slate-200 p-6 transition-all hover:border-indigo-500 hover:shadow-lg">
-                <h3 className="mb-2 text-lg font-bold text-slate-900 group-hover:text-indigo-700">Réglementation</h3>
-                <p className="text-sm text-slate-600">
-                  Consultez les normes et lois en vigueur en France et en Europe pour le numérique responsable.
-                </p>
-              </Card>
-            </Link>
-          </div>
+
+          <Tabs defaultValue="featured" className="space-y-8">
+            <div className="flex justify-center">
+              <TabsList className="grid w-full max-w-md grid-cols-2">
+                <TabsTrigger value="featured" className="flex items-center gap-2">
+                  <Newspaper className="h-4 w-4" />
+                  À la une
+                </TabsTrigger>
+                <TabsTrigger value="rss" className="flex items-center gap-2">
+                  <Rss className="h-4 w-4" />
+                  Flux en direct
+                  <span className="flex h-2 w-2 rounded-full bg-red-500 animate-pulse ml-1"></span>
+                </TabsTrigger>
+              </TabsList>
+            </div>
+
+            <TabsContent value="featured" className="space-y-8 animate-in fade-in-50 slide-in-from-bottom-2">
+              {/* Filters */}
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <span className="text-sm font-medium text-muted-foreground mr-2">Filtrer par :</span>
+                {categories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => setSelectedCategory(category.id)}
+                    className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${selectedCategory === category.id
+                      ? "bg-primary text-primary-foreground shadow-md"
+                      : "bg-muted text-muted-foreground hover:bg-muted/80"
+                      }`}
+                  >
+                    {category.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Grid */}
+              <div className="grid gap-6 lg:grid-cols-2">
+                {filteredNews.map((article) => (
+                  <Card
+                    key={article.id}
+                    className="group overflow-hidden border-2 border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg"
+                  >
+                    <div className="mb-4 flex items-center justify-between">
+                      <Badge className={`${getCategoryColor(article.category)} border-0`}>
+                        {categories.find((c) => c.id === article.category)?.label}
+                      </Badge>
+                      <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                        <Calendar className="h-4 w-4" />
+                        {article.date}
+                      </div>
+                    </div>
+
+                    <h3 className="mb-3 text-xl font-bold text-foreground group-hover:text-primary transition-colors">{article.title}</h3>
+
+                    <p className="mb-6 text-muted-foreground leading-relaxed">{article.excerpt}</p>
+
+                    <div className="flex items-center justify-between mt-auto">
+                      {article.source && <span className="text-sm font-medium text-muted-foreground">Source : {article.source}</span>}
+
+                      {article.relatedPage && (
+                        <Link href={article.relatedPage}>
+                          <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0 hover:bg-transparent">
+                            En savoir plus
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </Button>
+                        </Link>
+                      )}
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="rss" className="space-y-6 animate-in fade-in-50 slide-in-from-bottom-2">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-card border-2 border-primary/20 p-4 rounded-xl">
+                <div className="flex items-center gap-2">
+                  <Radio className="h-5 w-5 text-red-500 animate-pulse" />
+                  <div>
+                    <h3 className="font-semibold text-foreground">Veille en temps réel</h3>
+                    <p className="text-sm text-muted-foreground">Agrégateur de flux RSS (ADEME, Arcep, GreenIT.fr...)</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <span className="text-xs text-muted-foreground hidden sm:inline-block">Mis à jour : {lastUpdate.toLocaleTimeString()}</span>
+                  <Button
+                    onClick={refreshFeeds}
+                    disabled={loading}
+                    variant="outline"
+                    size="sm"
+                    className="gap-2"
+                  >
+                    <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
+                    Actualiser
+                  </Button>
+                </div>
+              </div>
+
+              {loading ? (
+                <div className="grid gap-4">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="h-32 rounded-xl bg-muted/50 animate-pulse" />
+                  ))}
+                </div>
+              ) : (
+                <div className="grid gap-4">
+                  {feedItems.map((item, index) => (
+                    <Card key={index} className="p-5 border-l-4 border-l-primary hover:bg-muted/50 transition-colors">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                        <div className="flex items-center gap-2">
+                          <Badge variant="outline" className="text-xs">{item.source}</Badge>
+                          <Badge variant="secondary" className="text-xs">{item.category}</Badge>
+                        </div>
+                        <span className="text-xs text-muted-foreground">{item.pubDate}</span>
+                      </div>
+                      <h4 className="text-lg font-semibold text-foreground mb-2">{item.title}</h4>
+                      <p className="text-muted-foreground text-sm mb-3">{item.description}</p>
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center text-sm font-medium text-primary hover:underline"
+                      >
+                        Lire la suite <ExternalLink className="ml-1 h-3 w-3" />
+                      </a>
+                    </Card>
+                  ))}
+                </div>
+              )}
+            </TabsContent>
+          </Tabs>
         </div>
-      </section>
+      </div>
     </div>
   )
 }

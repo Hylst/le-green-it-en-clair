@@ -43,8 +43,9 @@ const eWasteData = [
   { year: "2020", monde: 55.3, france: 1.48 },
   { year: "2022", monde: 62.0, france: 1.52 },
   { year: "2024", monde: 68.5, france: 1.58 },
-  { year: "2025", monde: 72.0, france: 1.62 },
-]
+  { year: "2025", monde: 69.8, france: 1.61 },
+  { year: "2026", monde: 72.4, france: 1.67 },
+];
 
 // Data for CO2 Breakdown by Lifecycle Phase
 const co2BreakdownData = [
@@ -66,14 +67,14 @@ const deviceComparisonData = [
 
 // Data for Recycling Rates by Country
 const recyclingRatesData = [
-  { country: "France", rate: 45 },
-  { country: "Allemagne", rate: 48 },
-  { country: "Suède", rate: 52 },
-  { country: "Royaume-Uni", rate: 42 },
-  { country: "Espagne", rate: 38 },
-  { country: "Italie", rate: 35 },
-  { country: "Moyenne UE", rate: 40 },
-  { country: "Moyenne mondiale", rate: 20 },
+  { country: "France", rate: 46 },
+  { country: "Allemagne", rate: 52 },
+  { country: "Suède", rate: 54 },
+  { country: "Royaume-Uni", rate: 44 },
+  { country: "Espagne", rate: 39 },
+  { country: "Italie", rate: 45 },
+  { country: "Moyenne UE", rate: 43 },
+  { country: "Moyenne mondiale", rate: 22 },
 ]
 
 // French recycling points (sample data)
@@ -97,18 +98,18 @@ export default function ChiffresPage() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-teal-50 to-emerald-50 px-6 py-16 lg:py-24">
+      <section className="bg-gradient-to-br from-blue-50 via-teal-50 to-emerald-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-100 dark:bg-blue-900/30 px-4 py-2 text-sm font-medium text-blue-800 dark:text-blue-300">
             <TrendingUp className="h-4 w-4" />
             Données et statistiques
           </div>
-          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl">
+          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 lg:text-5xl">
             Les chiffres du numérique en France et dans le monde
           </h1>
-          <p className="text-pretty text-lg text-slate-600 lg:text-xl">
+          <p className="text-pretty text-lg text-slate-600 dark:text-slate-300 lg:text-xl">
             Visualisez l'impact environnemental du numérique à travers des données récentes et sourcées.
           </p>
         </div>
@@ -117,8 +118,8 @@ export default function ChiffresPage() {
       {/* Animated Data Flow Visualization */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-8 text-center text-3xl font-bold text-slate-900 lg:text-4xl">Le parcours des données</h2>
-          <p className="mb-12 text-center text-lg text-slate-600">
+          <h2 className="mb-8 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">Le parcours des données</h2>
+          <p className="mb-12 text-center text-lg text-slate-600 dark:text-slate-300">
             Visualisation du flux de données entre votre appareil et les datacenters
           </p>
           <AnimatedDataFlow />
@@ -126,7 +127,7 @@ export default function ChiffresPage() {
       </section>
 
       {/* Growth Animation */}
-      <section className="bg-slate-50 px-6 py-16 lg:py-24">
+      <section className="bg-slate-50 dark:bg-slate-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl">
           <GrowthAnimation />
         </div>
@@ -137,8 +138,8 @@ export default function ChiffresPage() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center">
             <div>
-              <h2 className="mb-2 text-3xl font-bold text-slate-900">Évolution des déchets électroniques</h2>
-              <p className="text-slate-600">Production mondiale et française de e-déchets (2010-2025)</p>
+              <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-slate-100">Évolution des déchets électroniques</h2>
+              <p className="text-slate-600 dark:text-slate-400">Production mondiale et française de e-déchets (2010-2026)</p>
             </div>
             <Button variant="outline" onClick={() => downloadChart("evolution-e-waste")}>
               <Download className="mr-2 h-4 w-4" />
@@ -146,14 +147,20 @@ export default function ChiffresPage() {
             </Button>
           </div>
 
-          <Card className="border-2 border-slate-200 p-6 lg:p-8">
+          <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-6 lg:p-8">
             <ResponsiveContainer width="100%" height={400}>
               <LineChart data={eWasteData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                 <XAxis dataKey="year" stroke="#64748b" />
                 <YAxis stroke="#64748b" label={{ value: "Millions de tonnes", angle: -90, position: "insideLeft" }} />
                 <Tooltip
-                  contentStyle={{ backgroundColor: "#fff", border: "2px solid #e2e8f0", borderRadius: "0.5rem" }}
+                  contentStyle={{
+                    backgroundColor: "var(--card)",
+                    border: "2px solid var(--border)",
+                    borderRadius: "0.5rem",
+                    color: "var(--foreground)"
+                  }}
+                  itemStyle={{ color: "var(--foreground)" }}
                 />
                 <Legend />
                 <Line
@@ -174,26 +181,26 @@ export default function ChiffresPage() {
                 />
               </LineChart>
             </ResponsiveContainer>
-            <div className="mt-6 rounded-lg bg-blue-50 p-4">
-              <p className="text-sm text-slate-700">
+            <div className="mt-6 rounded-lg bg-blue-50 dark:bg-blue-900/20 p-4">
+              <p className="text-sm text-slate-700 dark:text-slate-300">
                 <strong>Analyse :</strong> La production mondiale de déchets électroniques a doublé en 15 ans, passant
-                de 34 Mt en 2010 à 72 Mt en 2025. En France, nous produisons environ 1,6 million de tonnes par an, soit
-                24 kg par habitant.
+                de 34 Mt en 2010 à 72 Mt début 2026. En France, nous produisons environ 1,7 million de tonnes par an, soit
+                25 kg par habitant.
               </p>
             </div>
           </Card>
 
-          <div className="mt-4 text-sm text-slate-500">Source : Global E-Waste Monitor, ONU (2024) • ADEME (2023)</div>
+          <div className="mt-4 text-sm text-slate-500 dark:text-slate-400">Source : Global E-Waste Monitor, ONU (2024) • ADEME (2023)</div>
         </div>
       </section>
 
       {/* CO2 Breakdown Pie Chart */}
-      <section className="bg-slate-50 px-6 py-16 lg:py-24">
+      <section className="bg-slate-50 dark:bg-slate-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center">
             <div>
-              <h2 className="mb-2 text-3xl font-bold text-slate-900">Répartition de l'empreinte carbone</h2>
-              <p className="text-slate-600">Impact CO₂ par phase du cycle de vie d'un smartphone</p>
+              <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-slate-100">Répartition de l'empreinte carbone</h2>
+              <p className="text-slate-600 dark:text-slate-400">Impact CO₂ par phase du cycle de vie d'un smartphone</p>
             </div>
             <Button variant="outline" onClick={() => downloadChart("co2-breakdown")}>
               <Download className="mr-2 h-4 w-4" />
@@ -202,7 +209,7 @@ export default function ChiffresPage() {
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2">
-            <Card className="border-2 border-slate-200 p-6 lg:p-8">
+            <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-6 lg:p-8">
               <ResponsiveContainer width="100%" height={400}>
                 <PieChart>
                   <Pie
@@ -219,7 +226,15 @@ export default function ChiffresPage() {
                       <Cell key={`cell-${index}`} fill={entry.fill} />
                     ))}
                   </Pie>
-                  <Tooltip />
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: "var(--card)",
+                      border: "2px solid var(--border)",
+                      borderRadius: "0.5rem",
+                      color: "var(--foreground)"
+                    }}
+                    itemStyle={{ color: "var(--foreground)" }}
+                  />
                 </PieChart>
               </ResponsiveContainer>
             </Card>
@@ -230,10 +245,10 @@ export default function ChiffresPage() {
                   <div className="h-12 w-12 shrink-0 rounded-lg" style={{ backgroundColor: item.fill }} />
                   <div className="flex-1">
                     <div className="mb-1 flex items-center justify-between">
-                      <span className="font-semibold text-slate-900">{item.phase}</span>
-                      <span className="text-lg font-bold text-slate-900">{item.percentage}%</span>
+                      <span className="font-semibold text-slate-900 dark:text-slate-100">{item.phase}</span>
+                      <span className="text-lg font-bold text-slate-900 dark:text-slate-100">{item.percentage}%</span>
                     </div>
-                    <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200">
+                    <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
                       <div
                         className="h-full rounded-full"
                         style={{ width: `${item.percentage}%`, backgroundColor: item.fill }}
@@ -243,8 +258,8 @@ export default function ChiffresPage() {
                 </div>
               ))}
 
-              <div className="mt-6 rounded-lg bg-emerald-50 border-2 border-emerald-200 p-4">
-                <p className="text-sm text-slate-700">
+              <div className="mt-6 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border-2 border-emerald-200 dark:border-emerald-800 p-4">
+                <p className="text-sm text-slate-700 dark:text-slate-300">
                   <strong>Point clé :</strong> La fabrication représente 60% de l'empreinte carbone totale. Garder son
                   smartphone 1 an de plus réduit son impact annuel de 25%.
                 </p>
@@ -252,7 +267,7 @@ export default function ChiffresPage() {
             </div>
           </div>
 
-          <div className="mt-4 text-sm text-slate-500">Source : ADEME - Impact environnemental du numérique (2023)</div>
+          <div className="mt-4 text-sm text-slate-500 dark:text-slate-400">Source : ADEME - Impact environnemental du numérique (2023)</div>
         </div>
       </section>
 
@@ -261,8 +276,8 @@ export default function ChiffresPage() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center">
             <div>
-              <h2 className="mb-2 text-3xl font-bold text-slate-900">Comparaison par appareil</h2>
-              <p className="text-slate-600">Impact environnemental de la fabrication selon le type d'équipement</p>
+              <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-slate-100">Comparaison par appareil</h2>
+              <p className="text-slate-600 dark:text-slate-400">Impact environnemental de la fabrication selon le type d'équipement</p>
             </div>
             <div className="flex gap-2">
               <Button
@@ -289,14 +304,20 @@ export default function ChiffresPage() {
             </div>
           </div>
 
-          <Card className="border-2 border-slate-200 p-6 lg:p-8">
+          <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-6 lg:p-8">
             <ResponsiveContainer width="100%" height={400}>
               <BarChart data={deviceComparisonData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                 <XAxis dataKey="device" stroke="#64748b" />
                 <YAxis stroke="#64748b" />
                 <Tooltip
-                  contentStyle={{ backgroundColor: "#fff", border: "2px solid #e2e8f0", borderRadius: "0.5rem" }}
+                  contentStyle={{
+                    backgroundColor: "var(--card)",
+                    border: "2px solid var(--border)",
+                    borderRadius: "0.5rem",
+                    color: "var(--foreground)"
+                  }}
+                  itemStyle={{ color: "var(--foreground)" }}
                 />
                 <Bar
                   dataKey={selectedMetric}
@@ -310,17 +331,17 @@ export default function ChiffresPage() {
             </ResponsiveContainer>
           </Card>
 
-          <div className="mt-4 text-sm text-slate-500">Source : ADEME - Base Impacts (2023)</div>
+          <div className="mt-4 text-sm text-slate-500 dark:text-slate-400">Source : ADEME - Base Impacts (2023)</div>
         </div>
       </section>
 
       {/* Recycling Rates Chart */}
-      <section className="bg-slate-50 px-6 py-16 lg:py-24">
+      <section className="bg-slate-50 dark:bg-slate-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center">
             <div>
-              <h2 className="mb-2 text-3xl font-bold text-slate-900">Taux de recyclage par pays</h2>
-              <p className="text-slate-600">Pourcentage de déchets électroniques correctement recyclés</p>
+              <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-slate-100">Taux de recyclage par pays</h2>
+              <p className="text-slate-600 dark:text-slate-400">Pourcentage de déchets électroniques correctement recyclés</p>
             </div>
             <Button variant="outline" onClick={() => downloadChart("recycling-rates")}>
               <Download className="mr-2 h-4 w-4" />
@@ -328,29 +349,35 @@ export default function ChiffresPage() {
             </Button>
           </div>
 
-          <Card className="border-2 border-slate-200 p-6 lg:p-8">
+          <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-6 lg:p-8">
             <ResponsiveContainer width="100%" height={400}>
               <BarChart data={recyclingRatesData} layout="vertical">
                 <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                 <XAxis type="number" stroke="#64748b" unit="%" />
                 <YAxis dataKey="country" type="category" stroke="#64748b" width={120} />
                 <Tooltip
-                  contentStyle={{ backgroundColor: "#fff", border: "2px solid #e2e8f0", borderRadius: "0.5rem" }}
+                  contentStyle={{
+                    backgroundColor: "var(--card)",
+                    border: "2px solid var(--border)",
+                    borderRadius: "0.5rem",
+                    color: "var(--foreground)"
+                  }}
+                  itemStyle={{ color: "var(--foreground)" }}
                 />
                 <Bar dataKey="rate" fill="#14b8a6" radius={[0, 8, 8, 0]} name="Taux de recyclage (%)" />
               </BarChart>
             </ResponsiveContainer>
-            <div className="mt-6 rounded-lg bg-teal-50 p-4">
-              <p className="text-sm text-slate-700">
-                <strong>Analyse :</strong> La France recycle 45% de ses déchets électroniques, soit plus du double de la
-                moyenne mondiale (20%). Les pays nordiques comme la Suède atteignent 52%, montrant qu'il est possible de
+            <div className="mt-6 rounded-lg bg-teal-50 dark:bg-teal-900/20 p-4">
+              <p className="text-sm text-slate-700 dark:text-slate-300">
+                <strong>Analyse :</strong> La France recycle 46% de ses déchets électroniques, soit le double de la
+                moyenne mondiale (22%). Les pays nordiques comme la Suède atteignent 54%, montrant qu'il est possible de
                 faire mieux.
               </p>
             </div>
           </Card>
 
-          <div className="mt-4 text-sm text-slate-500">
-            Source : Global E-Waste Monitor, ONU (2024) • Ecosystem (2023)
+          <div className="mt-4 text-sm text-slate-500 dark:text-slate-400">
+            Source : Global E-Waste Monitor (2024) • Eurostat (2025) • Ecosystem
           </div>
         </div>
       </section>
@@ -359,8 +386,8 @@ export default function ChiffresPage() {
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8">
-            <h2 className="mb-2 text-3xl font-bold text-slate-900">Points de collecte en France</h2>
-            <p className="text-slate-600">Nombre de points de collecte dans les principales villes françaises</p>
+            <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-slate-100">Points de collecte en France</h2>
+            <p className="text-slate-600 dark:text-slate-400">Nombre de points de collecte dans les principales villes françaises</p>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2">
@@ -372,29 +399,29 @@ export default function ChiffresPage() {
             {/* City List */}
             <div className="space-y-3">
               {recyclingPoints.map((point) => (
-                <Card key={point.city} className="border-2 border-slate-200 p-4">
+                <Card key={point.city} className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100">
-                        <MapPin className="h-5 w-5 text-emerald-700" />
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 dark:bg-emerald-900/30">
+                        <MapPin className="h-5 w-5 text-emerald-700 dark:text-emerald-400" />
                       </div>
                       <div>
-                        <div className="font-semibold text-slate-900">{point.city}</div>
-                        <div className="text-sm text-slate-600">
+                        <div className="font-semibold text-slate-900 dark:text-slate-100">{point.city}</div>
+                        <div className="text-sm text-slate-600 dark:text-slate-400">
                           {point.lat.toFixed(4)}°N, {Math.abs(point.lng).toFixed(4)}°{point.lng >= 0 ? "E" : "W"}
                         </div>
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-2xl font-bold text-emerald-700">{point.points}</div>
-                      <div className="text-xs text-slate-600">points</div>
+                      <div className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">{point.points}</div>
+                      <div className="text-xs text-slate-600 dark:text-slate-400">points</div>
                     </div>
                   </div>
                 </Card>
               ))}
 
-              <div className="mt-6 rounded-lg bg-emerald-50 border-2 border-emerald-200 p-4">
-                <p className="text-sm text-slate-700">
+              <div className="mt-6 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border-2 border-emerald-200 dark:border-emerald-800 p-4">
+                <p className="text-sm text-slate-700 dark:text-slate-300">
                   <strong>Plus de 15 000 points de collecte</strong> sont disponibles en France pour recycler vos
                   appareils électroniques : déchetteries, magasins, ressourceries...
                 </p>
@@ -402,19 +429,19 @@ export default function ChiffresPage() {
             </div>
           </div>
 
-          <div className="mt-4 text-sm text-slate-500">Source : Ecosystem • Écologic (2024)</div>
+          <div className="mt-4 text-sm text-slate-500 dark:text-slate-400">Source : Ecosystem • Écologic (2024)</div>
         </div>
       </section>
 
       {/* Key Stats Summary */}
-      <section className="bg-gradient-to-br from-emerald-600 to-teal-700 px-6 py-16 lg:py-24">
+      <section className="bg-gradient-to-br from-emerald-600 to-teal-700 dark:from-emerald-900 dark:to-teal-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <h2 className="mb-12 text-center text-3xl font-bold text-white lg:text-4xl">En résumé</h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="text-center">
               <Globe className="mx-auto mb-4 h-12 w-12 text-emerald-100" />
-              <div className="mb-2 text-4xl font-bold text-white">72 Mt</div>
-              <p className="text-emerald-50">de e-déchets produits dans le monde en 2025</p>
+              <div className="mb-2 text-4xl font-bold text-white">72,4 Mt</div>
+              <p className="text-emerald-50">de e-déchets produits dans le monde en 2026</p>
             </div>
             <div className="text-center">
               <Zap className="mx-auto mb-4 h-12 w-12 text-emerald-100" />
@@ -423,7 +450,7 @@ export default function ChiffresPage() {
             </div>
             <div className="text-center">
               <MapPin className="mx-auto mb-4 h-12 w-12 text-emerald-100" />
-              <div className="mb-2 text-4xl font-bold text-white">45%</div>
+              <div className="mb-2 text-4xl font-bold text-white">46%</div>
               <p className="text-emerald-50">taux de recyclage en France</p>
             </div>
             <div className="text-center">

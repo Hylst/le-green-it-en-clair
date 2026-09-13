@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import {
@@ -465,18 +466,18 @@ const futureSolutions = [
 
 export default function ProblematiquesPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-50 via-orange-50 to-amber-50 px-6 py-16 lg:py-24">
+      <section className="bg-gradient-to-br from-red-50 via-orange-50 to-amber-50 dark:from-red-950/40 dark:via-orange-950/40 dark:to-amber-950/40 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-medium text-red-800">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-red-100 dark:bg-red-900/30 px-4 py-2 text-sm font-medium text-red-800 dark:text-red-300">
             <AlertTriangle className="h-4 w-4" />
             Problématiques & Solutions
           </div>
-          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl">
+          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 lg:text-5xl">
             Les défis du numérique et les solutions pour y répondre
           </h1>
-          <p className="text-pretty text-lg text-slate-600 lg:text-xl">
+          <p className="text-pretty text-lg text-slate-600 dark:text-slate-300 lg:text-xl">
             Comprendre les problématiques environnementales du numérique, analyser les tendances actuelles, et découvrir
             les solutions existantes et à développer pour un avenir durable.
           </p>
@@ -486,17 +487,23 @@ export default function ProblematiquesPage() {
       {/* E-Waste Growth Chart */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
             L'explosion des déchets électroniques
           </h2>
-          <Card className="border-2 border-slate-200 p-8 lg:p-12">
+          <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 lg:p-12">
             <ResponsiveContainer width="100%" height={400}>
               <LineChart data={eWasteGrowthData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                 <XAxis dataKey="year" stroke="#64748b" />
                 <YAxis stroke="#64748b" label={{ value: "Millions de tonnes", angle: -90, position: "insideLeft" }} />
                 <Tooltip
-                  contentStyle={{ backgroundColor: "#fff", border: "2px solid #e2e8f0", borderRadius: "0.5rem" }}
+                  contentStyle={{
+                    backgroundColor: "var(--card)",
+                    border: "2px solid var(--border)",
+                    borderRadius: "0.5rem",
+                    color: "var(--foreground)"
+                  }}
+                  itemStyle={{ color: "var(--foreground)" }}
                 />
                 <Line
                   type="monotone"
@@ -508,7 +515,7 @@ export default function ProblematiquesPage() {
                 />
               </LineChart>
             </ResponsiveContainer>
-            <p className="mt-6 text-center text-sm text-slate-600">
+            <p className="mt-6 text-center text-sm text-slate-600 dark:text-slate-400">
               <strong>+67% en 10 ans</strong> - La production mondiale de déchets électroniques augmente 3 fois plus
               vite que la population mondiale.
             </p>
@@ -517,16 +524,16 @@ export default function ProblematiquesPage() {
       </section>
 
       {/* Main Problems */}
-      <section className="bg-slate-50 px-6 py-16 lg:py-24">
+      <section className="bg-slate-50 dark:bg-slate-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
             Les 6 problématiques majeures
           </h2>
           <div className="space-y-8">
             {mainProblems.map((problem, index) => {
               const Icon = problem.icon
               return (
-                <Card key={index} className={`border-2 border-${problem.color}-500 bg-white p-8`}>
+                <Card key={index} className={`border-2 border-${problem.color}-500 bg-white dark:bg-slate-950 p-8`}>
                   <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                     <div className="flex items-start gap-4">
                       <div
@@ -535,15 +542,14 @@ export default function ProblematiquesPage() {
                         <Icon className="h-7 w-7 text-white" />
                       </div>
                       <div>
-                        <h3 className="mb-2 text-2xl font-bold text-slate-900">{problem.title}</h3>
-                        <p className="text-sm text-slate-600">{problem.description}</p>
+                        <h3 className="mb-2 text-2xl font-bold text-slate-900 dark:text-slate-100">{problem.title}</h3>
+                        <p className="text-sm text-slate-600 dark:text-slate-400">{problem.description}</p>
                       </div>
                     </div>
                     <div className="flex shrink-0 flex-col items-end gap-2">
                       <span
-                        className={`rounded-full px-4 py-1 text-sm font-semibold ${
-                          problem.severity === "Critique" ? "bg-red-600 text-white" : "bg-orange-600 text-white"
-                        }`}
+                        className={`rounded-full px-4 py-1 text-sm font-semibold ${problem.severity === "Critique" ? "bg-red-600 text-white" : "bg-orange-600 text-white"
+                          }`}
                       >
                         {problem.severity}
                       </span>
@@ -553,10 +559,10 @@ export default function ProblematiquesPage() {
 
                   <div className="mb-6 grid gap-4 md:grid-cols-2">
                     <div>
-                      <h4 className="mb-3 font-semibold text-slate-900">Impacts environnementaux et sociaux</h4>
+                      <h4 className="mb-3 font-semibold text-slate-900 dark:text-slate-100">Impacts environnementaux et sociaux</h4>
                       <ul className="space-y-2">
                         {problem.impacts.map((impact, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-slate-700">
+                          <li key={idx} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
                             <AlertTriangle className={`mt-0.5 h-4 w-4 shrink-0 text-${problem.color}-600`} />
                             <span>{impact}</span>
                           </li>
@@ -564,8 +570,8 @@ export default function ProblematiquesPage() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="mb-3 font-semibold text-slate-900">Données 2025</h4>
-                      <p className="rounded-lg bg-slate-50 p-4 text-sm text-slate-700">{problem.data2025}</p>
+                      <h4 className="mb-3 font-semibold text-slate-900 dark:text-slate-100">Données 2025</h4>
+                      <p className="rounded-lg bg-slate-50 dark:bg-slate-900 p-4 text-sm text-slate-700 dark:text-slate-300">{problem.data2025}</p>
                     </div>
                   </div>
                 </Card>
@@ -578,11 +584,11 @@ export default function ProblematiquesPage() {
       {/* Carbon Footprint Breakdown */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
             Répartition de l'empreinte carbone du numérique
           </h2>
           <div className="grid gap-8 lg:grid-cols-2">
-            <Card className="border-2 border-slate-200 p-8">
+            <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8">
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
                   <Pie
@@ -599,49 +605,57 @@ export default function ProblematiquesPage() {
                       <Cell key={`cell-${index}`} fill={entry.color} />
                     ))}
                   </Pie>
-                  <Tooltip />
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: "var(--card)",
+                      border: "2px solid var(--border)",
+                      borderRadius: "0.5rem",
+                      color: "var(--foreground)"
+                    }}
+                    itemStyle={{ color: "var(--foreground)" }}
+                  />
                 </PieChart>
               </ResponsiveContainer>
             </Card>
 
             <div className="space-y-4">
-              <Card className="border-2 border-red-500 bg-red-50 p-6">
+              <Card className="border-2 border-red-500 bg-red-50 dark:bg-red-900/20 dark:border-red-700 p-6">
                 <div className="mb-3 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <Smartphone className="h-6 w-6 text-red-700" />
-                    <h3 className="font-bold text-slate-900">Équipements utilisateurs</h3>
+                    <Smartphone className="h-6 w-6 text-red-700 dark:text-red-400" />
+                    <h3 className="font-bold text-slate-900 dark:text-slate-100">Équipements utilisateurs</h3>
                   </div>
-                  <span className="text-2xl font-bold text-red-700">78%</span>
+                  <span className="text-2xl font-bold text-red-700 dark:text-red-400">78%</span>
                 </div>
-                <p className="text-sm text-slate-700">
+                <p className="text-sm text-slate-700 dark:text-slate-300">
                   La fabrication des smartphones, ordinateurs, tablettes, objets connectés représente les 3/4 de
                   l'impact. <strong>C'est là qu'il faut agir en priorité.</strong>
                 </p>
               </Card>
 
-              <Card className="border-2 border-amber-500 bg-amber-50 p-6">
+              <Card className="border-2 border-amber-500 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-700 p-6">
                 <div className="mb-3 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <Server className="h-6 w-6 text-amber-700" />
-                    <h3 className="font-bold text-slate-900">Datacenters</h3>
+                    <Server className="h-6 w-6 text-amber-700 dark:text-amber-400" />
+                    <h3 className="font-bold text-slate-900 dark:text-slate-100">Datacenters</h3>
                   </div>
-                  <span className="text-2xl font-bold text-amber-700">16%</span>
+                  <span className="text-2xl font-bold text-amber-700 dark:text-amber-400">16%</span>
                 </div>
-                <p className="text-sm text-slate-700">
+                <p className="text-sm text-slate-700 dark:text-slate-300">
                   Les centres de données consomment beaucoup d'énergie, mais leur efficacité s'améliore. Les efforts
                   portent sur les énergies renouvelables et le refroidissement.
                 </p>
               </Card>
 
-              <Card className="border-2 border-emerald-500 bg-emerald-50 p-6">
+              <Card className="border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 dark:border-emerald-700 p-6">
                 <div className="mb-3 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <Globe className="h-6 w-6 text-emerald-700" />
-                    <h3 className="font-bold text-slate-900">Réseaux</h3>
+                    <Globe className="h-6 w-6 text-emerald-700 dark:text-emerald-400" />
+                    <h3 className="font-bold text-slate-900 dark:text-slate-100">Réseaux</h3>
                   </div>
-                  <span className="text-2xl font-bold text-emerald-700">6%</span>
+                  <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">6%</span>
                 </div>
-                <p className="text-sm text-slate-700">
+                <p className="text-sm text-slate-700 dark:text-slate-300">
                   Les infrastructures réseau (fibre, 4G/5G, routeurs) ont un impact relativement faible mais en
                   croissance avec l'explosion du trafic de données.
                 </p>
@@ -652,19 +666,25 @@ export default function ProblematiquesPage() {
       </section>
 
       {/* Device Lifespan Trends */}
-      <section className="bg-slate-50 px-6 py-16 lg:py-24">
+      <section className="bg-slate-50 dark:bg-slate-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
             L'obsolescence accélérée des appareils
           </h2>
-          <Card className="border-2 border-slate-200 p-8 lg:p-12">
+          <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-8 lg:p-12">
             <ResponsiveContainer width="100%" height={400}>
               <LineChart data={deviceLifespanData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                 <XAxis dataKey="year" stroke="#64748b" />
                 <YAxis stroke="#64748b" label={{ value: "Années", angle: -90, position: "insideLeft" }} />
                 <Tooltip
-                  contentStyle={{ backgroundColor: "#fff", border: "2px solid #e2e8f0", borderRadius: "0.5rem" }}
+                  contentStyle={{
+                    backgroundColor: "var(--card)",
+                    border: "2px solid var(--border)",
+                    borderRadius: "0.5rem",
+                    color: "var(--foreground)"
+                  }}
+                  itemStyle={{ color: "var(--foreground)" }}
                 />
                 <Line
                   type="monotone"
@@ -692,7 +712,7 @@ export default function ProblematiquesPage() {
                 />
               </LineChart>
             </ResponsiveContainer>
-            <p className="mt-6 text-center text-sm text-slate-600">
+            <p className="mt-6 text-center text-sm text-slate-600 dark:text-slate-400">
               <strong>Durée de vie divisée par 2 en 15 ans</strong> - L'obsolescence programmée et les mises à jour
               logicielles forcent le renouvellement prématuré.
             </p>
@@ -703,13 +723,13 @@ export default function ProblematiquesPage() {
       {/* Current Trends */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 lg:text-4xl">Tendances actuelles 2025</h2>
+          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">Tendances actuelles 2025</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {currentTrends.map((trend, index) => {
               const Icon = trend.icon
               const impactColor = trend.impact === "Positif" ? "emerald" : trend.impact === "Négatif" ? "red" : "amber"
               return (
-                <Card key={index} className={`border-2 border-${impactColor}-500 bg-${impactColor}-50 p-6`}>
+                <Card key={index} className={`border-2 border-${impactColor}-500 bg-${impactColor}-50 dark:bg-${impactColor}-900/20 dark:border-${impactColor}-700 p-6`}>
                   <div className="mb-4 flex items-start justify-between">
                     <div
                       className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-${impactColor}-600`}
@@ -717,21 +737,20 @@ export default function ProblematiquesPage() {
                       <Icon className="h-6 w-6 text-white" />
                     </div>
                     <span
-                      className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                        trend.impact === "Positif"
-                          ? "bg-emerald-600 text-white"
-                          : trend.impact === "Négatif"
-                            ? "bg-red-600 text-white"
-                            : "bg-amber-600 text-white"
-                      }`}
+                      className={`rounded-full px-3 py-1 text-xs font-semibold ${trend.impact === "Positif"
+                        ? "bg-emerald-600 text-white"
+                        : trend.impact === "Négatif"
+                          ? "bg-red-600 text-white"
+                          : "bg-amber-600 text-white"
+                        }`}
                     >
                       {trend.impact}
                     </span>
                   </div>
-                  <h3 className="mb-3 text-lg font-bold text-slate-900">{trend.title}</h3>
-                  <p className="mb-4 text-sm text-slate-700">{trend.description}</p>
-                  <div className="rounded-lg bg-white p-3">
-                    <p className="text-xs font-semibold text-slate-900">{trend.data}</p>
+                  <h3 className="mb-3 text-lg font-bold text-slate-900 dark:text-slate-100">{trend.title}</h3>
+                  <p className="mb-4 text-sm text-slate-700 dark:text-slate-300">{trend.description}</p>
+                  <div className="rounded-lg bg-white dark:bg-slate-900 p-3">
+                    <p className="text-xs font-semibold text-slate-900 dark:text-slate-200">{trend.data}</p>
                   </div>
                 </Card>
               )
@@ -741,42 +760,41 @@ export default function ProblematiquesPage() {
       </section>
 
       {/* Current Solutions */}
-      <section className="bg-slate-50 px-6 py-16 lg:py-24">
+      <section className="bg-slate-50 dark:bg-slate-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
             Solutions actuelles déployées
           </h2>
           <div className="space-y-8">
             {currentSolutions.map((category, index) => {
               const Icon = category.icon
               return (
-                <Card key={index} className={`border-2 border-${category.color}-500 bg-white p-8`}>
+                <Card key={index} className={`border-2 border-${category.color}-500 bg-white dark:bg-slate-950 p-8`}>
                   <div className="mb-6 flex items-center gap-4">
                     <div
                       className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-${category.color}-600`}
                     >
                       <Icon className="h-7 w-7 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900">{category.category}</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">{category.category}</h3>
                   </div>
                   <div className="grid gap-6 md:grid-cols-3">
                     {category.solutions.map((solution, idx) => (
-                      <div key={idx} className="rounded-lg border-2 border-slate-200 bg-slate-50 p-6">
+                      <div key={idx} className="rounded-lg border-2 border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-6">
                         <div className="mb-3 flex items-start justify-between">
-                          <h4 className="font-semibold text-slate-900">{solution.name}</h4>
+                          <h4 className="font-semibold text-slate-900 dark:text-slate-100">{solution.name}</h4>
                           <span
-                            className={`rounded-full px-2 py-1 text-xs font-semibold ${
-                              solution.adoption === "Élevée"
-                                ? "bg-emerald-600 text-white"
-                                : solution.adoption === "Moyenne"
-                                  ? "bg-amber-600 text-white"
-                                  : "bg-slate-600 text-white"
-                            }`}
+                            className={`rounded-full px-2 py-1 text-xs font-semibold ${solution.adoption === "Élevée"
+                              ? "bg-emerald-600 text-white"
+                              : solution.adoption === "Moyenne"
+                                ? "bg-amber-600 text-white"
+                                : "bg-slate-600 text-white"
+                              }`}
                           >
                             {solution.adoption}
                           </span>
                         </div>
-                        <p className="text-sm text-slate-700">{solution.description}</p>
+                        <p className="text-sm text-slate-700 dark:text-slate-300">{solution.description}</p>
                       </div>
                     ))}
                   </div>
@@ -790,17 +808,23 @@ export default function ProblematiquesPage() {
       {/* Recycling Rates */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
             Taux de recyclage en Europe (2025)
           </h2>
-          <Card className="border-2 border-slate-200 p-8 lg:p-12">
+          <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-8 lg:p-12">
             <ResponsiveContainer width="100%" height={400}>
               <BarChart data={recyclingRatesData} layout="vertical">
                 <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                 <XAxis type="number" domain={[0, 100]} stroke="#64748b" />
                 <YAxis dataKey="country" type="category" stroke="#64748b" width={100} />
                 <Tooltip
-                  contentStyle={{ backgroundColor: "#fff", border: "2px solid #e2e8f0", borderRadius: "0.5rem" }}
+                  contentStyle={{
+                    backgroundColor: "var(--card)",
+                    border: "2px solid var(--border)",
+                    borderRadius: "0.5rem",
+                    color: "var(--foreground)"
+                  }}
+                  itemStyle={{ color: "var(--foreground)" }}
                 />
                 <Bar dataKey="rate" fill="#10b981" radius={[0, 8, 8, 0]} name="Taux de recyclage (%)" />
               </BarChart>
@@ -814,16 +838,16 @@ export default function ProblematiquesPage() {
       </section>
 
       {/* Future Solutions */}
-      <section className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 px-6 py-16 lg:py-24">
+      <section className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/40 dark:via-purple-950/40 dark:to-pink-950/40 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
             Solutions à développer pour l'avenir
           </h2>
           <div className="space-y-8">
             {futureSolutions.map((category, index) => {
               const Icon = category.icon
               return (
-                <Card key={index} className={`border-2 border-${category.color}-500 bg-white p-8`}>
+                <Card key={index} className={`border-2 border-${category.color}-500 bg-white dark:bg-slate-950 p-8`}>
                   <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                     <div className="flex items-center gap-4">
                       <div
@@ -832,31 +856,30 @@ export default function ProblematiquesPage() {
                         <Icon className="h-7 w-7 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-slate-900">{category.category}</h3>
-                        <p className="text-sm text-slate-600">Horizon : {category.timeframe}</p>
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">{category.category}</h3>
+                        <p className="text-sm text-slate-600 dark:text-slate-400">Horizon : {category.timeframe}</p>
                       </div>
                     </div>
                   </div>
                   <div className="grid gap-6 md:grid-cols-2">
                     {category.solutions.map((solution, idx) => (
-                      <div key={idx} className="rounded-lg border-2 border-slate-200 bg-slate-50 p-6">
+                      <div key={idx} className="rounded-lg border-2 border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-6">
                         <div className="mb-3 flex items-start justify-between">
-                          <h4 className="font-semibold text-slate-900">{solution.name}</h4>
+                          <h4 className="font-semibold text-slate-900 dark:text-slate-100">{solution.name}</h4>
                           <span
-                            className={`rounded-full px-2 py-1 text-xs font-semibold ${
-                              solution.potential === "Très élevé"
-                                ? "bg-emerald-600 text-white"
-                                : solution.potential === "Élevé"
-                                  ? "bg-teal-600 text-white"
-                                  : "bg-blue-600 text-white"
-                            }`}
+                            className={`rounded-full px-2 py-1 text-xs font-semibold ${solution.potential === "Très élevé"
+                              ? "bg-emerald-600 text-white"
+                              : solution.potential === "Élevé"
+                                ? "bg-teal-600 text-white"
+                                : "bg-blue-600 text-white"
+                              }`}
                           >
                             {solution.potential}
                           </span>
                         </div>
-                        <p className="mb-4 text-sm text-slate-700">{solution.description}</p>
-                        <div className="rounded-lg bg-amber-50 p-3">
-                          <p className="text-xs font-semibold text-amber-900">Défis : {solution.challenges}</p>
+                        <p className="mb-4 text-sm text-slate-700 dark:text-slate-300">{solution.description}</p>
+                        <div className="rounded-lg bg-amber-50 dark:bg-amber-900/30 p-3">
+                          <p className="text-xs font-semibold text-amber-900 dark:text-amber-200">Défis : {solution.challenges}</p>
                         </div>
                       </div>
                     ))}
@@ -871,14 +894,14 @@ export default function ProblematiquesPage() {
       {/* Key Messages */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 lg:text-4xl">Messages clés</h2>
+          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">Messages clés</h2>
           <div className="space-y-6">
-            <Card className="border-2 border-emerald-500 bg-emerald-50 p-6">
+            <Card className="border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 dark:border-emerald-700 p-6">
               <div className="flex items-start gap-4">
-                <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-emerald-700" />
+                <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-emerald-700 dark:text-emerald-400" />
                 <div>
-                  <h3 className="mb-2 font-semibold text-slate-900">Le problème principal : la fabrication</h3>
-                  <p className="text-sm text-slate-700">
+                  <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">Le problème principal : la fabrication</h3>
+                  <p className="text-sm text-slate-700 dark:text-slate-300">
                     78% de l'impact vient des équipements utilisateurs. Allonger la durée de vie de nos appareils est
                     l'action la plus efficace.
                   </p>
@@ -886,12 +909,12 @@ export default function ProblematiquesPage() {
               </div>
             </Card>
 
-            <Card className="border-2 border-teal-500 bg-teal-50 p-6">
+            <Card className="border-2 border-teal-500 bg-teal-50 dark:bg-teal-900/20 dark:border-teal-700 p-6">
               <div className="flex items-start gap-4">
-                <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-teal-700" />
+                <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-teal-700 dark:text-teal-400" />
                 <div>
-                  <h3 className="mb-2 font-semibold text-slate-900">Des solutions existent déjà</h3>
-                  <p className="text-sm text-slate-700">
+                  <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">Des solutions existent déjà</h3>
+                  <p className="text-sm text-slate-700 dark:text-slate-300">
                     Reconditionnement, réparation, écoconception, datacenters verts : de nombreuses solutions sont
                     déployées mais doivent être généralisées.
                   </p>
@@ -899,12 +922,12 @@ export default function ProblematiquesPage() {
               </div>
             </Card>
 
-            <Card className="border-2 border-blue-500 bg-blue-50 p-6">
+            <Card className="border-2 border-blue-500 bg-blue-50 dark:bg-blue-900/20 dark:border-blue-700 p-6">
               <div className="flex items-start gap-4">
-                <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-blue-700" />
+                <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-blue-700 dark:text-blue-400" />
                 <div>
-                  <h3 className="mb-2 font-semibold text-slate-900">L'innovation ne suffit pas</h3>
-                  <p className="text-sm text-slate-700">
+                  <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">L'innovation ne suffit pas</h3>
+                  <p className="text-sm text-slate-700 dark:text-slate-300">
                     Les technologies futures (IA, stockage ADN, processeurs efficaces) sont prometteuses mais la
                     sobriété numérique reste indispensable.
                   </p>
@@ -912,12 +935,12 @@ export default function ProblematiquesPage() {
               </div>
             </Card>
 
-            <Card className="border-2 border-purple-500 bg-purple-50 p-6">
+            <Card className="border-2 border-purple-500 bg-purple-50 dark:bg-purple-900/20 dark:border-purple-700 p-6">
               <div className="flex items-start gap-4">
-                <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-purple-700" />
+                <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-purple-700 dark:text-purple-400" />
                 <div>
-                  <h3 className="mb-2 font-semibold text-slate-900">Agir à tous les niveaux</h3>
-                  <p className="text-sm text-slate-700">
+                  <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">Agir à tous les niveaux</h3>
+                  <p className="text-sm text-slate-700 dark:text-slate-300">
                     Citoyens, entreprises, collectivités, législateurs : chacun a un rôle à jouer pour transformer le
                     numérique.
                   </p>
@@ -937,22 +960,26 @@ export default function ProblematiquesPage() {
             numérique.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button size="lg" className="bg-white text-emerald-700 hover:bg-emerald-50">
-              Voir les actions concrètes
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent">
-              Calculer mon empreinte
-            </Button>
+            <Link href="/agir" passHref>
+              <Button size="lg" className="bg-background text-emerald-700 hover:bg-emerald-50 dark:bg-slate-900 dark:text-emerald-400 dark:hover:bg-slate-800 border-none shadow-lg">
+                Voir les actions concrètes
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="/outils" passHref>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent dark:border-white/20">
+                Calculer mon empreinte
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Sources */}
-      <section className="border-t border-slate-200 bg-slate-50 px-6 py-8">
+      <section className="border-t border-slate-200 bg-slate-50 dark:bg-slate-950 dark:border-slate-800 px-6 py-8">
         <div className="mx-auto max-w-7xl">
-          <h3 className="mb-4 text-sm font-semibold text-slate-900">Sources</h3>
-          <div className="flex flex-wrap gap-4 text-sm text-slate-600">
+          <h3 className="mb-4 text-sm font-semibold text-slate-900 dark:text-slate-200">Sources</h3>
+          <div className="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-400">
             <span>Global E-Waste Monitor 2024 (ONU)</span>
             <span>•</span>
             <span>ADEME - Impact environnemental du numérique (2023)</span>

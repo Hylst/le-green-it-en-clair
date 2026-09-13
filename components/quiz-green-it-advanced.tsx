@@ -31,7 +31,7 @@ interface QuizQuestion {
 }
 
 // Base de 100 questions Green IT
-const quizQuestions: QuizQuestion[] = [
+const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
   // Bases du Green IT (10 questions)
   {
     id: 1,
@@ -1399,6 +1399,7 @@ type QuizMode = "discovery" | "full" | "category" | "challenge"
 export function QuizGreenITAdvanced() {
   const [mode, setMode] = useState<QuizMode | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  const [activeQuestions, setActiveQuestions] = useState<QuizQuestion[]>([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
   const [showExplanation, setShowExplanation] = useState(false)
@@ -1406,9 +1407,8 @@ export function QuizGreenITAdvanced() {
   const [answeredQuestions, setAnsweredQuestions] = useState<number[]>([])
   const [isFinished, setIsFinished] = useState(false)
   const [timeLeft, setTimeLeft] = useState(0)
-  const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([])
 
-  const categories = Array.from(new Set(quizQuestions.map((q) => q.category)))
+  const categories = Array.from(new Set(ALL_QUIZ_QUESTIONS.map((q) => q.category)))
 
   // Timer for challenge mode
   useEffect(() => {
@@ -1433,25 +1433,25 @@ export function QuizGreenITAdvanced() {
 
     if (selectedMode === "discovery") {
       // 10 random questions
-      const shuffled = [...quizQuestions].sort(() => Math.random() - 0.5)
+      const shuffled = [...ALL_QUIZ_QUESTIONS].sort(() => Math.random() - 0.5)
       questions = shuffled.slice(0, 10)
       setTimeLeft(0)
     } else if (selectedMode === "full") {
       // All 100 questions
-      questions = [...quizQuestions]
+      questions = [...ALL_QUIZ_QUESTIONS]
       setTimeLeft(0)
     } else if (selectedMode === "category" && category) {
       // Questions from selected category
-      questions = quizQuestions.filter((q) => q.category === category)
+      questions = ALL_QUIZ_QUESTIONS.filter((q) => q.category === category)
       setTimeLeft(0)
     } else if (selectedMode === "challenge") {
       // 20 random questions with timer
-      const shuffled = [...quizQuestions].sort(() => Math.random() - 0.5)
+      const shuffled = [...ALL_QUIZ_QUESTIONS].sort(() => Math.random() - 0.5)
       questions = shuffled.slice(0, 20)
       setTimeLeft(20 * 60) // 20 minutes
     }
 
-    setQuizQuestions(questions)
+    setActiveQuestions(questions)
   }
 
   const handleAnswer = (answerIndex: number) => {
@@ -1460,7 +1460,7 @@ export function QuizGreenITAdvanced() {
     setSelectedAnswer(answerIndex)
     setShowExplanation(true)
 
-    const currentQuestion = quizQuestions[currentQuestionIndex]
+    const currentQuestion = activeQuestions[currentQuestionIndex]
     if (answerIndex === currentQuestion.correctAnswer) {
       setScore(score + currentQuestion.points)
     }
@@ -1468,7 +1468,7 @@ export function QuizGreenITAdvanced() {
   }
 
   const handleNext = () => {
-    if (currentQuestionIndex < quizQuestions.length - 1) {
+    if (currentQuestionIndex < activeQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1)
       setSelectedAnswer(null)
       setShowExplanation(false)
@@ -1491,7 +1491,7 @@ export function QuizGreenITAdvanced() {
     setAnsweredQuestions([])
     setIsFinished(false)
     setTimeLeft(0)
-    setQuizQuestions([])
+    setActiveQuestions([])
   }
 
   const getLevel = (finalScore: number, totalQuestions: number) => {
@@ -1590,7 +1590,7 @@ export function QuizGreenITAdvanced() {
                 </option>
                 {categories.map((cat) => (
                   <option key={cat} value={cat}>
-                    {cat} ({quizQuestions.filter((q) => q.category === cat).length} questions)
+                    {cat} ({ALL_QUIZ_QUESTIONS.filter((q) => q.category === cat).length} questions)
                   </option>
                 ))}
               </select>
@@ -1615,8 +1615,8 @@ export function QuizGreenITAdvanced() {
 
   // Results screen
   if (isFinished) {
-    const levelInfo = getLevel(score, quizQuestions.length)
-    const maxScore = quizQuestions.reduce((sum, q) => sum + q.points, 0)
+    const levelInfo = getLevel(score, activeQuestions.length)
+    const maxScore = activeQuestions.reduce((sum, q) => sum + q.points, 0)
     const percentage = Math.round((score / maxScore) * 100)
 
     return (
@@ -1635,7 +1635,7 @@ export function QuizGreenITAdvanced() {
               {score} / {maxScore}
             </p>
             <p className="text-lg text-slate-600 dark:text-gray-300">
-              {percentage}% de réussite sur {quizQuestions.length} questions
+              {percentage}% de réussite sur {activeQuestions.length} questions
             </p>
           </div>
 
@@ -1685,8 +1685,8 @@ export function QuizGreenITAdvanced() {
   }
 
   // Quiz in progress
-  const currentQuestion = quizQuestions[currentQuestionIndex]
-  const progress = ((currentQuestionIndex + 1) / quizQuestions.length) * 100
+  const currentQuestion = activeQuestions[currentQuestionIndex]
+  const progress = ((currentQuestionIndex + 1) / activeQuestions.length) * 100
 
   return (
     <Card className="shadow-lg dark:bg-slate-800">
@@ -1720,7 +1720,7 @@ export function QuizGreenITAdvanced() {
         </div>
 
         <CardTitle className="text-lg">
-          Question {currentQuestionIndex + 1} / {quizQuestions.length}
+          Question {currentQuestionIndex + 1} / {activeQuestions.length}
         </CardTitle>
         <Progress value={progress} className="h-2" />
       </CardHeader>
@@ -1781,7 +1781,7 @@ export function QuizGreenITAdvanced() {
           </div>
           {showExplanation && (
             <Button onClick={handleNext} className="bg-blue-600 hover:bg-blue-700">
-              {currentQuestionIndex < quizQuestions.length - 1 ? "Question suivante" : "Voir les résultats"}
+              {currentQuestionIndex < activeQuestions.length - 1 ? "Question suivante" : "Voir les résultats"}
             </Button>
           )}
         </div>

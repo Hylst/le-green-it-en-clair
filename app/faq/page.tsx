@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { ChevronDown, ChevronUp, Search, HelpCircle } from "lucide-react"
+import Link from "next/link"
 
 const faqCategories = [
   {
@@ -264,19 +265,19 @@ export default function FAQPage() {
           )}
 
           <Card className="mt-12 border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 p-8 dark:border-emerald-800 dark:from-emerald-950 dark:to-teal-950">
-            <h3 className="mb-4 text-xl font-bold text-slate-900 dark:text-slate-100">
+            <h3 className="mb-4 text-xl font-bold text-foreground">
               Vous ne trouvez pas la réponse ?
             </h3>
-            <p className="mb-6 text-slate-700 dark:text-slate-300">
+            <p className="mb-6 text-muted-foreground">
               Consultez nos ressources complètes ou contactez-nous pour obtenir plus d'informations sur le numérique
               responsable.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button asChild className="bg-emerald-600 hover:bg-emerald-700">
-                <a href="/ressources">Voir les ressources</a>
+                <Link href="/ressources">Voir les ressources</Link>
               </Button>
               <Button asChild variant="outline">
-                <a href="/a-propos">Nous contacter</a>
+                <Link href="/a-propos">Nous contacter</Link>
               </Button>
             </div>
           </Card>

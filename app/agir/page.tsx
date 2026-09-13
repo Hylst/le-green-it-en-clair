@@ -271,14 +271,14 @@ export default function AgirPage() {
   const progress = Math.round((checkedCount / totalActions) * 100)
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 px-6 py-16 lg:py-24">
+      <section className="bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl">
+          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 lg:text-5xl">
             Comment agir pour un numérique responsable
           </h1>
-          <p className="text-pretty text-lg text-slate-600 lg:text-xl">
+          <p className="text-pretty text-lg text-slate-600 dark:text-slate-300 lg:text-xl">
             Des actions concrètes et efficaces adaptées à votre situation : citoyen, entreprise ou collectivité.
           </p>
         </div>
@@ -287,7 +287,7 @@ export default function AgirPage() {
       {/* Audience Selection */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-8 text-center text-2xl font-bold text-slate-900">Je suis...</h2>
+          <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 dark:text-slate-100">Je suis...</h2>
           <div className="mb-12 grid gap-6 md:grid-cols-3">
             {audiences.map((audience) => {
               const Icon = audience.icon
@@ -295,27 +295,25 @@ export default function AgirPage() {
               return (
                 <Card
                   key={audience.id}
-                  className={`group cursor-pointer border-2 p-6 transition-all hover:shadow-lg ${
-                    isSelected
-                      ? `border-${audience.color}-500 bg-${audience.color}-50`
-                      : "border-slate-200 hover:border-slate-300"
-                  }`}
+                  className={`group cursor-pointer border-2 p-6 transition-all hover:shadow-lg ${isSelected
+                    ? `border-${audience.color}-500 bg-${audience.color}-50 dark:bg-${audience.color}-900/20 dark:border-${audience.color}-400`
+                    : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-slate-300 dark:hover:border-slate-600"
+                    }`}
                   onClick={() => {
                     setSelectedAudience(audience.id)
                     setCheckedItems({})
                   }}
                 >
                   <div
-                    className={`mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl transition-colors ${
-                      isSelected
-                        ? `bg-${audience.color}-600 text-white`
-                        : `bg-${audience.color}-100 text-${audience.color}-700 group-hover:bg-${audience.color}-600 group-hover:text-white`
-                    }`}
+                    className={`mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl transition-colors ${isSelected
+                      ? `bg-${audience.color}-600 text-white`
+                      : `bg-${audience.color}-100 text-${audience.color}-700 group-hover:bg-${audience.color}-600 group-hover:text-white`
+                      }`}
                   >
                     <Icon className="h-7 w-7" />
                   </div>
-                  <h3 className="mb-2 text-xl font-bold text-slate-900">{audience.title}</h3>
-                  <p className="text-sm text-slate-600">{audience.description}</p>
+                  <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-slate-100">{audience.title}</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">{audience.description}</p>
                 </Card>
               )
             })}
@@ -327,7 +325,7 @@ export default function AgirPage() {
               <div className="mb-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="h-6 w-6 text-emerald-700" />
-                  <span className="font-semibold text-slate-900">
+                  <span className="font-semibold text-slate-900 dark:text-slate-100">
                     Votre progression : {checkedCount} / {totalActions} actions
                   </span>
                 </div>
@@ -345,8 +343,8 @@ export default function AgirPage() {
           {/* Action Checklist */}
           <div className="space-y-8">
             {actions.map((category, catIndex) => (
-              <Card key={catIndex} className="border-2 border-slate-200 p-6 lg:p-8">
-                <h3 className="mb-6 text-2xl font-bold text-slate-900">{category.category}</h3>
+              <Card key={catIndex} className="border-2 border-border bg-card text-card-foreground p-6 lg:p-8">
+                <h3 className="mb-6 text-2xl font-bold">{category.category}</h3>
                 <div className="space-y-4">
                   {category.actions.map((action, actionIndex) => {
                     const id = `${selectedAudience}-${catIndex}-${actionIndex}`
@@ -354,11 +352,10 @@ export default function AgirPage() {
                     return (
                       <div
                         key={actionIndex}
-                        className={`flex items-start gap-4 rounded-lg border-2 p-4 transition-all ${
-                          isChecked
-                            ? "border-emerald-500 bg-emerald-50"
-                            : "border-slate-200 bg-white hover:border-slate-300"
-                        }`}
+                        className={`flex items-start gap-4 rounded-lg border-2 p-4 transition-all ${isChecked
+                          ? "border-primary bg-primary/10"
+                          : "border-input bg-background/50 hover:border-accent"
+                          }`}
                       >
                         <Checkbox
                           id={id}
@@ -368,7 +365,7 @@ export default function AgirPage() {
                         />
                         <label
                           htmlFor={id}
-                          className={`flex-1 cursor-pointer text-slate-700 ${isChecked ? "line-through" : ""}`}
+                          className={`flex-1 cursor-pointer font-medium leading-relaxed ${isChecked ? "line-through text-muted-foreground" : "text-foreground"}`}
                         >
                           {action}
                         </label>
@@ -383,7 +380,7 @@ export default function AgirPage() {
           {/* Practical Tips Section */}
           <div className="space-y-8">
             {practicalTips.map((tip, tipIndex) => (
-              <Card key={tipIndex} className="border-2 border-slate-200 p-6 lg:p-8">
+              <Card key={tipIndex} className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 lg:p-8">
                 <div className="flex items-center gap-4">
                   <div
                     className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-${tip.color}-600`}
@@ -391,8 +388,8 @@ export default function AgirPage() {
                     <tip.icon className="h-7 w-7 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="mb-2 text-xl font-bold text-slate-900">{tip.title}</h3>
-                    <ul className="list-disc pl-6 text-sm text-slate-600">
+                    <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-slate-100">{tip.title}</h3>
+                    <ul className="list-disc pl-6 text-sm text-slate-600 dark:text-slate-400">
                       {tip.tips.map((tipItem, itemIndex) => (
                         <li key={itemIndex}>{tipItem}</li>
                       ))}
@@ -404,14 +401,14 @@ export default function AgirPage() {
           </div>
 
           {/* Download Section */}
-          <Card className="mt-8 border-2 border-blue-500 bg-blue-50 p-8">
+          <Card className="mt-8 border-2 border-blue-500 bg-blue-50 dark:bg-blue-900/20 dark:border-blue-800 p-8">
             <div className="flex flex-col items-center gap-4 text-center lg:flex-row lg:text-left">
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-blue-600">
                 <Download className="h-8 w-8 text-white" />
               </div>
               <div className="flex-1">
-                <h3 className="mb-2 text-xl font-bold text-slate-900">Télécharger le guide complet</h3>
-                <p className="text-slate-700">
+                <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-slate-100">Télécharger le guide complet</h3>
+                <p className="text-slate-700 dark:text-slate-300">
                   Retrouvez toutes ces actions dans un guide PDF pratique à imprimer ou partager.
                 </p>
               </div>
@@ -451,20 +448,20 @@ export default function AgirPage() {
       </section>
 
       {/* Resources Section */}
-      <section className="bg-slate-50 px-6 py-16 lg:py-24">
+      <section className="bg-slate-50 dark:bg-slate-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 lg:text-4xl">Ressources et partenaires</h2>
+          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">Ressources et partenaires</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <Card className="border-2 border-slate-200 p-6">
-              <h3 className="mb-3 text-lg font-bold text-slate-900">ADEME</h3>
-              <p className="mb-4 text-sm text-slate-600">
+            <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-6">
+              <h3 className="mb-3 text-lg font-bold text-slate-900 dark:text-slate-100">ADEME</h3>
+              <p className="mb-4 text-sm text-slate-600 dark:text-slate-400">
                 Guides pratiques et données sur l'impact environnemental du numérique
               </p>
               <a
                 href="https://www.ademe.fr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800"
+                className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
               >
                 Visiter le site
                 <ExternalLink className="ml-2 h-4 w-4" />
@@ -557,8 +554,8 @@ export default function AgirPage() {
       {/* CTA Section */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="mb-6 text-3xl font-bold text-slate-900 lg:text-4xl">Prêt à calculer votre impact ?</h2>
-          <p className="mb-8 text-lg text-slate-600">
+          <h2 className="mb-6 text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">Prêt à calculer votre impact ?</h2>
+          <p className="mb-8 text-lg text-slate-600 dark:text-slate-300">
             Utilisez notre calculateur d'empreinte numérique pour mesurer votre impact et suivre vos progrès.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">

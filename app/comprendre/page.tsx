@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link"
 import {
   Mountain,
   Factory,
@@ -25,6 +26,7 @@ import { VisualAnalogy } from "@/components/visual-analogy"
 import { RelatedLinks } from "@/components/related-links"
 import { AnimatedLifecycleSVG } from "@/components/animated-lifecycle-svg"
 import { AnimatedImpactBars } from "@/components/animated-impact-bars"
+import { ImageZoom } from "@/components/image-zoom"
 
 const lifecyclePhases = [
   {
@@ -111,63 +113,59 @@ export default function ComprendrePage() {
   const [selectedPhase, setSelectedPhase] = useState(0)
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background transition-colors duration-300">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 px-6 py-16 lg:py-24">
+      <section className="bg-secondary/30 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl">
+          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-foreground lg:text-5xl">
             Comprendre le cycle de vie du numérique
           </h1>
-          <p className="text-pretty text-lg text-slate-600 lg:text-xl mb-8">
+          <p className="text-pretty text-lg text-muted-foreground lg:text-xl mb-8">
             De l'extraction des matières premières au recyclage, découvrez l'impact environnemental réel de nos
             équipements électroniques à chaque étape de leur vie.
           </p>
-          <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-xl bg-slate-100 dark:bg-slate-800">
-            <Image
-              src="/images/lifecycle-numerique-hero.webp"
-              alt="Cycle de vie du numérique - de l'extraction au recyclage"
-              fill
-              className="object-contain"
-              priority
-              sizes="(max-width: 768px) 100vw, 896px"
-            />
-          </div>
+          <ImageZoom
+            src="/images/lifecycle-numerique-hero.webp"
+            alt="Cycle de vie du numérique - de l'extraction au recyclage"
+            containerClassName="aspect-[16/9] w-full rounded-2xl shadow-xl bg-muted border-2"
+            priority
+            sizes="(max-width: 768px) 100vw, 896px"
+          />
         </div>
       </section>
 
       {/* Animated Lifecycle Visualization */}
-      <section className="px-6 py-16 lg:py-24">
+      <section className="px-6 py-16 lg:py-24 bg-background">
         <div className="mx-auto max-w-5xl">
-          <h2 className="mb-8 text-center text-3xl font-bold text-slate-900 lg:text-4xl">
+          <h2 className="mb-8 text-center text-3xl font-bold text-foreground lg:text-4xl">
             Le cycle de vie en un coup d'œil
           </h2>
-          <p className="mb-12 text-center text-lg text-slate-600">
+          <p className="mb-12 text-center text-lg text-muted-foreground">
             Visualisation interactive des 5 phases du cycle de vie d'un appareil électronique
           </p>
-          <AnimatedLifecycleSVG />
+          <div className="bg-card rounded-2xl p-4 sm:p-8 shadow-sm border">
+            <AnimatedLifecycleSVG />
+          </div>
         </div>
       </section>
 
-      <section className="px-6 py-16 lg:py-24">
+      <section className="px-6 py-16 lg:py-24 bg-secondary/30">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-8 text-center text-3xl font-bold text-slate-900 lg:text-4xl">
+          <h2 className="mb-8 text-center text-3xl font-bold text-foreground lg:text-4xl">
             L'impact d'un smartphone en chiffres
           </h2>
-          <p className="mb-12 text-center text-lg text-slate-600">
+          <p className="mb-12 text-center text-lg text-muted-foreground">
             Pour mieux comprendre l'ampleur de l'impact, voici des comparaisons concrètes
           </p>
 
-          <div className="mb-12 relative aspect-[4/3] w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-slate-800">
-            <Image
-              src="/images/smartphone-impact-infographic.webp"
-              alt="Infographie détaillée de l'impact environnemental d'un smartphone : extraction de 70kg de ressources naturelles dont 50 métaux différents, émission de 55kg de CO2, consommation de 13000 litres d'eau, transport de 15000km avant d'arriver chez le consommateur. Comparaisons visuelles avec équivalents concrets : trajets en voiture, arbres nécessaires pour compenser, années d'utilisation recommandées."
-              fill
-              className="object-contain p-4"
-              loading="lazy"
-              quality={90}
-              sizes="(max-width: 768px) 100vw, 896px"
-            />
-          </div>
+          <ImageZoom
+            src="/images/smartphone-impact-infographic.webp"
+            alt="Infographie détaillée de l'impact environnemental d'un smartphone"
+            containerClassName="mb-12 aspect-[4/3] w-full max-w-4xl mx-auto rounded-2xl shadow-lg bg-card border"
+            className="p-4"
+            quality={90}
+            sizes="(max-width: 768px) 100vw, 896px"
+          />
 
           {/* Animated Impact Bars */}
           <div className="mb-12">
@@ -217,11 +215,11 @@ export default function ComprendrePage() {
           </div>
 
           {/* Text Transcript Section */}
-          <div className="mt-8 rounded-lg border border-slate-200 bg-slate-50 p-6 dark:border-slate-700 dark:bg-slate-800">
-            <h4 className="mb-3 text-lg font-semibold text-slate-900 dark:text-slate-100">
+          <div className="mt-8 rounded-lg border bg-card p-6">
+            <h4 className="mb-3 text-lg font-semibold text-card-foreground">
               Transcription textuelle de l'infographie
             </h4>
-            <div className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+            <div className="space-y-2 text-sm text-muted-foreground">
               <p>
                 <strong>Impact matières premières :</strong> 70 kg de ressources extraites, incluant 50 métaux
                 différents (lithium, cobalt, terres rares, or, argent)
@@ -248,9 +246,9 @@ export default function ComprendrePage() {
       </section>
 
       {/* Interactive Lifecycle Visualization */}
-      <section className="bg-slate-50 px-6 py-16 lg:py-24">
+      <section className="bg-secondary/30 px-6 py-16 lg:py-24 border-t">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">
             Les 5 étapes du cycle de vie
           </h2>
 
@@ -259,17 +257,19 @@ export default function ComprendrePage() {
             {lifecyclePhases.map((phase, index) => {
               const Icon = phase.icon
               const isActive = selectedPhase === index
+              const colorClass = phase.color // Use variable for template literals
+
               return (
                 <button
                   key={phase.id}
                   onClick={() => setSelectedPhase(index)}
                   className={`flex items-center gap-2 rounded-xl border-2 px-4 py-3 transition-all ${isActive
-                    ? `border-${phase.color}-500 bg-${phase.color}-50`
-                    : "border-slate-200 bg-white hover:border-slate-300"
+                    ? `border-primary bg-primary/10`
+                    : "bg-card hover:border-primary/30"
                     }`}
                 >
-                  <Icon className={`h-5 w-5 ${isActive ? `text-${phase.color}-700` : "text-slate-600"}`} />
-                  <span className={`text-sm font-medium ${isActive ? `text-${phase.color}-900` : "text-slate-700"}`}>
+                  <Icon className={`h-5 w-5 ${isActive ? `text-primary` : "text-muted-foreground"}`} />
+                  <span className={`text-sm font-medium ${isActive ? `text-foreground font-bold` : "text-muted-foreground"}`}>
                     {phase.title}
                   </span>
                 </button>
@@ -278,7 +278,7 @@ export default function ComprendrePage() {
           </div>
 
           {/* Visual Timeline */}
-          <div className="relative mb-16">
+          <div className="relative mb-16 px-4">
             <div className="flex items-center justify-between">
               {lifecyclePhases.map((phase, index) => {
                 const Icon = phase.icon
@@ -290,7 +290,7 @@ export default function ComprendrePage() {
                     {/* Connector Line */}
                     {index < lifecyclePhases.length - 1 && (
                       <div
-                        className={`absolute left-1/2 top-8 h-1 w-full transition-colors ${isPast ? "bg-emerald-500" : "bg-slate-200"
+                        className={`absolute left-1/2 top-8 h-1 w-full transition-colors ${isPast ? "bg-primary" : "bg-muted"
                           }`}
                       />
                     )}
@@ -299,20 +299,20 @@ export default function ComprendrePage() {
                     <button
                       onClick={() => setSelectedPhase(index)}
                       className={`relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-4 transition-all ${isActive
-                        ? "border-emerald-500 bg-emerald-500 shadow-lg"
+                        ? "border-primary bg-primary shadow-lg scale-110"
                         : isPast
-                          ? "border-emerald-500 bg-white"
-                          : "border-slate-200 bg-white hover:border-slate-300"
+                          ? "border-primary bg-card"
+                          : "bg-card hover:border-primary/30"
                         }`}
                     >
                       <Icon
-                        className={`h-7 w-7 ${isActive ? "text-white" : isPast ? "text-emerald-500" : "text-slate-400"
+                        className={`h-7 w-7 ${isActive ? "text-primary-foreground" : isPast ? "text-primary" : "text-muted-foreground"
                           }`}
                       />
                     </button>
 
                     {/* Label */}
-                    <span className="mt-3 hidden text-center text-xs font-medium text-slate-600 lg:block">
+                    <span className="mt-3 hidden text-center text-xs font-medium text-muted-foreground lg:block">
                       {phase.title.split(" ")[0]}
                     </span>
                   </div>
@@ -323,21 +323,22 @@ export default function ComprendrePage() {
 
           {/* Phase Details */}
           <div className="mx-auto max-w-5xl">
-            <Card className="overflow-hidden border-2 border-slate-200 p-8 lg:p-12">
+            <Card className="overflow-hidden border-2 bg-card p-8 lg:p-12 transition-all duration-300">
               <div className="mb-6 flex items-start gap-4">
                 {(() => {
-                  const Icon = lifecyclePhases[selectedPhase].icon
+                  const phase = lifecyclePhases[selectedPhase]
+                  const Icon = phase.icon
                   return (
                     <div
-                      className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-${lifecyclePhases[selectedPhase].color}-100`}
+                      className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-${phase.color}-100 dark:bg-${phase.color}-900/30`}
                     >
-                      <Icon className={`h-7 w-7 text-${lifecyclePhases[selectedPhase].color}-700`} />
+                      <Icon className={`h-7 w-7 text-${phase.color}-700 dark:text-${phase.color}-400`} />
                     </div>
                   )
                 })()}
                 <div>
-                  <h3 className="mb-2 text-2xl font-bold text-slate-900">{lifecyclePhases[selectedPhase].title}</h3>
-                  <p className="text-slate-600">{lifecyclePhases[selectedPhase].description}</p>
+                  <h3 className="mb-2 text-2xl font-bold text-card-foreground">{lifecyclePhases[selectedPhase].title}</h3>
+                  <p className="text-muted-foreground">{lifecyclePhases[selectedPhase].description}</p>
                 </div>
               </div>
 
@@ -346,27 +347,27 @@ export default function ComprendrePage() {
                 {lifecyclePhases[selectedPhase].impacts.map((impact, index) => {
                   const ImpactIcon = impact.icon
                   return (
-                    <div key={index} className="rounded-xl bg-slate-50 p-4">
-                      <ImpactIcon className="mb-2 h-6 w-6 text-emerald-700" />
-                      <div className="mb-1 text-2xl font-bold text-slate-900">{impact.value}</div>
-                      <div className="text-sm font-medium text-slate-700">{impact.label}</div>
-                      <div className="mt-1 text-xs text-slate-500">{impact.detail}</div>
+                    <div key={index} className="rounded-xl bg-secondary/50 p-4 border transition-all">
+                      <ImpactIcon className="mb-2 h-6 w-6 text-primary" />
+                      <div className="mb-1 text-2xl font-bold text-foreground">{impact.value}</div>
+                      <div className="text-sm font-medium text-muted-foreground">{impact.label}</div>
+                      <div className="mt-1 text-xs text-muted-foreground/70">{impact.detail}</div>
                     </div>
                   )
                 })}
               </div>
 
               {/* Analogy */}
-              <div className="mb-6 rounded-xl bg-emerald-50 border-2 border-emerald-200 p-6">
+              <div className="mb-6 rounded-xl bg-accent/10 border-2 border-accent/20 p-6">
                 <div className="mb-2 flex items-center gap-2">
-                  <Info className="h-5 w-5 text-emerald-700" />
-                  <span className="font-semibold text-emerald-900">Pour mieux comprendre</span>
+                  <Info className="h-5 w-5 text-primary" />
+                  <span className="font-semibold text-foreground">Pour mieux comprendre</span>
                 </div>
-                <p className="text-slate-700">{lifecyclePhases[selectedPhase].analogy}</p>
+                <p className="text-muted-foreground">{lifecyclePhases[selectedPhase].analogy}</p>
               </div>
 
               {/* Details */}
-              <p className="text-slate-600">{lifecyclePhases[selectedPhase].details}</p>
+              <p className="text-muted-foreground leading-relaxed">{lifecyclePhases[selectedPhase].details}</p>
 
               {/* Navigation Buttons */}
               <div className="mt-8 flex items-center justify-between">
@@ -380,7 +381,6 @@ export default function ComprendrePage() {
                 <Button
                   onClick={() => setSelectedPhase(Math.min(lifecyclePhases.length - 1, selectedPhase + 1))}
                   disabled={selectedPhase === lifecyclePhases.length - 1}
-                  className="bg-emerald-600 hover:bg-emerald-700"
                 >
                   Étape suivante
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -392,7 +392,7 @@ export default function ComprendrePage() {
       </section>
 
       {/* Related Links Section */}
-      <section className="px-6 py-16 lg:py-24">
+      <section className="px-6 py-16 lg:py-24 bg-background">
         <div className="mx-auto max-w-5xl">
           <RelatedLinks
             links={[
@@ -418,41 +418,41 @@ export default function ComprendrePage() {
       </section>
 
       {/* Key Takeaways */}
-      <section className="px-6 py-16 lg:py-24">
+      <section className="px-6 py-16 lg:py-24 bg-secondary/30">
         <div className="mx-auto max-w-5xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 lg:text-4xl">Les points clés à retenir</h2>
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">Les points clés à retenir</h2>
           <div className="grid gap-6 md:grid-cols-2">
-            <Card className="border-2 border-slate-200 p-6">
-              <div className="mb-3 text-3xl font-bold text-emerald-700">75%</div>
-              <h3 className="mb-2 font-semibold text-slate-900">La fabrication est la phase la plus polluante</h3>
-              <p className="text-sm text-slate-600">
+            <Card className="border-2 bg-card p-6">
+              <div className="mb-3 text-3xl font-bold text-primary">75%</div>
+              <h3 className="mb-2 font-semibold text-card-foreground">La fabrication est la phase la plus polluante</h3>
+              <p className="text-sm text-muted-foreground">
                 Les trois quarts de l'impact environnemental d'un appareil proviennent de sa fabrication. C'est pourquoi
                 le geste le plus efficace est de garder ses appareils le plus longtemps possible.
               </p>
             </Card>
 
-            <Card className="border-2 border-slate-200 p-6">
-              <div className="mb-3 text-3xl font-bold text-teal-700">50+</div>
-              <h3 className="mb-2 font-semibold text-slate-900">Des dizaines de métaux rares</h3>
-              <p className="text-sm text-slate-600">
+            <Card className="border-2 bg-card p-6">
+              <div className="mb-3 text-3xl font-bold text-accent-foreground">50+</div>
+              <h3 className="mb-2 font-semibold text-card-foreground">Des dizaines de métaux rares</h3>
+              <p className="text-sm text-muted-foreground">
                 Un smartphone contient plus de 50 métaux différents, dont certains sont très rares et difficiles à
                 extraire. Le recyclage permet de récupérer une partie de ces ressources précieuses.
               </p>
             </Card>
 
-            <Card className="border-2 border-slate-200 p-6">
-              <div className="mb-3 text-3xl font-bold text-blue-700">20%</div>
-              <h3 className="mb-2 font-semibold text-slate-900">L'usage compte moins qu'on ne pense</h3>
-              <p className="text-sm text-slate-600">
+            <Card className="border-2 bg-card p-6">
+              <div className="mb-3 text-3xl font-bold text-primary">20%</div>
+              <h3 className="mb-2 font-semibold text-card-foreground">L'usage compte moins qu'on ne pense</h3>
+              <p className="text-sm text-muted-foreground">
                 Contraire aux idées reçues, l'utilisation ne représente qu'environ 20% de l'impact total. Éteindre ses
                 appareils est utile, mais les garder plus longtemps l'est bien plus.
               </p>
             </Card>
 
-            <Card className="border-2 border-slate-200 p-6">
-              <div className="mb-3 text-3xl font-bold text-amber-700">45%</div>
-              <h3 className="mb-2 font-semibold text-slate-900">Le recyclage progresse en France</h3>
-              <p className="text-sm text-slate-600">
+            <Card className="border-2 bg-card p-6">
+              <div className="mb-3 text-3xl font-bold text-accent-foreground">45%</div>
+              <h3 className="mb-2 font-semibold text-card-foreground">Le recyclage progresse en France</h3>
+              <p className="text-sm text-muted-foreground">
                 En France, 45% des déchets électroniques sont recyclés grâce aux filières REP, contre seulement 20% au
                 niveau mondial. Mais il reste encore beaucoup à faire.
               </p>
@@ -462,30 +462,34 @@ export default function ComprendrePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-slate-50 px-6 py-16 lg:py-24">
+      <section className="bg-secondary/30 px-6 py-16 lg:py-24 border-t">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="mb-6 text-3xl font-bold text-slate-900 lg:text-4xl">Prêt à passer à l'action ?</h2>
-          <p className="mb-8 text-lg text-slate-600">
+          <h2 className="mb-6 text-3xl font-bold text-foreground lg:text-4xl">Prêt à passer à l'action ?</h2>
+          <p className="mb-8 text-lg text-muted-foreground">
             Maintenant que vous comprenez l'impact du numérique, découvrez les gestes concrets pour réduire votre
             empreinte environnementale.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
-              Découvrir les actions
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline">
-              Voir les chiffres détaillés
-            </Button>
+            <Link href="/agir">
+              <Button size="lg">
+                Découvrir les actions
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="/chiffres">
+              <Button size="lg" variant="outline">
+                Voir les chiffres détaillés
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Sources */}
-      <section className="border-t border-slate-200 bg-white px-6 py-8">
+      <section className="border-t bg-background px-6 py-8">
         <div className="mx-auto max-w-5xl">
-          <h3 className="mb-4 text-sm font-semibold text-slate-900">Sources</h3>
-          <div className="flex flex-wrap gap-4 text-sm text-slate-600">
+          <h3 className="mb-4 text-sm font-semibold text-foreground">Sources</h3>
+          <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
             <span>ADEME - Impact environnemental du numérique (2023)</span>
             <span>•</span>
             <span>Global E-Waste Monitor, ONU (2024)</span>

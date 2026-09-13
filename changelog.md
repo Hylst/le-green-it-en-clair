@@ -4,6 +4,13 @@ Je note ici ce qui change, même les petits trucs.
 
 ## pas encore sorti — 13/09/2026
 
+- fix du 14/09, build qui passe (42 pages) :
+  - pwa `/greenit` : manifest (`start_url`/`scope` + icônes `.webp`), sw (chemins + fallback), layout (`register('/greenit/sw.js')`, OG en `/greenit/...`, `generator: Next.js`), leaflet (`/greenit/images/...`)
+  - refs mortes : fallback placeholder -> vraie image, breadcrumb sans `flux-rss`, `font-heading` -> `font-poppins` x3, sitemap (+offline + 7 modeles, date en dur + `force-static`), dockerfile (`npm ci`, plus de pnpm)
+  - outils : boutons télécharger -> `window.print()`, audit -> son `exportPDF`, partager -> `navigator.share` + presse-papier, vieux `GreenITQuiz` viré, recherche complète (23 pages)
+  - build : `sheet-content.tsx` avait une `</div>` en trop qui plantait tout, réparé
+  - trouvé au passage : `npm run lint` marche pas, eslint est pas dans les dépendances. À trancher.
+
 - grosse relecture pessimiste, lecture seule, sans toucher au code. Résultat dans `todo.md` (P0 basePath/PWA + refs mortes).
 - docs passées en minuscules : `readme.md`, `about.md`, `todo.md`, `changelog.md` (les autres `agents.md`, `claude.md`, `structure.md`, `features.md`, `readme_dev.md` restent en local, dans le gitignore).
 - `readme.md` refait pour github (court, qui je suis, comment lancer).

@@ -50,18 +50,21 @@ const resources = [
         description: "ADEME - Rapport complet 2023",
         type: "PDF",
         size: "8.5 MB",
+        link: "https://librairie.ademe.fr/consommer-autrement/5226-evaluation-de-l-impact-environnemental-du-numerique-en-france-et-analyse-prospective.html",
       },
       {
         title: "Global E-Waste Monitor 2024",
         description: "ONU - Données mondiales",
         type: "PDF",
         size: "12.3 MB",
+        link: "https://ewastemonitor.info/",
       },
       {
         title: "Étude GreenIT.fr 2023",
         description: "État des lieux du numérique responsable",
         type: "PDF",
         size: "5.7 MB",
+        link: "https://www.greenit.fr/etude-empreinte-environnementale-du-numerique-mondial/",
       },
     ],
   },
@@ -72,21 +75,24 @@ const resources = [
     items: [
       {
         title: "Cycle de vie d'un smartphone",
-        description: "Visualisation interactive",
-        type: "PNG",
-        size: "1.2 MB",
+        description: "Infographie complète des 5 phases",
+        type: "WEBP",
+        size: "0.6 MB",
+        link: "/images/lifecycle-infographic.webp",
       },
       {
         title: "Répartition impact CO₂",
-        description: "Graphique détaillé",
-        type: "PNG",
-        size: "0.8 MB",
+        description: "Graphique - Production vs usage vs transport",
+        type: "WEBP",
+        size: "0.3 MB",
+        link: "/images/co2-distribution.webp",
       },
       {
-        title: "Carte des points de collecte",
-        description: "France métropolitaine",
-        type: "PNG",
-        size: "2.1 MB",
+        title: "Carte interactive des points de collecte",
+        description: "Carte dynamique France métropolitaine",
+        type: "WEB",
+        size: "Interactive",
+        link: "/recyclage",
       },
     ],
   },
@@ -241,12 +247,12 @@ export default function RessourcesPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-teal-50 to-emerald-50 px-6 py-16 lg:py-24 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+      <section className="bg-secondary/10 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl dark:text-slate-100">
+          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-foreground lg:text-5xl">
             Ressources et documentation
           </h1>
-          <p className="text-pretty text-lg text-slate-600 lg:text-xl dark:text-slate-300">
+          <p className="text-pretty text-lg text-muted-foreground lg:text-xl">
             Guides pratiques, rapports, infographies et liens utiles pour approfondir vos connaissances sur le Green IT
             et le numérique responsable.
           </p>
@@ -254,9 +260,9 @@ export default function RessourcesPage() {
       </section>
 
       {/* Downloadable Resources */}
-      <section className="px-6 py-16 lg:py-24">
+      <section className="px-6 py-16 lg:py-24 bg-background">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 lg:text-4xl dark:text-slate-100">
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">
             Documents téléchargeables
           </h2>
           <div className="space-y-12">
@@ -266,46 +272,58 @@ export default function RessourcesPage() {
                 <div key={catIndex}>
                   <div className="mb-6 flex items-center gap-3">
                     <div
-                      className={`flex h-10 w-10 items-center justify-center rounded-xl bg-${category.color}-100 dark:bg-${category.color}-900/30`}
+                      className={`flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10`}
                     >
-                      <Icon className={`h-5 w-5 text-${category.color}-700 dark:text-${category.color}-400`} />
+                      <Icon className={`h-5 w-5 text-primary`} />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">{category.category}</h3>
+                    <h3 className="text-2xl font-bold text-foreground">{category.category}</h3>
                   </div>
                   <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                     {category.items.map((item, itemIndex) => (
                       <Card
                         key={itemIndex}
-                        className="border-2 border-slate-200 p-6 transition-all hover:shadow-lg dark:border-slate-700 dark:bg-slate-800"
+                        className="border border-border p-6 transition-all hover:shadow-lg bg-card"
                       >
                         <div className="mb-4">
-                          <h4 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">{item.title}</h4>
-                          <p className="mb-3 text-sm text-slate-600 dark:text-slate-300">{item.description}</p>
-                          <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                            <span className="rounded bg-slate-100 px-2 py-1 font-medium dark:bg-slate-700">
+                          <h4 className="mb-2 font-semibold text-card-foreground">{item.title}</h4>
+                          <p className="mb-3 text-sm text-muted-foreground">{item.description}</p>
+                          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                            <span className="rounded bg-secondary px-2 py-1 font-medium">
                               {item.type}
                             </span>
                             {item.size && <span>{item.size}</span>}
                           </div>
                         </div>
-                        {item.link ? (
-                          <Link href={item.link}>
-                            <Button
-                              size="sm"
-                              className={`w-full bg-${category.color}-600 hover:bg-${category.color}-700`}
-                            >
-                              <FileText className="mr-2 h-4 w-4" />
-                              Consulter
-                            </Button>
-                          </Link>
+                        {typeof item.link === "string" && item.link.length > 0 ? (
+                          item.link.startsWith("http") ? (
+                            <a href={item.link} target="_blank" rel="noopener noreferrer">
+                              <Button
+                                size="sm"
+                                className="w-full bg-primary hover:bg-primary/90"
+                              >
+                                <ExternalLink className="mr-2 h-4 w-4" />
+                                Voir le rapport
+                              </Button>
+                            </a>
+                          ) : (
+                            <Link href={item.link}>
+                              <Button
+                                size="sm"
+                                className="w-full bg-primary hover:bg-primary/90"
+                              >
+                                <FileText className="mr-2 h-4 w-4" />
+                                Consulter
+                              </Button>
+                            </Link>
+                          )
                         ) : (
                           <Button
                             size="sm"
-                            className={`w-full bg-${category.color}-600 hover:bg-${category.color}-700`}
+                            className="w-full bg-muted text-muted-foreground"
                             disabled
                           >
                             <Download className="mr-2 h-4 w-4" />
-                            Télécharger (bientôt)
+                            Bientôt disponible
                           </Button>
                         )}
                       </Card>
@@ -319,25 +337,25 @@ export default function RessourcesPage() {
       </section>
 
       {/* External Links */}
-      <section className="bg-slate-50 px-6 py-16 lg:py-24 dark:bg-slate-900">
+      <section className="bg-secondary/5 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 lg:text-4xl dark:text-slate-100">
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">
             Liens utiles
           </h2>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {externalLinks.map((link, index) => (
               <Card
                 key={index}
-                className="border-2 border-slate-200 p-6 transition-all hover:shadow-lg dark:border-slate-700 dark:bg-slate-800"
+                className="border border-border p-6 transition-all hover:shadow-lg bg-card"
               >
-                <div className="mb-2 text-xs font-medium text-slate-500 dark:text-slate-400">{link.category}</div>
-                <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-slate-100">{link.name}</h3>
-                <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">{link.description}</p>
+                <div className="mb-2 text-xs font-medium text-muted-foreground">{link.category}</div>
+                <h3 className="mb-2 text-lg font-bold text-card-foreground">{link.name}</h3>
+                <p className="mb-4 text-sm text-muted-foreground">{link.description}</p>
                 <a
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
+                  className="inline-flex items-center text-sm font-semibold text-primary hover:underline"
                 >
                   Visiter le site
                   <ExternalLink className="ml-2 h-4 w-4" />
@@ -348,24 +366,24 @@ export default function RessourcesPage() {
         </div>
       </section>
 
-      <section className="px-6 py-16 lg:py-24">
+      <section className="px-6 py-16 lg:py-24 bg-background">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-8 text-center text-3xl font-bold text-slate-900 lg:text-4xl dark:text-slate-100">
+          <h2 className="mb-8 text-center text-3xl font-bold text-foreground lg:text-4xl">
             Glossaire du Green IT
           </h2>
-          <p className="mb-12 text-center text-lg text-slate-600 dark:text-slate-300">
+          <p className="mb-12 text-center text-lg text-muted-foreground">
             Tous les termes essentiels pour comprendre le numérique responsable
           </p>
 
           <div className="mb-8 space-y-4">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+              <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
               <Input
                 type="search"
                 placeholder="Rechercher un terme..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 dark:bg-slate-800 dark:border-slate-700"
+                className="pl-10 bg-card border-border"
               />
             </div>
 
@@ -385,27 +403,27 @@ export default function RessourcesPage() {
 
           <div className="grid gap-4 md:grid-cols-2">
             {filteredGlossary.map((item, index) => (
-              <Card key={index} className="border-2 border-slate-200 p-6 dark:border-slate-700 dark:bg-slate-800">
+              <Card key={index} className="border border-border p-6 bg-card">
                 <div className="mb-2 flex items-start justify-between">
-                  <h3 className="font-bold text-slate-900 dark:text-slate-100">{item.term}</h3>
+                  <h3 className="font-bold text-card-foreground">{item.term}</h3>
                   <Badge variant="secondary" className="text-xs">
                     {item.category}
                   </Badge>
                 </div>
-                <p className="text-sm text-slate-700 dark:text-slate-300">{item.definition}</p>
+                <p className="text-sm text-muted-foreground">{item.definition}</p>
               </Card>
             ))}
           </div>
 
           {filteredGlossary.length === 0 && (
             <div className="py-12 text-center">
-              <p className="text-slate-600 dark:text-slate-400">
+              <p className="text-muted-foreground">
                 Aucun terme trouvé pour "{searchTerm}". Essayez un autre mot-clé.
               </p>
             </div>
           )}
 
-          <div className="mt-8 text-center text-sm text-slate-500 dark:text-slate-400">
+          <div className="mt-8 text-center text-sm text-muted-foreground">
             {filteredGlossary.length} terme{filteredGlossary.length > 1 ? "s" : ""} affiché
             {filteredGlossary.length > 1 ? "s" : ""} sur {glossaryData.length}
           </div>

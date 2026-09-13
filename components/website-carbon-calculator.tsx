@@ -89,9 +89,9 @@ export function WebsiteCarbonCalculator() {
   }
 
   const getScoreColor = (score: number) => {
-    if (score >= 90) return "text-green-600 dark:text-green-400"
-    if (score >= 50) return "text-orange-600 dark:text-orange-400"
-    return "text-red-600 dark:text-red-400"
+    if (score >= 90) return "text-green-700 dark:text-green-400"
+    if (score >= 50) return "text-orange-700 dark:text-orange-400"
+    return "text-red-700 dark:text-red-400"
   }
 
   const getScoreLabel = (score: number) => {
@@ -101,11 +101,11 @@ export function WebsiteCarbonCalculator() {
   }
 
   const getCarbonRating = (carbonPerVisit: number) => {
-    if (carbonPerVisit < 0.5) return { label: "A+", color: "bg-green-600", textColor: "text-green-600" }
-    if (carbonPerVisit < 1) return { label: "A", color: "bg-green-500", textColor: "text-green-500" }
-    if (carbonPerVisit < 2) return { label: "B", color: "bg-yellow-500", textColor: "text-yellow-500" }
-    if (carbonPerVisit < 3) return { label: "C", color: "bg-orange-500", textColor: "text-orange-500" }
-    return { label: "D", color: "bg-red-500", textColor: "text-red-500" }
+    if (carbonPerVisit < 0.5) return { label: "A+", color: "bg-green-600", textColor: "text-green-800 dark:text-green-400" }
+    if (carbonPerVisit < 1) return { label: "A", color: "bg-green-500", textColor: "text-green-800 dark:text-green-400" }
+    if (carbonPerVisit < 2) return { label: "B", color: "bg-yellow-500", textColor: "text-yellow-800 dark:text-yellow-400" }
+    if (carbonPerVisit < 3) return { label: "C", color: "bg-orange-500", textColor: "text-orange-800 dark:text-orange-400" }
+    return { label: "D", color: "bg-red-500", textColor: "text-red-800 dark:text-red-400" }
   }
 
   if (!results) {

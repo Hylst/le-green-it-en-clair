@@ -17,6 +17,14 @@ Je note ici ce qui change, même les petits trucs.
   - accessibilité le 14/09 : lien "Aller au contenu" + `id` sur `main`, focus visible renforcé, onglets outils en `tablist/tab/tabpanel` + `aria-selected`, mini-quiz en `aria-pressed`.
   - sécu le 14/09 : headers nginx (`Referrer-Policy`, `Permissions-Policy`, viré `X-XSS-Protection` déprécié), `rel="noopener"` partout (manquait que sur actualites), 7 dépendances mortes virées (`@vercel/analytics`, `date-fns`, `embla`, `input-otp`, `vaul`, `react-day-picker`, `sonner`) + 7 composants shadcn orphelins supprimés (dont `sidebar` et son cookie mort).
   - RGPD le 14/09 : mentions légales réécrites pour de vrai (zéro cookie, thème en localStorage, cache SW, tuiles OSM, pas d'analytics). Contenu : section recyclage ajoutée au guide.
+  - audit navigateur le 14/09 (vrai Chromium sur l'export prod) :
+  - images cassées en prod : 24 chemins sans `/greenit` (hero, fiches, comprendre, développement, ressources) -> préfixés, vérifié visuellement. C'était le même nid à bugs que le basePath.
+  - console propre : manifest (`purpose` invalide viré), favicons déclarés dans le layout (plus de 404 `/favicon.ico`), `qualities: [75,85]` dans la config, meta `mobile-web-app-capable` ajouté.
+  - PDF orphelin (`guide-recyclage-green-it.pdf`, lié nulle part) -> bouton téléchargement dans le guide (et ça a viré un import `Download` mort).
+  - 31 boutons-dans-des-liens corrigés (`Button asChild`, comme la FAQ le faisait déjà) : lecteurs d'écran OK.
+  - recherche 100% français (les textes par défaut anglais de shadcn), onglets outils navigables aux flèches (motif APG : ids, roving tabindex, panneau lié).
+  - SW : les pages sont en network-first (v1.2.1). Avant, un visiteur qui revenait après un déploiement gardait le vieux HTML qui pointait vers des JS effacés -> site mort. Testé en reproduisant le bug en local.
+  - testé au clavier : skip-link visible au 1er Tab, menus + Escape, flèches dans les onglets. Reste du bruit console (prefetch Next `_rsc` en 404 sur l'export statique) : cosmétique, la navigation marche, noté dans `todo.md`.
 
 - grosse relecture pessimiste, lecture seule, sans toucher au code. Résultat dans `todo.md` (P0 basePath/PWA + refs mortes).
 - docs passées en minuscules : `readme.md`, `about.md`, `todo.md`, `changelog.md` (les autres `agents.md`, `claude.md`, `structure.md`, `features.md`, `readme_dev.md` restent en local, dans le gitignore).

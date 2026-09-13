@@ -55,5 +55,6 @@ FEATURES.md
 .antigravity/
 .cursor/
 .windsurf/
+.playwright-mcp/
 
 # pas de fichier par assistant (gemini.md, cursor.md, copilot.md...) : tout est dans agents.md, un seul endroit, pas de doublons

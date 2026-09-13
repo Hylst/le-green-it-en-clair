@@ -20,14 +20,18 @@ Ma liste, mise à jour le 13/09/2026 après une grosse relecture pessimiste (lec
 - [x] `npm run lint` : script viré le 14/09 (eslint était pas installé, ça induisait en erreur). Le check c'est la CI qui fait `npm run build`. Reste à faire : installer eslint pour de vrai + nettoyer les erreurs `tsc` (y'en a une dizaine, voir `npx tsc --noEmit`).
 - [x] `out/` vérifié le 14/09 : pas de sous-dossier `greenit` dedans, `index.html` + `manifest.json` + `sw.js` à la racine -> le `COPY out -> html/greenit` du Dockerfile est bon, pas de double nid.
 - [x] `/outils` découpé le 14/09 : 6 modules dans `components/outils/` chargés en `dynamic` (`ssr: false`) au lieu d'un seul fichier de 2000+ lignes. Build ok.
-- [x] PWA finie le 14/09 : icônes 192/512 générées depuis `apple-icon.webp`, manifest complété, cache SW bumpé `v1.2.0`. Reste à tester l'install + le offline sur `hylst.fr/greenit` pour de vrai.
+- [x] PWA finie le 14/09 : icônes 192/512 générées depuis `apple-icon.webp`, manifest complété, cache SW bumpé `v1.2.0` puis `v1.2.1` (network-first pour les pages, sinon site cassé pour les revenants après chaque déploiement).
+- [x] audit navigateur le 14/09 (Chromium sur l'export prod en local) : 24 images sans `/greenit` réparées, 31 boutons-dans-liens en `asChild`, recherche en français, onglets au clavier, skip-link + Escape testés. Détail dans `changelog.md`.
 
 ## 🔴 important mais pas cassé
 
 - [ ] tester chrome / firefox / safari, en prod `/greenit/` pas juste en dev
-- [ ] tester mobile plusieurs tailles
+- [ ] tester mobile plusieurs tailles (+ lecteur d'écran NVDA/VoiceOver pour de vrai)
+- [ ] bruit console : les prefetch Next (`*_rsc`, `__PAGE__.txt` en 404) sur l'export statique. Cosmétique (la navigation retombe sur la page complète), mais à surveiller si Next propose une option propre un jour.
+- [ ] breadcrumb : les segments d'URL s'affichent en minuscule ("guide", "mentions legales") au lieu de jolis labels. Faut une table de correspondance.
+- [ ] emoji 🎯 dans un titre (page d'accueil) : le masquer aux lecteurs d'écran (`aria-hidden`) ou le virer.
 - [ ] chasser les liens morts (un petit `lychee` sur `out/` après build, ça serait bien)
-- [ ] audit accessibilité WCAG, les contrastes + clavier
+- [ ] audit contrastes WCAG au cas par cas (le clavier est testé : skip-link, menus, onglets, Escape — voir changelog du 14/09)
 - [ ] perfs : le fichier outils fait 1900 lignes, à découper
 - [x] sitemap.xml -> fait (`sitemap.ts` + robots), reste à compléter (voir P0)
 - [x] redirects 301 -> fait dans nginx (`/` -> `/greenit/`)

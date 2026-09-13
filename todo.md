@@ -1,112 +1,59 @@
-# TODO - Le Green IT en clair
+# todo
 
-Liste des tâches et améliorations prévues pour le site.
+Ma liste, mise à jour le 13/09/2026 après une grosse relecture pessimiste (lecture seule, j'ai rien cassé, promis).
 
-## 🔴 Priorité Haute - À faire immédiatement
+## 🔴 P0 — ce qui casse en prod sous /greenit
 
-- [ ] Tester toutes les pages sur différents navigateurs (Chrome, Firefox, Safari)
-- [ ] Vérifier l'affichage mobile sur plusieurs tailles d'écran
-- [ ] Corriger les éventuels liens cassés
-- [ ] Valider l'accessibilité WCAG 2.1 AA avec un audit complet
-- [ ] Optimiser les performances (Core Web Vitals)
-- [ ] Ajouter un sitemap.xml pour le SEO
-- [ ] Configurer les redirections 301 si nécessaire
-- [ ] Tester le mode sombre sur toutes les pages
+- [ ] manifest : `start_url` + `scope` en `/` au lieu de `/greenit/`, icônes en `.png` qui existent pas (mes fichiers sont en `.webp`). Faut choisir : je renomme ou je corrige le json + j'ajoute du 192/512.
+- [ ] sw.js : chemins sans `/greenit`, fallback sur `/`, icônes `.png` fantômes. + dans `layout.tsx` le `register('/sw.js')` qui devrait être `/greenit/sw.js`. Et le `href="/greenit/manifest.json"`, à vérifier qu'il se fait pas préfixer 2 fois.
+- [ ] images + leaflet en dur : hero + e-waste + OG en `/...`, icônes leaflet en `/images/leaflet/...`. En prod ça fait 404. Faut un petit helper basePath.
+- [ ] `fiches-pratiques/page.tsx:112` : fallback `/placeholder.svg`, fichier supprimé. Mettre une vraie image.
+- [ ] `breadcrumb.tsx:37` : virer la ligne `flux-rss`.
+- [ ] `font-heading` : 3 endroits (outils:62, a-propos:14, sitemap-page:81), classe qui existe pas -> `font-poppins`.
+- [ ] `layout.tsx:76` : `generator: 'v0.app'` -> `Next.js`.
+- [ ] `sitemap.ts` : rajouter `/offline/` + les 7 `modeles/*`, et arrêter le `new Date()` à chaque build.
+- [ ] `Dockerfile` : virer le `COPY pnpm-lock.yaml*` (j'ai pas ce fichier, `ls` me dit que non), passer en `npm ci`.
+- [ ] outils : brancher ou virer les boutons "télécharger" du calculateur (ligne ~559) + simulateur (~947). Vérifier aussi les 2 autres vers 1834 / 2537.
+- [ ] outils : virer la fonction `GreenITQuiz` (~977) qui sert à rien, et refaire la grille (4 colonnes pour 7 cartes, bof).
+- [ ] recherche : rajouter les 13 pages manquantes (mythes, cas-pratiques, recyclage, dev, réglementation, perspectives, guide, ressources, modeles, faq, mentions, offline, sitemap...).
 
-## 🟠 Priorité Moyenne - Prochaines semaines
+## 🔴 important mais pas cassé
 
-### Contenu
-- [ ] Créer la page "Success Stories" avec études de cas réelles
-- [ ] Ajouter des vidéos explicatives (YouTube embeds ou créées)
-- [ ] Développer le blog avec 5 premiers articles
-- [ ] Traduire certaines pages en anglais (version internationale)
-- [ ] Créer des infographies téléchargeables supplémentaires
-- [ ] Ajouter une section "Livres recommandés"
+- [ ] tester chrome / firefox / safari, en prod `/greenit/` pas juste en dev
+- [ ] tester mobile plusieurs tailles
+- [ ] chasser les liens morts (un petit `lychee` sur `out/` après build, ça serait bien)
+- [ ] audit accessibilité WCAG, les contrastes + clavier
+- [ ] perfs : le fichier outils fait 1900 lignes, à découper
+- [x] sitemap.xml -> fait (`sitemap.ts` + robots), reste à compléter (voir P0)
+- [x] redirects 301 -> fait dans nginx (`/` -> `/greenit/`)
+- [ ] retester le dark partout
 
-### Outils interactifs
-- [x] Développer le calculateur d'empreinte de site web (analyse d'URL)
-- [x] Créer un simulateur d'économies pour entreprises
-- [x] Ajouter un comparateur de fournisseurs cloud/hébergeurs
-- [x] Développer un outil d'audit de parc informatique
-- [x] Créer un quiz avancé multi-niveaux avec scores
+## 🟠 contenu, plus tard
 
-### Communauté
-- [ ] Implémenter le système de newsletter
-- [ ] Ajouter des boutons de partage social optimisés
-- [ ] Créer un formulaire de contact fonctionnel
-- [ ] Développer un système de commentaires/feedback par page
-- [ ] Ajouter une page "Contribuer au projet"
+- [ ] success stories avec des vrais cas
+- [ ] vidéos
+- [ ] blog, 5 articles pour commencer
+- [ ] version anglaise ? peut-être
+- [ ] infographies en plus, section livres
+- [ ] documenter `guide/` + `mentions-legales/` (pas encore commités)
+- [x] les 5 outils avancés : fait (site web, entreprise, cloud, audit, quiz)
 
-## 🟡 Priorité Basse - Futur
+## 🟠 communauté
 
-### Fonctionnalités avancées
-- [ ] Créer un système de compte utilisateur
-- [ ] Implémenter un dashboard personnel avec suivi de progression
-- [ ] Développer un système de badges et gamification
-- [ ] Créer un forum communautaire
-- [ ] Ajouter la géolocalisation pour la carte de recyclage
-- [ ] Implémenter un service worker pour le mode offline (PWA)
+- [ ] newsletter, partage social, formulaire contact qui marche, commentaires, page contribuer
 
-### Contenu éducatif
-- [ ] Développer un parcours de formation certifiant
-- [ ] Créer une section "Pour les enfants" avec jeux éducatifs
-- [ ] Ajouter des ressources pour enseignants
-- [ ] Créer des podcasts interviews d'experts
-- [ ] Développer des webinaires et replays
+## 🟡 un jour
 
-### Performance & Technique
-- [ ] Implémenter l'internationalisation (i18n)
-- [ ] Ajouter un système de cache intelligent
-- [ ] Optimiser le bundle JavaScript
-- [ ] Créer une API REST pour les données
-- [ ] Ajouter des tests automatisés (Jest, Playwright)
+comptes, dashboard, badges, forum, géoloc carte, offline nickel, formation, espace enfants, podcasts, webinaires, i18n, cache, API, tests auto (jest/playwright), anim d'intro, print-friendly, mascotte...
 
-### Design & UX
-- [ ] Créer une animation d'introduction au premier chargement
-- [ ] Ajouter des micro-interactions sur les boutons
-- [ ] Développer une version print-friendly
-- [ ] Créer des templates d'email pour la newsletter
-- [ ] Designer une mascotte pour le site
+## 📊 fond de roulement
 
-## 📊 Améliorations continues
+- [ ] màj chiffres, actus, glossaire, viser 15 fiches, étoffer la FAQ
+- [ ] SEO / analytics / temps de chargement / backlinks
 
-### Contenu
-- [ ] Mettre à jour les données avec les chiffres les plus récents
-- [ ] Ajouter de nouvelles actualités régulièrement
-- [ ] Enrichir le glossaire avec nouveaux termes
-- [ ] Créer de nouvelles fiches pratiques (objectif : 15 fiches)
-- [ ] Étoffer la FAQ avec questions des utilisateurs
+## ✅ fait
 
-### SEO & Analytics
-- [ ] Suivre et améliorer le référencement naturel
-- [ ] Analyser le comportement des visiteurs
-- [ ] Optimiser les temps de chargement
-- [ ] Améliorer les taux de conversion sur les CTA
-- [ ] Obtenir des backlinks de qualité
-
-## ✅ Terminé
-
-### Phase 2 - Upgrade & Polish (Janvier 2026)
-- [x] Implémenter le mode offline et PWA (Service Worker)
-- [x] Ajouter le bouton d'installation PWA
-- [x] Créer un sitemap.xml dynamique pour le SEO
-- [x] Configurer le fichier robots.txt
-- [x] Intégrer une carte interactive réelle (Leaflet)
-- [x] Développer la géolocalisation des points de collecte
-- [x] Implémenter l'export PDF pour les outils (Audit, Simulateur)
-- [x] Créer un guide du recyclage premium en PDF
-- [x] Migrer toutes les images vers le format WebP
-- [x] Configurer le déploiement Docker / Nginx / Coolify
-- [x] Corriger les erreurs de typage TypeScript
-
-### Phase 1 - Structure de base & Outils (Janvier 2025 - Janvier 2026)
-- [x] Créer la page d'accueil avec parcours utilisateurs
-- [x] Développer la section "Comprendre" avec cycle de vie
-- [x] Ajouter les visualisations de données interactives
-- [x] Développer les outils interactifs (calculateur, simulateur, quiz, audit, cloud)
-- [x] Ajouter la page recyclage et datacenters
-- [x] Optimiser toutes les images en WebP
-- [x] Implémenter les infographies SVG animées
-- [x] Mettre à jour Next.js 16.1 et React 19.2
-- [x] Créer la documentation (README, CHANGELOG, ABOUT, TODO)
-
+- 13/09 : passage docs en minuscules + gitignore local + relecture pessimiste (sans toucher au code)
+- 13/09 (avant) : réécriture readme + agents/structure/features, todo reclassé, changelog fixé (dates 2025 -> 2026/2027, Geist -> Poppins/Inter)
+- janvier 2026 : PWA, carte leaflet, PDF audit/entreprise + guide recyclage, webp partout, docker/nginx, sitemap/robots, fix TS
+- 2025-2026 : accueil, comprendre, chiffres, outils de base, recyclage, datacenters, svg animées, Next 16 / React 19, docs de base

@@ -25,6 +25,7 @@ Ma liste, mise à jour le 13/09/2026 après une grosse relecture pessimiste (lec
 - [x] audit navigateur le 14/09 (Chromium sur l'export prod en local) : 24 images sans `/greenit` réparées, 31 boutons-dans-liens en `asChild`, recherche en français, onglets au clavier, skip-link + Escape testés. Détail dans `changelog.md`.
 - [x] `website-carbon` : fini les résultats en `Math.random()` — estimateur honnête (poids saisi par l'utilisateur, green-check GWF en direct, formule SWD v4 affichée + mentions, boutons imprimer/partager branchés). Fait le 14/09, build ok.
 - [x] `actualites` : fini les fausses dépêches attribuées à de vrais organismes + le faux « flux en direct » — encarts « À la une » marqués exemples (rédaction du site, sujets vrais), onglet Veille devenu un annuaire de sources externes. Fait le 14/09, build ok.
+- [x] `problematiques` : chiffres P0 corrigés (e-déchets trajectoire GEM 2024, recyclage 22,3 %, export illégal minoritaire, IA ~0,3 Wh, SD ~0,7 Go/h, lithium ×3 2017-2022, 62 % renouvellements ADEME 2026, UE 5 ans màj + 7 ans pièces, eau 12 000 L, TSMC ~67 %, Ghana/Nigeria chiffrés). Stabilisé à la main le 15/09 après interruption d'un sous-agent, build + export vérifiés.
 
 ## 🔴 important mais pas cassé
 

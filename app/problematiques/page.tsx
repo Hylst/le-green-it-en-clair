@@ -47,8 +47,9 @@ const eWasteGrowthData = [
   { year: 2019, amount: 53.6 },
   { year: 2021, amount: 57.4 },
   { year: 2022, amount: 62.0 },
-  { year: 2024, amount: 68.5 },
-  { year: 2025, amount: 74.7 },
+  { year: 2024, amount: 67.2 },
+  { year: 2025, amount: 69.8 },
+  { year: 2030, amount: 82.0 },
 ]
 
 // Data for digital carbon footprint by sector
@@ -92,16 +93,16 @@ const mainProblems = [
       "Épuisement des ressources non renouvelables",
     ],
     data2025:
-      "En 2025, la demande en lithium a augmenté de 400% par rapport à 2015, principalement pour les batteries.",
+      "Bonne nouvelle : la demande en lithium a triplé entre 2017 et 2022 (AIE, Critical Minerals Market Review 2023), et prolonger la vie de nos batteries reste le geste le plus efficace.",
   },
   {
     title: "Déchets électroniques exponentiels",
     icon: Trash2,
     color: "orange",
     severity: "Critique",
-    stats: "74,7 Mt de e-déchets en 2025",
+    stats: "~70 Mt de e-déchets en 2025 (GEM 2024)",
     description:
-      "La production mondiale de déchets électroniques augmente 3 fois plus vite que la population. Seulement 17,4% sont recyclés correctement.",
+      "La production mondiale de déchets électroniques augmente plus vite que la population : 62 Mt en 2022, environ 69-70 Mt en 2025, 82 Mt projetées en 2030 (+2,6 Mt/an). Seuls 22,3 % ont été collectés et recyclés en 2022 (Global E-waste Monitor 2024).",
     impacts: [
       "Pollution des sols et de l'eau par métaux lourds",
       "Incinération toxique dans les pays en développement",
@@ -143,14 +144,14 @@ const mainProblems = [
       "Culture du jetable plutôt que de la réparation",
     ],
     data2025:
-      "88% des Français changent de smartphone alors qu'il fonctionne encore. Les mises à jour iOS et Android rendent les appareils de plus de 3 ans obsolètes.",
+      "62 % des Français renouvellent leur smartphone alors qu'il fonctionne encore (ADEME, 2026). Bonne nouvelle : en 2026, Apple propose 5 à 7 ans de mises à jour, les Pixel et Samsung récents jusqu'à 7 ans, et l'UE impose 5 ans de mises à jour et 7 ans de pièces détachées depuis juin 2025 (règlement 2023/1670).",
   },
   {
     title: "Pollution de l'eau",
     icon: Droplets,
     color: "blue",
     severity: "Élevé",
-    stats: "15 000 litres d'eau pour 1 smartphone",
+    stats: "12 000 litres d'eau pour 1 smartphone",
     description:
       "La fabrication des composants électroniques nécessite d'énormes quantités d'eau ultra-pure. Les usines de semi-conducteurs sont parmi les plus grandes consommatrices d'eau industrielle.",
     impacts: [
@@ -160,16 +161,16 @@ const mainProblems = [
       "Assèchement de nappes phréatiques",
     ],
     data2025:
-      "Taiwan, qui produit 60% des puces mondiales, fait face à une crise de l'eau aggravée par l'industrie des semi-conducteurs.",
+      "Taïwan concentre l'essentiel de la fonderie mondiale (TSMC : environ 67 % en valeur, Counterpoint, T4 2024), une industrie très gourmande en eau ultra-pure.",
   },
   {
     title: "Inégalités sociales et géographiques",
     icon: Globe,
     color: "purple",
     severity: "Élevé",
-    stats: "80% des e-déchets exportés vers l'Afrique et l'Asie",
+    stats: "Export illégal réel mais minoritaire (GEM 2024)",
     description:
-      "Les pays riches exportent leurs déchets électroniques vers les pays pauvres, où ils sont démontés dans des conditions dangereuses, exposant les populations à des toxiques.",
+      "Une partie des déchets électroniques est exportée illégalement vers des pays aux filières fragiles, où le démontage se fait parfois dans des conditions dangereuses. Mais la majorité est traitée localement : allonger la durée de vie et trier reste le geste le plus utile (Global E-waste Monitor 2024).",
     impacts: [
       "Exploitation des travailleurs, y compris des enfants",
       "Pollution concentrée dans les pays du Sud",
@@ -177,7 +178,7 @@ const mainProblems = [
       "Injustice environnementale globale",
     ],
     data2025:
-      "Le Ghana et le Nigeria reçoivent chaque année 250 000 tonnes de e-déchets européens, souvent étiquetés frauduleusement comme 'matériel d'occasion'.",
+      "Le Nigeria a importé environ 288 kt d'équipements usagés en 2017 et le Ghana environ 215 kt, dont seule une partie sont de vrais déchets ; les flux illégaux (environ 20 kt/an au Ghana en 2019) existent mais restent minoritaires (Trésor français, Global E-waste Monitor 2024).",
   },
 ]
 
@@ -188,8 +189,8 @@ const currentTrends = [
     trend: "up",
     impact: "Négatif",
     description:
-      "ChatGPT, Midjourney, et autres IA génératives consomment 10 à 100 fois plus d'énergie qu'une recherche Google classique.",
-    data: "Une requête ChatGPT = 2,9 Wh vs 0,3 Wh pour Google",
+      "Un prompt texte simple consomme environ 0,3 Wh, soit à peu près autant qu'une recherche web. Les usages gourmands (raisonnement poussé, image, vidéo) peuvent consommer 10 à 100 fois plus : à réserver aux vrais besoins.",
+    data: "≈ 0,3 Wh par prompt texte simple (≈ une recherche) ; ×10 à ×100 pour raisonnement/image/vidéo (mesures 2025-2026 : Epoch AI, Altman, Google, Joule)",
   },
   {
     title: "5G et 6G en déploiement",
@@ -234,7 +235,7 @@ const currentTrends = [
     impact: "Négatif",
     description:
       "Le streaming représente 60% du trafic internet mondial. La 4K et 8K multiplient la bande passante nécessaire.",
-    data: "1h de streaming 4K = 6 GB vs 0,3 GB en SD",
+    data: "1h de streaming 4K = 6 Go vs ~0,7 Go en SD (Kamiya)",
   },
 ]
 
@@ -516,8 +517,8 @@ export default function ProblematiquesPage() {
               </LineChart>
             </ResponsiveContainer>
             <p className="mt-6 text-center text-sm text-slate-600 dark:text-slate-400">
-              <strong>+67% en 10 ans</strong> - La production mondiale de déchets électroniques augmente 3 fois plus
-              vite que la population mondiale.
+              <strong>+56 % en 10 ans</strong> - 62 Mt en 2022, environ 69-70 Mt en 2025, 82 Mt projetées en 2030
+              (+2,6 Mt/an, Global E-waste Monitor 2024).
             </p>
           </Card>
         </div>
@@ -981,6 +982,14 @@ export default function ProblematiquesPage() {
           <h3 className="mb-4 text-sm font-semibold text-slate-900 dark:text-slate-200">Sources</h3>
           <div className="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-400">
             <span>Global E-Waste Monitor 2024 (ONU)</span>
+            <span>•</span>
+            <span>AIE - Critical Minerals Market Review 2023</span>
+            <span>•</span>
+            <span>Epoch AI, Altman, Google, Joule - mesures IA 2025-2026</span>
+            <span>•</span>
+            <span>Kamiya - streaming SD ~0,7 Go/h</span>
+            <span>•</span>
+            <span>UE - 5 ans de mises à jour, 7 ans de pièces (règlement 2023/1670)</span>
             <span>•</span>
             <span>ADEME - Impact environnemental du numérique (2023)</span>
             <span>•</span>

@@ -122,3 +122,5 @@
 ## Journal
 
 - 2026-09-15 : campagne créée, en attente de cartographie exhaustive.
+- 2026-09-15 : tâches 1 (collecte illustrative) et 2 (cloud 0,24 g) terminées, relues, vérifiées.
+- 2026-09-15 : tâche 3a (`problematiques`) interrompue côté sous-agent (diff non committé repris à la main, durci en pessimiste : 88 % → 62 %, UE précisé, Taïwan/Ghana-Nigeria chiffrés, eau 12 000 L). Build + export vérifiés. Leçon : sous-agents en lecture seule jusqu’à nouvel ordre, implémentation manuelle par micro-tâches.

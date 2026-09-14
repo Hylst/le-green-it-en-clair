@@ -77,7 +77,7 @@ const recyclingRatesData = [
   { country: "Moyenne mondiale", rate: 22 },
 ]
 
-// French recycling points (sample data)
+// Points de collecte — données d'exemple (chiffres illustratifs, pas des données officielles)
 const recyclingPoints = [
   { city: "Paris", lat: 48.8566, lng: 2.3522, points: 245 },
   { city: "Lyon", lat: 45.764, lng: 4.8357, points: 98 },
@@ -387,7 +387,7 @@ export default function ChiffresPage() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-8">
             <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-slate-100">Points de collecte en France</h2>
-            <p className="text-slate-600 dark:text-slate-400">Nombre de points de collecte dans les principales villes françaises</p>
+            <p className="text-slate-600 dark:text-slate-400">Exemple de mise en page avec des chiffres illustratifs, par ville</p>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2">
@@ -422,8 +422,21 @@ export default function ChiffresPage() {
 
               <div className="mt-6 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border-2 border-emerald-200 dark:border-emerald-800 p-4">
                 <p className="text-sm text-slate-700 dark:text-slate-300">
-                  <strong>Plus de 15 000 points de collecte</strong> sont disponibles en France pour recycler vos
-                  appareils électroniques : déchetteries, magasins, ressourceries...
+                  Chiffres illustratifs : exemple de mise en page, pas des données officielles. Les nombres par
+                  ville ci-dessus montrent comment la carte s'affiche.
+                </p>
+                <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">
+                  Pour trouver un vrai point de collecte près de chez vous, utilisez le site officiel de
+                  l'ADEME « Que faire de mes objets » :{" "}
+                  <a
+                    href="https://quefairedemesdechets.ademe.fr"
+                    target="_blank"
+                    rel="noopener"
+                    className="font-medium underline underline-offset-2"
+                  >
+                    quefairedemesdechets.ademe.fr
+                  </a>
+                  .
                 </p>
               </div>
             </div>

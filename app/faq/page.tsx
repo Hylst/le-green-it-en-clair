@@ -71,7 +71,7 @@ const faqCategories = [
       },
       {
         q: "Faut-il supprimer ses données dans le cloud ?",
-        a: "Oui ! Chaque Go stocké dans le cloud émet environ 15g de CO₂ par an (alimentation serveurs, refroidissement, sauvegardes). Le Français moyen stocke 50 Go de données inutiles. Actions : trier photos/vidéos en double, vider dossier Téléchargements, supprimer anciens fichiers, désactiver sauvegarde automatique de tout.",
+        a: "Bonne nouvelle : le stockage pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO2e (ADEME, Impact CO2 / Base Empreinte). Trier vos photos en double reste une bonne habitude pour y voir plus clair, mais sans pression : le geste qui compte vraiment, c'est de garder votre smartphone le plus longtemps possible (environ 50 kg de CO2e sur son cycle de vie). Un petit tri de temps en temps, vider les téléchargements et désactiver les sauvegardes automatiques superflues suffit amplement.",
       },
     ],
   },

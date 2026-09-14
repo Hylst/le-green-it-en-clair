@@ -68,6 +68,8 @@ comptes, dashboard, badges, forum, géoloc carte, offline nickel, formation, esp
 
 ## 📊 fond de roulement
 
+- [x] collecte illustrative le 14/09 (tâche 1 vague 1) : mentions « chiffres illustratifs » + lien ADEME sur `chiffres`/`recyclage`, `15 000+`/`15 000 bornes` neutralisés, fiche `recyclage-mode-emploi` + ressource ADEME. Build ok.
+
 - [ ] màj chiffres, actus, glossaire, viser 15 fiches, étoffer la FAQ
 - [ ] SEO / analytics / temps de chargement / backlinks
 

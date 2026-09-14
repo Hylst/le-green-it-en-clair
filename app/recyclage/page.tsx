@@ -34,7 +34,7 @@ const recyclingActors = [
     icon: Recycle,
     color: "emerald",
     description: "Éco-organisme agréé pour la collecte et le recyclage des équipements électriques et électroniques",
-    services: ["15 000+ points de collecte", "Recyclage DEEE", "Sensibilisation"],
+    services: ["Points de collecte dans toute la France", "Recyclage DEEE", "Sensibilisation"],
     website: "https://www.ecosystem.eco",
     phone: "01 30 57 79 09",
   },
@@ -214,8 +214,16 @@ export default function RecyclagePage() {
               <p className="text-sm text-muted-foreground">Taux de recyclage en France</p>
             </Card>
             <Card className="border-2 border-accent/20 bg-accent/5 p-6 text-center">
-              <div className="mb-2 text-4xl font-bold text-accent">15 000+</div>
-              <p className="text-sm text-muted-foreground">Points de collecte</p>
+              <div className="mb-2 text-4xl font-bold text-accent">Carte</div>
+              <p className="text-sm text-muted-foreground">Points de collecte près de chez vous</p>
+              <a
+                href="https://quefairedemesdechets.ademe.fr"
+                target="_blank"
+                rel="noopener"
+                className="mt-2 inline-block text-sm font-medium text-primary underline underline-offset-2"
+              >
+                Que faire de mes objets (ADEME)
+              </a>
             </Card>
             <Card className="border-2 border-primary/20 bg-primary/5 p-6 text-center">
               <div className="mb-2 text-4xl font-bold text-primary">80%</div>
@@ -348,6 +356,19 @@ export default function RecyclagePage() {
           <h2 className="mb-8 text-center text-3xl font-bold text-foreground lg:text-4xl">
             Trouver un point de collecte près de chez vous
           </h2>
+          <p className="mx-auto mb-8 max-w-2xl text-center text-sm text-muted-foreground">
+            Chiffres illustratifs : exemple de mise en page, pas des données officielles. Pour trouver un
+            vrai point de collecte, utilisez le site officiel de l'ADEME « Que faire de mes objets » :{" "}
+            <a
+              href="https://quefairedemesdechets.ademe.fr"
+              target="_blank"
+              rel="noopener"
+              className="font-medium text-primary underline underline-offset-2"
+            >
+              quefairedemesdechets.ademe.fr
+            </a>
+            .
+          </p>
 
           {/* Search Bar */}
           <div className="mb-8">

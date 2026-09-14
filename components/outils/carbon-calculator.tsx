@@ -50,7 +50,7 @@ export default function CarbonCalculator() {
     // Impact cloud et services (kg CO2e/an)
     total += cloudUsage.email * 0.3 // 0.3 kg par email/jour
     total += cloudUsage.streaming * 1.6 // 1.6 kg par heure/semaine
-    total += cloudUsage.cloud * 0.2 // 0.2 kg par Go/mois
+    total += cloudUsage.cloud * 0.00024 // 0,00024 kg par Go/an (≈0,24 g CO2e/Go/an, ADEME Impact CO2 / Base Empreinte)
     total += cloudUsage.social * 2.5 // 2.5 kg par heure/jour
 
     return Math.round(total)
@@ -331,7 +331,8 @@ export default function CarbonCalculator() {
       </Card>
 
       <div className="text-sm text-gray-600 dark:text-gray-300 text-center">
-        Sources: ADEME 2025, GreenIT.fr, Shift Project • Méthodologie: ACV (Analyse du Cycle de Vie)
+        Sources: ADEME 2025, GreenIT.fr, Shift Project • Méthodologie: ACV (Analyse du Cycle de Vie) • Stockage
+        cloud : 0,24 g CO2e/Go/an (ADEME, Impact CO2 / Base Empreinte)
       </div>
     </div>
   )

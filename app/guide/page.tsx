@@ -25,7 +25,7 @@ export default function GuidePage() {
             icon: Laptop,
             color: "emerald",
             tips: [
-                "Gardez vos appareils le plus longtemps possible (4 ans minimum).",
+                "Gardez vos appareils le plus longtemps possible (5 ans minimum pour un smartphone).",
                 "Privilégiez le matériel reconditionné pour vos nouveaux achats.",
                 "Choisissez des appareils avec un bon indice de réparabilité.",
                 "Évitez de multiplier les écrans et privilégiez les plus petits formats."
@@ -37,9 +37,9 @@ export default function GuidePage() {
             color: "blue",
             tips: [
                 "Éteignez votre box et vos appareils la nuit et en votre absence.",
-                "Privilégiez le Wi-Fi à la 4G/5G (consomme 3x moins d'énergie).",
+                "Privilégiez le Wi-Fi à la 4G/5G (environ 4 à 5 fois moins d'énergie en streaming).",
                 "Désactivez la lecture automatique des vidéos sur les réseaux sociaux.",
-                "Nettoyez régulièrement vos boîtes mail et désinscrivez-vous des newsletters inutiles."
+                "Nettoyez vos boîtes mail de temps en temps et désinscrivez-vous des newsletters inutiles (geste symbolique : l'impact du stockage est minime)."
             ]
         },
         {
@@ -47,10 +47,10 @@ export default function GuidePage() {
             icon: Globe,
             color: "teal",
             tips: [
-                "Tapez l'adresse directement au lieu de passer par une recherche.",
+                "Tapez l'adresse directement au lieu de passer par une recherche (pratique, même si le gain est minime).",
                 "Utilisez des favoris pour vos sites fréquents.",
-                "Limitez le nombre d'onglets ouverts simultanément.",
-                "Activez le mode sombre quand l'écran est OLED (économise la batterie)."
+                "Limitez le nombre d'onglets ouverts simultanément (surtout du confort).",
+                "Activez le mode sombre sur écran OLED à forte luminosité (jusqu'à ~50 % d'économie, moins en usage courant)."
             ]
         },
         {

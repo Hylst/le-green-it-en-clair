@@ -182,7 +182,7 @@ export default function DeveloppementPage() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">Réduction de 30-70% de la consommation possible</span>
+                  <span className="text-muted-foreground">Réduction significative possible (très variable selon les projets)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -201,7 +201,7 @@ export default function DeveloppementPage() {
               <CardContent className="pt-6">
                 <div className="text-3xl font-bold text-primary mb-2">30-70%</div>
                 <div className="text-sm text-muted-foreground">
-                  Réduction possible de la consommation énergétique avec les bonnes pratiques
+                  Ordre de grandeur constaté sur des cas optimisés (très variable selon les projets)
                 </div>
               </CardContent>
             </Card>
@@ -209,7 +209,7 @@ export default function DeveloppementPage() {
               <CardContent className="pt-6">
                 <div className="text-3xl font-bold text-accent mb-2">75x</div>
                 <div className="text-sm text-muted-foreground">
-                  Différence de consommation entre Python et C pour le même algorithme
+                  Différence de consommation entre Python et C pour le même algorithme (Pereira et al., 2017)
                 </div>
               </CardContent>
             </Card>
@@ -336,8 +336,8 @@ export default function DeveloppementPage() {
               Optimiser les algorithmes
             </h2>
             <p className="text-lg text-muted-foreground text-pretty">
-              La complexité algorithmique a un impact exponentiel sur la consommation. Un algorithme O(n²) peut
-              consommer 10 000x plus qu'un O(n) sur 1000 éléments.
+              La complexité algorithmique a un impact exponentiel sur la consommation. Un algorithme O(n²) effectue
+              1 000x plus d'opérations qu'un O(n) sur 1000 éléments (1 000 000 contre 1 000, voir le tableau ci-dessous).
             </p>
           </div>
 
@@ -454,7 +454,7 @@ res.json(users) // 10 MB de données`}
                 <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg text-sm overflow-x-auto">
                   {`// ✅ Pagination + sélection
 const users = await db.users.findMany({
-  select: { id, name, email },
+  select: { id: true, name: true, email: true },
   take: 20,
   skip: page * 20
 })
@@ -518,7 +518,8 @@ res.json(users) // 150 KB compressé`}
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                       <span>
-                        <strong>GraphQL :</strong> Requêtes précises, pas d'over-fetching
+                        <strong>GraphQL :</strong> Requêtes précises, moins d'over-fetching (attention tout de même
+                        aux requêtes profondes et au problème N+1)
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
@@ -550,7 +551,7 @@ res.json(users) // 150 KB compressé`}
               Optimiser les médias
             </h2>
             <p className="text-lg text-muted-foreground text-pretty">
-              Les images et vidéos représentent 60-80% du poids des pages web. Leur optimisation est cruciale pour
+              Les images et vidéos représentent souvent près de la moitié du poids des pages web. Leur optimisation est cruciale pour
               réduire la consommation.
             </p>
           </div>
@@ -610,7 +611,7 @@ res.json(users) // 150 KB compressé`}
                     <div className="space-y-2">
                       <div className="font-medium text-primary">✅ À faire</div>
                       <ul className="space-y-1 text-muted-foreground">
-                        <li>• Utiliser WebP ou AVIF (50-65% plus léger)</li>
+                        <li>• Utiliser WebP ou AVIF (environ 30 % plus léger que JPEG à qualité égale)</li>
                         <li>• Lazy loading avec loading="lazy"</li>
                         <li>• Responsive images avec srcset</li>
                         <li>• Compression adaptée (80-85% qualité)</li>
@@ -646,7 +647,8 @@ res.json(users) // 150 KB compressé`}
                         <strong>Lazy loading :</strong> Ne charger que quand visible
                       </p>
                       <p className="mb-2">
-                        <strong>Pas d'autoplay :</strong> Laisser l'utilisateur décider (économie 80%)
+                        <strong>Pas d'autoplay :</strong> Laisser l'utilisateur décider (une vidéo lancée toute seule
+                        consomme pour rien)
                       </p>
                     </div>
                   </div>
@@ -662,9 +664,9 @@ res.json(users) // 150 KB compressé`}
                   <ImageIcon className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-2">
-                    Exemple concret : optimisation d'une page produit
-                  </h4>
+                    <h4 className="font-semibold text-foreground mb-2">
+                      Exemple illustratif : optimisation d'une page produit
+                    </h4>
                   <div className="text-sm text-muted-foreground space-y-1">
                     <p>
                       • <strong>Avant :</strong> 12 images PNG, 4.2 MB, 6.5s de chargement
@@ -1014,7 +1016,7 @@ module.exports = {
                     <ul className="text-sm text-muted-foreground space-y-1">
                       <li>• Ressources adaptées en temps réel</li>
                       <li>• Scale to zero quand pas d'usage</li>
-                      <li>• Économie 60-80% d'énergie</li>
+                      <li>• Économies possibles (très variables selon l'usage réel)</li>
                       <li>• Paiement à l'usage réel</li>
                     </ul>
                   </div>
@@ -1110,7 +1112,8 @@ module.exports = {
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
                       <span>
-                        <strong>Tâches lourdes la nuit :</strong> Profiter des heures creuses
+                        <strong>Tâches lourdes hors pics :</strong> Éviter les heures de pointe du réseau et des
+                        datacenters (surtout économique, peu d'effet carbone en France)
                       </span>
                     </li>
                     <li className="flex items-start gap-2">

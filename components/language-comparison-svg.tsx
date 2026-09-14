@@ -27,7 +27,7 @@ export function LanguageComparisonSVG() {
           Comparaison énergétique des langages
         </h3>
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          Consommation énergétique relative (base 1.0 = C) - Source: Energy Efficiency across Programming Languages 2025
+          Consommation énergétique relative (base 1.0 = C) - Source : Pereira et al., SLE 2017
         </p>
       </div>
 

@@ -60,7 +60,7 @@ const citizenActions = [
       "Éteindre complètement ses appareils la nuit",
       "Désactiver les notifications inutiles",
       "Limiter le streaming vidéo en haute définition",
-      "Nettoyer régulièrement sa boîte mail et le cloud",
+      "Nettoyer sa boîte mail de temps en temps (geste symbolique : l'impact du stockage est minime)",
     ],
   },
   {
@@ -71,8 +71,8 @@ const citizenActions = [
       "Utiliser une multiprise avec interrupteur pour couper complètement l'alimentation",
       "Régler la luminosité de l'écran à 50% maximum",
       "Désactiver le Bluetooth et le Wi-Fi quand vous ne les utilisez pas",
-      "Privilégier le Wi-Fi à la 4G/5G (consomme 20x moins d'énergie)",
-      "Fermer les applications en arrière-plan",
+      "Privilégier le Wi-Fi à la 4G/5G (environ 4 à 5 fois moins d'énergie en streaming)",
+      "Laisser le système gérer les applications (les relancer consomme plus que les laisser en pause)",
     ],
   },
   {
@@ -83,8 +83,8 @@ const citizenActions = [
       "Désactiver la lecture automatique des vidéos",
       "Supprimer les emails avec pièces jointes volumineuses",
       "Vider régulièrement le cache et les téléchargements",
-      "Limiter le nombre d'onglets ouverts simultanément",
-      "Utiliser des moteurs de recherche éco-responsables (Ecosia, Lilo)",
+      "Limiter le nombre d'onglets ouverts simultanément (bonus confort, gain modeste)",
+      "Utiliser des moteurs de recherche éco-responsables (Ecosia)",
     ],
   },
   {
@@ -134,7 +134,7 @@ const businessActions = [
       "Optimiser la climatisation des salles serveurs (température 24-26°C)",
       "Installer des capteurs de présence pour l'éclairage et la climatisation",
       "Mesurer et monitorer la consommation énergétique en temps réel",
-      "Planifier les tâches intensives pendant les heures creuses",
+      "Planifier les tâches intensives en dehors des pics de consommation",
     ],
   },
   {
@@ -202,9 +202,9 @@ const practicalTips = [
     icon: Clock,
     color: "blue",
     tips: [
-      "Planifiez vos téléchargements volumineux la nuit (heures creuses)",
-      "Évitez le streaming HD entre 18h-20h (pic de consommation électrique)",
-      "Rechargez vos appareils pendant les heures creuses (22h-6h)",
+      "Téléchargez en Wi-Fi à l'avance plutôt que de streamer en 4G/5G",
+      "En soirée, préférez le téléchargement en Wi-Fi au streaming en haute définition",
+      "Rechargez vos appareils quand cela vous arrange : en France, l'heure de recharge change peu l'empreinte (c'est surtout économique)",
       "Programmez les sauvegardes cloud en dehors des heures de bureau",
     ],
   },
@@ -213,10 +213,10 @@ const practicalTips = [
     icon: Wifi,
     color: "teal",
     tips: [
-      "Éteignez votre box internet la nuit (économie de 10€/an)",
+      "Éteignez votre box internet la nuit (environ 25 kWh/an économisés, soit ~5 €/an)",
       "Désactivez le Wi-Fi de la box si vous utilisez un câble Ethernet",
       "Placez votre box dans un endroit central pour optimiser la couverture",
-      "Utilisez le Wi-Fi plutôt que la 4G/5G (20x moins énergivore)",
+      "Utilisez le Wi-Fi plutôt que la 4G/5G (environ 4 à 5 fois moins énergivore en streaming)",
     ],
   },
   {
@@ -224,10 +224,10 @@ const practicalTips = [
     icon: Lightbulb,
     color: "emerald",
     tips: [
-      "Fermez les onglets inutilisés (chaque onglet consomme de la RAM)",
+      "Fermez les onglets inutilisés (surtout du confort, gain modeste)",
       "Videz votre corbeille d'emails régulièrement",
       "Désabonnez-vous des newsletters non lues",
-      "Utilisez des favoris plutôt que de rechercher à chaque fois",
+      "Utilisez des favoris plutôt que de rechercher à chaque fois (pratique, même si le gain est minime)",
       "Téléchargez vos playlists plutôt que de streamer en continu",
     ],
   },
@@ -236,7 +236,7 @@ const practicalTips = [
     icon: Zap,
     color: "amber",
     tips: [
-      "Activez le mode sombre (économie de 30% de batterie sur écran OLED)",
+      "Activez le mode sombre sur écran OLED à forte luminosité (jusqu'à ~50 % d'économie, moins en usage courant)",
       "Réduisez le délai de mise en veille à 2-5 minutes",
       "Désactivez les animations et effets visuels inutiles",
       "Limitez les synchronisations automatiques au Wi-Fi uniquement",

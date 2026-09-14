@@ -407,7 +407,7 @@ const sheets: Record<string, any> = {
         tips: [
           "Déchetteries : toutes acceptent les DEEE gratuitement",
           "Magasins (obligation 1 pour 1) : reprise gratuite à l'achat d'un équivalent",
-          "Points de collecte Ecosystem : 15 000 bornes en France (carte sur ecosystem.eco)",
+          "Points de collecte : trouvez le plus proche près de chez vous avec « Que faire de mes objets » de l'ADEME (quefairedemesdechets.ademe.fr)",
         ],
       },
       {
@@ -442,6 +442,7 @@ const sheets: Record<string, any> = {
       "Carte des points : ecosystem.eco/fr/localiser",
       "Guide ADEME : ademe.fr",
       "Annuaire recyclage : jerecyclemesdeee.fr",
+      "https://quefairedemesdechets.ademe.fr",
     ],
   },
   "datacenters-verts": {

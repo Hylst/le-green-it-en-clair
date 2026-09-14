@@ -32,8 +32,8 @@ export default function MythesPage() {
       myth: "Le cloud ne pollue pas, c'est virtuel",
       reality: "Faux - Le cloud repose sur des infrastructures physiques très énergivores",
       explanation:
-        "Le cloud n'est pas immatériel. Il s'appuie sur des datacenters qui consomment énormément d'électricité pour fonctionner et se refroidir. En 2025, les datacenters représentent environ 1,5% de la consommation électrique mondiale. Stocker 1 Go dans le cloud pendant un an émet environ 20 kg de CO₂.",
-      source: "IEA 2025, The Shift Project",
+        "Le cloud n'est pas immatériel : il s'appuie sur des datacenters qui consomment de l'électricité pour fonctionner et se refroidir. Bonne nouvelle : stocker des fichiers pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO2e (ADEME, Impact CO2 / Base Empreinte). Le geste qui compte vraiment, c'est de garder vos appareils le plus longtemps possible : fabriquer un smartphone représente environ 50 kg de CO2e sur son cycle de vie, soit bien plus que des années de stockage de photos. Pas de stress pour vos souvenirs, concentrez vos efforts là où ça compte vraiment !",
+      source: "ADEME, Impact CO2 / Base Empreinte",
       relatedLink: { label: "En savoir plus sur les datacenters", href: "/datacenters" },
     },
     {

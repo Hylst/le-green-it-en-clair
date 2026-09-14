@@ -55,7 +55,7 @@ const caseStudies = [
     stats: {
       co2: "Plusieurs tonnes",
       water: "Millions de L",
-      lifespan: "10-15 ans",
+      lifespan: "3-5 ans",
       servers: "1000+",
     },
   },
@@ -204,7 +204,7 @@ export default function CasPratiquesPage() {
                     icon: Plane,
                     label: "Vol en avion",
                     equivalent: "Paris-Marseille",
-                    description: "Aller simple pour 1 passager",
+                    description: "Environ 60 % d'un aller simple pour 1 passager (DGAC)",
                   },
                   {
                     icon: Car,
@@ -447,14 +447,15 @@ export default function CasPratiquesPage() {
                       <li className="flex gap-2">
                         <span className="text-blue-600">•</span>
                         <span>
-                          Fabriquer un ordinateur portable émet autant de CO₂ qu'un <strong>vol Paris-New York</strong>
+                          Fabriquer un ordinateur portable émet autant de CO₂ qu'un{" "}
+                          <strong>vol Paris-Marseille aller-retour</strong> (DGAC)
                         </span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-blue-600">•</span>
                         <span>
-                          La production consomme <strong>800 kWh</strong>, soit 8 mois de consommation électrique d'un
-                          foyer français
+                          La production consomme <strong>800 kWh</strong>, soit environ 2 mois de consommation
+                          électrique d'un foyer français (~4 700 kWh/an)
                         </span>
                       </li>
                       <li className="flex gap-2">
@@ -466,8 +467,8 @@ export default function CasPratiquesPage() {
                       <li className="flex gap-2">
                         <span className="text-blue-600">•</span>
                         <span>
-                          La RAM et le stockage sont souvent <strong>facilement upgradables</strong> pour prolonger la
-                          durée de vie
+                          La RAM et le stockage sont parfois <strong>upgradables, sur les modèles qui le
+                          permettent</strong> (PC fixes, certains portables pro), pour prolonger la durée de vie
                         </span>
                       </li>
                     </ul>
@@ -532,20 +533,20 @@ export default function CasPratiquesPage() {
                 {/* Stats Grid */}
                 <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   <div className="rounded-xl bg-teal-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-teal-700">1-2%</div>
-                    <div className="text-sm text-slate-700">de l'électricité mondiale</div>
+                    <div className="mb-1 text-2xl font-bold text-teal-700">1,5%</div>
+                    <div className="text-sm text-slate-700">de l'électricité mondiale (AIE, 2024)</div>
                   </div>
                   <div className="rounded-xl bg-teal-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-teal-700">PUE 1.5</div>
-                    <div className="text-sm text-slate-700">efficacité énergétique moyenne</div>
+                    <div className="mb-1 text-2xl font-bold text-teal-700">PUE 1,56</div>
+                    <div className="text-sm text-slate-700">efficacité moyenne mondiale (Uptime, 2024)</div>
                   </div>
                   <div className="rounded-xl bg-teal-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-teal-700">40%</div>
-                    <div className="text-sm text-slate-700">pour le refroidissement</div>
+                    <div className="mb-1 text-2xl font-bold text-teal-700">~28%</div>
+                    <div className="text-sm text-slate-700">pour le refroidissement (ordre de grandeur)</div>
                   </div>
                   <div className="rounded-xl bg-teal-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-teal-700">10-15 ans</div>
-                    <div className="text-sm text-slate-700">durée de vie des serveurs</div>
+                    <div className="mb-1 text-2xl font-bold text-teal-700">3-5 ans</div>
+                    <div className="text-sm text-slate-700">durée de vie des serveurs (le bâtiment, lui, dure 10-15 ans)</div>
                   </div>
                 </div>
 
@@ -557,21 +558,22 @@ export default function CasPratiquesPage() {
                       <li className="flex gap-2">
                         <span className="text-teal-600">•</span>
                         <span>
-                          Les datacenters consomment <strong>1 à 2% de l'électricité mondiale</strong>, une part en
-                          constante augmentation
+                          Les datacenters consomment <strong>environ 1,5% de l'électricité mondiale</strong> (AIE,
+                          2024), une part en constante augmentation
                         </span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-teal-600">•</span>
                         <span>
-                          Le <strong>PUE (Power Usage Effectiveness)</strong> mesure l'efficacité : 1.0 est parfait, 1.5
-                          est la moyenne actuelle
+                          Le <strong>PUE (Power Usage Effectiveness)</strong> mesure l'efficacité : 1.0 est parfait,
+                          1,56 est la moyenne mondiale actuelle (Uptime Institute, 2024)
                         </span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-teal-600">•</span>
                         <span>
-                          <strong>40% de l'énergie</strong> est utilisée pour le refroidissement des serveurs
+                          <strong>Environ 28% de l'électricité</strong> est utilisée pour le refroidissement des
+                          serveurs (ordre de grandeur, PUE moyen 1,56)
                         </span>
                       </li>
                       <li className="flex gap-2">
@@ -682,7 +684,22 @@ export default function CasPratiquesPage() {
       </section>
 
       {/* Sources */}
-      <section className="border-t border-slate-200 bg-white px-6 py-8">{/* Sources content here */}</section>
+      <section className="border-t border-slate-200 bg-white px-6 py-8">
+        <div className="mx-auto max-w-7xl">
+          <h3 className="mb-4 text-sm font-semibold text-slate-900">Sources</h3>
+          <div className="flex flex-wrap gap-4 text-sm text-slate-600">
+            <span>ADEME - Base Carbone (156 kg CO₂ pour un portable)</span>
+            <span>•</span>
+            <span>DGAC - Éco-calculateur (équivalences avion)</span>
+            <span>•</span>
+            <span>AIE - Energy and AI (2025)</span>
+            <span>•</span>
+            <span>Uptime Institute - Global Data Center Survey (2024)</span>
+            <span>•</span>
+            <span>ADEME - Produits reconditionnés (2022)</span>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

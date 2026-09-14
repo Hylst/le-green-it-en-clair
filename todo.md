@@ -26,6 +26,7 @@ Ma liste, mise à jour le 13/09/2026 après une grosse relecture pessimiste (lec
 - [x] `website-carbon` : fini les résultats en `Math.random()` — estimateur honnête (poids saisi par l'utilisateur, green-check GWF en direct, formule SWD v4 affichée + mentions, boutons imprimer/partager branchés). Fait le 14/09, build ok.
 - [x] `actualites` : fini les fausses dépêches attribuées à de vrais organismes + le faux « flux en direct » — encarts « À la une » marqués exemples (rédaction du site, sujets vrais), onglet Veille devenu un annuaire de sources externes. Fait le 14/09, build ok.
 - [x] `problematiques` : chiffres P0 corrigés (e-déchets trajectoire GEM 2024, recyclage 22,3 %, export illégal minoritaire, IA ~0,3 Wh, SD ~0,7 Go/h, lithium ×3 2017-2022, 62 % renouvellements ADEME 2026, UE 5 ans màj + 7 ans pièces, eau 12 000 L, TSMC ~67 %, Ghana/Nigeria chiffrés). Stabilisé à la main le 15/09 après interruption d'un sous-agent, build + export vérifiés.
+- [x] `datacenters` + `cas-pratiques` : chiffres P0 corrigés à la main le 15/09 (415 TWh AIE 2024, PUE 1,56 monde / 1,45 Europe Uptime 2024, camembert 64/28/8, portable = Paris-Marseille AR, 800 kWh ≈ 2 mois, serveurs 3-5 ans, RAM nuancée, CTA branchés /agir + /outils, section Sources remplie). Build + export vérifiés.
 
 ## 🔴 important mais pas cassé
 

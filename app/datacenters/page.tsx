@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Slider } from "@/components/ui/slider"
@@ -20,18 +21,18 @@ import {
 } from "lucide-react"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts"
 
-// Data for energy consumption breakdown
+// Data for energy consumption breakdown (ordre de grandeur, PUE moyen 1,56 : Uptime Institute, 2024)
 const energyBreakdownData = [
-  { category: "Serveurs", percentage: 50, fill: "#3b82f6" },
-  { category: "Refroidissement", percentage: 40, fill: "#14b8a6" },
-  { category: "Infrastructure", percentage: 10, fill: "#64748b" },
+  { category: "Serveurs", percentage: 64, fill: "#3b82f6" },
+  { category: "Refroidissement", percentage: 28, fill: "#14b8a6" },
+  { category: "Infrastructure", percentage: 8, fill: "#64748b" },
 ]
 
-// Data for PUE comparison
+// Data for PUE comparison (Uptime Institute, 2024)
 const pueComparisonData = [
   { type: "Ancien datacenter", pue: 2.5 },
-  { type: "Moyenne mondiale", pue: 1.67 },
-  { type: "Moyenne France", pue: 1.5 },
+  { type: "Moyenne mondiale", pue: 1.56 },
+  { type: "Moyenne Europe", pue: 1.45 },
   { type: "Datacenter moderne", pue: 1.2 },
   { type: "Datacenter optimal", pue: 1.05 },
 ]
@@ -133,16 +134,16 @@ export default function DatacentersPage() {
               </div>
               <div className="space-y-4">
                 <div>
-                  <div className="mb-1 text-3xl font-bold text-blue-700 dark:text-blue-400">1-2%</div>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">de la consommation électrique mondiale</p>
+                  <div className="mb-1 text-3xl font-bold text-blue-700 dark:text-blue-400">1,5%</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">de l'électricité mondiale (AIE, 2024)</p>
                 </div>
                 <div>
                   <div className="mb-1 text-3xl font-bold text-teal-700 dark:text-teal-400">8 000+</div>
                   <p className="text-sm text-slate-600 dark:text-slate-400">datacenters dans le monde</p>
                 </div>
                 <div>
-                  <div className="mb-1 text-3xl font-bold text-cyan-700 dark:text-cyan-400">250 TWh</div>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">consommation annuelle mondiale</p>
+                  <div className="mb-1 text-3xl font-bold text-cyan-700 dark:text-cyan-400">415 TWh</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">consommation annuelle mondiale (AIE, 2024)</p>
                 </div>
               </div>
             </Card>
@@ -185,7 +186,7 @@ export default function DatacentersPage() {
                   <Server className="h-6 w-6 text-blue-700 dark:text-blue-400" />
                 </div>
                 <div>
-                  <h4 className="mb-1 font-semibold text-slate-900 dark:text-slate-100">Serveurs (50%)</h4>
+                  <h4 className="mb-1 font-semibold text-slate-900 dark:text-slate-100">Serveurs (64%)</h4>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Calcul, stockage et traitement des données. C'est la charge utile du datacenter.
                   </p>
@@ -197,7 +198,7 @@ export default function DatacentersPage() {
                   <Wind className="h-6 w-6 text-teal-700 dark:text-teal-400" />
                 </div>
                 <div>
-                  <h4 className="mb-1 font-semibold text-slate-900 dark:text-slate-100">Refroidissement (40%)</h4>
+                  <h4 className="mb-1 font-semibold text-slate-900 dark:text-slate-100">Refroidissement (~28%)</h4>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Climatisation nécessaire pour évacuer la chaleur produite par les serveurs.
                   </p>
@@ -209,7 +210,7 @@ export default function DatacentersPage() {
                   <Zap className="h-6 w-6 text-slate-700 dark:text-slate-300" />
                 </div>
                 <div>
-                  <h4 className="mb-1 font-semibold text-slate-900 dark:text-slate-100">Infrastructure (10%)</h4>
+                  <h4 className="mb-1 font-semibold text-slate-900 dark:text-slate-100">Infrastructure (~8%)</h4>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Éclairage, sécurité, onduleurs et autres équipements de support.
                   </p>
@@ -222,8 +223,9 @@ export default function DatacentersPage() {
             <div className="flex items-start gap-3">
               <Info className="mt-1 h-5 w-5 shrink-0 text-blue-700 dark:text-blue-400" />
               <p className="text-slate-700 dark:text-slate-300">
-                <strong>Point clé :</strong> Le refroidissement représente 40% de la consommation. C'est pourquoi
-                l'optimisation des systèmes de refroidissement est cruciale pour réduire l'impact environnemental des
+                <strong>Point clé :</strong> Avec un PUE moyen de 1,56, plus d'un tiers de l'électricité alimente le
+                refroidissement et l'infrastructure plutôt que les serveurs (Uptime Institute, 2024). C'est pourquoi
+                l'optimisation du refroidissement reste cruciale pour réduire l'impact environnemental des
                 datacenters.
               </p>
             </div>
@@ -757,12 +759,14 @@ export default function DatacentersPage() {
             Découvrez comment réduire votre empreinte numérique et adoptez les bonnes pratiques au quotidien.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button size="lg" className="bg-teal-600 hover:bg-teal-700">
-              Voir les actions concrètes
-              <ArrowRight className="ml-2 h-5 w-5" />
+            <Button asChild size="lg" className="bg-teal-600 hover:bg-teal-700">
+              <Link href="/agir">
+                Voir les actions concrètes
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
-            <Button size="lg" variant="outline">
-              Calculer mon empreinte
+            <Button asChild size="lg" variant="outline">
+              <Link href="/outils">Calculer mon empreinte</Link>
             </Button>
           </div>
         </div>
@@ -775,7 +779,9 @@ export default function DatacentersPage() {
           <div className="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-400">
             <span>ADEME - Impact environnemental du numérique (2023)</span>
             <span>•</span>
-            <span>IEA - Data Centres and Data Transmission Networks (2024)</span>
+            <span>AIE - Energy and AI (2025)</span>
+            <span>•</span>
+            <span>Uptime Institute - Global Data Center Survey (2024)</span>
             <span>•</span>
             <span>GreenIT.fr - Étude datacenters (2023)</span>
           </div>

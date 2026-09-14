@@ -42,7 +42,8 @@ const sheets: Record<string, any> = {
       },
       {
         title: "4. Nettoyer régulièrement ses données",
-        content: "Chaque Go stocké dans le cloud émet 15g de CO₂/an. La moyenne française est de 50 Go inutiles.",
+        content:
+          "Bonne nouvelle : le stockage pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO2e (ADEME, Impact CO2 / Base Empreinte). Nettoyer ses données reste utile pour y voir plus clair, mais le geste qui compte vraiment, c'est de garder vos appareils le plus longtemps possible (environ 50 kg de CO2e pour le cycle de vie d'un smartphone).",
         tips: [
           "Supprimez les emails avec pièces jointes volumineuses",
           "Videz le dossier Téléchargements et la corbeille",

@@ -27,7 +27,7 @@ const faqCategories = [
       },
       {
         q: "Peut-on vraiment faire une différence individuellement ?",
-        a: "Oui, absolument ! Garder son smartphone 4 ans au lieu de 2 divise son impact par 2. À l'échelle nationale, si tous les Français gardaient leur équipement 1 an de plus, on éviterait l'émission de 2,7 millions de tonnes de CO₂ par an (équivalent de 1,5 million de voitures). Chaque geste compte, surtout multiplié par des millions d'utilisateurs.",
+        a: "Oui, absolument ! Garder son smartphone 4 ans au lieu de 2 divise son impact par 2. À l'échelle nationale, si tous les Français gardaient 11 types d'équipements 1 an de plus, on éviterait environ 0,6 million de tonnes de CO₂ par an (ADEME, 2020). Chaque geste compte, surtout multiplié par des millions d'utilisateurs.",
       },
     ],
   },
@@ -37,7 +37,7 @@ const faqCategories = [
     questions: [
       {
         q: "Faut-il acheter neuf ou reconditionné ?",
-        a: "Le reconditionné est fortement recommandé : un appareil reconditionné a un impact environnemental réduit de 75% par rapport au neuf. En France, le marché du reconditionné représente 2,5 milliards d'euros en 2024 avec plus de 2,5 millions d'appareils vendus. Assurez-vous de choisir un vendeur certifié offrant au minimum 6 mois de garantie.",
+        a: "Le reconditionné est fortement recommandé : un appareil reconditionné a un impact environnemental réduit de 75% par rapport au neuf (ADEME, 2022). Choisissez un vendeur certifié : la garantie légale de conformité est de 2 ans, y compris pour le reconditionné, avec les défauts présumés antérieurs pendant 24 mois.",
       },
       {
         q: "Comment choisir un appareil durable ?",
@@ -49,7 +49,7 @@ const faqCategories = [
       },
       {
         q: "Combien de temps garder ses appareils ?",
-        a: "Objectif minimum : 5 ans pour un smartphone, 7 ans pour un ordinateur, 10 ans pour une TV. Actuellement, la moyenne française est de 2,3 ans pour un smartphone. Chaque année supplémentaire réduit l'impact de 15-20%. La fabrication représentant 75% de l'impact, allonger la durée d'usage est le geste le plus efficace.",
+        a: "Objectif minimum : 5 ans pour un smartphone, 7 ans pour un ordinateur, 10 ans pour une TV. Actuellement, les Français changent de smartphone en moyenne tous les 3 ans (ADEME, 2026). Chaque année supplémentaire réduit l'impact de 15-20%. La fabrication représentant 75% de l'impact, allonger la durée d'usage est le geste le plus efficace.",
       },
     ],
   },
@@ -59,19 +59,19 @@ const faqCategories = [
     questions: [
       {
         q: "Comment réduire la consommation électrique de mes appareils ?",
-        a: "Actions principales : 1) Éteindre complètement (pas juste en veille) la nuit et quand inutilisés, 2) Débrancher box internet la nuit (économie de 65 kWh/an), 3) Régler luminosité à 50% max, 4) Activer mode économie d'énergie, 5) Fermer applications en arrière-plan, 6) Privilégier Wi-Fi à 4G/5G (20x moins énergivore), 7) Utiliser multiprise avec interrupteur.",
+        a: "Actions principales : 1) Éteindre complètement (pas juste en veille) la nuit et quand inutilisés, 2) Débrancher box internet la nuit (environ 25 kWh/an économisés, soit ~5 €/an), 3) Régler luminosité à 50% max, 4) Activer mode économie d'énergie, 5) Privilégier Wi-Fi à 4G/5G (environ 4 à 5 fois moins énergivore en streaming), 6) Utiliser multiprise avec interrupteur.",
       },
       {
         q: "Le streaming vidéo pollue-t-il vraiment ?",
-        a: "Oui, de manière significative. 1h de streaming en 4K consomme 6,5 Go de données et émet environ 370g de CO₂. En qualité standard (720p), c'est seulement 50g de CO₂. En France, le streaming vidéo représente 60% du trafic internet. Actions : privilégier 720p, télécharger les contenus regardés plusieurs fois, désactiver lecture automatique, éviter le streaming sur mobile en 4G/5G.",
+        a: "Oui, de manière significative. 1h de streaming en 4K consomme ~7 Go de données et émet de l'ordre de 300 g de CO₂ ; en HD ~100 g, en qualité réduite ~30 g (ordres de grandeur, très dépendants du mix électrique). En France, le streaming vidéo représente 60% du trafic internet. Actions : privilégier 720p, télécharger les contenus regardés plusieurs fois, désactiver lecture automatique, éviter le streaming sur mobile en 4G/5G.",
       },
       {
         q: "Les emails polluent-ils vraiment ?",
-        a: "L'impact individuel d'un email est faible (4-50g CO₂ selon pièces jointes), mais multiplié par des milliards d'emails quotidiens, ça compte. En France, l'envoi de 33 emails/jour/personne représente environ 180 kg CO₂/an. Bonnes pratiques : supprimer emails avec grosses pièces jointes, désabonner des newsletters inutiles, compresser les pièces jointes, nettoyer boîte mail régulièrement.",
+        a: "L'impact individuel d'un email est faible (4 à 50 g de CO₂ selon les pièces jointes, ADEME), mais multiplié par des milliards d'emails quotidiens, ça compte. Bonnes pratiques : supprimer emails avec grosses pièces jointes, désabonner des newsletters inutiles, compresser les pièces jointes, nettoyer boîte mail régulièrement.",
       },
       {
         q: "Faut-il supprimer ses données dans le cloud ?",
-        a: "Bonne nouvelle : le stockage pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO2e (ADEME, Impact CO2 / Base Empreinte). Trier vos photos en double reste une bonne habitude pour y voir plus clair, mais sans pression : le geste qui compte vraiment, c'est de garder votre smartphone le plus longtemps possible (environ 50 kg de CO2e sur son cycle de vie). Un petit tri de temps en temps, vider les téléchargements et désactiver les sauvegardes automatiques superflues suffit amplement.",
+        a: "Bonne nouvelle : le stockage pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO2e (ADEME, Impact CO2 / Base Empreinte). Trier vos photos en double reste une bonne habitude pour y voir plus clair, mais sans pression : le geste qui compte vraiment, c'est de garder votre smartphone le plus longtemps possible (environ 50 kg de CO2e sur son cycle de vie, Base Carbone ADEME). Un petit tri de temps en temps, vider les téléchargements et désactiver les sauvegardes automatiques superflues suffit amplement.",
       },
     ],
   },
@@ -81,7 +81,7 @@ const faqCategories = [
     questions: [
       {
         q: "Où faire réparer mes appareils ?",
-        a: "Plusieurs options : 1) SAV du fabricant ou revendeur agréé, 2) Réparateurs indépendants labellisés, 3) Repair Cafés (gratuits, entraide), 4) Ressourceries et structures de l'économie sociale et solidaire (Emmaüs, Envie, etc.). Depuis 2021, un bonus réparation existe en France (jusqu'à 45€ remboursés). Consultez la carte des réparateurs sur ecosystem.eco.",
+        a: "Plusieurs options : 1) SAV du fabricant ou revendeur agréé, 2) Réparateurs indépendants labellisés, 3) Repair Cafés (gratuits, entraide), 4) Ressourceries et structures de l'économie sociale et solidaire (Emmaüs, Envie, etc.). Depuis 2021, un bonus réparation existe en France (de 10 à 65 € selon l'appareil, 25 € pour un smartphone, chez un réparateur labellisé QualiRépar). Consultez la carte des réparateurs sur ecosystem.eco.",
       },
       {
         q: "Vaut-il mieux réparer ou racheter ?",
@@ -89,11 +89,11 @@ const faqCategories = [
       },
       {
         q: "Comment recycler mes vieux appareils ?",
-        a: "Ne JAMAIS jeter à la poubelle ! Options : 1) Reprise magasin (obligation 1 pour 1 : ils reprennent gratuitement l'ancien), 2) Points de collecte (déchetteries, magasins, mairies), 3) Bornes Ecosystem/Écologic, 4) Don à associations (Emmaüs, Envie) si fonctionnel. Effacez vos données avant. En France, objectif 65% de taux de collecte en 2025.",
+        a: "Ne JAMAIS jeter à la poubelle ! Options : 1) Reprise magasin (obligation 1 pour 1 : ils reprennent gratuitement l'ancien), 2) Points de collecte (déchetteries, magasins, mairies), 3) Bornes Ecosystem/Écologic, 4) Don à associations (Emmaüs, Envie) si fonctionnel. Effacez vos données avant. En France, l'objectif de collecte des DEEE est de 65 % depuis 2019 (directive européenne), un objectif rarement atteint.",
       },
       {
         q: "Que deviennent les appareils recyclés ?",
-        a: "Les DEEE (Déchets d'Équipements Électriques et Électroniques) sont démontés pour récupérer : métaux précieux (or, argent, cuivre), plastiques, verres. Taux de recyclage : 85% pour smartphones en Europe. Problème : certains composants (terres rares, batteries lithium) difficiles à recycler. C'est pourquoi prolonger la durée de vie et réemployer sont prioritaires sur le recyclage.",
+        a: "Les DEEE (Déchets d'Équipements Électriques et Électroniques) sont démontés pour récupérer : métaux précieux (or, argent, cuivre), plastiques, verres. En France, environ 79 % des DEEE collectés sont recyclés ou réutilisés (Ecosystem, 2024). Problème : certains composants (terres rares, batteries lithium) difficiles à recycler. C'est pourquoi prolonger la durée de vie et réemployer sont prioritaires sur le recyclage.",
       },
     ],
   },
@@ -107,11 +107,11 @@ const faqCategories = [
       },
       {
         q: "Comment mesurer l'impact environnemental d'un site web ?",
-        a: "Outils disponibles : EcoIndex (note A à G), Website Carbon Calculator, GreenFrame, Lighthouse (Google). Ils mesurent : poids page, requêtes serveur, consommation électrique estimée. Objectif : EcoIndex >B, page <1 Mo, <50 requêtes. Un site moyen émet 1,76g CO₂ par vue. Le site le plus éco-conçu peut descendre à 0,1g CO₂.",
+        a: "Outils disponibles : EcoIndex (note A à G), Website Carbon Calculator, GreenFrame, Lighthouse (Google). Ils mesurent : poids page, requêtes serveur, consommation électrique estimée. Objectif : EcoIndex >B, page <1 Mo, <50 requêtes. L'empreinte d'une page dépend surtout de son poids : une page moyenne pèse environ 2 Mo (HTTP Archive, 2025) — testez la vôtre avec notre estimateur dans /outils. Le site le plus éco-conçu peut descendre à 0,1g CO₂ par vue.",
       },
       {
         q: "Quels langages de programmation sont les plus éco-responsables ?",
-        a: "Classement par efficacité énergétique : 1) C/C++/Rust (référence), 2) Java, 3) C#, 4) JavaScript/TypeScript, 5) PHP, 6) Python (57x moins efficace que C). Pour le web : préférer code natif optimisé, frameworks légers, compilation native. Attention : lisibilité et maintenabilité restent prioritaires. L'optimisation algorithmique compte plus que le langage.",
+        a: "Classement par efficacité énergétique : 1) C/C++/Rust (référence), 2) Java, 3) C#, 4) JavaScript/TypeScript, 5) PHP, 6) Python (environ 76x moins efficace que C, Pereira et al., 2017). Pour le web : préférer code natif optimisé, frameworks légers, compilation native. Attention : lisibilité et maintenabilité restent prioritaires. L'optimisation algorithmique compte plus que le langage.",
       },
       {
         q: "Comment mettre en place une stratégie Green IT en entreprise ?",
@@ -125,19 +125,19 @@ const faqCategories = [
     questions: [
       {
         q: "Quelles sont les principales lois en France ?",
-        a: "Lois majeures : 1) Loi AGEC (2020) : indice réparabilité, lutte obsolescence programmée, 2) Loi REEN (2021) : mesure impact numérique, écoconception services publics, sensibilisation, 3) Droit à la réparation européen (2024), 4) Indice durabilité (dès 2025). Obligations : affichage indices, disponibilité pièces 5-10 ans, mises à jour logicielles longues.",
+        a: "Lois majeures : 1) Loi AGEC (2020) : indice réparabilité, lutte obsolescence programmée, 2) Loi REEN (2021) : mesure impact numérique, écoconception services publics, 3) Droit à la réparation européen (directive 2024/1799, applicable depuis juillet 2026), 4) Indice de durabilité (TV et lave-linge depuis 2025 ; smartphones : étiquette énergie UE depuis juin 2025). Obligations : affichage indices, disponibilité pièces 5-10 ans, mises à jour logicielles longues.",
       },
       {
         q: "Qu'est-ce que la REP (Responsabilité Élargie du Producteur) ?",
-        a: "La REP impose aux fabricants et distributeurs de financer la collecte et le recyclage de leurs produits en fin de vie. En France, éco-organismes agréés : Ecosystem (grand public), Écologic (professionnels), Screlec (piles). Les fabricants paient une éco-contribution (visible sur facture) finançant le système. Objectif 2025 : 65% taux de collecte DEEE.",
+        a: "La REP impose aux fabricants et distributeurs de financer la collecte et le recyclage de leurs produits en fin de vie. En France, éco-organismes agréés : Ecosystem (grand public), Écologic (professionnels), Screlec (piles). Les fabricants paient une éco-contribution (visible sur facture) finançant le système. Objectif : 65 % de collecte des DEEE depuis 2019 (directive européenne).",
       },
       {
         q: "Que prévoit le droit à la réparation européen ?",
-        a: "Adopté en 2024, il impose : 1) Disponibilité pièces détachées 7-10 ans selon produits, 2) Prix raisonnables pour pièces, 3) Accès documentation technique, 4) Conception facilitant démontage, 5) Interdiction empêchements réparation (logiciels, verrouillages), 6) Allongement garantie si réparation pendant garantie. Application progressive 2024-2027.",
+        a: "Adoptée en 2024 (directive 2024/1799), applicable depuis le 31 juillet 2026, elle impose : 1) Obligation de réparer hors garantie (prix raisonnable, 5 à 10 ans selon les produits, smartphones et tablettes inclus), 2) Pièces détachées et documentation accessibles, 3) Garantie prolongée de 12 mois si réparation sous garantie, 4) Annuaire officiel : Que faire de mes objets (ADEME).",
       },
       {
         q: "Y a-t-il des aides financières pour la réparation ?",
-        a: "Oui, plusieurs dispositifs en France : 1) Bonus réparation : jusqu'à 45€ remboursés (smartphones, ordinateurs, TV), 2) Fonds réparation via éco-organismes, 3) Aides locales (certaines régions/communes), 4) Crédit d'impôt transition énergétique (dans certains cas). Consultez ecosystem.eco et longuevieauxobjets.gouv.fr pour détails et carte des bénéficiaires.",
+        a: "Oui, plusieurs dispositifs en France : 1) Bonus réparation : de 10 à 65 € selon l'appareil (25 € pour un smartphone), déduit par un réparateur labellisé QualiRépar, hors garantie (ADEME), 2) Fonds réparation via éco-organismes, 3) Aides locales (certaines régions/communes), 4) Crédit d'impôt transition énergétique (dans certains cas). Consultez ecosystem.eco et longuevieauxobjets.gouv.fr pour détails et carte des bénéficiaires.",
       },
     ],
   },

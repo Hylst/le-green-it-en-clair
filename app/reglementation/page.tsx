@@ -39,8 +39,9 @@ const timelineData = [
   { year: "2021", event: "Indice réparabilité", impact: 70 },
   { year: "2021", event: "Loi REEN", impact: 90 },
   { year: "2024", event: "Indice durabilité", impact: 75 },
-  { year: "2025", event: "CSRD obligatoire", impact: 95 },
-  { year: "2027", event: "Droit à la réparation EU", impact: 88 },
+  { year: "2025", event: "Étiquette énergie smartphones (UE)", impact: 80 },
+  { year: "2026", event: "CSRD : nouveau périmètre", impact: 95 },
+  { year: "2026", event: "Droit à la réparation applicable", impact: 88 },
 ]
 
 const complianceData = [
@@ -79,7 +80,7 @@ export default function ReglementationPage() {
           <div className="flex items-center gap-3 mb-6">
             <Scale className="w-12 h-12" />
             <Badge variant="secondary" className="text-sm">
-              Mise à jour 2025
+              Mise à jour 2026
             </Badge>
           </div>
           <h1 className="text-5xl font-bold mb-6 text-balance text-white">Réglementation Green IT</h1>
@@ -224,7 +225,7 @@ export default function ReglementationPage() {
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-accent/20">
                         <h5 className="font-semibold text-sm mb-1 text-card-foreground">4. Datacenters responsables</h5>
-                        <p className="text-sm text-muted-foreground">Indicateurs environnementaux obligatoires (PUE, WUE)</p>
+                        <p className="text-sm text-muted-foreground">Suivi des indicateurs (PUE, WUE) et reporting européen</p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-accent/20">
                         <h5 className="font-semibold text-sm mb-1 text-card-foreground">5. Territoires</h5>
@@ -245,13 +246,11 @@ export default function ReglementationPage() {
                         • <strong>Opérateurs télécom :</strong> Rapport annuel sur empreinte environnementale
                       </li>
                       <li>
-                        • <strong>Datacenters &gt;1MW :</strong> Publication PUE, WUE, taux EnR
+                        • <strong>Datacenters de plus de 500 kW :</strong> Reporting européen (efficacité énergétique,
+                        directive 2023/1791)
                       </li>
                       <li>
                         • <strong>Collectivités :</strong> Stratégie numérique responsable obligatoire
-                      </li>
-                      <li>
-                        • <strong>Entreprises &gt;50 salariés :</strong> Sensibilisation des collaborateurs
                       </li>
                     </ul>
                   </div>
@@ -304,52 +303,31 @@ export default function ReglementationPage() {
                     </div>
 
                     <div className="bg-card p-4 rounded-lg border border-accent/20">
-                      <h5 className="font-semibold mb-2 text-card-foreground">Indice de durabilité (2024)</h5>
-                      <p className="text-sm text-muted-foreground mb-3">Évolution incluant robustesse et fiabilité</p>
+                      <h5 className="font-semibold mb-2 text-card-foreground">Indice de durabilité (2025)</h5>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Deux notes : réparabilité + fiabilité. En vigueur pour les téléviseurs (janvier 2025) et les
+                        lave-linge (avril 2025).
+                      </p>
                       <div className="space-y-2 text-sm text-muted-foreground">
                         <div className="flex justify-between">
-                          <span>Réparabilité</span>
-                          <span className="font-semibold">35%</span>
+                          <span>Note de réparabilité</span>
+                          <span className="font-semibold">/10</span>
                         </div>
                         <div className="flex justify-between">
-                          <span>Fiabilité</span>
-                          <span className="font-semibold">30%</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Mise à jour logicielle</span>
-                          <span className="font-semibold">20%</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Critères environnementaux</span>
-                          <span className="font-semibold">15%</span>
+                          <span>Note de fiabilité</span>
+                          <span className="font-semibold">/10</span>
                         </div>
                       </div>
                       <div className="mt-3 pt-3 border-t border-chart-3/20">
                         <p className="text-xs text-muted-foreground">
-                          <strong>Nouveauté :</strong> Intègre la durée de vie réelle et les mises à jour logicielles
-                          garanties
+                          <strong>Smartphones :</strong> pas d'indice mais une étiquette énergie européenne depuis le 20
+                          juin 2025 (5 ans de mises à jour, 7 ans de pièces détachées, batterie 800 cycles/80 %,
+                          règlement UE 2023/1670)
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-chart-3/10 p-4 rounded-lg">
-                    <h5 className="font-semibold mb-2 text-foreground">Impact sur le marché (2025)</h5>
-                    <div className="grid grid-cols-3 gap-4 text-center">
-                      <div>
-                        <div className="text-2xl font-bold text-chart-3">8.2/10</div>
-                        <div className="text-xs text-muted-foreground">Note moyenne smartphones</div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-chart-3">+2.1</div>
-                        <div className="text-xs text-muted-foreground">Amélioration depuis 2021</div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-chart-3">92%</div>
-                        <div className="text-xs text-muted-foreground">Consommateurs consultent l'indice</div>
-                      </div>
-                    </div>
-                  </div>
                 </CardContent>
               </Card>
             </TabsContent>
@@ -361,7 +339,7 @@ export default function ReglementationPage() {
                   <div className="flex items-center gap-3">
                     <Building2 className="w-8 h-8 text-blue-600" />
                     <div>
-                      <CardTitle>Directive DEEE (2012, révisée 2023)</CardTitle>
+                      <CardTitle>Directive DEEE (2012, réexamen en cours)</CardTitle>
                       <CardDescription>Déchets d'Équipements Électriques et Électroniques</CardDescription>
                     </div>
                   </div>
@@ -417,8 +395,8 @@ export default function ReglementationPage() {
                   <div className="flex items-center gap-3">
                     <Leaf className="w-8 h-8 text-emerald-600" />
                     <div>
-                      <CardTitle>Droit à la réparation (2027)</CardTitle>
-                      <CardDescription>Right to Repair - Application progressive</CardDescription>
+                      <CardTitle>Droit à la réparation (applicable depuis juillet 2026)</CardTitle>
+                      <CardDescription>Right to Repair - Directive 2024/1799</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
@@ -431,14 +409,14 @@ export default function ReglementationPage() {
                           <CheckCircle2 className="w-4 h-4 text-primary" />
                           Pièces détachées
                         </h5>
-                        <p className="text-sm text-muted-foreground">Disponibilité garantie 10 ans après achat</p>
+                        <p className="text-sm text-muted-foreground">Disponibilité 5 à 10 ans selon les produits (smartphones et tablettes inclus)</p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-primary/20">
                         <h5 className="font-semibold text-sm mb-1 flex items-center gap-2 text-card-foreground">
                           <CheckCircle2 className="w-4 h-4 text-primary" />
                           Prix raisonnables
                         </h5>
-                        <p className="text-sm text-muted-foreground">Plafonnement du coût des pièces de rechange</p>
+                        <p className="text-sm text-muted-foreground">Des prix raisonnables pour les pièces de rechange</p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-primary/20">
                         <h5 className="font-semibold text-sm mb-1 flex items-center gap-2 text-card-foreground">
@@ -463,19 +441,19 @@ export default function ReglementationPage() {
                       <div className="flex items-center gap-2">
                         <Calendar className="w-4 h-4 text-emerald-600" />
                         <span>
-                          <strong>2024 :</strong> Smartphones et tablettes
+                          <strong>31 juillet 2026 :</strong> entrée en application, obligation de réparer hors garantie
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Calendar className="w-4 h-4 text-emerald-600" />
                         <span>
-                          <strong>2025 :</strong> Ordinateurs portables
+                          <strong>Garantie :</strong> +12 mois si réparation sous garantie
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Calendar className="w-4 h-4 text-emerald-600" />
                         <span>
-                          <strong>2027 :</strong> Tous les appareils électroniques
+                          <strong>2027 :</strong> plateforme européenne de la réparation prévue
                         </span>
                       </div>
                     </div>
@@ -488,7 +466,7 @@ export default function ReglementationPage() {
                   <div className="flex items-center gap-3">
                     <FileText className="w-8 h-8 text-purple-600" />
                     <div>
-                      <CardTitle>CSRD (2025)</CardTitle>
+                      <CardTitle>CSRD (nouveau périmètre 2026)</CardTitle>
                       <CardDescription>Corporate Sustainability Reporting Directive</CardDescription>
                     </div>
                   </div>
@@ -505,9 +483,9 @@ export default function ReglementationPage() {
                       <div className="bg-card p-3 rounded-lg border border-chart-3/20">
                         <h5 className="font-semibold text-sm mb-2 text-card-foreground">Qui est concerné ?</h5>
                         <ul className="text-sm text-muted-foreground space-y-1">
-                          <li>• Grandes entreprises &gt;250 salariés (2025)</li>
-                          <li>• PME cotées (2026)</li>
-                          <li>• Entreprises non-UE avec activité significative en Europe (2028)</li>
+                          <li>• Grandes entreprises de plus de 1 000 salariés ET plus de 450 M€ de chiffre d'affaires (seuils cumulatifs, directive Omnibus I, 2026)</li>
+                          <li>• PME cotées définitivement exclues</li>
+                          <li>• Transposition française au plus tard le 19/03/2027</li>
                         </ul>
                       </div>
 
@@ -526,10 +504,10 @@ export default function ReglementationPage() {
 
                   <div className="bg-chart-3/10 p-4 rounded-lg">
                     <h5 className="font-semibold mb-2 text-foreground">Impact attendu</h5>
-                    <p className="text-sm text-muted-foreground">
-                      La CSRD va forcer les entreprises à mesurer précisément leur empreinte numérique et à mettre en
-                      place des stratégies de réduction. Environ <strong>50 000 entreprises européennes</strong> seront
-                      concernées d'ici 2028.
+                      <p className="text-sm text-muted-foreground">
+                      La CSRD va forcer les entreprises concernées à mesurer précisément leur empreinte numérique et à
+                      mettre en place des stratégies de réduction. Environ <strong>5 000 entreprises européennes</strong>{" "}
+                      sont concernées avec le nouveau périmètre (directive Omnibus I, 2026).
                     </p>
                   </div>
                 </CardContent>
@@ -700,7 +678,7 @@ export default function ReglementationPage() {
                       <ul className="text-xs text-muted-foreground space-y-1">
                         <li>• 3 niveaux : Sensibilisation, Progression, Exemplarité</li>
                         <li>• Évalue stratégie, gouvernance, achats, usage</li>
-                        <li>• 450+ organisations labellisées en France</li>
+                        <li>• Environ 350 organisations labellisées en France (2026)</li>
                       </ul>
                     </div>
 
@@ -711,8 +689,8 @@ export default function ReglementationPage() {
                       </p>
                       <ul className="text-xs text-muted-foreground space-y-1">
                         <li>• Ordinateurs, serveurs, écrans, imprimantes</li>
-                        <li>• 25-30% plus efficaces que le standard</li>
-                        <li>• Reconnu dans 75+ pays</li>
+                        <li>• Critères d'efficacité énergétique stricts (agence américaine EPA)</li>
+                        <li>• Reconnu internationalement, avec des partenaires hors États-Unis</li>
                       </ul>
                     </div>
 
@@ -747,8 +725,9 @@ export default function ReglementationPage() {
       <section className="py-16 px-4 bg-secondary/5">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">État de conformité en France (2025)</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-4">État de conformité en France (2026)</h2>
             <p className="text-lg text-muted-foreground">Niveau d'adoption des réglementations par secteur</p>
+            <p className="mt-2 text-sm text-muted-foreground">Données illustratives : ordres de grandeur pour se repérer, pas des statistiques officielles.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">

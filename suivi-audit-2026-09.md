@@ -125,3 +125,4 @@
 - 2026-09-15 : tâches 1 (collecte illustrative) et 2 (cloud 0,24 g) terminées, relues, vérifiées.
 - 2026-09-15 : tâche 3a (`problematiques`) interrompue côté sous-agent (diff non committé repris à la main, durci en pessimiste : 88 % → 62 %, UE précisé, Taïwan/Ghana-Nigeria chiffrés, eau 12 000 L). Build + export vérifiés. Leçon : sous-agents en lecture seule jusqu’à nouvel ordre, implémentation manuelle par micro-tâches.
 - 2026-09-15 : `datacenters` + `cas-pratiques` corrigés en manuel (415 TWh, PUE 1,56/1,45, camembert 64/28/8, Paris-Marseille AR, 800 kWh ≈ 2 mois, serveurs 3-5 ans, CTA branchés, Sources remplies). Build + export vérifiés, commit + push.
+- 2026-09-15 : `faq` + `reglementation` corrigés en manuel (CSRD Omnibus I, réparation 31/07/2026, bonus/garantie/indice/étiquette UE, DEEE, REEN retirés, faux chiffres FAQ corrigés, NR ~350, Energy Star). Build + export vérifiés (zéro ancienne valeur dans tout `out/`).

@@ -54,6 +54,7 @@ audit-*.md
 AUDIT-*.md
 
 # au cas où un outil balance ses dossiers
+.superpowers/
 .opencode/
 .claude/
 .antigravity/

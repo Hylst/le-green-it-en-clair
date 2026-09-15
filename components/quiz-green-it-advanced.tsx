@@ -179,7 +179,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["5%", "15%", "22%", "85%"],
     correctAnswer: 2,
     explanation:
-      "22,3 % des déchets électroniques ont été documentés comme collectés et recyclés en 2022 (Global E-waste Monitor 2024). En France, ce taux atteint environ 45 %.",
+      "22,3 % des déchets électroniques ont été documentés comme collectés et recyclés en 2022 (Global E-waste Monitor 2024). En France, le taux de collecte atteint environ 46 % (Eurostat 2024).",
     source: "Global E-waste Monitor 2024, ONU",
     points: 20,
   },

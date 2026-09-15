@@ -127,10 +127,13 @@ export default function SobrietySimulator() {
                     <RadioGroupItem value="refurb" id="refurb" />
                     <Label htmlFor="refurb" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
                       J'achète reconditionné
-                      <span className="block text-sm text-green-600 dark:text-green-400">Impact : −75 %*</span>
+                      <span className="block text-sm text-green-600 dark:text-green-400">Impact : −75 % (*)</span>
                     </Label>
                   </div>
                 </RadioGroup>
+                <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+                  (*) Achat reconditionné : impact du produit réduit d'environ 75 % par rapport au neuf (ADEME, 2022).
+                </p>
               </div>
 
               <div>

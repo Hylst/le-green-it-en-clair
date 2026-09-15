@@ -363,11 +363,11 @@ export default function ReglementationPage() {
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-accent/20">
                         <div className="flex justify-between items-center mb-2">
-                          <span className="font-semibold text-card-foreground">Taux de recyclage</span>
-                          <Badge variant="outline" className="border-primary text-primary">85% minimum</Badge>
+                          <span className="font-semibold text-card-foreground">Taux de recyclage et valorisation</span>
+                          <Badge variant="outline" className="border-primary text-primary">80 % / 85 %</Badge>
                         </div>
                         <p className="text-sm text-muted-foreground">
-                          85% des DEEE collectés doivent être recyclés ou valorisés
+                          80 % des DEEE collectés recyclés et 85 % valorisés, selon les catégories (directive 2012/19/UE)
                         </p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-accent/20">

@@ -620,7 +620,7 @@ export default function DatacentersPage() {
                 <div>
                   <h4 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">OVHcloud (Roubaix)</h4>
                   <p className="mb-2 text-sm text-slate-700 dark:text-slate-300">
-                    Chiffres communiqués par OVHcloud : refroidissement par eau de pluie, PUE annoncé d'environ 1,09 et serveurs conçus en interne. Objectif de neutralité carbone 2025 : consultez le rapport RSE pour le résultat.
+                    Chiffres communiqués par OVHcloud : refroidissement par eau de pluie, PUE annoncé d'environ 1,09 et serveurs conçus en interne. Objectif affiché de neutralité carbone à horizon 2025 : le bilan est à vérifier dans son rapport RSE.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="rounded-full bg-blue-600 px-3 py-1 text-xs font-medium text-white">PUE théorique ~1,09</span>
@@ -628,7 +628,7 @@ export default function DatacentersPage() {
                       Eau de pluie
                     </span>
                     <span className="rounded-full bg-blue-600 px-3 py-1 text-xs font-medium text-white">
-                      Objectif neutralité 2025
+                      Neutralité : objectif 2025 (à vérifier)
                     </span>
                   </div>
                 </div>

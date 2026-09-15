@@ -103,7 +103,7 @@ const mainProblems = [
       "Accumulation dans les décharges sauvages",
     ],
     data2025:
-      "En France, chaque habitant produit 24 kg de e-déchets par an, mais seulement 13 kg sont collectés pour recyclage.",
+      "En France, chaque habitant produit environ 24 kg de déchets électroniques par an, mais moins de la moitié sont collectés (~46 %, Eurostat 2024).",
   },
   {
     title: "Consommation énergétique croissante",
@@ -795,7 +795,7 @@ export default function ProblematiquesPage() {
               </BarChart>
             </ResponsiveContainer>
             <p className="mt-6 text-center text-sm text-slate-600">
-              La France collecte et recycle environ 46 % de ses e-déchets, en progrès mais encore loin des leaders
+              La France collecte environ 46 % de ses déchets électroniques, en progrès mais encore loin des leaders
               nordiques. Objectif européen : 65 % de collecte (directive DEEE).
             </p>
           </Card>

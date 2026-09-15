@@ -233,10 +233,10 @@ export default function RecyclagePage() {
             </Card>
             <Card className="border-2 border-accent/20 bg-accent/5 p-6 text-center">
               <div className="mb-2 text-4xl font-bold text-accent">
-                0,9 Mt
-                <SourceTooltip className="ml-1 align-middle" source="Ecosystem, 2025" calculation="≈ 876 kt collectées en 2025, soit ~13 kg/hab, sur ~1,6 Mt produites (ADEME 2024)" />
+                1,6 Mt
+                <SourceTooltip className="ml-1 align-middle" source="ADEME, 2024" calculation="24 kg produits par habitant × 68 M ≈ 1,6 Mt/an ; environ 46 % collectés (Eurostat 2024)" />
               </div>
-              <p className="text-sm text-muted-foreground">DEEE collectés par an (~13 kg/hab, Ecosystem 2025)</p>
+              <p className="text-sm text-muted-foreground">DEEE produits par an (~24 kg/hab, ADEME 2024)</p>
             </Card>
           </div>
         </div>
@@ -288,8 +288,8 @@ export default function RecyclagePage() {
               <p className="text-muted-foreground">
                 <strong>Résultat :</strong> Grâce à la REP, la France collecte environ 46 % de ses déchets
                 électroniques, soit plus du double de la moyenne mondiale (22,3 % en 2022, Global E-waste Monitor
-                2024). En 2025, Ecosystem revendique 42 000 points de collecte, 876 kt collectées (65 % à son
-                périmètre) et 735 000 réparations via 7 465 réparateurs QualiRépar. C'est gratuit pour les
+                2024). En 2025, Ecosystem indique 42 000 points de collecte, 876 kt collectées (65 % à son
+                périmètre, méthode distincte des 46 % Eurostat) et 735 000 réparations via 7 465 réparateurs QualiRépar. C'est gratuit pour les
                 consommateurs !
               </p>
             </div>

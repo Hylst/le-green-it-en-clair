@@ -59,7 +59,7 @@ const faqCategories = [
     questions: [
       {
         q: "Comment réduire la consommation électrique de mes appareils ?",
-        a: "Actions principales : 1) Éteindre complètement (pas juste en veille) la nuit et quand inutilisés, 2) Débrancher box internet la nuit (environ 26 kWh/an économisés (Arcep 2026), soit ~5 €/an), 3) Régler luminosité à 50% max, 4) Activer mode économie d'énergie, 5) Privilégier Wi-Fi à 4G/5G (environ 4 à 5 fois moins énergivore en streaming), 6) Utiliser multiprise avec interrupteur.",
+        a: "Actions principales : 1) Éteindre complètement (pas juste en veille) la nuit et quand inutilisés, 2) Débrancher box internet la nuit (environ 26 kWh/an économisés, soit ~5 €/an — Arcep 2026), 3) Régler luminosité à 50% max, 4) Activer mode économie d'énergie, 5) Privilégier Wi-Fi à 4G/5G (environ 4 à 5 fois moins énergivore en streaming), 6) Utiliser multiprise avec interrupteur.",
       },
       {
         q: "Le streaming vidéo pollue-t-il vraiment ?",
@@ -137,7 +137,7 @@ const faqCategories = [
       },
       {
         q: "Y a-t-il des aides financières pour la réparation ?",
-        a: "Oui, plusieurs dispositifs en France : 1) Bonus réparation : de 10 à 65 € selon l'appareil (25 € pour un smartphone), déduit par un réparateur labellisé QualiRépar, hors garantie (ADEME), 2) Fonds réparation via éco-organismes, 3) Aides locales (certaines régions/communes), 4) Aides locales selon les territoires. Consultez quefairedemesdechets.ademe.fr et longuevieauxobjets.gouv.fr pour les détails et la carte des bénéficiaires.",
+        a: "Oui, plusieurs dispositifs en France : 1) Bonus réparation : de 10 à 65 € selon l'appareil (25 € pour un smartphone), déduit par un réparateur labellisé QualiRépar, hors garantie (ADEME), 2) Fonds réparation via éco-organismes, 3) Aides locales (certaines régions/communes). Consultez quefairedemesdechets.ademe.fr et longuevieauxobjets.gouv.fr pour les détails et la carte des bénéficiaires.",
       },
     ],
   },

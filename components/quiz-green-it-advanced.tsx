@@ -57,7 +57,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Bases du Green IT",
     difficulty: "facile",
     question: "Quelle part de l'empreinte carbone du numérique provient de la fabrication des équipements en France ?",
-    options: ["25%", "50%", "80%", "90%"],
+    options: ["25 %", "50 %", "80 %", "90 %"],
     correctAnswer: 2,
     explanation:
       "Environ 80 % de l'empreinte carbone du numérique en France provient de la fabrication des équipements (ADEME-Arcep 2023, données 2020-2022).",
@@ -185,7 +185,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Bases du Green IT",
     difficulty: "difficile",
     question: "Quel taux de déchets électroniques est collecté et recyclé dans le monde ?",
-    options: ["5%", "15%", "22%", "85%"],
+    options: ["5 %", "15 %", "22 %", "85 %"],
     correctAnswer: 2,
     explanation:
       "22,3 % des déchets électroniques ont été documentés comme collectés et recyclés en 2022 (Global E-waste Monitor 2024). En France, le taux de collecte atteint environ 46 % (Eurostat 2024).",
@@ -235,7 +235,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Matériel et fabrication",
     difficulty: "moyen",
     question: "Quel pourcentage de l'impact environnemental d'un équipement se produit lors de sa fabrication ?",
-    options: ["20-30%", "40-50%", "60-70%", "75-90%"],
+    options: ["20-30 %", "40-50 %", "60-70 %", "75-90 %"],
     correctAnswer: 3,
     explanation:
       "Pour un smartphone, la fabrication représente environ 75 % de l'impact tous indicateurs, et jusqu'à environ 90 % de son empreinte carbone (ADEME).",
@@ -312,7 +312,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Matériel et fabrication",
     difficulty: "difficile",
     question: "Quelle part de la demande de terres rares est couverte par le recyclage dans le monde ?",
-    options: ["1%", "10%", "30%", "50%"],
+    options: ["1 %", "10 %", "30 %", "50 %"],
     correctAnswer: 0,
     explanation:
       "Environ 1 % de la demande de terres rares est couverte par le recyclage à l'échelle mondiale (Global E-waste Monitor 2024).",
@@ -726,7 +726,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Développement éco-responsable",
     difficulty: "difficile",
     question: "Quel pourcentage du trafic web est automatisé (bots) ?",
-    options: ["10%", "25%", "51%", "70%"],
+    options: ["10 %", "25 %", "51 %", "70 %"],
     correctAnswer: 2,
     explanation:
       "En 2024, environ 51 % du trafic web était automatisé, dont environ 37 % de trafic malveillant (Imperva Bad Bot Report 2025).",
@@ -769,7 +769,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Datacenters et infrastructure",
     difficulty: "difficile",
     question: "Quelle part de l'électricité mondiale les datacenters consomment-ils ?",
-    options: ["0,5%", "1,5%", "3%", "5%"],
+    options: ["0,5 %", "1,5 %", "3 %", "5 %"],
     correctAnswer: 1,
     explanation:
       "En 2024, les datacenters ont consommé environ 415 TWh, soit 1,5 % de l'électricité mondiale (IEA Energy & AI 2025).",
@@ -798,7 +798,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Datacenters et infrastructure",
     difficulty: "facile",
     question: "Que représente le refroidissement dans la consommation d'un datacenter traditionnel ?",
-    options: ["10%", "20%", "30%", "40%"],
+    options: ["10 %", "20 %", "30 %", "40 %"],
     correctAnswer: 2,
     explanation:
       "Le froid représente souvent 25 à 35 % de la consommation d'un datacenter traditionnel ; le total froid + infrastructures correspond au surcoût du PUE.",
@@ -906,7 +906,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Réglementation",
     difficulty: "difficile",
     question: "Quelle est la trajectoire tendancielle des émissions du numérique en France d'ici 2030 ?",
-    options: ["-45%", "+15%", "+45%", "stable"],
+    options: ["-45 %", "+15 %", "+45 %", "stable"],
     correctAnswer: 2,
     explanation:
       "À politiques constantes, l'empreinte carbone du numérique en France augmenterait d'environ 45 % d'ici 2030 (ADEME-Arcep).",
@@ -964,10 +964,10 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Réglementation",
     difficulty: "difficile",
     question: "Quelle amende maximale le RGPD permet-il d'infliger aux entreprises ?",
-    options: ["1 million €", "10 millions € ou 2% CA", "20 millions € ou 4% CA", "100 millions €"],
+    options: ["1 million €", "10 millions € ou 2 % CA", "20 millions € ou 4 % CA", "100 millions €"],
     correctAnswer: 2,
     explanation:
-      "Le RGPD permet des amendes jusqu'à 20 millions d'euros ou 4% du chiffre d'affaires mondial, le montant le plus élevé étant retenu.",
+      "Le RGPD permet des amendes jusqu'à 20 millions d'euros ou 4 % du chiffre d'affaires mondial, le montant le plus élevé étant retenu.",
     source: "RGPD Article 83",
     points: 20,
   },
@@ -1196,11 +1196,11 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     id: 84,
     category: "Bonnes pratiques entreprise",
     difficulty: "difficile",
-    question: "Quel pourcentage des serveurs d'entreprise sont sous-utilisés (< 20% de leur capacité) ?",
-    options: ["10%", "30%", "50%", "70%"],
+    question: "Quel pourcentage des serveurs d'entreprise sont sous-utilisés (< 20 % de leur capacité) ?",
+    options: ["10 %", "30 %", "50 %", "70 %"],
     correctAnswer: 2,
     explanation:
-      "Environ 50% des serveurs d'entreprise sont sous-utilisés, représentant un gaspillage énergétique et financier considérable.",
+      "Environ 50 % des serveurs d'entreprise sont sous-utilisés, représentant un gaspillage énergétique et financier considérable.",
     source: "Uptime Institute 2024",
     points: 20,
   },
@@ -1216,7 +1216,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
       "Interdire l'impression",
     ],
     correctAnswer: 2,
-    explanation: "Configurer l'impression recto-verso par défaut peut réduire la consommation de papier de 30 à 50%.",
+    explanation: "Configurer l'impression recto-verso par défaut peut réduire la consommation de papier de 30 à 50 %.",
     source: "ADEME",
     points: 10,
   },
@@ -1341,7 +1341,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Innovations et solutions",
     difficulty: "difficile",
     question: "Quelle économie d'énergie le mode sombre peut-il offrir sur écran OLED ?",
-    options: ["moins de 5%", "environ 15%", "jusqu'à 30-50% selon la luminosité", "plus de 80%"],
+    options: ["moins de 5 %", "environ 15 %", "jusqu'à 30-50 % selon la luminosité", "plus de 80 %"],
     correctAnswer: 2,
     explanation:
       "Sur écran OLED, le mode sombre économise selon la luminosité : de quelques pourcents à environ 50 % (Purdue 2021).",

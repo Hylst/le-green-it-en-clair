@@ -52,19 +52,19 @@ export default function PlanActionDSIPage() {
                     <h2 className="text-2xl font-bold text-foreground mb-4">Vision et objectifs</h2>
                     <p className="text-muted-foreground mb-6">
                         Transformer la DSI en acteur clé de la transition écologique de l'organisation en réduisant l'empreinte
-                        environnementale du système d'information de 30% d'ici 3 ans.
+                        environnementale du système d'information de 30 % d'ici 3 ans.
                     </p>
                     <div className="grid md:grid-cols-3 gap-4">
                         <Card className="p-4 bg-white dark:bg-background">
-                            <div className="text-3xl font-bold text-emerald-600 mb-2">-30%</div>
+                            <div className="text-3xl font-bold text-emerald-600 mb-2">-30 %</div>
                             <p className="text-sm text-muted-foreground">Émissions CO₂</p>
                         </Card>
                         <Card className="p-4 bg-white dark:bg-background">
-                            <div className="text-3xl font-bold text-blue-600 mb-2">50%</div>
+                            <div className="text-3xl font-bold text-blue-600 mb-2">50 %</div>
                             <p className="text-sm text-muted-foreground">Équipements reconditionnés</p>
                         </Card>
                         <Card className="p-4 bg-white dark:bg-background">
-                            <div className="text-3xl font-bold text-purple-600 mb-2">100%</div>
+                            <div className="text-3xl font-bold text-purple-600 mb-2">100 %</div>
                             <p className="text-sm text-muted-foreground">Collaborateurs formés</p>
                         </Card>
                     </div>
@@ -108,7 +108,7 @@ export default function PlanActionDSIPage() {
                             </div>
                             <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li>• Mise en place inventaire complet du parc (logiciel GLPI/CMDB)</li>
-                                <li>• Premiers achats d'équipements reconditionnés (20% du parc)</li>
+                                <li>• Premiers achats d'équipements reconditionnés (20 % du parc)</li>
                                 <li>• Partenariat avec filière de recyclage (Ecosystem)</li>
                                 <li>• Politique de réparation avant remplacement</li>
                             </ul>
@@ -126,7 +126,7 @@ export default function PlanActionDSIPage() {
                             </div>
                             <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li>• Lancement campagne de sensibilisation (affiches, newsletters)</li>
-                                <li>• Formation Green IT pour 100% des nouveaux arrivants</li>
+                                <li>• Formation Green IT pour 100 % des nouveaux arrivants</li>
                                 <li>• Création du guide des écogestes numériques</li>
                                 <li>• Webinaire DSI "Numérique responsable"</li>
                             </ul>
@@ -155,9 +155,9 @@ export default function PlanActionDSIPage() {
                         <p className="font-semibold text-foreground mb-2">Objectifs Année 1 :</p>
                         <ul className="space-y-1 text-sm text-muted-foreground">
                             <li>✓ Budget total : 100 000 €</li>
-                            <li>✓ -10% empreinte carbone vs baseline</li>
-                            <li>✓ 20% équipements reconditionnés</li>
-                            <li>✓ 100% nouveaux collaborateurs formés</li>
+                            <li>✓ -10 % empreinte carbone vs baseline</li>
+                            <li>✓ 20 % équipements reconditionnés</li>
+                            <li>✓ 100 % nouveaux collaborateurs formés</li>
                         </ul>
                     </Card>
                 </div>
@@ -208,10 +208,10 @@ export default function PlanActionDSIPage() {
                             <p className="font-semibold text-foreground mb-2">Objectifs Année 2 :</p>
                             <ul className="space-y-1 text-sm text-muted-foreground">
                                 <li>✓ Budget total : 140 000 €</li>
-                                <li>✓ -20% empreinte carbone vs baseline</li>
-                                <li>✓ 40% équipements reconditionnés</li>
+                                <li>✓ -20 % empreinte carbone vs baseline</li>
+                                <li>✓ 40 % équipements reconditionnés</li>
                                 <li>✓ Durée de vie moyenne : 5 ans</li>
-                                <li>✓ 100% nouvelles applications  écoconçues</li>
+                                <li>✓ 100 % nouvelles applications écoconçues</li>
                             </ul>
                         </Card>
                     </div>
@@ -231,7 +231,7 @@ export default function PlanActionDSIPage() {
                                     <div className="p-4 bg-muted/5 border-border">
                                         <h4 className="font-semibold text-foreground mb-2">Optimisation SI</h4>
                                         <ul className="text-sm text-muted-foreground space-y-1">
-                                            <li>• Rationalisation applicative (-30%)</li>
+                                            <li>• Rationalisation applicative (-30 %)</li>
                                             <li>• Décommissionnement serveurs obsolètes</li>
                                             <li>• Migration vers serverless</li>
                                         </ul>
@@ -277,8 +277,8 @@ export default function PlanActionDSIPage() {
                             <p className="font-semibold text-foreground mb-2">Objectifs Année 3 (cibles finales) :</p>
                             <ul className="space-y-1 text-sm text-muted-foreground">
                                 <li>✓ Budget total : 180 000 €</li>
-                                <li>✓ <strong className="text-emerald-600">-30% empreinte carbone vs baseline (objectif cible)</strong></li>
-                                <li>✓ 50% équipements reconditionnés</li>
+                                <li>✓ <strong className="text-emerald-600">-30 % empreinte carbone vs baseline (objectif cible)</strong></li>
+                                <li>✓ 50 % équipements reconditionnés</li>
                                 <li>✓ Durée de vie moyenne : 6 ans</li>
                                 <li>✓ Label Numérique Responsable obtenu</li>
                             </ul>
@@ -304,25 +304,25 @@ export default function PlanActionDSIPage() {
                                 <td className="p-3">Année 1</td>
                                 <td className="p-3">100 000 €</td>
                                 <td className="p-3">15 000 €/an</td>
-                                <td className="p-3 text-emerald-600">15%</td>
+                                <td className="p-3 text-emerald-600">15 %</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">Année 2</td>
                                 <td className="p-3">140 000 €</td>
                                 <td className="p-3">35 000 €/an</td>
-                                <td className="p-3 text-emerald-600">25%</td>
+                                <td className="p-3 text-emerald-600">25 %</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">Année 3</td>
                                 <td className="p-3">180 000 €</td>
                                 <td className="p-3">60 000 €/an</td>
-                                <td className="p-3 text-emerald-600">33%</td>
+                                <td className="p-3 text-emerald-600">33 %</td>
                             </tr>
                             <tr className="font-bold text-foreground">
                                 <td className="p-3">TOTAL</td>
                                 <td className="p-3">420 000 €</td>
                                 <td className="p-3">110 000 €/an (récurrent)</td>
-                                <td className="p-3 text-emerald-600">26% global</td>
+                                <td className="p-3 text-emerald-600">26 % global</td>
                             </tr>
                         </tbody>
                     </table>
@@ -350,13 +350,13 @@ export default function PlanActionDSIPage() {
                             <tr className="border-b border-border">
                                 <td className="p-3">Empreinte carbone SI (t CO₂)</td>
                                 <td className="p-3">150 t</td>
-                                <td className="p-3">105 t (-30%)</td>
+                                <td className="p-3">105 t (-30 %)</td>
                                 <td className="p-3">Annuel</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">% équipements reconditionnés</td>
-                                <td className="p-3">5%</td>
-                                <td className="p-3">50%</td>
+                                <td className="p-3">5 %</td>
+                                <td className="p-3">50 %</td>
                                 <td className="p-3">Mensuel</td>
                             </tr>
                             <tr className="border-b border-border">
@@ -367,20 +367,20 @@ export default function PlanActionDSIPage() {
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">Taux de recyclage</td>
-                                <td className="p-3">60%</td>
-                                <td className="p-3">100%</td>
+                                <td className="p-3">60 %</td>
+                                <td className="p-3">100 %</td>
                                 <td className="p-3">Trimestriel</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">Collaborateurs formés</td>
-                                <td className="p-3">10%</td>
-                                <td className="p-3">100%</td>
+                                <td className="p-3">10 %</td>
+                                <td className="p-3">100 %</td>
                                 <td className="p-3">Annuel</td>
                             </tr>
                             <tr>
                                 <td className="p-3">Applications écoconçues</td>
-                                <td className="p-3">0%</td>
-                                <td className="p-3">100% (nouvelles)</td>
+                                <td className="p-3">0 %</td>
+                                <td className="p-3">100 % (nouvelles)</td>
                                 <td className="p-3">Continu</td>
                             </tr>
                         </tbody>

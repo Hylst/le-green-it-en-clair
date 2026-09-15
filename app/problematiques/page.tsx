@@ -284,7 +284,7 @@ const currentSolutions = [
     solutions: [
       {
         name: "Énergies renouvelables",
-        description: "Google, Microsoft, OVH : 100% renouvelable, PPA (Power Purchase Agreements)",
+        description: "Google, Microsoft, OVH : 100 % renouvelable, PPA (Power Purchase Agreements)",
         adoption: "Élevée",
       },
       {
@@ -294,7 +294,7 @@ const currentSolutions = [
       },
       {
         name: "IA pour l'optimisation",
-        description: "DeepMind (Google) : réduction de 40% de la consommation de refroidissement (Google, 2016)",
+        description: "DeepMind (Google) : réduction de 40 % de la consommation de refroidissement (Google, 2016)",
         adoption: "Moyenne",
       },
     ],
@@ -333,7 +333,7 @@ const futureSolutions = [
       {
         name: "Processeurs ultra-efficaces",
         description:
-          "Puces ARM et RISC-V nouvelle génération : -70% de consommation, architecture neuromorphique inspirée du cerveau (ordre de grandeur, ARM 2023)",
+          "Puces ARM et RISC-V nouvelle génération : -70 % de consommation, architecture neuromorphique inspirée du cerveau (ordre de grandeur, ARM 2023)",
         potential: "Très élevé",
         challenges: "Compatibilité logicielle, coûts de R&D",
       },
@@ -623,7 +623,7 @@ export default function ProblematiquesPage() {
                     <h3 className="font-bold text-slate-900 dark:text-slate-100">Équipements utilisateurs</h3>
                   </div>
                   <span className="text-2xl font-bold text-red-700 dark:text-red-400">
-                    79%
+                    79 %
                     <SourceTooltip className="ml-1" source="ADEME-Arcep, 2023 (France, tous impacts, 2020-2022)" calculation="équipements utilisateurs : fabrication + usage, soit ~3/4 de l'empreinte" />
                   </span>
                 </div>
@@ -640,7 +640,7 @@ export default function ProblematiquesPage() {
                     <h3 className="font-bold text-slate-900 dark:text-slate-100">Datacenters</h3>
                   </div>
                   <span className="text-2xl font-bold text-amber-700 dark:text-amber-400">
-                    16%
+                    16 %
                     <SourceTooltip className="ml-1" source="ADEME-Arcep, 2023 (France, tous impacts, 2020-2022)" calculation="part des datacenters dans l'empreinte du numérique" />
                   </span>
                 </div>
@@ -657,7 +657,7 @@ export default function ProblematiquesPage() {
                     <h3 className="font-bold text-slate-900 dark:text-slate-100">Réseaux</h3>
                   </div>
                   <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">
-                    5%
+                    5 %
                     <SourceTooltip className="ml-1" source="ADEME-Arcep, 2023 (France, tous impacts, 2020-2022)" calculation="part des réseaux dans l'empreinte du numérique" />
                   </span>
                 </div>

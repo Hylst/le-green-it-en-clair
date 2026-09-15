@@ -38,18 +38,18 @@ export default function EnterpriseSimulator() {
       description: "Extension durée de vie + reconditionné partiel",
       color: "teal",
       deviceLifeExtension: 1.5, // +1.5 ans
-      refurbishedRate: 0.3, // 30% reconditionné
-      energyOptimization: 0.15, // -15% énergie
-      cloudOptimization: 0.2, // -20% cloud
+      refurbishedRate: 0.3, // 30 % reconditionné
+      energyOptimization: 0.15, // -15 % énergie
+      cloudOptimization: 0.2, // -20 % cloud
     },
     ambitious: {
       name: "Green IT ambitieux",
       description: "Stratégie complète de sobriété numérique",
       color: "emerald",
       deviceLifeExtension: 2.5, // +2.5 ans
-      refurbishedRate: 0.6, // 60% reconditionné
-      energyOptimization: 0.3, // -30% énergie
-      cloudOptimization: 0.4, // -40% cloud
+      refurbishedRate: 0.6, // 60 % reconditionné
+      energyOptimization: 0.3, // -30 % énergie
+      cloudOptimization: 0.4, // -40 % cloud
     },
   }
 

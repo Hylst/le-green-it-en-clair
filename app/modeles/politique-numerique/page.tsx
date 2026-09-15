@@ -126,19 +126,19 @@ export default function PolitiqueNumeriquePage() {
                             <tbody className="text-muted-foreground">
                                 <tr className="border-b border-border">
                                     <td className="py-2">Ordinateurs portables</td>
-                                    <td className="py-2">60% minimum</td>
+                                    <td className="py-2">60 % minimum</td>
                                 </tr>
                                 <tr className="border-b border-border">
                                     <td className="py-2">Écrans</td>
-                                    <td className="py-2">40% minimum</td>
+                                    <td className="py-2">40 % minimum</td>
                                 </tr>
                                 <tr className="border-b border-border">
                                     <td className="py-2">Smartphones</td>
-                                    <td className="py-2">30% minimum</td>
+                                    <td className="py-2">30 % minimum</td>
                                 </tr>
                                 <tr>
                                     <td className="py-2">Périphériques</td>
-                                    <td className="py-2">50% minimum</td>
+                                    <td className="py-2">50 % minimum</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -261,11 +261,11 @@ export default function PolitiqueNumeriquePage() {
                         <Card className="p-4 bg-muted/5 border-border">
                             <p className="text-sm font-semibold text-foreground mb-2">Principe : Réparer avant de remplacer</p>
                             <p className="text-sm text-muted-foreground">
-                                Tout équipement en panne doit faire l'objet d'un diagnostic de réparabilité avant envisager un remplacement.
+                                Tout équipement en panne doit faire l'objet d'un diagnostic de réparabilité avant d'envisager un remplacement.
                             </p>
                         </Card>
                         <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-4">
-                            <li>Mise bà jour régulière des systèmes d'exploitation et logiciels</li>
+                            <li>Mise à jour régulière des systèmes d'exploitation et logiciels</li>
                             <li>Nettoyage physique annuel des équipements</li>
                             <li>Remplacement des composants défaillants plutôt que de l'appareil entier</li>
                             <li>Mise à niveau mémoire/stockage si besoin avant remplacement</li>
@@ -423,7 +423,7 @@ export default function PolitiqueNumeriquePage() {
                             <tr className="border-b border-border">
                                 <td className="p-3">% équipements reconditionnés</td>
                                 <td className="p-3">Mensuel</td>
-                                <td className="p-3">≥ 50%</td>
+                                <td className="p-3">≥ 50 %</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">Durée de vie moyenne du parc</td>
@@ -433,17 +433,17 @@ export default function PolitiqueNumeriquePage() {
                             <tr className="border-b border-border">
                                 <td className="p-3">Taux de réparation vs remplacement</td>
                                 <td className="p-3">Trimestriel</td>
-                                <td className="p-3">≥ 30%</td>
+                                <td className="p-3">≥ 30 %</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">Taux de recyclage</td>
                                 <td className="p-3">Annuel</td>
-                                <td className="p-3">100%</td>
+                                <td className="p-3">100 %</td>
                             </tr>
                             <tr>
                                 <td className="p-3">Collaborateurs formés</td>
                                 <td className="p-3">Annuel</td>
-                                <td className="p-3">100%</td>
+                                <td className="p-3">100 %</td>
                             </tr>
                         </tbody>
                     </table>

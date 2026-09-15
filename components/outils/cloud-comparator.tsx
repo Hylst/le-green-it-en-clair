@@ -19,7 +19,7 @@ export default function CloudComparator() {
       carbonNeutral: true,
       certifications: ["ISO 14001", "ISO 50001", "Engagement climat"],
       sustainabilityScore: 98,
-      description: "Leader européen de l'hébergement écologique, 100% énergies renouvelables locales.",
+      description: "Leader européen de l'hébergement écologique, 100 % énergies renouvelables locales.",
       color: "emerald",
     },
     {
@@ -96,7 +96,7 @@ export default function CloudComparator() {
       carbonNeutral: true,
       certifications: ["ISO 14001", "TÜV"],
       sustainabilityScore: 92,
-      description: "Datacenters allemands alimentés à 100% par énergies renouvelables.",
+      description: "Datacenters allemands alimentés à 100 % par énergies renouvelables.",
       color: "emerald",
     },
   ]

@@ -226,7 +226,7 @@ export default function RecyclagePage() {
             </Card>
             <Card className="border-2 border-primary/20 bg-primary/5 p-6 text-center">
               <div className="mb-2 text-4xl font-bold text-primary">
-                79%
+                79 %
                 <SourceTooltip className="ml-1 align-middle" source="Ecosystem, 2024" calculation="79,2 % des DEEE collectés recyclés ou réutilisés (91,3 % valorisés)" />
               </div>
               <p className="text-sm text-muted-foreground">des DEEE collectés sont recyclés ou réutilisés (Ecosystem, 2024)</p>

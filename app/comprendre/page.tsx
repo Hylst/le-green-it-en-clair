@@ -66,7 +66,7 @@ const lifecyclePhases = [
     color: "blue",
     description: "Acheminement des produits depuis les usines jusqu'aux consommateurs à travers le monde.",
     impacts: [
-      { icon: Cloud, label: "CO₂", value: "5%", detail: "de l'empreinte totale (ADEME-Arcep 2023)" },
+      { icon: Cloud, label: "CO₂", value: "5 %", detail: "de l'empreinte totale (ADEME-Arcep 2023)" },
       { icon: Truck, label: "Distance", value: "15 000 km", detail: "en moyenne par appareil (ADEME-Arcep 2023)" },
       { icon: Zap, label: "Énergie", value: "20 kWh", detail: "pour le transport (ADEME-Arcep 2023)" },
     ],
@@ -82,7 +82,7 @@ const lifecyclePhases = [
     description:
       "Phase d'utilisation par le consommateur, incluant la consommation électrique et les services numériques.",
     impacts: [
-      { icon: Zap, label: "Énergie", value: "20%", detail: "de l'impact total (ADEME-Arcep 2023)" },
+      { icon: Zap, label: "Énergie", value: "20 %", detail: "de l'impact total (ADEME-Arcep 2023)" },
       { icon: Cloud, label: "Data", value: "18 Go/mois", detail: "consommation mobile moyenne en France (Arcep 2025)" },
       { icon: Droplets, label: "Durée", value: "2-3 ans", detail: "durée de vie moyenne (ADEME 2026)" },
     ],

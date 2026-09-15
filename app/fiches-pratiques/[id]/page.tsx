@@ -62,7 +62,7 @@ const sheets: Record<string, any> = {
         ],
       },
       {
-        title: "6. Régler la luminosité à 50%",
+        title: "6. Régler la luminosité à 50 %",
         content: "L'écran représente 30-50 % de la consommation d'un smartphone. Réduire la luminosité économise 20 %.",
         tips: [
           "Activez l'ajustement automatique",
@@ -169,7 +169,7 @@ const sheets: Record<string, any> = {
     subtitle: "Bonnes pratiques pour développeurs responsables",
     target: "Développeurs",
     duration: "25 minutes de lecture",
-    impact: "Sites 3-5x plus légers, temps de chargement -60%",
+    impact: "Sites 3-5x plus légers, temps de chargement -60 %",
     date: "15 Mars 2026",
     sections: [
       {

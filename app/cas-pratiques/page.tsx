@@ -398,7 +398,7 @@ export default function CasPratiquesPage() {
                   <div className="rounded-xl bg-emerald-50 p-6">
                     <div className="mb-2 text-sm font-medium text-emerald-700">Réduction d'impact</div>
                     <div className="mb-4 text-3xl font-bold text-emerald-700">
-                      {impactReduction > 0 ? `-${impactReduction}%` : "0%"}
+                      {impactReduction > 0 ? `-${impactReduction} %` : "0 %"}
                     </div>
                     <p className="text-sm text-slate-700">
                       {lifespanYears[0] <= 2

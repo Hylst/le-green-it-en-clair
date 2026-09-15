@@ -149,12 +149,12 @@ export default function GrilleAuditPage() {
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">2.2</td>
-                                <td className="p-3">≥ 30% d'équipements reconditionnés dans les achats</td>
+                                <td className="p-3">≥ 30 % d'équipements reconditionnés dans les achats</td>
                                 <td className="p-3">☐ 0 ☐ 1 ☐ 2 ☐ 3</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">2.3</td>
-                                <td className="p-3">Critères environnementaux dans 100% des appels d'offres IT</td>
+                                <td className="p-3">Critères environnementaux dans 100 % des appels d'offres IT</td>
                                 <td className="p-3">☐ 0 ☐ 1 ☐ 2 ☐ 3</td>
                             </tr>
                             <tr className="border-b border-border">
@@ -169,7 +169,7 @@ export default function GrilleAuditPage() {
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">2.6</td>
-                                <td className="p-3">Recyclage via filière agrées (Ecosystem, Ecologic) : 100%</td>
+                                <td className="p-3">Recyclage via une filière agréée (Ecosystem, Ecologic) : 100 %</td>
                                 <td className="p-3">☐ 0 ☐ 1 ☐ 2 ☐ 3</td>
                             </tr>
                         </tbody>

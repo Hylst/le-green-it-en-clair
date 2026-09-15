@@ -156,9 +156,9 @@ export default function KitSensibilisationPage() {
                             <h4 className="font-semibold text-foreground mb-3">Question 1 : Empreinte carbone</h4>
                             <p className="text-muted-foreground mb-3">Quelle part du numérique dans les émissions mondiales de CO₂ ?</p>
                             <ul className="space-y-2 text-sm text-muted-foreground">
-                                <li>A. 1%</li>
+                                <li>A. 1 %</li>
                                 <li>B. Environ 3,4 % ✓ (Bonne réponse)</li>
-                                <li>C. 10%</li>
+                                <li>C. 10 %</li>
                             </ul>
                         </Card>
 
@@ -221,7 +221,7 @@ export default function KitSensibilisationPage() {
                             <div className="text-center">
                                 <div className="text-4xl mb-3">📱</div>
                                 <h3 className="text-xl font-bold text-foreground mb-4">Affiche #2 : Smartphone</h3>
-                                <div className="text-6xl font-bold text-blue-600 mb-2">75%</div>
+                                <div className="text-6xl font-bold text-blue-600 mb-2">75 %</div>
                                 <p className="text-sm text-muted-foreground mb-4">de l'impact = fabrication</p>
                                 <div className="text-left text-sm text-muted-foreground space-y-2">
                                     <p>🔹 Gardez-le 5 ans minimum</p>
@@ -235,7 +235,7 @@ export default function KitSensibilisationPage() {
                             <div className="text-center">
                                 <div className="text-4xl mb-3">🎥</div>
                                 <h3 className="text-xl font-bold text-foreground mb-4">Affiche #3 : Visio</h3>
-                                <div className="text-6xl font-bold text-purple-600 mb-2">-80%</div>
+                                <div className="text-6xl font-bold text-purple-600 mb-2">-80 %</div>
                                 <p className="text-sm text-muted-foreground mb-4">de bande passante en coupant la caméra (ordre de grandeur, Arcep 2024)</p>
                                 <div className="text-left text-sm text-muted-foreground space-y-2">
                                     <p>🔹 Caméra OFF si non nécessaire</p>
@@ -249,7 +249,7 @@ export default function KitSensibilisationPage() {
                             <div className="text-center">
                                 <div className="text-4xl mb-3">⚡</div>
                                 <h3 className="text-xl font-bold text-foreground mb-4">Affiche #4 : Énergie</h3>
-                                <div className="text-6xl font-bold text-amber-600 mb-2">10%</div>
+                                <div className="text-6xl font-bold text-amber-600 mb-2">10 %</div>
                                 <p className="text-sm text-muted-foreground mb-4">d'économies possibles sur la consommation des postes (ordre de grandeur, ADEME)</p>
                                 <div className="text-left text-sm text-muted-foreground space-y-2">
                                     <p>🔹 Éteignez écran et PC le soir</p>
@@ -263,7 +263,7 @@ export default function KitSensibilisationPage() {
                             <div className="text-center">
                                 <div className="text-4xl mb-3">♻️</div>
                                 <h3 className="text-xl font-bold text-foreground mb-4">Affiche #5 : Recyclage</h3>
-                                <div className="text-6xl font-bold text-teal-600 mb-2">100%</div>
+                                <div className="text-6xl font-bold text-teal-600 mb-2">100 %</div>
                                 <p className="text-sm text-muted-foreground mb-4">à recycler obligatoirement</p>
                                 <div className="text-left text-sm text-muted-foreground space-y-2">
                                     <p>🔹 Ne jetez jamais à la poubelle</p>

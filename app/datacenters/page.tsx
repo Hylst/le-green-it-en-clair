@@ -134,7 +134,7 @@ export default function DatacentersPage() {
               </div>
               <div className="space-y-4">
                 <div>
-                  <div className="mb-1 text-3xl font-bold text-blue-700 dark:text-blue-400">1,5%</div>
+                  <div className="mb-1 text-3xl font-bold text-blue-700 dark:text-blue-400">1,5 %</div>
                   <p className="text-sm text-slate-600 dark:text-slate-400">de l'électricité mondiale (AIE, Energy and AI, avril 2025)</p>
                 </div>
                 <div>
@@ -648,7 +648,7 @@ export default function DatacentersPage() {
                   <div className="flex flex-wrap gap-2">
                     <span className="rounded-full bg-teal-600 px-3 py-1 text-xs font-medium text-white">PUE théorique ~1,0</span>
                     <span className="rounded-full bg-teal-600 px-3 py-1 text-xs font-medium text-white">
-                      100% chaleur récupérée
+                      100 % chaleur récupérée
                     </span>
                     <span className="rounded-full bg-teal-600 px-3 py-1 text-xs font-medium text-white">
                       Innovation

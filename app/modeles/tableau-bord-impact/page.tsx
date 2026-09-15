@@ -212,7 +212,7 @@ export default function TableauBordPage() {
                             </code>
                         </div>
                         <p className="text-sm text-muted-foreground mt-3">
-                            <strong>Bonus reconditionné :</strong> Réduire l'impact fabrication de 75% si équipement reconditionné
+                            <strong>Bonus reconditionné :</strong> Réduire l'impact fabrication de 75 % si équipement reconditionné
                         </p>
                     </Card>
 
@@ -247,7 +247,7 @@ export default function TableauBordPage() {
                                 </li>
                                 <li>
                                     <strong className="text-foreground">% équipements reconditionnés</strong>
-                                    <br />Objectif : ≥ 50%
+                                    <br />Objectif : ≥ 50 %
                                 </li>
                                 <li>
                                     <strong className="text-foreground">Taux de recyclage</strong>
@@ -320,19 +320,19 @@ export default function TableauBordPage() {
                                 <tr className="border-b border-border">
                                     <td className="p-3">Année 1</td>
                                     <td className="p-3">14.2 t</td>
-                                    <td className="p-3">14.7 t (-5%)</td>
-                                    <td className="p-3 text-emerald-600">-3.4% ✓</td>
+                                    <td className="p-3">14.7 t (-5 %)</td>
+                                    <td className="p-3 text-emerald-600">-3.4 % ✓</td>
                                 </tr>
                                 <tr className="border-b border-border">
                                     <td className="p-3">Année 2</td>
                                     <td className="p-3">À mesurer</td>
-                                    <td className="p-3">13.2 t (-15%)</td>
+                                    <td className="p-3">13.2 t (-15 %)</td>
                                     <td className="p-3">-</td>
                                 </tr>
                                 <tr>
                                     <td className="p-3">Année 3</td>
                                     <td className="p-3">À mesurer</td>
-                                    <td className="p-3">10.9 t (-30%)</td>
+                                    <td className="p-3">10.9 t (-30 %)</td>
                                     <td className="p-3">-</td>
                                 </tr>
                             </tbody>
@@ -343,8 +343,8 @@ export default function TableauBordPage() {
                         <h4 className="font-semibold text-foreground mb-3">🎯 Plan d'action recommandé</h4>
                         <ul className="space-y-2 text-sm text-muted-foreground">
                             <li>• <strong className="text-foreground">Court terme (6 mois) :</strong> Inventaire complet du parc</li>
-                            <li>• <strong className="text-foreground">Moyen terme (1 an) :</strong> 50% reconditionné + prolongation durée de vie</li>
-                            <li>• <strong className="text-foreground">Long terme (3 ans) :</strong> -30% empreinte carbone globale</li>
+                            <li>• <strong className="text-foreground">Moyen terme (1 an) :</strong> 50 % reconditionné + prolongation durée de vie</li>
+                            <li>• <strong className="text-foreground">Long terme (3 ans) :</strong> -30 % empreinte carbone globale</li>
                         </ul>
                     </Card>
                 </div>
@@ -373,21 +373,21 @@ export default function TableauBordPage() {
                                     <td className="p-3">Achats</td>
                                     <td className="p-3">T1 Année 1</td>
                                     <td className="p-3 text-emerald-600">En cours</td>
-                                    <td className="p-3">-20% CO₂</td>
+                                    <td className="p-3">-20 % CO₂</td>
                                 </tr>
                                 <tr className="border-b border-border">
                                     <td className="p-3">Prolongation durée de vie</td>
                                     <td className="p-3">IT</td>
                                     <td className="p-3">T2 Année 1</td>
                                     <td className="p-3 text-blue-600">Planifié</td>
-                                    <td className="p-3">-15% CO₂</td>
+                                    <td className="p-3">-15 % CO₂</td>
                                 </tr>
                                 <tr>
                                     <td className="p-3">Formation collaborateurs</td>
                                     <td className="p-3">RH</td>
                                     <td className="p-3">T2 Année 1</td>
                                     <td className="p-3 text-blue-600">Planifié</td>
-                                    <td className="p-3">-5% usage</td>
+                                    <td className="p-3">-5 % usage</td>
                                 </tr>
                             </tbody>
                         </table>

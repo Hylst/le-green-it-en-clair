@@ -115,15 +115,15 @@ export default function CharteGreenITPage() {
                         <ul className="space-y-3 text-muted-foreground">
                             <li className="flex items-start gap-2">
                                 <span className="text-emerald-600 font-bold">•</span>
-                                <span>Réduire de 30% l'empreinte environnementale de notre parc informatique d'ici 2 ans</span>
+                                <span>Réduire de 30 % l'empreinte environnementale de notre parc informatique d'ici 2 ans</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="text-emerald-600 font-bold">•</span>
-                                <span>Sensibiliser 100% des collaborateurs aux enjeux du numérique responsable</span>
+                                <span>Sensibiliser 100 % des collaborateurs aux enjeux du numérique responsable</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="text-emerald-600 font-bold">•</span>
-                                <span>Intégrer des critères environnementaux dans 100% de nos achats IT</span>
+                                <span>Intégrer des critères environnementaux dans 100 % de nos achats IT</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="text-emerald-600 font-bold">•</span>
@@ -287,7 +287,7 @@ export default function CharteGreenITPage() {
                                 <td className="p-3">Année 2</td>
                             </tr>
                             <tr>
-                                <td className="p-3">Collecter 100% équipements fin de vie</td>
+                                <td className="p-3">Collecter 100 % équipements fin de vie</td>
                                 <td className="p-3">Taux de collecte</td>
                                 <td className="p-3">Année 1</td>
                             </tr>
@@ -354,12 +354,12 @@ export default function CharteGreenITPage() {
                             <tr className="border-b border-border">
                                 <td className="p-3">Émissions CO₂ parc IT (tonnes)</td>
                                 <td className="p-3">À mesurer</td>
-                                <td className="p-3">-30%</td>
+                                <td className="p-3">-30 %</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">% équipements reconditionnés</td>
-                                <td className="p-3">5%</td>
-                                <td className="p-3">50%</td>
+                                <td className="p-3">5 %</td>
+                                <td className="p-3">50 %</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">Durée de vie moyenne (années)</td>
@@ -368,13 +368,13 @@ export default function CharteGreenITPage() {
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">Taux de recyclage (%)</td>
-                                <td className="p-3">60%</td>
-                                <td className="p-3">100%</td>
+                                <td className="p-3">60 %</td>
+                                <td className="p-3">100 %</td>
                             </tr>
                             <tr>
                                 <td className="p-3">Collaborateurs sensibilisés (%)</td>
-                                <td className="p-3">10%</td>
-                                <td className="p-3">100%</td>
+                                <td className="p-3">10 %</td>
+                                <td className="p-3">100 %</td>
                             </tr>
                         </tbody>
                     </table>

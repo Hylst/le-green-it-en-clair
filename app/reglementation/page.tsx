@@ -279,23 +279,23 @@ export default function ReglementationPage() {
                       <div className="space-y-2 text-sm text-muted-foreground">
                         <div className="flex justify-between">
                           <span>Documentation</span>
-                          <span className="font-semibold">20%</span>
+                          <span className="font-semibold">20 %</span>
                         </div>
                         <div className="flex justify-between">
                           <span>Démontabilité</span>
-                          <span className="font-semibold">20%</span>
+                          <span className="font-semibold">20 %</span>
                         </div>
                         <div className="flex justify-between">
                           <span>Disponibilité pièces</span>
-                          <span className="font-semibold">20%</span>
+                          <span className="font-semibold">20 %</span>
                         </div>
                         <div className="flex justify-between">
                           <span>Prix des pièces</span>
-                          <span className="font-semibold">20%</span>
+                          <span className="font-semibold">20 %</span>
                         </div>
                         <div className="flex justify-between">
                           <span>Critères spécifiques</span>
-                          <span className="font-semibold">20%</span>
+                          <span className="font-semibold">20 %</span>
                         </div>
                       </div>
                       <div className="mt-3 pt-3 border-t border-chart-3/20">
@@ -358,7 +358,7 @@ export default function ReglementationPage() {
                           <Badge variant="outline" className="border-accent text-accent">65 % minimum</Badge>
                         </div>
                         <p className="text-sm text-muted-foreground">
-                          65% du poids moyen des EEE mis sur le marché les 3 années précédentes
+                          65 % du poids moyen des EEE mis sur le marché les 3 années précédentes
                         </p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-accent/20">

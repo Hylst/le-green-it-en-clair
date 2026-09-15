@@ -125,19 +125,19 @@ export default function CahierChargesPage() {
                         <tbody className="text-muted-foreground">
                             <tr className="border-b border-border">
                                 <td className="p-3">Prix</td>
-                                <td className="p-3">40%</td>
+                                <td className="p-3">40 %</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">Critères techniques</td>
-                                <td className="p-3">30%</td>
+                                <td className="p-3">30 %</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3 font-semibold text-emerald-600">Critères environnementaux</td>
-                                <td className="p-3 font-semibold text-emerald-600">20%</td>
+                                <td className="p-3 font-semibold text-emerald-600">20 %</td>
                             </tr>
                             <tr>
                                 <td className="p-3 font-semibold text-emerald-600">Critères sociaux/éthiques</td>
-                                <td className="p-3 font-semibold text-emerald-600">10%</td>
+                                <td className="p-3 font-semibold text-emerald-600">10 %</td>
                             </tr>
                         </tbody>
                     </table>
@@ -460,7 +460,7 @@ export default function CahierChargesPage() {
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">Absence de rapport RSE annuel</td>
-                                <td className="p-3">Pénalité de 5% du montant annuel</td>
+                                <td className="p-3">Pénalité de 5 % du montant annuel</td>
                             </tr>
                             <tr>
                                 <td className="p-3">Refus d'audit</td>
@@ -475,9 +475,9 @@ export default function CahierChargesPage() {
                             Des bonus peuvent être attribués en cas de :
                         </p>
                         <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li>• Amélioration du score RSE &gt; 10 points : bonus de 2%</li>
-                            <li>• Obtention de nouveaux labels : bonus de 1%</li>
-                            <li>• Innovation environnementale ou sociale : bonus de 3%</li>
+                            <li>• Amélioration du score RSE &gt; 10 points : bonus de 2 %</li>
+                            <li>• Obtention de nouveaux labels : bonus de 1 %</li>
+                            <li>• Innovation environnementale ou sociale : bonus de 3 %</li>
                         </ul>
                     </Card>
                 </div>

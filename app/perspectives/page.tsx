@@ -249,7 +249,7 @@ export default function PerspectivesPage() {
               <ul className="space-y-2 text-sm text-slate-700">
                 <li className="flex gap-2">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
-                  <span>Datacenters 50% renouvelables</span>
+                  <span>Datacenters 50 % renouvelables</span>
                 </li>
                 <li className="flex gap-2">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
@@ -257,7 +257,7 @@ export default function PerspectivesPage() {
                 </li>
                 <li className="flex gap-2">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
-                  <span>Taux de recyclage 60%</span>
+                  <span>Taux de recyclage 60 %</span>
                 </li>
                 <li className="flex gap-2">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
@@ -272,12 +272,12 @@ export default function PerspectivesPage() {
                 <h3 className="text-xl font-bold text-slate-900">Scénario sobre</h3>
               </div>
               <p className="mb-4 text-sm text-slate-700">
-                <strong>Scénario illustratif : -43% d'ici 2040</strong> - Transformation profonde vers un numérique durable.
+                <strong>Scénario illustratif : -43 % d'ici 2040</strong> - Transformation profonde vers un numérique durable.
               </p>
               <ul className="space-y-2 text-sm text-slate-700">
                 <li className="flex gap-2">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
-                  <span>Datacenters 100% renouvelables</span>
+                  <span>Datacenters 100 % renouvelables</span>
                 </li>
                 <li className="flex gap-2">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
@@ -285,7 +285,7 @@ export default function PerspectivesPage() {
                 </li>
                 <li className="flex gap-2">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
-                  <span>Taux de recyclage 90%</span>
+                  <span>Taux de recyclage 90 %</span>
                 </li>
                 <li className="flex gap-2">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
@@ -332,9 +332,9 @@ export default function PerspectivesPage() {
                   <h3 className="text-lg font-bold text-slate-900">Solaire</h3>
                 </div>
                 <p className="mb-3 text-sm text-slate-700">
-                  Les panneaux solaires sur les toits des datacenters peuvent couvrir 20-30% des besoins d'un site (ordre de grandeur, ADEME 2023).
+                  Les panneaux solaires sur les toits des datacenters peuvent couvrir 20-30 % des besoins d'un site (ordre de grandeur, ADEME 2023).
                 </p>
-                <div className="text-2xl font-bold text-emerald-700">30%</div>
+                <div className="text-2xl font-bold text-emerald-700">30 %</div>
                 <p className="text-xs text-slate-600">des nouveaux datacenters équipés (illustratif)</p>
               </Card>
 
@@ -346,7 +346,7 @@ export default function PerspectivesPage() {
                 <p className="mb-3 text-sm text-slate-700">
                   Les grands acteurs (Google, Microsoft, Amazon) annoncent 100 % d'électricité renouvelable en équivalent annuel (communication d'entreprise, 2024).
                 </p>
-                <div className="text-2xl font-bold text-blue-700">100%</div>
+                <div className="text-2xl font-bold text-blue-700">100 %</div>
                 <p className="text-xs text-slate-600">annoncés en équivalent annuel</p>
               </Card>
 
@@ -358,7 +358,7 @@ export default function PerspectivesPage() {
                 <p className="mb-3 text-sm text-slate-700">
                   Le mix français est bas-carbone à plus de 90 % : nucléaire ~67 %, hydraulique ~13 % (RTE, 2024).
                 </p>
-                <div className="text-2xl font-bold text-teal-700">95%</div>
+                <div className="text-2xl font-bold text-teal-700">95 %</div>
                 <p className="text-xs text-slate-600">d'énergie bas-carbone en France (RTE, 2024)</p>
               </Card>
             </div>

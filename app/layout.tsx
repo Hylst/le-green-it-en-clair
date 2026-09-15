@@ -141,11 +141,7 @@ export default function RootLayout({
             __html: `
               if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/greenit/sw.js').then(function(registration) {
-                    console.log('SW registered: ', registration);
-                  }).catch(function(error) {
-                    console.log('SW registration failed: ', error);
-                  });
+                  navigator.serviceWorker.register('/greenit/sw.js');
                 });
               }
             `,

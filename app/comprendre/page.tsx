@@ -37,7 +37,7 @@ const lifecyclePhases = [
     description: "Extraction de métaux rares et précieux nécessaires à la fabrication des composants électroniques.",
     impacts: [
       { icon: Droplets, label: "Eau", value: "12 000 L", detail: "pour 1 smartphone" },
-      { icon: Zap, label: "Énergie", value: "250 kWh", detail: "équivalent à 2 mois de consommation d'un foyer" },
+      { icon: Zap, label: "Énergie", value: "250 kWh", detail: "équivalent à 2-3 semaines de consommation d'un foyer" },
       { icon: Cloud, label: "CO₂", value: "50 kg", detail: "d'émissions de gaz à effet de serre" },
       { icon: Gem, label: "Métaux", value: "50+", detail: "métaux différents extraits" },
     ],
@@ -57,7 +57,7 @@ const lifecyclePhases = [
       { icon: Droplets, label: "Eau", value: "8 000 L", detail: "pour le refroidissement" },
       { icon: Gem, label: "Composants", value: "1000+", detail: "pièces assemblées" },
     ],
-    analogy: "La fabrication d'un ordinateur portable émet autant de CO₂ qu'un vol Paris-New York !",
+    analogy: "La fabrication d'un ordinateur portable émet autant de CO₂ qu'un aller-retour Paris-Marseille en avion !",
     details:
       "Cette phase est la plus polluante du cycle de vie. Les usines de fabrication consomment énormément d'énergie, souvent produite à partir de combustibles fossiles dans les pays de production.",
   },
@@ -85,7 +85,7 @@ const lifecyclePhases = [
       "Phase d'utilisation par le consommateur, incluant la consommation électrique et les services numériques.",
     impacts: [
       { icon: Zap, label: "Énergie", value: "20%", detail: "de l'impact totale" },
-      { icon: Cloud, label: "Data", value: "5 Go/mois", detail: "consommation moyenne" },
+      { icon: Cloud, label: "Data", value: "18 Go/mois", detail: "consommation mobile moyenne en France (Arcep 2025)" },
       { icon: Droplets, label: "Durée", value: "2-3 ans", detail: "durée de vie moyenne" },
     ],
     analogy: "Garder son smartphone 1 an de plus réduit son impact de 25% !",
@@ -99,13 +99,13 @@ const lifecyclePhases = [
     color: "teal",
     description: "Collecte, tri et recyclage des appareils en fin de vie pour récupérer les matériaux précieux.",
     impacts: [
-      { icon: Gem, label: "Recyclage", value: "20%", detail: "taux de recyclage mondial" },
+      { icon: Gem, label: "Recyclage", value: "22%", detail: "taux de collecte/recyclage mondial (GEM 2024)" },
       { icon: Trash2, label: "Déchets", value: "62 Mt", detail: "de e-déchets en 2022" },
-      { icon: Droplets, label: "Récupération", value: "80%", detail: "des métaux récupérables" },
+      { icon: Droplets, label: "Récupération", value: "variable", detail: "selon les métaux" },
     ],
     analogy: "Recycler 1 million de smartphones permet de récupérer 16 tonnes de cuivre !",
     details:
-      "Seulement 20% des déchets électroniques sont correctement recyclés dans le monde. En France, ce taux atteint 45% grâce aux filières REP (Responsabilité Élargie du Producteur).",
+      "22 % des déchets électroniques sont documentés comme collectés et recyclés dans le monde (GEM 2024). En France, ce taux atteint environ 45 % grâce aux filières REP (Responsabilité Élargie du Producteur).",
   },
 ]
 
@@ -225,10 +225,10 @@ export default function ComprendrePage() {
                 différents (lithium, cobalt, terres rares, or, argent)
               </p>
               <p>
-                <strong>Impact carbone :</strong> 55 kg de CO2 émis, équivalent à 300 km en voiture thermique
+                <strong>Impact carbone :</strong> 50 kg de CO2 émis, équivalent à 300 km en voiture thermique
               </p>
               <p>
-                <strong>Consommation d'eau :</strong> 13 000 litres utilisés dans le processus de fabrication
+                <strong>Consommation d'eau :</strong> 12 000 litres utilisés dans le processus de fabrication
               </p>
               <p>
                 <strong>Transport :</strong> 15 000 km parcourus en moyenne avant d'atteindre le consommateur
@@ -450,11 +450,11 @@ export default function ComprendrePage() {
             </Card>
 
             <Card className="border-2 bg-card p-6">
-              <div className="mb-3 text-3xl font-bold text-accent-foreground">45%</div>
+              <div className="mb-3 text-3xl font-bold text-accent-foreground">45-46%</div>
               <h3 className="mb-2 font-semibold text-card-foreground">Le recyclage progresse en France</h3>
               <p className="text-sm text-muted-foreground">
-                En France, 45% des déchets électroniques sont recyclés grâce aux filières REP, contre seulement 20% au
-                niveau mondial. Mais il reste encore beaucoup à faire.
+                En France, 45 à 46 % des déchets électroniques sont collectés ou recyclés grâce aux filières REP, contre
+                environ 22 % au niveau mondial. Mais il reste encore beaucoup à faire.
               </p>
             </Card>
           </div>

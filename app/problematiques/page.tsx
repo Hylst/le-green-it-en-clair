@@ -54,24 +54,16 @@ const eWasteGrowthData = [
 
 // Data for digital carbon footprint by sector
 const carbonBySectorData = [
-  { sector: "Équipements", percentage: 78, color: "#ef4444" },
+  { sector: "Équipements", percentage: 79, color: "#ef4444" },
   { sector: "Datacenters", percentage: 16, color: "#f59e0b" },
-  { sector: "Réseaux", percentage: 6, color: "#10b981" },
-]
-
-// Data for device lifespan trends
-const deviceLifespanData = [
-  { year: 2010, smartphone: 4.7, laptop: 6.5, tablet: 5.2 },
-  { year: 2015, smartphone: 3.2, laptop: 5.1, tablet: 4.0 },
-  { year: 2020, smartphone: 2.5, laptop: 4.2, tablet: 3.5 },
-  { year: 2025, smartphone: 2.3, laptop: 3.8, tablet: 3.2 },
+  { sector: "Réseaux", percentage: 5, color: "#10b981" },
 ]
 
 // Data for recycling rates by country
 const recyclingRatesData = [
   { country: "Norvège", rate: 85 },
   { country: "Suisse", rate: 78 },
-  { country: "France", rate: 55 },
+  { country: "France", rate: 46 },
   { country: "Allemagne", rate: 68 },
   { country: "Espagne", rate: 42 },
   { country: "Italie", rate: 38 },
@@ -617,16 +609,19 @@ export default function ProblematiquesPage() {
                   />
                 </PieChart>
               </ResponsiveContainer>
-            </Card>
+              <p className="mt-4 text-center text-xs text-slate-500 dark:text-slate-400">
+              France, tous impacts, données 2020-2022 (ADEME-Arcep 2023)
+            </p>
+          </Card>
 
-            <div className="space-y-4">
+          <div className="space-y-4">
               <Card className="border-2 border-red-500 bg-red-50 dark:bg-red-900/20 dark:border-red-700 p-6">
                 <div className="mb-3 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <Smartphone className="h-6 w-6 text-red-700 dark:text-red-400" />
                     <h3 className="font-bold text-slate-900 dark:text-slate-100">Équipements utilisateurs</h3>
                   </div>
-                  <span className="text-2xl font-bold text-red-700 dark:text-red-400">78%</span>
+                  <span className="text-2xl font-bold text-red-700 dark:text-red-400">79%</span>
                 </div>
                 <p className="text-sm text-slate-700 dark:text-slate-300">
                   La fabrication des smartphones, ordinateurs, tablettes, objets connectés représente les 3/4 de
@@ -673,49 +668,8 @@ export default function ProblematiquesPage() {
             L'obsolescence accélérée des appareils
           </h2>
           <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-8 lg:p-12">
-            <ResponsiveContainer width="100%" height={400}>
-              <LineChart data={deviceLifespanData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                <XAxis dataKey="year" stroke="#64748b" />
-                <YAxis stroke="#64748b" label={{ value: "Années", angle: -90, position: "insideLeft" }} />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: "var(--card)",
-                    border: "2px solid var(--border)",
-                    borderRadius: "0.5rem",
-                    color: "var(--foreground)"
-                  }}
-                  itemStyle={{ color: "var(--foreground)" }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="smartphone"
-                  stroke="#ef4444"
-                  strokeWidth={3}
-                  name="Smartphone"
-                  dot={{ r: 5 }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="laptop"
-                  stroke="#f59e0b"
-                  strokeWidth={3}
-                  name="Ordinateur portable"
-                  dot={{ r: 5 }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="tablet"
-                  stroke="#10b981"
-                  strokeWidth={3}
-                  name="Tablette"
-                  dot={{ r: 5 }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
-            <p className="mt-6 text-center text-sm text-slate-600 dark:text-slate-400">
-              <strong>Durée de vie divisée par 2 en 15 ans</strong> - L'obsolescence programmée et les mises à jour
-              logicielles forcent le renouvellement prématuré.
+            <p className="text-center text-base text-slate-700 dark:text-slate-300">
+              <strong>62 % des appareils sont renouvelés alors qu'ils fonctionnent encore, et 100 millions dorment dans les tiroirs (ADEME 2026)</strong> - On change de smartphone tous les 3 ans en moyenne. Les mises à jour logicielles et le manque de réparabilité accélèrent ce renouvellement : garder ses appareils plus longtemps et les réparer reste le premier levier.
             </p>
           </Card>
         </div>
@@ -831,8 +785,8 @@ export default function ProblematiquesPage() {
               </BarChart>
             </ResponsiveContainer>
             <p className="mt-6 text-center text-sm text-slate-600">
-              La France recycle 55% de ses e-déchets, en progrès mais encore loin des leaders nordiques. Objectif UE :
-              70% en 2030.
+              La France collecte et recycle environ 46 % de ses e-déchets, en progrès mais encore loin des leaders
+              nordiques. Objectif européen : 65 % de collecte (directive DEEE).
             </p>
           </Card>
         </div>
@@ -903,7 +857,7 @@ export default function ProblematiquesPage() {
                 <div>
                   <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">Le problème principal : la fabrication</h3>
                   <p className="text-sm text-slate-700 dark:text-slate-300">
-                    78% de l'impact vient des équipements utilisateurs. Allonger la durée de vie de nos appareils est
+                    79% de l'impact vient des équipements utilisateurs (France, ADEME-Arcep 2023). Allonger la durée de vie de nos appareils est
                     l'action la plus efficace.
                   </p>
                 </div>

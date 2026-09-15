@@ -58,7 +58,7 @@ export function AnimatedImpactBars() {
 
       <div className="mt-8 rounded-xl bg-emerald-50 p-4 text-center">
         <p className="text-sm text-slate-700">
-          <span className="font-bold">Point clé :</span> La fabrication concentre 60% de l'impact total
+          <span className="font-bold">Point clé :</span> La fabrication concentre 60 % de l'impact carbone, et l'extraction 15 % : soit environ 75 % au total (ADEME).
         </p>
       </div>
     </div>

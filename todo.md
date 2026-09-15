@@ -7,7 +7,7 @@ Ma liste, mise à jour le 15/09/2026 après une grosse relecture pessimiste (lec
 - [x] manifest : fait le 14/09 (`start_url`/`scope` -> `/greenit/`, icônes -> `.webp` existants). Build ok.
 - [x] sw.js + layout : fait le 14/09 (chemins en `/greenit/...`, fallback `/greenit/`, `register('/greenit/sw.js')`).
 - [x] images + leaflet en dur : fait le 14/09 (leaflet + OG en `/greenit/...`, le reste c'est `next/image` qui préfixe tout seul).
-- [x] `fiches-pratiques/page.tsx:112` : fallback -> `/images/fiches/gestes-quotidiens.webp`. Fait le 14/09.
+- [x] `fiches-pratiques/page.tsx:112` : fallback -> `/greenit/images/fiches/gestes-quotidiens.webp`. Fait le 14/09.
 - [x] `breadcrumb.tsx:37` : ligne `flux-rss` virée. Fait le 14/09.
 - [x] `font-heading` : remplacé par `font-poppins` aux 3 endroits. Fait le 14/09.
 - [x] `layout.tsx` : `generator: 'Next.js'`. Fait le 14/09.
@@ -21,7 +21,7 @@ Ma liste, mise à jour le 15/09/2026 après une grosse relecture pessimiste (lec
 - [x] `ui/sonner.tsx` : 8e orphelin supprimé le 14/09 (personne l'importait, il crachait depuis la désinstall du paquet `sonner`).
 - [x] `out/` vérifié le 14/09 : pas de sous-dossier `greenit` dedans, `index.html` + `manifest.json` + `sw.js` à la racine -> le `COPY out -> html/greenit` du Dockerfile est bon, pas de double nid.
 - [x] `/outils` découpé le 14/09 : 6 modules dans `components/outils/` chargés en `dynamic` (`ssr: false`) au lieu d'un seul fichier de 2000+ lignes. Build ok.
-- [x] PWA finie le 14/09 : icônes 192/512 générées depuis `apple-icon.webp`, manifest complété, cache SW bumpé `v1.2.0` puis `v1.2.1` (network-first pour les pages, sinon site cassé pour les revenants après chaque déploiement).
+- [x] PWA finie le 14/09 : icônes 192/512 générées depuis `apple-icon.webp`, manifest complété, cache SW bumpé `v1.2.0` puis `v1.2.1` (network-first pour les pages, sinon site cassé pour les revenants après chaque déploiement), puis `v1.3.0` le 15/09 (précache `/greenit/offline/`).
 - [x] audit navigateur le 14/09 (Chromium sur l'export prod en local) : 24 images sans `/greenit` réparées, 31 boutons-dans-liens en `asChild`, recherche en français, onglets au clavier, skip-link + Escape testés. Détail dans `changelog.md`.
 - [x] `website-carbon` : fini les résultats en `Math.random()` — estimateur honnête (poids saisi par l'utilisateur, green-check GWF en direct, formule SWD v4 affichée + mentions, boutons imprimer/partager branchés). Fait le 14/09, build ok.
 - [x] `actualites` : fini les fausses dépêches attribuées à de vrais organismes + le faux « flux en direct » — encarts « À la une » marqués exemples (rédaction du site, sujets vrais), onglet Veille devenu un annuaire de sources externes. Fait le 14/09, build ok.
@@ -36,7 +36,8 @@ Ma liste, mise à jour le 15/09/2026 après une grosse relecture pessimiste (lec
 - [x] Périmètre C le 15/09 : bloc Sources ajouté aux 8 fiches (`sheet-content` + `sources[]`), `sitemap.ts` + `sitemap-page` complets (8 fiches, actualites, faq, mythes, par-ou-commencer, guide, modeles, mentions-legales, offline), filtres catégories `modeles` branchés + formats PDF réels + grille 26 critères, années relatives `plan-action-dsi`, RAM 8 Go `politique-numerique`, chiffres harmonisés (169/248/50 kg, cas-pratiques 62 %, sources complétées), cahier des charges/guide sensibilisation/tableau de bord sourcés. `.gitignore` audit corrigé. Vérifié : `tsc`, build, export (sitemap 9 URLs fiches, « Sources » présent, 26 critères, 0 « 4 Go RAM »), navigateur (filtres 8→1→8, bloc Sources).
 - [x] Finalisation D le 15/09 (commits `91ba803` → `7b6fa85`) : reliquats de contenu sourcés (`reglementation`, `developpement`, `problematiques`, `recyclage`, `chiffres`, `comprendre`, `cas-pratiques`, fiches, `mythes`, modèles, simulateurs, perspectives), `canonical` par page, PWA offline précachée, sitemap à jour, breadcrumb complet, infobulles `SourceTooltip` source + calcul sur les chiffres clés, contrastes WCAG corrigés. Vérifié : `tsc`, build, export, Firefox + WebKit (8 pages, 0 erreur nouvelle), captures.
 - [x] Images le 15/09 (commit `f1e2e6b`) : infographie smartphone en français (SVG → webp 98 Ko, chiffres ADEME 2023), `comparison-chart` charabia supprimé (jamais affiché). Agnes essayé mais texte illisible → repli déterministe.
-- [ ] Reste : quelques styles de langage, erreurs `tsc` pré-existantes.
+- [x] Reste soldé le 15/09 : 16 erreurs `tsc` corrigées (`@types/leaflet` devDep, `LabeledSlider` typé, `SearchDialog` typé — 0 restante), langage harmonisé (vouvoiement, `%`, `CO₂e`, guillemets, PUE/WUE, plus d'injonctions), reliquats (lien ecosystem, ancre outils, images mortes, chiffres FAQ/guide/datacenters sourcés), docs (SW v1.3.0). Vérifié : `tsc` 0 erreur, build, export.
+- [ ] Reste : rien de bloquant. Optionnel : eslint, e2e auto, i18n.
 
 ## 🔴 important mais pas cassé
 

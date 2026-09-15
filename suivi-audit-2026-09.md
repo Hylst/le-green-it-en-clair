@@ -117,7 +117,7 @@
 - [ ] Relecture complète des diffs.
 - [x] Build final, export final, contrôle `/greenit/`.
 - [x] Mise à jour finale `todo.md`, `changelog.md` et ce suivi.
-- [x] Clôture de la campagne quiz/oublis P0 après preuve de vérification ; la vague 3 (images) et les contenus restants listés à l'audit pessimiste du 15/09 restent ouverts.
+- [x] Clôture de la campagne quiz/oublis P0 après preuve de vérification ; vagues B, C, D et images E terminées le 15/09 (voir journal ci-dessous).
 
 ## Journal
 

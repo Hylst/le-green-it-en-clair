@@ -5,14 +5,30 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Printer, Share2, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
+import { JsonLd } from "@/components/json-ld"
+import { SITE_NAME, SITE_URL } from "@/lib/metadata"
 
 interface SheetContentProps {
     sheet: any & { id?: string }
 }
 
 export function SheetContent({ sheet }: SheetContentProps) {
+    const jsonLd = sheet.id
+        ? {
+              "@context": "https://schema.org",
+              "@type": "TechArticle",
+              headline: sheet.title,
+              description: sheet.subtitle,
+              inLanguage: "fr",
+              author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+              publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+              mainEntityOfPage: `${SITE_URL}/fiches-pratiques/${sheet.id}`,
+          }
+        : null
+
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
+            {jsonLd && <JsonLd data={jsonLd} />}
             <article className="px-6 py-12">
                 <div className="mx-auto max-w-4xl">
                     <div className="mb-8 flex items-center justify-between">

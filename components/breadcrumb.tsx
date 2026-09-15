@@ -3,6 +3,8 @@
 import Link from "next/link"
 import { ChevronRight, Home } from "lucide-react"
 import { usePathname } from "next/navigation"
+import { JsonLd } from "@/components/json-ld"
+import { SITE_URL } from "@/lib/metadata"
 
 export function Breadcrumb() {
   const pathname = usePathname()
@@ -52,10 +54,30 @@ export function Breadcrumb() {
     modeles: "Modèles téléchargeables",
   }
 
+  const items = [
+    { name: "Accueil", item: `${SITE_URL}/` },
+    ...segments.map((segment, index) => ({
+      name: breadcrumbMap[segment] || segment.replace(/-/g, " "),
+      item: `${SITE_URL}/${segments.slice(0, index + 1).join("/")}/`,
+    })),
+  ]
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((entry, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: entry.name,
+      item: entry.item,
+    })),
+  }
+
   return (
-    <nav
-      aria-label="Fil d'Ariane"
-    >
+    <>
+      <JsonLd data={jsonLd} />
+      <nav
+        aria-label="Fil d'Ariane"
+      >
       <div className="container mx-auto px-4 py-3">
         <ol className="flex items-center gap-2 text-sm">
           <li>
@@ -90,6 +112,7 @@ export function Breadcrumb() {
           })}
         </ol>
       </div>
-    </nav>
+      </nav>
+    </>
   )
 }

@@ -5,6 +5,8 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { SourceTooltip } from "@/components/source-tooltip"
+import { JsonLd } from "@/components/json-ld"
+import { SITE_NAME, SITE_URL } from "@/lib/metadata"
 import Image from "next/image"
 import {
   ArrowRight,
@@ -24,12 +26,21 @@ export default function HomePage() {
   const [quizAnswer, setQuizAnswer] = useState<string | null>(null)
   const [showQuizResult, setShowQuizResult] = useState(false)
 
+  const siteJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebSite", name: SITE_NAME, url: SITE_URL, inLanguage: "fr" },
+      { "@type": "Organization", name: SITE_NAME, url: SITE_URL, logo: `${SITE_URL}/icon.svg` },
+    ],
+  }
+
   const handleQuizSubmit = () => {
     setShowQuizResult(true)
   }
 
   return (
     <div className="min-h-screen">
+      <JsonLd data={siteJsonLd} />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 dark:from-background dark:via-secondary dark:to-background px-6 py-20 lg:py-32">
         <div className="absolute inset-0 opacity-20 dark:opacity-10">

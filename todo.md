@@ -120,8 +120,9 @@ Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à l
 - [x] image OG 1200x630 (fait le 14/09, recompressée en jpg 94 Ko le 15/09) : générée avec Agnes, sans texte (le modèle écrit mal le français), `og-cover.jpg`.
 - [x] screenshots PWA (fait le 14/09) : vraies captures, déclarés dans le manifest.
 - [x] print CSS (fait le 14/09) : nav/footer masqués, fond blanc.
-- [ ] chasser les liens morts (un petit `lychee` sur `out/` après build, ça serait bien)
-- [ ] audit contrastes WCAG au cas par cas (le clavier est testé : skip-link, menus, onglets, Escape — voir changelog du 14/09)
+- [x] chasser les liens morts : contrôle maison de l'export (1 935 liens internes, 0 cassé ; 29 externes testés, seuls des 403 anti-bot et l'ancien domaine GR491 mort, corrigé).
+- [x] audit contrastes WCAG au cas par cas : axe-core (WCAG 2.0/2.1 A/AA) sur **31 routes en dark = 0 violation** (commits `2c0021f`, `b411973` ; le clavier est testé : skip-link, menus, onglets, Escape — voir changelog du 14/09)
+- [x] retester le dark partout : couvert par la passe axe du 15/09 au soir (commits `2c0021f`, `b411973` : fonds clairs sans variante dark corrigés, badges 600→700, textes sur fonds sombres, curseurs nommés, `role=group` sur le SVG langages).
 - [x] sitemap.xml -> fait (`sitemap.ts` + robots), complété (offline + modeles + 8 fiches détail)
 - [x] redirects 301 -> fait dans nginx (`/` -> `/greenit/`)
 - [ ] retester le dark partout

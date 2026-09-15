@@ -33,7 +33,8 @@ Ma liste, mise à jour le 15/09/2026 après une grosse relecture pessimiste (lec
 - [x] Soldes des oublis P0 le 15/09 (phase A du plan) : accueil (`74,7 Mt` → ~70 Mt GEM 2024, 78 % → ~80 % ADEME-Arcep 2023, 4 % → 3,4 % EENM 2025, 2,3 ans → 2-3 ans ADEME 2026), `mythes` (22,3 %, Wi-Fi 4-5x, sources réelles), `fiches-pratiques` (box ~26 kWh, Wi-Fi 4-5x, Python 76x, recyclage ~79 %, ~2 kg, garantie 2 ans, `quefairedemesdechets.ademe.fr`), durées `problematiques`/`perspectives`, arbres `comprendre` (2,5), sources des 4 outils, badges 2026, recherche (39 entrées : fiches + modèles + annexes), docs internes. Vérifié : `tsc`, build, export sans ancienne valeur.
 - [x] Quiz contenu corrigé le 15/09 (100 questions) : terres rares/métaux séparés, durée de vie 2-3 ans, part mondiale 3,4 %/1,8 Gt, box 50-100 kWh, pièces 7 ans (UE 2023/1670), AGEC 2020, PUE 1,56, datacenters 415 TWh/1,5 %, bots 51 %, PUE/WUE/dark mode (Purdue 2021), BYOD redéfini, sources fictives virées (ADEME 2025 vague, ARCEP 2025, IEA 2025, TCO/ROI/Radicati), chiffres non sourcés remplacés par des questions conceptuelles. Moteur : niveau sur le max réel, division par zéro, Fisher-Yates, timer continu, attestation ≥ 60 % avec impression dédiée, réponses en `radiogroup`/`radio` + `aria-live`. Vérifié : `tsc`, build, export, test navigateur `/greenit/` (35/140 = 25 %, score moyen 4, bouton résultat) et CSS d'impression présent.
 - [x] Vague B le 15/09 (contenu faux + images) : `perspectives` (×3 2050, 0,3 Wh, cloud mutualisé), `guide-sensibilisation` (3,4 %, 100 M tiroirs, 75 %), `charte` (3,4 %/1,8 Gt), `comprendre` (250 kWh, Paris-Marseille, 18 Go, 22 %, 50 kg/12 000 L), `problematiques` (4,7 ans retiré, 46 %, 79/16/5), `chiffres` (tablette 63, écran 350, 1,6 Mt/24 kg), `carbon-calculator` (Paris-Marseille AR), `growth-animation` (linéaire), `sobriety` (mails ~1 %), `cloud-comparator` (objectifs/legende PUE), `enterprise-simulator` (0,20 €/kWh, 60 €/an, 22 kg), fiches (REP, 75 %, 30 %, Fairphone/Samsung), `a-propos` (3,4 %, ×3 2050, 2026). Images : `img_ori_non_opti/` sorti de `public/` (local, gitignoré), 18 orphelines supprimées (dont 3 webp leaflet), `sustainable-coding` webp, `og-cover.jpg` (94 Ko), screenshots webp, `co2-distribution`/`lifecycle-infographic` retirés et ressources rebranchées. Vérifié : `tsc`, build, export sans référence morte, navigateur, `out/` ~21 → 13 Mo.
-- [ ] Reste P1 (périmètre C) : bloc Sources des 8 fiches, `sitemap-page` incomplet, boutons catégories `modeles` morts, dates en dur `plan-action-dsi`, plancher RAM `politique-numerique`, tests multi-navigateurs/contrastes.
+- [x] Périmètre C le 15/09 : bloc Sources ajouté aux 8 fiches (`sheet-content` + `sources[]`), `sitemap.ts` + `sitemap-page` complets (8 fiches, actualites, faq, mythes, par-ou-commencer, guide, modeles, mentions-legales, offline), filtres catégories `modeles` branchés + formats PDF réels + grille 26 critères, années relatives `plan-action-dsi`, RAM 8 Go `politique-numerique`, chiffres harmonisés (169/248/50 kg, cas-pratiques 62 %, sources complétées), cahier des charges/guide sensibilisation/tableau de bord sourcés. `.gitignore` audit corrigé. Vérifié : `tsc`, build, export (sitemap 9 URLs fiches, « Sources » présent, 26 critères, 0 « 4 Go RAM »), navigateur (filtres 8→1→8, bloc Sources).
+- [ ] Reste : tests multi-navigateurs (Firefox/Safari), audit contrastes WCAG, quelques styles de langage.
 
 ## 🔴 important mais pas cassé
 
@@ -44,12 +45,12 @@ Ma liste, mise à jour le 15/09/2026 après une grosse relecture pessimiste (lec
 - [x] emoji 🎯 masqué aux lecteurs d'écran (fait le 14/09).
 - [x] titres uniques par page (fait le 14/09) : template + 19 layouts + 4 pages serveur. Les pages `"use client"` ne peuvent pas exporter `metadata`, d'où les mini-layouts.
 - [x] page 404 (fait le 14/09) : `not-found.tsx` + nginx `error_page`. Fil d'Ariane `_not found` -> fix hydratation.
-- [x] image OG 1200x630 (fait le 14/09) : générée avec Agnes, sans texte (le modèle écrit mal le français), `og-cover.png`.
+- [x] image OG 1200x630 (fait le 14/09, recompressée en jpg 94 Ko le 15/09) : générée avec Agnes, sans texte (le modèle écrit mal le français), `og-cover.jpg`.
 - [x] screenshots PWA (fait le 14/09) : vraies captures, déclarés dans le manifest.
 - [x] print CSS (fait le 14/09) : nav/footer masqués, fond blanc.
 - [ ] chasser les liens morts (un petit `lychee` sur `out/` après build, ça serait bien)
 - [ ] audit contrastes WCAG au cas par cas (le clavier est testé : skip-link, menus, onglets, Escape — voir changelog du 14/09)
-- [x] sitemap.xml -> fait (`sitemap.ts` + robots), complété (offline + modeles)
+- [x] sitemap.xml -> fait (`sitemap.ts` + robots), complété (offline + modeles + 8 fiches détail)
 - [x] redirects 301 -> fait dans nginx (`/` -> `/greenit/`)
 - [ ] retester le dark partout
 

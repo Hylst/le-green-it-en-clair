@@ -51,8 +51,8 @@
 
 ### Domaine C — images, PDF, fiches, modèles
 - Remplacer sans texte incrusté : `comparison-chart-new-vs-refurbished-vs-repaire.webp`, `smartphone-impact-infographic.webp`, `lifecycle-numerique-hero.webp`, 4 visuels de fiches en anglais.
-- Trancher/optimiser : `images/co2-distribution.webp` (contradiction + 560 Ko).
-- Supprimer : 15 images orphelines + dossier `public/img_ori_non_opti/` de l’export.
+- Trancher/optimiser : `images/co2-distribution.webp` (contradiction + 571 Ko) — retiré le 15/09, ressources rebranchées vers `/chiffres`.
+- Supprimer : 18 images orphelines + dossier `public/img_ori_non_opti/` de l’export (fait le 15/09).
 - Optimiser : `sustainable-coding.png` → WebP, lourdes conservées, `og-cover.png`.
 - Fiches : bloc Sources par fiche + corrections chiffrées ; modèles : mentions « exemples », dates fragiles.
 
@@ -108,10 +108,10 @@
 - [x] Vérification manuelle systématique.
 
 ### Vague 3 — P1/P2 contenu, images, accessibilité et documentation
-- [ ] Sources manquantes des 8 fiches, `sitemap-page`, boutons `modeles`, dates `plan-action-dsi` (périmètre C, non traité).
+- [x] Sources manquantes des 8 fiches (bloc `sources[]` + rendu), `sitemap-page` complet, `sitemap.ts` complété (8 fiches), boutons catégories `modeles` branchés, formats réels, dates relatives `plan-action-dsi`, RAM `politique-numerique` à 8 Go, grille d'audit à 26 critères.
 - [x] Images orphelines/poids mort : sources sorties du build, 18 orphelines supprimées, og-cover/screenshots/coding optimisés, co2-distribution tranchée.
-- [ ] Accessibilité, responsive, PWA, navigation et documentation (reste tests multi-navigateurs/contrastes).
-- [x] Vérification manuelle systématique de la vague B (build, export, navigateur).
+- [ ] Accessibilité, responsive, PWA, navigation et documentation : reste tests multi-navigateurs (Firefox/Safari) et contrastes WCAG.
+- [x] Vérification manuelle systématique des vagues B et C (build, export, navigateur).
 
 ### Validation finale
 - [ ] Relecture complète des diffs.
@@ -134,3 +134,4 @@
 - 2026-09-15 : quiz corrigé (10 commits) : 100 questions re-sourcées/corrigées, moteur (niveau max réel, division par zéro, Fisher-Yates, timer continu), attestation ≥ 60 % avec impression dédiée, accessibilité `radiogroup`/`radio`/`aria-live`. Vérifié : `tsc`, build, export, test navigateur `/greenit/` (35/140 = 25 %, score moyen 4, bouton résultat ; CSS print présent ; console = prefetch `_rsc` connu). Reste vague 3 images.
 - 2026-09-15 : audit pessimiste final (3 sous-agents) : restes confirmés dans `perspectives`, `modeles`, `comprendre`, `problematiques`, `chiffres`, calculateurs, fiches, a-propos, plus les images et docs. Finitions quiz appliquées (`2e92097` : garde division, fourchette streaming, PUE, Google 2009, sources millésimées).
 - 2026-09-15 : vague B exécutée (9 commits `4fd4fd9` → `0391479`) : contenu faux/trompeur corrigé et images assainies (sources sorties du build, 18 orphelines supprimées, og-cover jpg 94 Ko, screenshots webp, sustainable-coding webp, co2-distribution/lifecycle retirés, ressources rebranchées). Vérifié : `tsc`, build, export sans référence morte, navigateur, `out/` ~21 → 13 Mo. Reste P1 (sources fiches, `sitemap-page`, boutons `modeles`, dates plans) et tests multi-navigateurs.
+- 2026-09-15 : audit pessimiste C (3 sous-agents) : items C confirmés + reliquats (cas-pratiques 88 %, 296/350/55 kg, 285 kg sans source, grille 100→26, cahier des charges daté, emails 20 g, formats fantômes). Périmètre C exécuté (5 commits `0ea3963` → `1828bb6`) : sources des 8 fiches, sitemaps complets, filtres `modeles`, formats/dates/RAM, harmonisation des kg et du reconditionné, docs. Vérifié : `tsc`, build, export (9 URLs fiches, Sources, 26 critères, 0 « 4 Go RAM »), navigateur (filtres 8→1→8, Sources fiche). Reste : tests multi-navigateurs et contrastes.

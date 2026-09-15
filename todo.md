@@ -52,9 +52,11 @@ Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à l
 - [x] `ressources` : glossaire 20 termes, WUE « par kWh IT », PUE en virgule, reconditionné 75-90 %, entrée « Indice de durabilité », ancres par terme.
 - [x] `mentions-legales` : repo GitHub public lié, hébergeur sourcé ; `a-propos` : « éco-responsable » retiré ; footer : sources cliquables + lien `/guide`.
 - [x] Typo : `check:typo` créé, `CO2 → CO₂/CO₂e` et « d'e-déchets » faits ; première passe « % » faite à la main sur les pages de contenu (accueil, chiffres, comprendre, cas-pratiques, datacenters, developpement, fiches, perspectives, recyclage, reglementation, quiz, FAQ).
-- [ ] Typo (suite) : 124 lignes candidates visibles restantes (`node scripts/check-typo.js` les liste ; surtout `modeles/*`, `outils/*`, perspectives, reglementation) — à finir à la main, fichier par fichier.
-- [ ] Divers restants : emojis-icônes dans l'UI, `console.log` du SW, 30 fichiers `ui/` jamais importés (purger ou assumer le kit : décision à prendre).
-- [ ] À confirmer avant d'écrire : prospective ADEME-Arcep « ×3 d'ici 2050 » (pas trouvée en ligne), millésimes Base Empreinte 2023/2024 (`guide:140`, `tableau-bord:204` vs `[id]:146`), relecture des 100 questions du quiz une par une (seules les sources Q74/Q94/Q99 ont été retouchées).
+- [x] Typo : `CO2 → CO₂/CO₂e`, « d'e-déchets », coquilles (« filière agréée », « Mise à jour », « avant d'envisager ») et **tous les « % » du texte visible** faits (vérification ligne par ligne : 114 lignes modifiées, uniquement l'espace avant %, aucune valeur touchée). Il ne reste que du code (largeurs CSS, shadcn) listé par `npm run check:typo`.
+- [x] Mobile : **0 débordement horizontal sur les 30 routes** à 320, 390 et 768 px (tableaux en `overflow-x-auto`, en-têtes qui passent à la ligne, fil d'Ariane qui wrap, pas d'étapes réduit, cartes `min-w-0`).
+- [x] Logs : `console.log` du service worker et du bouton Installer supprimés.
+- [ ] Divers restants : emojis-icônes dans l'UI, 30 fichiers `ui/` jamais importés (purger ou assumer le kit : décision à prendre).
+- [ ] À confirmer avant d'écrire : prospective ADEME-Arcep « ×3 d'ici 2050 » (pas trouvée en ligne), millésimes Base Empreinte 2023/2024 (`guide:140`, `tableau-bord:204` vs `[id]:146`), source ADEME 2019 du « 200 kg MIPS » du quiz Q76, relecture question par question des 100 questions du quiz (balayage ciblé fait : 3 corrections, « 470 » → « 467 », explication Q76 reformulée, règlement Q70 corrigé).
 
 ### méthode
 
@@ -107,7 +109,7 @@ Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à l
 ## 🔴 important mais pas cassé
 
 - [x] testé Chromium + Firefox + WebKit (moteur Safari) en prod `/greenit/` le 15/09 (8 pages, 0 erreur nouvelle). Reste : Safari réel sur Mac, à confirmer si possible.
-- [ ] tester mobile plusieurs tailles (+ lecteur d'écran NVDA/VoiceOver pour de vrai)
+- [x] tester mobile plusieurs tailles : 320 / 390 / 768 px passés sur les 30 routes, 0 débordement (fix du 15/09 au soir, commit `1068cea`). Reste : lecteur d'écran NVDA/VoiceOver pour de vrai.
 - [ ] bruit console : les prefetch Next (`*_rsc`, `__PAGE__.txt` en 404) sur l'export statique. Cosmétique (la navigation retombe sur la page complète), mais à surveiller si Next propose une option propre un jour.
 - [x] breadcrumb : labels `guide`/`mentions-legales`/`offline` ajoutés + `aria-label` "Fil d'Ariane" (fait le 14/09).
 - [x] emoji 🎯 masqué aux lecteurs d'écran (fait le 14/09).

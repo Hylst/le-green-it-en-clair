@@ -1083,12 +1083,17 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     id: 76,
     category: "Impact environnemental",
     difficulty: "moyen",
-    question: "Combien de kg de matières sont mobilisées pour produire un smartphone ?",
-    options: ["1 kg", "10 kg", "50 kg", "200 kg"],
-    correctAnswer: 3,
+    question: "Que compte l'approche MIPS (material input per service) ?",
+    options: [
+      "Uniquement le poids final de l'appareil",
+      "Toutes les matières mobilisées pour produire et utiliser un service, au-delà du produit fini",
+      "Uniquement les émissions de gaz à effet de serre",
+      "Le nombre de composants électroniques",
+    ],
+    correctAnswer: 1,
     explanation:
-      "L'approche MIPS compte toutes les matières mobilisées (environ 200 kg pour un smartphone), pas seulement celles qui finissent dans l'appareil (ADEME, 2019).",
-    source: "ADEME 2019, La face cachée du numérique",
+      "L'approche MIPS compte toute la matière mobilisée (extraction, transformation, transport), pas seulement ce qui reste dans l'objet : un smartphone de 150 g équivaut à environ 70 kg de matières premières, soit plus de 460 fois son poids (ADEME ; SDES, 2025).",
+    source: "ADEME ; SDES, infographie smartphone (2025)",
     points: 15,
   },
   {
@@ -1460,7 +1465,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
 ]
 
 // À incrémenter si les questions changent (invalide proprement les sessions en cours)
-const QUIZ_CONTENT_VERSION = 2
+const QUIZ_CONTENT_VERSION = 3
 
 const questionIndex = (question: QuizQuestion) => ALL_QUIZ_QUESTIONS.indexOf(question)
 

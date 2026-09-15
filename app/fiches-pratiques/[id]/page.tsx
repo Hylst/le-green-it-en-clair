@@ -396,7 +396,7 @@ const sheets: Record<string, any> = {
     resources: [
       "Institut du Numérique Responsable (INR) : label-nr.fr",
       "Club Green IT : greenit.fr",
-      "Référentiel : gr491.org",
+      "Référentiel GR491 (INR) : gr491.isit-europe.org",
     ],
     sources: [
       "ADEME 2022 (-75 % reconditionné)",

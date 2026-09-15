@@ -4,7 +4,7 @@ Ma liste, mise à jour le 15/09/2026 après une grosse relecture pessimiste (lec
 
 ## ✅ plan d'amélioration — audit contenu du 15/09/2026 (soir) — implémenté
 
-Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à la main dans le code ET sur sources officielles en ligne, puis implémentation par vagues. Vérifié : `tsc` 0 erreur, build 42 pages, `out/` contrôlé (classes CSS, icônes, manifest). Détail dans `changelog.md`.
+Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à la main dans le code ET sur sources officielles en ligne, puis implémentation par vagues et vérification manuelle des données. Commits : `fcd02d6` (A), `f9c2a43` (B), `5497517` (C), `9682f5c` (D), `3e8106d` (docs), `2c0021f` (vérification). Vérifié : `tsc` 0 erreur, build 42 pages, `out/` contrôlé (classes CSS, icônes, manifest), test navigateur sous `/greenit/`. Détail dans `changelog.md`.
 
 ### vague A — contenus faux ou contradictoires — fait
 
@@ -51,16 +51,17 @@ Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à l
 - [x] chiffres orphelins : 45 % = calcul explicité, DataCenterMap « ordre de grandeur », coûts réparation « fourchette indicative », 33 % = calcul, sources mythes datées « consulté en 2026 ».
 - [x] `ressources` : glossaire 20 termes, WUE « par kWh IT », PUE en virgule, reconditionné 75-90 %, entrée « Indice de durabilité », ancres par terme.
 - [x] `mentions-legales` : repo GitHub public lié, hébergeur sourcé ; `a-propos` : « éco-responsable » retiré ; footer : sources cliquables + lien `/guide`.
-- [ ] Typo : `check:typo` créé, `CO2 → CO₂/CO₂e` et « d'e-déchets » faits ; **reste la passe « % » (~220 occurrences, une vague dédiée)**.
+- [x] Typo : `check:typo` créé, `CO2 → CO₂/CO₂e` et « d'e-déchets » faits ; première passe « % » faite à la main sur les pages de contenu (accueil, chiffres, comprendre, cas-pratiques, datacenters, developpement, fiches, perspectives, recyclage, reglementation, quiz, FAQ).
+- [ ] Typo (suite) : 124 lignes candidates visibles restantes (`node scripts/check-typo.js` les liste ; surtout `modeles/*`, `outils/*`, perspectives, reglementation) — à finir à la main, fichier par fichier.
 - [ ] Divers restants : emojis-icônes dans l'UI, `console.log` du SW, 30 fichiers `ui/` jamais importés (purger ou assumer le kit : décision à prendre).
-- [ ] À confirmer avant d'écrire : prospective ADEME-Arcep « ×3 d'ici 2050 », source exacte de l'ancien repère 285 kg, millésimes Base Empreinte 2023/2024 (`guide:140`, `tableau-bord:204` vs `[id]:146`).
+- [ ] À confirmer avant d'écrire : prospective ADEME-Arcep « ×3 d'ici 2050 » (pas trouvée en ligne), millésimes Base Empreinte 2023/2024 (`guide:140`, `tableau-bord:204` vs `[id]:146`), relecture des 100 questions du quiz une par une (seules les sources Q74/Q94/Q99 ont été retouchées).
 
 ### méthode
 
 - [x] Une vague = un lot de modifs + `tsc` + build + contrôle de l'export.
 - [x] Sources vérifiées en ligne le 15/09 au soir : EUR-Lex (2023/1670 : 5 ans de màj OS, 7 ans de pièces, 20/06/2025 ; 2024/1799 : +12 mois après réparation, 31/07/2026), ecologie.gouv.fr + service-public (durabilité : TV janvier 2025, lave-linge 8 avril 2025), IEA Energy and AI avril 2025 (415 TWh, 1,5 %, 945 TWh en 2030), UNITAR GEM 2024 (62 Mt, 22,3 %, 82 Mt en 2030), étude Green IT monde 2025 PDF (1,8 Gt CO₂e en 2023, 3,4 %), Microsoft/DCD (Project Natick arrêté en 2024).
 - [x] Contre-audit du plan lui-même avant exécution : 4 erreurs corrigées (étiquette 2023/1669, Uptime déjà sourcé, 30 orphelins `ui/` et pas 29, mythes bien au nombre de 12).
-- [ ] Contre-audit échantillonné des corrections des passes précédentes : tirer 10 chiffres au hasard, revérifier la source officielle, rattraper d'éventuels faux positifs appliqués (le protocole est dans `AGENTS.md`).
+- [x] Contre-audit **manuel complet** des données (pas un échantillon) : balayage des valeurs canoniques sur tout `app/` + `components/`. Corrigés : −87 % résiduel (`cas-pratiques:258`), quiz Q70 étiquette 2023/1669 (et non 1670), `mythes:90` 75 % attribué ADEME-Arcep 2023 (et non 2026), 10 % électricité mondiale non sourcé retiré (`problematiques:115`), « recycle 46 % » → « collecte 46 % » + 22,3 % (`chiffres`), 22 % → 22,3 % (`comprendre`), fourchette « −75 à −91 % » retirée du footer (`cas-pratiques`, pas de source), « 5 à 10 ans » inventé retiré (FAQ, directive 2024/1799), PUE « 1.0 »/« 1.2 » → « 1,0 »/« 1,2 ». Commit `2c0021f`.
 
 ## 🔴 P0 — ce qui casse en prod sous /greenit
 

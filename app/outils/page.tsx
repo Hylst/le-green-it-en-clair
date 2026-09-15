@@ -55,7 +55,7 @@ export default function OutilsPage() {
             </h1>
             <p className="text-lg text-emerald-50 mb-8 max-w-3xl mx-auto text-pretty">
               Sept outils interactifs pour comprendre votre impact numérique, optimiser vos choix, et évaluer vos
-              connaissances sur le Green IT avec des données 2025 sourcées.
+              connaissances sur le Green IT avec des données récentes (2024-2026) sourcées.
             </p>
           </div>
         </div>
@@ -112,7 +112,7 @@ export default function OutilsPage() {
                 <Globe className="h-6 w-6" />
               </div>
               <h2 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Analyse de site web</h2>
-              <p className="text-xs text-slate-600 dark:text-gray-300">Impact carbone d'une URL</p>
+              <p className="text-xs text-slate-600 dark:text-gray-300">Impact carbone d'une page (poids saisi)</p>
               {activeTab === "website" && (
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-blue-600 animate-pulse" />
               )}

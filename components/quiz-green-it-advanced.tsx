@@ -130,7 +130,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["1,5%", "2,5%", "3,4%", "7%"],
     correctAnswer: 2,
     explanation:
-      "Le numérique représente environ 3,4 % des émissions mondiales de GES, soit 1,8 Gt CO2e en 2023 (GreenIT EENM 2025).",
+      "Le numérique représente environ 3,4 % des émissions mondiales de GES, soit 1,8 Gt CO₂e en 2023 (GreenIT EENM 2025).",
     source: "GreenIT EENM 2025",
     points: 20,
   },
@@ -223,10 +223,10 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Matériel et fabrication",
     difficulty: "difficile",
     question: "Quelle est l'empreinte carbone de la fabrication d'un ordinateur portable ?",
-    options: ["50 kg CO2e", "100 kg CO2e", "150 à 185 kg CO2e", "300 kg CO2e"],
+    options: ["50 kg CO₂e", "100 kg CO₂e", "150 à 185 kg CO₂e", "300 kg CO₂e"],
     correctAnswer: 2,
     explanation:
-      "La fabrication d'un ordinateur portable se situe autour de 150 à 185 kg CO2e selon les modèles (Base Empreinte ADEME).",
+      "La fabrication d'un ordinateur portable se situe autour de 150 à 185 kg CO₂e selon les modèles (Base Empreinte ADEME).",
     source: "Base Empreinte ADEME",
     points: 20,
   },
@@ -355,10 +355,10 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Usage et sobriété",
     difficulty: "facile",
     question: "Quel est l'impact carbone d'un email simple, sans pièce jointe ?",
-    options: ["environ 0,3 g CO2", "environ 4 g CO2", "environ 35 g CO2", "environ 100 g CO2"],
+    options: ["environ 0,3 g CO₂", "environ 4 g CO₂", "environ 35 g CO₂", "environ 100 g CO₂"],
     correctAnswer: 1,
     explanation:
-      "Un email simple émet environ 4 g de CO2 ; comptez environ 35 g avec une pièce jointe de 1 Mo et 0,3 g pour un spam (ADEME).",
+      "Un email simple émet environ 4 g de CO₂ ; comptez environ 35 g avec une pièce jointe de 1 Mo et 0,3 g pour un spam (ADEME).",
     source: "ADEME, ACV e-mail 2011",
     points: 10,
   },
@@ -378,7 +378,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     id: 25,
     category: "Usage et sobriété",
     difficulty: "difficile",
-    question: "Combien de CO2 peut générer 1 heure de streaming vidéo HD ?",
+    question: "Combien de CO₂ peut générer 1 heure de streaming vidéo HD ?",
     options: ["de l'ordre de 5 g", "de l'ordre de 50 à 100 g", "de l'ordre de 500 g", "plus de 1 kg"],
     correctAnswer: 1,
     explanation:
@@ -436,10 +436,10 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Usage et sobriété",
     difficulty: "difficile",
     question: "Quel est l'impact carbone d'un email avec une pièce jointe de 1 Mo ?",
-    options: ["1g CO2", "5g CO2", "35g CO2", "50g CO2"],
+    options: ["1g CO₂", "5g CO₂", "35g CO₂", "50g CO₂"],
     correctAnswer: 2,
     explanation:
-      "Un email avec une pièce jointe de 1 Mo génère environ 35 g de CO2, contre environ 4 g pour un email simple (ADEME).",
+      "Un email avec une pièce jointe de 1 Mo génère environ 35 g de CO₂, contre environ 4 g pour un email simple (ADEME).",
     source: "ADEME, ACV e-mail 2011",
     points: 20,
   },
@@ -1018,11 +1018,11 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     id: 71,
     category: "Impact environnemental",
     difficulty: "moyen",
-    question: "Combien de tonnes de CO2e le numérique mondial émet-il par an ?",
+    question: "Combien de tonnes de CO₂e le numérique mondial émet-il par an ?",
     options: ["500 millions", "1 milliard", "1,8 milliard", "2,5 milliards"],
     correctAnswer: 2,
     explanation:
-      "Le secteur numérique mondial émet environ 1,8 Gt CO2e en 2023, soit 3,4 % des émissions mondiales (GreenIT EENM 2025).",
+      "Le secteur numérique mondial émet environ 1,8 Gt CO₂e en 2023, soit 3,4 % des émissions mondiales (GreenIT EENM 2025).",
     source: "GreenIT EENM 2025",
     points: 15,
   },
@@ -1064,7 +1064,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Une requête consomme peu à l'unité ; l'impact vient surtout de l'appareil et du volume d'usages. Le repère de 0,2 g vient d'une estimation Google de 2009 et dépend du mix électrique.",
-    source: "ADEME, Impact CO2 / Base Empreinte",
+    source: "Google, 2009 (estimation reprise par la littérature)",
     points: 15,
   },
   {
@@ -1120,10 +1120,10 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Impact environnemental",
     difficulty: "facile",
     question: "Quel gaz à effet de serre est principalement lié à la production d'électricité ?",
-    options: ["Méthane", "CO2", "Protoxyde d'azote", "Ozone"],
+    options: ["Méthane", "CO₂", "Protoxyde d'azote", "Ozone"],
     correctAnswer: 1,
     explanation:
-      "Le CO2 (dioxyde de carbone) est le principal gaz à effet de serre émis par la production d'électricité.",
+      "Le CO₂ (dioxyde de carbone) est le principal gaz à effet de serre émis par la production d'électricité.",
     source: "GIEC, AR6 2021",
     points: 10,
   },
@@ -1362,7 +1362,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "L'edge computing traite les données au plus près de leur source : il peut réduire le trafic réseau, mais le bilan dépend des usages et des équipements déployés.",
-    source: "Edge Computing Consortium 2024",
+    source: "Notion générale (littérature Green IT)",
     points: 15,
   },
   {
@@ -1437,7 +1437,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Les bioplastiques issus de ressources renouvelables sont étudiés pour remplacer les plastiques pétrochimiques.",
-    source: "Revues scientifiques, matériaux 2024",
+    source: "Notion générale (littérature matériaux)",
     points: 10,
   },
   {
@@ -1460,7 +1460,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
 ]
 
 // À incrémenter si les questions changent (invalide proprement les sessions en cours)
-const QUIZ_CONTENT_VERSION = 1
+const QUIZ_CONTENT_VERSION = 2
 
 const questionIndex = (question: QuizQuestion) => ALL_QUIZ_QUESTIONS.indexOf(question)
 
@@ -1832,6 +1832,7 @@ export function QuizGreenITAdvanced() {
     const maxScore = activeQuestions.reduce((sum, q) => sum + q.points, 0)
     const levelInfo = getLevel(score, maxScore)
     const percentage = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0
+    const answeredCount = answers.filter((answer) => answer.selectedAnswer !== -1).length
     const errorItems: ErrorReviewItem[] = answers
       .filter((answer) => !answer.correct)
       .map((answer) => ({
@@ -1864,12 +1865,12 @@ export function QuizGreenITAdvanced() {
           <div className="space-y-3">
             <div className="flex justify-between text-sm">
               <span className="text-slate-600 dark:text-gray-300">Questions répondues</span>
-              <span className="font-semibold dark:text-gray-100">{answers.length}</span>
+              <span className="font-semibold dark:text-gray-100">{answeredCount}</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-slate-600 dark:text-gray-300">Score moyen par question</span>
               <span className="font-semibold dark:text-gray-100">
-                {answers.length > 0 ? `${Math.round(score / answers.length)} points` : "—"}
+                {answeredCount > 0 ? `${Math.round(score / answeredCount)} points` : "—"}
               </span>
             </div>
             {mode === "challenge" && (

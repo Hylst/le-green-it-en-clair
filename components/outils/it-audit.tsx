@@ -25,10 +25,10 @@ export default function ITAudit() {
     desktops: { name: "Ordinateurs fixes", fabricationCO2: 169, usageCO2: 88, optimalLife: 6, icon: "🖥️" },
     laptops: { name: "Ordinateurs portables", fabricationCO2: 156, usageCO2: 22, optimalLife: 5, icon: "💻" },
     monitors: { name: "Écrans", fabricationCO2: 248, usageCO2: 40, optimalLife: 8, icon: "🖥️" },
-    smartphones: { name: "Smartphones", fabricationCO2: 50, usageCO2: 8, optimalLife: 4, icon: "📱" },
+    smartphones: { name: "Smartphones", fabricationCO2: 50, usageCO2: 8, optimalLife: 5, icon: "📱" },
     tablets: { name: "Tablettes", fabricationCO2: 63, usageCO2: 12, optimalLife: 5, icon: "📋" },
     printers: { name: "Imprimantes", fabricationCO2: 130, usageCO2: 35, optimalLife: 7, icon: "🖨️" },
-    servers: { name: "Serveurs", fabricationCO2: 1200, usageCO2: 500, optimalLife: 6, icon: "🖧" },
+    servers: { name: "Serveurs", fabricationCO2: 1200, usageCO2: 500, optimalLife: 5, icon: "🖧" },
   }
 
   const calculateResults = () => {
@@ -70,7 +70,7 @@ export default function ITAudit() {
       } else {
         status = "critical"
         renewalNeeded += count
-        recommendation = `Renouvellement à planifier. Privilégiez le reconditionné (-75 à -90% CO2, ADEME 2022).`
+        recommendation = `Renouvellement à planifier. Privilégiez le reconditionné (−75 à −90 % de CO₂, ADEME 2022).`
         potentialSavings += data.fabricationCO2 * 0.75 * count // Économie si reconditionné
       }
 
@@ -153,8 +153,8 @@ export default function ITAudit() {
     doc.text("Résumé de l'impact", 20, 55)
 
     doc.setFontSize(12)
-    doc.text(`Empreinte totale : ${auditResults.totalCO2.toFixed(1)} kg CO2e / an`, 20, 65)
-    doc.text(`Économies possibles : ${auditResults.potentialSavings.toFixed(1)} kg CO2e (gain à l'achat)`, 20, 72);
+    doc.text(`Empreinte totale : ${auditResults.totalCO2.toFixed(1)} kg CO₂e / an`, 20, 65)
+    doc.text(`Économies possibles : ${auditResults.potentialSavings.toFixed(1)} kg CO₂e (gain à l'achat)`, 20, 72);
 
     // Score Badge
     doc.setDrawColor(200, 200, 200)
@@ -175,7 +175,7 @@ export default function ITAudit() {
 
     autoTable(doc, {
       startY: 90,
-      head: [["Équipement", "Nombre", "Âge moyen", "Impact CO2/an"]],
+      head: [["Équipement", "Nombre", "Âge moyen", "Impact CO₂/an"]],
       body: tableData,
       headStyles: { fillColor: PDF_COLORS.primary },
       theme: "striped",
@@ -316,9 +316,13 @@ export default function ITAudit() {
                 <h3 className="font-semibold text-xl mb-4 text-gray-900 dark:text-gray-100">📊 Résultats de l'audit</h3>
                 <div className="grid md:grid-cols-4 gap-4 mb-6">
                   <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
-                    <div className={`text-4xl font-bold ${scoreGrade.color}`}>{scoreGrade.grade}</div>
+                    <div className={`text-4xl font-bold ${results.totalDevices === 0 ? "text-gray-400 dark:text-gray-500" : scoreGrade.color}`}>
+                      {results.totalDevices === 0 ? "—" : scoreGrade.grade}
+                    </div>
                     <div className="text-sm text-gray-600 dark:text-gray-400">Score éco</div>
-                    <div className={`text-xs ${scoreGrade.color}`}>{scoreGrade.label}</div>
+                    <div className={`text-xs ${results.totalDevices === 0 ? "text-gray-500 dark:text-gray-400" : scoreGrade.color}`}>
+                      {results.totalDevices === 0 ? "Ajoutez au moins un équipement" : scoreGrade.label}
+                    </div>
                   </div>
                   <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
                     <div className="text-3xl font-bold text-gray-900 dark:text-gray-100">{results.totalDevices}</div>
@@ -336,10 +340,22 @@ export default function ITAudit() {
                   </div>
                 </div>
 
-                <Progress value={results.ecoScore} className="h-4 mb-2" aria-label="Score d'éco-efficacité" />
-                <div className="text-sm text-gray-600 dark:text-gray-400 text-center">
-                  Score d'éco-efficacité: {results.ecoScore}/100
-                </div>
+                {results.totalDevices > 0 ? (
+                  <>
+                    <Progress value={results.ecoScore} className="h-4 mb-2" aria-label="Score d'éco-efficacité" />
+                    <div className="text-sm text-gray-600 dark:text-gray-400 text-center">
+                      Score d'éco-efficacité : {results.ecoScore}/100
+                    </div>
+                  </>
+                ) : (
+                  <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
+                    Parc vide : indiquez vos équipements pour lancer l'analyse.
+                  </p>
+                )}
+                <p className="mt-4 text-xs text-gray-500 dark:text-gray-400 text-center">
+                  Hypothèses : usage annuel forfaitaire par équipement, fabrication amortie sur l'âge saisi, durées de
+                  vie optimales indicatives.
+                </p>
               </div>
 
               {/* Détails par catégorie */}

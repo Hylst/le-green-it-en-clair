@@ -18,7 +18,6 @@ export default function EnterpriseSimulator() {
     cloudUsage: "medium" as "low" | "medium" | "high",
     datacenters: 0,
     currentInitiatives: [] as string[],
-    energyPrice: 0.20, // €/kWh
   })
 
   const [selectedScenario, setSelectedScenario] = useState<"baseline" | "moderate" | "ambitious">("moderate")
@@ -86,7 +85,7 @@ export default function EnterpriseSimulator() {
         const optimizedEquipmentCost = newDevices * 800 + refurbishedDevices * 800 * 0.5
         const optimizedEnergyCost = totalDevices * 60 * (1 - scenario.energyOptimization)
         const optimizedCloudCost = config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000) * (1 - scenario.cloudOptimization)
-        const optimizedMaintenanceCost = totalDevices * 50 * 1.2 // +20% preventive maintenance
+        const optimizedMaintenanceCost = totalDevices * 50 * (scenario.deviceLifeExtension > 0 ? 1.2 : 1) // +20 % de maintenance préventive dans les scénarios optimisés
         const optimizedTotalCost = optimizedEquipmentCost + optimizedEnergyCost + optimizedCloudCost + optimizedMaintenanceCost
         cumulativeOptimizedCost += optimizedTotalCost
 
@@ -136,7 +135,7 @@ export default function EnterpriseSimulator() {
           const optimizedEquipmentCost = newDevices * 800 + refurbishedDevices * 800 * 0.5
           const optimizedEnergyCost = totalDevices * 60 * (1 - scenario.energyOptimization)
           const optimizedCloudCost = config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000) * (1 - scenario.cloudOptimization)
-          const optimizedMaintenanceCost = totalDevices * 50 * 1.2
+          const optimizedMaintenanceCost = totalDevices * 50 * (scenario.deviceLifeExtension > 0 ? 1.2 : 1)
           const optimizedTotalCost = optimizedEquipmentCost + optimizedEnergyCost + optimizedCloudCost + optimizedMaintenanceCost
 
           // CO2 logic for projections
@@ -195,13 +194,13 @@ export default function EnterpriseSimulator() {
     const tableData = allScenarioResults.map(s => [
       s.name,
       s.totalSavings.toLocaleString() + " €",
-      s.totalEmissions.toLocaleString() + " kg CO2e", // This is actually CO2 savings
+      s.totalEmissions.toLocaleString() + " kg CO₂e", // This is actually CO2 savings
       s.payback === -1 ? "Non rentable" : s.payback === 0 ? "Immédiat" : s.payback + " mois"
     ])
 
     autoTable(doc, {
       startY: 90,
-      head: [["Scénario", "Économies (5 ans)", "CO2 Évité (5 ans)", "Retour sur investissement"]],
+      head: [["Scénario", "Économies (5 ans)", "CO₂ évité (5 ans)", "Retour sur investissement"]],
       body: tableData,
       headStyles: { fillColor: PDF_COLORS.primary },
       theme: "striped",
@@ -410,6 +409,11 @@ export default function EnterpriseSimulator() {
                     <div className="text-sm text-gray-600 dark:text-gray-400">{results.payback === -1 ? "Non rentable sur 5 ans" : "Mois pour rentabilité"}</div>
                   </div>
                 </div>
+                <p className="mt-4 text-xs text-gray-600 dark:text-gray-400">
+                  Hypothèses : 800 € par poste renouvelé, 60 €/an d'énergie par poste, cloud 200/500/1 000 €/an selon
+                  l'usage, maintenance 50 €/an/poste (+20 % de préventif dans les scénarios optimisés), mise en œuvre
+                  100 €/employé. CO₂e : 200 kg par poste neuf, 50 kg reconditionné (ADEME 2022), usage 22 kg/an.
+                </p>
               </div>
 
               {/* Graphique de projection */}

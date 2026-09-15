@@ -20,7 +20,7 @@ export default function SobrietySimulator() {
   })
 
   const calculateImpact = () => {
-    const baselineImpact = 285 // kg CO2e/an, repère France (fourchette 225-330 kg, GreenIT EENM 2025)
+    const baselineImpact = 330 // kg CO₂e/an, ordre de grandeur mondial par internaute (1,8 Gt ÷ ~5,35 Md, Green IT 2025)
     let optimizedImpact = baselineImpact
 
     // Durée de vie des appareils
@@ -28,9 +28,12 @@ export default function SobrietySimulator() {
     else if (scenario.deviceLifespan >= 4) optimizedImpact *= 0.75
     else if (scenario.deviceLifespan >= 3) optimizedImpact *= 0.85
 
-    // Réparation vs remplacement
-    if (scenario.repairChoice === "repair") optimizedImpact *= 0.85
-    else if (scenario.repairChoice === "refurb") optimizedImpact *= 0.25
+    // Réparation vs remplacement (deux moments distincts : on retient le facteur le plus sobre, sans cumul)
+    const repairFactor =
+      scenario.repairChoice === "repair" || scenario.deviceType === "repair" ? 0.85 : 1
+    const refurbFactor =
+      scenario.repairChoice === "refurb" || scenario.deviceType === "refurb" ? 0.25 : 1
+    optimizedImpact *= Math.min(repairFactor, refurbFactor)
 
     // Qualité streaming
     if (scenario.streamingQuality === "720p") optimizedImpact *= 0.92
@@ -43,10 +46,6 @@ export default function SobrietySimulator() {
     // Stockage cloud
     if (scenario.cloudStorage === "optimize") optimizedImpact *= 0.93
     else if (scenario.cloudStorage === "local") optimizedImpact *= 0.88
-
-    // Type d'appareil
-    if (scenario.deviceType === "refurb") optimizedImpact *= 0.5
-    else if (scenario.deviceType === "repair") optimizedImpact *= 0.9
 
     return {
       baseline: Math.round(baselineImpact),
@@ -75,7 +74,7 @@ export default function SobrietySimulator() {
             Simulateur de sobriété numérique
           </CardTitle>
           <CardDescription>
-            Visualisez l'impact de vos choix de consommation numérique sur 5 ans (données 2025)
+            Visualisez l'impact de vos choix de consommation numérique sur 5 ans (repères sourcés 2022-2025)
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8">
@@ -156,14 +155,14 @@ export default function SobrietySimulator() {
                     <RadioGroupItem value="1080p" id="1080p" />
                     <Label htmlFor="1080p" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
                       Full HD (1080p)
-                      <span className="block text-sm text-green-600 dark:text-green-400">3 Go/h (-5%)</span>
+                      <span className="block text-sm text-green-600 dark:text-green-400">3 Go/h (−5 %)</span>
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
                     <RadioGroupItem value="720p" id="720p" />
                     <Label htmlFor="720p" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
                       HD (720p)
-                      <span className="block text-sm text-green-600 dark:text-green-400">0.9 Go/h (-8%)</span>
+                      <span className="block text-sm text-green-600 dark:text-green-400">0,9 Go/h (−8 %)</span>
                     </Label>
                   </div>
                 </RadioGroup>
@@ -222,14 +221,14 @@ export default function SobrietySimulator() {
                     <RadioGroupItem value="optimize" id="optimize" />
                     <Label htmlFor="optimize" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
                       J'optimise régulièrement
-                      <span className="block text-sm text-green-600 dark:text-green-400">-7% d'impact</span>
+                      <span className="block text-sm text-green-600 dark:text-green-400">−7 % d'impact</span>
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
                     <RadioGroupItem value="local" id="local" />
                     <Label htmlFor="local" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
                       Stockage local prioritaire
-                      <span className="block text-sm text-green-600 dark:text-green-400">-12% d'impact</span>
+                      <span className="block text-sm text-green-600 dark:text-green-400">−12 % d'impact</span>
                     </Label>
                   </div>
                 </RadioGroup>
@@ -254,14 +253,14 @@ export default function SobrietySimulator() {
                     <RadioGroupItem value="repair" id="device-repair" />
                     <Label htmlFor="device-repair" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
                       Réparer l'ancien
-                      <span className="block text-sm text-green-600 dark:text-green-400">−10 % d'impact</span>
+                      <span className="block text-sm text-green-600 dark:text-green-400">−15 % d'impact</span>
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
                     <RadioGroupItem value="refurb" id="device-refurb" />
                     <Label htmlFor="device-refurb" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
                       Reconditionné
-                      <span className="block text-sm text-green-600 dark:text-green-400">−50 % d'impact</span>
+                      <span className="block text-sm text-green-600 dark:text-green-400">−75 % d'impact (*)</span>
                     </Label>
                   </div>
                 </RadioGroup>

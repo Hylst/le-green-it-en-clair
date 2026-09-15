@@ -57,8 +57,8 @@ export default function CarbonCalculator() {
   }
 
   const totalFootprint = calculateFootprint()
-  const averageFrench = 285 // Repère : empreinte numérique annuelle d'un Français, estimations 225-330 kg (GreenIT EENM 2025)
-  const percentage = Math.round((totalFootprint / averageFrench) * 100)
+  const averageDigitalUser = 330 // Repère : empreinte numérique mondiale annuelle par internaute (1,8 Gt CO₂e ÷ ~5,35 Md, Green IT 2025)
+  const percentage = Math.round((totalFootprint / averageDigitalUser) * 100)
 
   return (
     <div className="space-y-8">
@@ -250,10 +250,10 @@ export default function CarbonCalculator() {
             <div className="space-y-4">
               <div>
                 <div className="flex justify-between text-sm mb-2 text-gray-800 dark:text-gray-200">
-                  <span>Comparé à la moyenne française ({averageFrench} kg)</span>
+                  <span>Comparé à l'empreinte numérique mondiale par internaute ({averageDigitalUser} kg)</span>
                   <span className="font-semibold">{percentage}%</span>
                 </div>
-                <Progress value={Math.min(percentage, 100)} className="h-3" aria-label="Comparé à la moyenne française" />
+                <Progress value={Math.min(percentage, 100)} className="h-3" aria-label="Comparé à l'empreinte numérique mondiale par internaute" />
               </div>
 
               <div className="grid grid-cols-2 gap-4 mt-6">
@@ -323,14 +323,14 @@ export default function CarbonCalculator() {
               Recommandations personnalisées
             </h3>
             <ul className="space-y-2 text-sm text-gray-800 dark:text-gray-200">
-              {totalFootprint > averageFrench && (
+              {totalFootprint > averageDigitalUser && (
                 <li>• Votre empreinte est supérieure à la moyenne. Consultez nos guides d'action pour la réduire.</li>
               )}
               {devices.smartphone.age < 3 && (
                 <li>• Conservez votre smartphone au moins 5 ans pour amortir son impact de fabrication.</li>
               )}
               {cloudUsage.streaming > 20 && (
-                <li>• Réduisez la qualité de streaming (720p au lieu de 4K) pour économiser jusqu'à 75% de données et de CO₂ (The Shift Project, 2021).</li>
+                <li>• Réduisez la qualité de streaming (720p au lieu de 4K) pour économiser jusqu'à 75 % de données et de CO₂ (The Shift Project, 2021).</li>
               )}
               {cloudUsage.email > 100 && (
                 <li>• Nettoyez régulièrement votre boîte mail et désabonnez-vous des newsletters inutiles.</li>
@@ -342,8 +342,8 @@ export default function CarbonCalculator() {
       </Card>
 
       <div className="text-sm text-gray-600 dark:text-gray-300 text-center">
-        Sources: Base Empreinte / ADEME-Arcep (2024-2025), GreenIT.fr, Shift Project • Méthodologie: ACV (Analyse du Cycle de Vie) • Stockage
-        cloud : 0,24 g CO2e/Go/an (ADEME, Impact CO2 / Base Empreinte)
+        Sources : Base Empreinte / ADEME-Arcep (2024-2025), GreenIT.fr, Shift Project • Méthodologie : ACV (Analyse du cycle de vie) • Usage modulé selon les heures d'utilisation par jour • Stockage
+        cloud : 0,24 g CO₂e/Go/an (ADEME, Impact CO₂ / Base Empreinte)
       </div>
     </div>
   )

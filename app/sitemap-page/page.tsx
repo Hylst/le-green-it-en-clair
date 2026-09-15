@@ -30,6 +30,9 @@ export default function SitemapPage() {
         },
         { href: "/chiffres", label: "Chiffres & Données", description: "Statistiques et visualisations interactives" },
         { href: "/cas-pratiques", label: "Cas pratiques", description: "Études de cas détaillées par type d'appareil" },
+        { href: "/mythes", label: "Mythes vs Réalités", description: "12 idées reçues passées au crible" },
+        { href: "/actualites", label: "Actualités", description: "Dossiers et annuaire de veille" },
+        { href: "/faq", label: "FAQ", description: "Réponses aux questions fréquentes" },
       ],
     },
     {
@@ -47,6 +50,16 @@ export default function SitemapPage() {
           description: "Réseau de points de collecte et acteurs du recyclage",
         },
         { href: "/outils", label: "Outils interactifs", description: "Calculateur d'empreinte, simulateur et quiz" },
+        {
+          href: "/par-ou-commencer",
+          label: "Par où commencer",
+          description: "Parcours guidés selon votre profil",
+        },
+        {
+          href: "/fiches-pratiques",
+          label: "Fiches pratiques",
+          description: "8 fiches détaillées par thème",
+        },
       ],
     },
     {
@@ -65,6 +78,7 @@ export default function SitemapPage() {
           label: "Perspectives d'avenir",
           description: "Scénarios futurs et solutions à développer",
         },
+        { href: "/guide", label: "Guide du numérique responsable", description: "Les bons réflexes au quotidien" },
       ],
     },
     {
@@ -72,8 +86,15 @@ export default function SitemapPage() {
       icon: FolderOpen,
       pages: [
         { href: "/ressources", label: "Ressources", description: "Guides, liens utiles et glossaire" },
+        {
+          href: "/modeles",
+          label: "Modèles téléchargeables",
+          description: "Charte, politique, audit, plan d'action, achats",
+        },
         { href: "/a-propos", label: "À propos", description: "Mission, valeurs et méthodologie du projet" },
         { href: "/sitemap-page", label: "Plan du site", description: "Cette page" },
+        { href: "/mentions-legales", label: "Mentions légales", description: "Éditeur, données et hébergement" },
+        { href: "/offline", label: "Page hors ligne", description: "Consultable sans connexion (PWA)" },
       ],
     },
   ]

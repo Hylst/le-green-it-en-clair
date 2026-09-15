@@ -60,7 +60,6 @@ export const metadata: Metadata = {
     description:
       "Découvrez l'impact environnemental du numérique et adoptez des pratiques responsables. Informations, outils interactifs et ressources pour un Green IT en France.",
     images: ["https://hylst.fr/greenit/og-cover.jpg"],
-    creator: "@greenitenclair",
   },
   robots: {
     index: true,

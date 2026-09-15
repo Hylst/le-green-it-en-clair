@@ -5,6 +5,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Hors-ligne",
+  alternates: { canonical: "https://hylst.fr/greenit/offline" },
 }
 
 export default function OfflinePage() {

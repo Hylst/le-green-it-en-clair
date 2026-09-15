@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Calendar, TrendingUp, ArrowRight, Rss, ExternalLink, Newspaper, AlertCircle } from "lucide-react"
+import { Calendar, TrendingUp, ArrowRight, ExternalLink, Newspaper, AlertCircle } from "lucide-react"
 
 type NewsCategory = "reglementation" | "innovation" | "tendance" | "etude" | "evenement" | "all"
 
@@ -182,7 +182,7 @@ export default function ActualitesPage() {
                   À la une
                 </TabsTrigger>
                 <TabsTrigger value="rss" className="flex items-center gap-2">
-                  <Rss className="h-4 w-4" />
+                  <ExternalLink className="h-4 w-4" />
                   Veille
                 </TabsTrigger>
               </TabsList>
@@ -252,7 +252,7 @@ export default function ActualitesPage() {
             <TabsContent value="rss" className="space-y-6 animate-in fade-in-50 slide-in-from-bottom-2">
               <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-card border-2 border-primary/20 p-4 rounded-xl">
                 <div className="flex items-center gap-2">
-                  <Rss className="h-5 w-5 text-primary" />
+                  <ExternalLink className="h-5 w-5 text-primary" />
                   <div>
                     <h3 className="font-semibold text-foreground">Sources à suivre</h3>
                     <p className="text-sm text-muted-foreground">Pas d&apos;agrégateur automatique : consultez ces sites directement, c&apos;est plus fiable.</p>

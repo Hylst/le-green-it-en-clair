@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import type { Metadata } from "next"
 import { SheetContent } from "@/components/sheet-content"
 
 const sheets: Record<string, any> = {
@@ -628,6 +629,15 @@ const sheets: Record<string, any> = {
       "ADEME 2026 (durée de vie)",
     ],
   },
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params
+  const sheet = sheets[id]
+  return {
+    title: sheet ? `${sheet.title} | Fiches pratiques` : "Fiches pratiques",
+    alternates: { canonical: `https://hylst.fr/greenit/fiches-pratiques/${id}` },
+  }
 }
 
 export async function generateStaticParams() {

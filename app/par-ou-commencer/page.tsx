@@ -76,8 +76,8 @@ export default function GettingStartedPage() {
       },
       {
         step: 4,
-        title: "Télécharger les fiches pratiques",
-        description: "Guides PDF à conserver pour les bonnes pratiques",
+        title: "Consulter les fiches pratiques",
+        description: "Guides à consulter et imprimer pour les bonnes pratiques",
         link: "/fiches-pratiques",
         icon: Wrench,
       },
@@ -322,11 +322,11 @@ export default function GettingStartedPage() {
               <Wrench className="mb-4 h-10 w-10 text-amber-600 dark:text-amber-400" />
               <h3 className="mb-2 font-bold text-slate-900 dark:text-slate-100">Fiches pratiques</h3>
               <p className="mb-4 text-sm text-slate-600 dark:text-slate-400">
-                Guides téléchargeables pour passer à l'action immédiatement
+                Guides à consulter et imprimer pour passer à l'action immédiatement
               </p>
               <Button asChild variant="outline" className="w-full bg-transparent">
                 <Link href="/fiches-pratiques">
-                  Télécharger
+                  Consulter
                 </Link>
               </Button>
             </Card>

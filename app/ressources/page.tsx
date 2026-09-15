@@ -53,21 +53,21 @@ const resources = [
         title: "Impact environnemental du numérique",
         description: "ADEME - Rapport complet 2023",
         type: "PDF",
-        size: "8.5 MB",
+        size: "Étude",
         link: "https://librairie.ademe.fr/consommer-autrement/5226-evaluation-de-l-impact-environnemental-du-numerique-en-france-et-analyse-prospective.html",
       },
       {
         title: "Global E-Waste Monitor 2024",
         description: "ONU - Données mondiales",
         type: "PDF",
-        size: "12.3 MB",
+        size: "Rapport",
         link: "https://ewastemonitor.info/",
       },
       {
-        title: "Étude GreenIT.fr 2023",
-        description: "État des lieux du numérique responsable",
+        title: "Empreinte environnementale du numérique mondial",
+        description: "GreenIT - Étude EENM (mise à jour 2025)",
         type: "PDF",
-        size: "5.7 MB",
+        size: "Étude",
         link: "https://www.greenit.fr/etude-empreinte-environnementale-du-numerique-mondial/",
       },
     ],
@@ -175,7 +175,7 @@ const glossaryData = [
   {
     term: "Reconditionné",
     definition:
-      "Appareil d'occasion remis en état de fonctionnement, testé et garanti. Réduit l'impact de 75% par rapport au neuf.",
+      "Appareil d'occasion remis en état de fonctionnement, testé et garanti. Réduit l'impact d'environ 75% par rapport au neuf (ADEME, 2022).",
     category: "Matériel",
   },
   {

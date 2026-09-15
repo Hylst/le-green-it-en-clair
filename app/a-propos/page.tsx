@@ -5,6 +5,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "À propos",
+  alternates: { canonical: "https://hylst.fr/greenit/a-propos" },
 }
 
 export default function AProposPage() {

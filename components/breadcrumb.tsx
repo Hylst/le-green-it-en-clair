@@ -37,8 +37,19 @@ export function Breadcrumb() {
     "gestes-quotidiens": "Gestes quotidiens",
     "achat-responsable": "Achat responsable",
     "ecoconception-web": "Écoconception web",
+    "reparer-prolonger": "Réparer et prolonger",
+    "green-it-entreprise": "Green IT en entreprise",
+    "recyclage-mode-emploi": "Recyclage mode d'emploi",
+    "datacenters-verts": "Datacenters et cloud",
+    "collectivites-action": "Collectivités",
+    "plan-action-dsi": "Plan d'action DSI",
+    "politique-numerique": "Politique numérique",
+    "grille-audit": "Grille d'audit",
+    "cahier-charges-achat": "Cahier des charges",
+    "guide-sensibilisation": "Guide de sensibilisation",
+    "tableau-bord-impact": "Tableau de bord",
+    "charte-green-it": "Charte Green IT",
     modeles: "Modèles téléchargeables",
-    "404.html": "Page introuvable",
   }
 
   return (

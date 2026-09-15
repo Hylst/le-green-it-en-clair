@@ -114,6 +114,7 @@ export function Footer() {
                 href="mailto:geoffroy.streit@gmail.com"
                 className="text-slate-600 hover:text-emerald-700 dark:text-slate-400 dark:hover:text-emerald-400"
                 title="Contact"
+                aria-label="Contact"
               >
                 <Mail className="h-5 w-5" />
               </a>

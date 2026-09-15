@@ -5,6 +5,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Plan du site",
+  alternates: { canonical: "https://hylst.fr/greenit/sitemap-page" },
 }
 
 export default function SitemapPage() {
@@ -100,14 +101,14 @@ export default function SitemapPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/30">
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="font-poppins text-4xl md:text-5xl font-bold text-slate-900 mb-4 text-balance">
+            <h1 className="font-poppins text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
               Plan du site
             </h1>
-            <p className="text-lg text-slate-700 max-w-2xl mx-auto text-pretty">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
               Naviguez facilement à travers toutes les sections du site Le Green IT en clair
             </p>
           </div>
@@ -118,8 +119,8 @@ export default function SitemapPage() {
               return (
                 <Card key={section.category}>
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-emerald-900">
-                      <Icon className="w-5 h-5 text-emerald-600" />
+                    <CardTitle className="flex items-center gap-2 text-emerald-900 dark:text-emerald-300">
+                      <Icon className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                       {section.category}
                     </CardTitle>
                   </CardHeader>
@@ -129,10 +130,10 @@ export default function SitemapPage() {
                         <Link
                           key={page.href}
                           href={page.href}
-                          className="group flex flex-col gap-1 rounded-lg border border-slate-200 bg-white p-4 transition-all hover:border-emerald-400 hover:shadow-md"
+                          className="group flex flex-col gap-1 rounded-lg border border-border bg-card p-4 transition-all hover:border-emerald-400 hover:shadow-md"
                         >
-                          <div className="font-semibold text-slate-900 group-hover:text-emerald-700">{page.label}</div>
-                          <div className="text-sm text-slate-600">{page.description}</div>
+                          <div className="font-semibold text-foreground group-hover:text-emerald-700 dark:group-hover:text-emerald-400">{page.label}</div>
+                          <div className="text-sm text-muted-foreground">{page.description}</div>
                         </Link>
                       ))}
                     </div>
@@ -143,9 +144,9 @@ export default function SitemapPage() {
           </div>
 
           <div className="mt-12 text-center">
-            <Card className="bg-emerald-50 border-emerald-200">
+            <Card className="bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800">
               <CardContent className="py-6">
-                <p className="text-slate-700 mb-4">Vous ne trouvez pas ce que vous cherchez ?</p>
+                <p className="text-foreground mb-4">Vous ne trouvez pas ce que vous cherchez ?</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
                     href="/"
@@ -156,7 +157,7 @@ export default function SitemapPage() {
                   </Link>
                   <a
                     href="mailto:geoffroy.streit@gmail.com"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-emerald-600 px-6 py-2 text-sm font-semibold text-emerald-700 transition-colors hover:bg-emerald-50"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-emerald-600 px-6 py-2 text-sm font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 dark:text-emerald-300 dark:hover:bg-emerald-900/40"
                   >
                     Nous contacter
                   </a>

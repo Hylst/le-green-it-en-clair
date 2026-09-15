@@ -3,6 +3,7 @@ import type { ReactNode } from "react"
 
 export const metadata: Metadata = {
   title: "Outils interactifs",
+  alternates: { canonical: "https://hylst.fr/greenit/outils" },
 }
 
 export default function OutilsLayout({ children }: { children: ReactNode }) {

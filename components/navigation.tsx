@@ -42,7 +42,7 @@ export function Navigation() {
     {
       label: "Découvrir",
       items: [
-        { href: "/par-ou-commencer", label: "🚀 Par où commencer" },
+        { href: "/par-ou-commencer", label: "Par où commencer" },
         { href: "/comprendre", label: "Comprendre le cycle de vie" },
         { href: "/problematiques", label: "Problématiques & Solutions" },
         { href: "/mythes", label: "Mythes vs Réalités" },
@@ -56,9 +56,9 @@ export function Navigation() {
       items: [
         { href: "/agir", label: "Comment agir" },
         { href: "/fiches-pratiques", label: "Fiches pratiques" },
-        { href: "/modeles", label: "📥 Modèles téléchargeables" },
+        { href: "/modeles", label: "Modèles téléchargeables" },
         { href: "/recyclage", label: "Recyclage & Réparation" },
-        { href: "/outils", label: "🎯 Outils interactifs" },
+        { href: "/outils", label: "Outils interactifs" },
       ],
     },
     {

@@ -1,9 +1,10 @@
 // Service Worker for Le Green IT en clair
 // Enables offline-first functionality
 
-const CACHE_NAME = 'green-it-v1.2.1';
+const CACHE_NAME = 'green-it-v1.3.0';
 const STATIC_ASSETS = [
     '/greenit/',
+    '/greenit/offline/',
     '/greenit/comprendre/',
     '/greenit/chiffres/',
     '/greenit/agir/',
@@ -64,7 +65,7 @@ self.addEventListener('fetch', (event) => {
                 }
                 return response;
             }).catch(() => {
-                return caches.match(event.request).then((cached) => cached || caches.match('/greenit/'));
+                return caches.match(event.request).then((cached) => cached || caches.match('/greenit/offline/') || caches.match('/greenit/'));
             })
         );
         return;
@@ -94,8 +95,8 @@ self.addEventListener('fetch', (event) => {
                 return response;
             }).catch(() => {
                 // Offline fallback for HTML pages
-                if (event.request.headers.get('accept').includes('text/html')) {
-                    return caches.match('/greenit/');
+                if (event.request.headers.get('accept')?.includes('text/html')) {
+                    return caches.match('/greenit/offline/') || caches.match('/greenit/');
                 }
             });
         })

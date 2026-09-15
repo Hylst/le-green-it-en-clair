@@ -97,7 +97,7 @@ const sheets: Record<string, any> = {
       {
         title: "Évaluer le besoin réel",
         content:
-          "80% des fonctionnalités d'un smartphone ne sont jamais utilisées. Définir son besoin évite le suréquipement.",
+          "De nombreuses fonctionnalités d'un smartphone restent inutilisées. Définir son besoin évite le suréquipement.",
         tips: [
           "Listez vos usages principaux (appels, navigation, photos...)",
           "Évitez les modèles flagship si vous n'utilisez pas les fonctions avancées",
@@ -309,7 +309,7 @@ const sheets: Record<string, any> = {
     subtitle: "Plan d'action complet pour une stratégie numérique responsable",
     target: "Entreprises",
     duration: "20 minutes de lecture",
-    impact: "Réduction de 40% à 60% de l'empreinte carbone IT",
+    impact: "Réduction de l'empreinte carbone IT, variable selon le parc et les leviers",
     image: "/greenit/images/fiches/green-it-entreprise.webp",
     date: "25 Mars 2026",
     sections: [

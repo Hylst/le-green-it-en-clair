@@ -2,11 +2,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Leaf, Target, Users, Heart, Award, Mail, AlertTriangle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { Metadata } from "next"
+import { pageOpenGraph } from "@/lib/metadata"
 import { SourceTooltip } from "@/components/source-tooltip"
 
 export const metadata: Metadata = {
   title: "À propos",
   alternates: { canonical: "https://hylst.fr/greenit/a-propos" },
+  description: "À propos du Green IT en clair : la démarche, les sources et la méthode derrière ce site éducatif sur le numérique responsable.",
+  openGraph: pageOpenGraph("À propos | Le Green IT en clair", "À propos du Green IT en clair : la démarche, les sources et la méthode derrière ce site éducatif sur le numérique responsable.", "/a-propos"),
 }
 
 export default function AProposPage() {

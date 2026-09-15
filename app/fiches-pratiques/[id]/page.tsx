@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import type { Metadata } from "next"
+import { pageOpenGraph } from "@/lib/metadata"
 import { SheetContent } from "@/components/sheet-content"
 
 const sheets: Record<string, any> = {
@@ -628,7 +629,19 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const sheet = sheets[id]
   return {
     title: sheet ? `${sheet.title} | Fiches pratiques` : "Fiches pratiques",
+    description: sheet ? sheet.subtitle : undefined,
     alternates: { canonical: `https://hylst.fr/greenit/fiches-pratiques/${id}` },
+    openGraph: sheet
+      ? pageOpenGraph(
+          `${sheet.title} | Le Green IT en clair`,
+          sheet.subtitle,
+          `/fiches-pratiques/${id}`
+        )
+      : pageOpenGraph(
+          "Fiches pratiques | Le Green IT en clair",
+          "Fiches pratiques Green IT : guides pas à pas pour agir au quotidien, en entreprise et en collectivité.",
+          "/fiches-pratiques"
+        ),
   }
 }
 

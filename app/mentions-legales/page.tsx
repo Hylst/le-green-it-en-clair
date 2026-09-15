@@ -2,10 +2,13 @@ import { FileText, Shield, Globe } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import Link from "next/link"
 import type { Metadata } from "next"
+import { pageOpenGraph } from "@/lib/metadata"
 
 export const metadata: Metadata = {
   title: "Mentions légales",
   alternates: { canonical: "https://hylst.fr/greenit/mentions-legales" },
+  description: "Mentions légales du site Le Green IT en clair.",
+  openGraph: pageOpenGraph("Mentions légales | Le Green IT en clair", "Mentions légales du site Le Green IT en clair.", "/mentions-legales"),
 }
 
 export default function MentionsLegalesPage() {

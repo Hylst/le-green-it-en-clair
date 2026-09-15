@@ -2,10 +2,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Home, BookOpen, AlertCircle, Zap, FolderOpen } from "lucide-react"
 import Link from "next/link"
 import type { Metadata } from "next"
+import { pageOpenGraph } from "@/lib/metadata"
 
 export const metadata: Metadata = {
   title: "Plan du site",
   alternates: { canonical: "https://hylst.fr/greenit/sitemap-page" },
+  openGraph: pageOpenGraph("Plan du site | Le Green IT en clair", "Plan du site : toutes les pages du Green IT en clair, classées par thème.", "/sitemap-page"),
 }
 
 export default function SitemapPage() {

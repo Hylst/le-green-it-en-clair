@@ -192,7 +192,7 @@ export default function PolitiqueNumeriquePage() {
                         <tbody className="text-muted-foreground">
                             <tr className="border-b border-border">
                                 <td className="p-3">Bureautique légère</td>
-                                <td className="p-3">4 Go RAM, processeur dual-core, écran 14"</td>
+                                <td className="p-3">8 Go RAM, processeur quad-core récent, SSD 256 Go, écran 14"</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">Bureautique standard</td>

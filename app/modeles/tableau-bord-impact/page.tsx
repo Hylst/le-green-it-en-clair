@@ -154,7 +154,7 @@ export default function TableauBordPage() {
                                 <tr className="text-left">
                                     <th className="pb-2 font-semibold text-foreground">Équipement</th>
                                     <th className="pb-2 font-semibold text-foreground">Fabrication</th>
-                                    <th className="pb-2 font-semibold text-foreground">Usage (4 ans)</th>
+                                    <th className="pb-2 font-semibold text-foreground">Usage (4 ans, hypothèse)</th>
                                     <th className="pb-2 font-semibold text-foreground">Total</th>
                                 </tr>
                             </thead>
@@ -166,7 +166,7 @@ export default function TableauBordPage() {
                                     <td className="py-2 font-semibold">200 kg</td>
                                 </tr>
                                 <tr className="border-b border-border">
-                                    <td className="py-2">PC fixe</td>
+                                    <td className="py-2">PC fixe (unité centrale)</td>
                                     <td className="py-2">169 kg</td>
                                     <td className="py-2">103 kg</td>
                                     <td className="py-2 font-semibold">272 kg</td>
@@ -191,7 +191,7 @@ export default function TableauBordPage() {
                                 </tr>
                             </tbody>
                         </table>
-                        <p className="text-xs text-muted-foreground mt-4">Source : ADEME, Base Empreinte 2024</p>
+                        <p className="text-xs text-muted-foreground mt-4">Source : ADEME, Base Empreinte 2024 • Le smartphone est compté sur son cycle de vie complet (~50 kg), dont ~39 kg de fabrication. Le bonus reconditionné s'appuie sur ADEME 2022 (−75 %).</p>
                     </Card>
 
                     <Card className="p-6 mb-6 bg-muted/5 border-border">

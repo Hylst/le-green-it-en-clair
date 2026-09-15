@@ -73,7 +73,7 @@ export default function PlanActionDSIPage() {
                 {/* Année 1 */}
                 <div className="mb-12">
                     <h2 className="text-2xl font-bold text-foreground mb-6 border-b-2 border-emerald-600 pb-2">
-                        Année 1 : Structuration (2026)
+                        Année 1 : Structuration
                     </h2>
 
                     <div className="space-y-6">
@@ -81,7 +81,7 @@ export default function PlanActionDSIPage() {
                             <div className="flex items-start justify-between mb-4">
                                 <div>
                                     <h3 className="text-xl font-semibold text-foreground mb-2">Q1 - Diagnostic et gouvernance</h3>
-                                    <p className="text-sm text-muted-foreground">Janvier - Mars 2026</p>
+                                    <p className="text-sm text-muted-foreground">T1 (mois 1 à 3)</p>
                                 </div>
                                 <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-semibold">
                                     Budget: 25k€
@@ -100,7 +100,7 @@ export default function PlanActionDSIPage() {
                             <div className="flex items-start justify-between mb-4">
                                 <div>
                                     <h3 className="text-xl font-semibold text-foreground mb-2">Q2 - Quick wins équipements</h3>
-                                    <p className="text-sm text-muted-foreground">Avril - Juin 2026</p>
+                                    <p className="text-sm text-muted-foreground">T2 (mois 4 à 6)</p>
                                 </div>
                                 <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-semibold">
                                     Budget: 50k€
@@ -118,7 +118,7 @@ export default function PlanActionDSIPage() {
                             <div className="flex items-start justify-between mb-4">
                                 <div>
                                     <h3 className="text-xl font-semibold text-foreground mb-2">Q3 - Sensibilisation</h3>
-                                    <p className="text-sm text-muted-foreground">Juillet - Septembre 2026</p>
+                                    <p className="text-sm text-muted-foreground">T3 (mois 7 à 9)</p>
                                 </div>
                                 <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-semibold">
                                     Budget: 15k€
@@ -136,7 +136,7 @@ export default function PlanActionDSIPage() {
                             <div className="flex items-start justify-between mb-4">
                                 <div>
                                     <h3 className="text-xl font-semibold text-foreground mb-2">Q4 - Bilan et ajustements</h3>
-                                    <p className="text-sm text-muted-foreground">Octobre - Décembre 2026</p>
+                                    <p className="text-sm text-muted-foreground">T4 (mois 10 à 12)</p>
                                 </div>
                                 <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-semibold">
                                     Budget: 10k€
@@ -165,7 +165,7 @@ export default function PlanActionDSIPage() {
                 {/* Année 2 */}
                 <div className="mb-12">
                     <h2 className="text-2xl font-bold text-foreground mb-6 border-b-2 border-emerald-600 pb-2">
-                        Année 2 : Déploiement (2027)
+                        Année 2 : Déploiement
                     </h2>
 
                     <div className="space-y-6">
@@ -220,7 +220,7 @@ export default function PlanActionDSIPage() {
                 {/* Année 3 */}
                 <div className="mb-12">
                     <h2 className="text-2xl font-bold text-foreground mb-6 border-b-2 border-emerald-600 pb-2">
-                        Année 3 : Excellence et pérennisation (2028)
+                        Année 3 : Excellence et pérennisation
                     </h2>
 
                     <div className="space-y-6">
@@ -277,7 +277,7 @@ export default function PlanActionDSIPage() {
                             <p className="font-semibold text-foreground mb-2">Objectifs Année 3 (cibles finales) :</p>
                             <ul className="space-y-1 text-sm text-muted-foreground">
                                 <li>✓ Budget total : 180 000 €</li>
-                                <li>✓ <strong className="text-emerald-600">-30% empreinte carbone vs baseline (OBJECTIF ATTEINT)</strong></li>
+                                <li>✓ <strong className="text-emerald-600">-30% empreinte carbone vs baseline (objectif cible)</strong></li>
                                 <li>✓ 50% équipements reconditionnés</li>
                                 <li>✓ Durée de vie moyenne : 6 ans</li>
                                 <li>✓ Label Numérique Responsable obtenu</li>
@@ -301,19 +301,19 @@ export default function PlanActionDSIPage() {
                         </thead>
                         <tbody className="text-muted-foreground">
                             <tr className="border-b border-border">
-                                <td className="p-3">2026</td>
+                                <td className="p-3">Année 1</td>
                                 <td className="p-3">100 000 €</td>
                                 <td className="p-3">15 000 €/an</td>
                                 <td className="p-3 text-emerald-600">15%</td>
                             </tr>
                             <tr className="border-b border-border">
-                                <td className="p-3">2027</td>
+                                <td className="p-3">Année 2</td>
                                 <td className="p-3">140 000 €</td>
                                 <td className="p-3">35 000 €/an</td>
                                 <td className="p-3 text-emerald-600">25%</td>
                             </tr>
                             <tr className="border-b border-border">
-                                <td className="p-3">2028</td>
+                                <td className="p-3">Année 3</td>
                                 <td className="p-3">180 000 €</td>
                                 <td className="p-3">60 000 €/an</td>
                                 <td className="p-3 text-emerald-600">33%</td>
@@ -341,8 +341,8 @@ export default function PlanActionDSIPage() {
                         <thead className="bg-secondary">
                             <tr className="text-left">
                                 <th className="p-3 font-semibold text-foreground">Indicateur</th>
-                                <th className="p-3 font-semibold text-foreground">Baseline 2025</th>
-                                <th className="p-3 font-semibold text-foreground">Objectif 2028</th>
+                                <th className="p-3 font-semibold text-foreground">Baseline initiale</th>
+                                <th className="p-3 font-semibold text-foreground">Objectif Année 3</th>
                                 <th className="p-3 font-semibold text-foreground">Fréquence</th>
                             </tr>
                         </thead>

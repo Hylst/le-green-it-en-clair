@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -24,7 +25,7 @@ const templates = [
       "Document complet définissant les engagements et bonnes pratiques numériques responsables de votre organisation",
     category: "Gouvernance",
     icon: Building2,
-    format: "DOCX / PDF",
+    format: "PDF (impression)",
     pages: "12 pages",
     difficulty: "Intermédiaire",
     target: "Entreprises, DSI",
@@ -42,7 +43,7 @@ const templates = [
       "Modèle de politique interne pour encadrer l'usage et l'achat d'équipements numériques dans votre structure",
     category: "Gouvernance",
     icon: FileText,
-    format: "DOCX / PDF",
+    format: "PDF (impression)",
     pages: "8 pages",
     difficulty: "Facile",
     target: "Tous types d'organisations",
@@ -57,10 +58,10 @@ const templates = [
     id: "tableau-bord-impact",
     title: "Tableau de bord de suivi d'impact",
     description:
-      "Outil Excel pour mesurer et suivre votre empreinte numérique : équipements, consommation, émissions CO2",
+      "Modèle de tableau de bord imprimable pour mesurer et suivre votre empreinte numérique : équipements, consommation, émissions CO2",
     category: "Mesure",
     icon: BarChart3,
-    format: "XLSX",
+    format: "PDF (impression)",
     pages: "5 onglets",
     difficulty: "Intermédiaire",
     target: "RSE, Contrôle de gestion",
@@ -74,14 +75,14 @@ const templates = [
   {
     id: "grille-audit",
     title: "Grille d'audit Green IT",
-    description: "Checklist complète pour évaluer la maturité Green IT de votre organisation sur 100 critères",
+    description: "Checklist pour évaluer la maturité Green IT de votre organisation sur 26 critères pour démarrer",
     category: "Audit",
     icon: CheckCircle2,
-    format: "XLSX / PDF",
+    format: "PDF (impression)",
     pages: "15 pages",
     difficulty: "Avancé",
     target: "Auditeurs, Consultants",
-    features: ["100 critères d'évaluation", "Scoring automatique", "Recommandations priorisées", "Rapport de synthèse"],
+    features: ["26 critères essentiels", "Notation manuelle 0-3", "Gouvernance, équipements, usages", "À compléter selon vos besoins"],
   },
   {
     id: "script-analyse-site",
@@ -107,11 +108,11 @@ const templates = [
     description: "Feuille de route stratégique sur 3 ans avec objectifs chiffrés et ressources nécessaires",
     category: "Stratégie",
     icon: FileSpreadsheet,
-    format: "XLSX / DOCX",
+    format: "PDF (impression)",
     pages: "20 pages",
     difficulty: "Avancé",
     target: "DSI, Direction",
-    features: ["Roadmap sur 36 mois", "Budget prévisionnel", "KPIs et objectifs", "Planning Gantt"],
+    features: ["Roadmap Année 1 à 3", "Budget prévisionnel", "KPIs et objectifs", "À adapter à votre calendrier"],
   },
   {
     id: "guide-sensibilisation",
@@ -119,7 +120,7 @@ const templates = [
     description: "Ensemble de supports pour former vos équipes : présentation, quiz, affiches, mémo",
     category: "Formation",
     icon: Users,
-    format: "PPTX / PDF",
+    format: "PDF (impression)",
     pages: "Pack complet",
     difficulty: "Facile",
     target: "RH, Communication",
@@ -132,7 +133,7 @@ const templates = [
       "Modèle de cahier des charges intégrant critères environnementaux et sociaux pour vos appels d'offres IT",
     category: "Achats",
     icon: FileText,
-    format: "DOCX / PDF",
+    format: "PDF (impression)",
     pages: "18 pages",
     difficulty: "Intermédiaire",
     target: "Achats, Marchés publics",
@@ -143,6 +144,11 @@ const templates = [
 const categories = ["Tous", "Gouvernance", "Mesure", "Audit", "Technique", "Stratégie", "Formation", "Achats"]
 
 export default function ModelesPage() {
+  const [selectedCategory, setSelectedCategory] = useState("Tous")
+  const filteredTemplates = templates.filter(
+    (template) => selectedCategory === "Tous" || template.category === selectedCategory
+  )
+
   return (
     <div className="min-h-screen">
       <section className="bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 px-6 py-16 lg:py-24 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
@@ -164,14 +170,20 @@ export default function ModelesPage() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 flex flex-wrap gap-2 justify-center">
             {categories.map((cat) => (
-              <Button key={cat} variant="outline" size="sm" className="rounded-full bg-transparent">
+              <Button
+                key={cat}
+                variant={selectedCategory === cat ? "default" : "outline"}
+                size="sm"
+                className={`rounded-full ${selectedCategory === cat ? "" : "bg-transparent"}`}
+                onClick={() => setSelectedCategory(cat)}
+              >
                 {cat}
               </Button>
             ))}
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {templates.map((template) => {
+            {filteredTemplates.map((template) => {
               const Icon = template.icon
               return (
                 <Card

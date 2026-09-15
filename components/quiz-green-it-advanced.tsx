@@ -604,20 +604,20 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["PNG", "JPEG", "WebP", "GIF"],
     correctAnswer: 2,
     explanation:
-      "Le format WebP offre une compression 25-35% supérieure aux formats JPEG et PNG tout en gardant la qualité.",
-    source: "Google Developers",
+      "WebP est souvent plus léger que JPEG ou PNG à qualité égale, sans être toujours le plus compact : AVIF peut faire mieux sur certains contenus.",
+    source: "Google Developers, documentation WebP",
     points: 10,
   },
   {
     id: 43,
     category: "Développement éco-responsable",
     difficulty: "difficile",
-    question: "Quel est le poids médian d'une page web en 2025 ?",
-    options: ["500 Ko", "1,2 Mo", "2,1 Mo", "5 Mo"],
+    question: "Quel est le poids médian d'une page web ?",
+    options: ["500 Ko", "1,2 Mo", "environ 2,3 Mo desktop / 1,9 Mo mobile", "5 Mo"],
     correctAnswer: 2,
     explanation:
-      "Le poids médian d'une page web atteint 2,1 Mo en 2025, en augmentation constante malgré les optimisations.",
-    source: "HTTP Archive 2025",
+      "En 2024, une page web médiane pèse environ 2,3 Mo sur desktop et 1,9 Mo sur mobile (HTTP Archive).",
+    source: "HTTP Archive 2024",
     points: 20,
   },
   {
@@ -628,8 +628,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["Minification", "Lazy loading", "Bundling", "Caching"],
     correctAnswer: 2,
     explanation:
-      "Le bundling regroupe plusieurs fichiers en un seul, réduisant le nombre de requêtes HTTP et améliorant les performances.",
-    source: "Web Performance",
+      "Le bundling regroupe plusieurs fichiers en un seul, réduisant le nombre de requêtes. Avec HTTP/2 et HTTP/3, il faut parfois au contraire découper pour mieux exploiter le cache.",
+    source: "MDN, performance web",
     points: 15,
   },
   {
@@ -652,8 +652,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["Python", "C", "JavaScript", "Rust"],
     correctAnswer: 0,
     explanation:
-      "Python est généralement plus énergivore que les langages compilés comme C ou Rust pour des tâches équivalentes.",
-    source: "Energy Efficiency Languages Study",
+      "Dans le benchmark de Pereira et al. (2017), Python est plus énergivore que C ou Rust pour des tâches équivalentes ; le résultat dépend de l'implémentation.",
+    source: "Pereira et al. 2017",
     points: 15,
   },
   {
@@ -664,8 +664,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["2x", "10x", "75x", "150x"],
     correctAnswer: 2,
     explanation:
-      "Python peut être jusqu'à 75 fois plus lent que le C pour certaines opérations, impactant l'efficacité énergétique.",
-    source: "The Computer Language Benchmarks Game",
+      "Dans ce benchmark, Python peut être jusqu'à environ 76 fois plus lent que le C pour certaines opérations (Pereira et al. 2017) ; ce n'est pas une loi générale.",
+    source: "Pereira et al. 2017",
     points: 20,
   },
   {
@@ -706,12 +706,12 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     id: 50,
     category: "Développement éco-responsable",
     difficulty: "difficile",
-    question: "Quel pourcentage du trafic web est généré par les bots en 2025 ?",
-    options: ["10%", "25%", "42%", "60%"],
+    question: "Quel pourcentage du trafic web est automatisé (bots) ?",
+    options: ["10%", "25%", "51%", "70%"],
     correctAnswer: 2,
     explanation:
-      "Environ 42% du trafic web est généré par des bots en 2025, représentant une consommation énergétique massive.",
-    source: "Imperva Bot Report 2025",
+      "En 2024, environ 51 % du trafic web était automatisé, dont environ 37 % de trafic malveillant (Imperva Bad Bot Report 2025).",
+    source: "Imperva Bad Bot Report 2025",
     points: 20,
   },
 

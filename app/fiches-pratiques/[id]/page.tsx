@@ -17,7 +17,7 @@ const sheets: Record<string, any> = {
       {
         title: "1. Garder ses appareils plus longtemps",
         content:
-          "La fabrication représente 75 % de l'impact (ADEME-Arcep 2023). Garder un smartphone 4 ans au lieu de 2 divise son impact annuel par 2.",
+          "La fabrication concentre environ 75 % des impacts tous indicateurs et ~99 % de l'empreinte carbone (ADEME-Arcep 2023 ; ADEME, Impact CO₂ 2025). Garder un smartphone 4 ans au lieu de 2 divise son impact annuel par 2.",
         tips: [
           "Objectif : minimum 5 ans pour un smartphone, 7 ans pour un ordinateur",
           "Changez la batterie plutôt que l'appareil (50-80€)",
@@ -45,7 +45,7 @@ const sheets: Record<string, any> = {
       {
         title: "4. Nettoyer régulièrement ses données",
         content:
-          "Bonne nouvelle : le stockage pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO2e (ADEME, Impact CO2 / Base Empreinte). Nettoyer ses données reste utile pour y voir plus clair, mais le geste qui compte vraiment, c'est de garder vos appareils le plus longtemps possible (environ 50 kg de CO2e pour le cycle de vie d'un smartphone).",
+          "Bonne nouvelle : le stockage pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO₂e (ADEME, Impact CO₂ / Base Empreinte). Nettoyer ses données reste utile pour y voir plus clair, mais le geste qui compte vraiment, c'est de garder vos appareils le plus longtemps possible (environ 80 kg de CO₂e pour le cycle de vie d'un smartphone, ADEME, Impact CO₂ 2025).",
         tips: [
           "Supprimez les emails avec pièces jointes volumineuses",
           "Videz le dossier Téléchargements et la corbeille",
@@ -143,7 +143,7 @@ const sheets: Record<string, any> = {
       },
       {
         title: "Comparer l'impact environnemental",
-        content: "Certains fabricants communiquent l'empreinte carbone. Un smartphone moyen émet 40 à 70 kg CO₂e sur son cycle de vie selon le modèle (Base Empreinte 2024).",
+        content: "Certains fabricants communiquent l'empreinte carbone. Un smartphone récent émet de l'ordre de 80 kg CO₂e sur son cycle de vie, dont ~99 % pour la fabrication (ADEME, Impact CO₂ 2025).",
         tips: [
           "Cherchez les labels environnementaux (TCO, EPEAT, Blue Angel)",
           "Privilégiez les marques transparentes sur leur chaîne d'approvisionnement",
@@ -158,7 +158,7 @@ const sheets: Record<string, any> = {
     ],
     sources: [
       "ADEME 2022 (reconditionné)",
-      "ADEME, Base Empreinte 2024",
+      "ADEME, Impact CO₂ (mise à jour 2025)",
       "Loi AGEC 2020",
       "Règlement UE 2023/1670",
       "Code de la consommation (garantie 2 ans)",
@@ -401,7 +401,7 @@ const sheets: Record<string, any> = {
     sources: [
       "ADEME 2022 (-75 % reconditionné)",
       "ADEME 2026 (durée de vie)",
-      "Base Empreinte 2024",
+      "ADEME, Impact CO₂ (mise à jour 2025)",
       "INR, GR491",
     ],
   },

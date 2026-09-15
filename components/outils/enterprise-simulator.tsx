@@ -92,14 +92,14 @@ export default function EnterpriseSimulator() {
         totalSavings += (baseTotalCost - optimizedTotalCost)
 
         // CO2 baseline
-        const baseCO2Devices = baseDevicesRenewed * 200 // kg, ADEME Base Empreinte 2023
-        const baseCO2Usage = totalDevices * 22 // kg/an
+        const baseCO2Devices = baseDevicesRenewed * 205 // kg, ADEME Impact CO₂ 2025 (fixe pro)
+        const baseCO2Usage = totalDevices * 9 // kg/an
         const baseCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300)
         const baseTotalCO2 = baseCO2Devices + baseCO2Usage + baseCO2Cloud
 
         // CO2 optimized
-        const optimizedCO2Devices = newDevices * 200 + refurbishedDevices * 50 // kg, reconditionné −75 % (ADEME 2022)
-        const optimizedCO2Usage = totalDevices * 22 * (1 - scenario.energyOptimization * 0.5)
+        const optimizedCO2Devices = newDevices * 205 + refurbishedDevices * 51 // kg, reconditionné −75 % (ADEME 2022)
+        const optimizedCO2Usage = totalDevices * 9 * (1 - scenario.energyOptimization * 0.5)
         const optimizedCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300) * (1 - scenario.cloudOptimization)
         const optimizedTotalCO2 = optimizedCO2Devices + optimizedCO2Usage + optimizedCO2Cloud
 
@@ -139,13 +139,13 @@ export default function EnterpriseSimulator() {
           const optimizedTotalCost = optimizedEquipmentCost + optimizedEnergyCost + optimizedCloudCost + optimizedMaintenanceCost
 
           // CO2 logic for projections
-          const baseCO2Devices = year > 0 ? baseDevicesRenewed * 200 : 0
-          const baseCO2Usage = totalDevices * 22
+          const baseCO2Devices = year > 0 ? baseDevicesRenewed * 205 : 0
+          const baseCO2Usage = totalDevices * 9
           const baseCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300)
           const currentBaseTotalCO2 = year === 0 ? 0 : baseCO2Devices + baseCO2Usage + baseCO2Cloud
 
-          const optimizedCO2Devices = year > 0 ? (newDevices * 200 + refurbishedDevices * 50) : 0
-          const optimizedCO2Usage = totalDevices * 22 * (1 - scenario.energyOptimization * 0.5)
+          const optimizedCO2Devices = year > 0 ? (newDevices * 205 + refurbishedDevices * 51) : 0
+          const optimizedCO2Usage = totalDevices * 9 * (1 - scenario.energyOptimization * 0.5)
           const optimizedCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300) * (1 - scenario.cloudOptimization)
           const currentOptimizedTotalCO2 = year === 0 ? 0 : optimizedCO2Devices + optimizedCO2Usage + optimizedCO2Cloud
 
@@ -412,7 +412,7 @@ export default function EnterpriseSimulator() {
                 <p className="mt-4 text-xs text-gray-600 dark:text-gray-400">
                   Hypothèses : 800 € par poste renouvelé, 60 €/an d'énergie par poste, cloud 200/500/1 000 €/an selon
                   l'usage, maintenance 50 €/an/poste (+20 % de préventif dans les scénarios optimisés), mise en œuvre
-                  100 €/employé. CO₂e : 200 kg par poste neuf, 50 kg reconditionné (ADEME 2022), usage 22 kg/an.
+                  100 €/employé. CO₂e : 205 kg par poste neuf, 51 kg reconditionné (ADEME 2022), usage 9 kg/an (ADEME, Impact CO₂ 2025).
                 </p>
               </div>
 

@@ -28,7 +28,7 @@ const caseStudies = [
     color: "emerald",
     description: "L'appareil le plus personnel et le plus renouvelé",
     stats: {
-      co2: "50 kg",
+      co2: "80 kg",
       water: "12 000 L",
       lifespan: "2-3 ans",
       metals: "50+",
@@ -41,7 +41,7 @@ const caseStudies = [
     color: "blue",
     description: "Un outil de travail essentiel mais énergivore à produire",
     stats: {
-      co2: "156 kg",
+      co2: "193 kg",
       water: "1 500 à 20 000 L",
       lifespan: "4-5 ans",
       metals: "60+",
@@ -151,8 +151,8 @@ export default function CasPratiquesPage() {
                 {/* Stats Grid */}
                 <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   <div className="rounded-xl bg-emerald-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-emerald-700">50 kg</div>
-                    <div className="text-sm text-slate-700">CO₂ émis sur le cycle de vie (dont ~39 kg pour la fabrication)</div>
+                    <div className="mb-1 text-2xl font-bold text-emerald-700">80 kg</div>
+                    <div className="text-sm text-slate-700">CO₂ émis sur le cycle de vie (dont ~79 kg pour la fabrication, ADEME 2025)</div>
                   </div>
                   <div className="rounded-xl bg-emerald-50 p-4">
                     <div className="mb-1 text-2xl font-bold text-emerald-700">12 000 L</div>
@@ -176,7 +176,7 @@ export default function CasPratiquesPage() {
                       <li className="flex gap-2">
                         <span className="text-emerald-600">•</span>
                         <span>
-                          <strong>75 % de l'impact environnemental</strong> d'un smartphone provient de sa fabrication,
+                          <strong>≈ 75 % des impacts (et ~99 % du carbone)</strong> d'un smartphone proviennent de sa fabrication,
                           pas de son utilisation
                         </span>
                       </li>
@@ -207,25 +207,25 @@ export default function CasPratiquesPage() {
 
               <ScaleComparison
                 type="co2"
-                value={50}
+                value={80}
                 unit="kg CO₂"
                 comparisons={[
                   {
                     icon: Plane,
                     label: "Vol en avion",
                     equivalent: "Paris-Marseille",
-                    description: "Environ 60 % d'un aller simple pour 1 passager (DGAC)",
+                    description: "Plus d'un aller simple pour 1 passager (DGAC)",
                   },
                   {
                     icon: Car,
                     label: "Trajet en voiture",
-                    equivalent: "300 km",
+                    equivalent: "470 km",
                     description: "En voiture thermique essence",
                   },
                   {
                     icon: TreePine,
                     label: "Compensation",
-                    equivalent: "2,5 arbres",
+                    equivalent: "4 arbres",
                     description: "Nécessaires pour absorber le CO₂ en 1 an",
                   },
                 ]}
@@ -252,14 +252,14 @@ export default function CasPratiquesPage() {
                   },
                   {
                     label: "Acheter reconditionné",
-                    value: 8,
+                    value: 20,
                     color: "#3b82f6",
                     icon: Recycle,
                     description: "≈ −75 à −90 % d'impact par rapport au neuf (ADEME, 2022)",
                   },
                   {
                     label: "Acheter neuf",
-                    value: 50,
+                    value: 80,
                     color: "#ef4444",
                     icon: ShoppingCart,
                     description: "Impact maximum : fabrication complète",
@@ -282,7 +282,7 @@ export default function CasPratiquesPage() {
                       <li className="flex items-start gap-2">
                         <TrendingDown className="mt-1 h-5 w-5 shrink-0 text-emerald-600" />
                         <span>
-                          <strong>Impact réduit :</strong> Évite jusqu'à ~50 kg de CO₂ si cela évite un achat neuf (cycle de vie d'un smartphone, ADEME)
+                          <strong>Impact réduit :</strong> Évite jusqu'à ~80 kg de CO₂ si cela évite un achat neuf (cycle de vie d'un smartphone, ADEME 2025)
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
@@ -316,7 +316,7 @@ export default function CasPratiquesPage() {
                       <li className="flex items-start gap-2">
                         <span className="mt-1 text-slate-400">•</span>
                         <span>
-                          <strong>Impact élevé :</strong> 50 kg de CO₂ supplémentaires
+                          <strong>Impact élevé :</strong> 80 kg de CO₂ supplémentaires
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
@@ -432,7 +432,7 @@ export default function CasPratiquesPage() {
                 {/* Stats Grid */}
                 <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   <div className="rounded-xl bg-blue-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-blue-700">156 kg</div>
+                    <div className="mb-1 text-2xl font-bold text-blue-700">193 kg</div>
                     <div className="text-sm text-slate-700">CO₂ émis sur le cycle de vie</div>
                   </div>
                   <div className="rounded-xl bg-blue-50 p-4">
@@ -457,7 +457,7 @@ export default function CasPratiquesPage() {
                       <li className="flex gap-2">
                         <span className="text-blue-600">•</span>
                         <span>
-                          Fabriquer un ordinateur portable émet autant de CO₂ qu'un{" "}
+                          Fabriquer un ordinateur portable émet plus de CO₂ qu'un{" "}
                           <strong>vol Paris-Marseille aller-retour</strong> (DGAC)
                         </span>
                       </li>
@@ -699,7 +699,9 @@ export default function CasPratiquesPage() {
         <div className="mx-auto max-w-7xl">
           <h3 className="mb-4 text-sm font-semibold text-slate-900">Sources</h3>
           <div className="flex flex-wrap gap-4 text-sm text-slate-600">
-            <span>ADEME - Base Empreinte (2023 : 156 kg CO₂ pour un portable, 50 kg cycle de vie smartphone, 12 000 L d'eau, 70 kg de matières)</span>
+            <span>ADEME, Impact CO₂ (mise à jour 2025 : 193 kg pour un portable, 80 kg pour un smartphone)</span>
+            <span>•</span>
+            <span>SDES (ministère), infographie smartphone (2025 : 70 kg de matières extraites)</span>
             <span>•</span>
             <span>ADEME - Produits reconditionnés (2022)</span>
             <span>•</span>

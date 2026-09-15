@@ -90,7 +90,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 3,
     explanation:
       "Il faut environ 70 kg de matières premières pour fabriquer un smartphone de 150g, soit 467 fois son poids.",
-    source: "ADEME 2019, La face cachée du numérique",
+    source: "SDES (ministère), infographie smartphone (2025)",
     points: 15,
   },
   {
@@ -223,11 +223,11 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Matériel et fabrication",
     difficulty: "difficile",
     question: "Quelle est l'empreinte carbone de la fabrication d'un ordinateur portable ?",
-    options: ["50 kg CO₂e", "100 kg CO₂e", "150 à 185 kg CO₂e", "300 kg CO₂e"],
+    options: ["50 kg CO₂e", "100 kg CO₂e", "180 à 200 kg CO₂e", "400 kg CO₂e"],
     correctAnswer: 2,
     explanation:
-      "La fabrication d'un ordinateur portable se situe autour de 150 à 185 kg CO₂e selon les modèles (Base Empreinte ADEME).",
-    source: "Base Empreinte ADEME",
+      "La fabrication d'un ordinateur portable se situe autour de 182 kg CO₂e en moyenne (ADEME, Impact CO₂, mise à jour 2025).",
+    source: "ADEME, Impact CO₂ (mise à jour 2025)",
     points: 20,
   },
   {
@@ -238,7 +238,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["20-30 %", "40-50 %", "60-70 %", "75-90 %"],
     correctAnswer: 3,
     explanation:
-      "Pour un smartphone, la fabrication représente environ 75 % de l'impact tous indicateurs, et jusqu'à environ 90 % de son empreinte carbone (ADEME).",
+      "Pour un smartphone, la fabrication représente environ 75 % des impacts tous indicateurs, et environ 99 % de son empreinte carbone (ADEME-Arcep 2023 ; ADEME, Impact CO₂ 2025).",
     source: "ADEME 2019, La face cachée du numérique",
     points: 15,
   },
@@ -1034,8 +1034,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["Extraction des matières", "Fabrication", "Transport", "Utilisation"],
     correctAnswer: 1,
     explanation:
-      "La fabrication représente environ 75 % de l'impact tous indicateurs, et jusqu'à environ 90 % de son empreinte carbone (ADEME).",
-    source: "ADEME 2019, La face cachée du numérique",
+      "La fabrication représente environ 75 % des impacts tous indicateurs, et environ 99 % de l'empreinte carbone d'un smartphone (ADEME-Arcep 2023 ; ADEME, Impact CO₂ 2025).",
+    source: "ADEME-Arcep 2023 ; ADEME, Impact CO₂ 2025",
     points: 10,
   },
   {

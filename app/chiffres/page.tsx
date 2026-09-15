@@ -57,13 +57,13 @@ const co2BreakdownData = [
   { phase: "Usage", percentage: 20, value: 20, fill: "#10b981" },
 ]
 
-// Data for Device Comparison
+// Data for Device Comparison (CO₂ : ADEME, Impact CO₂, mise à jour 2025 ; énergie/eau : ordres de grandeur 2023)
 const deviceComparisonData = [
-  { device: "Smartphone", co2: 50, energy: 250, water: 12000 },
-  { device: "Tablette", co2: 63, energy: 350, water: 15000 },
-  { device: "Ordinateur portable", co2: 156, energy: 800, water: 20000 },
-  { device: "Ordinateur fixe (unité centrale)", co2: 169, energy: 1200, water: 30000 },
-  { device: 'Écran 24"', co2: 248, energy: 600, water: 18000 },
+  { device: "Smartphone", co2: 80, energy: 250, water: 12000 },
+  { device: "Tablette", co2: 87, energy: 350, water: 15000 },
+  { device: "Ordinateur portable", co2: 193, energy: 800, water: 20000 },
+  { device: "Ordinateur fixe (sans écran)", co2: 259, energy: 1200, water: 30000 },
+  { device: 'Écran 24"', co2: 93, energy: 600, water: 18000 },
 ]
 
 // Data for Recycling Rates by Country
@@ -260,15 +260,15 @@ export default function ChiffresPage() {
 
               <div className="mt-6 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border-2 border-emerald-200 dark:border-emerald-800 p-4">
                 <p className="text-sm text-slate-700 dark:text-slate-300">
-                  <strong>Point clé :</strong> La fabrication seule représente 60 % de l'empreinte ; avec l'extraction (15 %), c'est 75 %. Garder son
-                  smartphone 1 an de plus réduit son impact annuel d'environ un tiers (50 kg sur 2 ans ≈ 25 kg/an,
-                  50 kg sur 3 ans ≈ 17 kg/an).
+                  <strong>Point clé :</strong> La fabrication seule représente 60 % des impacts tous indicateurs ; avec l'extraction (15 %), c'est 75 %. En carbone, la fabrication monte à ~99 % pour un smartphone (ADEME 2025). Garder son
+                  smartphone 1 an de plus réduit son impact annuel d'environ un tiers (80 kg sur 2 ans ≈ 40 kg/an,
+                  80 kg sur 3 ans ≈ 27 kg/an).
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="mt-4 text-sm text-slate-500 dark:text-slate-400">Source : ADEME - Impact environnemental du numérique (2023)</div>
+          <div className="mt-4 text-sm text-slate-500 dark:text-slate-400">Source : ADEME-Arcep - Impact environnemental du numérique (2023), tous indicateurs.</div>
         </div>
       </section>
 
@@ -278,7 +278,7 @@ export default function ChiffresPage() {
           <div className="mb-8 flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center">
             <div>
               <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-slate-100">Comparaison par appareil</h2>
-              <p className="text-slate-600 dark:text-slate-400">Impact environnemental de la fabrication selon le type d'équipement</p>
+              <p className="text-slate-600 dark:text-slate-400">Impact selon le type d'équipement (cycle de vie pour le CO₂)</p>
             </div>
             <div className="flex flex-wrap gap-2">
               <Button
@@ -332,7 +332,7 @@ export default function ChiffresPage() {
             </ResponsiveContainer>
           </Card>
 
-          <div className="mt-4 text-sm text-slate-500 dark:text-slate-400">Source : ADEME - Base Impacts (2023). Eau : ordre de grandeur, de 1 500 L (eau bleue) à plus de 20 000 L (empreinte complète) pour un ordinateur portable selon la méthode.</div>
+          <div className="mt-4 text-sm text-slate-500 dark:text-slate-400">CO₂ : ADEME, Impact CO₂ (mise à jour 2025). Énergie et eau : ordres de grandeur (ADEME 2023) — eau de 1 500 L (eau bleue) à plus de 20 000 L (empreinte complète) pour un ordinateur portable selon la méthode.</div>
         </div>
       </section>
 
@@ -466,7 +466,7 @@ export default function ChiffresPage() {
                 60 %
                 <SourceTooltip className="ml-1 align-middle text-emerald-50" source="ADEME-Arcep, 2023" calculation="fabrication 60 % + extraction 15 % ≈ 75 % des impacts, dont 60 % pour la seule fabrication" />
               </div>
-              <p className="text-emerald-50">de l'impact vient de la fabrication</p>
+              <p className="text-emerald-50">des impacts (tous indicateurs) viennent de la fabrication</p>
             </div>
             <div className="text-center">
               <MapPin className="mx-auto mb-4 h-12 w-12 text-emerald-100" />

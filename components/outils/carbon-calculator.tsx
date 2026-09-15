@@ -24,17 +24,17 @@ export default function CarbonCalculator() {
     social: 2,
   })
 
-  // Calcul de l'empreinte carbone (facteurs ADEME-Arcep 2023 / Base Empreinte)
+  // Calcul de l'empreinte carbone (facteurs ADEME, Impact CO₂, mise à jour 2025)
   const calculateFootprint = () => {
     let total = 0
 
-    // Empreinte fabrication + usage annuel (kg CO2e)
+    // Empreinte fabrication + usage annuel (kg CO2e) — ADEME, Impact CO₂, mise à jour 2025
     const deviceImpact = {
-      smartphone: { fabrication: 50, usage: 8 },
-      laptop: { fabrication: 156, usage: 22 },
-      tablet: { fabrication: 63, usage: 12 },
-      desktop: { fabrication: 169, usage: 88 },
-      tv: { fabrication: 371, usage: 118 },
+      smartphone: { fabrication: 79, usage: 0.4 },
+      laptop: { fabrication: 182, usage: 2.1 },
+      tablet: { fabrication: 84, usage: 1.1 },
+      desktop: { fabrication: 262, usage: 6.4 },
+      tv: { fabrication: 328, usage: 5.2 },
     }
 
     Object.entries(devices).forEach(([device, data]) => {
@@ -342,7 +342,7 @@ export default function CarbonCalculator() {
       </Card>
 
       <div className="text-sm text-gray-600 dark:text-gray-300 text-center">
-        Sources : Base Empreinte / ADEME-Arcep (2024-2025), GreenIT.fr, Shift Project • Méthodologie : ACV (Analyse du cycle de vie) • Usage modulé selon les heures d'utilisation par jour • Stockage
+        Sources : ADEME, Impact CO₂ (mise à jour 2025 : Base Empreinte, étude ADEME-Arcep), GreenIT.fr, Shift Project • Méthodologie : ACV (Analyse du cycle de vie) • Usage modulé selon les heures d'utilisation par jour • Stockage
         cloud : 0,24 g CO₂e/Go/an (ADEME, Impact CO₂ / Base Empreinte)
       </div>
     </div>

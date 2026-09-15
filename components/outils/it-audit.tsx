@@ -22,11 +22,11 @@ export default function ITAudit() {
   const [showResults, setShowResults] = useState(false)
 
   const deviceData = {
-    desktops: { name: "Ordinateurs fixes", fabricationCO2: 169, usageCO2: 88, optimalLife: 6, icon: "🖥️" },
-    laptops: { name: "Ordinateurs portables", fabricationCO2: 156, usageCO2: 22, optimalLife: 5, icon: "💻" },
-    monitors: { name: "Écrans", fabricationCO2: 248, usageCO2: 40, optimalLife: 8, icon: "🖥️" },
-    smartphones: { name: "Smartphones", fabricationCO2: 50, usageCO2: 8, optimalLife: 5, icon: "📱" },
-    tablets: { name: "Tablettes", fabricationCO2: 63, usageCO2: 12, optimalLife: 5, icon: "📋" },
+    desktops: { name: "Ordinateurs fixes", fabricationCO2: 205, usageCO2: 9.1, optimalLife: 6, icon: "🖥️" },
+    laptops: { name: "Ordinateurs portables", fabricationCO2: 182, usageCO2: 2.1, optimalLife: 5, icon: "💻" },
+    monitors: { name: "Écrans", fabricationCO2: 66, usageCO2: 4.5, optimalLife: 6, icon: "🖥️" },
+    smartphones: { name: "Smartphones", fabricationCO2: 79, usageCO2: 0.4, optimalLife: 5, icon: "📱" },
+    tablets: { name: "Tablettes", fabricationCO2: 84, usageCO2: 1.1, optimalLife: 5, icon: "📋" },
     printers: { name: "Imprimantes", fabricationCO2: 130, usageCO2: 35, optimalLife: 7, icon: "🖨️" },
     servers: { name: "Serveurs", fabricationCO2: 1200, usageCO2: 500, optimalLife: 5, icon: "🖧" },
   }

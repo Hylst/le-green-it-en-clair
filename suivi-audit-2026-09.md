@@ -157,3 +157,19 @@
 - 2026-09-15 : vérification finale des finitions techniques. `tsc` 0 erreur, build OK, h1 0 hors norme, JSON-LD 0 bloc invalide, OG 1 divergence documentée, axe 0 critique/sérieuse sur 10 pages + 7 onglets outils, Firefox/WebKit 0 erreur. Lighthouse final (desktop) : accueil 96/100/96/100 (perf/a11y/BP/SEO), outils 96/100/96/100, comprendre 96/100/96/100, chiffres 94/96/96/100. Reste connu : `target-size` marqueurs Leaflet (`/chiffres`, espacement, correctif = clustering), `errors-in-console` (`_rsc`, export statique), déploiement en ligne en retard (SW `v1.1.0`), `robots.txt` racine, checklist NVDA à faire par l'utilisateur.
 
 - 2026-09-15 : quiz v2 (reprise et révision des erreurs). `lib/quiz-storage.ts` : schéma versionné (`schemaVersion` 1, `contentVersion` incrémentée avec les questions), validation défensive (JSON corrompu, version, bornes, types) et `try/catch` (localStorage indisponible → quiz fonctionnel sans reprise) ; 12 cas testés au node. Composant : restauration au montage (jamais au rendu), sauvegarde par effet (démarrage, réponse, passage, nom, fin, expiration), mode Défi au chrono réel (`endsAt`) avec questions non répondues consolidées en « Non répondu », dernière session terminée en bandeau « Derniers résultats » (Revoir/Refaire), `components/quiz-error-review.tsx` (accordéons `aria-expanded` : votre réponse, bonne réponse, explication, source), « Rejouer mes erreurs » en mode `review` sans attestation. Mentions légales complétées (clé `greenit-quiz-session-v1`, aucun envoi). Vérifié : 12 tests node, playwright (reprise onglet/reload, bandeau, rejeu, Défi expiré), `tsc` 0, build, axe 0 (sélection, résultats, erreurs dépliées), Firefox/WebKit 0. Bonus : boutons d'impression du quiz en `text-white` (contraste trouvé par axe). Aparté : `QUIZ_CONTENT_VERSION` à incrémenter si les 100 questions changent.
+
+## Migration facteurs ADEME 2025 (validée par l'utilisateur, 15/09 soir)
+
+Source officielle : outil **Impact CO₂** de l'ADEME (impactco2.fr), « Étude ADEME / ARCEP - mise à jour 2025 • Base Empreinte ADEME ». Valeurs relevées le 15/09/2026 :
+
+| Appareil | Total kg CO₂e | Fabrication kg (%) | Usage + fin de vie kg (%) | Années réf. |
+|---|---|---|---|---|
+| Smartphone | 80,2 | 79,3 (99 %) | 0,89 (1 %) | 2,5 |
+| Tablette | 87,1 | 83,9 (96 %) | 3,21 (4 %) | 3 |
+| Ordinateur portable | 193 | 182 (95 %) | 10,3 (5 %) | 5 |
+| Ordinateur fixe sans écran (pro) | 259 | 205 (79 %) | 54,3 (21 %) | 6 |
+| Ordinateur fixe sans écran (particulier) | 300 | 262 (87 %) | 38,4 (13 %) | 6 |
+| Écran d'ordinateur 24" | 92,6 | 65,9 (71 %) | 26,7 (29 %) | 6 |
+| Télévision | 370 | 328 (89 %) | 41,5 (11 %) | 8 |
+
+Règles de migration : totals et fabrications remplacés par ces valeurs ; parts « fabrication » exprimées en carbone (99 %, 96 %…) ; le « 75 % tous indicateurs / 20 % » de l'ADEME-Arcep 2023 reste uniquement quand c'est étiqueté « tous indicateurs » ; « 8 kg reconditionné » retiré (seul le % ADEME 2022 reste) ; outils : fabrication = kg ci-dessus, usage annuel = (usage + fin de vie) ÷ années de réf. ; imprimantes/serveurs (hors périmètre Impact CO₂) conservés en « ordre de grandeur ».

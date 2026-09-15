@@ -9,7 +9,7 @@ export const faqCategories = [
       },
       {
         q: "Pourquoi le numérique pollue-t-il ?",
-        a: "L'impact environnemental du numérique provient de trois sources principales : 1) La fabrication des équipements (extraction de matières premières, production, transport) qui représente 75 % de l'impact, 2) L'utilisation (consommation d'électricité), 3) La fin de vie (déchets électroniques difficiles à recycler). Un smartphone nécessite par exemple 70 kg de matières premières et émet 50 kg de CO₂ sur son cycle de vie.",
+        a: "L'impact environnemental du numérique provient de trois sources principales : 1) La fabrication des équipements (extraction de matières premières, production, transport) qui représente environ 75 % des impacts tous indicateurs (et ~99 % de l'empreinte carbone d'un smartphone), 2) L'utilisation (consommation d'électricité), 3) La fin de vie (déchets électroniques difficiles à recycler). Un smartphone nécessite par exemple 70 kg de matières premières et émet environ 80 kg de CO₂ sur son cycle de vie (ADEME-Arcep 2023 ; ADEME, Impact CO₂ 2025).",
       },
       {
         q: "Quel est l'impact du numérique en France ?",
@@ -39,7 +39,7 @@ export const faqCategories = [
       },
       {
         q: "Combien de temps garder ses appareils ?",
-        a: "Objectif minimum : 5 ans pour un smartphone, 7 ans pour un ordinateur, 10 ans pour une TV. Actuellement, les Français changent de smartphone en moyenne tous les 3 ans (ADEME, 2026). Passer de 2 à 3 ans réduit l'impact annuel d'environ un tiers (ADEME 2026). La fabrication représentant 75 % de l'impact, allonger la durée d'usage est le geste le plus efficace.",
+        a: "Objectif minimum : 5 ans pour un smartphone, 7 ans pour un ordinateur, 10 ans pour une TV. Actuellement, les Français changent de smartphone en moyenne tous les 3 ans (ADEME, 2026). Passer de 2 à 3 ans réduit l'impact annuel d'environ un tiers (ADEME 2026). La fabrication représentant environ 75 % des impacts tous indicateurs, allonger la durée d'usage est le geste le plus efficace.",
       },
     ],
   },
@@ -61,7 +61,7 @@ export const faqCategories = [
       },
       {
         q: "Faut-il supprimer ses données dans le cloud ?",
-        a: "Bonne nouvelle : le stockage pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO₂e (ADEME, Impact CO₂ / Base Empreinte). Trier vos photos en double reste une bonne habitude pour y voir plus clair, mais sans pression : le geste qui compte vraiment, c'est de garder votre smartphone le plus longtemps possible (environ 50 kg de CO₂e sur son cycle de vie, Base Carbone ADEME). Un petit tri de temps en temps, vider les téléchargements et désactiver les sauvegardes automatiques superflues suffit amplement.",
+        a: "Bonne nouvelle : le stockage pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO₂e (ADEME, Impact CO₂ / Base Empreinte). Trier vos photos en double reste une bonne habitude pour y voir plus clair, mais sans pression : le geste qui compte vraiment, c'est de garder votre smartphone le plus longtemps possible (environ 80 kg de CO₂e sur son cycle de vie, ADEME, Impact CO₂ 2025). Un petit tri de temps en temps, vider les téléchargements et désactiver les sauvegardes automatiques superflues suffit amplement.",
       },
     ],
   },
@@ -75,7 +75,7 @@ export const faqCategories = [
       },
       {
         q: "Vaut-il mieux réparer ou racheter ?",
-        a: "Réparer est presque toujours préférable écologiquement. Exemple smartphone : remplacement batterie (60-80 €) vs achat neuf (50 kg CO₂). Même un appareil réparé à 50 % de son prix initial reste plus écologique que le neuf. Seule exception : si réparation très coûteuse (>70 % du prix neuf) et appareil très ancien (>8 ans) avec mauvaise efficacité énergétique.",
+        a: "Réparer est presque toujours préférable écologiquement. Exemple smartphone : remplacement batterie (60-80 €) vs achat neuf (environ 80 kg CO₂ pour le cycle de vie, ADEME 2025). Même un appareil réparé à 50 % de son prix initial reste plus écologique que le neuf. Seule exception : si réparation très coûteuse (>70 % du prix neuf) et appareil très ancien (>8 ans) avec mauvaise efficacité énergétique.",
       },
       {
         q: "Comment recycler mes vieux appareils ?",

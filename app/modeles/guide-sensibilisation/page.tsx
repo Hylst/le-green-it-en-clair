@@ -79,7 +79,7 @@ export default function KitSensibilisationPage() {
                                 <span className="font-bold text-emerald-600 min-w-[30px]">3.</span>
                                 <div>
                                     <h4 className="font-semibold text-foreground">Phase de fabrication (7 min)</h4>
-                                    <p className="text-sm text-muted-foreground">75 % de l'impact, terres rares, eau, énergie</p>
+                                    <p className="text-sm text-muted-foreground">75 % des impacts (tous indicateurs), terres rares, eau, énergie</p>
                                 </div>
                             </li>
                             <li className="flex gap-3">
@@ -164,7 +164,7 @@ export default function KitSensibilisationPage() {
 
                         <Card className="p-6">
                             <h4 className="font-semibold text-foreground mb-3">Question 2 : Phase la plus polluante</h4>
-                            <p className="text-muted-foreground mb-3">Quelle phase représente environ 75 % de l'impact d'un smartphone ?</p>
+                            <p className="text-muted-foreground mb-3">Quelle phase représente environ 75 % des impacts (tous indicateurs) d'un smartphone ?</p>
                             <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li>A. Utilisation</li>
                                 <li>B. Fabrication ✓ (Bonne réponse)</li>
@@ -222,7 +222,7 @@ export default function KitSensibilisationPage() {
                                 <div className="text-4xl mb-3">📱</div>
                                 <h3 className="text-xl font-bold text-foreground mb-4">Affiche #2 : Smartphone</h3>
                                 <div className="text-6xl font-bold text-blue-600 mb-2">75 %</div>
-                                <p className="text-sm text-muted-foreground mb-4">de l'impact = fabrication</p>
+                                <p className="text-sm text-muted-foreground mb-4">des impacts (tous indicateurs) = fabrication (≈99 % du carbone)</p>
                                 <div className="text-left text-sm text-muted-foreground space-y-2">
                                     <p>🔹 Gardez-le 5 ans minimum</p>
                                     <p>🔹 Réparez plutôt que remplacer</p>

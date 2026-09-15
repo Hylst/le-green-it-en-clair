@@ -171,37 +171,37 @@ export default function TableauBordPage() {
                             <tbody className="text-muted-foreground">
                                 <tr className="border-b border-border">
                                     <td className="py-2">Laptop</td>
-                                    <td className="py-2">156 kg</td>
-                                    <td className="py-2">44 kg</td>
-                                    <td className="py-2 font-semibold">200 kg</td>
+                                    <td className="py-2">182 kg</td>
+                                    <td className="py-2">8 kg</td>
+                                    <td className="py-2 font-semibold">190 kg</td>
                                 </tr>
                                 <tr className="border-b border-border">
                                     <td className="py-2">PC fixe (unité centrale)</td>
-                                    <td className="py-2">169 kg</td>
-                                    <td className="py-2">103 kg</td>
-                                    <td className="py-2 font-semibold">272 kg</td>
+                                    <td className="py-2">205 kg</td>
+                                    <td className="py-2">36 kg</td>
+                                    <td className="py-2 font-semibold">241 kg</td>
                                 </tr>
                                 <tr className="border-b border-border">
                                     <td className="py-2">Écran 24"</td>
-                                    <td className="py-2">248 kg</td>
-                                    <td className="py-2">55 kg</td>
-                                    <td className="py-2 font-semibold">303 kg</td>
+                                    <td className="py-2">66 kg</td>
+                                    <td className="py-2">18 kg</td>
+                                    <td className="py-2 font-semibold">84 kg</td>
                                 </tr>
                                 <tr className="border-b border-border">
                                     <td className="py-2">Smartphone</td>
-                                    <td className="py-2">39 kg</td>
-                                    <td className="py-2">11 kg</td>
-                                    <td className="py-2 font-semibold">50 kg</td>
+                                    <td className="py-2">79 kg</td>
+                                    <td className="py-2">2 kg</td>
+                                    <td className="py-2 font-semibold">81 kg</td>
                                 </tr>
                                 <tr>
                                     <td className="py-2">Tablette</td>
-                                    <td className="py-2">63 kg</td>
-                                    <td className="py-2">16 kg</td>
-                                    <td className="py-2 font-semibold">79 kg</td>
+                                    <td className="py-2">84 kg</td>
+                                    <td className="py-2">4 kg</td>
+                                    <td className="py-2 font-semibold">88 kg</td>
                                 </tr>
                             </tbody>
                         </table></div>
-                        <p className="text-xs text-muted-foreground mt-4">Source : ADEME, Base Empreinte 2023 • Le smartphone est compté sur son cycle de vie complet (~50 kg), dont ~39 kg de fabrication. Le bonus reconditionné s'appuie sur ADEME 2022 (−75 %).</p>
+                        <p className="text-xs text-muted-foreground mt-4">Source : ADEME, Impact CO₂ (mise à jour 2025) • Usage calculé sur 4 ans à partir des facteurs annuels ADEME 2025. Le bonus reconditionné s'appuie sur ADEME 2022 (−75 %).</p>
                     </Card>
 
                     <Card className="p-6 mb-6 bg-muted/5 border-border">

@@ -38,7 +38,7 @@ const lifecyclePhases = [
     impacts: [
       { icon: Droplets, label: "Eau", value: "12 000 L", detail: "pour la fabrication, extraction incluse (ADEME 2023)" },
       { icon: Zap, label: "Énergie", value: "250 kWh", detail: "pour la fabrication, extraction incluse ≈ 2-3 semaines de consommation d'un foyer (~4 700 kWh/an, ADEME 2023)" },
-      { icon: Cloud, label: "CO₂", value: "50 kg", detail: "sur l'ensemble du cycle de vie (ADEME 2023)" },
+      { icon: Cloud, label: "CO₂", value: "80 kg", detail: "sur l'ensemble du cycle de vie (ADEME, Impact CO₂ 2025)" },
       { icon: Gem, label: "Métaux", value: "50+", detail: "métaux différents extraits (ADEME 2023)" },
     ],
     analogy: "Fabriquer un smartphone nécessite autant d'eau que 160 douches.",
@@ -52,7 +52,7 @@ const lifecyclePhases = [
     color: "slate",
     description: "Transformation des matières premières en composants électroniques et assemblage final des appareils.",
     impacts: [
-      { icon: Cloud, label: "CO₂", value: "75 %", detail: "de l'empreinte carbone totale (ADEME-Arcep 2023)" },
+      { icon: Cloud, label: "CO₂", value: "99 %", detail: "de l'empreinte carbone (ADEME, Impact CO₂ 2025) ; ~75 % tous indicateurs (ADEME-Arcep 2023)" },
       { icon: Gem, label: "Composants", value: "1000+", detail: "pièces assemblées (ordre de grandeur)" },
     ],
     analogy: "La fabrication d'un ordinateur portable émet autant de CO₂ qu'un aller-retour Paris-Marseille en avion.",
@@ -82,13 +82,13 @@ const lifecyclePhases = [
     description:
       "Phase d'utilisation par le consommateur, incluant la consommation électrique et les services numériques.",
     impacts: [
-      { icon: Zap, label: "Énergie", value: "20 %", detail: "de l'impact total (ADEME-Arcep 2023)" },
+      { icon: Zap, label: "Énergie", value: "1 %", detail: "de l'empreinte carbone (ADEME, Impact CO₂ 2025) ; ~20 % tous indicateurs (ADEME-Arcep 2023)" },
       { icon: Cloud, label: "Data", value: "18 Go/mois", detail: "consommation mobile moyenne en France (Arcep 2025)" },
       { icon: Droplets, label: "Durée", value: "2-3 ans", detail: "durée de vie moyenne (ADEME 2026)" },
     ],
     analogy: "Garder son smartphone 1 an de plus réduit son impact annuel d'environ un tiers.",
     details:
-      "Contrairement aux idées reçues, l'utilisation ne représente qu'environ 20 % de l'impact environnemental. C'est pourquoi allonger la durée de vie est le geste le plus efficace.",
+      "Contrairement aux idées reçues, l'utilisation ne représente qu'environ 20 % de l'impact tous indicateurs (et ~1 % de l'empreinte carbone d'un smartphone). C'est pourquoi allonger la durée de vie est le geste le plus efficace.",
   },
   {
     id: "end-of-life",
@@ -223,7 +223,7 @@ export default function ComprendrePage() {
                 différents (lithium, cobalt, terres rares, or, argent)
               </p>
               <p>
-                <strong>Impact carbone :</strong> 50 kg de CO₂ émis, équivalent à 300 km en voiture thermique
+                <strong>Impact carbone :</strong> 80 kg de CO₂ émis, équivalent à 470 km en voiture thermique
               </p>
               <p>
                 <strong>Consommation d'eau :</strong> 12 000 litres utilisés dans le processus de fabrication
@@ -426,7 +426,8 @@ export default function ComprendrePage() {
               <div className="mb-3 text-3xl font-bold text-primary">75 %</div>
               <h3 className="mb-2 font-semibold text-card-foreground">La fabrication est la phase la plus polluante</h3>
               <p className="text-sm text-muted-foreground">
-                Les trois quarts de l'impact environnemental d'un appareil proviennent de sa fabrication. C'est pourquoi
+                Les trois quarts des impacts (tous indicateurs) d'un appareil proviennent de sa fabrication — et jusqu'à
+                ~99 % de l'empreinte carbone d'un smartphone (ADEME, 2025). C'est pourquoi
                 le geste le plus efficace est de garder ses appareils le plus longtemps possible.
               </p>
             </Card>
@@ -441,10 +442,11 @@ export default function ComprendrePage() {
             </Card>
 
             <Card className="border-2 bg-card p-6">
-              <div className="mb-3 text-3xl font-bold text-primary">20 %</div>
+              <div className="mb-3 text-3xl font-bold text-primary">1 %</div>
               <h3 className="mb-2 font-semibold text-card-foreground">L'usage compte moins qu'on ne pense</h3>
               <p className="text-sm text-muted-foreground">
-                Contrairement aux idées reçues, l'utilisation ne représente qu'environ 20 % de l'impact total. Éteindre ses
+                Contrairement aux idées reçues, l'utilisation ne représente qu'environ 20 % de l'impact tous indicateurs —
+                et seulement ~1 % de l'empreinte carbone d'un smartphone (ADEME 2025). Éteindre ses
                 appareils est utile, mais les garder plus longtemps l'est bien plus.
               </p>
             </Card>

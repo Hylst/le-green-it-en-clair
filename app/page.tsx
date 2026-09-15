@@ -124,7 +124,7 @@ export default function HomePage() {
                   <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2" />
                   <span className="text-muted-foreground">
                     <strong className="text-foreground">70 kg</strong> de matières premières extraites pour un smartphone de 150 g
-                    <SourceTooltip className="ml-1" source="ADEME, Base Empreinte (2023)" calculation="70 000 g ÷ 150 g ≈ 467 fois la masse du smartphone" />
+                    <SourceTooltip className="ml-1" source="SDES (ministère de la Transition écologique), infographie smartphone, 2025" calculation="70 000 g ÷ 150 g ≈ 467 fois la masse du smartphone" />
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -137,12 +137,12 @@ export default function HomePage() {
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2" />
                   <span className="text-muted-foreground">
-                    <strong className="text-foreground">50 kg CO₂</strong> émis pendant le cycle de vie
-                    <SourceTooltip className="ml-1" source="ADEME (2023)" calculation="50 kg ÷ 0,17 kg CO₂/km ≈ 300 km en voiture thermique" />
+                    <strong className="text-foreground">80 kg CO₂</strong> émis pendant le cycle de vie
+                    <SourceTooltip className="ml-1" source="ADEME, Impact CO₂ (mise à jour 2025)" calculation="80 kg ÷ 0,17 kg CO₂/km ≈ 470 km en voiture thermique" />
                   </span>
                 </li>
               </ul>
-              <p className="mt-4 text-sm text-muted-foreground">Source : ADEME, Base Empreinte (2023)</p>
+              <p className="mt-4 text-sm text-muted-foreground">Source : SDES (ministère de la Transition écologique), infographie smartphone, 2025</p>
             </div>
           </div>
         </div>
@@ -357,8 +357,8 @@ export default function HomePage() {
                 <div>
                   <p className="mb-2 text-lg font-bold text-emerald-800 dark:text-emerald-300">Bravo, c'est correct !</p>
                   <p className="text-slate-700 dark:text-slate-300">
-                    La production représente environ <strong>75 % de l'empreinte carbone</strong> d'un smartphone
-                    <SourceTooltip className="ml-1 align-middle" source="ADEME-Arcep, 2023" calculation="fabrication ≈ 75 % des impacts d'un smartphone sur son cycle de vie" />. C'est
+                    La production concentre l'essentiel de l'empreinte carbone d'un smartphone, <strong>environ 99 %</strong> (ADEME, Impact CO₂ 2025)
+                    <SourceTooltip className="ml-1 align-middle" source="ADEME, Impact CO₂ (mise à jour 2025) ; ADEME-Arcep 2023" calculation="fabrication ≈ 99 % du carbone ; ≈ 75 % des impacts tous indicateurs" />. C'est
                     pourquoi garder son téléphone plus longtemps est le geste le plus efficace.
                   </p>
                 </div>
@@ -366,10 +366,9 @@ export default function HomePage() {
                 <div>
                   <p className="mb-2 text-lg font-bold text-amber-800 dark:text-amber-400">Pas tout à fait...</p>
                   <p className="text-slate-700 dark:text-slate-300">
-                    La bonne réponse est la production. Elle représente environ{" "}
-                    <strong>75 % de l'empreinte carbone</strong> d'un smartphone
-                    <SourceTooltip className="ml-1 align-middle" source="ADEME-Arcep, 2023" calculation="fabrication ≈ 75 % des impacts d'un smartphone sur son cycle de vie" />. L'utilisation ne compte que pour 20 %
-                    environ.
+                    La bonne réponse est la production. Elle concentre <strong>environ 99 % de l'empreinte carbone</strong> d'un smartphone
+                    <SourceTooltip className="ml-1 align-middle" source="ADEME, Impact CO₂ (mise à jour 2025) ; ADEME-Arcep 2023" calculation="fabrication ≈ 99 % du carbone ; ≈ 75 % des impacts tous indicateurs" />. L'utilisation ne compte que pour 20 %
+                    environ des impacts tous indicateurs (et ~1 % du carbone).
                   </p>
                 </div>
               )}

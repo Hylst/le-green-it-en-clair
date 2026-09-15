@@ -32,7 +32,7 @@ export default function MythesPage() {
       myth: "Le cloud ne pollue pas, c'est virtuel",
       reality: "Faux - Le cloud repose sur des infrastructures physiques très énergivores",
       explanation:
-        "Le cloud n'est pas immatériel : il s'appuie sur des datacenters qui consomment de l'électricité pour fonctionner et se refroidir. Bonne nouvelle : stocker des fichiers pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO₂e (ADEME, Impact CO₂ / Base Empreinte). Le geste qui compte vraiment, c'est de garder vos appareils le plus longtemps possible : fabriquer un smartphone représente environ 50 kg de CO₂e sur son cycle de vie, soit bien plus que des années de stockage de photos. Le stockage pèse très peu : le levier qui compte reste la durée de vie des appareils.",
+        "Le cloud n'est pas immatériel : il s'appuie sur des datacenters qui consomment de l'électricité pour fonctionner et se refroidir. Bonne nouvelle : stocker des fichiers pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO₂e (ADEME, Impact CO₂ / Base Empreinte). Le geste qui compte vraiment, c'est de garder vos appareils le plus longtemps possible : fabriquer un smartphone représente environ 80 kg de CO₂e sur son cycle de vie, soit bien plus que des années de stockage de photos. Le stockage pèse très peu : le levier qui compte reste la durée de vie des appareils.",
       source: "ADEME, Impact CO₂ / Base Empreinte",
       relatedLink: { label: "En savoir plus sur les datacenters", href: "/datacenters" },
     },
@@ -41,10 +41,10 @@ export default function MythesPage() {
       category: "Usage",
       icon: <Zap className="h-5 w-5" />,
       myth: "La phase d'utilisation est la plus polluante",
-      reality: "Faux - La fabrication représente 75 % de l'impact environnemental",
+      reality: "Faux - La fabrication concentre l'essentiel de l'impact (≈75 % tous indicateurs, ≈99 % du carbone)",
       explanation:
-        "Contrairement à l'idée reçue, l'utilisation d'un smartphone ne représente qu'environ 20 % de son empreinte carbone totale. La fabrication (extraction des minerais, assemblage, transport) compte pour 75 %. C'est pourquoi garder son appareil le plus longtemps possible est le geste le plus efficace.",
-      source: "ADEME-Arcep 2023",
+        "Contrairement à l'idée reçue, l'utilisation d'un smartphone ne représente qu'environ 20 % de son impact tous indicateurs (et ~1 % de son empreinte carbone). La fabrication (extraction des minerais, assemblage, transport) compte pour ~75 % des impacts tous indicateurs et ~99 % du carbone (ADEME-Arcep 2023 ; ADEME, Impact CO₂ 2025). C'est pourquoi garder son appareil le plus longtemps possible est le geste le plus efficace.",
+      source: "ADEME-Arcep 2023 ; ADEME, Impact CO₂ 2025",
       relatedLink: { label: "Découvrir le cycle de vie", href: "/comprendre" },
     },
     {
@@ -65,8 +65,8 @@ export default function MythesPage() {
       myth: "Les nouveaux appareils sont plus écologiques",
       reality: "Nuancé - Ils sont plus efficaces, mais leur fabrication pollue davantage",
       explanation:
-        "Les appareils récents sont effectivement plus économes en énergie à l'usage (processeurs plus efficients, meilleure gestion de la batterie). Cependant, ils utilisent des composants plus complexes et miniaturisés, nécessitant plus de ressources et d'énergie pour leur fabrication. Acheter un appareil neuf émet en moyenne environ 50 kg de CO₂e, contre environ 8 kg pour un appareil reconditionné (ADEME 2022), soit une réduction de l'ordre de 75 à 90 % des émissions selon les périmètres.",
-      source: "ADEME 2022",
+        "Les appareils récents sont effectivement plus économes en énergie à l'usage (processeurs plus efficients, meilleure gestion de la batterie). Cependant, ils utilisent des composants plus complexes et miniaturisés, nécessitant plus de ressources et d'énergie pour leur fabrication. Acheter un appareil neuf émet en moyenne environ 80 kg de CO₂e pour un smartphone (ADEME, Impact CO₂ 2025), contre une réduction de l'ordre de 75 à 90 % pour un appareil reconditionné (ADEME 2022).",
+      source: "ADEME, Impact CO₂ 2025 ; ADEME 2022",
       relatedLink: { label: "Comparer neuf vs reconditionné", href: "/cas-pratiques" },
     },
     {
@@ -87,8 +87,8 @@ export default function MythesPage() {
       myth: "Mon vieux téléphone consomme plus d'énergie qu'un neuf",
       reality: "Vrai pour l'usage, mais garder l'ancien reste plus écologique",
       explanation:
-        "Un smartphone récent consomme un peu moins à l'usage, mais l'écart reste faible à l'échelle du cycle de vie : la fabrication pèse environ 75 % de l'impact (ADEME-Arcep 2023). Il faudrait donc de longues années d'usage pour compenser un nouvel appareil. Conclusion : gardez votre ancien appareil tant qu'il fonctionne.",
-      source: "ADEME-Arcep 2023",
+        "Un smartphone récent consomme un peu moins à l'usage, mais l'écart reste faible à l'échelle du cycle de vie : la fabrication pèse environ 99 % de l'empreinte carbone (ADEME, Impact CO₂ 2025). Il faudrait donc de longues années d'usage pour compenser un nouvel appareil. Conclusion : gardez votre ancien appareil tant qu'il fonctionne.",
+      source: "ADEME, Impact CO₂ 2025",
       relatedLink: { label: "Calculer votre impact", href: "/outils" },
     },
     {

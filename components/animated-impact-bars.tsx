@@ -26,7 +26,7 @@ export function AnimatedImpactBars() {
   return (
     <div className="w-full rounded-2xl bg-card p-8 shadow-lg">
       <h3 className="mb-8 text-center text-2xl font-bold text-foreground">
-        Répartition de l'empreinte carbone par phase
+        Répartition des impacts par phase (tous indicateurs)
       </h3>
 
       <div className="space-y-6">
@@ -57,7 +57,7 @@ export function AnimatedImpactBars() {
 
       <div className="mt-8 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 p-4 text-center">
         <p className="text-sm text-muted-foreground">
-          <span className="font-bold">Point clé :</span> La fabrication concentre 60 % de l'impact carbone, et l'extraction 15 % : soit environ 75 % au total (ADEME-Arcep, 2023).
+          <span className="font-bold">Point clé :</span> La fabrication concentre 60 % des impacts tous indicateurs, et l'extraction 15 % : soit environ 75 % au total (ADEME-Arcep, 2023). En carbone, la fabrication monte à ~99 % pour un smartphone (ADEME 2025).
         </p>
       </div>
     </div>

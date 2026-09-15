@@ -134,7 +134,7 @@ const mainProblems = [
     icon: Clock,
     color: "rose",
     severity: "Élevé",
-    stats: "2,3 ans de durée de vie moyenne d'un smartphone",
+    stats: "2 à 3 ans de durée de vie moyenne d'un smartphone, changement tous les 3 ans",
     description:
       "Les fabricants conçoivent délibérément des produits avec une durée de vie limitée, par des mises à jour logicielles qui ralentissent les anciens appareils ou des composants non réparables.",
     impacts: [

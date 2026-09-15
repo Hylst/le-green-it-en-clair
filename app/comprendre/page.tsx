@@ -234,7 +234,7 @@ export default function ComprendrePage() {
                 <strong>Transport :</strong> 15 000 km parcourus en moyenne avant d'atteindre le consommateur
               </p>
               <p>
-                <strong>Compensation nécessaire :</strong> 3 arbres pendant 1 an pour absorber le CO2 émis
+                <strong>Compensation nécessaire :</strong> 2,5 arbres pendant 1 an pour absorber le CO2 émis
               </p>
               <p>
                 <strong>Recommandation :</strong> Conserver son smartphone au moins 5 ans pour amortir l'impact de

@@ -97,7 +97,7 @@ const risks = [
     icon: AlertTriangle,
     color: "red",
     description:
-      "Malgré les lois, la durée de vie moyenne des smartphones stagne à 2,5 ans. Les mises à jour logicielles ralentissent les anciens appareils.",
+      "Malgré les lois, la durée de vie moyenne des smartphones reste de 2 à 3 ans, avec un changement tous les 3 ans en moyenne (ADEME 2026). Les mises à jour logicielles finissent par ralentir les anciens appareils.",
     impact: "Élevé",
   },
   {

@@ -69,7 +69,7 @@ export default function CarbonCalculator() {
             Calculateur d'empreinte carbone numérique
           </CardTitle>
           <CardDescription>
-            Estimez l'impact environnemental de vos équipements et usages numériques (données ADEME 2025)
+            Estimez l'impact environnemental de vos équipements et usages numériques (Base Empreinte / ADEME-Arcep, données 2024-2025)
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8">
@@ -324,14 +324,14 @@ export default function CarbonCalculator() {
               {cloudUsage.email > 100 && (
                 <li>• Nettoyez régulièrement votre boîte mail et désabonnez-vous des newsletters inutiles.</li>
               )}
-              <li>• Privilégiez le reconditionné pour vos prochains achats (80% d'impact en moins).</li>
+              <li>• Privilégiez le reconditionné pour vos prochains achats (~75 % d'impact en moins, ADEME 2022).</li>
             </ul>
           </div>
         </CardContent>
       </Card>
 
       <div className="text-sm text-gray-600 dark:text-gray-300 text-center">
-        Sources: ADEME 2025, GreenIT.fr, Shift Project • Méthodologie: ACV (Analyse du Cycle de Vie) • Stockage
+        Sources: Base Empreinte / ADEME-Arcep (2024-2025), GreenIT.fr, Shift Project • Méthodologie: ACV (Analyse du Cycle de Vie) • Stockage
         cloud : 0,24 g CO2e/Go/an (ADEME, Impact CO2 / Base Empreinte)
       </div>
     </div>

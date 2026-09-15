@@ -550,7 +550,7 @@ export default function EnterpriseSimulator() {
       </Card>
 
       <div className="text-sm text-gray-600 dark:text-gray-300 text-center">
-        Sources: ADEME 2025, études TCO Gartner, données sectorielles • Calculs basés sur des moyennes françaises
+        Sources: Base Empreinte / ADEME-Arcep (2024-2025), études TCO Gartner, données sectorielles • Calculs basés sur des moyennes françaises
       </div>
     </div>
   )

@@ -228,7 +228,7 @@ export default function ITAudit() {
             Audit de parc informatique
           </CardTitle>
           <CardDescription>
-            Évaluez l'empreinte carbone de votre parc IT et identifiez les opportunités d'optimisation (données ADEME 2025)
+            Évaluez l'empreinte carbone de votre parc IT et identifiez les opportunités d'optimisation (Base Empreinte / ADEME-Arcep, données 2024-2025)
           </CardDescription>
           <div className="flex gap-2">
             <Button variant="outline" size="sm" onClick={exportPDF}>
@@ -431,7 +431,7 @@ export default function ITAudit() {
       </Card>
 
       <div className="text-sm text-gray-600 dark:text-gray-300 text-center">
-        Sources: ADEME 2025, GreenIT.fr • Méthodologie: ACV (Analyse du Cycle de Vie)
+        Sources: Base Empreinte / ADEME-Arcep (2024-2025), GreenIT.fr • Méthodologie: ACV (Analyse du Cycle de Vie)
       </div>
     </div>
   )

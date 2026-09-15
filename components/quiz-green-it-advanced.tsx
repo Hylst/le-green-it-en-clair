@@ -538,7 +538,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Le bonus réparation est une aide financée par la filière REP (éco-organismes) pour réduire le coût d'une réparation hors garantie.",
-    source: "ADEME 2025",
+    source: "ADEME/DGE 2025",
     points: 15,
   },
   {
@@ -1296,8 +1296,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctAnswer: 1,
     explanation:
-      "Fairphone est un smartphone conçu pour être modulaire, réparable et éthique, avec un indice de réparabilité de 10/10.",
-    source: "Fairphone",
+      "Fairphone est un smartphone conçu pour être modulaire et réparable ; son indice de réparabilité est élevé, selon les modèles et les organismes d'évaluation.",
+    source: "Fairphone 2025",
     points: 15,
   },
   {
@@ -1313,19 +1313,20 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctAnswer: 1,
     explanation:
-      "L'hébergement vert utilise des énergies renouvelables et des datacenters optimisés pour réduire l'impact environnemental.",
-    source: "Green Web Foundation",
+      "L'hébergement dit vert s'appuie sur des énergies renouvelables et des datacenters optimisés ; attention, un « 100 % renouvelable » annuel n'équivaut pas à un fonctionnement 24/7 décarboné.",
+    source: "Green Web Foundation 2025",
     points: 10,
   },
   {
     id: 93,
     category: "Innovations et solutions",
     difficulty: "difficile",
-    question: "Quel pourcentage d'économie d'énergie le dark mode peut-il offrir sur écran OLED ?",
-    options: ["5%", "15%", "30%", "60%"],
-    correctAnswer: 3,
-    explanation: "Le dark mode peut économiser jusqu'à 60% d'énergie sur écran OLED car les pixels noirs sont éteints.",
-    source: "Google Android Research",
+    question: "Quelle économie d'énergie le mode sombre peut-il offrir sur écran OLED ?",
+    options: ["moins de 5%", "environ 15%", "jusqu'à 30-50% selon la luminosité", "plus de 80%"],
+    correctAnswer: 2,
+    explanation:
+      "Sur écran OLED, le mode sombre économise selon la luminosité : de quelques pourcents à environ 50 % (Purdue 2021).",
+    source: "Purdue 2021",
     points: 20,
   },
   {
@@ -1341,8 +1342,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctAnswer: 1,
     explanation:
-      "L'edge computing traite les données localement, réduisant le trafic réseau et la latence, donc l'énergie consommée.",
-    source: "Edge Computing Consortium",
+      "L'edge computing traite les données au plus près de leur source : il peut réduire le trafic réseau, mais le bilan dépend des usages et des équipements déployés.",
+    source: "Edge Computing Consortium 2024",
     points: 15,
   },
   {
@@ -1383,11 +1384,16 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     id: 97,
     category: "Innovations et solutions",
     difficulty: "difficile",
-    question: "Quel projet vise à créer un internet décentralisé et plus sobre ?",
-    options: ["Internet 2.0", "Web3", "IPFS", "Tous ces projets"],
-    correctAnswer: 3,
+    question: "Quel est le point commun des projets de décentralisation du web (Web3, IPFS) ?",
+    options: [
+      "Ils sont forcément plus sobres",
+      "Ils visent à répartir les données hors des plateformes centrales",
+      "Ils suppriment le réseau",
+      "Ils n'ont aucun impact",
+    ],
+    correctAnswer: 1,
     explanation:
-      "Plusieurs projets (Web3, IPFS, blockchain) visent à décentraliser internet, bien que leur bilan environnemental soit débattu.",
+      "Ces projets visent la décentralisation, mais leur bilan environnemental est débattu et dépend des usages.",
     source: "Études blockchain & environnement",
     points: 20,
   },
@@ -1399,8 +1405,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["Une nouvelle batterie", "Internet par la lumière LED", "Un nouveau processeur", "Un type de wifi"],
     correctAnswer: 1,
     explanation:
-      "Le Li-Fi transmet des données via la lumière LED, offrant une alternative au wifi avec une empreinte énergétique réduite.",
-    source: "pureLiFi",
+      "Le Li-Fi transmet des données via la lumière LED ; c'est une alternative expérimentale, dont le bilan dépend des usages.",
+    source: "pureLiFi 2024",
     points: 15,
   },
   {
@@ -1412,7 +1418,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Les bioplastiques issus de ressources renouvelables sont étudiés pour remplacer les plastiques pétrochimiques.",
-    source: "Recherche matériaux durables",
+    source: "Revues scientifiques, matériaux 2024",
     points: 10,
   },
   {

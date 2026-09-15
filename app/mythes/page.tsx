@@ -174,9 +174,9 @@ export default function MythesPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-emerald-600 to-teal-700 px-6 py-16 lg:py-24">
+      <section className="bg-gradient-to-br from-emerald-700 to-teal-800 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <Badge className="mb-4 bg-white/20 text-white border-white/30">Mythes vs Réalités</Badge>
+          <Badge className="mb-4 bg-emerald-950/70 text-emerald-50 border-emerald-700/60">Mythes vs Réalités</Badge>
           <h1 className="mb-6 text-4xl font-bold text-white lg:text-5xl">Démêlons le vrai du faux</h1>
           <p className="text-xl text-emerald-50">
             Le Green IT est entouré d'idées reçues. Découvrez ce qui est vraiment efficace pour réduire votre impact

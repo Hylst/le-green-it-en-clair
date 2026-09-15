@@ -131,7 +131,7 @@ export default function HomePage() {
                   </span>
                 </li>
               </ul>
-              <p className="mt-4 text-sm text-muted-foreground/70">Source : ADEME, Base Empreinte (2023)</p>
+              <p className="mt-4 text-sm text-muted-foreground">Source : ADEME, Base Empreinte (2023)</p>
             </div>
           </div>
         </div>
@@ -383,7 +383,7 @@ export default function HomePage() {
                 <SourceTooltip className="ml-1 align-middle" source="Global E-Waste Monitor 2024 (ONU)" calculation="62 Mt en 2022 + 2,6 Mt/an ≈ 70 Mt en 2025, 82 Mt projetés en 2030" />
               </div>
               <p className="text-muted-foreground">de déchets électroniques sur la trajectoire 2022-2030 (62 Mt → 82 Mt)</p>
-              <p className="mt-2 text-sm text-muted-foreground/70">Source: Global E-waste Monitor 2024, ONU</p>
+              <p className="mt-2 text-sm text-muted-foreground">Source: Global E-waste Monitor 2024, ONU</p>
             </div>
             <div className="text-center">
               <div className="mb-3 text-4xl font-bold text-teal-700 dark:text-teal-400 lg:text-5xl">
@@ -391,7 +391,7 @@ export default function HomePage() {
                 <SourceTooltip className="ml-1 align-middle" source="ADEME-Arcep, 2023" calculation="extraction ~15 % + fabrication ~60 % ≈ 75-80 % de l'empreinte du numérique (France)" />
               </div>
               <p className="text-muted-foreground">de l'empreinte carbone du numérique vient de la fabrication des équipements (France)</p>
-              <p className="mt-2 text-sm text-muted-foreground/70">Source: ADEME-Arcep 2023</p>
+              <p className="mt-2 text-sm text-muted-foreground">Source: ADEME-Arcep 2023</p>
             </div>
             <div className="text-center">
               <div className="mb-3 text-4xl font-bold text-blue-700 dark:text-blue-400 lg:text-5xl">
@@ -399,7 +399,7 @@ export default function HomePage() {
                 <SourceTooltip className="ml-1 align-middle" source="GreenIT, EENM 2025" calculation="1,8 Gt CO₂e ÷ ~53 Gt d'émissions mondiales ≈ 3,4 %" />
               </div>
               <p className="text-muted-foreground">des émissions mondiales de GES (1,8 Gt CO2e) sont dues au numérique</p>
-              <p className="mt-2 text-sm text-muted-foreground/70">Source: GreenIT EENM 2025</p>
+              <p className="mt-2 text-sm text-muted-foreground">Source: GreenIT EENM 2025</p>
             </div>
             <div className="text-center">
               <div className="mb-3 text-4xl font-bold text-emerald-700 dark:text-emerald-400 lg:text-5xl">
@@ -407,14 +407,14 @@ export default function HomePage() {
                 <SourceTooltip className="ml-1 align-middle" source="ADEME, 2026" calculation="durée de vie moyenne observée en France, renouvellement tous les 3 ans" />
               </div>
               <p className="text-muted-foreground">durée de vie moyenne d'un smartphone en France, changement tous les 3 ans</p>
-              <p className="mt-2 text-sm text-muted-foreground/70">Source: ADEME 2026</p>
+              <p className="mt-2 text-sm text-muted-foreground">Source: ADEME 2026</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-emerald-600 to-teal-700 dark:from-emerald-800 dark:to-teal-900 px-6 py-16 lg:py-24">
+      <section className="bg-gradient-to-br from-emerald-700 to-teal-800 dark:from-emerald-800 dark:to-teal-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="mb-6 text-3xl font-bold text-white lg:text-4xl">Prêt à réduire votre empreinte numérique ?</h2>
           <p className="mb-8 text-lg text-emerald-50 dark:text-emerald-100">

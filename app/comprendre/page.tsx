@@ -351,7 +351,7 @@ export default function ComprendrePage() {
                       <ImpactIcon className="mb-2 h-6 w-6 text-primary" />
                       <div className="mb-1 text-2xl font-bold text-foreground">{impact.value}</div>
                       <div className="text-sm font-medium text-muted-foreground">{impact.label}</div>
-                      <div className="mt-1 text-xs text-muted-foreground/70">{impact.detail}</div>
+                      <div className="mt-1 text-xs text-muted-foreground">{impact.detail}</div>
                     </div>
                   )
                 })}

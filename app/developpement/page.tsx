@@ -390,7 +390,7 @@ export default function DeveloppementPage() {
                           ) : (
                             <XCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
                           )}
-                          <span className={practice.good ? "text-muted-foreground" : "text-muted-foreground/50 line-through"}>
+                          <span className={practice.good ? "text-muted-foreground" : "text-muted-foreground line-through"}>
                             {practice.text}
                           </span>
                         </div>
@@ -995,7 +995,7 @@ module.exports = {
                       <li>• Coût fixe élevé</li>
                     </ul>
                   </div>
-                  <div className="text-sm text-muted-foreground/80 font-medium">
+                  <div className="text-sm text-muted-foreground font-medium">
                     <strong>Exemple :</strong> Un serveur à 2000€/mois utilisé à 15% = 1700€ gaspillés + énergie inutile
                   </div>
                 </div>
@@ -1020,7 +1020,7 @@ module.exports = {
                       <li>• Paiement à l'usage réel</li>
                     </ul>
                   </div>
-                  <div className="text-sm text-muted-foreground/80 font-medium">
+                  <div className="text-sm text-muted-foreground font-medium">
                     <strong>Exemple :</strong> Vercel Serverless Functions = 0€ quand pas d'usage, scale automatiquement
                   </div>
                 </div>

@@ -33,8 +33,8 @@ export function Footer() {
             <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
               Site personnel pour sensibiliser et agir pour un numérique plus responsable en France.
             </p>
-            <p className="text-xs text-slate-500 dark:text-slate-500 italic">Créé par Geoffroy Streit, passionné d'écologie numérique</p>
-            <p className="text-xs text-slate-500 dark:text-slate-500 mt-2">Illustrations créées avec l'assistance d'outils d'IA générative</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400 italic">Créé par Geoffroy Streit, passionné d'écologie numérique</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">Illustrations créées avec l'assistance d'outils d'IA générative</p>
           </div>
 
           {/* Navigation Links */}

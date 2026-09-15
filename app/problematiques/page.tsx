@@ -917,7 +917,7 @@ export default function ProblematiquesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-emerald-600 to-teal-700 px-6 py-16 lg:py-24">
+      <section className="bg-gradient-to-br from-emerald-700 to-teal-800 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="mb-6 text-3xl font-bold text-white lg:text-4xl">Passez à l'action maintenant</h2>
           <p className="mb-8 text-lg text-emerald-50">

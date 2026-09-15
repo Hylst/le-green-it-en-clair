@@ -448,7 +448,7 @@ export default function ChiffresPage() {
       </section>
 
       {/* Key Stats Summary */}
-      <section className="bg-gradient-to-br from-emerald-600 to-teal-700 dark:from-emerald-900 dark:to-teal-900 px-6 py-16 lg:py-24">
+      <section className="bg-gradient-to-br from-emerald-700 to-teal-800 dark:from-emerald-900 dark:to-teal-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <h2 className="mb-12 text-center text-3xl font-bold text-white lg:text-4xl">En résumé</h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">

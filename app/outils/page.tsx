@@ -43,10 +43,10 @@ export default function OutilsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white dark:bg-gradient-to-b dark:from-green-900 dark:to-gray-900">
-      <div className="bg-gradient-to-br from-emerald-600 to-teal-700 px-6 py-16">
+      <div className="bg-gradient-to-br from-emerald-700 to-teal-800 px-6 py-16">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center text-white">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur px-4 py-2 text-sm font-medium">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-emerald-950/70 backdrop-blur px-4 py-2 text-sm font-medium text-emerald-50">
               <Lightbulb className="h-4 w-4" />
               Espace Outils Interactifs
             </div>

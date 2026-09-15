@@ -455,7 +455,7 @@ export default function PerspectivesPage() {
       </section>
 
       {/* Key Messages */}
-      <section className="bg-gradient-to-br from-emerald-600 to-teal-700 px-6 py-16 lg:py-24">
+      <section className="bg-gradient-to-br from-emerald-700 to-teal-800 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-12 text-center text-3xl font-bold text-white lg:text-4xl">Messages clés pour l'avenir</h2>
           <div className="space-y-6">

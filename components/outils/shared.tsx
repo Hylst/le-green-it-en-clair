@@ -26,7 +26,7 @@ export function LabeledSlider({ value, min, max, step, onValueChange, unit }: an
         </Button>
         <div className="flex-1 relative pb-6">
           <Slider value={value} onValueChange={onValueChange} min={min} max={max} step={step} className="my-2" />
-          <div className="absolute top-full left-0 w-full flex justify-between text-[10px] text-gray-500 font-mono -mt-1 select-none pointer-events-none">
+          <div className="absolute top-full left-0 w-full flex justify-between text-[10px] text-gray-500 dark:text-gray-400 font-mono -mt-1 select-none pointer-events-none">
             {Array.from({ length: 5 }).map((_, i) => (
               <span key={i} className="flex flex-col items-center gap-1">
                 <span className="h-1 w-px bg-gray-300 dark:bg-gray-600" />

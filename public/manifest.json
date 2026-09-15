@@ -39,16 +39,16 @@
     ],
     "screenshots": [
         {
-            "src": "/greenit/screenshots/accueil.jpg",
+            "src": "/greenit/screenshots/accueil.webp",
             "sizes": "1280x720",
-            "type": "image/jpeg",
+            "type": "image/webp",
             "form_factor": "wide",
             "label": "Page d'accueil"
         },
         {
-            "src": "/greenit/screenshots/outils-mobile.jpg",
+            "src": "/greenit/screenshots/outils-mobile.webp",
             "sizes": "390x844",
-            "type": "image/jpeg",
+            "type": "image/webp",
             "form_factor": "narrow",
             "label": "Outils interactifs sur mobile"
         }

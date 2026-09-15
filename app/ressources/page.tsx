@@ -75,17 +75,17 @@ const resources = [
     items: [
       {
         title: "Cycle de vie d'un smartphone",
-        description: "Infographie complète des 5 phases",
-        type: "WEBP",
-        size: "0.6 MB",
-        link: "/greenit/images/lifecycle-infographic.webp",
+        description: "Le parcours complet en 5 phases, chiffres sourcés",
+        type: "PAGE",
+        size: "Interactive",
+        link: "/comprendre",
       },
       {
-        title: "Répartition impact CO₂",
-        description: "Graphique - Production vs usage vs transport",
-        type: "WEBP",
-        size: "0.3 MB",
-        link: "/greenit/images/co2-distribution.webp",
+        title: "Répartition de l'impact CO₂",
+        description: "Graphiques et données sourcées (fabrication, usage, transport)",
+        type: "PAGE",
+        size: "Interactive",
+        link: "/chiffres",
       },
       {
         title: "Carte interactive des points de collecte",

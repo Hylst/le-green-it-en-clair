@@ -213,7 +213,7 @@ export default function CahierChargesPage() {
                             <li>• Plan de réduction des émissions</li>
                         </ul>
                         <div className="mt-4 p-3 bg-emerald-50 dark:bg-emerald-950/30 rounded">
-                            <p className="text-sm font-semibold text-foreground">Bonus : Émissions &lt; 50 kg CO2eq par smartphone (Base Empreinte) : +5 points</p>
+                            <p className="text-sm font-semibold text-foreground">Bonus : Émissions &lt; 50 kg CO₂e par smartphone (Base Empreinte) : +5 points</p>
                         </div>
                     </Card>
 

@@ -281,7 +281,7 @@ export default function AProposPage() {
           <div className="mt-8 text-center text-sm text-muted-foreground">
             <p className="mb-2">Le Green IT en clair • Projet personnel de Geoffroy Streit • 2026</p>
             <p>
-              Ce site est hébergé de manière éco-responsable et conçu selon les principes du Green IT (optimisation des
+              Ce site est conçu selon les principes du Green IT (optimisation des
               ressources, accessibilité, sobriété numérique).
             </p>
           </div>

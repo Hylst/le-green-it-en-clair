@@ -58,7 +58,10 @@ export default function MentionsLegalesPage() {
             </div>
             <div className="space-y-3 text-muted-foreground">
               <p>
-                <strong className="text-foreground">Hébergeur :</strong> Hostinger International Ltd.
+                <strong className="text-foreground">Hébergeur :</strong> Hostinger International Ltd. — coordonnées sur{" "}
+                <a href="https://www.hostinger.fr" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 underline">
+                  hostinger.fr
+                </a>
               </p>
               <p>
                 <strong className="text-foreground">Serveur :</strong> VPS géré via Coolify (Docker)
@@ -115,7 +118,11 @@ export default function MentionsLegalesPage() {
                 <strong className="text-foreground">Illustrations :</strong> Les illustrations présentes sur ce site ont été créées avec l'assistance d'outils d'intelligence artificielle générative (IA). Elles sont utilisées dans un cadre personnel et éducatif non commercial.
               </p>
               <p>
-                <strong className="text-foreground">Code source :</strong> Le code source du site Next.js est un projet personnel et peut être partagé sur demande à des fins éducatives.
+                <strong className="text-foreground">Code source :</strong> Le code source du site est public sur{" "}
+                <a href="https://github.com/Hylst/le-green-it-en-clair" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 underline">
+                  GitHub
+                </a>
+                . Il est consultable à des fins éducatives.
               </p>
             </div>
           </Card>

@@ -139,7 +139,7 @@ export default function ChiffresPage() {
           <div className="mb-8 flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center">
             <div>
               <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-slate-100">Évolution des déchets électroniques</h2>
-              <p className="text-slate-600 dark:text-slate-400">Production mondiale et française de e-déchets (2010-2026)</p>
+              <p className="text-slate-600 dark:text-slate-400">Production mondiale et française d'e-déchets (2010-2026)</p>
             </div>
             <Button variant="outline" onClick={printPage}>
               <Download className="mr-2 h-4 w-4" />
@@ -458,7 +458,7 @@ export default function ChiffresPage() {
                 72,4 Mt
                 <SourceTooltip className="ml-1 align-middle text-emerald-50" source="Global E-Waste Monitor 2024 (ONU)" calculation="62 Mt (2022) + 2,6 Mt/an × 4 ans ≈ 72,4 Mt projetés en 2026" />
               </div>
-              <p className="text-emerald-50">de e-déchets projetés dans le monde en 2026</p>
+              <p className="text-emerald-50">d'e-déchets projetés dans le monde en 2026</p>
             </div>
             <div className="text-center">
               <Zap className="mx-auto mb-4 h-12 w-12 text-emerald-100" />

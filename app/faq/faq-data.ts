@@ -31,7 +31,7 @@ export const faqCategories = [
       },
       {
         q: "Comment choisir un appareil durable ?",
-        a: "Vérifiez l'indice de réparabilité (obligatoire depuis 2021) et visez au moins 7/10. Privilégiez les marques offrant des pièces détachées et un SAV de qualité. Choisissez des appareils modulaires (batterie remplaçable) et avec un support logiciel longue durée (5+ ans). Évitez le suréquipement : achetez selon vos besoins réels, pas les dernières fonctionnalités.",
+        a: "Vérifiez l'indice de réparabilité (obligatoire depuis 2021) et visez au moins 7/10. Pensez aussi aux repères 2025 : indice de durabilité sur les téléviseurs et lave-linge, étiquette énergie UE sur les smartphones (règlement 2023/1669), 7 ans de pièces détachées (règlement 2023/1670). Privilégiez les marques offrant des pièces détachées et un SAV de qualité. Choisissez des appareils modulaires (batterie remplaçable) et avec un support logiciel longue durée (5 ans et plus). Évitez le suréquipement : achetez selon vos besoins réels, pas les dernières fonctionnalités.",
       },
       {
         q: "Qu'est-ce que l'indice de réparabilité ?",
@@ -61,7 +61,7 @@ export const faqCategories = [
       },
       {
         q: "Faut-il supprimer ses données dans le cloud ?",
-        a: "Bonne nouvelle : le stockage pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO2e (ADEME, Impact CO2 / Base Empreinte). Trier vos photos en double reste une bonne habitude pour y voir plus clair, mais sans pression : le geste qui compte vraiment, c'est de garder votre smartphone le plus longtemps possible (environ 50 kg de CO2e sur son cycle de vie, Base Carbone ADEME). Un petit tri de temps en temps, vider les téléchargements et désactiver les sauvegardes automatiques superflues suffit amplement.",
+        a: "Bonne nouvelle : le stockage pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO₂e (ADEME, Impact CO₂ / Base Empreinte). Trier vos photos en double reste une bonne habitude pour y voir plus clair, mais sans pression : le geste qui compte vraiment, c'est de garder votre smartphone le plus longtemps possible (environ 50 kg de CO₂e sur son cycle de vie, Base Carbone ADEME). Un petit tri de temps en temps, vider les téléchargements et désactiver les sauvegardes automatiques superflues suffit amplement.",
       },
     ],
   },
@@ -97,7 +97,7 @@ export const faqCategories = [
       },
       {
         q: "Comment mesurer l'impact environnemental d'un site web ?",
-        a: "Outils disponibles : EcoIndex (note A à G), Website Carbon Calculator, GreenFrame, Lighthouse (Google). Ils mesurent : poids page, requêtes serveur, consommation électrique estimée. Objectif : EcoIndex >B, page <1 Mo, <50 requêtes. L'empreinte d'une page dépend surtout de son poids : une page moyenne pèse environ 2 Mo (HTTP Archive, 2025) — testez la vôtre avec notre estimateur dans /outils. Le site le plus éco-conçu peut descendre à environ 0,1 g CO₂ par vue (ordre de grandeur).",
+        a: "Outils disponibles : EcoIndex (note A à G), Website Carbon Calculator, GreenFrame, Lighthouse (Google). Ils mesurent : poids page, requêtes serveur, consommation électrique estimée. Objectif : EcoIndex >B, page <1 Mo, <50 requêtes. L'empreinte d'une page dépend surtout de son poids : une page moyenne pèse environ 2,5 Mo (HTTP Archive, 2025) — testez la vôtre avec notre estimateur dans /outils. Le site le plus éco-conçu peut descendre à environ 0,1 g CO₂ par vue (ordre de grandeur).",
       },
       {
         q: "Quels langages de programmation sont les plus éco-responsables ?",

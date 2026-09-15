@@ -58,7 +58,7 @@ const templates = [
     id: "tableau-bord-impact",
     title: "Tableau de bord de suivi d'impact",
     description:
-      "Modèle de tableau de bord imprimable pour mesurer et suivre votre empreinte numérique : équipements, consommation, émissions CO2",
+      "Modèle de tableau de bord imprimable pour mesurer et suivre votre empreinte numérique : équipements, consommation, émissions CO₂",
     category: "Mesure",
     icon: BarChart3,
     format: "PDF (impression)",

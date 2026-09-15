@@ -347,12 +347,12 @@ export default function CharteGreenITPage() {
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground">Indicateur</th>
                                 <th className="p-3 text-left font-semibold text-foreground">Baseline (Année 0)</th>
-                                <th className="p-3 text-left font-semibold text-foreground">Objectif (Année 2)</th>
+                                <th className="p-3 text-left font-semibold text-foreground">Objectif (3 ans)</th>
                             </tr>
                         </thead>
                         <tbody className="text-muted-foreground">
                             <tr className="border-b border-border">
-                                <td className="p-3">Émissions CO2 parc IT (tonnes)</td>
+                                <td className="p-3">Émissions CO₂ parc IT (tonnes)</td>
                                 <td className="p-3">À mesurer</td>
                                 <td className="p-3">-30%</td>
                             </tr>

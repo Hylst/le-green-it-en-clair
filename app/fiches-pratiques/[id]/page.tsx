@@ -472,7 +472,7 @@ const sheets: Record<string, any> = {
     resources: [
       "Carte des points : https://ecosystem.eco/fr/localiser",
       "Guide ADEME : ademe.fr",
-            "https://quefairedemesdechets.ademe.fr",
+      "Que faire de mes objets : https://quefairedemesdechets.ademe.fr",
     ],
     sources: [
       "Ecosystem 2024 (79 % recyclés, 91 % valorisés)",

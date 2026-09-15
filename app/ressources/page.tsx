@@ -157,7 +157,7 @@ const glossaryData = [
   {
     term: "WUE",
     definition:
-      "Water Usage Effectiveness. Indicateur de consommation d'eau des datacenters (litres d'eau par kWh consommé).",
+      "Water Usage Effectiveness. Indicateur de consommation d'eau des datacenters (litres d'eau par kWh consommé par les équipements informatiques).",
     category: "Datacenters",
   },
   {
@@ -181,7 +181,7 @@ const glossaryData = [
   {
     term: "PUE",
     definition:
-      "Power Usage Effectiveness. Indicateur d'efficacité énergétique des datacenters. Un PUE de 1.0 est parfait, 2.0 signifie 50% d'énergie gaspillée.",
+      "Power Usage Effectiveness. Indicateur d'efficacité énergétique des datacenters. Un PUE de 1,0 est parfait ; 2,0 signifie que la moitié de l'énergie consommée part dans le refroidissement et la distribution.",
     category: "Technique",
   },
   {
@@ -199,7 +199,7 @@ const glossaryData = [
   {
     term: "Reconditionné",
     definition:
-      "Appareil d'occasion remis en état de fonctionnement, testé et garanti. Réduit l'impact d'environ 75% par rapport au neuf (ADEME, 2022).",
+      "Appareil d'occasion remis en état de fonctionnement, testé et garanti. Réduit l'impact d'environ 75 à 90 % par rapport au neuf (ADEME, 2022).",
     category: "Matériel",
   },
   {
@@ -242,6 +242,12 @@ const glossaryData = [
     term: "Indice de réparabilité",
     definition:
       "Note sur 10 obligatoire en France depuis 2021, indiquant la facilité de réparation d'un équipement électronique.",
+    category: "Réglementation",
+  },
+  {
+    term: "Indice de durabilité",
+    definition:
+      "Note sur 10 qui remplace progressivement l'indice de réparabilité : téléviseurs début 2025, lave-linge depuis avril 2025. Il ajoute des critères de fiabilité.",
     category: "Réglementation",
   },
   {
@@ -433,7 +439,11 @@ export default function RessourcesPage() {
 
           <div className="grid gap-4 md:grid-cols-2">
             {filteredGlossary.map((item, index) => (
-              <Card key={index} className="border border-border p-6 bg-card">
+              <Card
+                key={index}
+                id={`terme-${item.term.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-")}`}
+                className="scroll-mt-16 border border-border p-6 bg-card"
+              >
                 <div className="mb-2 flex items-start justify-between">
                   <h3 className="font-bold text-card-foreground">{item.term}</h3>
                   <Badge variant="secondary" className="text-xs">

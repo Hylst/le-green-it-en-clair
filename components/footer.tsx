@@ -73,6 +73,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/guide" className="text-slate-600 hover:text-emerald-700 dark:text-slate-400 dark:hover:text-emerald-400">
+                  Guide
+                </Link>
+              </li>
+              <li>
                 <Link href="/ressources" className="text-slate-600 hover:text-emerald-700 dark:text-slate-400 dark:hover:text-emerald-400">
                   Documentation
                 </Link>
@@ -98,10 +103,26 @@ export function Footer() {
           <div>
             <h3 className="mb-4 font-semibold text-slate-900 dark:text-slate-100">Sources de référence</h3>
             <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
-              <li>ADEME</li>
-              <li>GreenIT.fr</li>
-              <li>Ecosystem</li>
-              <li>Écologic</li>
+              <li>
+                <a href="https://www.ademe.fr" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 dark:hover:text-emerald-400">
+                  ADEME
+                </a>
+              </li>
+              <li>
+                <a href="https://www.greenit.fr" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 dark:hover:text-emerald-400">
+                  GreenIT.fr
+                </a>
+              </li>
+              <li>
+                <a href="https://www.ecosystem.eco" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 dark:hover:text-emerald-400">
+                  Ecosystem
+                </a>
+              </li>
+              <li>
+                <a href="https://www.ecologic-france.com" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 dark:hover:text-emerald-400">
+                  Écologic
+                </a>
+              </li>
             </ul>
           </div>
         </div>

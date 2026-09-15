@@ -495,7 +495,7 @@ res.json(users) // 150 KB compressé`}
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                       <span>
-                        <strong>Compression :</strong> Gzip/Brotli pour réduire de 70-90%
+                        <strong>Compression :</strong> Gzip/Brotli pour réduire de l'ordre de 70-90 %
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
@@ -639,7 +639,7 @@ res.json(users) // 150 KB compressé`}
                         <strong>Streaming adaptatif :</strong> HLS ou DASH pour ajuster la qualité selon la connexion
                       </p>
                       <p className="mb-2">
-                        <strong>Compression :</strong> H.265 (HEVC) ou AV1 pour réduire de 50% vs H.264
+                        <strong>Compression :</strong> H.265 (HEVC) ou AV1 pour réduire de l'ordre de 50 % vs H.264
                       </p>
                     </div>
                     <div>
@@ -694,7 +694,7 @@ res.json(users) // 150 KB compressé`}
               Cas particulier du Machine Learning
             </h2>
             <p className="text-lg text-muted-foreground text-pretty">
-              L'IA et le ML sont extrêmement énergivores. Entraîner GPT-3 a émis 552 t CO₂e (Patterson et al., 2021), soit l'équivalent des émissions annuelles d'une centaine de voitures.
+              L'IA et le ML sont extrêmement énergivores. Entraîner GPT-3 a émis 552 t CO₂e (Patterson et al., 2021), soit l'équivalent des émissions annuelles d'environ 120 voitures.
             </p>
           </div>
 
@@ -989,7 +989,7 @@ module.exports = {
                     <ul className="text-sm text-muted-foreground space-y-1">
                       <li>• Dimensionnés pour le pic de charge</li>
                       <li>• Tournent à 10-30% en moyenne</li>
-                      <li>• Gaspillage énergétique 70-90%</li>
+                      <li>• Gaspillage énergétique 70-90 % (ordre de grandeur)</li>
                       <li>• Coût fixe élevé</li>
                     </ul>
                   </div>
@@ -1257,7 +1257,7 @@ module.exports = {
           <div className="bg-primary text-primary-foreground rounded-2xl p-12">
             <h2 className="text-3xl font-bold mb-4">Chaque optimisation compte</h2>
             <p className="text-lg mb-8 text-green-50">
-              En appliquant ces bonnes pratiques, vous pouvez réduire de 30 à 70% la consommation énergétique de vos
+              En appliquant ces bonnes pratiques, vous pouvez réduire de l'ordre de 30 à 70 % la consommation énergétique de vos
               applications tout en améliorant leur performance.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
@@ -1418,7 +1418,6 @@ module.exports = {
         </div>
       </section>
 
-      <section className="py-12 px-4 bg-white"></section>
     </div >
   )
 }

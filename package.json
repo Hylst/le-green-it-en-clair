@@ -27,7 +27,7 @@
     "build": "next build",
     "convert-images": "node scripts/convert-images-to-webp.js",
     "dev": "next dev",
-    "start": "next start"
+    "check:typo": "node scripts/check-typo.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

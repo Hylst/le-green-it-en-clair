@@ -229,7 +229,7 @@ export default function PolitiqueNumeriquePage() {
                             <tbody className="text-muted-foreground">
                                 <tr className="border-b border-border">
                                     <td className="py-2">Ordinateur portable</td>
-                                    <td className="py-2">4 ans</td>
+                                    <td className="py-2">5 ans</td>
                                     <td className="py-2">5-7 ans</td>
                                 </tr>
                                 <tr className="border-b border-border">
@@ -239,8 +239,8 @@ export default function PolitiqueNumeriquePage() {
                                 </tr>
                                 <tr className="border-b border-border">
                                     <td className="py-2">Smartphone</td>
-                                    <td className="py-2">3 ans</td>
-                                    <td className="py-2">4-5 ans</td>
+                                    <td className="py-2">5 ans</td>
+                                    <td className="py-2">5-7 ans</td>
                                 </tr>
                                 <tr className="border-b border-border">
                                     <td className="py-2">Tablette</td>

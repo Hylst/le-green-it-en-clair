@@ -68,13 +68,13 @@ export default function TableauBordPage() {
                         </Card>
                         <Card className="p-4 bg-muted/5 border-border">
                             <div className="text-2xl font-bold text-purple-600 mb-2">3</div>
-                            <p className="font-semibold text-foreground">Suivi</p>
-                            <p className="text-sm text-muted-foreground">Évolution annuelle</p>
+                            <p className="font-semibold text-foreground">KPIs</p>
+                            <p className="text-sm text-muted-foreground">Indicateurs clés</p>
                         </Card>
                         <Card className="p-4 bg-muted/5 border-border">
                             <div className="text-2xl font-bold text-amber-600 mb-2">4</div>
-                            <p className="font-semibold text-foreground">KPIs</p>
-                            <p className="text-sm text-muted-foreground">Indicateurs clés</p>
+                            <p className="font-semibold text-foreground">Suivi</p>
+                            <p className="text-sm text-muted-foreground">Évolution annuelle</p>
                         </Card>
                         <Card className="p-4 bg-muted/5 border-border">
                             <div className="text-2xl font-bold text-teal-600 mb-2">5</div>

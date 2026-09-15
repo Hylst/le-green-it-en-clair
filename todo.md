@@ -1,6 +1,6 @@
 # todo
 
-Ma liste, mise à jour le 13/09/2026 après une grosse relecture pessimiste (lecture seule, j'ai rien cassé, promis).
+Ma liste, mise à jour le 15/09/2026 après une grosse relecture pessimiste (lecture seule, j'ai rien cassé, promis).
 
 ## 🔴 P0 — ce qui casse en prod sous /greenit
 

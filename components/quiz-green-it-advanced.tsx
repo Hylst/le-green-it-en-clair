@@ -294,7 +294,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Un ordinateur portable bien entretenu peut durer 5 à 7 ans, voire plus avec des mises à niveau ciblées.",
-    source: "ADEME",
+    source: "ADEME 2026",
     points: 10,
   },
   {
@@ -349,7 +349,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Un email simple émet environ 4 g de CO2 ; comptez environ 35 g avec une pièce jointe de 1 Mo et 0,3 g pour un spam (ADEME).",
-    source: "ADEME",
+    source: "ADEME, ACV e-mail 2011",
     points: 10,
   },
   {
@@ -369,10 +369,10 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Usage et sobriété",
     difficulty: "difficile",
     question: "Combien de CO2 peut générer 1 heure de streaming vidéo HD ?",
-    options: ["de l'ordre de 5 g", "de l'ordre de 50 g", "de l'ordre de 500 g", "plus de 1 kg"],
+    options: ["de l'ordre de 5 g", "de l'ordre de 50 à 100 g", "de l'ordre de 500 g", "plus de 1 kg"],
     correctAnswer: 1,
     explanation:
-      "Selon les hypothèses, une heure de vidéo HD émet de l'ordre de 50 à 100 g de CO2 ; les estimations vont de 56 à 400 g/h (Shift 2019, Kamiya 2020).",
+      "Les estimations publiées vont d'environ 56 à 400 g/h selon le périmètre ; en HD, l'ordre de grandeur courant est de 50 à 100 g (Shift 2019, Kamiya 2020).",
     source: "Shift 2019, Kamiya 2020",
     points: 20,
   },
@@ -430,7 +430,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 2,
     explanation:
       "Un email avec une pièce jointe de 1 Mo génère environ 35 g de CO2, contre environ 4 g pour un email simple (ADEME).",
-    source: "ADEME",
+    source: "ADEME, ACV e-mail 2011",
     points: 20,
   },
   {
@@ -746,7 +746,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     id: 52,
     category: "Datacenters et infrastructure",
     difficulty: "facile",
-    question: "Quel est le PUE moyen des datacenters modernes en 2025 ?",
+    question: "Quel est le PUE moyen mondial des datacenters ?",
     options: ["1,2", "1,6", "2,0", "3,0"],
     correctAnswer: 1,
     explanation:
@@ -833,7 +833,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Les grands clouds compensent souvent leur consommation annuelle par des achats d'énergie renouvelable (matching annuel), ce qui n'équivaut pas à un fonctionnement 24/7 décarboné.",
-    source: "Rapports ESG des clouds 2025",
+    source: "Rapports ESG Google/Microsoft/AWS 2025",
     points: 15,
   },
   {
@@ -1053,7 +1053,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctAnswer: 1,
     explanation:
-      "Une requête consomme peu à l'unité ; l'impact vient surtout de l'appareil et du volume d'usages. Les repères historiques (0,2 g) sont datés et dépendent du mix électrique.",
+      "Une requête consomme peu à l'unité ; l'impact vient surtout de l'appareil et du volume d'usages. Le repère de 0,2 g vient d'une estimation Google de 2009 et dépend du mix électrique.",
     source: "ADEME, Impact CO2 / Base Empreinte",
     points: 15,
   },
@@ -1114,7 +1114,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Le CO2 (dioxyde de carbone) est le principal gaz à effet de serre émis par la production d'électricité.",
-    source: "GIEC",
+    source: "GIEC, AR6 2021",
     points: 10,
   },
   {
@@ -1306,7 +1306,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Fairphone est un smartphone conçu pour être modulaire et réparable ; son indice de réparabilité est élevé, selon les modèles et les organismes d'évaluation.",
-    source: "Fairphone 2025",
+    source: "iFixit 2025",
     points: 15,
   },
   {
@@ -1403,7 +1403,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Ces projets visent la décentralisation, mais leur bilan environnemental est débattu et dépend des usages.",
-    source: "Études blockchain & environnement",
+    source: "Cambridge CBECI 2024",
     points: 20,
   },
   {
@@ -1677,7 +1677,7 @@ export function QuizGreenITAdvanced() {
   if (isFinished) {
     const maxScore = activeQuestions.reduce((sum, q) => sum + q.points, 0)
     const levelInfo = getLevel(score, maxScore)
-    const percentage = Math.round((score / maxScore) * 100)
+    const percentage = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0
 
     return (
       <Card className="shadow-lg dark:bg-slate-800">

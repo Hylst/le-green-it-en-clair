@@ -45,7 +45,7 @@
 ### Domaine B — chiffres, outils, quiz
 - Table de concordance à appliquer : e-déchets, recyclage monde/France, fabrication smartphone, CO2/eau, reconditionné, cloud/transfert, datacenters/PUE, IA, équivalences, box, streaming/Wi-Fi, code/WebP.
 - `components/outils/carbon-calculator.tsx`, `sobriety-simulator.tsx`, `enterprise-simulator.tsx`, `it-audit.tsx`, `cloud-comparator.tsx` : facteurs, millésimes, hypothèses affichées, équivalences.
-- `components/quiz-green-it-advanced.tsx` : bouton certificat branché sur « Imprimer » le 15/09 ; reste la refonte du contenu et de l'attestation (vague quiz en cours).
+- `components/quiz-green-it-advanced.tsx` : contenu et attestation refondus le 15/09 (sources, moteur, impression) ; reste la vérification multi-navigateurs.
 - `components/website-carbon-calculator.tsx` : déjà conforme, à sanctuariser.
 - `components/growth-animation.tsx` : formule exponentielle à aligner sur trajectoire GEM.
 
@@ -117,7 +117,7 @@
 - [ ] Relecture complète des diffs.
 - [x] Build final, export final, contrôle `/greenit/`.
 - [x] Mise à jour finale `todo.md`, `changelog.md` et ce suivi.
-- [x] Clôture seulement après preuve de vérification.
+- [x] Clôture de la campagne quiz/oublis P0 après preuve de vérification ; la vague 3 (images) et les contenus restants listés à l'audit pessimiste du 15/09 restent ouverts.
 
 ## Journal
 

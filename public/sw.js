@@ -1,7 +1,7 @@
 // Service Worker for Le Green IT en clair
 // Enables offline-first functionality
 
-const CACHE_NAME = 'green-it-v1.3.0';
+const CACHE_NAME = 'green-it-v1.3.1';
 const STATIC_ASSETS = [
     '/greenit/',
     '/greenit/offline/',
@@ -10,11 +10,29 @@ const STATIC_ASSETS = [
     '/greenit/agir/',
     '/greenit/outils/',
     '/greenit/faq/',
+    '/greenit/fiches-pratiques/',
+    '/greenit/fiches-pratiques/gestes-quotidiens/',
+    '/greenit/fiches-pratiques/achat-responsable/',
+    '/greenit/fiches-pratiques/ecoconception-web/',
+    '/greenit/fiches-pratiques/reparer-prolonger/',
+    '/greenit/fiches-pratiques/green-it-entreprise/',
+    '/greenit/fiches-pratiques/recyclage-mode-emploi/',
+    '/greenit/fiches-pratiques/datacenters-verts/',
+    '/greenit/fiches-pratiques/collectivites-action/',
+    '/greenit/modeles/',
+    '/greenit/modeles/cahier-charges-achat/',
+    '/greenit/modeles/charte-green-it/',
+    '/greenit/modeles/grille-audit/',
+    '/greenit/modeles/guide-sensibilisation/',
+    '/greenit/modeles/plan-action-dsi/',
+    '/greenit/modeles/politique-numerique/',
+    '/greenit/modeles/tableau-bord-impact/',
     '/greenit/manifest.json',
     '/greenit/icon-light-32x32.webp',
     '/greenit/apple-icon.webp',
     '/greenit/icon-192.webp',
     '/greenit/icon-512.webp',
+    '/greenit/icon-512-maskable.png',
 ];
 
 // Install event - cache static assets

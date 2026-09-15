@@ -87,8 +87,17 @@ export default function FAQPage() {
                 <Badge
                   key={category}
                   variant={selectedCategory === category ? "default" : "outline"}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={selectedCategory === category}
                   className="cursor-pointer px-4 py-2"
                   onClick={() => setSelectedCategory(category)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault()
+                      setSelectedCategory(category)
+                    }
+                  }}
                 >
                   {category}
                 </Badge>
@@ -123,6 +132,7 @@ export default function FAQPage() {
                         >
                           <button
                             onClick={() => toggleQuestion(catIndex, qIndex)}
+                            aria-expanded={isOpen}
                             className="flex w-full items-start justify-between gap-4 p-6 text-left transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50"
                           >
                             <h3 className="flex-1 font-semibold text-slate-900 dark:text-slate-100">{item.q}</h3>
@@ -162,6 +172,14 @@ export default function FAQPage() {
                 <Link href="/a-propos">Nous contacter</Link>
               </Button>
             </div>
+          </Card>
+
+          <Card className="mt-6 border border-border p-6">
+            <h3 className="mb-3 text-sm font-semibold text-foreground">Sources principales</h3>
+            <p className="text-sm text-muted-foreground">
+              ADEME (Base Empreinte, Base Carbone, Impact CO₂), ADEME-Arcep (2023), Global E-waste Monitor 2024 (ONU),
+              Eurostat (2024), règlements européens 2023/1670, 2023/1669 et 2024/1799, loi AGEC (2020).
+            </p>
           </Card>
         </div>
       </section>

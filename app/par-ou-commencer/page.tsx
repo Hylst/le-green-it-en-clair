@@ -213,12 +213,21 @@ export default function GettingStartedPage() {
               return (
                 <Card
                   key={profile.id}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={isSelected}
                   className={`cursor-pointer p-6 transition-all hover:shadow-xl ${
                     isSelected
                       ? "ring-2 ring-emerald-500 shadow-lg dark:ring-emerald-400"
                       : "hover:ring-1 hover:ring-slate-300 dark:hover:ring-slate-600"
                   }`}
                   onClick={() => setSelectedProfile(profile.id)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault()
+                      setSelectedProfile(profile.id)
+                    }
+                  }}
                 >
                   <div
                     className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br ${profile.color}`}

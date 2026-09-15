@@ -56,9 +56,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Le Green IT en clair - Écologie Numérique et Numérique Responsable",
-    description:
-      "Découvrez l'impact environnemental du numérique et adoptez des pratiques responsables. Informations, outils interactifs et ressources pour un Green IT en France.",
     images: ["https://hylst.fr/greenit/og-cover.jpg"],
   },
   robots: {
@@ -80,7 +77,7 @@ export const metadata: Metadata = {
       { url: "/greenit/icon.svg", type: "image/svg+xml" },
     ],
     apple: [
-      { url: "/greenit/apple-icon.webp", sizes: "180x180", type: "image/webp" },
+      { url: "/greenit/apple-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
 }

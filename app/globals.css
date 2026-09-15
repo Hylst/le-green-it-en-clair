@@ -3,6 +3,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Classes construites dynamiquement dans le code : safelist Tailwind v4 */
+@source inline("{bg,text,border}-{red,orange,amber,rose,blue,purple,emerald,teal,cyan,indigo,violet,pink,slate,gray}-{50,100,500,600,700}");
+@source inline("bg-{red,orange,amber,rose,blue,purple,emerald,teal,cyan,indigo,violet,pink,slate,gray}-900/30");
+@source inline("dark:bg-{red,orange,amber,rose,blue,purple,emerald,teal,cyan,indigo,violet,pink,slate,gray}-900/30");
+@source inline("dark:bg-{red,orange,amber,rose,blue,purple,emerald,teal,cyan,indigo,violet,pink,slate,gray}-900/20");
+@source inline("dark:text-{red,orange,amber,rose,blue,purple,emerald,teal,cyan,indigo,violet,pink,slate,gray}-400");
+@source inline("dark:border-{red,orange,amber,rose,blue,purple,emerald,teal,cyan,indigo,violet,pink,slate,gray}-400");
+
 /* ========================================
    GREEN IT - DESIGN SYSTEM
    Theme: Dark mode by default

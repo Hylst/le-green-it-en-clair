@@ -31,6 +31,7 @@ export function LabeledSlider({ value, min, max, step, onValueChange, unit, labe
           className="h-8 w-8 shrink-0"
           onClick={() => onValueChange([Math.max(min, value[0] - step)])}
           disabled={value[0] <= min}
+          aria-label={`Diminuer ${label}`}
         >
           -
         </Button>
@@ -54,6 +55,7 @@ export function LabeledSlider({ value, min, max, step, onValueChange, unit, labe
           className="h-8 w-8 shrink-0"
           onClick={() => onValueChange([Math.min(max, value[0] + step)])}
           disabled={value[0] >= max}
+          aria-label={`Augmenter ${label}`}
         >
           +
         </Button>

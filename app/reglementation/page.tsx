@@ -40,7 +40,7 @@ const timelineData = [
   { year: "2020", event: "Loi AGEC", impact: 85 },
   { year: "2021", event: "Indice réparabilité", impact: 70 },
   { year: "2021", event: "Loi REEN", impact: 90 },
-  { year: "2024", event: "Indice durabilité", impact: 75 },
+  { year: "2025", event: "Indice durabilité (TV, lave-linge)", impact: 75 },
   { year: "2025", event: "Étiquette énergie smartphones (UE)", impact: 80 },
   { year: "2026", event: "CSRD : nouveau périmètre", impact: 95 },
   { year: "2026", event: "Droit à la réparation applicable", impact: 88 },
@@ -146,7 +146,7 @@ export default function ReglementationPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">Objectifs principaux</h4>
+                    <h3 className="font-semibold text-foreground mb-2">Objectifs principaux</h3>
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
@@ -171,7 +171,7 @@ export default function ReglementationPage() {
                     <div className="bg-card p-4 rounded-lg border border-primary/20">
                       <div className="flex items-center gap-2 mb-2">
                         <Users className="w-5 h-5 text-emerald-600" />
-                        <h5 className="font-semibold text-card-foreground">Qui est concerné ?</h5>
+                        <h4 className="font-semibold text-card-foreground">Qui est concerné ?</h4>
                       </div>
                       <ul className="text-sm text-muted-foreground space-y-1">
                         <li>• Fabricants et distributeurs</li>
@@ -184,7 +184,7 @@ export default function ReglementationPage() {
                     <div className="bg-card p-4 rounded-lg border border-primary/20">
                       <div className="flex items-center gap-2 mb-2">
                         <TrendingUp className="w-5 h-5 text-emerald-600" />
-                        <h5 className="font-semibold text-card-foreground">Effets mesurés</h5>
+                        <h4 className="font-semibold text-card-foreground">Effets mesurés</h4>
                       </div>
                       <ul className="text-sm text-muted-foreground space-y-1">
                         <li>• Bonus réparation : de 4 à 25 M€ versés en un an (ADEME, 2025)
@@ -211,28 +211,28 @@ export default function ReglementationPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">5 objectifs majeurs</h4>
+                    <h3 className="font-semibold text-foreground mb-2">5 objectifs majeurs</h3>
                     <div className="grid md:grid-cols-2 gap-3">
                       <div className="bg-card p-3 rounded-lg border border-accent/20">
-                        <h5 className="font-semibold text-sm mb-1 text-card-foreground">1. Sensibilisation</h5>
+                        <h4 className="font-semibold text-sm mb-1 text-card-foreground">1. Sensibilisation</h4>
                         <p className="text-sm text-muted-foreground">
                           Éducation à l'empreinte environnementale du numérique dès l'école
                         </p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-accent/20">
-                        <h5 className="font-semibold text-sm mb-1 text-card-foreground">2. Limitation du renouvellement</h5>
+                        <h4 className="font-semibold text-sm mb-1 text-card-foreground">2. Limitation du renouvellement</h4>
                         <p className="text-sm text-muted-foreground">Lutte contre l'obsolescence logicielle et matérielle</p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-accent/20">
-                        <h5 className="font-semibold text-sm mb-1 text-card-foreground">3. Écoconception</h5>
+                        <h4 className="font-semibold text-sm mb-1 text-card-foreground">3. Écoconception</h4>
                         <p className="text-sm text-muted-foreground">Services numériques plus sobres et accessibles</p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-accent/20">
-                        <h5 className="font-semibold text-sm mb-1 text-card-foreground">4. Datacenters responsables</h5>
+                        <h4 className="font-semibold text-sm mb-1 text-card-foreground">4. Datacenters responsables</h4>
                         <p className="text-sm text-muted-foreground">Suivi des indicateurs PUE (efficacité énergétique) et WUE (consommation d'eau), et reporting européen</p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-accent/20">
-                        <h5 className="font-semibold text-sm mb-1 text-card-foreground">5. Territoires</h5>
+                        <h4 className="font-semibold text-sm mb-1 text-card-foreground">5. Territoires</h4>
                         <p className="text-sm text-muted-foreground">
                           Stratégie numérique responsable pour les collectivités de plus de 50 000 habitants
                         </p>
@@ -241,10 +241,10 @@ export default function ReglementationPage() {
                   </div>
 
                   <div className="bg-accent/10 p-4 rounded-lg">
-                    <h5 className="font-semibold mb-2 flex items-center gap-2 text-foreground">
+                    <h4 className="font-semibold mb-2 flex items-center gap-2 text-foreground">
                       <AlertCircle className="w-5 h-5 text-accent" />
                       Obligations spécifiques
-                    </h5>
+                    </h4>
                     <ul className="text-sm space-y-1 text-muted-foreground">
                       <li>
                         • <strong>Opérateurs télécom :</strong> Rapport annuel sur empreinte environnementale
@@ -274,7 +274,7 @@ export default function ReglementationPage() {
                 <CardContent className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="bg-card p-4 rounded-lg border border-chart-3/20">
-                      <h5 className="font-semibold mb-2 text-card-foreground">Indice de réparabilité (2021)</h5>
+                      <h4 className="font-semibold mb-2 text-card-foreground">Indice de réparabilité (2021)</h4>
                       <p className="text-sm text-muted-foreground mb-3">Note sur 10 évaluant la facilité de réparation</p>
                       <div className="space-y-2 text-sm text-muted-foreground">
                         <div className="flex justify-between">
@@ -307,7 +307,7 @@ export default function ReglementationPage() {
                     </div>
 
                     <div className="bg-card p-4 rounded-lg border border-accent/20">
-                      <h5 className="font-semibold mb-2 text-card-foreground">Indice de durabilité (2025)</h5>
+                      <h4 className="font-semibold mb-2 text-card-foreground">Indice de durabilité (2025)</h4>
                       <p className="text-sm text-muted-foreground mb-3">
                         Deux notes : réparabilité + fiabilité. En vigueur pour les téléviseurs (janvier 2025) et les
                         lave-linge (avril 2025).
@@ -350,7 +350,7 @@ export default function ReglementationPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">Objectifs de collecte et recyclage</h4>
+                    <h3 className="font-semibold text-foreground mb-2">Objectifs de collecte et recyclage</h3>
                     <div className="space-y-3">
                       <div className="bg-card p-3 rounded-lg border border-accent/20">
                         <div className="flex justify-between items-center mb-2">
@@ -383,7 +383,7 @@ export default function ReglementationPage() {
                   </div>
 
                   <div className="bg-accent/10 p-4 rounded-lg">
-                    <h5 className="font-semibold mb-2 text-foreground">Obligations pour les États membres</h5>
+                    <h4 className="font-semibold mb-2 text-foreground">Obligations pour les États membres</h4>
                     <ul className="text-sm space-y-1 text-muted-foreground">
                       <li>• Mise en place de systèmes de collecte séparée</li>
                       <li>• Traitement sélectif des substances dangereuses</li>
@@ -406,41 +406,41 @@ export default function ReglementationPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">Mesures clés</h4>
+                    <h3 className="font-semibold text-foreground mb-2">Mesures clés</h3>
                     <div className="grid md:grid-cols-2 gap-3">
                       <div className="bg-card p-3 rounded-lg border border-primary/20">
-                        <h5 className="font-semibold text-sm mb-1 flex items-center gap-2 text-card-foreground">
+                        <h4 className="font-semibold text-sm mb-1 flex items-center gap-2 text-card-foreground">
                           <CheckCircle2 className="w-4 h-4 text-primary" />
                           Pièces détachées
-                        </h5>
+                        </h4>
                         <p className="text-sm text-muted-foreground">Disponibilité 5 à 10 ans selon les produits (smartphones et tablettes inclus)</p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-primary/20">
-                        <h5 className="font-semibold text-sm mb-1 flex items-center gap-2 text-card-foreground">
+                        <h4 className="font-semibold text-sm mb-1 flex items-center gap-2 text-card-foreground">
                           <CheckCircle2 className="w-4 h-4 text-primary" />
                           Prix raisonnables
-                        </h5>
+                        </h4>
                         <p className="text-sm text-muted-foreground">Des prix raisonnables pour les pièces de rechange</p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-primary/20">
-                        <h5 className="font-semibold text-sm mb-1 flex items-center gap-2 text-card-foreground">
+                        <h4 className="font-semibold text-sm mb-1 flex items-center gap-2 text-card-foreground">
                           <CheckCircle2 className="w-4 h-4 text-primary" />
                           Accès aux outils
-                        </h5>
+                        </h4>
                         <p className="text-sm text-muted-foreground">Manuels et outils de diagnostic accessibles</p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-primary/20">
-                        <h5 className="font-semibold text-sm mb-1 flex items-center gap-2 text-card-foreground">
+                        <h4 className="font-semibold text-sm mb-1 flex items-center gap-2 text-card-foreground">
                           <CheckCircle2 className="w-4 h-4 text-primary" />
                           Réparateurs indépendants
-                        </h5>
+                        </h4>
                         <p className="text-sm text-muted-foreground">Accès aux mêmes ressources que les services agréés</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="bg-primary/10 p-4 rounded-lg">
-                    <h5 className="font-semibold mb-2 text-foreground">Calendrier d'application</h5>
+                    <h4 className="font-semibold mb-2 text-foreground">Calendrier d'application</h4>
                     <div className="space-y-2 text-sm text-muted-foreground">
                       <div className="flex items-center gap-2">
                         <Calendar className="w-4 h-4 text-emerald-600" />
@@ -477,7 +477,7 @@ export default function ReglementationPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">Reporting extra-financier obligatoire</h4>
+                    <h3 className="font-semibold text-foreground mb-2">Reporting extra-financier obligatoire</h3>
                     <p className="text-muted-foreground mb-4">
                       La CSRD impose aux grandes entreprises de publier des informations détaillées sur leur impact
                       environnemental, incluant leur empreinte numérique.
@@ -485,7 +485,7 @@ export default function ReglementationPage() {
 
                     <div className="space-y-3">
                       <div className="bg-card p-3 rounded-lg border border-chart-3/20">
-                        <h5 className="font-semibold text-sm mb-2 text-card-foreground">Qui est concerné ?</h5>
+                        <h4 className="font-semibold text-sm mb-2 text-card-foreground">Qui est concerné ?</h4>
                         <ul className="text-sm text-muted-foreground space-y-1">
                           <li>• Grandes entreprises de plus de 1 000 salariés ET plus de 450 M€ de chiffre d'affaires (seuils cumulatifs, directive Omnibus I, 2026)</li>
                           <li>• PME cotées définitivement exclues</li>
@@ -494,7 +494,7 @@ export default function ReglementationPage() {
                       </div>
 
                       <div className="bg-card p-3 rounded-lg border border-chart-3/20">
-                        <h5 className="font-semibold text-sm mb-2 text-card-foreground">Données numériques à reporter</h5>
+                        <h4 className="font-semibold text-sm mb-2 text-card-foreground">Données numériques à reporter</h4>
                         <ul className="text-sm text-muted-foreground space-y-1">
                           <li>• Consommation énergétique des infrastructures IT</li>
                           <li>• Émissions GES liées au numérique (scope 1, 2, 3)</li>
@@ -507,7 +507,7 @@ export default function ReglementationPage() {
                   </div>
 
                   <div className="bg-chart-3/10 p-4 rounded-lg">
-                    <h5 className="font-semibold mb-2 text-foreground">Impact attendu</h5>
+                    <h4 className="font-semibold mb-2 text-foreground">Impact attendu</h4>
                       <p className="text-sm text-muted-foreground">
                       La CSRD va forcer les entreprises concernées à mesurer précisément leur empreinte numérique et à
                       mettre en place des stratégies de réduction. Environ <strong>5 000 entreprises européennes</strong>{" "}
@@ -575,7 +575,7 @@ export default function ReglementationPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">Principes fondamentaux</h4>
+                    <h3 className="font-semibold text-foreground mb-2">Principes fondamentaux</h3>
                     <p className="text-muted-foreground mb-4">
                       L'ISO 14001 définit les exigences pour un système de management environnemental (SME) efficace.
                       Elle s'applique à toutes les organisations, quelle que soit leur taille ou leur secteur.
@@ -583,28 +583,28 @@ export default function ReglementationPage() {
 
                     <div className="grid md:grid-cols-2 gap-3">
                       <div className="bg-card p-3 rounded-lg border border-chart-2/20">
-                        <h5 className="font-semibold text-sm mb-1 text-card-foreground">Engagement de la direction</h5>
+                        <h4 className="font-semibold text-sm mb-1 text-card-foreground">Engagement de la direction</h4>
                         <p className="text-sm text-muted-foreground">Leadership et politique environnementale claire</p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-chart-2/20">
-                        <h5 className="font-semibold text-sm mb-1 text-card-foreground">Planification</h5>
+                        <h4 className="font-semibold text-sm mb-1 text-card-foreground">Planification</h4>
                         <p className="text-sm text-muted-foreground">
                           Identification des aspects environnementaux significatifs
                         </p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-chart-2/20">
-                        <h5 className="font-semibold text-sm mb-1 text-card-foreground">Support et opérations</h5>
+                        <h4 className="font-semibold text-sm mb-1 text-card-foreground">Support et opérations</h4>
                         <p className="text-sm text-muted-foreground">Ressources, compétences et contrôle opérationnel</p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-chart-2/20">
-                        <h5 className="font-semibold text-sm mb-1 text-card-foreground">Amélioration continue</h5>
+                        <h4 className="font-semibold text-sm mb-1 text-card-foreground">Amélioration continue</h4>
                         <p className="text-sm text-muted-foreground">Surveillance, audit et actions correctives</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="bg-chart-2/10 p-4 rounded-lg">
-                    <h5 className="font-semibold mb-2 text-foreground">Application au Green IT</h5>
+                    <h4 className="font-semibold mb-2 text-foreground">Application au Green IT</h4>
                     <ul className="text-sm space-y-1 text-muted-foreground">
                       <li>• Mesure de l'empreinte carbone des infrastructures IT</li>
                       <li>• Politique d'achat responsable (critères environnementaux)</li>
@@ -633,7 +633,7 @@ export default function ReglementationPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">Objectifs de la norme</h4>
+                    <h3 className="font-semibold text-foreground mb-2">Objectifs de la norme</h3>
                     <p className="text-muted-foreground mb-4">
                       L'ISO 50001 aide les organisations à développer une gestion systématique de l'énergie pour
                       améliorer leur performance énergétique, incluant l'efficacité, l'usage et la consommation.
@@ -641,7 +641,7 @@ export default function ReglementationPage() {
 
                     <div className="space-y-3">
                       <div className="bg-card p-3 rounded-lg border border-accent/20">
-                        <h5 className="font-semibold text-sm mb-2 text-card-foreground">Cycle PDCA (Plan-Do-Check-Act)</h5>
+                        <h4 className="font-semibold text-sm mb-2 text-card-foreground">Cycle PDCA (Plan-Do-Check-Act)</h4>
                         <div className="grid grid-cols-4 gap-2 text-xs">
                           <div className="text-center">
                             <div className="font-semibold text-accent mb-1">Plan</div>
@@ -663,7 +663,7 @@ export default function ReglementationPage() {
                       </div>
 
                       <div className="bg-card p-3 rounded-lg border border-accent/20">
-                        <h5 className="font-semibold text-sm mb-2 text-card-foreground">Application aux datacenters</h5>
+                        <h4 className="font-semibold text-sm mb-2 text-card-foreground">Application aux datacenters</h4>
                         <ul className="text-sm text-muted-foreground space-y-1">
                           <li>• Mesure du PUE (Power Usage Effectiveness)</li>
                           <li>• Optimisation du refroidissement</li>
@@ -676,7 +676,7 @@ export default function ReglementationPage() {
                   </div>
 
                   <div className="bg-accent/10 p-4 rounded-lg">
-                    <h5 className="font-semibold mb-2 text-foreground">Bénéfices typiques</h5>
+                    <h4 className="font-semibold mb-2 text-foreground">Bénéfices typiques</h4>
                     <p className="text-sm text-muted-foreground">
                       Les économies varient selon le site : les retours d'expérience documentent souvent 10 à 20 % sur la
                       consommation d'énergie, avec un retour sur investissement de quelques années.
@@ -698,7 +698,7 @@ export default function ReglementationPage() {
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="bg-card p-4 rounded-lg border border-primary/20">
-                      <h5 className="font-semibold mb-2 text-card-foreground">🌿 Label Numérique Responsable</h5>
+                      <h4 className="font-semibold mb-2 text-card-foreground">🌿 Label Numérique Responsable</h4>
                       <p className="text-sm text-muted-foreground mb-2">
                         Certification française délivrée par l'INR (Institut du Numérique Responsable)
                       </p>
@@ -710,7 +710,7 @@ export default function ReglementationPage() {
                     </div>
 
                     <div className="bg-card p-4 rounded-lg border border-primary/20">
-                      <h5 className="font-semibold mb-2 text-card-foreground">⚡ Energy Star</h5>
+                      <h4 className="font-semibold mb-2 text-card-foreground">⚡ Energy Star</h4>
                       <p className="text-sm text-muted-foreground mb-2">
                         Label américain reconnu internationalement pour l'efficacité énergétique
                       </p>
@@ -722,7 +722,7 @@ export default function ReglementationPage() {
                     </div>
 
                     <div className="bg-card p-4 rounded-lg border border-primary/20">
-                      <h5 className="font-semibold mb-2 text-card-foreground">🏆 TCO Certified</h5>
+                      <h4 className="font-semibold mb-2 text-card-foreground">🏆 TCO Certified</h4>
                       <p className="text-sm text-muted-foreground mb-2">Certification suédoise couvrant tout le cycle de vie</p>
                       <ul className="text-xs text-muted-foreground space-y-1">
                         <li>• Critères sociaux et environnementaux stricts</li>
@@ -732,7 +732,7 @@ export default function ReglementationPage() {
                     </div>
 
                     <div className="bg-card p-4 rounded-lg border border-primary/20">
-                      <h5 className="font-semibold mb-2 text-card-foreground">🔋 EPEAT</h5>
+                      <h4 className="font-semibold mb-2 text-card-foreground">🔋 EPEAT</h4>
                       <p className="text-sm text-muted-foreground mb-2">Electronic Product Environmental Assessment Tool</p>
                       <ul className="text-xs text-muted-foreground space-y-1">
                         <li>• 3 niveaux : Bronze, Silver, Gold</li>

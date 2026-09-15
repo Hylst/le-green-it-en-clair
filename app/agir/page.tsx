@@ -296,6 +296,9 @@ export default function AgirPage() {
               return (
                 <Card
                   key={audience.id}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={isSelected}
                   className={`group cursor-pointer border-2 p-6 transition-all hover:shadow-lg ${isSelected
                     ? `border-${audience.color}-500 bg-${audience.color}-50 dark:bg-${audience.color}-900/20 dark:border-${audience.color}-400`
                     : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-slate-300 dark:hover:border-slate-600"
@@ -303,6 +306,13 @@ export default function AgirPage() {
                   onClick={() => {
                     setSelectedAudience(audience.id)
                     setCheckedItems({})
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault()
+                      setSelectedAudience(audience.id)
+                      setCheckedItems({})
+                    }
                   }}
                 >
                   <div
@@ -408,9 +418,9 @@ export default function AgirPage() {
                 <Download className="h-8 w-8 text-white" />
               </div>
               <div className="flex-1">
-                <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-slate-100">Télécharger le guide complet</h3>
+                <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-slate-100">Guide du recyclage (PDF)</h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Retrouvez toutes ces actions dans un guide PDF pratique à imprimer ou partager.
+                  Le guide pratique du recyclage : filières, gestes et bonnes adresses, à imprimer ou partager.
                 </p>
               </div>
               <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">

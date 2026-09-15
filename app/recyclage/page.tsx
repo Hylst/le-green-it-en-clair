@@ -413,11 +413,20 @@ export default function RecyclagePage() {
                 {filteredCities.map((point, index) => (
                   <Card
                     key={index}
+                    role="button"
+                    tabIndex={0}
+                    aria-pressed={selectedCity === point.city}
                     className={`cursor-pointer border-2 p-4 transition-all hover:shadow-md ${selectedCity === point.city
                       ? "border-primary bg-primary/10"
                       : "hover:border-primary/30"
                       }`}
                     onClick={() => setSelectedCity(point.city)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault()
+                        setSelectedCity(point.city)
+                      }
+                    }}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -602,9 +611,9 @@ export default function RecyclagePage() {
         <div className="mx-auto max-w-7xl">
           <h3 className="mb-4 text-sm font-semibold text-foreground">Sources</h3>
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-            <span>Ecosystem - Rapport annuel (2023)</span>
+            <span>Ecosystem - Rapport annuel (2024)</span>
             <span>•</span>
-            <span>Écologic - Données collecte (2023)</span>
+            <span>Eurostat - Taux de collecte DEEE (2024)</span>
             <span>•</span>
             <span>ADEME - Filière REP DEEE (2024)</span>
           </div>

@@ -51,7 +51,7 @@ export function InstallPWA() {
             variant="ghost"
             size="sm"
             onClick={handleInstallClick}
-            className="hidden items-center gap-2 text-emerald-700 hover:bg-emerald-50 md:flex dark:text-emerald-400 dark:hover:bg-emerald-900/20"
+            className="flex items-center gap-2 text-emerald-700 hover:bg-emerald-50 dark:text-emerald-400 dark:hover:bg-emerald-900/20"
         >
             <Download className="h-4 w-4" />
             <span>Installer l'app</span>

@@ -2,6 +2,7 @@
     "name": "Le Green IT en clair",
     "short_name": "Green IT",
     "description": "Site éducatif français sur le numérique responsable et l'écologie numérique",
+    "id": "/greenit/",
     "start_url": "/greenit/",
     "scope": "/greenit/",
     "display": "standalone",
@@ -30,6 +31,12 @@
             "sizes": "512x512",
             "type": "image/webp",
             "purpose": "any"
+        },
+        {
+            "src": "/greenit/icon-512-maskable.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
         }
     ],
     "categories": [
@@ -51,6 +58,20 @@
             "type": "image/webp",
             "form_factor": "narrow",
             "label": "Outils interactifs sur mobile"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Calculer mon empreinte",
+            "short_name": "Calculateur",
+            "url": "/greenit/outils/",
+            "icons": [{ "src": "/greenit/icon-192.webp", "sizes": "192x192", "type": "image/webp" }]
+        },
+        {
+            "name": "Recycler un appareil",
+            "short_name": "Recyclage",
+            "url": "/greenit/recyclage/",
+            "icons": [{ "src": "/greenit/icon-192.webp", "sizes": "192x192", "type": "image/webp" }]
         }
     ],
     "prefer_related_applications": false

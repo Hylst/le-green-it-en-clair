@@ -84,6 +84,13 @@ const sheets: Record<string, any> = {
       "Guide du reconditionné : /ressources",
       "Points de collecte : /recyclage",
     ],
+    sources: [
+      "ADEME, Impact CO2 / Base Empreinte",
+      "ADEME 2022 (reconditionné)",
+      "ADEME 2026 (durée de vie)",
+      "Arcep 2026 (box)",
+      "Kamiya 2020, Shift 2019 (streaming, Wi-Fi)",
+    ],
   },
   "achat-responsable": {
     title: "Guide d'achat responsable",
@@ -147,6 +154,13 @@ const sheets: Record<string, any> = {
       "Comparateur d'appareils : /outils",
       "Indice de réparabilité : quefairedemesdechets.ademe.fr",
       "Acteurs du reconditionné : /recyclage",
+    ],
+    sources: [
+      "ADEME 2022 (reconditionné)",
+      "ADEME, Base Empreinte 2024",
+      "Loi AGEC 2020",
+      "Règlement UE 2023/1670",
+      "Code de la consommation (garantie 2 ans)",
     ],
   },
   "ecoconception-web": {
@@ -232,6 +246,13 @@ const sheets: Record<string, any> = {
       "Outils de mesure : GreenFrame, EcoIndex",
       "Guides ADEME : ecoresponsable.numerique.gouv.fr",
     ],
+    sources: [
+      "Pereira et al. 2017 (langages)",
+      "Sustainable Web Design v4 2024 (transfert)",
+      "Patterson et al. 2021 (GPT-3)",
+      "HTTP Archive 2024",
+      "RGESN, GR491",
+    ],
   },
   "reparer-prolonger": {
     title: "Réparer et prolonger la vie de ses appareils",
@@ -303,6 +324,12 @@ const sheets: Record<string, any> = {
       "Annuaire : annuaire-reparation.fr",
       "Bonus : ecosystem.eco",
     ],
+    sources: [
+      "ADEME 2026 (durée de vie, réparation)",
+      "Ecosystem 2024",
+      "iFixit",
+      "service-public.gouv.fr 2026 (bonus, garantie)",
+    ],
   },
   "green-it-entreprise": {
     title: "Démarche Green IT en entreprise",
@@ -372,6 +399,12 @@ const sheets: Record<string, any> = {
       "Institut du Numérique Responsable (INR) : label-nr.fr",
       "Club Green IT : greenit.fr",
       "Référentiel : gr491.org",
+    ],
+    sources: [
+      "ADEME 2022 (-75 % reconditionné)",
+      "ADEME 2026 (durée de vie)",
+      "Base Empreinte 2024",
+      "INR, GR491",
     ],
   },
   "recyclage-mode-emploi": {
@@ -445,6 +478,12 @@ const sheets: Record<string, any> = {
       "Annuaire recyclage : jerecyclemesdeee.fr",
       "https://quefairedemesdechets.ademe.fr",
     ],
+    sources: [
+      "Ecosystem 2024 (79 % recyclés, 91 % valorisés)",
+      "Global E-waste Monitor 2024, ONU",
+      "Directive DEEE 2012/19/UE",
+      "ADEME, Que faire de mes objets",
+    ],
   },
   "datacenters-verts": {
     title: "Datacenters et cloud responsable",
@@ -505,6 +544,12 @@ const sheets: Record<string, any> = {
       "Simulateur PUE : /datacenters",
       "Cloud Carbon Footprint : cloudcarbonfootprint.org",
       "Comparatif The Green Web Foundation : thegreenwebfoundation.org",
+    ],
+    sources: [
+      "Uptime Institute 2024 (PUE)",
+      "AIE, Energy & AI 2025 (415 TWh)",
+      "The Green Grid (PUE, WUE)",
+      "GreenIT.fr 2023",
     ],
   },
   "collectivites-action": {
@@ -575,6 +620,12 @@ const sheets: Record<string, any> = {
       "Texte de loi REEN : legifrance.gouv.fr",
       "Guide Achat Public Numérique Responsable : interministeriel",
       "Mission Interministérielle Numérique Éco-responsable : ecoresponsable.numerique.gouv.fr",
+    ],
+    sources: [
+      "Loi REEN 2021",
+      "ADEME (achat public)",
+      "ecoresponsable.numerique.gouv.fr",
+      "ADEME 2026 (durée de vie)",
     ],
   },
 }

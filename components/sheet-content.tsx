@@ -90,6 +90,20 @@ export function SheetContent({ sheet }: SheetContentProps) {
                     </ul>
                 </Card>
 
+                {sheet.sources?.length > 0 && (
+                    <Card className="mt-6 border-2 border-emerald-200 bg-emerald-50/50 p-6 dark:border-emerald-800 dark:bg-emerald-950/30">
+                        <h3 className="mb-4 text-xl font-bold text-slate-900 dark:text-slate-100">Sources</h3>
+                        <ul className="space-y-2">
+                            {sheet.sources.map((source: string, index: number) => (
+                                <li key={index} className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                                    <div className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
+                                    {source}
+                                </li>
+                            ))}
+                        </ul>
+                    </Card>
+                )}
+
                 <div className="mt-8 flex items-center justify-center gap-4">
                     <Button variant="outline" size="lg" onClick={() => window.print()}>
                         <Printer className="mr-2 h-5 w-5" />

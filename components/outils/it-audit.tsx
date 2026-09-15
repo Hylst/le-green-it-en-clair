@@ -24,10 +24,10 @@ export default function ITAudit() {
   const [showResults, setShowResults] = useState(false)
 
   const deviceData = {
-    desktops: { name: "Ordinateurs fixes", fabricationCO2: 296, usageCO2: 88, optimalLife: 6, icon: "🖥️" },
+    desktops: { name: "Ordinateurs fixes", fabricationCO2: 169, usageCO2: 88, optimalLife: 6, icon: "🖥️" },
     laptops: { name: "Ordinateurs portables", fabricationCO2: 156, usageCO2: 22, optimalLife: 5, icon: "💻" },
-    monitors: { name: "Écrans", fabricationCO2: 350, usageCO2: 40, optimalLife: 8, icon: "🖥️" },
-    smartphones: { name: "Smartphones", fabricationCO2: 55, usageCO2: 8, optimalLife: 4, icon: "📱" },
+    monitors: { name: "Écrans", fabricationCO2: 248, usageCO2: 40, optimalLife: 8, icon: "🖥️" },
+    smartphones: { name: "Smartphones", fabricationCO2: 50, usageCO2: 8, optimalLife: 4, icon: "📱" },
     tablets: { name: "Tablettes", fabricationCO2: 63, usageCO2: 12, optimalLife: 5, icon: "📋" },
     printers: { name: "Imprimantes", fabricationCO2: 130, usageCO2: 35, optimalLife: 7, icon: "🖨️" },
     servers: { name: "Serveurs", fabricationCO2: 1200, usageCO2: 500, optimalLife: 6, icon: "🖧" },
@@ -72,8 +72,8 @@ export default function ITAudit() {
       } else {
         status = "critical"
         renewalNeeded += count
-        recommendation = `Renouvellement à planifier. Privilégiez le reconditionné (-80% CO2).`
-        potentialSavings += data.fabricationCO2 * 0.8 * count // Économie si reconditionné
+        recommendation = `Renouvellement à planifier. Privilégiez le reconditionné (-75% CO2, ADEME 2022).`
+        potentialSavings += data.fabricationCO2 * 0.75 * count // Économie si reconditionné
       }
 
       if (count > 0) {
@@ -431,7 +431,7 @@ export default function ITAudit() {
       </Card>
 
       <div className="text-sm text-gray-600 dark:text-gray-300 text-center">
-        Sources: Base Empreinte / ADEME-Arcep (2024-2025), GreenIT.fr • Méthodologie: ACV (Analyse du Cycle de Vie)
+        Sources: Base Empreinte / ADEME-Arcep (2024-2025), GreenIT.fr • Méthodologie: ACV (Analyse du Cycle de Vie) • Usage serveurs : ordre de grandeur variable selon le mix électrique
       </div>
     </div>
   )

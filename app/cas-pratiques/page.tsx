@@ -180,14 +180,14 @@ export default function CasPratiquesPage() {
                       <li className="flex gap-2">
                         <span className="text-emerald-600">•</span>
                         <span>
-                          En France, <strong>88% des smartphones</strong> sont remplacés alors qu'ils fonctionnent
-                          encore
+                          En France, <strong>62 % des smartphones</strong> sont remplacés alors qu'ils fonctionnent
+                          encore (ADEME 2026)
                         </span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-emerald-600">•</span>
                         <span>
-                          Garder son smartphone <strong>1 an de plus</strong> réduit son impact annuel de 25%
+                          Garder son smartphone <strong>1 an de plus</strong> réduit son impact annuel d'environ un tiers
                         </span>
                       </li>
                     </ul>
@@ -272,7 +272,7 @@ export default function CasPratiquesPage() {
                       <li className="flex items-start gap-2">
                         <TrendingDown className="mt-1 h-5 w-5 shrink-0 text-emerald-600" />
                         <span>
-                          <strong>Impact réduit :</strong> Économise 50 kg de CO₂
+                          <strong>Impact réduit :</strong> Évite jusqu'à ~50 kg de CO₂ si cela évite un achat neuf (cycle de vie d'un smartphone, ADEME)
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
@@ -688,7 +688,9 @@ export default function CasPratiquesPage() {
         <div className="mx-auto max-w-7xl">
           <h3 className="mb-4 text-sm font-semibold text-slate-900">Sources</h3>
           <div className="flex flex-wrap gap-4 text-sm text-slate-600">
-            <span>ADEME - Base Carbone (156 kg CO₂ pour un portable)</span>
+            <span>ADEME - Base Carbone (156 kg CO₂ pour un portable, 50 kg cycle de vie smartphone, 12 000 L d'eau, 70 kg de matières)</span>
+            <span>•</span>
+            <span>ADEME - Produits reconditionnés (2022, −75 % à −91 %)</span>
             <span>•</span>
             <span>DGAC - Éco-calculateur (équivalences avion)</span>
             <span>•</span>
@@ -696,7 +698,7 @@ export default function CasPratiquesPage() {
             <span>•</span>
             <span>Uptime Institute - Global Data Center Survey (2024)</span>
             <span>•</span>
-            <span>ADEME - Produits reconditionnés (2022)</span>
+            <span>Global E-waste Monitor 2024 (ONU)</span>
           </div>
         </div>
       </section>

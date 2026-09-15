@@ -30,10 +30,10 @@ export default function CarbonCalculator() {
 
     // Empreinte fabrication + usage annuel (kg CO2e)
     const deviceImpact = {
-      smartphone: { fabrication: 55, usage: 8 },
+      smartphone: { fabrication: 50, usage: 8 },
       laptop: { fabrication: 156, usage: 22 },
       tablet: { fabrication: 63, usage: 12 },
-      desktop: { fabrication: 296, usage: 88 },
+      desktop: { fabrication: 169, usage: 88 },
       tv: { fabrication: 371, usage: 118 },
     }
 
@@ -57,7 +57,7 @@ export default function CarbonCalculator() {
   }
 
   const totalFootprint = calculateFootprint()
-  const averageFrench = 285 // kg CO2e/an pour un Français moyen (2025)
+  const averageFrench = 285 // Repère : empreinte numérique annuelle d'un Français, estimations 225-330 kg (GreenIT EENM 2025)
   const percentage = Math.round((totalFootprint / averageFrench) * 100)
 
   return (

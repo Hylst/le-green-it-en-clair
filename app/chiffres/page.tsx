@@ -61,8 +61,8 @@ const deviceComparisonData = [
   { device: "Smartphone", co2: 50, energy: 250, water: 12000 },
   { device: "Tablette", co2: 63, energy: 350, water: 15000 },
   { device: "Ordinateur portable", co2: 156, energy: 800, water: 20000 },
-  { device: "Ordinateur fixe", co2: 296, energy: 1200, water: 30000 },
-  { device: 'Écran 24"', co2: 350, energy: 600, water: 18000 },
+  { device: "Ordinateur fixe (unité centrale)", co2: 169, energy: 1200, water: 30000 },
+  { device: 'Écran 24"', co2: 248, energy: 600, water: 18000 },
 ]
 
 // Data for Recycling Rates by Country

@@ -75,7 +75,7 @@
 ### 5.2 Audit axe-core
 
 - `npm i --no-save --legacy-peer-deps @axe-core/playwright` + script temp (serveur `greenit-server.js` port 3006).
-- Pages testées (thème sombre par défaut) : `/`, `/comprendre`, `/chiffres`, `/outils`, `/quiz`, `/fiches-pratiques/gestes-quotidiens`, `/modeles/grille-audit`, `/guide`, `/faq`, `/recyclage`.
+- Pages testées (thème sombre par défaut) : `/`, `/comprendre`, `/chiffres`, `/outils` (avec l'onglet Quiz activé), `/par-ou-commencer`, `/fiches-pratiques/gestes-quotidiens`, `/modeles/grille-audit`, `/guide`, `/faq`, `/recyclage`.
 - Seuil : **0 violation critical, 0 serious** (`wcag2a`, `wcag2aa`, `wcag21aa`). Les modérées/mineures sont listées et corrigées si trivial, sinon documentées.
 
 ### 5.3 Contrôles manuels (playwright)
@@ -95,7 +95,7 @@
 ### 6.1 Mesure initiale
 
 - Outil : `lighthouse` en `--no-save` + `CHROME_PATH` pointant sur le chromium de playwright ; serveur local port 3006 ; preset desktop ; catégories performance + a11y + bonnes pratiques + SEO.
-- Pages : `/`, `/outils`, `/quiz`, `/chiffres`.
+- Pages : `/`, `/outils` (onglet Quiz activé), `/comprendre`, `/chiffres`.
 - Scores bruts (avant/après) consignés dans `suivi-audit-2026-09.md`.
 
 ### 6.2 Correctifs (guidés par la mesure, candidats)

@@ -223,7 +223,7 @@ export default function ChiffresPage() {
                     dataKey="value"
                   >
                     {co2BreakdownData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.fill} />
+                      <Cell key={`cell-${index}`} fill={entry.fill} aria-label={`${entry.phase} : ${entry.percentage} %`} />
                     ))}
                   </Pie>
                   <Tooltip

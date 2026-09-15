@@ -404,7 +404,12 @@ export default function RecyclagePage() {
             {/* City List */}
             <div className="space-y-3">
               <h3 className="mb-4 text-lg font-semibold text-foreground">Principales villes</h3>
-              <div className="max-h-[500px] space-y-3 overflow-y-auto">
+              <div
+                className="max-h-[500px] space-y-3 overflow-y-auto"
+                tabIndex={0}
+                role="region"
+                aria-label="Liste des principales villes de collecte"
+              >
                 {filteredCities.map((point, index) => (
                   <Card
                     key={index}

@@ -20,10 +20,10 @@ export default function TableauBordPage() {
                     </Link>
                     <div className="flex items-center justify-between">
                         <div>
-                            <h1 className="text-3xl font-bold text-white mb-2">Guide Tableau de Bord Green IT</h1>
+                            <p className="text-3xl font-bold text-white mb-2">Guide Tableau de Bord Green IT</p>
                             <p className="text-emerald-100">Méthodologie de suivi d'impact</p>
                         </div>
-                        <Button onClick={handlePrint} size="lg" variant="secondary" className="bg-card text-emerald-700 hover:bg-muted">
+                        <Button onClick={handlePrint} size="lg" variant="secondary" className="bg-card text-emerald-700 dark:text-emerald-400 hover:bg-muted">
                             <Printer className="mr-2 h-5 w-5" />
                             Imprimer en PDF
                         </Button>

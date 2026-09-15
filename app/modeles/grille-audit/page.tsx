@@ -20,10 +20,10 @@ export default function GrilleAuditPage() {
                     </Link>
                     <div className="flex items-center justify-between">
                         <div>
-                            <h1 className="text-3xl font-bold text-white mb-2">Grille d'Audit Green IT</h1>
+                            <p className="text-3xl font-bold text-white mb-2">Grille d'Audit Green IT</p>
                             <p className="text-emerald-100">26 critères d'évaluation pour démarrer</p>
                         </div>
-                        <Button onClick={handlePrint} size="lg" variant="secondary" className="bg-card text-emerald-700 hover:bg-muted">
+                        <Button onClick={handlePrint} size="lg" variant="secondary" className="bg-card text-emerald-700 dark:text-emerald-400 hover:bg-muted">
                             <Printer className="mr-2 h-5 w-5" />
                             Imprimer en PDF
                         </Button>

@@ -302,7 +302,7 @@ export default function GettingStartedPage() {
             <Card className="p-6 hover:shadow-lg transition-shadow dark:bg-slate-700">
               <Calculator className="mb-4 h-10 w-10 text-emerald-600 dark:text-emerald-400" />
               <h3 className="mb-2 font-bold text-slate-900 dark:text-slate-100">Outils interactifs</h3>
-              <p className="mb-4 text-sm text-slate-600 dark:text-slate-400">
+              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
                 Calculateurs, simulateurs et quiz pour mesurer votre impact
               </p>
               <Button asChild variant="outline" className="w-full bg-transparent">
@@ -315,7 +315,7 @@ export default function GettingStartedPage() {
             <Card className="p-6 hover:shadow-lg transition-shadow dark:bg-slate-700">
               <BookOpen className="mb-4 h-10 w-10 text-blue-600 dark:text-blue-400" />
               <h3 className="mb-2 font-bold text-slate-900 dark:text-slate-100">Mythes vs Réalités</h3>
-              <p className="mb-4 text-sm text-slate-600 dark:text-slate-400">
+              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
                 Déconstruisez les idées reçues sur le numérique responsable
               </p>
               <Button asChild variant="outline" className="w-full bg-transparent">
@@ -328,7 +328,7 @@ export default function GettingStartedPage() {
             <Card className="p-6 hover:shadow-lg transition-shadow dark:bg-slate-700">
               <Wrench className="mb-4 h-10 w-10 text-amber-600 dark:text-amber-400" />
               <h3 className="mb-2 font-bold text-slate-900 dark:text-slate-100">Fiches pratiques</h3>
-              <p className="mb-4 text-sm text-slate-600 dark:text-slate-400">
+              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
                 Guides à consulter et imprimer pour passer à l'action immédiatement
               </p>
               <Button asChild variant="outline" className="w-full bg-transparent">

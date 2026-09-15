@@ -29,7 +29,7 @@ export function ScaleComparison({ type, value, unit, comparisons }: ScaleCompari
         <div className={`mb-2 text-4xl font-bold ${c.title}`}>
           {value} {unit}
         </div>
-        <p className="text-slate-600">C'est l'équivalent de...</p>
+        <p className="text-slate-600 dark:text-slate-300">C'est l'équivalent de...</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

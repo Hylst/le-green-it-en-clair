@@ -298,6 +298,8 @@ export default function ComprendrePage() {
                     {/* Icon Circle */}
                     <button
                       onClick={() => setSelectedPhase(index)}
+                      aria-label={`Afficher la phase : ${phase.title}`}
+                      aria-current={isActive ? "step" : undefined}
                       className={`relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-4 transition-all ${isActive
                         ? "border-primary bg-primary shadow-lg scale-110"
                         : isPast
@@ -432,7 +434,7 @@ export default function ComprendrePage() {
             </Card>
 
             <Card className="border-2 bg-card p-6">
-              <div className="mb-3 text-3xl font-bold text-accent-foreground">50+</div>
+              <div className="mb-3 text-3xl font-bold text-primary">50+</div>
               <h3 className="mb-2 font-semibold text-card-foreground">Des dizaines de métaux rares</h3>
               <p className="text-sm text-muted-foreground">
                 Un smartphone contient plus de 50 métaux différents, dont certains sont très rares et difficiles à
@@ -450,7 +452,7 @@ export default function ComprendrePage() {
             </Card>
 
             <Card className="border-2 bg-card p-6">
-              <div className="mb-3 text-3xl font-bold text-accent-foreground">45-46%</div>
+              <div className="mb-3 text-3xl font-bold text-primary">45-46%</div>
               <h3 className="mb-2 font-semibold text-card-foreground">Le recyclage progresse en France</h3>
               <p className="text-sm text-muted-foreground">
                 En France, 45 à 46 % des déchets électroniques sont collectés ou recyclés grâce aux filières REP, contre

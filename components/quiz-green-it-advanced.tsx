@@ -1643,6 +1643,7 @@ export function QuizGreenITAdvanced() {
               </div>
               <select
                 onChange={(e) => e.target.value && startQuiz("category", e.target.value)}
+                aria-label="Choisir une catégorie du quiz"
                 className="w-full mt-2 p-2 rounded-lg border border-teal-300 dark:border-teal-700 bg-white dark:bg-slate-700 dark:text-gray-100"
                 defaultValue=""
               >

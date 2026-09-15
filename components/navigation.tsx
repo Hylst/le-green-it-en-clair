@@ -90,7 +90,7 @@ export function Navigation() {
               <DropdownMenu key={category.label}>
                 <DropdownMenuTrigger
                   suppressHydrationWarning
-                  className="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-emerald-700 dark:hover:text-emerald-400 focus:outline-none data-[state=open]:text-emerald-700 dark:data-[state=open]:text-emerald-400"
+                  className="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-emerald-700 dark:hover:text-emerald-400 focus:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 rounded-sm data-[state=open]:text-emerald-700 dark:data-[state=open]:text-emerald-400"
                 >
                   {category.label}
                   <ChevronDown className="h-4 w-4 opacity-50" />

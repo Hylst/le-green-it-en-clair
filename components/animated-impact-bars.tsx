@@ -17,10 +17,10 @@ export function AnimatedImpactBars() {
   }, [])
 
   const impacts: ImpactData[] = [
-    { label: "Extraction", value: 15, color: "#f59e0b", icon: "⛏️" },
+    { label: "Extraction", value: 15, color: "#b45309", icon: "⛏️" },
     { label: "Fabrication", value: 60, color: "#64748b", icon: "🏭" },
-    { label: "Transport", value: 5, color: "#3b82f6", icon: "🚢" },
-    { label: "Usage", value: 20, color: "#10b981", icon: "📱" },
+    { label: "Transport", value: 5, color: "#2563eb", icon: "🚢" },
+    { label: "Usage", value: 20, color: "#047857", icon: "📱" },
   ]
 
   return (

@@ -423,7 +423,7 @@ export default function AgirPage() {
                   Le guide pratique du recyclage : filières, gestes et bonnes adresses, à imprimer ou partager.
                 </p>
               </div>
-              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <Button asChild size="lg" className="bg-blue-700 hover:bg-blue-800 text-white">
                 <a href="/greenit/guide-recyclage-green-it.pdf" download>
                   <Download className="mr-2 h-5 w-5" />
                   Télécharger le PDF
@@ -482,15 +482,15 @@ export default function AgirPage() {
             </Card>
 
             <Card className="border-2 border-slate-200 p-6">
-              <h3 className="mb-3 text-lg font-bold text-slate-900">GreenIT.fr</h3>
-              <p className="mb-4 text-sm text-slate-600">
+              <h3 className="mb-3 text-lg font-bold text-slate-900 dark:text-slate-100">GreenIT.fr</h3>
+              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
                 Communauté et ressources sur l'écoconception et le numérique responsable
               </p>
               <a
                 href="https://www.greenit.fr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800"
+                className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
               >
                 Visiter le site
                 <ExternalLink className="ml-2 h-4 w-4" />
@@ -498,15 +498,15 @@ export default function AgirPage() {
             </Card>
 
             <Card className="border-2 border-slate-200 p-6">
-              <h3 className="mb-3 text-lg font-bold text-slate-900">Ecosystem</h3>
-              <p className="mb-4 text-sm text-slate-600">
+              <h3 className="mb-3 text-lg font-bold text-slate-900 dark:text-slate-100">Ecosystem</h3>
+              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
                 Éco-organisme pour le recyclage des équipements électriques et électroniques
               </p>
               <a
                 href="https://www.ecosystem.eco"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800"
+                className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
               >
                 Visiter le site
                 <ExternalLink className="ml-2 h-4 w-4" />
@@ -514,15 +514,15 @@ export default function AgirPage() {
             </Card>
 
             <Card className="border-2 border-slate-200 p-6">
-              <h3 className="mb-3 text-lg font-bold text-slate-900">Réseau des Ressourceries</h3>
-              <p className="mb-4 text-sm text-slate-600">
+              <h3 className="mb-3 text-lg font-bold text-slate-900 dark:text-slate-100">Réseau des Ressourceries</h3>
+              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
                 Trouver une ressourcerie près de chez vous pour donner une seconde vie à vos appareils
               </p>
               <a
                 href="https://www.ressourcerie.fr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800"
+                className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
               >
                 Visiter le site
                 <ExternalLink className="ml-2 h-4 w-4" />
@@ -530,15 +530,15 @@ export default function AgirPage() {
             </Card>
 
             <Card className="border-2 border-slate-200 p-6">
-              <h3 className="mb-3 text-lg font-bold text-slate-900">Envie</h3>
-              <p className="mb-4 text-sm text-slate-600">
+              <h3 className="mb-3 text-lg font-bold text-slate-900 dark:text-slate-100">Envie</h3>
+              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
                 Entreprise solidaire spécialisée dans le reconditionnement d'équipements électroménagers
               </p>
               <a
                 href="https://www.envie.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800"
+                className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
               >
                 Visiter le site
                 <ExternalLink className="ml-2 h-4 w-4" />
@@ -546,15 +546,15 @@ export default function AgirPage() {
             </Card>
 
             <Card className="border-2 border-slate-200 p-6">
-              <h3 className="mb-3 text-lg font-bold text-slate-900">Zero Waste France</h3>
-              <p className="mb-4 text-sm text-slate-600">
+              <h3 className="mb-3 text-lg font-bold text-slate-900 dark:text-slate-100">Zero Waste France</h3>
+              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
                 Association pour la réduction des déchets et l'économie circulaire
               </p>
               <a
                 href="https://www.zerowastefrance.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800"
+                className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
               >
                 Visiter le site
                 <ExternalLink className="ml-2 h-4 w-4" />

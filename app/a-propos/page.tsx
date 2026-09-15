@@ -151,7 +151,7 @@ export default function AProposPage() {
                 l'information et l'éducation sont les clés du changement.
               </p>
               <div className="bg-accent/5 p-4 rounded-lg border border-accent/10">
-                <h3 className="font-semibold mb-2 text-accent-foreground">Contact</h3>
+                <h3 className="font-semibold mb-2 text-foreground">Contact</h3>
                 <p className="text-sm text-muted-foreground mb-3">
                   Pour toute question, suggestion, signalement d'erreur ou proposition de contribution :
                 </p>

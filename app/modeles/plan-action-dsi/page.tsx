@@ -235,7 +235,7 @@ export default function PlanActionDSIPage() {
                                             <li>• Décommissionnement serveurs obsolètes</li>
                                             <li>• Migration vers serverless</li>
                                         </ul>
-                                        <p className="text-sm font-semibold text-emerald-600 mt-2">Budget : 60k€</p>
+                                        <p className="text-sm font-semibold text-emerald-600 dark:text-emerald-400 mt-2">Budget : 60k€</p>
                                     </div>
 
                                     <div className="p-4 bg-muted/5 border-border">
@@ -245,7 +245,7 @@ export default function PlanActionDSIPage() {
                                             <li>• Mesure automatisée empreinte</li>
                                             <li>• Tableau de bord temps réel</li>
                                         </ul>
-                                        <p className="text-sm font-semibold text-blue-600 mt-2">Budget : 50k€</p>
+                                        <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mt-2">Budget : 50k€</p>
                                     </div>
                                 </div>
 
@@ -257,7 +257,7 @@ export default function PlanActionDSIPage() {
                                             <li>• Certification collaborateurs</li>
                                             <li>• Ambassadeurs Green IT</li>
                                         </ul>
-                                        <p className="text-sm font-semibold text-purple-600 mt-2">Budget : 30k€</p>
+                                        <p className="text-sm font-semibold text-purple-600 dark:text-purple-400 mt-2">Budget : 30k€</p>
                                     </div>
 
                                     <div className="p-4 bg-amber-50 dark:bg-amber-950/30 rounded">
@@ -267,7 +267,7 @@ export default function PlanActionDSIPage() {
                                             <li>• Certification ISO 14001 SI</li>
                                             <li>• Communication externe</li>
                                         </ul>
-                                        <p className="text-sm font-semibold text-amber-600 mt-2">Budget : 40k€</p>
+                                        <p className="text-sm font-semibold text-amber-600 dark:text-amber-400 mt-2">Budget : 40k€</p>
                                     </div>
                                 </div>
                             </div>
@@ -277,7 +277,7 @@ export default function PlanActionDSIPage() {
                             <p className="font-semibold text-foreground mb-2">Objectifs Année 3 (cibles finales) :</p>
                             <ul className="space-y-1 text-sm text-muted-foreground">
                                 <li>✓ Budget total : 180 000 €</li>
-                                <li>✓ <strong className="text-emerald-600">-30 % empreinte carbone vs baseline (objectif cible)</strong></li>
+                                <li>✓ <strong className="text-emerald-600 dark:text-emerald-400">-30 % empreinte carbone vs baseline (objectif cible)</strong></li>
                                 <li>✓ 50 % équipements reconditionnés</li>
                                 <li>✓ Durée de vie moyenne : 6 ans</li>
                                 <li>✓ Label Numérique Responsable obtenu</li>
@@ -304,25 +304,25 @@ export default function PlanActionDSIPage() {
                                 <td className="p-3">Année 1</td>
                                 <td className="p-3">100 000 €</td>
                                 <td className="p-3">15 000 €/an</td>
-                                <td className="p-3 text-emerald-600">15 %</td>
+                                <td className="p-3 text-emerald-600 dark:text-emerald-400">15 %</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">Année 2</td>
                                 <td className="p-3">140 000 €</td>
                                 <td className="p-3">35 000 €/an</td>
-                                <td className="p-3 text-emerald-600">25 %</td>
+                                <td className="p-3 text-emerald-600 dark:text-emerald-400">25 %</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">Année 3</td>
                                 <td className="p-3">180 000 €</td>
                                 <td className="p-3">60 000 €/an</td>
-                                <td className="p-3 text-emerald-600">33 %</td>
+                                <td className="p-3 text-emerald-600 dark:text-emerald-400">33 %</td>
                             </tr>
                             <tr className="font-bold text-foreground">
                                 <td className="p-3">TOTAL</td>
                                 <td className="p-3">420 000 €</td>
                                 <td className="p-3">110 000 €/an (récurrent)</td>
-                                <td className="p-3 text-emerald-600">26 % global</td>
+                                <td className="p-3 text-emerald-600 dark:text-emerald-400">26 % global</td>
                             </tr>
                         </tbody>
                     </table></div>

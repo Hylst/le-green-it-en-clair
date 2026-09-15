@@ -310,7 +310,7 @@ export default function DeveloppementPage() {
 
             <Card className="border-destructive/20">
               <CardHeader>
-                <CardTitle className="text-destructive">Langages gourmands</CardTitle>
+                <CardTitle className="text-destructive dark:text-red-400">Langages gourmands</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div>
@@ -424,7 +424,7 @@ export default function DeveloppementPage() {
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <Card className="min-w-0 border-destructive/20 bg-card">
               <CardHeader>
-                <CardTitle className="text-destructive flex items-center gap-2">
+                <CardTitle className="text-destructive dark:text-red-400 flex items-center gap-2">
                   <XCircle className="w-5 h-5" />
                   Mauvaise pratique
                 </CardTitle>
@@ -622,7 +622,7 @@ res.json(users) // 150 KB compressé`}
                       </ul>
                     </div>
                     <div className="space-y-2">
-                      <div className="font-medium text-destructive"><XCircle className="mr-1 inline h-4 w-4" />À éviter</div>
+                      <div className="font-medium text-destructive dark:text-red-400"><XCircle className="mr-1 inline h-4 w-4" />À éviter</div>
                       <ul className="space-y-1 text-muted-foreground">
                         <li>• PNG non compressé pour photos</li>
                         <li>• Images plus grandes que l'affichage</li>
@@ -980,7 +980,7 @@ module.exports = {
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <Card className="min-w-0 border-destructive/20 bg-card">
               <CardHeader>
-                <CardTitle className="text-destructive flex items-center gap-2">
+                <CardTitle className="text-destructive dark:text-red-400 flex items-center gap-2">
                   <Server className="w-5 h-5" />
                   Approche traditionnelle
                 </CardTitle>
@@ -1259,7 +1259,7 @@ module.exports = {
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-primary text-primary-foreground rounded-2xl p-12">
             <h2 className="text-3xl font-bold mb-4">Chaque optimisation compte</h2>
-            <p className="text-lg mb-8 text-green-50">
+            <p className="text-lg mb-8">
               En appliquant ces bonnes pratiques, vous pouvez réduire de l'ordre de 30 à 70 % la consommation énergétique de vos
               applications tout en améliorant leur performance.
             </p>

@@ -34,7 +34,7 @@ export function LanguageComparisonSVG() {
       <svg
         viewBox="0 0 800 500"
         className="w-full h-auto"
-        role="img"
+        role="group"
         aria-label="Graphique de comparaison énergétique des langages de programmation"
       >
         {/* Grille de fond */}

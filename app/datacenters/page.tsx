@@ -316,7 +316,7 @@ export default function DatacentersPage() {
                   <span className="text-2xl font-bold text-blue-700 dark:text-blue-400">{pueValue[0].toFixed(2)}</span>
                 </div>
                 <Slider value={pueValue} onValueChange={setPueValue} min={1.0} max={3.0} step={0.1} aria-label="PUE du datacenter" className="mb-2" />
-                <div className="flex justify-between text-xs text-slate-500">
+                <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400">
                   <span>1.0 (Optimal)</span>
                   <span>3.0 (Inefficace)</span>
                 </div>
@@ -336,7 +336,7 @@ export default function DatacentersPage() {
                   aria-label="Nombre de serveurs"
                   className="mb-2"
                 />
-                <div className="flex justify-between text-xs text-slate-500">
+                <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400">
                   <span>10 serveurs</span>
                   <span>1000 serveurs</span>
                 </div>
@@ -347,19 +347,19 @@ export default function DatacentersPage() {
               <div className="rounded-xl bg-white dark:bg-slate-900 p-6">
                 <div className="mb-2 text-sm font-medium text-slate-600 dark:text-slate-400">Puissance serveurs</div>
                 <div className="mb-1 text-3xl font-bold text-slate-900 dark:text-slate-100">{totalPower.toFixed(0)} kW</div>
-                <p className="text-xs text-slate-500 dark:text-slate-500">Charge utile</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Charge utile</p>
               </div>
 
-              <div className="rounded-xl bg-white p-6">
-                <div className="mb-2 text-sm font-medium text-slate-600">Énergie gaspillée</div>
+              <div className="rounded-xl bg-white dark:bg-slate-900 p-6">
+                <div className="mb-2 text-sm font-medium text-slate-600 dark:text-slate-300">Énergie gaspillée</div>
                 <div className="mb-1 text-3xl font-bold text-amber-700">{wastedPower.toFixed(0)} kW</div>
-                <p className="text-xs text-slate-500">{wastePercentage}% de perte</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">{wastePercentage}% de perte</p>
               </div>
 
-              <div className="rounded-xl bg-white p-6">
-                <div className="mb-2 text-sm font-medium text-slate-600">Puissance totale</div>
-                <div className="mb-1 text-3xl font-bold text-blue-700">{(totalPower * pueValue[0]).toFixed(0)} kW</div>
-                <p className="text-xs text-slate-500">Consommation réelle</p>
+              <div className="rounded-xl bg-white dark:bg-slate-900 p-6">
+                <div className="mb-2 text-sm font-medium text-slate-600 dark:text-slate-300">Puissance totale</div>
+                <div className="mb-1 text-3xl font-bold text-blue-700 dark:text-blue-400">{(totalPower * pueValue[0]).toFixed(0)} kW</div>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Consommation réelle</p>
               </div>
             </div>
           </Card>
@@ -367,14 +367,14 @@ export default function DatacentersPage() {
       </section>
 
       {/* Cooling Methods */}
-      <section className="bg-slate-50 px-6 py-16 lg:py-24">
+      <section className="bg-slate-50 dark:bg-slate-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
             Méthodes de refroidissement
           </h2>
           <div className="grid gap-6 md:grid-cols-2">
             {coolingMethods.map((method, index) => (
-              <Card key={index} className={`min-w-0 border-2 border-${method.color}-500 bg-${method.color}-50 p-6`}>
+              <Card key={index} className={`min-w-0 border-2 border-${method.color}-500 bg-${method.color}-50 dark:bg-${method.color}-900/20 p-6`}>
                 <div className="mb-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-${method.color}-600`}>
@@ -387,12 +387,12 @@ export default function DatacentersPage() {
                   </div>
                   <div
                     className={`rounded-full px-3 py-1 text-xs font-semibold ${method.efficiency === "Très élevée"
-                      ? "bg-emerald-600 text-white"
+                      ? "bg-emerald-700 text-white"
                       : method.efficiency === "Élevée"
-                        ? "bg-teal-600 text-white"
+                        ? "bg-teal-700 text-white"
                         : method.efficiency === "Moyenne"
-                          ? "bg-blue-600 text-white"
-                          : "bg-amber-600 text-white"
+                          ? "bg-blue-700 text-white"
+                          : "bg-amber-700 text-white"
                       }`}
                   >
                     {method.efficiency}
@@ -514,8 +514,8 @@ export default function DatacentersPage() {
                   </div>
                   <div className="flex-1">
                     <div className="mb-1 flex items-center justify-between">
-                      <span className="text-sm font-semibold text-slate-900">Hydraulique</span>
-                      <span className="text-sm text-slate-600">24h/24</span>
+                      <span className="text-sm font-semibold text-slate-900 dark:text-slate-100">Hydraulique</span>
+                      <span className="text-sm text-slate-600 dark:text-slate-300">24h/24</span>
                     </div>
                     <div className="h-2 overflow-hidden rounded-full bg-slate-200">
                       <div className="h-full w-[70%] rounded-full bg-teal-500" />
@@ -550,14 +550,14 @@ export default function DatacentersPage() {
       </section>
 
       {/* Green Datacenter Best Practices Section */}
-      <section className="bg-slate-50 px-6 py-16 lg:py-24">
+      <section className="bg-slate-50 dark:bg-slate-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
             Datacenters verts : les meilleures pratiques
           </h2>
 
           <div className="mb-8 grid gap-6 md:grid-cols-3">
-            <Card className="border-2 border-emerald-500 bg-emerald-50 p-6">
+            <Card className="border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 p-6">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600">
                 <Leaf className="h-6 w-6 text-white" />
               </div>
@@ -568,7 +568,7 @@ export default function DatacentersPage() {
               </p>
             </Card>
 
-            <Card className="border-2 border-blue-500 bg-blue-50 p-6">
+            <Card className="border-2 border-blue-500 bg-blue-50 dark:bg-blue-900/20 p-6">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600">
                 <Server className="h-6 w-6 text-white" />
               </div>
@@ -578,7 +578,7 @@ export default function DatacentersPage() {
               </p>
             </Card>
 
-            <Card className="border-2 border-teal-500 bg-teal-50 p-6">
+            <Card className="border-2 border-teal-500 bg-teal-50 dark:bg-teal-900/20 p-6">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-600">
                 <TrendingDown className="h-6 w-6 text-white" />
               </div>
@@ -602,13 +602,13 @@ export default function DatacentersPage() {
                     Chiffres communiqués par Scaleway : PUE annoncé d'environ 1,2, refroidissement par air extérieur, électricité d'origine renouvelable et récupération de chaleur pour des logements.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="rounded-full bg-emerald-600 px-3 py-1 text-xs font-medium text-white">
+                    <span className="rounded-full bg-emerald-700 px-3 py-1 text-xs font-medium text-white">
                       PUE 1,2
                     </span>
-                    <span className="rounded-full bg-emerald-600 px-3 py-1 text-xs font-medium text-white">
+                    <span className="rounded-full bg-emerald-700 px-3 py-1 text-xs font-medium text-white">
                       100 % renouvelable
                     </span>
-                    <span className="rounded-full bg-emerald-600 px-3 py-1 text-xs font-medium text-white">
+                    <span className="rounded-full bg-emerald-700 px-3 py-1 text-xs font-medium text-white">
                       Récupération chaleur
                     </span>
                   </div>
@@ -625,11 +625,11 @@ export default function DatacentersPage() {
                     Chiffres communiqués par OVHcloud : refroidissement par eau de pluie, PUE annoncé d'environ 1,09 et serveurs conçus en interne. Objectif affiché de neutralité carbone à horizon 2025 : le bilan est à vérifier dans son rapport RSE.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="rounded-full bg-blue-600 px-3 py-1 text-xs font-medium text-white">PUE théorique ~1,09</span>
-                    <span className="rounded-full bg-blue-600 px-3 py-1 text-xs font-medium text-white">
+                    <span className="rounded-full bg-blue-700 px-3 py-1 text-xs font-medium text-white">PUE théorique ~1,09</span>
+                    <span className="rounded-full bg-blue-700 px-3 py-1 text-xs font-medium text-white">
                       Eau de pluie
                     </span>
-                    <span className="rounded-full bg-blue-600 px-3 py-1 text-xs font-medium text-white">
+                    <span className="rounded-full bg-blue-700 px-3 py-1 text-xs font-medium text-white">
                       Neutralité : objectif 2025 (à vérifier)
                     </span>
                   </div>
@@ -646,11 +646,11 @@ export default function DatacentersPage() {
                     Concept annoncé par Qarnot : serveurs-radiateurs installés dans des logements et bureaux, chaleur réutilisée sur place et PUE théorique proche de 1,0 (chiffres de l'entreprise, non audités).
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="rounded-full bg-teal-600 px-3 py-1 text-xs font-medium text-white">PUE théorique ~1,0</span>
-                    <span className="rounded-full bg-teal-600 px-3 py-1 text-xs font-medium text-white">
+                    <span className="rounded-full bg-teal-700 px-3 py-1 text-xs font-medium text-white">PUE théorique ~1,0</span>
+                    <span className="rounded-full bg-teal-700 px-3 py-1 text-xs font-medium text-white">
                       100 % chaleur récupérée
                     </span>
-                    <span className="rounded-full bg-teal-600 px-3 py-1 text-xs font-medium text-white">
+                    <span className="rounded-full bg-teal-700 px-3 py-1 text-xs font-medium text-white">
                       Innovation
                     </span>
                   </div>

@@ -208,13 +208,13 @@ export default function ModelesPage() {
                     </p>
 
                     <div className="mb-4 flex flex-wrap gap-2 text-xs text-slate-500 dark:text-slate-400">
-                      <span className="flex items-center gap-1 rounded-full bg-slate-100 px-2 py-1 dark:bg-slate-700">
+                      <span className="flex items-center gap-1 rounded-full bg-slate-100 px-2 py-1 text-slate-700 dark:bg-slate-700 dark:text-slate-200">
                         {template.format}
                       </span>
-                      <span className="flex items-center gap-1 rounded-full bg-slate-100 px-2 py-1 dark:bg-slate-700">
+                      <span className="flex items-center gap-1 rounded-full bg-slate-100 px-2 py-1 text-slate-700 dark:bg-slate-700 dark:text-slate-200">
                         {template.pages}
                       </span>
-                      <span className="flex items-center gap-1 rounded-full bg-slate-100 px-2 py-1 dark:bg-slate-700">
+                      <span className="flex items-center gap-1 rounded-full bg-slate-100 px-2 py-1 text-slate-700 dark:bg-slate-700 dark:text-slate-200">
                         {template.difficulty}
                       </span>
                     </div>

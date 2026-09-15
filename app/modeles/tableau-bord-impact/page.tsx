@@ -321,7 +321,7 @@ export default function TableauBordPage() {
                                     <td className="p-3">Année 1</td>
                                     <td className="p-3">14.2 t</td>
                                     <td className="p-3">14.7 t (-5 %)</td>
-                                    <td className="p-3 text-emerald-600">-3.4 % ✓</td>
+                                    <td className="p-3 text-emerald-600 dark:text-emerald-400">-3.4 % ✓</td>
                                 </tr>
                                 <tr className="border-b border-border">
                                     <td className="p-3">Année 2</td>
@@ -372,21 +372,21 @@ export default function TableauBordPage() {
                                     <td className="p-3">Politique achat reconditionné</td>
                                     <td className="p-3">Achats</td>
                                     <td className="p-3">T1 Année 1</td>
-                                    <td className="p-3 text-emerald-600">En cours</td>
+                                    <td className="p-3 text-emerald-600 dark:text-emerald-400">En cours</td>
                                     <td className="p-3">-20 % CO₂</td>
                                 </tr>
                                 <tr className="border-b border-border">
                                     <td className="p-3">Prolongation durée de vie</td>
                                     <td className="p-3">IT</td>
                                     <td className="p-3">T2 Année 1</td>
-                                    <td className="p-3 text-blue-600">Planifié</td>
+                                    <td className="p-3 text-blue-600 dark:text-blue-400">Planifié</td>
                                     <td className="p-3">-15 % CO₂</td>
                                 </tr>
                                 <tr>
                                     <td className="p-3">Formation collaborateurs</td>
                                     <td className="p-3">RH</td>
                                     <td className="p-3">T2 Année 1</td>
-                                    <td className="p-3 text-blue-600">Planifié</td>
+                                    <td className="p-3 text-blue-600 dark:text-blue-400">Planifié</td>
                                     <td className="p-3">-5 % usage</td>
                                 </tr>
                             </tbody>

@@ -542,12 +542,12 @@ export default function ProblematiquesPage() {
                     </div>
                     <div className="flex shrink-0 flex-col items-end gap-2">
                       <span
-                        className={`rounded-full px-4 py-1 text-sm font-semibold ${problem.severity === "Critique" ? "bg-red-600 text-white" : "bg-orange-600 text-white"
+                        className={`rounded-full px-4 py-1 text-sm font-semibold ${problem.severity === "Critique" ? "bg-red-700 text-white" : "bg-orange-700 text-white"
                           }`}
                       >
                         {problem.severity}
                       </span>
-                      <span className={`text-2xl font-bold text-${problem.color}-700`}>{problem.stats}</span>
+                      <span className={`text-2xl font-bold text-${problem.color}-700 dark:text-${problem.color}-400`}>{problem.stats}</span>
                     </div>
                   </div>
 
@@ -703,10 +703,10 @@ export default function ProblematiquesPage() {
                     </div>
                     <span
                       className={`rounded-full px-3 py-1 text-xs font-semibold ${trend.impact === "Positif"
-                        ? "bg-emerald-600 text-white"
+                        ? "bg-emerald-700 text-white"
                         : trend.impact === "Négatif"
                           ? "bg-red-600 text-white"
-                          : "bg-amber-600 text-white"
+                          : "bg-amber-700 text-white"
                         }`}
                     >
                       {trend.impact}
@@ -750,9 +750,9 @@ export default function ProblematiquesPage() {
                           <h4 className="font-semibold text-slate-900 dark:text-slate-100">{solution.name}</h4>
                           <span
                             className={`rounded-full px-2 py-1 text-xs font-semibold ${solution.adoption === "Élevée"
-                              ? "bg-emerald-600 text-white"
+                              ? "bg-emerald-700 text-white"
                               : solution.adoption === "Moyenne"
-                                ? "bg-amber-600 text-white"
+                                ? "bg-amber-700 text-white"
                                 : "bg-slate-600 text-white"
                               }`}
                           >
@@ -794,7 +794,7 @@ export default function ProblematiquesPage() {
                 <Bar dataKey="rate" fill="#10b981" radius={[0, 8, 8, 0]} name="Taux de recyclage (%)" />
               </BarChart>
             </ResponsiveContainer>
-            <p className="mt-6 text-center text-sm text-slate-600">
+            <p className="mt-6 text-center text-sm text-slate-600 dark:text-slate-300">
               La France collecte environ 46 % de ses déchets électroniques, en progrès mais encore loin des leaders
               nordiques. Objectif européen : 65 % de collecte (directive DEEE).
             </p>
@@ -833,9 +833,9 @@ export default function ProblematiquesPage() {
                           <h4 className="font-semibold text-slate-900 dark:text-slate-100">{solution.name}</h4>
                           <span
                             className={`rounded-full px-2 py-1 text-xs font-semibold ${solution.potential === "Très élevé"
-                              ? "bg-emerald-600 text-white"
+                              ? "bg-emerald-700 text-white"
                               : solution.potential === "Élevé"
-                                ? "bg-teal-600 text-white"
+                                ? "bg-teal-700 text-white"
                                 : "bg-blue-600 text-white"
                               }`}
                           >

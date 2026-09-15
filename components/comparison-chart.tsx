@@ -24,8 +24,8 @@ export function ComparisonChart({ title, subtitle, items, unit, maxValue }: Comp
   return (
     <Card className="border-2 border-slate-200 p-6 lg:p-8">
       <div className="mb-6">
-        <h3 className="mb-2 text-2xl font-bold text-slate-900">{title}</h3>
-        {subtitle && <p className="text-slate-600">{subtitle}</p>}
+        <h3 className="mb-2 text-2xl font-bold text-slate-900 dark:text-slate-100">{title}</h3>
+        {subtitle && <p className="text-slate-600 dark:text-slate-300">{subtitle}</p>}
       </div>
 
       <div className="space-y-4">
@@ -37,14 +37,14 @@ export function ComparisonChart({ title, subtitle, items, unit, maxValue }: Comp
             <div key={index} className="space-y-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  {Icon && <Icon className="h-5 w-5 text-slate-600" />}
-                  <span className="font-semibold text-slate-900">{item.label}</span>
+                  {Icon && <Icon className="h-5 w-5 text-slate-600 dark:text-slate-400" />}
+                  <span className="font-semibold text-slate-900 dark:text-slate-100">{item.label}</span>
                 </div>
-                <span className="text-lg font-bold text-slate-900">
+                <span className="text-lg font-bold text-slate-900 dark:text-slate-100">
                   {item.value} {unit}
                 </span>
               </div>
-              <div className="h-8 w-full overflow-hidden rounded-lg bg-slate-100">
+              <div className="h-8 w-full overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800">
                 <div
                   className="flex h-full items-center justify-end rounded-lg px-3 text-sm font-semibold text-white transition-all"
                   style={{
@@ -55,7 +55,7 @@ export function ComparisonChart({ title, subtitle, items, unit, maxValue }: Comp
                   {percentage > 20 && `${Math.round(percentage)}%`}
                 </div>
               </div>
-              {item.description && <p className="text-sm text-slate-600">{item.description}</p>}
+              {item.description && <p className="text-sm text-slate-600 dark:text-slate-300">{item.description}</p>}
             </div>
           )
         })}

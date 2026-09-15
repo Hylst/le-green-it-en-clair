@@ -105,7 +105,7 @@ export default function CasPratiquesPage() {
                   aria-pressed={isSelected}
                   className={`group cursor-pointer border-2 p-6 transition-all hover:shadow-lg ${
                     isSelected
-                      ? `border-${study.color}-500 bg-${study.color}-50`
+                      ? `border-${study.color}-500 bg-${study.color}-50 dark:bg-${study.color}-900/20`
                       : "border-slate-200 hover:border-slate-300"
                   }`}
                   onClick={() => setSelectedCase(study.id)}
@@ -125,8 +125,8 @@ export default function CasPratiquesPage() {
                   >
                     <Icon className="h-7 w-7" />
                   </div>
-                  <h3 className="mb-2 text-xl font-bold text-slate-900">{study.title}</h3>
-                  <p className="text-sm text-slate-600">{study.description}</p>
+                  <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-slate-100">{study.title}</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-300">{study.description}</p>
                 </Card>
               )
             })}
@@ -141,8 +141,8 @@ export default function CasPratiquesPage() {
                     <Smartphone className="h-8 w-8 text-emerald-700" />
                   </div>
                   <div>
-                    <h2 className="mb-2 text-3xl font-bold text-slate-900">Le Smartphone</h2>
-                    <p className="text-lg text-slate-600">
+                    <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-slate-100">Le Smartphone</h2>
+                    <p className="text-lg text-slate-600 dark:text-slate-300">
                       Un concentré de technologie dans votre poche, mais à quel prix pour la planète ?
                     </p>
                   </div>
@@ -239,28 +239,28 @@ export default function CasPratiquesPage() {
                   {
                     label: "Garder l'ancien (0 kg)",
                     value: 0,
-                    color: "#10b981",
+                    color: "#047857",
                     icon: Recycle,
                     description: "Le choix le plus écologique : pas de nouvel achat",
                   },
                   {
                     label: "Réparer l'ancien",
                     value: 5,
-                    color: "#14b8a6",
+                    color: "#0f766e",
                     icon: Wrench,
                     description: "Impact minimal : pièces de rechange uniquement",
                   },
                   {
                     label: "Acheter reconditionné",
                     value: 20,
-                    color: "#3b82f6",
+                    color: "#1d4ed8",
                     icon: Recycle,
                     description: "≈ −75 à −90 % d'impact par rapport au neuf (ADEME, 2022)",
                   },
                   {
                     label: "Acheter neuf",
                     value: 80,
-                    color: "#ef4444",
+                    color: "#b91c1c",
                     icon: ShoppingCart,
                     description: "Impact maximum : fabrication complète",
                   },
@@ -269,7 +269,7 @@ export default function CasPratiquesPage() {
 
               {/* Repair vs Buy New */}
               <Card className="border-2 border-slate-200 p-8 lg:p-12">
-                <h3 className="mb-6 text-2xl font-bold text-slate-900">Réparer ou racheter ?</h3>
+                <h3 className="mb-6 text-2xl font-bold text-slate-900 dark:text-slate-100">Réparer ou racheter ?</h3>
                 <div className="grid gap-6 lg:grid-cols-2">
                   <div className="rounded-xl border-2 border-emerald-500 bg-emerald-50 p-6">
                     <div className="mb-4 flex items-center gap-3">
@@ -354,17 +354,17 @@ export default function CasPratiquesPage() {
 
               {/* Interactive Lifespan Slider */}
               <Card className="border-2 border-slate-200 p-8 lg:p-12">
-                <h3 className="mb-6 text-2xl font-bold text-slate-900">
+                <h3 className="mb-6 text-2xl font-bold text-slate-900 dark:text-slate-100">
                   Simulateur : Durée de vie vs Impact environnemental
                 </h3>
-                <p className="mb-8 text-slate-600">
+                <p className="mb-8 text-slate-600 dark:text-slate-300">
                   Déplacez le curseur pour voir comment allonger la durée de vie de votre smartphone réduit son impact
                   annuel.
                 </p>
 
                 <div className="mb-8">
                   <div className="mb-4 flex items-center justify-between">
-                    <span className="text-sm font-medium text-slate-700">Durée de vie</span>
+                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Durée de vie</span>
                     <span className="text-2xl font-bold text-emerald-700">{lifespanYears[0]} ans</span>
                   </div>
                   <Slider
@@ -373,34 +373,35 @@ export default function CasPratiquesPage() {
                     min={1}
                     max={7}
                     step={1}
+                    aria-label="Durée de vie des appareils (années)"
                     className="mb-2"
                   />
-                  <div className="flex justify-between text-xs text-slate-500">
+                  <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400">
                     <span>1 an</span>
                     <span>7 ans</span>
                   </div>
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-2">
-                  <div className="rounded-xl bg-slate-50 p-6">
-                    <div className="mb-2 text-sm font-medium text-slate-600">Impact CO₂ annuel</div>
-                    <div className="mb-4 text-3xl font-bold text-slate-900">
-                      {Math.round(50 / lifespanYears[0])} kg/an
+                  <div className="rounded-xl bg-slate-50 dark:bg-slate-900 p-6">
+                    <div className="mb-2 text-sm font-medium text-slate-600 dark:text-slate-300">Impact CO₂ annuel</div>
+                    <div className="mb-4 text-3xl font-bold text-slate-900 dark:text-slate-100">
+                      {Math.round(80 / lifespanYears[0])} kg/an
                     </div>
-                    <div className="h-4 overflow-hidden rounded-full bg-slate-200">
+                    <div className="h-4 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
                       <div
                         className="h-full rounded-full bg-emerald-600 transition-all"
-                        style={{ width: `${(50 / lifespanYears[0] / 50) * 100}%` }}
+                        style={{ width: `${(80 / lifespanYears[0] / 80) * 100}%` }}
                       />
                     </div>
                   </div>
 
-                  <div className="rounded-xl bg-emerald-50 p-6">
-                    <div className="mb-2 text-sm font-medium text-emerald-700">Réduction d'impact</div>
-                    <div className="mb-4 text-3xl font-bold text-emerald-700">
+                  <div className="rounded-xl bg-emerald-50 dark:bg-emerald-900/20 p-6">
+                    <div className="mb-2 text-sm font-medium text-emerald-700 dark:text-emerald-400">Réduction d'impact</div>
+                    <div className="mb-4 text-3xl font-bold text-emerald-700 dark:text-emerald-400">
                       {impactReduction > 0 ? `-${impactReduction} %` : "0 %"}
                     </div>
-                    <p className="text-sm text-slate-700">
+                    <p className="text-sm text-slate-700 dark:text-slate-300">
                       {lifespanYears[0] <= 2
                         ? "Garder son appareil plus longtemps réduit nettement l'impact annuel."
                         : lifespanYears[0] <= 4
@@ -422,8 +423,8 @@ export default function CasPratiquesPage() {
                     <Laptop className="h-8 w-8 text-blue-700" />
                   </div>
                   <div>
-                    <h2 className="mb-2 text-3xl font-bold text-slate-900">L'Ordinateur Portable</h2>
-                    <p className="text-lg text-slate-600">
+                    <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-slate-100">L'Ordinateur Portable</h2>
+                    <p className="text-lg text-slate-600 dark:text-slate-300">
                       Un outil de travail essentiel, mais dont la fabrication a un coût environnemental élevé.
                     </p>
                   </div>
@@ -489,7 +490,7 @@ export default function CasPratiquesPage() {
 
               {/* Upgrade vs Replace */}
               <Card className="border-2 border-slate-200 p-8 lg:p-12">
-                <h3 className="mb-6 text-2xl font-bold text-slate-900">Améliorer ou remplacer ?</h3>
+                <h3 className="mb-6 text-2xl font-bold text-slate-900 dark:text-slate-100">Améliorer ou remplacer ?</h3>
                 <div className="mb-6 rounded-xl bg-blue-50 border-2 border-blue-200 p-6">
                   <h4 className="mb-4 font-semibold text-blue-900">Améliorations possibles</h4>
                   <div className="grid gap-4 md:grid-cols-3">
@@ -534,8 +535,8 @@ export default function CasPratiquesPage() {
                     <Server className="h-8 w-8 text-teal-700" />
                   </div>
                   <div>
-                    <h2 className="mb-2 text-3xl font-bold text-slate-900">Le Datacenter</h2>
-                    <p className="text-lg text-slate-600">
+                    <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-slate-100">Le Datacenter</h2>
+                    <p className="text-lg text-slate-600 dark:text-slate-300">
                       L'infrastructure invisible qui héberge nos données et fait fonctionner le cloud.
                     </p>
                   </div>
@@ -600,7 +601,7 @@ export default function CasPratiquesPage() {
               </Card>
 
               <Card className="border-2 border-slate-200 p-8 lg:p-12">
-                <h3 className="mb-6 text-2xl font-bold text-slate-900">Cloud vs Serveur local</h3>
+                <h3 className="mb-6 text-2xl font-bold text-slate-900 dark:text-slate-100">Cloud vs Serveur local</h3>
                 <div className="grid gap-6 lg:grid-cols-2">
                   <div className="rounded-xl border-2 border-teal-500 bg-teal-50 p-6">
                     <h4 className="mb-4 text-xl font-bold text-slate-900">Cloud mutualisé</h4>

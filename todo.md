@@ -16,7 +16,7 @@ Ma liste, mise à jour le 13/09/2026 après une grosse relecture pessimiste (lec
 - [x] outils : boutons "télécharger" branchés sur `window.print()` (calculateur, simulateur), audit branché sur son `exportPDF`, "partager" avec `navigator.share` + fallback presse-papier. Fait le 14/09.
 - [x] outils : fonction `GreenITQuiz` morte virée (+ import `Trophy`). La grille 4 colonnes pour 7 cartes je la laisse, en fait c'est pas si mal (4+3). Fait le 14/09.
 - [x] recherche : rajouté les 13 pages manquantes. Fait le 14/09.
-- [x] `sheet-content.tsx` : y'avait une `</div>` en trop qui faisait planter le build (vu le 14/09 en lançant `npm run build`). Réparé + bouton partager branché.
+- [x] `components/sheet-content.tsx` : y'avait une `</div>` en trop qui faisait planter le build (vu le 14/09 en lançant `npm run build`). Réparé + bouton partager branché.
 - [x] `npm run lint` : script viré le 14/09 (eslint était pas installé, ça induisait en erreur). Le check c'est la CI qui fait `npm run build`. Reste à faire : installer eslint pour de vrai + nettoyer les erreurs `tsc` (19 le 14/09, toutes pré-existantes dans `carbon-calculator`, `leaflet-map`, `search-dialog`... aucune dans les fichiers touchés depuis, vérifié).
 - [x] `ui/sonner.tsx` : 8e orphelin supprimé le 14/09 (personne l'importait, il crachait depuis la désinstall du paquet `sonner`).
 - [x] `out/` vérifié le 14/09 : pas de sous-dossier `greenit` dedans, `index.html` + `manifest.json` + `sw.js` à la racine -> le `COPY out -> html/greenit` du Dockerfile est bon, pas de double nid.
@@ -45,8 +45,7 @@ Ma liste, mise à jour le 13/09/2026 après une grosse relecture pessimiste (lec
 - [x] print CSS (fait le 14/09) : nav/footer masqués, fond blanc.
 - [ ] chasser les liens morts (un petit `lychee` sur `out/` après build, ça serait bien)
 - [ ] audit contrastes WCAG au cas par cas (le clavier est testé : skip-link, menus, onglets, Escape — voir changelog du 14/09)
-- [ ] perfs : le fichier outils fait 1900 lignes, à découper
-- [x] sitemap.xml -> fait (`sitemap.ts` + robots), reste à compléter (voir P0)
+- [x] sitemap.xml -> fait (`sitemap.ts` + robots), complété (offline + modeles)
 - [x] redirects 301 -> fait dans nginx (`/` -> `/greenit/`)
 - [ ] retester le dark partout
 

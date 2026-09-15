@@ -2,7 +2,7 @@
 
 Je note ici ce qui change, même les petits trucs.
 
-## pas encore sorti — 13/09/2026
+## pas encore sorti — septembre 2026 (13 au 15/09)
 
 - fix du 14/09, build qui passe (42 pages) :
   - pwa `/greenit` : manifest (`start_url`/`scope` + icônes `.webp`), sw (chemins + fallback), layout (`register('/greenit/sw.js')`, OG en `/greenit/...`, `generator: Next.js`), leaflet (`/greenit/images/...`)
@@ -82,7 +82,7 @@ Première version qui tient debout :
 
 ## après
 
-- 1.2.0 prévu fin 2026 : P0 basePath/PWA, nettoyage breadcrumb/search/font/placeholder/boutons, comptes, newsletter, success stories
+- 1.2.0 : basePath/PWA, refs mortes, recherche et boutons livrés les 14-15/09 ; reste comptes, newsletter, success stories et les images de la vague 3
 - 1.3.0 en 2027 : forum, formation, templates, webinaires, espace jeunes
 
 ---

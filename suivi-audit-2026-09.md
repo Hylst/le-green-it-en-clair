@@ -26,8 +26,8 @@
 
 ### Vague 0 — socle et table canonique
 - [x] Cartographie exhaustive reçue des 4 domaines (contenu/droit, chiffres/outils/quiz, images/documents, UX/accessibilité).
-- [ ] Validation manuelle de la table canonique avant toute modification.
-- [ ] Critères d’acceptation par vague définis ci-dessous.
+- [x] Validation manuelle de la table canonique avant toute modification.
+- [x] Critères d’acceptation par vague définis ci-dessous.
 
 ## Cartographie consolidée (pistes vérifiées par les agents, à contrôler avant edit)
 
@@ -45,7 +45,7 @@
 ### Domaine B — chiffres, outils, quiz
 - Table de concordance à appliquer : e-déchets, recyclage monde/France, fabrication smartphone, CO2/eau, reconditionné, cloud/transfert, datacenters/PUE, IA, équivalences, box, streaming/Wi-Fi, code/WebP.
 - `components/outils/carbon-calculator.tsx`, `sobriety-simulator.tsx`, `enterprise-simulator.tsx`, `it-audit.tsx`, `cloud-comparator.tsx` : facteurs, millésimes, hypothèses affichées, équivalences.
-- `components/quiz-green-it-advanced.tsx` : bouton certificat sans handler + réponses Q9/Q22/Q31/Q32/Q39/Q52/Q93 et harmonisations.
+- `components/quiz-green-it-advanced.tsx` : bouton certificat branché sur « Imprimer » le 15/09 ; reste la refonte du contenu et de l'attestation (vague quiz en cours).
 - `components/website-carbon-calculator.tsx` : déjà conforme, à sanctuariser.
 - `components/growth-animation.tsx` : formule exponentielle à aligner sur trajectoire GEM.
 

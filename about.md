@@ -27,7 +27,7 @@ Limites : les chiffres bougent vite, je peux me planter, et simplifier ça veut 
 
 ## et après ?
 
-J'aimerais ajouter des success stories, des vidéos, peut-être une newsletter. Et surtout corriger les petits bugs qui traînent (la PWA sous `/greenit`, 2-3 boutons qui font rien...). La liste est dans `todo.md`, je fais au fur et à mesure.
+J'aimerais ajouter des success stories, des vidéos, peut-être une newsletter. Et finir le ménage : images orphelines, fiches chiffrées, tests navigateurs. La liste est dans `todo.md`, je fais au fur et à mesure.
 
 Merci de passer par là :)
 

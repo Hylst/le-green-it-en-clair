@@ -18,8 +18,16 @@ import {
   Download,
   Lightbulb,
 } from "lucide-react"
+import {
+  loadQuizSession,
+  saveQuizSession,
+  clearQuizSession,
+  type QuizMode,
+  type QuizSession,
+  type StoredAnswer,
+} from "@/lib/quiz-storage"
 
-interface QuizQuestion {
+export interface QuizQuestion {
   id: number
   category: string
   difficulty: "facile" | "moyen" | "difficile"
@@ -1450,7 +1458,10 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
   },
 ]
 
-type QuizMode = "discovery" | "full" | "category" | "challenge"
+// À incrémenter si les questions changent (invalide proprement les sessions en cours)
+const QUIZ_CONTENT_VERSION = 1
+
+const questionIndex = (question: QuizQuestion) => ALL_QUIZ_QUESTIONS.indexOf(question)
 
 export function QuizGreenITAdvanced() {
   const [mode, setMode] = useState<QuizMode | null>(null)
@@ -1460,12 +1471,84 @@ export function QuizGreenITAdvanced() {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
   const [showExplanation, setShowExplanation] = useState(false)
   const [score, setScore] = useState(0)
-  const [answeredQuestions, setAnsweredQuestions] = useState<number[]>([])
+  const [answers, setAnswers] = useState<StoredAnswer[]>([])
   const [isFinished, setIsFinished] = useState(false)
+  const [finishedAt, setFinishedAt] = useState<string | null>(null)
   const [timeLeft, setTimeLeft] = useState(0)
+  const [endsAt, setEndsAt] = useState<number | null>(null)
   const [playerName, setPlayerName] = useState("")
+  const [restored, setRestored] = useState(false)
 
   const categories = Array.from(new Set(ALL_QUIZ_QUESTIONS.map((q) => q.category)))
+
+  const withUnanswered = (base: StoredAnswer[], questions: QuizQuestion[]) => {
+    const answered = new Set(base.map((a) => a.sessionIndex))
+    const missing = questions
+      .map((_, i) => i)
+      .filter((i) => !answered.has(i))
+      .map((i) => ({ sessionIndex: i, selectedAnswer: -1, correct: false }))
+    return missing.length ? [...base, ...missing] : base
+  }
+
+  const restoreSession = (session: QuizSession) => {
+    const questions = session.questionIds.map((id) => ALL_QUIZ_QUESTIONS[id]).filter(Boolean)
+    if (questions.length !== session.questionIds.length) {
+      clearQuizSession()
+      return
+    }
+    setMode(session.mode)
+    setSelectedCategory(session.category)
+    setActiveQuestions(questions)
+    setCurrentQuestionIndex(session.currentIndex)
+    setSelectedAnswer(null)
+    setShowExplanation(false)
+    setScore(session.score)
+    setAnswers(session.answers)
+    setPlayerName(session.playerName)
+    setFinishedAt(session.finishedAt)
+    setEndsAt(session.endsAt)
+    if (session.mode === "challenge" && session.endsAt) {
+      const remaining = Math.max(0, Math.ceil((session.endsAt - Date.now()) / 1000))
+      setTimeLeft(remaining)
+      if (session.finished || remaining <= 0) {
+        setIsFinished(true)
+        if (!session.finished) {
+          setAnswers(withUnanswered(session.answers, questions))
+          setFinishedAt(new Date().toISOString())
+        }
+      } else {
+        setIsFinished(false)
+      }
+    } else {
+      setTimeLeft(0)
+      setIsFinished(session.finished)
+    }
+  }
+
+  useEffect(() => {
+    const stored = loadQuizSession({ contentVersion: QUIZ_CONTENT_VERSION, questionCount: ALL_QUIZ_QUESTIONS.length })
+    if (stored && !stored.finished) restoreSession(stored)
+    setRestored(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
+    if (!restored || !mode || activeQuestions.length === 0) return
+    saveQuizSession({
+      schemaVersion: 1,
+      contentVersion: QUIZ_CONTENT_VERSION,
+      mode,
+      category: selectedCategory,
+      questionIds: activeQuestions.map(questionIndex),
+      currentIndex: currentQuestionIndex,
+      answers,
+      score,
+      playerName,
+      finished: isFinished,
+      finishedAt,
+      endsAt,
+    })
+  }, [restored, mode, selectedCategory, activeQuestions, currentQuestionIndex, answers, score, playerName, isFinished, finishedAt, endsAt])
 
   // Timer for challenge mode
   useEffect(() => {
@@ -1473,18 +1556,23 @@ export function QuizGreenITAdvanced() {
       const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000)
       return () => clearTimeout(timer)
     }
-    if (timeLeft === 0 && mode === "challenge" && !isFinished) {
+    if (timeLeft === 0 && mode === "challenge" && !isFinished && endsAt) {
+      setAnswers(withUnanswered(answers, activeQuestions))
       setIsFinished(true)
+      setFinishedAt(new Date().toISOString())
     }
-  }, [timeLeft, isFinished, mode])
+  }, [timeLeft, isFinished, mode, endsAt, answers, activeQuestions])
 
   const startQuiz = (selectedMode: QuizMode, category?: string) => {
     setMode(selectedMode)
     setSelectedCategory(category || null)
     setCurrentQuestionIndex(0)
     setScore(0)
-    setAnsweredQuestions([])
+    setAnswers([])
     setIsFinished(false)
+    setFinishedAt(null)
+    setSelectedAnswer(null)
+    setShowExplanation(false)
 
     let questions: QuizQuestion[] = []
 
@@ -1492,18 +1580,22 @@ export function QuizGreenITAdvanced() {
       // 10 random questions
       questions = shuffle(ALL_QUIZ_QUESTIONS).slice(0, 10)
       setTimeLeft(0)
+      setEndsAt(null)
     } else if (selectedMode === "full") {
       // All 100 questions
       questions = [...ALL_QUIZ_QUESTIONS]
       setTimeLeft(0)
+      setEndsAt(null)
     } else if (selectedMode === "category" && category) {
       // Questions from selected category
       questions = ALL_QUIZ_QUESTIONS.filter((q) => q.category === category)
       setTimeLeft(0)
+      setEndsAt(null)
     } else if (selectedMode === "challenge") {
       // 20 random questions with timer
       questions = shuffle(ALL_QUIZ_QUESTIONS).slice(0, 20)
       setTimeLeft(20 * 60) // 20 minutes
+      setEndsAt(Date.now() + 20 * 60 * 1000)
     }
 
     setActiveQuestions(questions)
@@ -1516,10 +1608,9 @@ export function QuizGreenITAdvanced() {
     setShowExplanation(true)
 
     const currentQuestion = activeQuestions[currentQuestionIndex]
-    if (answerIndex === currentQuestion.correctAnswer) {
-      setScore(score + currentQuestion.points)
-    }
-    setAnsweredQuestions([...answeredQuestions, currentQuestionIndex])
+    const correct = answerIndex === currentQuestion.correctAnswer
+    if (correct) setScore(score + currentQuestion.points)
+    setAnswers([...answers, { sessionIndex: currentQuestionIndex, selectedAnswer: answerIndex, correct }])
   }
 
   const handleNext = () => {
@@ -1533,7 +1624,9 @@ export function QuizGreenITAdvanced() {
   }
 
   const handleFinish = () => {
+    setAnswers(withUnanswered(answers, activeQuestions))
     setIsFinished(true)
+    setFinishedAt(new Date().toISOString())
   }
 
   const resetQuiz = () => {
@@ -1543,11 +1636,14 @@ export function QuizGreenITAdvanced() {
     setSelectedAnswer(null)
     setShowExplanation(false)
     setScore(0)
-    setAnsweredQuestions([])
+    setAnswers([])
     setIsFinished(false)
+    setFinishedAt(null)
+    setEndsAt(null)
     setTimeLeft(0)
     setPlayerName("")
     setActiveQuestions([])
+    clearQuizSession()
   }
 
   const handlePrintCertificate = () => {
@@ -1704,12 +1800,12 @@ export function QuizGreenITAdvanced() {
           <div className="space-y-3">
             <div className="flex justify-between text-sm">
               <span className="text-slate-600 dark:text-gray-300">Questions répondues</span>
-              <span className="font-semibold dark:text-gray-100">{answeredQuestions.length}</span>
+              <span className="font-semibold dark:text-gray-100">{answers.length}</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-slate-600 dark:text-gray-300">Score moyen par question</span>
               <span className="font-semibold dark:text-gray-100">
-                {answeredQuestions.length > 0 ? `${Math.round(score / answeredQuestions.length)} points` : "—"}
+                {answers.length > 0 ? `${Math.round(score / answers.length)} points` : "—"}
               </span>
             </div>
             {mode === "challenge" && (

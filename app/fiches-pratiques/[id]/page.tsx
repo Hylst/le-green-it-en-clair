@@ -128,9 +128,9 @@ const sheets: Record<string, any> = {
         title: "Privilégier la durabilité",
         content: "Cherchez des appareils conçus pour durer : batterie remplaçable, mises à jour longues, robustesse.",
         tips: [
-          "Fairphone : smartphone modulaire réparable à 100%",
-          "Apple : support iOS pendant 5-6 ans",
-          "Samsung : 4 ans de mises à jour Android garanties",
+          "Fairphone : smartphone modulaire et réparable (indice de réparabilité élevé)",
+          "Apple : support iOS pendant 5 à 7 ans selon les modèles",
+          "Samsung : jusqu'à 7 ans de mises à jour sur les modèles récents",
         ],
       },
       {
@@ -294,7 +294,7 @@ const sheets: Record<string, any> = {
         tips: [
           "Les Repair Cafés : réparer gratuitement et apprendre avec des bénévoles",
           "Le label 'Répar'Acteurs' pour trouver un artisan de confiance",
-          "Le Bonus Réparation : aide de l'État déduite directement de la facture",
+          "Le Bonus Réparation : aide financée par la filière REP, déduite directement de la facture",
         ],
       },
     ],
@@ -327,13 +327,13 @@ const sheets: Record<string, any> = {
         content: "L'impact se joue dès l'achat. Privilégiez le matériel durable, réparable et si possible reconditionné.",
         tips: [
           "Intégrez des critères environnementaux (TCO, EPEAT) dans les appels d'offres",
-          "Achetez reconditionné pour les flottes mobiles (impact réduit de 80%)",
+          "Achetez reconditionné pour les flottes mobiles (impact réduit d'environ 75 %, ADEME 2022)",
           "Louez plutôt d'achetez pour favoriser l'économie de la fonctionnalité (Device as a Service)",
         ],
       },
       {
         title: "3. Allonger la durée de vie du matériel",
-        content: "Passer de 3 à 5 ans d'usage pour un ordinateur professionnel réduit son empreinte annuelle de 40%.",
+        content: "Passer de 3 à 5 ans d'usage pour un ordinateur professionnel réduit son empreinte annuelle d'environ 30 % (ordre de grandeur ADEME).",
         tips: [
           "Boostez les PC lents (ajout de RAM, passage au SSD) plutôt que de les remplacer",
           "Assurez une maintenance préventive régulière (dépoussiérage des unités centrales)",

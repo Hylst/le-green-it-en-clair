@@ -68,8 +68,9 @@ export default function AProposPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-muted-foreground">
-                Ce site est né d'un constat simple : le numérique représente aujourd'hui 4% des émissions mondiales de
-                gaz à effet de serre, et ce chiffre pourrait doubler d'ici 2030 si nous ne changeons pas nos habitudes.
+                Ce site est né d'un constat simple : le numérique représente aujourd'hui environ 3,4 % des émissions
+                mondiales de gaz à effet de serre, soit 1,8 Gt CO2e (GreenIT EENM 2025), et cette empreinte pourrait
+                tripler d'ici 2050 si nous ne changeons pas nos habitudes (ADEME-Arcep 2023).
               </p>
               <p className="text-muted-foreground">
                 La mission de ce projet est de rendre accessible à tous les citoyens, entreprises et collectivités
@@ -273,7 +274,7 @@ export default function AProposPage() {
 
           {/* Mentions légales */}
           <div className="mt-8 text-center text-sm text-muted-foreground">
-            <p className="mb-2">Le Green IT en clair • Projet personnel de Geoffroy Streit • 2025</p>
+            <p className="mb-2">Le Green IT en clair • Projet personnel de Geoffroy Streit • 2026</p>
             <p>
               Ce site est hébergé de manière éco-responsable et conçu selon les principes du Green IT (optimisation des
               ressources, accessibilité, sobriété numérique).

@@ -450,8 +450,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctAnswer: 1,
     explanation:
-      "L'indice de réparabilité est une note sur 10 qui informe sur la facilité de réparation d'un produit électronique.",
-    source: "Loi AGEC 2021",
+      "L'indice de réparabilité est une note sur 10 qui informe sur la facilité de réparation d'un produit électronique. Depuis 2025, un indice de durabilité le complète pour certains produits.",
+    source: "Loi AGEC 2020",
     points: 10,
   },
   {
@@ -459,23 +459,28 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Réparation et recyclage",
     difficulty: "moyen",
     question: "Quelle est la durée minimale de disponibilité des pièces détachées pour un smartphone ?",
-    options: ["1 an", "2 ans", "5 ans", "10 ans"],
-    correctAnswer: 2,
+    options: ["1 an", "2 ans", "5 ans", "7 ans"],
+    correctAnswer: 3,
     explanation:
-      "Depuis la loi AGEC, les fabricants doivent garantir la disponibilité des pièces détachées pendant 5 ans minimum.",
-    source: "Loi AGEC 2021",
+      "Depuis le 20 juin 2025, le règlement européen 2023/1670 impose 7 ans de disponibilité des pièces détachées pour les smartphones.",
+    source: "Règlement UE 2023/1670",
     points: 15,
   },
   {
     id: 33,
     category: "Réparation et recyclage",
     difficulty: "difficile",
-    question: "Quel pourcentage de l'or mondial provient du recyclage de déchets électroniques ?",
-    options: ["5%", "15%", "30%", "50%"],
-    correctAnswer: 1,
+    question: "Pourquoi parle-t-on de « mine urbaine » pour les déchets électroniques ?",
+    options: [
+      "Parce qu'ils contiennent des métaux précieux récupérables",
+      "Parce qu'ils sont stockés en ville",
+      "Parce qu'ils poussent dans les villes",
+      "Parce qu'ils sont gratuits",
+    ],
+    correctAnswer: 0,
     explanation:
-      "Environ 15% de l'or utilisé dans le monde provient du recyclage des DEEE, une mine urbaine importante.",
-    source: "ONU Environnement",
+      "Un smartphone contient notamment de l'or, de l'argent, du cuivre et des terres rares ; le recyclage permet d'en récupérer une partie, d'où l'image de « mine urbaine ».",
+    source: "Global E-waste Monitor 2024, ONU",
     points: 20,
   },
   {
@@ -492,7 +497,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 0,
     explanation:
       "DEEE signifie Déchets d'Équipements Électriques et Électroniques, les e-déchets à recycler obligatoirement.",
-    source: "Directive européenne",
+    source: "Directive 2012/19/UE",
     points: 10,
   },
   {
@@ -503,8 +508,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["20-50€", "50-150€", "150-300€", "300-500€"],
     correctAnswer: 1,
     explanation:
-      "La réparation d'un écran de smartphone coûte en moyenne entre 50 et 150€, souvent rentable par rapport au remplacement.",
-    source: "Étude marché réparation 2025",
+      "Souvent 50 à 150 € selon le modèle et le réparateur ; le bonus réparation peut réduire la facture (25 € pour un smartphone).",
+    source: "Ordre de grandeur, QualiRépar 2025",
     points: 15,
   },
   {
@@ -516,7 +521,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 2,
     explanation:
       "Chaque français produit environ 24 kg de déchets électroniques par an, soit 1,6 million de tonnes au total.",
-    source: "ADEME 2025",
+    source: "ADEME 2026",
     points: 20,
   },
   {
@@ -532,8 +537,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctAnswer: 1,
     explanation:
-      "Le bonus réparation est une aide financière de l'État pour encourager la réparation plutôt que le remplacement.",
-    source: "Ministère Transition Écologique",
+      "Le bonus réparation est une aide financée par la filière REP (éco-organismes) pour réduire le coût d'une réparation hors garantie.",
+    source: "ADEME 2025",
     points: 15,
   },
   {
@@ -544,32 +549,32 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["À la poubelle", "Dans les déchetteries et magasins", "Dans la rue", "Uniquement chez le fabricant"],
     correctAnswer: 1,
     explanation:
-      "Les appareils électroniques peuvent être déposés gratuitement dans les déchetteries et magasins (reprise 1 pour 1).",
-    source: "Loi DEEE",
+      "Les appareils électroniques peuvent être déposés gratuitement en déchetterie ; en magasin, la reprise est gratuite (1 pour 1, et 1 pour 0 pour certains petits appareils).",
+    source: "Directive DEEE 2012/19/UE",
     points: 10,
   },
   {
     id: 39,
     category: "Réparation et recyclage",
     difficulty: "moyen",
-    question: "Quel est le taux de collecte des DEEE en France en 2025 ?",
-    options: ["25%", "45%", "65%", "85%"],
-    correctAnswer: 2,
+    question: "Que représente l'objectif européen de collecte des DEEE de 65 % ?",
+    options: ["Un taux atteint partout", "Un objectif réglementaire de collecte", "Un taux de recyclage des matériaux", "Une taxe"],
+    correctAnswer: 1,
     explanation:
-      "Le taux de collecte des DEEE en France atteint environ 65% en 2025, progressant vers l'objectif européen de 85%.",
-    source: "ADEME 2025",
+      "Depuis 2019, la directive DEEE fixe un objectif de collecte de 65 % ; il est rarement atteint. Ne pas confondre collecte, recyclage et valorisation.",
+    source: "Directive DEEE 2012/19/UE",
     points: 15,
   },
   {
     id: 40,
     category: "Réparation et recyclage",
     difficulty: "difficile",
-    question: "Combien de smartphones dorment inutilisés dans les tiroirs français ?",
+    question: "Combien d'appareils numériques dorment inutilisés dans les foyers français ?",
     options: ["10 millions", "30 millions", "54 millions", "100 millions"],
-    correctAnswer: 2,
+    correctAnswer: 3,
     explanation:
-      "Environ 54 millions de smartphones dorment inutilisés en France, représentant une mine urbaine de métaux précieux.",
-    source: "ADEME 2024",
+      "Environ 100 millions d'appareils dorment dans les tiroirs français, dont des dizaines de millions de smartphones (ADEME 2026).",
+    source: "ADEME 2026",
     points: 20,
   },
 

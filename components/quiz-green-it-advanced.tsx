@@ -1479,6 +1479,7 @@ export function QuizGreenITAdvanced() {
   const [endsAt, setEndsAt] = useState<number | null>(null)
   const [playerName, setPlayerName] = useState("")
   const [restored, setRestored] = useState(false)
+  const [lastFinished, setLastFinished] = useState<QuizSession | null>(null)
 
   const categories = Array.from(new Set(ALL_QUIZ_QUESTIONS.map((q) => q.category)))
 
@@ -1529,6 +1530,7 @@ export function QuizGreenITAdvanced() {
   useEffect(() => {
     const stored = loadQuizSession({ contentVersion: QUIZ_CONTENT_VERSION, questionCount: ALL_QUIZ_QUESTIONS.length })
     if (stored && !stored.finished) restoreSession(stored)
+    if (stored && stored.finished) setLastFinished(stored)
     setRestored(true)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -1666,6 +1668,7 @@ export function QuizGreenITAdvanced() {
     setTimeLeft(0)
     setPlayerName("")
     setActiveQuestions([])
+    setLastFinished(null)
     clearQuizSession()
   }
 
@@ -1687,6 +1690,14 @@ export function QuizGreenITAdvanced() {
 
   // Mode selection screen
   if (!mode) {
+    const lastFinishedQuestions = lastFinished
+      ? lastFinished.questionIds.map((id) => ALL_QUIZ_QUESTIONS[id]).filter(Boolean)
+      : []
+    const lastFinishedMaxScore = lastFinishedQuestions.reduce((sum, q) => sum + q.points, 0)
+    const lastFinishedPercentage =
+      lastFinished && lastFinishedMaxScore > 0 ? Math.round((lastFinished.score / lastFinishedMaxScore) * 100) : 0
+    const lastFinishedErrors = lastFinished ? lastFinished.answers.filter((a) => !a.correct).length : 0
+
     return (
       <Card className="shadow-lg dark:bg-slate-800">
         <CardHeader>
@@ -1697,6 +1708,28 @@ export function QuizGreenITAdvanced() {
           <CardDescription>Choisissez votre mode de jeu pour tester vos connaissances</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
+          {lastFinished && (
+            <div className="flex flex-col gap-3 rounded-xl border-2 border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-800 dark:bg-emerald-900/20 md:flex-row md:items-center md:justify-between">
+              <div>
+                <p className="font-semibold text-emerald-900 dark:text-emerald-200">
+                  Derniers résultats : {lastFinished.score} / {lastFinishedMaxScore} ({lastFinishedPercentage} %)
+                </p>
+                <p className="text-sm text-emerald-800 dark:text-emerald-300">
+                  {lastFinishedErrors > 0
+                    ? `${lastFinishedErrors} erreur${lastFinishedErrors > 1 ? "s" : ""} à revoir`
+                    : "Sans faute, bravo !"}
+                </p>
+              </div>
+              <div className="flex gap-2">
+                <Button variant="outline" size="sm" onClick={() => restoreSession(lastFinished)}>
+                  Revoir mes erreurs
+                </Button>
+                <Button variant="ghost" size="sm" onClick={resetQuiz}>
+                  Refaire un quiz
+                </Button>
+              </div>
+            </div>
+          )}
           <div className="grid md:grid-cols-2 gap-4">
             <button
               onClick={() => startQuiz("discovery")}

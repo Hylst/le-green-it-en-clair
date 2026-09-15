@@ -23,7 +23,7 @@ const faqCategories = [
       },
       {
         q: "Quel est l'impact du numérique en France ?",
-        a: "En France, le numérique représente environ 2,5 % des émissions de gaz à effet de serre nationales (17 Mt CO₂eq en 2023, ADEME-Arcep). En France, environ 1,6 million de tonnes de déchets électroniques sont collectées chaque année, soit un taux de collecte d'environ 46 % (ADEME 2024, Eurostat 2024).",
+        a: "En France, le numérique représente 2,5 % des émissions nationales en 2020 (17,2 Mt CO₂eq) et 4,4 % en 2022 avec un périmètre élargi aux datacenters étrangers (29,5 Mt, ADEME-Arcep). En France, environ 1,6 million de tonnes de déchets électroniques sont collectées chaque année, soit un taux de collecte d'environ 46 % (ADEME 2024, Eurostat 2024).",
       },
       {
         q: "Peut-on vraiment faire une différence individuellement ?",
@@ -37,7 +37,7 @@ const faqCategories = [
     questions: [
       {
         q: "Faut-il acheter neuf ou reconditionné ?",
-        a: "Le reconditionné est fortement recommandé : un appareil reconditionné a un impact environnemental réduit de 75% par rapport au neuf (ADEME, 2022). Choisissez un vendeur certifié : la garantie légale de conformité est de 2 ans, y compris pour le reconditionné, avec les défauts présumés antérieurs pendant 24 mois.",
+        a: "Le reconditionné est fortement recommandé : un appareil reconditionné a un impact environnemental réduit d'environ 75 à 90 % par rapport au neuf (ADEME, 2022). Choisissez un vendeur certifié : la garantie légale de conformité est de 2 ans, y compris pour le reconditionné, avec les défauts présumés antérieurs pendant 24 mois.",
       },
       {
         q: "Comment choisir un appareil durable ?",
@@ -63,7 +63,7 @@ const faqCategories = [
       },
       {
         q: "Le streaming vidéo pollue-t-il vraiment ?",
-        a: "Oui, de manière significative. 1h de streaming en 4K consomme ~7 Go de données et émet de l'ordre de 300 g de CO₂ ; en HD ~100 g, en qualité réduite ~30 g (ordres de grandeur, très dépendants du mix électrique). En France, le streaming vidéo représente 60% du trafic internet. Actions : privilégier 720p, télécharger les contenus regardés plusieurs fois, désactiver lecture automatique, éviter le streaming sur mobile en 4G/5G.",
+        a: "Oui, de manière significative. 1h de streaming en 4K consomme ~7 Go de données et émet de l'ordre de 300 g de CO₂ ; en HD ~100 g, en qualité réduite ~30 g (fourchette 56-400 g/h selon les hypothèses, Shift 2019 / Kamiya 2020 ; très dépendant du mix électrique). Le streaming vidéo représente environ 60 % du trafic internet mondial (Sandvine, 2024). Actions : privilégier 720p, télécharger les contenus regardés plusieurs fois, désactiver lecture automatique, éviter le streaming sur mobile en 4G/5G.",
       },
       {
         q: "Les emails polluent-ils vraiment ?",
@@ -81,7 +81,7 @@ const faqCategories = [
     questions: [
       {
         q: "Où faire réparer mes appareils ?",
-        a: "Plusieurs options : 1) SAV du fabricant ou revendeur agréé, 2) Réparateurs indépendants labellisés, 3) Repair Cafés (gratuits, entraide), 4) Ressourceries et structures de l'économie sociale et solidaire (Emmaüs, Envie, etc.). Depuis 2021, un bonus réparation existe en France (de 10 à 65 € selon l'appareil, 25 € pour un smartphone, chez un réparateur labellisé QualiRépar). Consultez la carte des réparateurs sur ecosystem.eco.",
+        a: "Plusieurs options : 1) SAV du fabricant ou revendeur agréé, 2) Réparateurs indépendants labellisés, 3) Repair Cafés (gratuits, entraide), 4) Ressourceries et structures de l'économie sociale et solidaire (Emmaüs, Envie, etc.). Depuis 2021, un bonus réparation existe en France (de 10 à 65 € selon l'appareil, 25 € pour un smartphone, chez un réparateur labellisé QualiRépar). Consultez l'annuaire officiel (quefairedemesdechets.ademe.fr).",
       },
       {
         q: "Vaut-il mieux réparer ou racheter ?",
@@ -137,7 +137,7 @@ const faqCategories = [
       },
       {
         q: "Y a-t-il des aides financières pour la réparation ?",
-        a: "Oui, plusieurs dispositifs en France : 1) Bonus réparation : de 10 à 65 € selon l'appareil (25 € pour un smartphone), déduit par un réparateur labellisé QualiRépar, hors garantie (ADEME), 2) Fonds réparation via éco-organismes, 3) Aides locales (certaines régions/communes), 4) Crédit d'impôt transition énergétique (dans certains cas). Consultez ecosystem.eco et longuevieauxobjets.gouv.fr pour détails et carte des bénéficiaires.",
+        a: "Oui, plusieurs dispositifs en France : 1) Bonus réparation : de 10 à 65 € selon l'appareil (25 € pour un smartphone), déduit par un réparateur labellisé QualiRépar, hors garantie (ADEME), 2) Fonds réparation via éco-organismes, 3) Aides locales (certaines régions/communes), 4) Crédit d'impôt transition énergétique (dans certains cas). Consultez quefairedemesdechets.ademe.fr et longuevieauxobjets.gouv.fr pour les détails et la carte des bénéficiaires.",
       },
     ],
   },

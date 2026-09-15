@@ -18,6 +18,7 @@ import {
   TrendingUp,
   Shield,
   Leaf,
+  Globe,
 } from "lucide-react"
 import {
   BarChart,
@@ -103,7 +104,7 @@ export default function ReglementationPage() {
           <Card>
             <CardHeader>
               <CardTitle>Impact des réglementations dans le temps</CardTitle>
-              <CardDescription>Score d'impact sur l'industrie numérique (0-100)</CardDescription>
+              <CardDescription>Scénario illustratif de la rédaction, pas une donnée officielle</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={300}>
@@ -515,6 +516,49 @@ export default function ReglementationPage() {
                   </div>
                 </CardContent>
               </Card>
+
+              <Card className="border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-950/30">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <Globe className="w-8 h-8 text-blue-600" />
+                    <div>
+                      <CardTitle>Autres textes européens (2024-2025)</CardTitle>
+                      <CardDescription>ESPR, USB-C, Green Claims, Data Act, IA Act, EED</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 text-sm text-muted-foreground">
+                    <li>
+                      • <strong className="text-foreground">ESPR (règlement 2024/1781)</strong> : écoconception élargie
+                      à de nouvelles familles de produits, avec passeport numérique et exigences de durabilité.
+                    </li>
+                    <li>
+                      • <strong className="text-foreground">USB-C obligatoire</strong> pour la plupart des petits
+                      appareils depuis le 28 décembre 2024 (directive 2022/2380), chargeur unique et fin des chargeurs
+                      fournis par défaut.
+                    </li>
+                    <li>
+                      • <strong className="text-foreground">Green Claims (directive 2024/825)</strong> : les allégations
+                      environnementales doivent être prouvées et vérifiées, fin du greenwashing.
+                    </li>
+                    <li>
+                      • <strong className="text-foreground">Data Act (règlement 2023/2854)</strong> : partage et
+                      portabilité des données, applicable depuis septembre 2025.
+                    </li>
+                    <li>
+                      • <strong className="text-foreground">IA Act (règlement 2024/1689)</strong> : obligations de
+                      transparence pour les modèles d'IA à usage général depuis août 2025 (voir aussi le rapport Arcep
+                      IA &amp; environnement, mai 2026).
+                    </li>
+                    <li>
+                      • <strong className="text-foreground">EED refondue</strong> : reporting public obligatoire pour
+                      les datacenters de plus de 500 kW depuis mai 2024.
+                    </li>
+                  </ul>
+                  <p className="mt-4 text-xs text-muted-foreground">Sources : EUR-Lex, 2024-2025 ; Arcep, mai 2026.</p>
+                </CardContent>
+              </Card>
             </TabsContent>
 
             {/* ISO Norms Tab */}
@@ -570,20 +614,10 @@ export default function ReglementationPage() {
                     </ul>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-4 text-center">
-                    <div className="bg-card p-3 rounded-lg border border-chart-2/20">
-                      <div className="text-2xl font-bold text-chart-2">400k+</div>
-                      <div className="text-xs text-muted-foreground">Certifications mondiales</div>
-                    </div>
-                    <div className="bg-card p-3 rounded-lg border border-chart-2/20">
-                      <div className="text-2xl font-bold text-chart-2">12k+</div>
-                      <div className="text-xs text-muted-foreground">Entreprises françaises</div>
-                    </div>
-                    <div className="bg-card p-3 rounded-lg border border-chart-2/20">
-                      <div className="text-2xl font-bold text-chart-2">-25%</div>
-                      <div className="text-xs text-muted-foreground">Réduction impact moyen</div>
-                    </div>
-                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    L'ISO publie chaque année le nombre de certifications (ISO Survey) : les gains dépendent du périmètre
+                    et de la maturité de l'organisation, à mesurer au cas par cas.
+                  </p>
                 </CardContent>
               </Card>
 
@@ -642,21 +676,11 @@ export default function ReglementationPage() {
                   </div>
 
                   <div className="bg-accent/10 p-4 rounded-lg">
-                    <h5 className="font-semibold mb-2 text-foreground">Bénéfices mesurés</h5>
-                    <div className="grid grid-cols-3 gap-4 text-center">
-                      <div>
-                        <div className="text-2xl font-bold text-accent">-20%</div>
-                        <div className="text-xs text-muted-foreground">Consommation énergétique</div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-accent">-15%</div>
-                        <div className="text-xs text-muted-foreground">Coûts énergétiques</div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-accent">ROI 3 ans</div>
-                        <div className="text-xs text-muted-foreground">Retour sur investissement</div>
-                      </div>
-                    </div>
+                    <h5 className="font-semibold mb-2 text-foreground">Bénéfices typiques</h5>
+                    <p className="text-sm text-muted-foreground">
+                      Les économies varient selon le site : les retours d'expérience documentent souvent 10 à 20 % sur la
+                      consommation d'énergie, avec un retour sur investissement de quelques années.
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -802,7 +826,7 @@ export default function ReglementationPage() {
               </CardHeader>
               <CardContent className="space-y-2 text-sm text-muted-foreground">
                 <p>• Investissements initiaux importants (audit, formation, outils)</p>
-                <p>• Coût moyen : 50k€ - 500k€ selon taille entreprise</p>
+                <p>• Coût variable selon la taille et le périmètre (audit, accompagnement, outils), à chiffrer au cas par cas</p>
                 <p>• ROI sur 3-5 ans via économies d'énergie et image</p>
                 <p>• Aides publiques disponibles (ADEME, régions)</p>
               </CardContent>

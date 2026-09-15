@@ -37,11 +37,12 @@ Ma liste, mise à jour le 15/09/2026 après une grosse relecture pessimiste (lec
 - [x] Finalisation D le 15/09 (commits `91ba803` → `7b6fa85`) : reliquats de contenu sourcés (`reglementation`, `developpement`, `problematiques`, `recyclage`, `chiffres`, `comprendre`, `cas-pratiques`, fiches, `mythes`, modèles, simulateurs, perspectives), `canonical` par page, PWA offline précachée, sitemap à jour, breadcrumb complet, infobulles `SourceTooltip` source + calcul sur les chiffres clés, contrastes WCAG corrigés. Vérifié : `tsc`, build, export, Firefox + WebKit (8 pages, 0 erreur nouvelle), captures.
 - [x] Images le 15/09 (commit `f1e2e6b`) : infographie smartphone en français (SVG → webp 98 Ko, chiffres ADEME 2023), `comparison-chart` charabia supprimé (jamais affiché). Agnes essayé mais texte illisible → repli déterministe.
 - [x] Reste soldé le 15/09 : 16 erreurs `tsc` corrigées (`@types/leaflet` devDep, `LabeledSlider` typé, `SearchDialog` typé — 0 restante), langage harmonisé (vouvoiement, `%`, `CO₂e`, guillemets, PUE/WUE, plus d'injonctions), reliquats (lien ecosystem, ancre outils, images mortes, chiffres FAQ/guide/datacenters sourcés), docs (SW v1.3.0). Vérifié : `tsc` 0 erreur, build, export.
+- [x] Contre-audit des fichiers d'audit le 15/09 : valeurs canoniques §9/§10 re-vérifiées, reliquats corrigés (développement JS ×4,45/GPT-3, ISO, fournisseurs DC attribués, water fourchette, ranges reconditionné, comparateur cloud, images FR restantes régénérées). Vérifié : `tsc` 0 erreur, build, export.
 - [ ] Reste : rien de bloquant. Optionnel : eslint, e2e auto, i18n.
 
 ## 🔴 important mais pas cassé
 
-- [ ] tester chrome / firefox / safari, en prod `/greenit/` pas juste en dev
+- [x] testé Chromium + Firefox + WebKit (moteur Safari) en prod `/greenit/` le 15/09 (8 pages, 0 erreur nouvelle). Reste : Safari réel sur Mac, à confirmer si possible.
 - [ ] tester mobile plusieurs tailles (+ lecteur d'écran NVDA/VoiceOver pour de vrai)
 - [ ] bruit console : les prefetch Next (`*_rsc`, `__PAGE__.txt` en 404) sur l'export statique. Cosmétique (la navigation retombe sur la page complète), mais à surveiller si Next propose une option propre un jour.
 - [x] breadcrumb : labels `guide`/`mentions-legales`/`offline` ajoutés + `aria-label` "Fil d'Ariane" (fait le 14/09).

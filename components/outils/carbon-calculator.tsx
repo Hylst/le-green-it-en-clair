@@ -48,10 +48,10 @@ export default function CarbonCalculator() {
     })
 
     // Impact cloud et services (kg CO2e/an)
-    total += cloudUsage.email * 0.3 // 0.3 kg par email/jour
-    total += cloudUsage.streaming * 1.6 // 1.6 kg par heure/semaine
+    total += cloudUsage.email * 0.004 // ~4 g CO2e par e-mail (ADEME)
+    total += cloudUsage.streaming * 1.6 // ~31 g/h en SD × 52 semaines (ADEME/Shift)
     total += cloudUsage.cloud * 0.00024 // 0,00024 kg par Go/an (≈0,24 g CO2e/Go/an, ADEME Impact CO2 / Base Empreinte)
-    total += cloudUsage.social * 2.5 // 2.5 kg par heure/jour
+    total += cloudUsage.social * 2.55 // ~7 g/h hors vidéo × 365 jours (ADEME)
 
     return Math.round(total)
   }
@@ -270,8 +270,13 @@ export default function CarbonCalculator() {
                 <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                   <li>≈ {Math.round(totalFootprint / 0.12)} km en voiture</li>
                   <li>≈ {Math.round(totalFootprint / 167)} aller-retours Paris-Marseille en avion</li>
-                  <li>≈ {Math.round(totalFootprint / 0.9)} repas avec bœuf</li>
+                  <li>≈ {Math.round(totalFootprint / 7)} repas avec bœuf</li>
                 </ul>
+                <p className="mt-3 text-xs text-gray-600 dark:text-gray-400">
+                  Hypothèses : fabrication amortie sur la durée de vie saisie, usage au prorata. Streaming compté en
+                  qualité SD (~31 g/h), réseaux sociaux hors vidéo (~7 g/h), e-mail ~4 g, cloud ~0,24 g/Go/an
+                  (ADEME, Impact CO₂ / Base Empreinte).
+                </p>
               </div>
             </div>
 

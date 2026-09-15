@@ -95,7 +95,7 @@ const mainProblems = [
     severity: "Critique",
     stats: "~70 Mt de e-déchets en 2025 (GEM 2024)",
     description:
-      "La production mondiale de déchets électroniques augmente plus vite que la population : 62 Mt en 2022, environ 69-70 Mt en 2025, 82 Mt projetées en 2030 (+2,6 Mt/an). Seuls 22,3 % ont été collectés et recyclés en 2022 (Global E-waste Monitor 2024).",
+      "La production mondiale de déchets électroniques augmente environ 5 fois plus vite que le recyclage : 62 Mt en 2022, environ 69-70 Mt en 2025, 82 Mt projetées en 2030 (+2,6 Mt/an). Seuls 22,3 % ont été collectés et recyclés en 2022 (Global E-waste Monitor 2024).",
     impacts: [
       "Pollution des sols et de l'eau par métaux lourds",
       "Incinération toxique dans les pays en développement",
@@ -112,7 +112,7 @@ const mainProblems = [
     severity: "Élevé",
     stats: "3,4 % des émissions mondiales de GES",
     description:
-      "Le numérique consomme environ 10 % de l'électricité mondiale et génère 1,8 Gt CO₂e, soit 3,4 % des émissions mondiales (GreenIT, EENM 2025). Datacenters, réseaux et équipements utilisateurs en sont les principaux postes.",
+      "Le numérique génère 1,8 Gt CO₂e, soit 3,4 % des émissions mondiales (GreenIT, EENM 2025), et consomme de l'ordre de 10 % de l'électricité mondiale tous usages confondus (à ne pas confondre avec les 1,5 % des seuls datacenters, AIE 2024). Datacenters, réseaux et équipements utilisateurs en sont les principaux postes.",
     impacts: [
       "Émissions de CO₂ en constante augmentation",
       "Stress sur les réseaux électriques",
@@ -240,7 +240,7 @@ const currentSolutions = [
     solutions: [
       {
         name: "Reconditionnement professionnel",
-        description: "Back Market, Recommerce, Remade : garantie 12-24 mois, économie de 75 % de CO₂ (ADEME, 2022)",
+        description: "Reconditionneurs professionnels : garantie légale de 2 ans, économie d'environ 75 à 90 % du CO₂ par rapport au neuf (ADEME, 2022)",
         adoption: "Élevée",
       },
       {
@@ -340,14 +340,14 @@ const futureSolutions = [
       {
         name: "Stockage ADN",
         description:
-          "Archivage de données dans l'ADN synthétique : densité 1000x supérieure, durée de vie millénaire, consommation nulle",
+          "Archivage de données dans l'ADN synthétique : densité annoncée jusqu'à 1 000 fois supérieure, durée de vie théorique millénaire, consommation très faible en phase de stockage (technologie encore expérimentale)",
         potential: "Élevé",
         challenges: "Coût actuel prohibitif, vitesse d'écriture/lecture",
       },
       {
         name: "Informatique quantique",
         description:
-          "Résolution de problèmes complexes avec une fraction de l'énergie des supercalculateurs classiques",
+          "Résolution de certains problèmes avec une consommation potentiellement très inférieure aux supercalculateurs classiques (avantage encore théorique et dépendant des cas d'usage)",
         potential: "Moyen",
         challenges: "Technologie encore expérimentale, refroidissement cryogénique",
       },

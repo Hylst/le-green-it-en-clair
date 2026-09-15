@@ -42,7 +42,7 @@ const caseStudies = [
     description: "Un outil de travail essentiel mais énergivore à produire",
     stats: {
       co2: "156 kg",
-      water: "20 000 L",
+      water: "1 500 à 20 000 L",
       lifespan: "4-5 ans",
       metals: "60+",
     },
@@ -246,7 +246,7 @@ export default function CasPratiquesPage() {
                     value: 8,
                     color: "#3b82f6",
                     icon: Recycle,
-                    description: "≈ −75 % d'impact par rapport au neuf (ADEME 2022)",
+                    description: "≈ −75 à −90 % d'impact par rapport au neuf (ADEME 2022)",
                   },
                   {
                     label: "Acheter neuf",
@@ -337,7 +337,7 @@ export default function CasPratiquesPage() {
                     Alternative recommandée : le reconditionné
                   </h4>
                   <p className="text-slate-700">
-                    Un smartphone reconditionné réduit l'impact de <strong>75%</strong> par rapport au neuf, tout en
+                    Un smartphone reconditionné réduit l'impact de <strong>75 à 90 %</strong> par rapport au neuf, tout en
                     coûtant 30-50% moins cher. C'est le meilleur compromis entre performance et écologie.
                   </p>
                 </div>
@@ -427,8 +427,8 @@ export default function CasPratiquesPage() {
                     <div className="text-sm text-slate-700">CO₂ émis lors de la fabrication</div>
                   </div>
                   <div className="rounded-xl bg-blue-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-blue-700">20 000 L</div>
-                    <div className="text-sm text-slate-700">d'eau consommée</div>
+                    <div className="mb-1 text-2xl font-bold text-blue-700">1 500 à 20 000 L</div>
+                    <div className="text-sm text-slate-700">d'eau selon la méthode (eau bleue ou empreinte complète)</div>
                   </div>
                   <div className="rounded-xl bg-blue-50 p-4">
                     <div className="mb-1 text-2xl font-bold text-blue-700">800 kWh</div>

@@ -52,7 +52,7 @@ export default function CloudComparator() {
       carbonNeutral: true,
       certifications: ["ISO 14001", "ISO 50001", "LEED"],
       sustainabilityScore: 90,
-      description: "Neutralité carbone depuis 2007, 100% renouvelable depuis 2017.",
+      description: "Neutralité carbone annoncée depuis 2007 ; 100 % renouvelable en matching annuel depuis 2017, objectif 24/7 d'ici 2030.",
       color: "emerald",
     },
     {
@@ -141,7 +141,7 @@ export default function CloudComparator() {
             Comparateur de fournisseurs cloud éco-responsables
           </CardTitle>
           <CardDescription>
-            Comparez l'impact environnemental des principaux hébergeurs et fournisseurs cloud (données indicatives 2024-2025)
+            Comparez l'impact environnemental des principaux hébergeurs et fournisseurs cloud (données indicatives 2024-2026)
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -188,7 +188,7 @@ export default function CloudComparator() {
             <ul className="text-sm space-y-1 text-gray-700 dark:text-gray-300">
               <li>
                 <strong>PUE (Power Usage Effectiveness)</strong> : Ratio d'efficacité énergétique. Plus il est proche de 1,
-                mieux c'est. Un PUE de 1.2 signifie que 20 % de l'énergie sert aux infrastructures (refroidissement, distribution), pas seulement au calcul.
+                mieux c'est. Un PUE de 1,2 signifie qu'environ 17 % de l'énergie sert aux infrastructures (refroidissement, distribution), pas seulement au calcul.
               </li>
               <li>
                 <strong>Énergie renouvelable</strong> : Pourcentage d'électricité provenant de sources renouvelables
@@ -281,7 +281,7 @@ export default function CloudComparator() {
       </Card>
 
       <div className="text-sm text-gray-600 dark:text-gray-300 text-center">
-        Sources: Rapports RSE des fournisseurs, The Green Web Foundation, ADEME • Données 2024-2025
+        Sources : rapports RSE des fournisseurs, The Green Web Foundation, ADEME • Données indicatives 2024-2026
       </div>
     </div>
   )

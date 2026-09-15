@@ -138,14 +138,23 @@ export default function DatacentersPage() {
                   <p className="text-sm text-slate-600 dark:text-slate-400">de l'électricité mondiale (AIE, 2024)</p>
                 </div>
                 <div>
-                  <div className="mb-1 text-3xl font-bold text-teal-700 dark:text-teal-400">8 000+</div>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">datacenters dans le monde (estimation DataCenterMap, 2024)</p>
+                  <div className="mb-1 text-3xl font-bold text-teal-700 dark:text-teal-400">10 000+</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">datacenters dans le monde (DataCenterMap)</p>
                 </div>
                 <div>
                   <div className="mb-1 text-3xl font-bold text-cyan-700 dark:text-cyan-400">415 TWh</div>
                   <p className="text-sm text-slate-600 dark:text-slate-400">consommation annuelle mondiale (AIE, 2024)</p>
                 </div>
+                <div>
+                  <div className="mb-1 text-3xl font-bold text-cyan-700 dark:text-cyan-400">~945 TWh</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                    projection 2030, scénario central (AIE, Energy and AI, 2025)
+                  </p>
+                </div>
               </div>
+              <p className="mt-6 text-xs text-slate-500 dark:text-slate-400">
+                Reporting public obligatoire pour les sites de plus de 500 kW depuis mai 2024 (directive EED refondue).
+              </p>
             </Card>
           </div>
         </div>
@@ -588,8 +597,7 @@ export default function DatacentersPage() {
                 <div>
                   <h4 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">Scaleway (Paris)</h4>
                   <p className="mb-2 text-sm text-slate-700 dark:text-slate-300">
-                    PUE de 1.2, refroidissement par air extérieur, 100% énergie renouvelable, récupération de chaleur
-                    pour chauffer des logements sociaux.
+                    Chiffres communiqués par Scaleway : PUE annoncé d'environ 1,2, refroidissement par air extérieur, électricité d'origine renouvelable et récupération de chaleur pour des logements.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="rounded-full bg-emerald-600 px-3 py-1 text-xs font-medium text-white">
@@ -612,16 +620,15 @@ export default function DatacentersPage() {
                 <div>
                   <h4 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">OVHcloud (Roubaix)</h4>
                   <p className="mb-2 text-sm text-slate-700 dark:text-slate-300">
-                    Refroidissement par eau de pluie, PUE de 1.09, serveurs conçus en interne pour maximiser
-                    l'efficacité, engagement neutralité carbone 2025.
+                    Chiffres communiqués par OVHcloud : refroidissement par eau de pluie, PUE annoncé d'environ 1,09 et serveurs conçus en interne. Objectif de neutralité carbone 2025 : consultez le rapport RSE pour le résultat.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="rounded-full bg-blue-600 px-3 py-1 text-xs font-medium text-white">PUE 1.09</span>
+                    <span className="rounded-full bg-blue-600 px-3 py-1 text-xs font-medium text-white">PUE théorique ~1,09</span>
                     <span className="rounded-full bg-blue-600 px-3 py-1 text-xs font-medium text-white">
                       Eau de pluie
                     </span>
                     <span className="rounded-full bg-blue-600 px-3 py-1 text-xs font-medium text-white">
-                      Neutralité 2025
+                      Objectif neutralité 2025
                     </span>
                   </div>
                 </div>
@@ -634,11 +641,10 @@ export default function DatacentersPage() {
                 <div>
                   <h4 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">Qarnot Computing (Paris)</h4>
                   <p className="mb-2 text-sm text-slate-700 dark:text-slate-300">
-                    Concept innovant : serveurs-radiateurs installés dans des logements et bureaux. 100% de la chaleur
-                    récupérée, PUE théorique de 1.0.
+                    Concept annoncé par Qarnot : serveurs-radiateurs installés dans des logements et bureaux, chaleur réutilisée sur place et PUE théorique proche de 1,0 (chiffres de l'entreprise, non audités).
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="rounded-full bg-teal-600 px-3 py-1 text-xs font-medium text-white">PUE 1.0</span>
+                    <span className="rounded-full bg-teal-600 px-3 py-1 text-xs font-medium text-white">PUE théorique ~1,0</span>
                     <span className="rounded-full bg-teal-600 px-3 py-1 text-xs font-medium text-white">
                       100% chaleur récupérée
                     </span>

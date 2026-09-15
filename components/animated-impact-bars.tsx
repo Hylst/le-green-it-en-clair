@@ -20,8 +20,7 @@ export function AnimatedImpactBars() {
     { label: "Extraction", value: 15, color: "#f59e0b", icon: "⛏️" },
     { label: "Fabrication", value: 60, color: "#64748b", icon: "🏭" },
     { label: "Transport", value: 5, color: "#3b82f6", icon: "🚢" },
-    { label: "Usage", value: 18, color: "#10b981", icon: "📱" },
-    { label: "Recyclage", value: 2, color: "#14b8a6", icon: "♻️" },
+    { label: "Usage", value: 20, color: "#10b981", icon: "📱" },
   ]
 
   return (

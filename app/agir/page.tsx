@@ -48,7 +48,7 @@ const citizenActions = [
   {
     category: "Achat",
     actions: [
-      "Privilégier les appareils reconditionnés (impact réduit d'environ 75 %, ADEME 2022)",
+      "Privilégier les appareils reconditionnés (impact réduit d'environ 75 à 90 %, ADEME 2022)",
       "Choisir des appareils réparables et évolutifs",
       "Vérifier les indices de réparabilité avant l'achat",
       "Éviter le suréquipement : acheter uniquement le nécessaire",

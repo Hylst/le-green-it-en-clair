@@ -53,8 +53,7 @@ const co2BreakdownData = [
   { phase: "Extraction", percentage: 15, value: 15, fill: "#f59e0b" },
   { phase: "Fabrication", percentage: 60, value: 60, fill: "#64748b" },
   { phase: "Transport", percentage: 5, value: 5, fill: "#3b82f6" },
-  { phase: "Usage", percentage: 18, value: 18, fill: "#10b981" },
-  { phase: "Fin de vie", percentage: 2, value: 2, fill: "#14b8a6" },
+  { phase: "Usage", percentage: 20, value: 20, fill: "#10b981" },
 ]
 
 // Data for Device Comparison
@@ -332,7 +331,7 @@ export default function ChiffresPage() {
             </ResponsiveContainer>
           </Card>
 
-          <div className="mt-4 text-sm text-slate-500 dark:text-slate-400">Source : ADEME - Base Impacts (2023)</div>
+          <div className="mt-4 text-sm text-slate-500 dark:text-slate-400">Source : ADEME - Base Impacts (2023). Eau : ordre de grandeur, de 1 500 L (eau bleue) à plus de 20 000 L (empreinte complète) pour un ordinateur portable selon la méthode.</div>
         </div>
       </section>
 

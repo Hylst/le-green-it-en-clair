@@ -14,7 +14,6 @@ import {
   CheckCircle2,
   ExternalLink,
   Info,
-  Phone,
 } from "lucide-react"
 import dynamic from "next/dynamic"
 import { SourceTooltip } from "@/components/source-tooltip"
@@ -37,7 +36,6 @@ const recyclingActors = [
     description: "Éco-organisme agréé pour la collecte et le recyclage des équipements électriques et électroniques",
     services: ["Points de collecte dans toute la France", "Recyclage DEEE", "Sensibilisation"],
     website: "https://www.ecosystem.eco",
-    phone: "01 30 57 79 09",
   },
   {
     name: "Écologic",
@@ -47,17 +45,15 @@ const recyclingActors = [
     description: "Éco-organisme spécialisé dans la gestion des DEEE professionnels et ménagers",
     services: ["Collecte professionnelle", "Traitement DEEE", "Reporting RSE"],
     website: "https://www.ecologic-france.com",
-    phone: "01 30 57 88 00",
   },
   {
-    name: "Réseau des Ressourceries",
+    name: "Réseau National des Ressourceries et Recycleries (RNRR)",
     type: "Association",
     icon: Users,
     color: "teal",
     description: "Réseau national de structures de réemploi et de sensibilisation à la réduction des déchets",
     services: ["Réemploi", "Réparation", "Sensibilisation"],
     website: "https://www.ressourcerie.fr",
-    phone: "04 67 15 70 85",
   },
   {
     name: "Envie",
@@ -67,7 +63,6 @@ const recyclingActors = [
     description: "Entreprise d'insertion spécialisée dans le reconditionnement d'équipements électroménagers",
     services: ["Reconditionnement", "Insertion professionnelle", "Vente reconditionné"],
     website: "https://www.envie.org",
-    phone: "01 44 85 29 88",
   },
 ]
 
@@ -293,7 +288,9 @@ export default function RecyclagePage() {
               <p className="text-muted-foreground">
                 <strong>Résultat :</strong> Grâce à la REP, la France collecte environ 46 % de ses déchets
                 électroniques, soit plus du double de la moyenne mondiale (22,3 % en 2022, Global E-waste Monitor
-                2024). C'est gratuit pour les consommateurs !
+                2024). En 2025, Ecosystem revendique 42 000 points de collecte, 876 kt collectées (65 % à son
+                périmètre) et 735 000 réparations via 7 465 réparateurs QualiRépar. C'est gratuit pour les
+                consommateurs !
               </p>
             </div>
           </Card>
@@ -349,10 +346,6 @@ export default function RecyclagePage() {
                       <ExternalLink className="h-4 w-4" />
                       {actor.website.replace("https://", "")}
                     </a>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Phone className="h-4 w-4" />
-                      {actor.phone}
-                    </div>
                   </div>
                 </Card>
               )

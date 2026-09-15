@@ -263,7 +263,7 @@ export default function DeveloppementPage() {
                 <strong>Java :</strong> 1.98x - Presque 2x plus énergivore, mais très utilisé en entreprise
               </p>
               <p>
-                <strong>JavaScript (Node.js) :</strong> 3.14x - 3 fois plus énergivore, impact significatif à grande
+                <strong>JavaScript (Node.js) :</strong> 4,45x - environ 4 fois plus énergivore, impact significatif à grande
                 échelle
               </p>
               <p>
@@ -694,8 +694,7 @@ res.json(users) // 150 KB compressé`}
               Cas particulier du Machine Learning
             </h2>
             <p className="text-lg text-muted-foreground text-pretty">
-              L'IA et le ML sont extrêmement énergivores. L'entraînement d'un grand modèle peut émettre autant de CO₂
-              que 5 voitures pendant toute leur durée de vie.
+              L'IA et le ML sont extrêmement énergivores. Entraîner GPT-3 a émis 552 t CO₂e (Patterson et al., 2021), soit l'équivalent des émissions annuelles d'une centaine de voitures.
             </p>
           </div>
 
@@ -791,7 +790,7 @@ res.json(users) // 150 KB compressé`}
                     <ul className="text-muted-foreground space-y-1 ml-4">
                       <li>• MobileNet au lieu de ResNet</li>
                       <li>• DistilBERT au lieu de BERT</li>
-                      <li>• GPT-3.5 au lieu de GPT-4</li>
+                      <li>• un petit modèle spécialisé au lieu d'un grand modèle généraliste</li>
                     </ul>
                   </div>
                   <div>
@@ -801,8 +800,7 @@ res.json(users) // 150 KB compressé`}
                   <div className="bg-card p-3 rounded border border-primary/20">
                     <div className="text-primary font-medium mb-1">💡 Impact réel</div>
                     <p className="text-muted-foreground">
-                      Utiliser MobileNet au lieu de ResNet pour la classification d'images réduit la consommation de{" "}
-                      <strong className="text-foreground">98%</strong> avec une précision similaire.
+                      Utiliser MobileNet au lieu de ResNet pour la classification d'images réduit fortement la consommation (jusqu'à ~98 %, ordre de grandeur Google) avec une précision similaire.
                     </p>
                   </div>
                 </div>
@@ -836,7 +834,7 @@ res.json(users) // 150 KB compressé`}
                   <li className="flex items-start gap-2">
                     <div className="w-2 h-2 bg-primary rounded-full mt-1.5 flex-shrink-0" />
                     <span>
-                      <strong>40-60% plus rapide</strong> grâce à la proximité géographique
+                      <strong>Latence réduite</strong> grâce à la proximité géographique (40-60 % plus rapide selon les fournisseurs, ordre de grandeur)
                     </span>
                   </li>
                   <li className="flex items-start gap-2">

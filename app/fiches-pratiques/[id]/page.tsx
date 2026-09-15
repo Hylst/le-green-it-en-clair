@@ -65,14 +65,14 @@ const sheets: Record<string, any> = {
         content: "L'écran représente 30-50% de la consommation d'un smartphone. Réduire la luminosité économise 20%.",
         tips: [
           "Activez l'ajustement automatique",
-          "Utilisez le mode sombre (économie de 15% sur écrans OLED)",
+          "Utilisez le mode sombre (économie de 30 à 50 % sur écrans OLED, Purdue 2021)",
           "Activez le mode économie d'énergie",
         ],
       },
       {
         title: "7. Acheter reconditionné",
         content:
-          "Un appareil reconditionné a un impact environ 75 % inférieur au neuf (ADEME 2022).",
+          "Un appareil reconditionné a un impact environ 75 à 90 % inférieur au neuf (ADEME 2022).",
         tips: [
           "Vérifiez la garantie légale (2 ans, défauts présumés pendant 24 mois)",
           "Privilégiez les acteurs certifiés (BackMarket, Recommerce, etc.)",
@@ -114,7 +114,7 @@ const sheets: Record<string, any> = {
       {
         title: "Prioriser le reconditionné",
         content:
-          "Impact réduit d'environ 75 % (ADEME 2022), prix -30 à -70% selon le modèle, garantie légale de conformité (2 ans).",
+          "Impact réduit d'environ 75 à 90 % (ADEME 2022), prix -30 à -70% selon le modèle, garantie légale de conformité (2 ans).",
         tips: [
           "Grade A : comme neuf, très légers défauts esthétiques",
           "Grade B : bon état, quelques rayures visibles",
@@ -351,7 +351,7 @@ const sheets: Record<string, any> = {
         content: "L'impact se joue dès l'achat. Privilégiez le matériel durable, réparable et si possible reconditionné.",
         tips: [
           "Intégrez des critères environnementaux (TCO, EPEAT) dans les appels d'offres",
-          "Achetez reconditionné pour les flottes mobiles (impact réduit d'environ 75 %, ADEME 2022)",
+          "Achetez reconditionné pour les flottes mobiles (impact réduit d'environ 75 à 90 %, ADEME 2022)",
           "Louez plutôt d'achetez pour favoriser l'économie de la fonctionnalité (Device as a Service)",
         ],
       },
@@ -520,7 +520,7 @@ const sheets: Record<string, any> = {
         title: "4. Exemples d'innovations à surveiller",
         content: "Certains acteurs repensent totalement le concept de datacenter.",
         tips: [
-          "Qarnot Computing : des radiateurs-serveurs qui chauffent gratuitement les habitations",
+          "Qarnot Computing : des radiateurs-serveurs qui réutilisent la chaleur dans les bâtiments (chiffres de l'entreprise)",
           "OVHcloud : refroidissement liquide (watercooling) industriel depuis 2003",
           "Scaleway : datacenters sans climatisation (adiabatic cooling)",
         ],

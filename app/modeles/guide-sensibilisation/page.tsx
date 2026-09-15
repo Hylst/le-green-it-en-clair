@@ -72,7 +72,7 @@ export default function KitSensibilisationPage() {
                                 <span className="font-bold text-emerald-600 min-w-[30px]">2.</span>
                                 <div>
                                     <h4 className="font-semibold text-foreground">Les chiffres clés (5 min)</h4>
-                                    <p className="text-sm text-muted-foreground">3,4 % des émissions mondiales (EENM 2025), 2,5 % en France, 100 M d'appareils qui dorment dans les tiroirs (ADEME 2026)</p>
+                                    <p className="text-sm text-muted-foreground">3,4 % des émissions mondiales (EENM 2025), 2,5 % en France en 2020 (4,4 % en 2022, ADEME-Arcep), 100 M d'appareils qui dorment dans les tiroirs (ADEME 2026)</p>
                                 </div>
                             </li>
                             <li className="flex gap-3">

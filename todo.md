@@ -39,7 +39,8 @@ Ma liste, mise à jour le 15/09/2026 après une grosse relecture pessimiste (lec
 - [x] Reste soldé le 15/09 : 16 erreurs `tsc` corrigées (`@types/leaflet` devDep, `LabeledSlider` typé, `SearchDialog` typé — 0 restante), langage harmonisé (vouvoiement, `%`, `CO₂e`, guillemets, PUE/WUE, plus d'injonctions), reliquats (lien ecosystem, ancre outils, images mortes, chiffres FAQ/guide/datacenters sourcés), docs (SW v1.3.0). Vérifié : `tsc` 0 erreur, build, export.
 - [x] Contre-audit des fichiers d'audit le 15/09 : valeurs canoniques §9/§10 re-vérifiées, reliquats corrigés (développement JS ×4,45/GPT-3, ISO, fournisseurs DC attribués, water fourchette, ranges reconditionné, comparateur cloud, images FR restantes régénérées). Vérifié : `tsc` 0 erreur, build, export.
 - [x] Contrôle complémentaire le 15/09 : outils fiabilisés (facteurs, cas limites, libellés), faits alignés (production vs collecte, unités), pédagogie (glossaire, parcours, liens), bug basePath corrigé. Vérifié : `tsc` 0 erreur, build, export, outils testés.
-- [ ] Reste : rien de bloquant. Optionnel : eslint, e2e auto, i18n.
+- [x] Passe exhaustive du 15/09 : fiches, modèles, composants jamais audités (couleurs Tailwind manquantes, liens fiches, grille, 404/offline noindex, zoom clavier, plan du site complété). Vérifié : `tsc` 0 erreur, build, export, navigateur.
+- [ ] Reste : robots.txt racine du domaine (hors dépôt), lecteur d'écran réel. Optionnel : eslint, e2e auto, i18n.
 
 ## 🔴 important mais pas cassé
 

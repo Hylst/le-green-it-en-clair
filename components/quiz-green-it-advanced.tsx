@@ -18,6 +18,7 @@ import {
   Download,
   Lightbulb,
 } from "lucide-react"
+import { ErrorReview, type ErrorReviewItem } from "@/components/quiz-error-review"
 import {
   loadQuizSession,
   saveQuizSession,
@@ -1629,6 +1630,28 @@ export function QuizGreenITAdvanced() {
     setFinishedAt(new Date().toISOString())
   }
 
+  const startErrorReview = () => {
+    const errorIds = answers
+      .filter((answer) => !answer.correct)
+      .map((answer) => questionIndex(activeQuestions[answer.sessionIndex]))
+      .filter((id) => id >= 0)
+    if (errorIds.length === 0) return
+
+    setMode("review")
+    setSelectedCategory(null)
+    setActiveQuestions(errorIds.map((id) => ALL_QUIZ_QUESTIONS[id]))
+    setCurrentQuestionIndex(0)
+    setSelectedAnswer(null)
+    setShowExplanation(false)
+    setScore(0)
+    setAnswers([])
+    setIsFinished(false)
+    setFinishedAt(null)
+    setTimeLeft(0)
+    setEndsAt(null)
+    setPlayerName("")
+  }
+
   const resetQuiz = () => {
     setMode(null)
     setSelectedCategory(null)
@@ -1776,6 +1799,14 @@ export function QuizGreenITAdvanced() {
     const maxScore = activeQuestions.reduce((sum, q) => sum + q.points, 0)
     const levelInfo = getLevel(score, maxScore)
     const percentage = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0
+    const errorItems: ErrorReviewItem[] = answers
+      .filter((answer) => !answer.correct)
+      .map((answer) => ({
+        question: activeQuestions[answer.sessionIndex],
+        selectedAnswer: answer.selectedAnswer,
+        sessionIndex: answer.sessionIndex,
+      }))
+      .filter((item) => item.question)
 
     return (
       <Card className="shadow-lg dark:bg-slate-800">
@@ -1818,6 +1849,21 @@ export function QuizGreenITAdvanced() {
             )}
           </div>
 
+          <div className="space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h4 className="font-semibold text-slate-900 dark:text-gray-100">
+                Revoir mes erreurs ({errorItems.length})
+              </h4>
+              {errorItems.length > 0 && (
+                <Button variant="outline" size="sm" onClick={startErrorReview}>
+                  <RotateCcw className="mr-2 h-4 w-4" />
+                  Rejouer mes erreurs ({errorItems.length})
+                </Button>
+              )}
+            </div>
+            <ErrorReview items={errorItems} />
+          </div>
+
           <div className="p-4 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
             <h4 className="font-semibold text-green-900 dark:text-green-200 mb-2">Prochaines étapes :</h4>
             <ul className="space-y-1 text-sm text-green-800 dark:text-green-300">
@@ -1827,7 +1873,7 @@ export function QuizGreenITAdvanced() {
             </ul>
           </div>
 
-          {percentage >= 60 && (
+          {percentage >= 60 && mode !== "review" && (
             <div className="certificate-print rounded-xl border-2 border-emerald-300 p-6 text-center dark:border-emerald-700">
               <p className="text-sm text-muted-foreground">Le Green IT en clair</p>
               <h3 className="mt-2 text-2xl font-bold text-emerald-700">Attestation de réussite</h3>
@@ -1857,7 +1903,7 @@ export function QuizGreenITAdvanced() {
               <RotateCcw className="h-4 w-4 mr-2" />
               Refaire un quiz
             </Button>
-            {percentage >= 60 ? (
+            {percentage >= 60 && mode !== "review" ? (
               <Button onClick={handlePrintCertificate} className="flex-1 bg-blue-600 hover:bg-blue-700">
                 <Download className="h-4 w-4 mr-2" />
                 Imprimer l'attestation

@@ -306,7 +306,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     id: 21,
     category: "Usage et sobriété",
     difficulty: "facile",
-    question: "Quelle action permet d'économiser le plus d'énergie sur un ordinateur portable ?",
+    question: "Quelle action peut réduire sensiblement la consommation d'un ordinateur portable ?",
     options: [
       "Réduire la luminosité de l'écran",
       "Fermer les applications inutilisées",
@@ -315,7 +315,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctAnswer: 0,
     explanation:
-      "Réduire la luminosité de l'écran est l'action la plus efficace, pouvant économiser jusqu'à 20% de la consommation.",
+      "Réduire la luminosité peut économiser une part notable de la consommation, variable selon l'écran et la luminosité initiale (ADEME).",
     source: "ADEME",
     points: 10,
   },
@@ -325,20 +325,22 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     difficulty: "moyen",
     question: "Quelle est la consommation électrique annuelle d'une box internet allumée 24h/24 ?",
     options: ["10-20 kWh", "50-100 kWh", "150-300 kWh", "500 kWh"],
-    correctAnswer: 2,
-    explanation: "Une box internet consomme entre 150 et 300 kWh par an, soit l'équivalent d'un réfrigérateur.",
-    source: "ADEME 2024",
+    correctAnswer: 1,
+    explanation:
+      "Une box typique consomme environ 88 kWh par an en fonctionnement continu, soit environ 10 W (Arcep 2026, données 2024).",
+    source: "Arcep 2026",
     points: 15,
   },
   {
     id: 23,
     category: "Usage et sobriété",
     difficulty: "facile",
-    question: "Combien d'emails un français moyen envoie-t-il par jour en 2025 ?",
-    options: ["5", "10", "30", "100"],
-    correctAnswer: 2,
-    explanation: "Un français moyen envoie environ 30 emails par jour en 2025, générant environ 10 kg de CO2 par an.",
-    source: "ADEME 2025",
+    question: "Quel est l'impact carbone d'un email simple, sans pièce jointe ?",
+    options: ["environ 0,3 g CO2", "environ 4 g CO2", "environ 35 g CO2", "environ 100 g CO2"],
+    correctAnswer: 1,
+    explanation:
+      "Un email simple émet environ 4 g de CO2 ; comptez environ 35 g avec une pièce jointe de 1 Mo et 0,3 g pour un spam (ADEME).",
+    source: "ADEME",
     points: 10,
   },
   {
@@ -349,20 +351,20 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["4K (2160p)", "Full HD (1080p)", "HD (720p)", "SD (480p)"],
     correctAnswer: 3,
     explanation:
-      "La résolution SD (480p) consomme 8 fois moins de données et d'énergie que la 4K pour une expérience visuelle acceptable sur petit écran.",
-    source: "The Shift Project",
+      "La SD (480p) consomme environ 10 fois moins de données que la 4K : environ 0,7 Go/h contre ~7 Go/h (Kamiya 2020).",
+    source: "Kamiya 2020",
     points: 15,
   },
   {
     id: 25,
     category: "Usage et sobriété",
     difficulty: "difficile",
-    question: "Combien de CO2 génère 1 heure de streaming vidéo HD en 2025 ?",
-    options: ["5g CO2", "50g CO2", "100g CO2", "500g CO2"],
+    question: "Combien de CO2 peut générer 1 heure de streaming vidéo HD ?",
+    options: ["de l'ordre de 5 g", "de l'ordre de 50 g", "de l'ordre de 500 g", "plus de 1 kg"],
     correctAnswer: 1,
     explanation:
-      "1 heure de streaming vidéo HD génère environ 50g de CO2 en 2025, grâce aux optimisations des réseaux et datacenters.",
-    source: "IEA 2025",
+      "Selon les hypothèses, une heure de vidéo HD émet de l'ordre de 50 à 100 g de CO2 ; les estimations vont de 56 à 400 g/h (Shift 2019, Kamiya 2020).",
+    source: "Shift 2019, Kamiya 2020",
     points: 20,
   },
   {
@@ -377,8 +379,9 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
       "Enregistrer la réunion",
     ],
     correctAnswer: 1,
-    explanation: "Couper la caméra peut réduire la bande passante de 60 à 80%, diminuant significativement l'impact.",
-    source: "The Shift Project",
+    explanation:
+      "Couper la caméra réduit fortement la bande passante (souvent 60 à 80 % selon la plateforme et la résolution), donc l'énergie associée.",
+    source: "The Shift Project 2019",
     points: 15,
   },
   {
@@ -395,7 +398,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "La sobriété numérique consiste à utiliser le numérique de manière raisonnée, en questionnant nos besoins réels.",
-    source: "The Shift Project",
+    source: "The Shift Project, Lean ICT 2018",
     points: 10,
   },
   {
@@ -403,10 +406,10 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Usage et sobriété",
     difficulty: "moyen",
     question: "Combien de données un français consomme-t-il par mois en mobile en 2025 ?",
-    options: ["2 Go", "8 Go", "15 Go", "30 Go"],
+    options: ["2 Go", "8 Go", "18 Go", "30 Go"],
     correctAnswer: 2,
-    explanation: "La consommation moyenne de données mobiles en France atteint 15 Go par mois en 2025.",
-    source: "ARCEP 2025",
+    explanation: "La consommation mobile moyenne en France atteint environ 18 Go par mois en 2025 (Arcep).",
+    source: "Arcep 2025",
     points: 15,
   },
   {
@@ -414,10 +417,11 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Usage et sobriété",
     difficulty: "difficile",
     question: "Quel est l'impact carbone d'un email avec une pièce jointe de 1 Mo ?",
-    options: ["1g CO2", "5g CO2", "19g CO2", "50g CO2"],
+    options: ["1g CO2", "5g CO2", "35g CO2", "50g CO2"],
     correctAnswer: 2,
-    explanation: "Un email avec une pièce jointe de 1 Mo génère environ 19g de CO2, incluant l'envoi et le stockage.",
-    source: "ADEME 2024",
+    explanation:
+      "Un email avec une pièce jointe de 1 Mo génère environ 35 g de CO2, contre environ 4 g pour un email simple (ADEME).",
+    source: "ADEME",
     points: 20,
   },
   {

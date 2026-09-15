@@ -2,6 +2,66 @@
 
 Ma liste, mise à jour le 15/09/2026 après une grosse relecture pessimiste (lecture seule, j'ai rien cassé, promis).
 
+## ✅ plan d'amélioration — audit contenu du 15/09/2026 (soir) — implémenté
+
+Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à la main dans le code ET sur sources officielles en ligne, puis implémentation par vagues. Vérifié : `tsc` 0 erreur, build 42 pages, `out/` contrôlé (classes CSS, icônes, manifest). Détail dans `changelog.md`.
+
+### vague A — contenus faux ou contradictoires — fait
+
+- [x] `cas-pratiques:427` : fausse part « ~39 kg » du portable retirée.
+- [x] `datacenters:77-83` : simulateur PUE corrigé (`IT × (PUE−1)` : 25 kW au lieu de 17), hypothèse 500 W affichée, curseurs nommés.
+- [x] `problematiques` vs `chiffres` : une seule série pays (Eurostat/Ecosystem 2024), titre sourcé.
+- [x] `problematiques:222,309` : indice de durabilité (France, 2025) / étiquette UE 2023/1669 / 2023/1670 (pièces + màj) séparés.
+- [x] `problematiques:248` : « pièces 10 ans » → « 7 ans UE (2023/1670) ».
+- [x] `problematiques:383` : piste reformulée (directive 2024/1799 : +12 mois après réparation).
+- [x] `mythes:68` : −87 % → réduction de 75 à 90 % (ADEME 2022).
+- [x] `app/page.tsx:354-382` : mini-quiz accueil sourcé (ADEME-Arcep 2023) + « % » espacés.
+- [x] `comprendre:39-41/55-57` : 12 000 L / 250 kWh = fabrication, extraction incluse ; doublons 300 kWh / 8 000 L retirés.
+- [x] `perspectives` : note « projection illustrative du site, la prospective ADEME-Arcep porte sur la France ».
+- [x] `problematiques:403` : Natick arrêté en 2024, immersion en bassin.
+
+### vague B — outils & quiz — fait
+
+- [x] `enterprise-simulator` : maintenance préventive +20 % seulement dans les scénarios optimisés ; `energyPrice` mort viré ; panneau d'hypothèses ajouté.
+- [x] `sobriety-simulator` : plus de cumul réparation/reconditionné (facteur le plus sobre retenu), libellés alignés (−15 % / −75 %) ; repère 330 kg (EENM 2025).
+- [x] `it-audit` : durées 5 ans (smartphones, serveurs), parc vide = état neutre, hypothèses affichées.
+- [x] `carbon-calculator` : repère « 330 kg mondial par internaute » (1,8 Gt ÷ 5,35 Md), hypothèse d'usage affichée.
+- [x] `website-carbon` : `"2.1"` valide, min/step en points, barème A+/A/B/C/D labellisé, 2,5 Mo (HTTP Archive).
+- [x] `outils/page` : « données récentes (2024-2026) », carte « impact d'une page (poids saisi) ».
+- [x] quiz : « Questions répondues » sans les non-répondues ; sources Q74 (Google 2009), Q94/Q99 honnêtes ; `QUIZ_CONTENT_VERSION` = 2.
+
+### vague C — accessibilité, PWA, cache, config — fait
+
+- [x] classes dynamiques : safelist `@source inline()` (Tailwind v4.1) — rose, pink, slate dark, gray, dark:border… désormais générées (vérifié dans le CSS exporté).
+- [x] `install-pwa` : bouton « Installer l'app » visible sur mobile.
+- [x] icônes : `apple-icon.png` (180) + `icon-512-maskable.png`, manifest avec `id`, maskable et `shortcuts`.
+- [x] `nginx.conf` : `sw.js` en no-cache, `try_files … =404` (vrai 404), `error_page` vers `/greenit/404.html`.
+- [x] twitter : plus de titre/description racine → repli sur les OG par page.
+- [x] `shared.tsx` : boutons ± nommés ; `ui/dialog` : « Fermer » ; cartes cliquables au clavier (par-ou-commencer, cas-pratiques, agir, recyclage, filtres FAQ) + `aria-expanded` ; titres `reglementation` h2→h3→h4.
+- [x] `sw.js` v1.3.1 : fiches + modèles précachés ; `package.json` : script `start` mort retiré, `check:typo` ajouté.
+
+### vague D — éditorial, sources, cohérence — fait (sauf noté)
+
+- [x] `agir` : CTA renommé « Guide du recyclage (PDF) ».
+- [x] FAQ : conseil achat complété (durabilité/étiquette UE/7 ans) + bloc « Sources principales ».
+- [x] `recyclage` : sources 2024 (Ecosystem/Eurostat), Écologic retiré.
+- [x] `politique-numerique` 5/5-7 ans ; `charte` « Objectif (3 ans) » ; `tableau-bord` sommaire 3 KPIs / 4 Suivi.
+- [x] `faq-data:100` 2,5 Mo ; ressource ADEME `[id]:475` formatée ; `datacenters` AIE avril 2025 ; `reglementation` indice durabilité 2025.
+- [x] `developpement` : 120 voitures, « de l'ordre de 30 à 70 % », chiffres marqués ordre de grandeur ; section vide retirée.
+- [x] chiffres orphelins : 45 % = calcul explicité, DataCenterMap « ordre de grandeur », coûts réparation « fourchette indicative », 33 % = calcul, sources mythes datées « consulté en 2026 ».
+- [x] `ressources` : glossaire 20 termes, WUE « par kWh IT », PUE en virgule, reconditionné 75-90 %, entrée « Indice de durabilité », ancres par terme.
+- [x] `mentions-legales` : repo GitHub public lié, hébergeur sourcé ; `a-propos` : « éco-responsable » retiré ; footer : sources cliquables + lien `/guide`.
+- [ ] Typo : `check:typo` créé, `CO2 → CO₂/CO₂e` et « d'e-déchets » faits ; **reste la passe « % » (~220 occurrences, une vague dédiée)**.
+- [ ] Divers restants : emojis-icônes dans l'UI, `console.log` du SW, 30 fichiers `ui/` jamais importés (purger ou assumer le kit : décision à prendre).
+- [ ] À confirmer avant d'écrire : prospective ADEME-Arcep « ×3 d'ici 2050 », source exacte de l'ancien repère 285 kg, millésimes Base Empreinte 2023/2024 (`guide:140`, `tableau-bord:204` vs `[id]:146`).
+
+### méthode
+
+- [x] Une vague = un lot de modifs + `tsc` + build + contrôle de l'export.
+- [x] Sources vérifiées en ligne le 15/09 au soir : EUR-Lex (2023/1670 : 5 ans de màj OS, 7 ans de pièces, 20/06/2025 ; 2024/1799 : +12 mois après réparation, 31/07/2026), ecologie.gouv.fr + service-public (durabilité : TV janvier 2025, lave-linge 8 avril 2025), IEA Energy and AI avril 2025 (415 TWh, 1,5 %, 945 TWh en 2030), UNITAR GEM 2024 (62 Mt, 22,3 %, 82 Mt en 2030), étude Green IT monde 2025 PDF (1,8 Gt CO₂e en 2023, 3,4 %), Microsoft/DCD (Project Natick arrêté en 2024).
+- [x] Contre-audit du plan lui-même avant exécution : 4 erreurs corrigées (étiquette 2023/1669, Uptime déjà sourcé, 30 orphelins `ui/` et pas 29, mythes bien au nombre de 12).
+- [ ] Contre-audit échantillonné des corrections des passes précédentes : tirer 10 chiffres au hasard, revérifier la source officielle, rattraper d'éventuels faux positifs appliqués (le protocole est dans `AGENTS.md`).
+
 ## 🔴 P0 — ce qui casse en prod sous /greenit
 
 - [x] manifest : fait le 14/09 (`start_url`/`scope` -> `/greenit/`, icônes -> `.webp` existants). Build ok.

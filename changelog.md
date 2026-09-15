@@ -2,6 +2,15 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 15/09/2026 (nuit) — audit contenu : corrections
+
+- contenu : portable 156 kg (fausse part « ~39 kg » retirée), simulateur PUE corrigé (`IT × (PUE−1)` — 25 kW et non 17), série pays de `problematiques` alignée sur Eurostat/Ecosystem 2024 (`chiffres`), indice de durabilité France vs étiquette UE 2023/1669 vs 2023/1670 (pièces 7 ans, màj OS 5 ans), directive 2024/1799 (+12 mois après réparation), `mythes` 75-90 %, mini-quiz accueil sourcé, cycle de vie `comprendre` dédoublonné (12 000 L / 250 kWh = fabrication, extraction incluse), `perspectives` recadrée « projection illustrative », Project Natick arrêté en 2024.
+- outils : scénario de base sans économies négatives (préventif +20 % réservé aux scénarios optimisés), hypothèses affichées, simulateur sobriété sans cumul réparation/reconditionné, `it-audit` durées 5 ans + parc vide neutre, champ poids `2.1` (virgule invalide en `type=number`), barème A+ labellisé, repère 330 kg par internaute (EENM 2025 : 1,8 Gt ÷ 5,35 Md), quiz : « questions répondues » corrigé, sources Q74/Q94/Q99 honnêtes, `QUIZ_CONTENT_VERSION = 2`.
+- a11y/PWA : safelist Tailwind (`@source inline`) pour les classes dynamiques (rose, pink, slate dark, gray… jamais générées avant — cartes invisibles), bouton « Installer l'app » visible sur mobile, `apple-icon.png` + `icon-512-maskable.png`, manifest `id`/`shortcuts`, SW `v1.3.1` (fiches + modèles précachés), nginx (`sw.js` no-cache, vrai 404, `error_page` sous `/greenit`), twitter par page (fallback OG), ± nommés, cartes cliquables au clavier, titres `reglementation` h2→h3→h4, « Fermer ».
+- éditorial : CTA `agir` honnête (« Guide du recyclage »), FAQ (conseil achat 2025 + bloc Sources), sources `recyclage` 2024, durées `politique-numerique` 5/5-7 ans, `charte` « Objectif (3 ans) », sommaire `tableau-bord`, ressource ADEME, glossaire 20 termes ancrés (+ indice de durabilité), mentions légales (repo public), footer sourcé + lien `/guide`, section vide de `developpement` virée, `npm run check:typo` créé.
+- vérifié : `tsc` 0 erreur, build 42 pages, classes CSS présentes dans l'export, manifest JSON valide.
+- reste (dans `todo.md`) : passe « % » (~220 occurrences), emojis UI, 30 fichiers `ui/` orphelins à trancher, millésimes Base Empreinte 2023/2024, prospective ADEME-Arcep ×3, source du repère 285 kg.
+
 ## pas encore sorti — septembre 2026 (13 au 15/09)
 
 - fix du 14/09, build qui passe (42 pages) :

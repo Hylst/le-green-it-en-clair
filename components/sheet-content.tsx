@@ -71,22 +71,37 @@ export function SheetContent({ sheet }: SheetContentProps) {
                 <Card className="mt-8 border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-teal-50 p-6 dark:border-blue-800 dark:from-blue-950 dark:to-teal-950">
                     <h3 className="mb-4 text-xl font-bold text-slate-900 dark:text-slate-100">Ressources complémentaires</h3>
                     <ul className="space-y-2">
-                        {sheet.resources.map((resource: string, index: number) => (
-                            <li key={index} className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
-                                <div className="h-1.5 w-1.5 rounded-full bg-blue-600" />
-                                {resource.includes("http") ? (
-                                    <a href={resource} className="hover:underline" target="_blank" rel="noopener noreferrer">
-                                        {resource}
-                                    </a>
-                                ) : resource.includes("/") ? (
-                                    <Link href={resource.split(" : ")[1]} className="hover:underline">
-                                        {resource}
-                                    </Link>
-                                ) : (
-                                    resource
-                                )}
-                            </li>
-                        ))}
+                        {sheet.resources.map((resource: string, index: number) => {
+                            let label = resource
+                            let url: string | null = null
+                            const sep = resource.indexOf(" : ")
+                            if (sep > 0) {
+                                const candidate = resource.slice(sep + 3).trim()
+                                if (/^(https?:\/\/|\/)/.test(candidate)) {
+                                    label = resource.slice(0, sep)
+                                    url = candidate
+                                } else if (/^[a-z0-9-]+(\.[a-z0-9-]+)+(\/\S*)?$/i.test(candidate)) {
+                                    label = resource.slice(0, sep)
+                                    url = `https://${candidate}`
+                                }
+                            }
+                            return (
+                                <li key={index} className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                                    <div className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+                                    {url && url.startsWith("http") ? (
+                                        <a href={url} className="hover:underline" target="_blank" rel="noopener noreferrer">
+                                            {label}
+                                        </a>
+                                    ) : url ? (
+                                        <Link href={url} className="hover:underline">
+                                            {label}
+                                        </Link>
+                                    ) : (
+                                        label
+                                    )}
+                                </li>
+                            )
+                        })}
                     </ul>
                 </Card>
 

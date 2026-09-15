@@ -189,8 +189,8 @@ export default function CharteGreenITPage() {
                         <div className="border-l-4 border-emerald-600 pl-4">
                             <h4 className="font-semibold text-foreground mb-2">Allongement de la durée de vie</h4>
                             <ul className="list-disc list-inside space-y-1 text-muted-foreground text-sm">
-                                <li>Cibler 7 ans minimum pour les ordinateurs (7 ans de pièces, UE 2023/1670)</li>
-                                <li>Cibler 5 ans minimum pour les smartphones</li>
+                                <li>Cibler 7 ans minimum pour les ordinateurs (mises à jour et pièces des gammes pro)</li>
+                                <li>Cibler 5 ans minimum pour les smartphones (7 ans de pièces imposés par l'UE, règlement 2023/1670)</li>
                                 <li>Mettre en place un service de réparation interne</li>
                             </ul>
                         </div>

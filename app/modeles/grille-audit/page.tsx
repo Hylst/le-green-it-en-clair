@@ -380,19 +380,19 @@ export default function GrilleAuditPage() {
 
                     <div className="grid md:grid-cols-4 gap-4 mt-6">
                         <Card className="p-4 text-center bg-red-50 dark:bg-red-950/20 border-red-300">
-                            <div className="text-xl font-bold text-red-600">&lt; 100</div>
+                            <div className="text-xl font-bold text-red-600">&lt; 30</div>
                             <p className="text-sm text-muted-foreground">Débutant</p>
                         </Card>
                         <Card className="p-4 text-center bg-amber-50 dark:bg-amber-950/20 border-amber-300">
-                            <div className="text-xl font-bold text-amber-600">100-180</div>
+                            <div className="text-xl font-bold text-amber-600">30-50</div>
                             <p className="text-sm text-muted-foreground">Intermédiaire</p>
                         </Card>
                         <Card className="p-4 text-center bg-blue-50 dark:bg-blue-950/20 border-blue-300">
-                            <div className="text-xl font-bold text-blue-600">180-240</div>
+                            <div className="text-xl font-bold text-blue-600">50-65</div>
                             <p className="text-sm text-muted-foreground">Avancé</p>
                         </Card>
                         <Card className="p-4 text-center bg-emerald-50 dark:bg-emerald-950/20 border-emerald-300">
-                            <div className="text-xl font-bold text-emerald-600">240-300</div>
+                            <div className="text-xl font-bold text-emerald-600">65-78</div>
                             <p className="text-sm text-muted-foreground">Excellence</p>
                         </Card>
                     </div>

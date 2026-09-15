@@ -121,7 +121,7 @@ export default function ActualitesPage() {
     {
       source: "Next",
       category: "Presse indépendante",
-      link: "https://www.nextinpact.com",
+      link: "https://next.ink",
       blurb: "Presse tech indépendante : droit du numérique, vie privée, obsolescence.",
     },
   ]

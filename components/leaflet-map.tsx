@@ -32,7 +32,9 @@ interface LeafletMapProps {
 // Component to handle map center changes
 function ChangeView({ center, zoom }: { center: [number, number], zoom: number }) {
     const map = useMap()
-    map.setView(center, zoom)
+    useEffect(() => {
+        map.setView(center, zoom)
+    }, [map, center, zoom])
     return null
 }
 

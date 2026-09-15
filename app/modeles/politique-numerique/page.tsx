@@ -162,7 +162,7 @@ export default function PolitiqueNumeriquePage() {
                             <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1 ml-4">
                                 <li>Réparabilité : indice ≥ 7/10</li>
                                 <li>Modularité : composants facilement remplaçables (RAM, SSD)</li>
-                                <li>Garantie : minimum 3 ans pièces et main d'œuvre</li>
+                                <li>Garantie : minimum 5 ans pièces et main d'œuvre</li>
                                 <li>Disponibilité des pièces détachées : 7 ans minimum</li>
                             </ul>
                         </Card>
@@ -230,7 +230,7 @@ export default function PolitiqueNumeriquePage() {
                                 <tr className="border-b border-border">
                                     <td className="py-2">Ordinateur portable</td>
                                     <td className="py-2">4 ans</td>
-                                    <td className="py-2">5-6 ans</td>
+                                    <td className="py-2">5-7 ans</td>
                                 </tr>
                                 <tr className="border-b border-border">
                                     <td className="py-2">Ordinateur fixe</td>
@@ -245,7 +245,7 @@ export default function PolitiqueNumeriquePage() {
                                 <tr className="border-b border-border">
                                     <td className="py-2">Tablette</td>
                                     <td className="py-2">4 ans</td>
-                                    <td className="py-2">5-6 ans</td>
+                                    <td className="py-2">5-7 ans</td>
                                 </tr>
                                 <tr>
                                     <td className="py-2">Écran</td>

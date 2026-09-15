@@ -22,12 +22,16 @@ export function ImageZoom({
     containerClassName,
     priority,
     sizes,
-    quality = 90
+    quality = 85
 }: ImageZoomProps) {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <div className={cn("group relative cursor-zoom-in overflow-hidden", containerClassName)}>
+                <button
+                    type="button"
+                    aria-label="Agrandir l'image"
+                    className={cn("group relative block w-full cursor-zoom-in overflow-hidden", containerClassName)}
+                >
                     <Image
                         src={src}
                         alt={alt}
@@ -45,7 +49,7 @@ export function ImageZoom({
                             Cliquer pour agrandir
                         </div>
                     </div>
-                </div>
+                </button>
             </DialogTrigger>
             <DialogContent className="max-w-[95vw] sm:max-w-[90vw] lg:max-w-6xl xl:max-w-7xl border-none bg-transparent p-0 shadow-none">
                 <DialogTitle className="sr-only">Agrandissement de l'image : {alt}</DialogTitle>

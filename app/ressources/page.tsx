@@ -291,7 +291,7 @@ export default function RessourcesPage() {
       <section className="px-6 py-16 lg:py-24 bg-background">
         <div className="mx-auto max-w-7xl">
           <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">
-            Documents téléchargeables
+            À lire et à consulter
           </h2>
           <div className="space-y-12">
             {resources.map((category, catIndex) => {

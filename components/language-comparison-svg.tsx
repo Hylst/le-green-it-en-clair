@@ -71,7 +71,12 @@ export function LanguageComparisonSVG() {
               key={lang.name}
               onMouseEnter={() => setHoveredLang(lang.name)}
               onMouseLeave={() => setHoveredLang(null)}
-              className="cursor-pointer transition-all duration-300"
+              onFocus={() => setHoveredLang(lang.name)}
+              onBlur={() => setHoveredLang(null)}
+              tabIndex={0}
+              role="button"
+              aria-label={`${lang.name} : ${lang.energy} fois la consommation de référence C`}
+              className="cursor-pointer transition-all duration-300 focus:outline-none focus-visible:stroke-2 focus-visible:stroke-slate-900"
             >
               {/* Barre */}
               <rect

@@ -64,8 +64,17 @@ export function AnimatedLifecycleSVG() {
                 fill={phase.color}
                 opacity={isActive ? "1" : "0.7"}
                 filter={isActive ? "url(#glow)" : ""}
-                className="cursor-pointer transition-all duration-500"
+                className="cursor-pointer transition-all duration-500 motion-reduce:transition-none focus:outline-none focus-visible:stroke-slate-900 focus-visible:stroke-2"
+                role="button"
+                tabIndex={0}
+                aria-label={`Afficher la phase : ${phase.name}`}
                 onClick={() => setActivePhase(phase.id)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault()
+                    setActivePhase(phase.id)
+                  }
+                }}
               />
               <text
                 x={phase.cx}

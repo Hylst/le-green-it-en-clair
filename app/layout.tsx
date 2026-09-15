@@ -62,8 +62,6 @@ export const metadata: Metadata = {
     images: ["https://hylst.fr/greenit/og-cover.jpg"],
   },
   robots: {
-    index: true,
-    follow: true,
     googleBot: {
       index: true,
       follow: true,

@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Leaf, Target, Users, Heart, Award, Mail, AlertTriangle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { Metadata } from "next"
+import { SourceTooltip } from "@/components/source-tooltip"
 
 export const metadata: Metadata = {
   title: "À propos",
@@ -70,7 +71,7 @@ export default function AProposPage() {
             <CardContent className="space-y-4">
               <p className="text-muted-foreground">
                 Ce site est né d'un constat simple : le numérique représente aujourd'hui environ 3,4 % des émissions
-                mondiales de gaz à effet de serre, soit 1,8 Gt CO₂e (GreenIT EENM 2025). En France, l'empreinte du numérique
+                mondiales de gaz à effet de serre, soit 1,8 Gt CO₂e (GreenIT EENM 2025)<SourceTooltip source="GreenIT EENM 2025 ; ADEME-Arcep 2023" calculation="1,8 Gt ÷ ~53 Gt d'émissions mondiales ≈ 3,4 % ; ×3 d'ici 2050 en tendanciel (France)" />. En France, l'empreinte du numérique
                 pourrait tripler d'ici 2050 si les tendances se poursuivent (ADEME-Arcep 2023).
               </p>
               <p className="text-muted-foreground">

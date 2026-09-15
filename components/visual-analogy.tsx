@@ -16,15 +16,23 @@ interface VisualAnalogyProps {
   color?: "emerald" | "blue" | "teal" | "amber"
 }
 
+const colorClasses: Record<string, { card: string; iconWrap: string; title: string; count: string }> = {
+  emerald: { card: "border-emerald-200 bg-emerald-50", iconWrap: "bg-emerald-600", title: "text-emerald-900", count: "text-emerald-700" },
+  blue: { card: "border-blue-200 bg-blue-50", iconWrap: "bg-blue-600", title: "text-blue-900", count: "text-blue-700" },
+  teal: { card: "border-teal-200 bg-teal-50", iconWrap: "bg-teal-600", title: "text-teal-900", count: "text-teal-700" },
+  amber: { card: "border-amber-200 bg-amber-50", iconWrap: "bg-amber-600", title: "text-amber-900", count: "text-amber-700" },
+}
+
 export function VisualAnalogy({ title, description, visual, color = "emerald" }: VisualAnalogyProps) {
+  const c = colorClasses[color] ?? colorClasses.emerald
   return (
-    <Card className={`border-2 border-${color}-200 bg-${color}-50 p-6 lg:p-8`}>
+    <Card className={`border-2 ${c.card} p-6 lg:p-8`}>
       <div className="mb-4 flex items-start gap-3">
-        <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-${color}-600`}>
+        <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${c.iconWrap}`}>
           <Info className="h-5 w-5 text-white" />
         </div>
         <div>
-          <h3 className={`mb-2 text-xl font-bold text-${color}-900`}>{title}</h3>
+          <h3 className={`mb-2 text-xl font-bold ${c.title}`}>{title}</h3>
           <p className="text-slate-700">{description}</p>
         </div>
       </div>
@@ -38,7 +46,7 @@ export function VisualAnalogy({ title, description, visual, color = "emerald" }:
                   {item.icon}
                 </span>
               ))}
-              {item.count > 10 && <span className={`text-2xl font-bold text-${color}-700`}>×{item.count}</span>}
+              {item.count > 10 && <span className={`text-2xl font-bold ${c.count}`}>×{item.count}</span>}
             </div>
             <p className="text-sm font-medium text-slate-700">{item.label}</p>
           </div>

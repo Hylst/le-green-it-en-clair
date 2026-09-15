@@ -34,9 +34,9 @@ export function InstallPWA() {
         const { outcome } = await deferredPrompt.userChoice
 
         if (outcome === "accepted") {
-            console.log("User accepted the PWA install prompt")
+            console.log("Installation PWA acceptée")
         } else {
-            console.log("User dismissed the PWA install prompt")
+            console.log("Installation PWA refusée")
         }
 
         // Clear the deferred prompt so it can be garbage collected

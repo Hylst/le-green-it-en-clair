@@ -19,7 +19,7 @@ interface ComparisonChartProps {
 }
 
 export function ComparisonChart({ title, subtitle, items, unit, maxValue }: ComparisonChartProps) {
-  const max = maxValue || Math.max(...items.map((item) => item.value))
+  const max = maxValue && maxValue > 0 ? maxValue : Math.max(1, ...items.map((item) => item.value))
 
   return (
     <Card className="border-2 border-slate-200 p-6 lg:p-8">

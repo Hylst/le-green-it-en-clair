@@ -16,7 +16,7 @@ const sheets: Record<string, any> = {
       {
         title: "1. Garder ses appareils plus longtemps",
         content:
-          "La fabrication représente 75% de l'impact (ADEME-Arcep 2023). Garder un smartphone 4 ans au lieu de 2 divise son impact par 2.",
+          "La fabrication représente 75% de l'impact (ADEME-Arcep 2023). Garder un smartphone 4 ans au lieu de 2 divise son impact annuel par 2.",
         tips: [
           "Objectif : minimum 5 ans pour un smartphone, 7 ans pour un ordinateur",
           "Changez la batterie plutôt que l'appareil (50-80€)",
@@ -25,7 +25,7 @@ const sheets: Record<string, any> = {
       },
       {
         title: "2. Éteindre complètement la nuit",
-        content: "Un appareil en veille consomme encore 5-10 W, soit 40-80 kWh par an (calcul : 5-10 W × 8 760 h).",
+        content: "Un appareil en veille consomme encore 5-10 W, soit 44-88 kWh par an (calcul : 5-10 W × 8 760 h).",
         tips: [
           "Éteignez votre box internet la nuit (économie de ~26 kWh/an)",
           "Débranchez les chargeurs (ils consomment même sans appareil)",
@@ -65,7 +65,7 @@ const sheets: Record<string, any> = {
         content: "L'écran représente 30-50% de la consommation d'un smartphone. Réduire la luminosité économise 20%.",
         tips: [
           "Activez l'ajustement automatique",
-          "Utilisez le mode sombre (économie de 30 à 50 % sur écrans OLED, Purdue 2021)",
+          "Utilisez le mode sombre (3 à 9 % en usage courant, jusqu'à ~47 % à pleine luminosité sur OLED, Purdue 2021)",
           "Activez le mode économie d'énergie",
         ],
       },
@@ -97,8 +97,8 @@ const sheets: Record<string, any> = {
     title: "Guide d'achat responsable",
     subtitle: "Comment choisir un appareil avec moins d'impact",
     target: "Citoyens",
-    duration: "10 minutes de lecture",
-    impact: "75% d'économie d'impact vs un appareil neuf",
+    duration: "12 minutes de lecture",
+    impact: "−75 à −90 % d'impact vs un appareil neuf (ADEME 2022)",
     date: "5 Mars 2026",
     sections: [
       {
@@ -167,7 +167,7 @@ const sheets: Record<string, any> = {
     title: "Écoconception web et logicielle",
     subtitle: "Bonnes pratiques pour développeurs responsables",
     target: "Développeurs",
-    duration: "15 minutes de lecture",
+    duration: "25 minutes de lecture",
     impact: "Sites 3-5x plus légers, temps de chargement -60%",
     date: "15 Mars 2026",
     sections: [
@@ -202,7 +202,7 @@ const sheets: Record<string, any> = {
       },
       {
         title: "Optimiser les médias",
-        content: "Les images représentent environ 50 % du poids des pages (HTTP Archive, 2025). Optimisation = gain immédiat.",
+        content: "Les images représentent environ 50 % du poids des pages (HTTP Archive, 2024). Optimisation = gain immédiat.",
         tips: [
           "Format moderne : WebP (~−30 %), AVIF (~−50 % vs JPG), à qualité égale (Google)",
           "Responsive images avec srcset",
@@ -369,7 +369,7 @@ const sheets: Record<string, any> = {
         content: "La technologie n'est rien sans les hommes. Formez vos collaborateurs aux bonnes pratiques.",
         tips: [
           "Organisez des ateliers 'Fresque du Numérique' pour sensibiliser",
-          "Encouragez les réunions audio plutôt que vidéo (consommation ÷ 20)",
+          "Encouragez les réunions audio plutôt que vidéo (réduction forte de la consommation, ordre de grandeur)",
           "Mettez en place une politique d'extinction automatique des postes la nuit",
         ],
       },
@@ -417,7 +417,7 @@ const sheets: Record<string, any> = {
         content:
           "Un smartphone contient 70 matériaux différents dont des métaux rares (or, argent, cuivre, terres rares). Le recyclage permet de les récupérer et d'éviter la pollution.",
         tips: [
-          "Évite d'extraire de nouvelles matières (ordre de grandeur : ~2 kg de CO₂ par smartphone recyclé, comme dans le guide PDF)",
+          "Évite d'extraire de nouvelles matières (~2 kg de CO₂ évités par smartphone recyclé, ordre de grandeur)",
           "Récupère une grande partie des matériaux pour fabriquer de nouveaux produits (~79 % des DEEE collectés sont recyclés ou réutilisés, Ecosystem 2024)",
           "Empêche les substances toxiques (plomb, mercure) de polluer les sols",
         ],
@@ -471,8 +471,7 @@ const sheets: Record<string, any> = {
     resources: [
       "Carte des points : https://ecosystem.eco/fr/localiser",
       "Guide ADEME : ademe.fr",
-      "Annuaire recyclage : jerecyclemesdeee.fr",
-      "https://quefairedemesdechets.ademe.fr",
+            "https://quefairedemesdechets.ademe.fr",
     ],
     sources: [
       "Ecosystem 2024 (79 % recyclés, 91 % valorisés)",
@@ -485,7 +484,7 @@ const sheets: Record<string, any> = {
     title: "Datacenters et cloud responsable",
     subtitle: "Choisir ses hébergeurs et optimiser ses infrastructures",
     target: "DSI & Développeurs",
-    duration: "10 minutes de lecture",
+    duration: "12 minutes de lecture",
     impact: "Réduire les émissions de votre hébergement",
     date: "5 Avril 2026",
     sections: [
@@ -493,8 +492,8 @@ const sheets: Record<string, any> = {
         title: "1. Les 3 critères pour choisir un hébergeur vert",
         content: " Ne vous fiez pas seulement au marketing. Exigez des chiffres précis.",
         tips: [
-          "Le PUE (Power Usage Effectiveness) : visez un indice inférieur à 1.3 (Moyenne 1.6)",
-          "Le mix énergétique : privilégiez les énergies renouvelables et bas carbone (France = 50g CO2/kWh vs Allemagne = 350g)",
+          "Le PUE (Power Usage Effectiveness) : visez un indice inférieur à 1.3 (moyenne 1,56 monde / 1,45 Europe, Uptime 2024)",
+          "Le mix énergétique : privilégiez les énergies renouvelables et bas carbone (France ≈ 50 g CO₂/kWh vs Allemagne ≈ 350 g, EEA/RTE 2024)",
           "Le Water Usage Effectiveness (WUE) : demandez la consommation d'eau pour le refroidissement",
         ],
       },
@@ -551,7 +550,7 @@ const sheets: Record<string, any> = {
     title: "Plan d'action pour les collectivités",
     subtitle: "Politique numérique responsable territoriale et application de la loi REEN",
     target: "Élus & Agents territoriaux",
-    duration: "15 minutes de lecture",
+    duration: "25 minutes de lecture",
     impact: "Conformité légale et exemplarité publique",
     date: "12 Avril 2026",
     sections: [
@@ -596,7 +595,7 @@ const sheets: Record<string, any> = {
         content: "La transformation passe par l'acculturation de tous les acteurs du territoire.",
         tips: [
           "Intégrez un module 'Numérique Responsable' dans le plan de formation des agents",
-          "Organisez une 'Cyber CleanUp Week' annuelle dans les services",
+          "Organisez une 'Cyber World CleanUp Day' annuelle dans les services",
           "Communiquez auprès des citoyens sur les gestes simples (box internet, streaming, 4G/5G)",
         ],
       },

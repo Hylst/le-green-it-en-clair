@@ -24,8 +24,8 @@ export function AnimatedImpactBars() {
   ]
 
   return (
-    <div className="w-full rounded-2xl bg-white p-8 shadow-lg">
-      <h3 className="mb-8 text-center text-2xl font-bold text-slate-900">
+    <div className="w-full rounded-2xl bg-card p-8 shadow-lg">
+      <h3 className="mb-8 text-center text-2xl font-bold text-foreground">
         Répartition de l'empreinte carbone par phase
       </h3>
 
@@ -34,13 +34,13 @@ export function AnimatedImpactBars() {
           <div key={impact.label} className="flex items-center gap-4">
             <div className="flex w-32 items-center gap-2">
               <span className="text-2xl">{impact.icon}</span>
-              <span className="text-sm font-medium text-slate-700">{impact.label}</span>
+              <span className="text-sm font-medium text-muted-foreground">{impact.label}</span>
             </div>
 
             <div className="relative flex-1">
-              <div className="h-12 overflow-hidden rounded-xl bg-slate-100">
+              <div className="h-12 overflow-hidden rounded-xl bg-secondary">
                 <div
-                  className="flex h-full items-center justify-end px-4 transition-all duration-1000 ease-out"
+                  className="flex h-full items-center justify-end px-4 transition-all duration-1000 ease-out motion-reduce:transition-none"
                   style={{
                     width: animate ? `${impact.value}%` : "0%",
                     backgroundColor: impact.color,
@@ -55,9 +55,9 @@ export function AnimatedImpactBars() {
         ))}
       </div>
 
-      <div className="mt-8 rounded-xl bg-emerald-50 p-4 text-center">
-        <p className="text-sm text-slate-700">
-          <span className="font-bold">Point clé :</span> La fabrication concentre 60 % de l'impact carbone, et l'extraction 15 % : soit environ 75 % au total (ADEME).
+      <div className="mt-8 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 p-4 text-center">
+        <p className="text-sm text-muted-foreground">
+          <span className="font-bold">Point clé :</span> La fabrication concentre 60 % de l'impact carbone, et l'extraction 15 % : soit environ 75 % au total (ADEME-Arcep, 2023).
         </p>
       </div>
     </div>

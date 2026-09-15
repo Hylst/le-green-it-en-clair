@@ -178,7 +178,7 @@ export default function KitSensibilisationPage() {
                             <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li>A. 2 ans</li>
                                 <li>B. 3-4 ans</li>
-                                <li>C. 5-6 ans ✓ (Bonne réponse)</li>
+                                <li>C. 5-7 ans ✓ (Bonne réponse)</li>
                             </ul>
                         </Card>
 

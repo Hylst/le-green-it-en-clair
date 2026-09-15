@@ -36,7 +36,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/reglementation',
         '/ressources',
         '/sitemap-page',
-        '/offline',
         '/modeles/cahier-charges-achat',
         '/modeles/charte-green-it',
         '/modeles/grille-audit',

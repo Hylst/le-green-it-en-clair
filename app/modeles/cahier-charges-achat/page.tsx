@@ -327,7 +327,7 @@ export default function CahierChargesPage() {
                         </thead>
                         <tbody className="text-muted-foreground">
                             <tr className="bg-emerald-50/50 dark:bg-emerald-950/10">
-                                <td className="p-3 font-semibold text-foreground" rowSpan={6}>Environnement (60 pts)</td>
+                                <td className="p-3 font-semibold text-foreground" rowSpan={5}>Environnement (60 pts)</td>
                                 <td className="p-3">Labels et certifications</td>
                                 <td className="p-3">15</td>
                             </tr>

@@ -1,6 +1,7 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { SourceTooltip } from "@/components/source-tooltip"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
@@ -16,6 +17,13 @@ import {
 } from "lucide-react"
 
 import { useRouter } from "next/navigation"
+
+const sectionColorClasses: Record<string, { header: string; iconWrap: string; icon: string }> = {
+    emerald: { header: "bg-emerald-500/5", iconWrap: "bg-emerald-500/10", icon: "text-emerald-500" },
+    blue: { header: "bg-blue-500/5", iconWrap: "bg-blue-500/10", icon: "text-blue-500" },
+    teal: { header: "bg-teal-500/5", iconWrap: "bg-teal-500/10", icon: "text-teal-500" },
+    orange: { header: "bg-orange-500/5", iconWrap: "bg-orange-500/10", icon: "text-orange-500" },
+}
 
 export default function GuidePage() {
     const router = useRouter()
@@ -81,7 +89,7 @@ export default function GuidePage() {
                     <div className="flex flex-wrap items-center justify-center gap-4">
                         <Button onClick={() => window.print()} className="bg-primary hover:bg-primary/90">
                             <Printer className="mr-2 h-4 w-4" />
-                            Imprimer le guide (PDF)
+                            Imprimer le guide
                         </Button>
                         <Button asChild variant="outline">
                             <a href="/greenit/guide-recyclage-green-it.pdf" download>
@@ -99,10 +107,10 @@ export default function GuidePage() {
                     const Icon = section.icon
                     return (
                         <Card key={index} className="border-2 border-border shadow-sm">
-                            <CardHeader className={`bg-${section.color}-500/5 border-b`}>
+                            <CardHeader className={`${(sectionColorClasses[section.color] ?? sectionColorClasses.emerald).header} border-b`}>
                                 <div className="flex items-center gap-3">
-                                    <div className={`p-2 rounded-lg bg-${section.color}-500/10`}>
-                                        <Icon className={`h-6 w-6 text-${section.color}-500`} />
+                                    <div className={`p-2 rounded-lg ${(sectionColorClasses[section.color] ?? sectionColorClasses.emerald).iconWrap}`}>
+                                        <Icon className={`h-6 w-6 ${(sectionColorClasses[section.color] ?? sectionColorClasses.emerald).icon}`} />
                                     </div>
                                     <CardTitle className="text-2xl">{section.title}</CardTitle>
                                 </div>
@@ -129,7 +137,7 @@ export default function GuidePage() {
                                 Le saviez-vous ?
                             </h3>
                             <p className="text-emerald-50 text-lg">
-                                Produire un ordinateur portable de 2 kg émet 156 kg de CO₂ et nécessite 800 kg de matières premières (ADEME, Base Empreinte 2023).
+                                Produire un ordinateur portable de 2 kg émet 156 kg de CO₂ et nécessite 800 kg de matières premières (ADEME, Base Empreinte 2023)<SourceTooltip source="ADEME, Base Empreinte 2023" calculation="156 kg pour 2 kg d'appareil ; 800 kg de matières extraites ; 2→4 ans d'usage ≈ −50 % d'impact" />.
                                 Allonger sa durée de vie de 2 à 4 ans réduit son impact environnemental d'environ 50 % (ADEME 2026).
                             </p>
                         </div>

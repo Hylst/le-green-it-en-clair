@@ -3,7 +3,7 @@
 export function AnimatedDataFlow() {
   return (
     <div className="w-full overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-teal-50 p-8">
-      <svg viewBox="0 0 800 400" className="w-full" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 800 400" className="w-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#3b82f6" />

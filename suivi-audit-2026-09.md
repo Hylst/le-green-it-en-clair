@@ -97,21 +97,21 @@
 - Finale : diffs relus, build + export + `/greenit/` vérifiés, docs à jour.
 
 ### Vague 1 — P0 crédibilité et faux bloquants
-- [ ] Fausses actualités, faux flux, données fictives et chiffres faux.
-- [ ] Droit/réglementation faux ou périmé.
-- [ ] Boutons/ancres morts et comportements simulés.
-- [ ] Vérification manuelle systématique.
+- [x] Fausses actualités, faux flux, données fictives et chiffres faux.
+- [x] Droit/réglementation faux ou périmé.
+- [x] Boutons/ancres morts et comportements simulés.
+- [x] Vérification manuelle systématique.
 
 ### Vague 2 — P0/P1 cohérence des chiffres et outils
-- [ ] Harmoniser toutes les versions d’un même chiffre.
-- [ ] Corriger calculateurs, quiz, simulateurs et méthodes.
-- [ ] Vérification manuelle systématique.
+- [x] Harmoniser toutes les versions d’un même chiffre (reliquats P1 dans `sitemap-page`/fiches sources).
+- [x] Corriger calculateurs, quiz, simulateurs et méthodes.
+- [x] Vérification manuelle systématique.
 
 ### Vague 3 — P1/P2 contenu, images, accessibilité et documentation
-- [ ] Sources manquantes, conseils à nuancer, PDF et fiches.
-- [ ] Images DEF/anglais/orphelines/poids mort.
-- [ ] Accessibilité, responsive, PWA, navigation et documentation.
-- [ ] Vérification manuelle systématique.
+- [ ] Sources manquantes des 8 fiches, `sitemap-page`, boutons `modeles`, dates `plan-action-dsi` (périmètre C, non traité).
+- [x] Images orphelines/poids mort : sources sorties du build, 18 orphelines supprimées, og-cover/screenshots/coding optimisés, co2-distribution tranchée.
+- [ ] Accessibilité, responsive, PWA, navigation et documentation (reste tests multi-navigateurs/contrastes).
+- [x] Vérification manuelle systématique de la vague B (build, export, navigateur).
 
 ### Validation finale
 - [ ] Relecture complète des diffs.
@@ -132,3 +132,5 @@
 - 2026-09-15 : audit pessimiste final avant quiz (3 sous-agents, lecture seule) : oublis confirmés (accueil 74,7 Mt, mythes 17,4 %, fiches 20x/57x/20 kg/65 kWh/6 mois/quefaire.fr, outils « ADEME 2025 », docs périmées, moteur quiz). Spec `docs/superpowers/specs/2026-09-15-assainissement-quiz-design.md` + plan `docs/superpowers/plans/2026-09-15-assainissement-quiz.md` écrits, commités (`55d7d6b`, `8ecdefb`) puis exécutés en manuel.
 - 2026-09-15 : phase A soldée (8 commits) : accueil, mythes, fiches, durées/arbres, sources outils, badges, recherche (39 entrées), docs internes. Vérifié : `tsc`, build, export sans ancienne valeur.
 - 2026-09-15 : quiz corrigé (10 commits) : 100 questions re-sourcées/corrigées, moteur (niveau max réel, division par zéro, Fisher-Yates, timer continu), attestation ≥ 60 % avec impression dédiée, accessibilité `radiogroup`/`radio`/`aria-live`. Vérifié : `tsc`, build, export, test navigateur `/greenit/` (35/140 = 25 %, score moyen 4, bouton résultat ; CSS print présent ; console = prefetch `_rsc` connu). Reste vague 3 images.
+- 2026-09-15 : audit pessimiste final (3 sous-agents) : restes confirmés dans `perspectives`, `modeles`, `comprendre`, `problematiques`, `chiffres`, calculateurs, fiches, a-propos, plus les images et docs. Finitions quiz appliquées (`2e92097` : garde division, fourchette streaming, PUE, Google 2009, sources millésimées).
+- 2026-09-15 : vague B exécutée (9 commits `4fd4fd9` → `0391479`) : contenu faux/trompeur corrigé et images assainies (sources sorties du build, 18 orphelines supprimées, og-cover jpg 94 Ko, screenshots webp, sustainable-coding webp, co2-distribution/lifecycle retirés, ressources rebranchées). Vérifié : `tsc`, build, export sans référence morte, navigateur, `out/` ~21 → 13 Mo. Reste P1 (sources fiches, `sitemap-page`, boutons `modeles`, dates plans) et tests multi-navigateurs.

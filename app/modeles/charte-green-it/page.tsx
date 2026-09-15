@@ -115,7 +115,7 @@ export default function CharteGreenITPage() {
                         <ul className="space-y-3 text-muted-foreground">
                             <li className="flex items-start gap-2">
                                 <span className="text-emerald-600 font-bold">•</span>
-                                <span>Réduire de 30% l'empreinte environnementale de notre parc informatique d'ici 2027</span>
+                                <span>Réduire de 30% l'empreinte environnementale de notre parc informatique d'ici 2 ans</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="text-emerald-600 font-bold">•</span>
@@ -274,22 +274,22 @@ export default function CharteGreenITPage() {
                             <tr className="border-b border-border">
                                 <td className="p-3">Systématiser l'achat reconditionné</td>
                                 <td className="p-3">% équipements reconditionnés</td>
-                                <td className="p-3">2026</td>
+                                <td className="p-3">Année 1</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">Mettre en place un atelier réparation</td>
                                 <td className="p-3">Nombre de réparations/an</td>
-                                <td className="p-3">Q2 2026</td>
+                                <td className="p-3">T2 Année 1</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">Allonger durée de vie à 5 ans</td>
                                 <td className="p-3">Âge moyen du parc</td>
-                                <td className="p-3">2027</td>
+                                <td className="p-3">Année 2</td>
                             </tr>
                             <tr>
                                 <td className="p-3">Collecter 100% équipements fin de vie</td>
                                 <td className="p-3">Taux de collecte</td>
-                                <td className="p-3">2026</td>
+                                <td className="p-3">Année 1</td>
                             </tr>
                         </tbody>
                     </table>
@@ -346,8 +346,8 @@ export default function CharteGreenITPage() {
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground">Indicateur</th>
-                                <th className="p-3 text-left font-semibold text-foreground">Baseline 2025</th>
-                                <th className="p-3 text-left font-semibold text-foreground">Objectif 2027</th>
+                                <th className="p-3 text-left font-semibold text-foreground">Baseline (Année 0)</th>
+                                <th className="p-3 text-left font-semibold text-foreground">Objectif (Année 2)</th>
                             </tr>
                         </thead>
                         <tbody className="text-muted-foreground">

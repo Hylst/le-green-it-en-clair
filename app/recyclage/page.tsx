@@ -210,8 +210,8 @@ export default function RecyclagePage() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 grid gap-6 md:grid-cols-4">
             <Card className="border-2 border-primary/20 bg-primary/5 p-6 text-center">
-              <div className="mb-2 text-4xl font-bold text-primary">45%</div>
-              <p className="text-sm text-muted-foreground">Taux de recyclage en France</p>
+              <div className="mb-2 text-4xl font-bold text-primary">46%</div>
+              <p className="text-sm text-muted-foreground">Taux de collecte en France (Eurostat/Ecosystem, 2024)</p>
             </Card>
             <Card className="border-2 border-accent/20 bg-accent/5 p-6 text-center">
               <div className="mb-2 text-4xl font-bold text-accent">Carte</div>
@@ -226,12 +226,12 @@ export default function RecyclagePage() {
               </a>
             </Card>
             <Card className="border-2 border-primary/20 bg-primary/5 p-6 text-center">
-              <div className="mb-2 text-4xl font-bold text-primary">80%</div>
-              <p className="text-sm text-muted-foreground">Métaux récupérables</p>
+              <div className="mb-2 text-4xl font-bold text-primary">79%</div>
+              <p className="text-sm text-muted-foreground">des DEEE collectés sont recyclés ou réutilisés (Ecosystem, 2024)</p>
             </Card>
             <Card className="border-2 border-accent/20 bg-accent/5 p-6 text-center">
-              <div className="mb-2 text-4xl font-bold text-accent">1.5 Mt</div>
-              <p className="text-sm text-muted-foreground">DEEE collectés par an</p>
+              <div className="mb-2 text-4xl font-bold text-accent">1,6 Mt</div>
+              <p className="text-sm text-muted-foreground">DEEE collectés par an (~24 kg/hab, ADEME 2024)</p>
             </Card>
           </div>
         </div>
@@ -281,8 +281,9 @@ export default function RecyclagePage() {
 
             <div className="mt-8 rounded-xl bg-accent/5 border-2 border-accent/10 p-6">
               <p className="text-muted-foreground">
-                <strong>Résultat :</strong> Grâce à la REP, la France recycle 45% de ses déchets électroniques, soit
-                plus du double de la moyenne mondiale (20%). C'est gratuit pour les consommateurs !
+                <strong>Résultat :</strong> Grâce à la REP, la France collecte environ 46 % de ses déchets
+                électroniques, soit plus du double de la moyenne mondiale (22,3 % en 2022, Global E-waste Monitor
+                2024). C'est gratuit pour les consommateurs !
               </p>
             </div>
           </Card>

@@ -36,10 +36,10 @@ const lifecyclePhases = [
     color: "amber",
     description: "Extraction de métaux rares et précieux nécessaires à la fabrication des composants électroniques.",
     impacts: [
-      { icon: Droplets, label: "Eau", value: "12 000 L", detail: "pour 1 smartphone" },
-      { icon: Zap, label: "Énergie", value: "250 kWh", detail: "équivalent à 2-3 semaines de consommation d'un foyer" },
-      { icon: Cloud, label: "CO₂", value: "50 kg", detail: "d'émissions de gaz à effet de serre" },
-      { icon: Gem, label: "Métaux", value: "50+", detail: "métaux différents extraits" },
+      { icon: Droplets, label: "Eau", value: "12 000 L", detail: "pour 1 smartphone (ADEME 2023)" },
+      { icon: Zap, label: "Énergie", value: "250 kWh", detail: "≈ 2-3 semaines de consommation d'un foyer (~4 700 kWh/an)" },
+      { icon: Cloud, label: "CO₂", value: "50 kg", detail: "d'émissions de gaz à effet de serre (ADEME 2023)" },
+      { icon: Gem, label: "Métaux", value: "50+", detail: "métaux différents extraits (ADEME 2023)" },
     ],
     analogy: "Fabriquer un smartphone nécessite autant d'eau que 160 douches !",
     details:
@@ -52,10 +52,10 @@ const lifecyclePhases = [
     color: "slate",
     description: "Transformation des matières premières en composants électroniques et assemblage final des appareils.",
     impacts: [
-      { icon: Cloud, label: "CO₂", value: "75%", detail: "de l'empreinte carbone totale" },
-      { icon: Zap, label: "Énergie", value: "300 kWh", detail: "pour la fabrication" },
-      { icon: Droplets, label: "Eau", value: "8 000 L", detail: "pour le refroidissement" },
-      { icon: Gem, label: "Composants", value: "1000+", detail: "pièces assemblées" },
+      { icon: Cloud, label: "CO₂", value: "75%", detail: "de l'empreinte carbone totale (ADEME-Arcep 2023)" },
+      { icon: Zap, label: "Énergie", value: "300 kWh", detail: "pour la fabrication (ADEME 2023)" },
+      { icon: Droplets, label: "Eau", value: "8 000 L", detail: "pour le refroidissement (ADEME 2023)" },
+      { icon: Gem, label: "Composants", value: "1000+", detail: "pièces assemblées (ordre de grandeur)" },
     ],
     analogy: "La fabrication d'un ordinateur portable émet autant de CO₂ qu'un aller-retour Paris-Marseille en avion !",
     details:
@@ -68,9 +68,9 @@ const lifecyclePhases = [
     color: "blue",
     description: "Acheminement des produits depuis les usines jusqu'aux consommateurs à travers le monde.",
     impacts: [
-      { icon: Cloud, label: "CO₂", value: "5%", detail: "de l'empreinte totale" },
-      { icon: Truck, label: "Distance", value: "15 000 km", detail: "en moyenne par appareil" },
-      { icon: Zap, label: "Énergie", value: "20 kWh", detail: "pour le transport" },
+      { icon: Cloud, label: "CO₂", value: "5%", detail: "de l'empreinte totale (ADEME-Arcep 2023)" },
+      { icon: Truck, label: "Distance", value: "15 000 km", detail: "en moyenne par appareil (ADEME-Arcep 2023)" },
+      { icon: Zap, label: "Énergie", value: "20 kWh", detail: "pour le transport (ADEME-Arcep 2023)" },
     ],
     analogy: "Votre smartphone a probablement voyagé plus loin que vous cette année !",
     details:
@@ -84,11 +84,11 @@ const lifecyclePhases = [
     description:
       "Phase d'utilisation par le consommateur, incluant la consommation électrique et les services numériques.",
     impacts: [
-      { icon: Zap, label: "Énergie", value: "20%", detail: "de l'impact totale" },
+      { icon: Zap, label: "Énergie", value: "20%", detail: "de l'impact total (ADEME-Arcep 2023)" },
       { icon: Cloud, label: "Data", value: "18 Go/mois", detail: "consommation mobile moyenne en France (Arcep 2025)" },
-      { icon: Droplets, label: "Durée", value: "2-3 ans", detail: "durée de vie moyenne" },
+      { icon: Droplets, label: "Durée", value: "2-3 ans", detail: "durée de vie moyenne (ADEME 2026)" },
     ],
-    analogy: "Garder son smartphone 1 an de plus réduit son impact de 25% !",
+    analogy: "Garder son smartphone 1 an de plus réduit son impact annuel d'environ un tiers !",
     details:
       "Contraire aux idées reçues, l'utilisation ne représente qu'environ 20% de l'impact environnemental. C'est pourquoi allonger la durée de vie est le geste le plus efficace.",
   },
@@ -105,7 +105,7 @@ const lifecyclePhases = [
     ],
     analogy: "Recycler 1 million de smartphones permet de récupérer 16 tonnes de cuivre !",
     details:
-      "22 % des déchets électroniques sont documentés comme collectés et recyclés dans le monde (GEM 2024). En France, ce taux atteint environ 45 % grâce aux filières REP (Responsabilité Élargie du Producteur).",
+      "22 % des déchets électroniques sont documentés comme collectés et recyclés dans le monde (GEM 2024). En France, le taux de collecte atteint environ 46 % grâce aux filières REP (Responsabilité Élargie du Producteur, Eurostat 2024).",
   },
 ]
 
@@ -182,13 +182,13 @@ export default function ComprendrePage() {
                   icon: Car,
                   label: "Trajet en voiture",
                   equivalent: "300 km",
-                  description: "Distance Paris-Reims en voiture thermique",
+                  description: "Distance Paris-Reims en voiture thermique (0,17 kg CO₂/km, ADEME 2023)",
                 },
                 {
                   icon: TreePine,
                   label: "Arbres nécessaires",
                   equivalent: "2,5 arbres",
-                  description: "Pour absorber le CO₂ pendant 1 an",
+                  description: "Pour absorber le CO₂ pendant 1 an (≈ 20 kg CO₂/arbre/an, ADEME)",
                 },
                 {
                   icon: Home,
@@ -494,7 +494,7 @@ export default function ComprendrePage() {
             <span>•</span>
             <span>Global E-Waste Monitor, ONU (2024)</span>
             <span>•</span>
-            <span>GreenIT.fr - Étude cycle de vie (2023)</span>
+            <span>GreenIT – Empreinte environnementale du numérique mondial (2025)</span>
           </div>
         </div>
       </section>

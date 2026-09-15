@@ -260,7 +260,8 @@ export default function ChiffresPage() {
               <div className="mt-6 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border-2 border-emerald-200 dark:border-emerald-800 p-4">
                 <p className="text-sm text-slate-700 dark:text-slate-300">
                   <strong>Point clé :</strong> La fabrication représente 60% de l'empreinte carbone totale. Garder son
-                  smartphone 1 an de plus réduit son impact annuel de 25%.
+                  smartphone 1 an de plus réduit son impact annuel d'environ un tiers (50 kg sur 2 ans ≈ 25 kg/an,
+                  50 kg sur 3 ans ≈ 17 kg/an).
                 </p>
               </div>
             </div>
@@ -453,7 +454,7 @@ export default function ChiffresPage() {
             <div className="text-center">
               <Globe className="mx-auto mb-4 h-12 w-12 text-emerald-100" />
               <div className="mb-2 text-4xl font-bold text-white">72,4 Mt</div>
-              <p className="text-emerald-50">de e-déchets produits dans le monde en 2026</p>
+              <p className="text-emerald-50">de e-déchets projetés dans le monde en 2026</p>
             </div>
             <div className="text-center">
               <Zap className="mx-auto mb-4 h-12 w-12 text-emerald-100" />
@@ -463,14 +464,17 @@ export default function ChiffresPage() {
             <div className="text-center">
               <MapPin className="mx-auto mb-4 h-12 w-12 text-emerald-100" />
               <div className="mb-2 text-4xl font-bold text-white">46%</div>
-              <p className="text-emerald-50">taux de recyclage en France</p>
+              <p className="text-emerald-50">taux de collecte en France (Eurostat 2024)</p>
             </div>
             <div className="text-center">
               <TrendingUp className="mx-auto mb-4 h-12 w-12 text-emerald-100" />
-              <div className="mb-2 text-4xl font-bold text-white">+113%</div>
+              <div className="mb-2 text-4xl font-bold text-white">+114%</div>
               <p className="text-emerald-50">d'augmentation des e-déchets depuis 2010</p>
             </div>
           </div>
+          <p className="mt-8 text-center text-xs text-emerald-50">
+            Sources : Global E-waste Monitor 2024 (62 Mt en 2022, +2,6 Mt/an) ; ADEME-Arcep 2023 ; Eurostat 2024
+          </p>
         </div>
       </section>
     </div>

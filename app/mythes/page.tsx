@@ -66,7 +66,7 @@ export default function MythesPage() {
       reality: "Nuancé - Ils sont plus efficaces, mais leur fabrication pollue davantage",
       explanation:
         "Les appareils récents sont effectivement plus économes en énergie à l'usage (processeurs plus efficients, meilleure gestion de la batterie). Cependant, ils utilisent des composants plus complexes et miniaturisés, nécessitant plus de ressources et d'énergie pour leur fabrication. Acheter un appareil neuf émet en moyenne environ 50 kg de CO₂e, contre environ 8 kg pour un appareil reconditionné (ADEME 2022).",
-      source: "ADEME 2022, Back Market",
+      source: "ADEME 2022",
       relatedLink: { label: "Comparer neuf vs reconditionné", href: "/cas-pratiques" },
     },
     {
@@ -152,7 +152,7 @@ export default function MythesPage() {
       reality: "Faux - Les appareils reconditionnés sont testés et garantis",
       explanation:
         "Un appareil reconditionné professionnel passe par de nombreux contrôles, remplace les pièces défectueuses et bénéficie de la garantie légale de conformité de 2 ans, comme le neuf. En France, le marché du reconditionné progresse et prouve sa fiabilité.",
-      source: "Back Market, Ecosystem",
+      source: "Code de la consommation (garantie 2 ans), ADEME 2022",
       relatedLink: { label: "Comprendre le reconditionné", href: "/cas-pratiques" },
     },
   ]

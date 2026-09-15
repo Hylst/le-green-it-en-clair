@@ -24,7 +24,7 @@ export default function CarbonCalculator() {
     social: 2,
   })
 
-  // Calcul de l'empreinte carbone (données 2025 ADEME)
+  // Calcul de l'empreinte carbone (facteurs ADEME-Arcep 2023 / Base Empreinte)
   const calculateFootprint = () => {
     let total = 0
 
@@ -319,7 +319,7 @@ export default function CarbonCalculator() {
                 <li>• Conservez votre smartphone au moins 5 ans pour amortir son impact de fabrication.</li>
               )}
               {cloudUsage.streaming > 20 && (
-                <li>• Réduisez la qualité de streaming (720p au lieu de 4K) pour économiser 75% de CO₂.</li>
+                <li>• Réduisez la qualité de streaming (720p au lieu de 4K) pour économiser jusqu'à 75% de données et de CO₂ (The Shift Project, 2021).</li>
               )}
               {cloudUsage.email > 100 && (
                 <li>• Nettoyez régulièrement votre boîte mail et désabonnez-vous des newsletters inutiles.</li>

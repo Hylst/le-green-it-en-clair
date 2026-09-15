@@ -46,7 +46,7 @@ const opportunities = [
     icon: Cpu,
     color: "blue",
     description:
-      "L'intelligence artificielle peut réduire la consommation des datacenters de 30% en optimisant le refroidissement et la charge des serveurs en temps réel.",
+      "L'intelligence artificielle peut réduire la consommation de refroidissement des datacenters de 40 % en optimisant la charge des serveurs (Google, 2016).",
     impact: "Très positif",
   },
   {
@@ -54,7 +54,7 @@ const opportunities = [
     icon: Sun,
     color: "emerald",
     description:
-      "Les datacenters alimentés à 100% par des énergies renouvelables se multiplient. Objectif : 80% d'ici 2030 en Europe.",
+      "De plus en plus de sites fonctionnent à 100 % en électricité renouvelable en équivalent annuel (Google, Microsoft, OVH), sans suffire à décarboner le secteur (AIE, 2024).",
     impact: "Très positif",
   },
   {
@@ -62,7 +62,7 @@ const opportunities = [
     icon: Leaf,
     color: "teal",
     description:
-      "Le reconditionnement et la réparation se démocratisent. Le marché du reconditionné croît de 15% par an en France.",
+      "Le reconditionnement et la réparation se démocratisent, portés par la réglementation européenne et le pouvoir d'achat.",
     impact: "Positif",
   },
   {
@@ -240,7 +240,7 @@ export default function PerspectivesPage() {
                 <h3 className="text-xl font-bold text-slate-900">Scénario modéré</h3>
               </div>
               <p className="mb-4 text-sm text-slate-700">
-                <strong>+52% d'ici 2040</strong> - Application partielle des bonnes pratiques et réglementations.
+                <strong>Scénario illustratif : +52% d'ici 2040</strong> - Application partielle des bonnes pratiques et réglementations.
               </p>
               <ul className="space-y-2 text-sm text-slate-700">
                 <li className="flex gap-2">
@@ -268,7 +268,7 @@ export default function PerspectivesPage() {
                 <h3 className="text-xl font-bold text-slate-900">Scénario sobre</h3>
               </div>
               <p className="mb-4 text-sm text-slate-700">
-                <strong>-43% d'ici 2040</strong> - Transformation profonde vers un numérique durable.
+                <strong>Scénario illustratif : -43% d'ici 2040</strong> - Transformation profonde vers un numérique durable.
               </p>
               <ul className="space-y-2 text-sm text-slate-700">
                 <li className="flex gap-2">
@@ -317,7 +317,7 @@ export default function PerspectivesPage() {
                 </BarChart>
               </ResponsiveContainer>
               <p className="mt-4 text-sm text-slate-600">
-                La part des énergies renouvelables dans les datacenters progresse de 8% par an en moyenne.
+                Ordre de grandeur illustratif : dans ce scénario, la part du renouvelable progresse d'environ 6 points par an.
               </p>
             </Card>
 
@@ -328,11 +328,10 @@ export default function PerspectivesPage() {
                   <h3 className="text-lg font-bold text-slate-900">Solaire</h3>
                 </div>
                 <p className="mb-3 text-sm text-slate-700">
-                  Les panneaux solaires sur les toits des datacenters peuvent couvrir 20-30% de leurs besoins
-                  énergétiques.
+                  Les panneaux solaires sur les toits des datacenters peuvent couvrir 20-30% des besoins d'un site (ordre de grandeur, ADEME 2023).
                 </p>
                 <div className="text-2xl font-bold text-emerald-700">30%</div>
-                <p className="text-xs text-slate-600">des nouveaux datacenters équipés</p>
+                <p className="text-xs text-slate-600">des nouveaux datacenters équipés (illustratif)</p>
               </Card>
 
               <Card className="border-2 border-blue-500 bg-blue-50 p-6">
@@ -341,10 +340,10 @@ export default function PerspectivesPage() {
                   <h3 className="text-lg font-bold text-slate-900">Éolien</h3>
                 </div>
                 <p className="mb-3 text-sm text-slate-700">
-                  Les grands acteurs (Google, Microsoft, Amazon) investissent massivement dans des parcs éoliens dédiés.
+                  Les grands acteurs (Google, Microsoft, Amazon) annoncent 100 % d'électricité renouvelable en équivalent annuel (communication d'entreprise, 2024).
                 </p>
-                <div className="text-2xl font-bold text-blue-700">45%</div>
-                <p className="text-xs text-slate-600">de l'énergie des GAFAM</p>
+                <div className="text-2xl font-bold text-blue-700">100%</div>
+                <p className="text-xs text-slate-600">annoncés en équivalent annuel</p>
               </Card>
 
               <Card className="border-2 border-teal-500 bg-teal-50 p-6">
@@ -353,10 +352,10 @@ export default function PerspectivesPage() {
                   <h3 className="text-lg font-bold text-slate-900">Hydraulique</h3>
                 </div>
                 <p className="mb-3 text-sm text-slate-700">
-                  La France bénéficie d'un mix énergétique favorable avec 70% de nucléaire et 12% d'hydraulique.
+                  Le mix français est bas-carbone à plus de 90 % : nucléaire ~67 %, hydraulique ~13 % (RTE, 2024).
                 </p>
-                <div className="text-2xl font-bold text-teal-700">82%</div>
-                <p className="text-xs text-slate-600">d'énergie bas-carbone en France</p>
+                <div className="text-2xl font-bold text-teal-700">95%</div>
+                <p className="text-xs text-slate-600">d'énergie bas-carbone en France (RTE, 2024)</p>
               </Card>
             </div>
           </div>
@@ -552,13 +551,13 @@ export default function PerspectivesPage() {
         <div className="mx-auto max-w-7xl">
           <h3 className="mb-4 text-sm font-semibold text-slate-900">Sources</h3>
           <div className="flex flex-wrap gap-4 text-sm text-slate-600">
-            <span>The Shift Project - Lean ICT (2024)</span>
+            <span>The Shift Project – Lean ICT (2018)</span>
             <span>•</span>
-            <span>ADEME - Prospective 2030-2050 (2023)</span>
+            <span>ADEME-Arcep – Prospective 2030-2050 (2023)</span>
             <span>•</span>
-            <span>IEA - Net Zero by 2050 (2024)</span>
+            <span>AIE – Net Zero Roadmap (2023)</span>
             <span>•</span>
-            <span>GreenIT.fr - Étude d'impact (2025)</span>
+            <span>GreenIT – Empreinte environnementale du numérique mondial (2025)</span>
           </div>
         </div>
       </section>

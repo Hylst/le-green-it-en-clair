@@ -221,8 +221,8 @@ export default function DeveloppementPage() {
             </Card>
             <Card className="border-accent/20 bg-card">
               <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-accent mb-2">65%</div>
-                <div className="text-sm text-muted-foreground">Réduction de taille avec WebP vs JPEG à qualité égale</div>
+                <div className="text-3xl font-bold text-accent mb-2">~30%</div>
+                <div className="text-sm text-muted-foreground">Réduction de taille avec WebP vs JPEG à qualité égale (Google, fourchette 25-35 %)</div>
               </CardContent>
             </Card>
           </div>

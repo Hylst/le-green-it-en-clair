@@ -79,7 +79,7 @@ const citizenActions = [
   {
     category: "Sobriété numérique",
     actions: [
-      "Limiter le streaming vidéo : préférer 720p à 4K (économie de 80% de données)",
+      "Limiter le streaming vidéo : préférer 720p à 4K (jusqu'à −75 % de données et de CO₂)",
       "Télécharger plutôt que streamer pour les contenus regardés plusieurs fois",
       "Désactiver la lecture automatique des vidéos",
       "Supprimer les emails avec pièces jointes volumineuses",

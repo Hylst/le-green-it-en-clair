@@ -302,25 +302,25 @@ export default function TableauBordPage() {
                             </thead>
                             <tbody className="text-muted-foreground">
                                 <tr className="border-b border-border">
-                                    <td className="p-3">2024 (baseline)</td>
+                                    <td className="p-3">Année 0 (baseline)</td>
                                     <td className="p-3">15.5 t</td>
                                     <td className="p-3">-</td>
                                     <td className="p-3">-</td>
                                 </tr>
                                 <tr className="border-b border-border">
-                                    <td className="p-3">2025</td>
+                                    <td className="p-3">Année 1</td>
                                     <td className="p-3">14.2 t</td>
                                     <td className="p-3">14.7 t (-5%)</td>
                                     <td className="p-3 text-emerald-600">-3.4% ✓</td>
                                 </tr>
                                 <tr className="border-b border-border">
-                                    <td className="p-3">2026</td>
+                                    <td className="p-3">Année 2</td>
                                     <td className="p-3">À mesurer</td>
                                     <td className="p-3">13.2 t (-15%)</td>
                                     <td className="p-3">-</td>
                                 </tr>
                                 <tr>
-                                    <td className="p-3">2027</td>
+                                    <td className="p-3">Année 3</td>
                                     <td className="p-3">À mesurer</td>
                                     <td className="p-3">10.9 t (-30%)</td>
                                     <td className="p-3">-</td>
@@ -361,21 +361,21 @@ export default function TableauBordPage() {
                                 <tr className="border-b border-border">
                                     <td className="p-3">Politique achat reconditionné</td>
                                     <td className="p-3">Achats</td>
-                                    <td className="p-3">Q1 2026</td>
+                                    <td className="p-3">T1 Année 1</td>
                                     <td className="p-3 text-emerald-600">En cours</td>
                                     <td className="p-3">-20% CO₂</td>
                                 </tr>
                                 <tr className="border-b border-border">
                                     <td className="p-3">Prolongation durée de vie</td>
                                     <td className="p-3">IT</td>
-                                    <td className="p-3">Q2 2026</td>
+                                    <td className="p-3">T2 Année 1</td>
                                     <td className="p-3 text-blue-600">Planifié</td>
                                     <td className="p-3">-15% CO₂</td>
                                 </tr>
                                 <tr>
                                     <td className="p-3">Formation collaborateurs</td>
                                     <td className="p-3">RH</td>
-                                    <td className="p-3">Q2 2026</td>
+                                    <td className="p-3">T2 Année 1</td>
                                     <td className="p-3 text-blue-600">Planifié</td>
                                     <td className="p-3">-5% usage</td>
                                 </tr>

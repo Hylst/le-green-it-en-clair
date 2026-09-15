@@ -95,13 +95,13 @@ export default function EnterpriseSimulator() {
         totalSavings += (baseTotalCost - optimizedTotalCost)
 
         // CO2 baseline
-        const baseCO2Devices = baseDevicesRenewed * 200 // kg
+        const baseCO2Devices = baseDevicesRenewed * 200 // kg, ADEME Base Empreinte 2023
         const baseCO2Usage = totalDevices * 22 // kg/an
         const baseCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300)
         const baseTotalCO2 = baseCO2Devices + baseCO2Usage + baseCO2Cloud
 
         // CO2 optimized
-        const optimizedCO2Devices = newDevices * 200 + refurbishedDevices * 40 // kg
+        const optimizedCO2Devices = newDevices * 200 + refurbishedDevices * 50 // kg, reconditionné −75 % (ADEME 2022)
         const optimizedCO2Usage = totalDevices * 22 * (1 - scenario.energyOptimization * 0.5)
         const optimizedCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300) * (1 - scenario.cloudOptimization)
         const optimizedTotalCO2 = optimizedCO2Devices + optimizedCO2Usage + optimizedCO2Cloud

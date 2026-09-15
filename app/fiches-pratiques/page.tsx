@@ -13,7 +13,7 @@ const practicalSheets = [
     description: "Actions simples à mettre en place dès aujourd'hui",
     target: "Citoyens",
     duration: "5 min",
-    impact: "Réduction de 30% de votre impact",
+    impact: "Réduire son impact au quotidien",
     image: "/greenit/images/fiches/gestes-quotidiens.webp",
   },
   {
@@ -22,7 +22,7 @@ const practicalSheets = [
     description: "Comment choisir un appareil avec moins d'impact",
     target: "Citoyens",
     duration: "10 min",
-    impact: "75% d'économie vs neuf",
+    impact: "≈ −75 % vs neuf (ADEME, 2022)",
     image: "/greenit/images/fiches/achat-responsable.webp",
   },
   {
@@ -40,7 +40,7 @@ const practicalSheets = [
     description: "Plan d'action complet pour les organisations",
     target: "Entreprises",
     duration: "20 min",
-    impact: "Réduction de 40-60%",
+    impact: "Plan d'action complet",
     image: "/greenit/images/fiches/green-it-entreprise.webp",
   },
   {
@@ -58,7 +58,7 @@ const practicalSheets = [
     description: "Où et comment recycler vos appareils",
     target: "Tous publics",
     duration: "5 min",
-    impact: "Taux de recyclage 85%",
+    impact: "79 % des DEEE recyclés (Ecosystem, 2024)",
     image: "/greenit/images/recycling-electronics.webp",
   },
   {
@@ -93,7 +93,7 @@ export default function FichesPratiquesPage() {
             Fiches pratiques Green IT
           </h1>
           <p className="text-pretty text-lg text-slate-600 lg:text-xl dark:text-slate-300">
-            Téléchargez nos guides pratiques au format PDF pour mettre en œuvre facilement les bonnes pratiques du
+            Consultez et imprimez nos guides pratiques pour mettre en œuvre facilement les bonnes pratiques du
             numérique responsable.
           </p>
         </div>

@@ -182,13 +182,11 @@ export default function ReglementationPage() {
                     <div className="bg-card p-4 rounded-lg border border-primary/20">
                       <div className="flex items-center gap-2 mb-2">
                         <TrendingUp className="w-5 h-5 text-emerald-600" />
-                        <h5 className="font-semibold text-card-foreground">Impact mesuré (2025)</h5>
+                        <h5 className="font-semibold text-card-foreground">Effets mesurés</h5>
                       </div>
                       <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>• +42% de réparations depuis 2021</li>
-                        <li>• 78% des appareils notés</li>
-                        <li>• -15% d'e-déchets prématurés</li>
-                        <li>• 2,3 Mds € économisés</li>
+                        <li>• Bonus réparation : de 4 à 25 M€ versés en un an (ADEME, 2025)</li>
+                        <li>• Indice de réparabilité &gt; 8,1/10 : +28 % de ventes de lave-vaisselle (Univers Habitat, 2025)</li>
                       </ul>
                     </div>
                   </div>

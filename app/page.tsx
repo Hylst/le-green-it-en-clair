@@ -52,8 +52,8 @@ export default function HomePage() {
               Le numérique a un impact sur notre planète
             </h1>
             <p className="mx-auto mb-8 max-w-2xl text-pretty text-lg text-muted-foreground lg:text-xl">
-              Chaque année en France, nous produisons plus de{" "}
-              <span className="font-bold text-emerald-700 dark:text-emerald-400">1,5 million de tonnes</span> de déchets électroniques.
+              Chaque année en France, nous collectons près de{" "}
+              <span className="font-bold text-emerald-700 dark:text-emerald-400">1,6 million de tonnes</span> de déchets électroniques (ADEME 2024).
               Découvrez comment agir pour un numérique plus responsable.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -122,6 +122,7 @@ export default function HomePage() {
                   </span>
                 </li>
               </ul>
+              <p className="mt-4 text-sm text-muted-foreground/70">Source : ADEME, Base Empreinte (2023)</p>
             </div>
           </div>
         </div>

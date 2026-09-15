@@ -242,10 +242,10 @@ export default function CasPratiquesPage() {
                   },
                   {
                     label: "Acheter reconditionné",
-                    value: 12,
+                    value: 8,
                     color: "#3b82f6",
                     icon: Recycle,
-                    description: "75% d'impact en moins qu'un neuf",
+                    description: "≈ −75 % d'impact par rapport au neuf (ADEME 2022)",
                   },
                   {
                     label: "Acheter neuf",
@@ -454,8 +454,8 @@ export default function CasPratiquesPage() {
                       <li className="flex gap-2">
                         <span className="text-blue-600">•</span>
                         <span>
-                          La production consomme <strong>800 kWh</strong>, soit environ 2 mois de consommation
-                          électrique d'un foyer français (~4 700 kWh/an)
+                          La production consomme <strong>800 kWh</strong> (ADEME Base Carbone 2023), soit environ 2 mois de
+                          consommation électrique d'un foyer français (~4 700 kWh/an)
                         </span>
                       </li>
                       <li className="flex gap-2">

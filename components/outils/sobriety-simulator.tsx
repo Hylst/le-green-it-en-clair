@@ -20,7 +20,7 @@ export default function SobrietySimulator() {
   })
 
   const calculateImpact = () => {
-    const baselineImpact = 285 // kg CO2e/an moyenne française 2025
+    const baselineImpact = 285 // kg CO2e/an, repère France (fourchette 225-330 kg, GreenIT EENM 2025)
     let optimizedImpact = baselineImpact
 
     // Durée de vie des appareils

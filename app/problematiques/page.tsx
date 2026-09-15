@@ -109,9 +109,9 @@ const mainProblems = [
     icon: Zap,
     color: "amber",
     severity: "Élevé",
-    stats: "4% des émissions mondiales de GES",
+    stats: "3,4 % des émissions mondiales de GES",
     description:
-      "Le numérique consomme 10% de l'électricité mondiale. Les datacenters, réseaux et équipements utilisateurs génèrent une empreinte carbone équivalente à l'aviation civile.",
+      "Le numérique consomme environ 10 % de l'électricité mondiale et génère 1,8 Gt CO₂e, soit 3,4 % des émissions mondiales (GreenIT, EENM 2025). Datacenters, réseaux et équipements utilisateurs en sont les principaux postes.",
     impacts: [
       "Émissions de CO₂ en constante augmentation",
       "Stress sur les réseaux électriques",
@@ -119,7 +119,7 @@ const mainProblems = [
       "Effet rebond : l'efficacité énergétique est annulée par l'augmentation des usages",
     ],
     data2025:
-      "Un datacenter moyen consomme autant d'électricité que 50 000 foyers. La France compte plus de 250 datacenters.",
+      "Les datacenters représentent 1,5 % de la consommation électrique mondiale (AIE, 2024). La France en compte plusieurs centaines, dont une vingtaine de grande taille.",
   },
   {
     title: "Obsolescence programmée et rapide",
@@ -191,7 +191,7 @@ const currentTrends = [
     impact: "Mixte",
     description:
       "Plus efficaces par bit transmis, mais l'augmentation massive du trafic annule les gains (effet rebond).",
-    data: "Le trafic 5G devrait multiplier par 5 la consommation des réseaux d'ici 2030",
+    data: "Plus efficace par bit transmis, mais la hausse du trafic peut annuler les gains (effet rebond, Arcep 2024)",
   },
   {
     title: "Cloud computing omniprésent",
@@ -200,7 +200,7 @@ const currentTrends = [
     impact: "Mixte",
     description:
       "Centralisation dans des datacenters optimisés, mais augmentation de la dépendance et du trafic réseau.",
-    data: "70% des entreprises françaises utilisent le cloud en 2025 vs 25% en 2015",
+    data: "52,7 % des entreprises de l'UE utilisent le cloud en 2025 (Eurostat), contre environ un quart en 2015",
   },
   {
     title: "Marché du reconditionné en croissance",
@@ -208,8 +208,8 @@ const currentTrends = [
     trend: "up",
     impact: "Positif",
     description:
-      "Le marché des smartphones reconditionnés croît de 15% par an en France, porté par la conscience écologique et le pouvoir d'achat.",
-    data: "3,2 millions de smartphones reconditionnés vendus en France en 2024",
+      "Le marché des smartphones reconditionnés progresse chaque année en France, porté par la conscience écologique et le pouvoir d'achat.",
+    data: "La France compte parmi les marchés européens les plus dynamiques du reconditionné (ADEME, 2022)",
   },
   {
     title: "Réglementation européenne renforcée",
@@ -218,7 +218,7 @@ const currentTrends = [
     impact: "Positif",
     description:
       "L'UE impose des normes strictes : indice de réparabilité, durée de vie minimale, chargeurs universels, écoconception logicielle.",
-    data: "Indice de réparabilité obligatoire en France depuis 2021, étendu à l'UE en 2024",
+    data: "Indice de réparabilité obligatoire en France depuis 2021 ; l'UE impose depuis 2025 l'étiquette énergie et l'indice de durabilité (règlement 2023/1670)",
   },
   {
     title: "Streaming vidéo en ultra-haute définition",
@@ -226,7 +226,7 @@ const currentTrends = [
     trend: "up",
     impact: "Négatif",
     description:
-      "Le streaming représente 60% du trafic internet mondial. La 4K et 8K multiplient la bande passante nécessaire.",
+      "Le streaming vidéo représente environ 60 % du trafic internet mondial (Sandvine, 2024). La 4K et 8K multiplient la bande passante nécessaire.",
     data: "1h de streaming 4K = 6 Go vs ~0,7 Go en SD (Kamiya)",
   },
 ]
@@ -239,7 +239,7 @@ const currentSolutions = [
     solutions: [
       {
         name: "Reconditionnement professionnel",
-        description: "Back Market, Recommerce, Remade : garantie 12-24 mois, économie de 75% de CO₂",
+        description: "Back Market, Recommerce, Remade : garantie 12-24 mois, économie de 75 % de CO₂ (ADEME, 2022)",
         adoption: "Élevée",
       },
       {
@@ -293,7 +293,7 @@ const currentSolutions = [
       },
       {
         name: "IA pour l'optimisation",
-        description: "DeepMind (Google) : réduction de 40% de la consommation de refroidissement",
+        description: "DeepMind (Google) : réduction de 40% de la consommation de refroidissement (Google, 2016)",
         adoption: "Moyenne",
       },
     ],
@@ -305,7 +305,7 @@ const currentSolutions = [
     solutions: [
       {
         name: "Indice de réparabilité",
-        description: "Note /10 obligatoire en France, étendue à l'UE, bientôt indice de durabilité",
+        description: "Note /10 obligatoire en France depuis 2021 ; l'UE impose depuis 2025 l'étiquette énergie et l'indice de durabilité (règlement 2023/1670)",
         adoption: "Élevée",
       },
       {
@@ -315,7 +315,7 @@ const currentSolutions = [
       },
       {
         name: "Lutte contre l'obsolescence",
-        description: "Sanctions contre l'obsolescence programmée, mises à jour garanties 5 ans",
+        description: "Sanctions contre l'obsolescence programmée, mises à jour 5 ans et pièces détachées 7 ans imposées par l'UE (règlement 2023/1670)",
         adoption: "Moyenne",
       },
     ],
@@ -332,7 +332,7 @@ const futureSolutions = [
       {
         name: "Processeurs ultra-efficaces",
         description:
-          "Puces ARM et RISC-V nouvelle génération : -70% de consommation, architecture neuromorphique inspirée du cerveau",
+          "Puces ARM et RISC-V nouvelle génération : -70% de consommation, architecture neuromorphique inspirée du cerveau (ordre de grandeur, ARM 2023)",
         potential: "Très élevé",
         challenges: "Compatibilité logicielle, coûts de R&D",
       },
@@ -649,7 +649,7 @@ export default function ProblematiquesPage() {
                     <Globe className="h-6 w-6 text-emerald-700 dark:text-emerald-400" />
                     <h3 className="font-bold text-slate-900 dark:text-slate-100">Réseaux</h3>
                   </div>
-                  <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">6%</span>
+                  <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">5%</span>
                 </div>
                 <p className="text-sm text-slate-700 dark:text-slate-300">
                   Les infrastructures réseau (fibre, 4G/5G, routeurs) ont un impact relativement faible mais en

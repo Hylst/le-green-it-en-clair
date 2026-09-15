@@ -10,12 +10,12 @@ const sheets: Record<string, any> = {
     subtitle: "Actions simples à mettre en place dès aujourd'hui",
     target: "Citoyens",
     duration: "5 minutes de lecture",
-    impact: "Réduction de 30% de votre empreinte numérique",
+    impact: "Réduire votre empreinte numérique",
     sections: [
       {
         title: "1. Garder ses appareils plus longtemps",
         content:
-          "La fabrication représente 75% de l'impact. Garder un smartphone 4 ans au lieu de 2 divise son impact par 2.",
+          "La fabrication représente 75% de l'impact (ADEME-Arcep 2023). Garder un smartphone 4 ans au lieu de 2 divise son impact par 2.",
         tips: [
           "Objectif : minimum 5 ans pour un smartphone, 7 ans pour un ordinateur",
           "Changez la batterie plutôt que l'appareil (50-80€)",
@@ -24,7 +24,7 @@ const sheets: Record<string, any> = {
       },
       {
         title: "2. Éteindre complètement la nuit",
-        content: "Un appareil en veille consomme encore 5-10W. Sur un an, c'est 40-80 kWh gaspillés.",
+        content: "Un appareil en veille consomme encore 5-10 W, soit 40-80 kWh par an (calcul : 5-10 W × 8 760 h).",
         tips: [
           "Éteignez votre box internet la nuit (économie de ~26 kWh/an)",
           "Débranchez les chargeurs (ils consomment même sans appareil)",
@@ -114,7 +114,7 @@ const sheets: Record<string, any> = {
       {
         title: "Prioriser le reconditionné",
         content:
-          "Impact réduit de 75%, prix -30 à -70%, garantie légale de conformité (2 ans).",
+          "Impact réduit d'environ 75 % (ADEME 2022), prix -30 à -70% selon le modèle, garantie légale de conformité (2 ans).",
         tips: [
           "Grade A : comme neuf, très légers défauts esthétiques",
           "Grade B : bon état, quelques rayures visibles",
@@ -232,7 +232,7 @@ const sheets: Record<string, any> = {
       },
       {
         title: "Machine Learning responsable",
-        content: "Entraîner GPT-3 émet 500 tonnes CO₂. L'inférence représente 90% de l'impact sur la durée.",
+        content: "Entraîner GPT-3 émet 552 tonnes CO₂ (Patterson et al., 2021). L'inférence représente 90% de l'impact sur la durée.",
         tips: [
           "Utilisez des modèles pré-entraînés quand possible",
           "Optimisez les hyperparamètres (early stopping)",
@@ -490,7 +490,7 @@ const sheets: Record<string, any> = {
     subtitle: "Choisir ses hébergeurs et optimiser ses infrastructures",
     target: "DSI & Développeurs",
     duration: "10 minutes de lecture",
-    impact: "Réduction de 30% à 50% des émissions liées à l'hébergement",
+    impact: "Réduire les émissions de votre hébergement",
     image: "/greenit/modern-green-datacenter-with-solar-panels.webp",
     date: "5 Avril 2026",
     sections: [

@@ -11,7 +11,7 @@ import { Lightbulb, Download, RotateCcw } from "lucide-react";
 
 export default function SobrietySimulator() {
   const [scenario, setScenario] = useState({
-    deviceLifespan: 3,
+    deviceLifespan: 2,
     repairChoice: "new",
     streamingQuality: "4k",
     emailCleanup: "never",
@@ -30,7 +30,7 @@ export default function SobrietySimulator() {
 
     // Réparation vs remplacement
     if (scenario.repairChoice === "repair") optimizedImpact *= 0.85
-    else if (scenario.repairChoice === "refurb") optimizedImpact *= 0.75
+    else if (scenario.repairChoice === "refurb") optimizedImpact *= 0.25
 
     // Qualité streaming
     if (scenario.streamingQuality === "720p") optimizedImpact *= 0.92
@@ -45,8 +45,8 @@ export default function SobrietySimulator() {
     else if (scenario.cloudStorage === "local") optimizedImpact *= 0.88
 
     // Type d'appareil
-    if (scenario.deviceType === "refurb") optimizedImpact *= 0.7
-    else if (scenario.deviceType === "repair") optimizedImpact *= 0.8
+    if (scenario.deviceType === "refurb") optimizedImpact *= 0.5
+    else if (scenario.deviceType === "repair") optimizedImpact *= 0.9
 
     return {
       baseline: Math.round(baselineImpact),
@@ -113,21 +113,21 @@ export default function SobrietySimulator() {
                     <RadioGroupItem value="new" id="new" />
                     <Label htmlFor="new" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
                       J'achète du neuf
-                      <span className="block text-sm text-gray-600 dark:text-gray-300">Impact: 100%</span>
+                      <span className="block text-sm text-gray-600 dark:text-gray-300">Impact : référence</span>
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
                     <RadioGroupItem value="repair" id="repair" />
                     <Label htmlFor="repair" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
                       Je répare
-                      <span className="block text-sm text-green-600 dark:text-green-400">Impact: -15%</span>
+                      <span className="block text-sm text-green-600 dark:text-green-400">Impact : −15 %</span>
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
                     <RadioGroupItem value="refurb" id="refurb" />
                     <Label htmlFor="refurb" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
                       J'achète reconditionné
-                      <span className="block text-sm text-green-600 dark:text-green-400">Impact: -25%</span>
+                      <span className="block text-sm text-green-600 dark:text-green-400">Impact : −75 %*</span>
                     </Label>
                   </div>
                 </RadioGroup>
@@ -186,14 +186,14 @@ export default function SobrietySimulator() {
                     <RadioGroupItem value="monthly" id="monthly" />
                     <Label htmlFor="monthly" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
                       Mensuel
-                      <span className="block text-sm text-green-600 dark:text-green-400">-5% d'impact</span>
+                      <span className="block text-sm text-green-600 dark:text-green-400">−1 % d'impact (effet faible)</span>
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
                     <RadioGroupItem value="weekly" id="weekly" />
                     <Label htmlFor="weekly" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
                       Hebdomadaire
-                      <span className="block text-sm text-green-600 dark:text-green-400">-8% d'impact</span>
+                      <span className="block text-sm text-green-600 dark:text-green-400">−2 % d'impact (effet faible)</span>
                     </Label>
                   </div>
                 </RadioGroup>
@@ -250,14 +250,14 @@ export default function SobrietySimulator() {
                     <RadioGroupItem value="repair" id="device-repair" />
                     <Label htmlFor="device-repair" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
                       Réparer l'ancien
-                      <span className="block text-sm text-green-600 dark:text-green-400">-20% d'impact</span>
+                      <span className="block text-sm text-green-600 dark:text-green-400">−10 % d'impact</span>
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
                     <RadioGroupItem value="refurb" id="device-refurb" />
                     <Label htmlFor="device-refurb" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
                       Reconditionné
-                      <span className="block text-sm text-green-600 dark:text-green-400">-30% d'impact</span>
+                      <span className="block text-sm text-green-600 dark:text-green-400">−50 % d'impact</span>
                     </Label>
                   </div>
                 </RadioGroup>
@@ -310,9 +310,9 @@ export default function SobrietySimulator() {
             <div className="bg-blue-100 dark:bg-blue-900/10 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
               <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">Cela équivaut à:</h4>
               <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
-                <li>• {Math.round((impact.savings * 5) / 0.12)} km en voiture économisés</li>
-                <li>• {Math.round((impact.savings * 5) / 2.5)} arbres plantés</li>
-                <li>• {Math.round((impact.savings * 5) / 0.9)} repas végétariens vs viande</li>
+                <li>• {Math.round((impact.savings * 5) / 0.17)} km en voiture économisés</li>
+                <li>• {Math.round((impact.savings * 5) / 20)} arbres pendant 1 an (20 kg/arbre, ADEME)</li>
+                <li>• {Math.round((impact.savings * 5) / 7)} repas avec bœuf évités (7 kg/repas, ADEME)</li>
               </ul>
             </div>
           </div>
@@ -364,7 +364,7 @@ export default function SobrietySimulator() {
               className="flex-1 bg-transparent text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
               onClick={() =>
                 setScenario({
-                  deviceLifespan: 3,
+                  deviceLifespan: 2,
                   repairChoice: "new",
                   streamingQuality: "4k",
                   emailCleanup: "never",

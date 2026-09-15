@@ -191,7 +191,7 @@ export default function TableauBordPage() {
                                 </tr>
                             </tbody>
                         </table>
-                        <p className="text-xs text-muted-foreground mt-4">Source : ADEME, Base Empreinte 2024 • Le smartphone est compté sur son cycle de vie complet (~50 kg), dont ~39 kg de fabrication. Le bonus reconditionné s'appuie sur ADEME 2022 (−75 %).</p>
+                        <p className="text-xs text-muted-foreground mt-4">Source : ADEME, Base Empreinte 2023 • Le smartphone est compté sur son cycle de vie complet (~50 kg), dont ~39 kg de fabrication. Le bonus reconditionné s'appuie sur ADEME 2022 (−75 %).</p>
                     </Card>
 
                     <Card className="p-6 mb-6 bg-muted/5 border-border">

@@ -327,7 +327,7 @@ export default function GrilleAuditPage() {
 
                     <Card className="p-4 bg-muted/5 border-border">
                         <p className="text-sm text-muted-foreground">
-                            <strong className="text-foreground">Score Axe 5 :</strong> ___/45 points
+                            <strong className="text-foreground">Score Axe 5 :</strong> ___/15 points
                         </p>
                     </Card>
                 </div>
@@ -347,33 +347,33 @@ export default function GrilleAuditPage() {
                         <tbody className="text-muted-foreground">
                             <tr className="border-b border-border">
                                 <td className="p-3">1. Gouvernance</td>
-                                <td className="p-3">___/60</td>
-                                <td className="p-3">60</td>
+                                <td className="p-3">___/15</td>
+                                <td className="p-3">15</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">2. Équipements</td>
-                                <td className="p-3">___/75</td>
-                                <td className="p-3">75</td>
+                                <td className="p-3">___/18</td>
+                                <td className="p-3">18</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">3. Usages</td>
-                                <td className="p-3">___/60</td>
-                                <td className="p-3">60</td>
+                                <td className="p-3">___/15</td>
+                                <td className="p-3">15</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">4. Services numériques</td>
-                                <td className="p-3">___/60</td>
-                                <td className="p-3">60</td>
+                                <td className="p-3">___/15</td>
+                                <td className="p-3">15</td>
                             </tr>
                             <tr className="border-b border-border">
                                 <td className="p-3">5. Sensibilisation</td>
-                                <td className="p-3">___/45</td>
-                                <td className="p-3">45</td>
+                                <td className="p-3">___/15</td>
+                                <td className="p-3">15</td>
                             </tr>
                             <tr className="font-bold text-foreground">
                                 <td className="p-3">TOTAL</td>
-                                <td className="p-3">___/300</td>
-                                <td className="p-3">300</td>
+                                <td className="p-3">___/78</td>
+                                <td className="p-3">78</td>
                             </tr>
                         </tbody>
                     </table>

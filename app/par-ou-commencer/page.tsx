@@ -94,14 +94,14 @@ export default function GettingStartedPage() {
         step: 2,
         title: "Optimiser son code",
         description: "Apprenez les techniques d'écoconception et d'optimisation",
-        link: "/developpement",
+        link: "/fiches-pratiques/ecoconception-web",
         icon: Code,
       },
       {
         step: 3,
-        title: "Choisir les bons langages",
-        description: "Comparaison énergétique des langages de programmation",
-        link: "/developpement",
+        title: "Mesurer l'impact de son site",
+        description: "Estimez et comparez avec les outils interactifs",
+        link: "/outils",
         icon: Lightbulb,
       },
       {
@@ -141,6 +141,13 @@ export default function GettingStartedPage() {
         link: "/cas-pratiques",
         icon: Lightbulb,
       },
+      {
+        step: 5,
+        title: "Modèles prêts à l'emploi",
+        description: "Charte, plan d'action et grille d'audit à adapter",
+        link: "/modeles",
+        icon: BookOpen,
+      },
     ],
     collectivite: [
       {
@@ -161,7 +168,7 @@ export default function GettingStartedPage() {
         step: 3,
         title: "Plan d'action collectivité",
         description: "Mettre en place une stratégie numérique responsable",
-        link: "/agir",
+        link: "/fiches-pratiques/collectivites-action",
         icon: Wrench,
       },
       {

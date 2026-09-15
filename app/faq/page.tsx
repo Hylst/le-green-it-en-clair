@@ -23,7 +23,7 @@ const faqCategories = [
       },
       {
         q: "Quel est l'impact du numérique en France ?",
-        a: "En France, le numérique représente 2,5 % des émissions nationales en 2020 (17,2 Mt CO₂eq) et 4,4 % en 2022 avec un périmètre élargi aux datacenters étrangers (29,5 Mt, ADEME-Arcep). En France, environ 1,6 million de tonnes de déchets électroniques sont collectées chaque année, soit un taux de collecte d'environ 46 % (ADEME 2024, Eurostat 2024).",
+        a: "En France, le numérique représente 2,5 % des émissions nationales en 2020 (17,2 Mt CO₂eq) et 4,4 % en 2022 avec un périmètre élargi aux datacenters étrangers (29,5 Mt, ADEME-Arcep). En France, environ 1,6 million de tonnes de déchets électroniques sont produites chaque année, avec un taux de collecte d'environ 46 % (ADEME 2024, Eurostat 2024).",
       },
       {
         q: "Peut-on vraiment faire une différence individuellement ?",
@@ -49,7 +49,7 @@ const faqCategories = [
       },
       {
         q: "Combien de temps garder ses appareils ?",
-        a: "Objectif minimum : 5 ans pour un smartphone, 7 ans pour un ordinateur, 10 ans pour une TV. Actuellement, les Français changent de smartphone en moyenne tous les 3 ans (ADEME, 2026). Chaque année supplémentaire réduit l'impact de 15-20%. La fabrication représentant 75% de l'impact, allonger la durée d'usage est le geste le plus efficace.",
+        a: "Objectif minimum : 5 ans pour un smartphone, 7 ans pour un ordinateur, 10 ans pour une TV. Actuellement, les Français changent de smartphone en moyenne tous les 3 ans (ADEME, 2026). Passer de 2 à 3 ans réduit l'impact annuel d'environ un tiers (ADEME 2026). La fabrication représentant 75% de l'impact, allonger la durée d'usage est le geste le plus efficace.",
       },
     ],
   },
@@ -59,7 +59,7 @@ const faqCategories = [
     questions: [
       {
         q: "Comment réduire la consommation électrique de mes appareils ?",
-        a: "Actions principales : 1) Éteindre complètement (pas juste en veille) la nuit et quand inutilisés, 2) Débrancher box internet la nuit (environ 25 kWh/an économisés, soit ~5 €/an), 3) Régler luminosité à 50% max, 4) Activer mode économie d'énergie, 5) Privilégier Wi-Fi à 4G/5G (environ 4 à 5 fois moins énergivore en streaming), 6) Utiliser multiprise avec interrupteur.",
+        a: "Actions principales : 1) Éteindre complètement (pas juste en veille) la nuit et quand inutilisés, 2) Débrancher box internet la nuit (environ 26 kWh/an économisés (Arcep 2026), soit ~5 €/an), 3) Régler luminosité à 50% max, 4) Activer mode économie d'énergie, 5) Privilégier Wi-Fi à 4G/5G (environ 4 à 5 fois moins énergivore en streaming), 6) Utiliser multiprise avec interrupteur.",
       },
       {
         q: "Le streaming vidéo pollue-t-il vraiment ?",
@@ -67,7 +67,7 @@ const faqCategories = [
       },
       {
         q: "Les emails polluent-ils vraiment ?",
-        a: "L'impact individuel d'un email est faible (4 à 50 g de CO₂ selon les pièces jointes, ADEME), mais multiplié par des milliards d'emails quotidiens, ça compte. Bonnes pratiques : supprimer emails avec grosses pièces jointes, désabonner des newsletters inutiles, compresser les pièces jointes, nettoyer boîte mail régulièrement.",
+        a: "L'impact individuel d'un email est faible (4 g pour un e-mail simple, jusqu'à ~35 g avec pièce jointe, ADEME), mais multiplié par des milliards d'emails quotidiens, ça compte. Bonnes pratiques : supprimer emails avec grosses pièces jointes, désabonner des newsletters inutiles, compresser les pièces jointes, nettoyer boîte mail régulièrement.",
       },
       {
         q: "Faut-il supprimer ses données dans le cloud ?",
@@ -137,7 +137,7 @@ const faqCategories = [
       },
       {
         q: "Y a-t-il des aides financières pour la réparation ?",
-        a: "Oui, plusieurs dispositifs en France : 1) Bonus réparation : de 10 à 65 € selon l'appareil (25 € pour un smartphone), déduit par un réparateur labellisé QualiRépar, hors garantie (ADEME), 2) Fonds réparation via éco-organismes, 3) Aides locales (certaines régions/communes), 4) Crédit d'impôt transition énergétique (dans certains cas). Consultez quefairedemesdechets.ademe.fr et longuevieauxobjets.gouv.fr pour les détails et la carte des bénéficiaires.",
+        a: "Oui, plusieurs dispositifs en France : 1) Bonus réparation : de 10 à 65 € selon l'appareil (25 € pour un smartphone), déduit par un réparateur labellisé QualiRépar, hors garantie (ADEME), 2) Fonds réparation via éco-organismes, 3) Aides locales (certaines régions/communes), 4) Aides locales selon les territoires. Consultez quefairedemesdechets.ademe.fr et longuevieauxobjets.gouv.fr pour les détails et la carte des bénéficiaires.",
       },
     ],
   },

@@ -48,7 +48,7 @@ export default function CarbonCalculator() {
     })
 
     // Impact cloud et services (kg CO2e/an)
-    total += cloudUsage.email * 0.004 // ~4 g CO2e par e-mail (ADEME)
+    total += cloudUsage.email * 365 * 0.004 // ~4 g CO2e par e-mail, × 365 jours (ADEME)
     total += cloudUsage.streaming * 1.6 // ~31 g/h en SD × 52 semaines (ADEME/Shift)
     total += cloudUsage.cloud * 0.00024 // 0,00024 kg par Go/an (≈0,24 g CO2e/Go/an, ADEME Impact CO2 / Base Empreinte)
     total += cloudUsage.social * 2.55 // ~7 g/h hors vidéo × 365 jours (ADEME)
@@ -259,7 +259,7 @@ export default function CarbonCalculator() {
                 </div>
                 <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
                   <div className="text-2xl font-bold text-green-600 dark:text-green-400">
-                    {Math.round(totalFootprint * 0.7)}
+                    {Math.round(totalFootprint * 0.3)}
                   </div>
                   <div className="text-sm text-gray-700 dark:text-gray-300">Économie possible (-30%)</div>
                 </div>
@@ -268,12 +268,12 @@ export default function CarbonCalculator() {
               <div className="bg-white dark:bg-slate-800 p-4 rounded-lg mt-4 border border-gray-200 dark:border-gray-700">
                 <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">Équivalences</h4>
                 <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                  <li>≈ {Math.round(totalFootprint / 0.12)} km en voiture</li>
+                  <li>≈ {Math.round(totalFootprint / 0.17)} km en voiture</li>
                   <li>≈ {Math.round(totalFootprint / 167)} aller-retours Paris-Marseille en avion</li>
                   <li>≈ {Math.round(totalFootprint / 7)} repas avec bœuf</li>
                 </ul>
                 <p className="mt-3 text-xs text-gray-600 dark:text-gray-400">
-                  Hypothèses : fabrication amortie sur la durée de vie saisie, usage au prorata. Streaming compté en
+                  Hypothèses : fabrication amortie sur la durée de vie saisie, usage au prorata des heures (base 24 h/j). Voiture 0,17 kg CO₂/km (ADEME 2023). Streaming compté en
                   qualité SD (~31 g/h), réseaux sociaux hors vidéo (~7 g/h), e-mail ~4 g, cloud ~0,24 g/Go/an
                   (ADEME, Impact CO₂ / Base Empreinte).
                 </p>

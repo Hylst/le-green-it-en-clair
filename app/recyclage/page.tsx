@@ -233,10 +233,10 @@ export default function RecyclagePage() {
             </Card>
             <Card className="border-2 border-accent/20 bg-accent/5 p-6 text-center">
               <div className="mb-2 text-4xl font-bold text-accent">
-                1,6 Mt
-                <SourceTooltip className="ml-1 align-middle" source="ADEME, 2024" calculation="≈ 1,6 Mt ÷ 68 M d'habitants ≈ 24 kg/hab/an" />
+                0,9 Mt
+                <SourceTooltip className="ml-1 align-middle" source="Ecosystem, 2025" calculation="≈ 876 kt collectées en 2025, soit ~13 kg/hab, sur ~1,6 Mt produites (ADEME 2024)" />
               </div>
-              <p className="text-sm text-muted-foreground">DEEE collectés par an (~24 kg/hab, ADEME 2024)</p>
+              <p className="text-sm text-muted-foreground">DEEE collectés par an (~13 kg/hab, Ecosystem 2025)</p>
             </Card>
           </div>
         </div>

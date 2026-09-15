@@ -236,7 +236,7 @@ export default function KitSensibilisationPage() {
                                 <div className="text-4xl mb-3">🎥</div>
                                 <h3 className="text-xl font-bold text-foreground mb-4">Affiche #3 : Visio</h3>
                                 <div className="text-6xl font-bold text-purple-600 mb-2">-80%</div>
-                                <p className="text-sm text-muted-foreground mb-4">de bande passante en coupant la caméra</p>
+                                <p className="text-sm text-muted-foreground mb-4">de bande passante en coupant la caméra (ordre de grandeur, Arcep 2024)</p>
                                 <div className="text-left text-sm text-muted-foreground space-y-2">
                                     <p>🔹 Caméra OFF si non nécessaire</p>
                                     <p>🔹 Audio pour réunions simples</p>
@@ -250,7 +250,7 @@ export default function KitSensibilisationPage() {
                                 <div className="text-4xl mb-3">⚡</div>
                                 <h3 className="text-xl font-bold text-foreground mb-4">Affiche #4 : Énergie</h3>
                                 <div className="text-6xl font-bold text-amber-600 mb-2">10%</div>
-                                <p className="text-sm text-muted-foreground mb-4">sur la consommation des postes de travail</p>
+                                <p className="text-sm text-muted-foreground mb-4">d'économies possibles sur la consommation des postes (ordre de grandeur, ADEME)</p>
                                 <div className="text-left text-sm text-muted-foreground space-y-2">
                                     <p>🔹 Éteignez écran et PC le soir</p>
                                     <p>🔹 Mode économie d'énergie</p>

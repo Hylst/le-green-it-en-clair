@@ -70,7 +70,7 @@ export default function CloudComparator() {
       name: "AWS",
       country: "🌍 Global",
       pue: 1.2,
-      renewableEnergy: 90,
+      renewableEnergy: 100,
       carbonNeutral: false,
       certifications: ["ISO 14001", "ISO 50001"],
       sustainabilityScore: 78,

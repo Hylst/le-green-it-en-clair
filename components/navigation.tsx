@@ -48,7 +48,7 @@ export function Navigation() {
         { href: "/mythes", label: "Mythes vs Réalités" },
         { href: "/chiffres", label: "Chiffres & Données" },
         { href: "/cas-pratiques", label: "Cas pratiques" },
-        { href: "/actualites", label: "Actualités Green IT" },
+        { href: "/actualites", label: "Dossiers & veille" },
       ],
     },
     {

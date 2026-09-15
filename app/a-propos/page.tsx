@@ -70,8 +70,8 @@ export default function AProposPage() {
             <CardContent className="space-y-4">
               <p className="text-muted-foreground">
                 Ce site est né d'un constat simple : le numérique représente aujourd'hui environ 3,4 % des émissions
-                mondiales de gaz à effet de serre, soit 1,8 Gt CO2e (GreenIT EENM 2025), et cette empreinte pourrait
-                tripler d'ici 2050 si nous ne changeons pas nos habitudes (ADEME-Arcep 2023).
+                mondiales de gaz à effet de serre, soit 1,8 Gt CO₂e (GreenIT EENM 2025). En France, l'empreinte du numérique
+                pourrait tripler d'ici 2050 si les tendances se poursuivent (ADEME-Arcep 2023).
               </p>
               <p className="text-muted-foreground">
                 La mission de ce projet est de rendre accessible à tous les citoyens, entreprises et collectivités

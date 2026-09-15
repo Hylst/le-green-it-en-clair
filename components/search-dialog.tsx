@@ -82,7 +82,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                     </CommandItem>
                     <CommandItem onSelect={() => runCommand(() => router.push("/actualites"))}>
                         <Calendar className="mr-2 h-4 w-4" />
-                        <span>Actualités</span>
+                        <span>Dossiers & veille</span>
                     </CommandItem>
                     <CommandItem onSelect={() => runCommand(() => router.push("/par-ou-commencer"))}>
                         <Rocket className="mr-2 h-4 w-4" />

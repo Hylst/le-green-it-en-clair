@@ -1261,12 +1261,12 @@ module.exports = {
               applications tout en améliorant leur performance.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a
+              <Link
                 href="/outils"
                 className="bg-background text-primary px-8 py-3 rounded-lg font-semibold hover:bg-accent transition-colors"
               >
                 Calculer mon impact
-              </a>
+              </Link>
               <Link
                 href="/guide"
                 className="bg-primary-foreground/10 text-primary-foreground px-8 py-3 rounded-lg font-semibold border border-primary-foreground/20 hover:bg-primary-foreground/20 transition-colors"

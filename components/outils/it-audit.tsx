@@ -92,10 +92,12 @@ export default function ITAudit() {
 
     // Score éco-efficacité (0-100)
     const avgLifeRatio =
-      Object.entries(inventory).reduce((acc, [type, { count, avgAge }]) => {
-        const data = deviceData[type as keyof typeof deviceData]
-        return acc + (avgAge / data.optimalLife) * count
-      }, 0) / totalDevices
+      totalDevices > 0
+        ? Object.entries(inventory).reduce((acc, [type, { count, avgAge }]) => {
+            const data = deviceData[type as keyof typeof deviceData]
+            return acc + (avgAge / data.optimalLife) * count
+          }, 0) / totalDevices
+        : 0
 
     const ecoScore = Math.min(100, Math.max(0, Math.round((1 - Math.abs(avgLifeRatio - 0.7) * 2) * 100)))
 
@@ -152,7 +154,7 @@ export default function ITAudit() {
 
     doc.setFontSize(12)
     doc.text(`Empreinte totale : ${auditResults.totalCO2.toFixed(1)} kg CO2e / an`, 20, 65)
-    doc.text(`Économies possibles : ${auditResults.potentialSavings.toFixed(1)} kg CO2e / an`, 20, 72);
+    doc.text(`Économies possibles : ${auditResults.potentialSavings.toFixed(1)} kg CO2e (gain à l'achat)`, 20, 72);
 
     // Score Badge
     doc.setDrawColor(200, 200, 200)
@@ -391,7 +393,7 @@ export default function ITAudit() {
                   </div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
                     En remplaçant les {results.renewalNeeded} équipements à renouveler par du reconditionné, vous économiseriez
-                    l'équivalent de {Math.round(results.potentialSavings / 0.12)} km en voiture.
+                    l'équivalent de {Math.round(results.potentialSavings / 0.17)} km en voiture.
                   </p>
                 </div>
               )}

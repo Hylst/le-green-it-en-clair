@@ -71,7 +71,7 @@ export default function GuidePage() {
             {/* Header */}
             <section className="bg-primary/10 py-16 px-6">
                 <div className="max-w-4xl mx-auto text-center">
-                    <Badge className="mb-4 bg-primary text-primary-foreground">Guide officiel 2026</Badge>
+                    <Badge className="mb-4 bg-primary text-primary-foreground">Guide récapitulatif 2026</Badge>
                     <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                         Guide du Numérique Responsable
                     </h1>
@@ -130,7 +130,7 @@ export default function GuidePage() {
                             </h3>
                             <p className="text-emerald-50 text-lg">
                                 Produire un ordinateur portable de 2 kg émet 156 kg de CO₂ et nécessite 800 kg de matières premières (ADEME, Base Empreinte 2023).
-                                Allonger sa durée de vie de 2 à 4 ans réduit son impact environnemental d'environ 50 %.
+                                Allonger sa durée de vie de 2 à 4 ans réduit son impact environnemental d'environ 50 % (ADEME 2026).
                             </p>
                         </div>
                         <Button variant="secondary" size="lg" className="w-full md:w-auto" onClick={() => router.push('/agir')}>

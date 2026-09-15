@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import type { ReactNode } from "react"
 
 export const metadata: Metadata = {
-  title: "Actualités Green IT",
+  title: "Dossiers et veille Green IT",
   alternates: { canonical: "https://hylst.fr/greenit/actualites" },
 }
 

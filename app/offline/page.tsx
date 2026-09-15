@@ -16,8 +16,8 @@ export default function OfflinePage() {
             </div>
             <h1 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white lg:text-4xl">Vous êtes hors ligne</h1>
             <p className="mb-8 max-w-md text-slate-600 dark:text-slate-400">
-                Pas d'inquiétude ! La plupart des ressources éducatives et des calculateurs de ce site sont accessibles sans
-                connexion internet.
+                Pas d'inquiétude ! Les pages que vous avez déjà consultées et les outils restent accessibles sans
+                connexion.
             </p>
             <Button asChild className="bg-emerald-600 hover:bg-emerald-700">
                 <Link href="/">

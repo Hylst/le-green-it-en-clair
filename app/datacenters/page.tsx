@@ -670,7 +670,7 @@ export default function DatacentersPage() {
               </div>
               <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-slate-100">Mix énergétique favorable</h3>
               <p className="text-sm text-slate-600 dark:text-slate-400">
-                La France utilise majoritairement de l'énergie nucléaire (70%) et renouvelable, avec une empreinte
+                La France utilise une électricité majoritairement bas-carbone (nucléaire ~67 %, RTE 2024), avec une empreinte
                 carbone plus faible que la moyenne mondiale.
               </p>
             </Card>

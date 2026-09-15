@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
@@ -1723,8 +1724,8 @@ export function QuizGreenITAdvanced() {
           <div className="p-4 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
             <h4 className="font-semibold text-green-900 dark:text-green-200 mb-2">Prochaines étapes :</h4>
             <ul className="space-y-1 text-sm text-green-800 dark:text-green-300">
-              <li>• Consultez les ressources pour approfondir vos connaissances</li>
-              <li>• Essayez les autres modes de quiz pour progresser</li>
+              <li>• <Link href="/ressources" className="underline underline-offset-2">Consultez les ressources</Link> pour approfondir vos connaissances</li>
+              <li>• <Link href="/outils" className="underline underline-offset-2">Essayez les outils</Link> pour mesurer votre impact</li>
               <li>• Partagez vos résultats et défiez vos collègues</li>
             </ul>
           </div>
@@ -1747,7 +1748,8 @@ export function QuizGreenITAdvanced() {
                 ({percentage}%)
               </p>
               <p className="mt-1">
-                Niveau : <strong>{levelInfo.level}</strong> — Mode : {mode}
+                Niveau : <strong>{levelInfo.level}</strong> — Mode :{" "}
+                {mode === "discovery" ? "Découverte" : mode === "full" ? "Complet (100 questions)" : mode === "category" ? "Par catégorie" : "Défi"}
               </p>
               <p className="mt-1 text-sm text-muted-foreground">Établie le {new Date().toLocaleDateString("fr-FR")}</p>
             </div>

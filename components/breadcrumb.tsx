@@ -27,7 +27,7 @@ export function Breadcrumb() {
     outils: "Outils",
     ressources: "Ressources",
     "a-propos": "À propos",
-    actualites: "Actualités",
+    actualites: "Dossiers et veille",
     faq: "FAQ",
     "fiches-pratiques": "Fiches pratiques",
     "sitemap-page": "Plan du site",

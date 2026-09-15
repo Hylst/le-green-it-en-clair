@@ -473,21 +473,21 @@ export function WebsiteCarbonCalculator() {
             <div className="grid md:grid-cols-3 gap-4 text-sm">
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-1">
-                  {Math.round(results.co2PerMonth / 0.12).toLocaleString("fr-FR")}
+                  {Math.round(results.co2PerMonth / 0.17).toLocaleString("fr-FR")}
                 </div>
-                <div className="text-gray-700 dark:text-gray-300">km en voiture (0,12 kg/km)</div>
+                <div className="text-gray-700 dark:text-gray-300">km en voiture (0,17 kg/km, ADEME 2023)</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-1">
-                  {Math.round(results.co2PerMonth / 2.5).toLocaleString("fr-FR")}
+                  {Math.round((results.co2PerMonth * 12) / 20).toLocaleString("fr-FR")}
                 </div>
-                <div className="text-gray-700 dark:text-gray-300">arbres à planter (2,5 kg/arbre)</div>
+                <div className="text-gray-700 dark:text-gray-300">arbres pendant 1 an (20 kg/arbre, ADEME)</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-1">
-                  {Math.round(results.co2PerMonth / 0.9).toLocaleString("fr-FR")}
+                  {Math.round(results.co2PerMonth / 7).toLocaleString("fr-FR")}
                 </div>
-                <div className="text-gray-700 dark:text-gray-300">repas avec bœuf (0,9 kg/repas)</div>
+                <div className="text-gray-700 dark:text-gray-300">repas avec bœuf (7 kg/repas, ADEME)</div>
               </div>
             </div>
           </div>

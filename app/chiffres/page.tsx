@@ -21,6 +21,7 @@ import {
 import { Download, TrendingUp, Globe, MapPin, Zap } from "lucide-react"
 import { SourceTooltip } from "@/components/source-tooltip"
 import { AnimatedDataFlow } from "@/components/animated-data-flow"
+import { RelatedLinks } from "@/components/related-links"
 import { GrowthAnimation } from "@/components/growth-animation"
 import dynamic from "next/dynamic"
 
@@ -259,7 +260,7 @@ export default function ChiffresPage() {
 
               <div className="mt-6 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border-2 border-emerald-200 dark:border-emerald-800 p-4">
                 <p className="text-sm text-slate-700 dark:text-slate-300">
-                  <strong>Point clé :</strong> La fabrication représente 60% de l'empreinte carbone totale. Garder son
+                  <strong>Point clé :</strong> La fabrication seule représente 60 % de l'empreinte ; avec l'extraction (15 %), c'est 75 %. Garder son
                   smartphone 1 an de plus réduit son impact annuel d'environ un tiers (50 kg sur 2 ans ≈ 25 kg/an,
                   50 kg sur 3 ans ≈ 17 kg/an).
                 </p>
@@ -487,6 +488,30 @@ export default function ChiffresPage() {
           <p className="mt-8 text-center text-xs text-emerald-50">
             Sources : Global E-waste Monitor 2024 (62 Mt en 2022, +2,6 Mt/an) ; ADEME-Arcep 2023 ; Eurostat 2024
           </p>
+        </div>
+      </section>
+
+      <section className="px-6 py-16 lg:py-24 bg-background">
+        <div className="mx-auto max-w-7xl">
+          <RelatedLinks
+            links={[
+              {
+                href: "/comprendre",
+                label: "Comprendre le cycle de vie",
+                description: "D'où viennent ces chiffres, phase par phase, et comment les interpréter",
+              },
+              {
+                href: "/outils",
+                label: "Calculer votre propre empreinte",
+                description: "Estimez votre impact numérique avec les outils interactifs",
+              },
+              {
+                href: "/agir",
+                label: "Passer à l'action",
+                description: "Les gestes et leviers les plus efficaces pour réduire l'impact",
+              },
+            ]}
+          />
         </div>
       </section>
     </div>

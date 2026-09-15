@@ -143,6 +143,30 @@ const externalLinks = [
 
 const glossaryData = [
   {
+    term: "Scope 1, 2, 3",
+    definition:
+      "Périmètres de comptabilité carbone : scope 1 = émissions directes, scope 2 = énergie achetée, scope 3 = toutes les autres émissions indirectes (achats, déplacements, usage des produits vendus).",
+    category: "Méthode",
+  },
+  {
+    term: "Effet rebond",
+    definition:
+      "Situation où les gains d'efficacité d'une technologie sont annulés par la hausse des usages qu'elle permet (ex. un réseau plus efficace qui transporte beaucoup plus de données).",
+    category: "Concept",
+  },
+  {
+    term: "WUE",
+    definition:
+      "Water Usage Effectiveness. Indicateur de consommation d'eau des datacenters (litres d'eau par kWh consommé).",
+    category: "Datacenters",
+  },
+  {
+    term: "EENM",
+    definition:
+      "Empreinte Environnementale du Numérique Mondial, étude de référence publiée par l'association Green IT (édition 2025 : 3,4 % des émissions mondiales, 1,8 Gt CO₂e).",
+    category: "Général",
+  },
+  {
     term: "DEEE",
     definition:
       "Déchets d'Équipements Électriques et Électroniques. Tous les appareils fonctionnant à l'électricité ou avec des piles/batteries en fin de vie.",
@@ -372,7 +396,7 @@ export default function RessourcesPage() {
         </div>
       </section>
 
-      <section className="px-6 py-16 lg:py-24 bg-background">
+      <section id="glossaire" className="px-6 py-16 lg:py-24 bg-background scroll-mt-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-8 text-center text-3xl font-bold text-foreground lg:text-4xl">
             Glossaire du Green IT

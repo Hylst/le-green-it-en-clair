@@ -143,7 +143,7 @@ export default function CasPratiquesPage() {
                 <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   <div className="rounded-xl bg-emerald-50 p-4">
                     <div className="mb-1 text-2xl font-bold text-emerald-700">50 kg</div>
-                    <div className="text-sm text-slate-700">CO₂ émis lors de la fabrication</div>
+                    <div className="text-sm text-slate-700">CO₂ émis sur le cycle de vie (dont ~39 kg pour la fabrication)</div>
                   </div>
                   <div className="rounded-xl bg-emerald-50 p-4">
                     <div className="mb-1 text-2xl font-bold text-emerald-700">12 000 L</div>
@@ -424,7 +424,7 @@ export default function CasPratiquesPage() {
                 <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   <div className="rounded-xl bg-blue-50 p-4">
                     <div className="mb-1 text-2xl font-bold text-blue-700">156 kg</div>
-                    <div className="text-sm text-slate-700">CO₂ émis lors de la fabrication</div>
+                    <div className="text-sm text-slate-700">CO₂ émis sur le cycle de vie (dont ~39 kg pour la fabrication)</div>
                   </div>
                   <div className="rounded-xl bg-blue-50 p-4">
                     <div className="mb-1 text-2xl font-bold text-blue-700">1 500 à 20 000 L</div>

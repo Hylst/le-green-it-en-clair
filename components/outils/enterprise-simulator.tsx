@@ -109,7 +109,7 @@ export default function EnterpriseSimulator() {
         totalCO2Savings += (baseTotalCO2 - optimizedTotalCO2)
       }
 
-      const implementationCost = config.employees * 100 // Estimated implementation cost (training, process)
+      const implementationCost = key === "baseline" ? 0 : config.employees * 100 // Coût de mise en œuvre (formation, process)
       const netSavings = totalSavings - implementationCost
       const paybackMonths = netSavings > 0 ? Math.round((implementationCost / (totalSavings / 60))) : 0
 
@@ -118,7 +118,7 @@ export default function EnterpriseSimulator() {
         name: scenario.name,
         totalSavings: Math.round(netSavings),
         totalEmissions: Math.round(totalCO2Savings),
-        payback: paybackMonths,
+        payback: netSavings > 0 ? paybackMonths : -1,
         projections: years.map((year) => {
           // Recalculate for chart
           const baseRenewalCycle = config.renewalCycle
@@ -147,7 +147,7 @@ export default function EnterpriseSimulator() {
           const baseCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300)
           const currentBaseTotalCO2 = year === 0 ? 0 : baseCO2Devices + baseCO2Usage + baseCO2Cloud
 
-          const optimizedCO2Devices = year > 0 ? (newDevices * 200 + refurbishedDevices * 40) : 0
+          const optimizedCO2Devices = year > 0 ? (newDevices * 200 + refurbishedDevices * 50) : 0
           const optimizedCO2Usage = totalDevices * 22 * (1 - scenario.energyOptimization * 0.5)
           const optimizedCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300) * (1 - scenario.cloudOptimization)
           const currentOptimizedTotalCO2 = year === 0 ? 0 : optimizedCO2Devices + optimizedCO2Usage + optimizedCO2Cloud
@@ -196,7 +196,7 @@ export default function EnterpriseSimulator() {
       s.name,
       s.totalSavings.toLocaleString() + " €",
       s.totalEmissions.toLocaleString() + " kg CO2e", // This is actually CO2 savings
-      s.payback === 0 ? "Immédiat" : s.payback + " mois"
+      s.payback === -1 ? "Non rentable" : s.payback === 0 ? "Immédiat" : s.payback + " mois"
     ])
 
     // @ts-ignore
@@ -404,8 +404,8 @@ export default function EnterpriseSimulator() {
                     <div className="text-sm text-gray-600 dark:text-gray-400">ROI</div>
                   </div>
                   <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
-                    <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">{results.payback}</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Mois pour rentabilité</div>
+                    <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">{results.payback === -1 ? "—" : results.payback}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">{results.payback === -1 ? "Non rentable sur 5 ans" : "Mois pour rentabilité"}</div>
                   </div>
                 </div>
               </div>

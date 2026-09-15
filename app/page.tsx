@@ -54,11 +54,11 @@ export default function HomePage() {
             </h1>
             <p className="mx-auto mb-8 max-w-2xl text-pretty text-lg text-muted-foreground lg:text-xl">
               Chaque année en France, près de{" "}
-              <span className="font-bold text-emerald-700 dark:text-emerald-400">1,6 million de tonnes</span> de déchets électroniques sont collectés (ADEME 2024).
+              <span className="font-bold text-emerald-700 dark:text-emerald-400">1,6 million de tonnes</span> de déchets électroniques sont produits, et moins de la moitié sont collectés (ADEME 2024).
               <SourceTooltip
                 className="ml-1"
                 source="ADEME, 2024"
-                calculation="≈ 24 kg collectés par habitant × 68 M d'habitants ≈ 1,6 Mt/an"
+                calculation="≈ 24 kg produits par habitant × 68 M d'habitants ≈ 1,6 Mt/an ; collecte ≈ 13 kg/hab"
               />
               Découvrez comment agir pour un numérique plus responsable.
             </p>

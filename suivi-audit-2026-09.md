@@ -115,9 +115,9 @@
 
 ### Validation finale
 - [ ] Relecture complète des diffs.
-- [ ] Build final, export final, contrôle `/greenit/`.
-- [ ] Mise à jour finale `todo.md`, `changelog.md` et ce suivi.
-- [ ] Clôture seulement après preuve de vérification.
+- [x] Build final, export final, contrôle `/greenit/`.
+- [x] Mise à jour finale `todo.md`, `changelog.md` et ce suivi.
+- [x] Clôture seulement après preuve de vérification.
 
 ## Journal
 
@@ -129,3 +129,6 @@
 - 2026-09-15 : balayage non-régression sur tous les fichiers traités (actus, website-carbon, chiffres, recyclage, fiches, mythes, faq, problematiques, datacenters, cas-pratiques, reglementation) : aucun oubli, historique cohérent, arbre propre.
 - 2026-09-15 : `agir` + `guide` + `developpement` corrigés en manuel (conseils, Prisma, O(n²), WebP, Pereira 2017). Build + export vérifiés.
 - 2026-09-15 : boutons/ancres morts branchés en manuel (CTA, Imprimer, ancres, ZIP retiré) + PDF régénéré et vérifié de l'intérieur (Istanbul parti, ~17 km présent). Build + export vérifiés, zéro `alert`. Vague 1 P0 quasi close : restent quiz contenu (vague 2) et images (vague 3).
+- 2026-09-15 : audit pessimiste final avant quiz (3 sous-agents, lecture seule) : oublis confirmés (accueil 74,7 Mt, mythes 17,4 %, fiches 20x/57x/20 kg/65 kWh/6 mois/quefaire.fr, outils « ADEME 2025 », docs périmées, moteur quiz). Spec `docs/superpowers/specs/2026-09-15-assainissement-quiz-design.md` + plan `docs/superpowers/plans/2026-09-15-assainissement-quiz.md` écrits, commités (`55d7d6b`, `8ecdefb`) puis exécutés en manuel.
+- 2026-09-15 : phase A soldée (8 commits) : accueil, mythes, fiches, durées/arbres, sources outils, badges, recherche (39 entrées), docs internes. Vérifié : `tsc`, build, export sans ancienne valeur.
+- 2026-09-15 : quiz corrigé (10 commits) : 100 questions re-sourcées/corrigées, moteur (niveau max réel, division par zéro, Fisher-Yates, timer continu), attestation ≥ 60 % avec impression dédiée, accessibilité `radiogroup`/`radio`/`aria-live`. Vérifié : `tsc`, build, export, test navigateur `/greenit/` (35/140 = 25 %, score moyen 4, bouton résultat ; CSS print présent ; console = prefetch `_rsc` connu). Reste vague 3 images.

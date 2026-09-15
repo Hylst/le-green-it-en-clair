@@ -1674,9 +1674,9 @@ export function QuizGreenITAdvanced() {
               <RotateCcw className="h-4 w-4 mr-2" />
               Refaire un quiz
             </Button>
-            <Button className="flex-1 bg-blue-600 hover:bg-blue-700">
+            <Button onClick={() => window.print()} className="flex-1 bg-blue-600 hover:bg-blue-700">
               <Download className="h-4 w-4 mr-2" />
-              Télécharger le certificat
+              Imprimer le certificat
             </Button>
           </div>
         </CardContent>

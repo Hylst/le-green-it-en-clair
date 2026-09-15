@@ -53,8 +53,8 @@ doc.setFontSize(11);
 doc.setFont("helvetica", "normal");
 
 const enjeuText = [
-    "L'industrie numérique représente 4% des émissions mondiales de CO2, un chiffre qui double tous les 10 ans. Le recyclage est le levier n°1 pour réduire cet impact.",
-    "• ÉCONOMIE CIRCULAIRE : Un smartphone contient plus de 50 métaux différents. Le recyclage permet de récupérer jusqu'à 80% de ces ressources précieuses.",
+    "Le numérique représente 3 à 4% des émissions mondiales de gaz à effet de serre (GreenIT 2025, Shift 2024). Le premier levier, c'est de garder ses appareils plus longtemps : réduire, réparer et réemployer passent avant le recyclage.",
+    "• ÉCONOMIE CIRCULAIRE : Un smartphone contient plus de 50 métaux différents. Le recyclage permet de récupérer une grande partie de ces ressources précieuses.",
     "• PRÉSERVATION : L'extraction d'1kg de cuivre nécessite de déplacer 500kg de roche. Recycler évite de creuser de nouvelles mines polluantes.",
     "• SANTÉ PUBLIQUE : Les e-déchets contiennent du plomb et du brome. Sans recyclage certifié, ces toxines finissent dans nos nappes phréatiques."
 ];
@@ -122,15 +122,15 @@ doc.roundedRect(25, currentY, 160, 40, 3, 3, "F");
 doc.setTextColor(...COLORS.emerald);
 doc.setFontSize(22);
 doc.text("2 kg", 45, currentY + 18);
-doc.text("2000 km", 110, currentY + 18);
+doc.text("~17 km", 110, currentY + 18);
 
 doc.setTextColor(...COLORS.slate);
 doc.setFontSize(10);
 doc.text("De CO2 évité par", 38, currentY + 28);
-doc.text("smartphone recyclé", 38, currentY + 33);
+doc.text("smartphone recyclé (ordre de grandeur)", 38, currentY + 33);
 
 doc.text("En voiture : l'équivalent", 105, currentY + 28);
-doc.text("d'un Paris - Istanbul", 105, currentY + 33);
+doc.text("de quelques trajets urbains", 105, currentY + 33);
 
 currentY += 60;
 

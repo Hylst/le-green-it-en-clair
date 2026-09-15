@@ -257,10 +257,6 @@ export default function ModelesPage() {
                     Nous contacter
                   </Link>
                 </Button>
-                <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
-                  <Download className="mr-2 h-5 w-5" />
-                  Tout télécharger (ZIP)
-                </Button>
               </div>
             </div>
           </Card>

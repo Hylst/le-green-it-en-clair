@@ -128,3 +128,4 @@
 - 2026-09-15 : `faq` + `reglementation` corrigés en manuel (CSRD Omnibus I, réparation 31/07/2026, bonus/garantie/indice/étiquette UE, DEEE, REEN retirés, faux chiffres FAQ corrigés, NR ~350, Energy Star). Build + export vérifiés (zéro ancienne valeur dans tout `out/`).
 - 2026-09-15 : balayage non-régression sur tous les fichiers traités (actus, website-carbon, chiffres, recyclage, fiches, mythes, faq, problematiques, datacenters, cas-pratiques, reglementation) : aucun oubli, historique cohérent, arbre propre.
 - 2026-09-15 : `agir` + `guide` + `developpement` corrigés en manuel (conseils, Prisma, O(n²), WebP, Pereira 2017). Build + export vérifiés.
+- 2026-09-15 : boutons/ancres morts branchés en manuel (CTA, Imprimer, ancres, ZIP retiré) + PDF régénéré et vérifié de l'intérieur (Istanbul parti, ~17 km présent). Build + export vérifiés, zéro `alert`. Vague 1 P0 quasi close : restent quiz contenu (vague 2) et images (vague 3).

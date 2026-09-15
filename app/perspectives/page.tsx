@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import {
@@ -533,12 +534,14 @@ export default function PerspectivesPage() {
             numérique.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
-              Voir les actions concrètes
-              <ArrowRight className="ml-2 h-5 w-5" />
+            <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+              <Link href="/agir">
+                Voir les actions concrètes
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
-            <Button size="lg" variant="outline">
-              Calculer mon empreinte
+            <Button asChild size="lg" variant="outline">
+              <Link href="/outils">Calculer mon empreinte</Link>
             </Button>
           </div>
         </div>

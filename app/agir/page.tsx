@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -412,9 +413,11 @@ export default function AgirPage() {
                   Retrouvez toutes ces actions dans un guide PDF pratique à imprimer ou partager.
                 </p>
               </div>
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                <Download className="mr-2 h-5 w-5" />
-                Télécharger le PDF
+              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+                <a href="/greenit/guide-recyclage-green-it.pdf" download>
+                  <Download className="mr-2 h-5 w-5" />
+                  Télécharger le PDF
+                </a>
               </Button>
             </div>
           </Card>
@@ -559,12 +562,14 @@ export default function AgirPage() {
             Utilisez notre calculateur d'empreinte numérique pour mesurer votre impact et suivre vos progrès.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
-              Calculer mon empreinte
-              <ArrowRight className="ml-2 h-5 w-5" />
+            <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+              <Link href="/outils">
+                Calculer mon empreinte
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
-            <Button size="lg" variant="outline">
-              Voir les points de collecte
+            <Button asChild size="lg" variant="outline">
+              <Link href="/recyclage">Voir les points de collecte</Link>
             </Button>
           </div>
         </div>

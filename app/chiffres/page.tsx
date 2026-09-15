@@ -92,9 +92,8 @@ const recyclingPoints = [
 export default function ChiffresPage() {
   const [selectedMetric, setSelectedMetric] = useState<"co2" | "energy" | "water">("co2")
 
-  const downloadChart = (chartName: string) => {
-    // In a real implementation, this would export the chart as PNG/SVG
-    alert(`Téléchargement du graphique "${chartName}" (fonctionnalité à implémenter)`)
+  const printPage = () => {
+    window.print()
   }
 
   return (
@@ -141,9 +140,9 @@ export default function ChiffresPage() {
               <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-slate-100">Évolution des déchets électroniques</h2>
               <p className="text-slate-600 dark:text-slate-400">Production mondiale et française de e-déchets (2010-2026)</p>
             </div>
-            <Button variant="outline" onClick={() => downloadChart("evolution-e-waste")}>
+            <Button variant="outline" onClick={printPage}>
               <Download className="mr-2 h-4 w-4" />
-              Exporter
+              Imprimer
             </Button>
           </div>
 
@@ -202,9 +201,9 @@ export default function ChiffresPage() {
               <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-slate-100">Répartition de l'empreinte carbone</h2>
               <p className="text-slate-600 dark:text-slate-400">Impact CO₂ par phase du cycle de vie d'un smartphone</p>
             </div>
-            <Button variant="outline" onClick={() => downloadChart("co2-breakdown")}>
+            <Button variant="outline" onClick={printPage}>
               <Download className="mr-2 h-4 w-4" />
-              Exporter
+              Imprimer
             </Button>
           </div>
 
@@ -343,9 +342,9 @@ export default function ChiffresPage() {
               <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-slate-100">Taux de recyclage par pays</h2>
               <p className="text-slate-600 dark:text-slate-400">Pourcentage de déchets électroniques correctement recyclés</p>
             </div>
-            <Button variant="outline" onClick={() => downloadChart("recycling-rates")}>
+            <Button variant="outline" onClick={printPage}>
               <Download className="mr-2 h-4 w-4" />
-              Exporter
+              Imprimer
             </Button>
           </div>
 

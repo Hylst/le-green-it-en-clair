@@ -351,7 +351,7 @@ export default function RecyclagePage() {
       </section>
 
       {/* Collection Points Map */}
-      <section className="bg-secondary/50 px-6 py-16 lg:py-24">
+      <section id="carte-collecte" className="bg-secondary/50 px-6 py-16 lg:py-24 scroll-mt-16">
         <div className="mx-auto max-w-7xl">
           <h2 className="mb-8 text-center text-3xl font-bold text-foreground lg:text-4xl">
             Trouver un point de collecte près de chez vous
@@ -565,12 +565,24 @@ export default function RecyclagePage() {
             Trouvez le point de collecte le plus proche de chez vous et donnez une seconde vie à vos équipements.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button size="lg" variant="secondary" className="hover:opacity-90 transition-opacity">
+            <Button
+              size="lg"
+              variant="secondary"
+              className="hover:opacity-90 transition-opacity"
+              onClick={() => document.getElementById("carte-collecte")?.scrollIntoView({ behavior: "smooth" })}
+            >
               <MapPin className="mr-2 h-5 w-5" />
               Trouver un point de collecte
             </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 bg-transparent">
-              Télécharger le guide
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
+            >
+              <a href="/greenit/guide-recyclage-green-it.pdf" download>
+                Télécharger le guide
+              </a>
             </Button>
           </div>
         </div>

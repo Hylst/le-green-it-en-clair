@@ -94,14 +94,14 @@ export default function GettingStartedPage() {
         step: 2,
         title: "Optimiser son code",
         description: "Apprenez les techniques d'écoconception et d'optimisation",
-        link: "/developpement#optimisation",
+        link: "/developpement",
         icon: Code,
       },
       {
         step: 3,
         title: "Choisir les bons langages",
         description: "Comparaison énergétique des langages de programmation",
-        link: "/developpement#langages",
+        link: "/developpement",
         icon: Lightbulb,
       },
       {
@@ -131,7 +131,7 @@ export default function GettingStartedPage() {
         step: 3,
         title: "Plan d'action entreprise",
         description: "Checklist et étapes pour votre transformation Green IT",
-        link: "/agir#entreprise",
+        link: "/agir",
         icon: Wrench,
       },
       {
@@ -161,7 +161,7 @@ export default function GettingStartedPage() {
         step: 3,
         title: "Plan d'action collectivité",
         description: "Mettre en place une stratégie numérique responsable",
-        link: "/agir#collectivite",
+        link: "/agir",
         icon: Wrench,
       },
       {

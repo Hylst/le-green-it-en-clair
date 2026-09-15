@@ -99,7 +99,6 @@ const sheets: Record<string, any> = {
     target: "Citoyens",
     duration: "10 minutes de lecture",
     impact: "75% d'économie d'impact vs un appareil neuf",
-    image: "/greenit/comparison-chart-new-vs-refurbished-vs-repaire.webp",
     date: "5 Mars 2026",
     sections: [
       {

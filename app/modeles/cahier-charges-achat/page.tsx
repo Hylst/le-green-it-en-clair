@@ -51,8 +51,8 @@ export default function CahierChargesPage() {
                     <h3 className="text-xl text-muted-foreground mb-8">Critères environnementaux et sociaux</h3>
                     <div className="mt-12 space-y-2 text-muted-foreground">
                         <p>[NOM DE L'ORGANISATION]</p>
-                        <p>Appel d'offres N° [XX/2026]</p>
-                        <p>Version 1.0 - Janvier 2026</p>
+                        <p>Appel d'offres N° [XX/ANNÉE]</p>
+                        <p>Version 1.0 - [MOIS ANNÉE]</p>
                         <p className="text-sm italic mt-4">Source : Le Green IT en clair - hylst.fr/greenit</p>
                     </div>
                 </div>
@@ -96,7 +96,7 @@ export default function CahierChargesPage() {
                         <Card className="p-4 bg-muted/5 border-border">
                             <h4 className="font-semibold text-foreground mb-2">🌍 Environnement</h4>
                             <p className="text-sm text-muted-foreground">
-                                Réduire l'empreinte carbone de nos achats IT de 40% d'ici 2027 en privilégiant l'économie circulaire
+                                Réduire l'empreinte carbone de nos achats IT (exemple : −30 % en 3 ans, à adapter) en privilégiant l'économie circulaire
                                 et l'écoconception.
                             </p>
                         </Card>
@@ -213,7 +213,7 @@ export default function CahierChargesPage() {
                             <li>• Plan de réduction des émissions</li>
                         </ul>
                         <div className="mt-4 p-3 bg-emerald-50 dark:bg-emerald-950/30 rounded">
-                            <p className="text-sm font-semibold text-foreground">Bonus : Émissions &lt; 50 kg CO2eq : +5 points</p>
+                            <p className="text-sm font-semibold text-foreground">Bonus : Émissions &lt; 50 kg CO2eq par smartphone (Base Empreinte) : +5 points</p>
                         </div>
                     </Card>
 
@@ -237,7 +237,7 @@ export default function CahierChargesPage() {
                             <ul className="text-sm text-muted-foreground space-y-1">
                                 <li>• Reprise gratuite à la livraison des neufs : obligatoire</li>
                                 <li>• Certification de destruction sécurisée des données : obligatoire</li>
-                                <li>• Valorisation (réemploi/recyclage) ≥ 90% : +5 points</li>
+                                <li>• Valorisation (réemploi/recyclage) ≥ 90 % (Ecosystem 2024) : +5 points</li>
                                 <li>• Traçabilité complète de la filière : +3 points</li>
                             </ul>
                         </Card>

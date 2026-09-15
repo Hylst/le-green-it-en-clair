@@ -207,8 +207,8 @@ export default function KitSensibilisationPage() {
                             <div className="text-center">
                                 <div className="text-4xl mb-3">📧</div>
                                 <h3 className="text-xl font-bold text-foreground mb-4">Affiche #1 : Emails</h3>
-                                <div className="text-6xl font-bold text-emerald-600 mb-2">20 g</div>
-                                <p className="text-sm text-muted-foreground mb-4">de CO₂ par email avec PJ</p>
+                                <div className="text-5xl font-bold text-emerald-600 mb-2">4 à 35 g</div>
+                                <p className="text-sm text-muted-foreground mb-4">de CO₂ par email, selon la pièce jointe (ADEME)</p>
                                 <div className="text-left text-sm text-muted-foreground space-y-2">
                                     <p>🔹 Nettoyez votre boîte mail</p>
                                     <p>🔹 Désabonnez-vous des newsletters</p>
@@ -250,7 +250,7 @@ export default function KitSensibilisationPage() {
                                 <div className="text-4xl mb-3">⚡</div>
                                 <h3 className="text-xl font-bold text-foreground mb-4">Affiche #4 : Énergie</h3>
                                 <div className="text-6xl font-bold text-amber-600 mb-2">10%</div>
-                                <p className="text-sm text-muted-foreground mb-4">d'économies faciles</p>
+                                <p className="text-sm text-muted-foreground mb-4">sur la consommation des postes de travail</p>
                                 <div className="text-left text-sm text-muted-foreground space-y-2">
                                     <p>🔹 Éteignez écran et PC le soir</p>
                                     <p>🔹 Mode économie d'énergie</p>

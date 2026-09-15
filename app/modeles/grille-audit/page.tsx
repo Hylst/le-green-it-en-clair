@@ -21,7 +21,7 @@ export default function GrilleAuditPage() {
                     <div className="flex items-center justify-between">
                         <div>
                             <h1 className="text-3xl font-bold text-white mb-2">Grille d'Audit Green IT</h1>
-                            <p className="text-emerald-100">100 critères d'évaluation</p>
+                            <p className="text-emerald-100">26 critères d'évaluation pour démarrer</p>
                         </div>
                         <Button onClick={handlePrint} size="lg" variant="secondary" className="bg-card text-emerald-700 hover:bg-muted">
                             <Printer className="mr-2 h-5 w-5" />
@@ -44,14 +44,14 @@ export default function GrilleAuditPage() {
                         <CheckCircle2 className="h-16 w-16 text-emerald-600" />
                     </div>
                     <h1 className="text-4xl font-bold text-foreground mb-4">Grille d'Audit Green IT</h1>
-                    <h2 className="text-2xl text-muted-foreground mb-8">Évaluation de maturité sur 100 critères</h2>
+                    <h2 className="text-2xl text-muted-foreground mb-8">Évaluation de maturité sur 26 critères</h2>
                 </div>
 
                 {/* Introduction */}
                 <Card className="p-8 mb-12">
                     <h2 className="text-2xl font-bold text-foreground mb-4">Mode d'emploi</h2>
                     <p className="text-muted-foreground mb-6">
-                        Cette grille permet d'évaluer le niveau de maturité Green IT de votre organisation sur 100 critères répartis en 5 axes.
+                        Cette grille permet d'évaluer le niveau de maturité Green IT de votre organisation sur 26 critères répartis en 5 axes.
                         Chaque critère est noté de 0 à 3 points.
                     </p>
                     <div className="grid md:grid-cols-4 gap-4">
@@ -77,7 +77,7 @@ export default function GrilleAuditPage() {
                 {/* Axe 1 - Gouvernance */}
                 <div className="mb-12">
                     <h2 className="text-2xl font-bold text-foreground mb-6 border-b-2 border-emerald-600 pb-2">
-                        Axe 1 : Gouvernance et stratégie (20 critères)
+                        Axe 1 : Gouvernance et stratégie (5 critères)
                     </h2>
 
                     <table className="w-full text-sm border border-border mb-6">
@@ -119,10 +119,10 @@ export default function GrilleAuditPage() {
 
                     <Card className="p-4 bg-muted/5 border-border">
                         <p className="text-sm text-muted-foreground">
-                            <strong className="text-foreground">Score Axe 1 :</strong> ___/60 points
+                            <strong className="text-foreground">Score Axe 1 :</strong> ___/15 points
                         </p>
                         <p className="text-sm text-muted-foreground mt-2">
-                            <em>Note : Les 15 critères supplémentaires sont détaillés dans la version complète</em>
+                            <em>Note : complétez cette grille avec vos propres critères.</em>
                         </p>
                     </Card>
                 </div>
@@ -130,7 +130,7 @@ export default function GrilleAuditPage() {
                 {/* Axe 2 - Équipements */}
                 <div className="mb-12">
                     <h2 className="text-2xl font-bold text-foreground mb-6 border-b-2 border-emerald-600 pb-2">
-                        Axe 2 : Équipements et infrastructure (25 critères)
+                        Axe 2 : Équipements et infrastructure (6 critères)
                     </h2>
 
                     <table className="w-full text-sm border border-border mb-6">
@@ -177,7 +177,7 @@ export default function GrilleAuditPage() {
 
                     <Card className="p-4 bg-muted/5 border-border">
                         <p className="text-sm text-muted-foreground">
-                            <strong className="text-foreground">Score Axe 2 :</strong> ___/75 points
+                            <strong className="text-foreground">Score Axe 2 :</strong> ___/18 points
                         </p>
                     </Card>
                 </div>
@@ -185,7 +185,7 @@ export default function GrilleAuditPage() {
                 {/* Axe 3 - Usages */}
                 <div className="mb-12">
                     <h2 className="text-2xl font-bold text-foreground mb-6 border-b-2 border-emerald-600 pb-2">
-                        Axe 3 : Usages et pratiques (20 critères)
+                        Axe 3 : Usages et pratiques (5 critères)
                     </h2>
 
                     <table className="w-full text-sm border border-border mb-6">
@@ -227,7 +227,7 @@ export default function GrilleAuditPage() {
 
                     <Card className="p-4 bg-muted/5 border-border">
                         <p className="text-sm text-muted-foreground">
-                            <strong className="text-foreground">Score Axe 3 :</strong> ___/60 points
+                            <strong className="text-foreground">Score Axe 3 :</strong> ___/15 points
                         </p>
                     </Card>
                 </div>
@@ -235,7 +235,7 @@ export default function GrilleAuditPage() {
                 {/* Axe 4 - Services numériques */}
                 <div className="mb-12">
                     <h2 className="text-2xl font-bold text-foreground mb-6 border-b-2 border-emerald-600 pb-2">
-                        Axe 4 : Services numériques et SI (20 critères)
+                        Axe 4 : Services numériques et SI (5 critères)
                     </h2>
 
                     <table className="w-full text-sm border border-border mb-6">
@@ -277,7 +277,7 @@ export default function GrilleAuditPage() {
 
                     <Card className="p-4 bg-muted/5 border-border">
                         <p className="text-sm text-muted-foreground">
-                            <strong className="text-foreground">Score Axe 4 :</strong> ___/60 points
+                            <strong className="text-foreground">Score Axe 4 :</strong> ___/15 points
                         </p>
                     </Card>
                 </div>
@@ -285,7 +285,7 @@ export default function GrilleAuditPage() {
                 {/* Axe 5 - Sensibilisation */}
                 <div className="mb-12">
                     <h2 className="text-2xl font-bold text-foreground mb-6 border-b-2 border-emerald-600 pb-2">
-                        Axe 5 : Sensibilisation et formation (15 critères)
+                        Axe 5 : Sensibilisation et formation (5 critères)
                     </h2>
 
                     <table className="w-full text-sm border border-border mb-6">
@@ -448,7 +448,7 @@ export default function GrilleAuditPage() {
                 <div className="mt-12 text-center text-xs text-muted-foreground">
                     <p>Grille générée via Le Green IT en clair - hylst.fr/greenit</p>
                     <p>Méthodologie libre d'usage - À adapter selon vos besoins</p>
-                    <p className="mt-2 italic">Version complète disponible avec les 100 critères détaillés</p>
+                    <p className="mt-2 italic">Grille ouverte : adaptez et complétez selon vos besoins.</p>
                 </div>
             </div>
         </div>

@@ -44,7 +44,7 @@ export default function MythesPage() {
       reality: "Faux - La fabrication représente 75% de l'impact environnemental",
       explanation:
         "Contrairement à l'idée reçue, l'utilisation d'un smartphone ne représente que 20% de son empreinte carbone totale. La fabrication (extraction des minerais, assemblage, transport) compte pour 75%. C'est pourquoi garder son appareil le plus longtemps possible est le geste le plus efficace.",
-      source: "ADEME 2025, Étude sur l'impact environnemental du numérique",
+      source: "ADEME-Arcep 2023",
       relatedLink: { label: "Découvrir le cycle de vie", href: "/comprendre" },
     },
     {
@@ -52,10 +52,10 @@ export default function MythesPage() {
       category: "Recyclage",
       icon: <Recycle className="h-5 w-5" />,
       myth: "Recycler suffit à résoudre le problème",
-      reality: "Faux - Seuls 17% des e-déchets sont recyclés dans le monde",
+      reality: "Faux - Seuls 22 % des e-déchets ont été collectés et recyclés en 2022",
       explanation:
-        "En 2025, seuls 17,4% des déchets électroniques sont correctement collectés et recyclés à l'échelle mondiale. En France, ce taux atteint environ 45%, mais reste insuffisant. De plus, le recyclage lui-même consomme de l'énergie et ne permet pas de récupérer tous les matériaux. La priorité doit être donnée à la réduction, la réparation et la réutilisation.",
-      source: "Global E-Waste Monitor 2025, ONU",
+        "En 2022, 22,3 % des déchets électroniques ont été documentés comme collectés et recyclés à l'échelle mondiale (Global E-waste Monitor 2024). En France, ce taux atteint environ 45 %, mais reste insuffisant. De plus, le recyclage lui-même consomme de l'énergie et ne permet pas de récupérer tous les matériaux. La priorité doit être donnée à la réduction, la réparation et la réutilisation.",
+      source: "Global E-waste Monitor 2024, ONU",
       relatedLink: { label: "Explorer le recyclage", href: "/recyclage" },
     },
     {
@@ -65,8 +65,8 @@ export default function MythesPage() {
       myth: "Les nouveaux appareils sont plus écologiques",
       reality: "Nuancé - Ils sont plus efficaces, mais leur fabrication pollue davantage",
       explanation:
-        "Les appareils récents sont effectivement plus économes en énergie à l'usage (processeurs plus efficients, meilleure gestion de la batterie). Cependant, ils utilisent des composants plus complexes et miniaturisés, nécessitant plus de ressources et d'énergie pour leur fabrication. Acheter un appareil neuf émet en moyenne 50 kg de CO₂, contre 8 kg pour un appareil reconditionné.",
-      source: "ADEME 2025, Backmarket",
+        "Les appareils récents sont effectivement plus économes en énergie à l'usage (processeurs plus efficients, meilleure gestion de la batterie). Cependant, ils utilisent des composants plus complexes et miniaturisés, nécessitant plus de ressources et d'énergie pour leur fabrication. Acheter un appareil neuf émet en moyenne environ 50 kg de CO₂e, contre environ 8 kg pour un appareil reconditionné (ADEME 2022).",
+      source: "ADEME 2022, Back Market",
       relatedLink: { label: "Comparer neuf vs reconditionné", href: "/cas-pratiques" },
     },
     {
@@ -76,8 +76,8 @@ export default function MythesPage() {
       myth: "Supprimer mes emails réduit significativement mon empreinte",
       reality: "Vrai mais l'impact est minime comparé à d'autres actions",
       explanation:
-        "Oui, supprimer des emails permet de libérer de l'espace sur les serveurs et donc de réduire légèrement la consommation énergétique. Mais l'impact est très faible : 1 email stocké pendant un an émet environ 10 g de CO₂. Garder votre smartphone 1 an de plus économise 50 kg de CO₂, soit l'équivalent de 5 000 emails stockés. Priorisez les actions à fort impact !",
-      source: "ADEME, Carbon Trust 2025",
+        "Oui, trier sa boîte mail aide à y voir plus clair. Mais côté climat, le stockage pèse très peu : compter environ 0,24 g de CO₂e par Go et par an (ADEME, Impact CO2 / Base Empreinte). Garder votre smartphone un an de plus évite bien plus d'émissions que de nettoyer des années d'e-mails. Priorisez les actions à fort impact !",
+      source: "ADEME, Impact CO2 / Base Empreinte",
       relatedLink: { label: "Découvrir les actions efficaces", href: "/agir" },
     },
     {
@@ -87,8 +87,8 @@ export default function MythesPage() {
       myth: "Mon vieux téléphone consomme plus d'énergie qu'un neuf",
       reality: "Vrai pour l'usage, mais garder l'ancien reste plus écologique",
       explanation:
-        "Un smartphone récent peut consommer 20-30% d'énergie en moins à l'usage grâce aux processeurs plus efficients. Mais l'écart de consommation annuel représente environ 5 kg de CO₂, alors que fabriquer un nouveau téléphone en émet 50 kg. Il faudrait donc garder le nouveau téléphone 10 ans pour compenser ! Conclusion : gardez votre ancien appareil tant qu'il fonctionne.",
-      source: "Étude Fraunhofer Institute 2025",
+        "Un smartphone récent consomme un peu moins à l'usage, mais l'écart reste faible à l'échelle du cycle de vie : la fabrication pèse environ 75 % de l'impact (ADEME 2026). Il faudrait donc de longues années d'usage pour compenser un nouvel appareil. Conclusion : gardez votre ancien appareil tant qu'il fonctionne.",
+      source: "ADEME 2026",
       relatedLink: { label: "Calculer votre impact", href: "/outils" },
     },
     {
@@ -98,8 +98,8 @@ export default function MythesPage() {
       myth: "Le mode avion permet d'économiser beaucoup d'énergie",
       reality: "Vrai mais l'impact reste limité sur l'empreinte globale",
       explanation:
-        "Le mode avion désactive les connexions sans fil (4G/5G, WiFi, Bluetooth) qui consomment de l'énergie. Cela peut prolonger l'autonomie de la batterie de 20-30%. Sur un an, cela représente environ 2 kg de CO₂ économisés. C'est bien, mais c'est 25 fois moins que l'impact évité en gardant votre appareil un an de plus.",
-      source: "GreenIT.fr 2025",
+        "Le mode avion désactive les connexions sans fil (4G/5G, Wi-Fi, Bluetooth) et peut prolonger l'autonomie de la batterie. Mais à l'échelle de votre empreinte, l'économie reste limitée : le geste qui compte vraiment reste de garder votre appareil plus longtemps (ADEME 2026).",
+      source: "ADEME 2026",
     },
     {
       id: "8",
@@ -109,7 +109,7 @@ export default function MythesPage() {
       reality: "Faux - Ils contiennent des matériaux toxiques et non biodégradables",
       explanation:
         "Les équipements électroniques contiennent des métaux lourds (plomb, mercure, cadmium), des plastiques et des composés chimiques qui ne se dégradent pas naturellement. Abandonnés dans la nature, ils polluent les sols et les nappes phréatiques pendant des décennies. C'est pourquoi le recyclage dans des filières spécialisées est obligatoire.",
-      source: "Ministère de la Transition Écologique 2025",
+      source: "Ministère de la Transition écologique",
       relatedLink: { label: "Trouver un point de collecte", href: "/recyclage" },
     },
     {
@@ -119,8 +119,8 @@ export default function MythesPage() {
       myth: "Les appareils Apple sont plus écologiques que les autres",
       reality: "Nuancé - Progrès sur le recyclage, mais l'obsolescence reste problématique",
       explanation:
-        "Apple a fait des progrès en utilisant davantage de matériaux recyclés (75% d'aluminium recyclé en 2025) et en réduisant les emballages. Cependant, la réparabilité reste limitée (indice de réparabilité moyen de 6,5/10), et le remplacement fréquent encouragé par les sorties annuelles augmente l'impact global. Aucune marque n'est parfaite : l'essentiel est de garder l'appareil longtemps.",
-      source: "Rapport Apple Environmental Progress 2025, iFixit",
+        "Apple a fait des progrès sur les matériaux recyclés et les emballages. Cependant, la réparabilité reste limitée sur plusieurs modèles et le rythme des sorties annuelles pousse au renouvellement. Aucune marque n'est parfaite : l'essentiel est de garder l'appareil longtemps.",
+      source: "iFixit",
     },
     {
       id: "10",
@@ -129,8 +129,8 @@ export default function MythesPage() {
       myth: "Regarder des vidéos en streaming pollue énormément",
       reality: "Vrai - Mais l'impact dépend beaucoup de la qualité et du réseau",
       explanation:
-        "Le streaming vidéo représente 60% du trafic internet mondial et consomme beaucoup d'énergie. Regarder 1h de vidéo en HD émet environ 100 g de CO₂. En 4K, cela triple à 300 g. En revanche, en définition standard (480p), l'impact chute à 30 g. Astuce : privilégiez la WiFi à la 4G/5G (2 fois moins d'énergie) et réduisez la qualité quand le grand écran n'est pas nécessaire.",
-      source: "The Shift Project 2025, IEA",
+        "Le streaming vidéo représente une part majeure du trafic internet mondial et consomme beaucoup d'énergie. Une heure de vidéo en HD émet de l'ordre de 50 à 100 g de CO₂ selon les hypothèses ; en 4K, plusieurs centaines de grammes. En définition standard, l'impact est bien plus faible. Astuce : privilégiez le Wi-Fi à la 4G/5G (environ 4 à 5 fois moins d'énergie en streaming) et réduisez la qualité quand le grand écran n'est pas nécessaire.",
+      source: "Kamiya 2020, Shift 2019",
       relatedLink: { label: "Découvrir les bonnes pratiques", href: "/agir" },
     },
     {
@@ -140,8 +140,8 @@ export default function MythesPage() {
       myth: "Le code n'a pas d'impact environnemental",
       reality: "Faux - Un code mal optimisé augmente la consommation d'énergie",
       explanation:
-        "Le code inefficace (algorithmes non optimisés, requêtes multiples inutiles, médias lourds) augmente le temps de traitement des serveurs et la consommation des appareils. Un site web optimisé peut réduire sa consommation énergétique de 50-70%. Les développeurs ont un rôle clé dans l'écoconception numérique.",
-      source: "GreenIT.fr, W3C 2025",
+        "Le code inefficace (algorithmes non optimisés, requêtes multiples inutiles, médias lourds) augmente le temps de traitement des serveurs et la consommation des appareils. Un site web optimisé peut réduire fortement sa consommation énergétique. Les développeurs ont un rôle clé dans l'écoconception numérique.",
+      source: "GreenIT.fr, RGESN",
       relatedLink: { label: "Guide développeur", href: "/developpement" },
     },
     {
@@ -151,8 +151,8 @@ export default function MythesPage() {
       myth: "Le reconditionnement est moins fiable que le neuf",
       reality: "Faux - Les appareils reconditionnés sont testés et garantis",
       explanation:
-        "Un appareil reconditionné professionnel passe par 40 à 50 points de contrôle, remplace les pièces défectueuses, et offre une garantie de 12 à 24 mois (comme le neuf). Le taux de panne après 1 an est comparable au neuf (environ 5%). En France, le marché du reconditionné a progressé de 15% en 2025, prouvant sa fiabilité.",
-      source: "Backmarket, Ecosystem 2025",
+        "Un appareil reconditionné professionnel passe par de nombreux contrôles, remplace les pièces défectueuses et bénéficie de la garantie légale de conformité de 2 ans, comme le neuf. En France, le marché du reconditionné progresse et prouve sa fiabilité.",
+      source: "Back Market, Ecosystem",
       relatedLink: { label: "Comprendre le reconditionné", href: "/cas-pratiques" },
     },
   ]

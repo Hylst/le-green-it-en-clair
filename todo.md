@@ -40,7 +40,8 @@ Ma liste, mise à jour le 15/09/2026 après une grosse relecture pessimiste (lec
 - [x] Contre-audit des fichiers d'audit le 15/09 : valeurs canoniques §9/§10 re-vérifiées, reliquats corrigés (développement JS ×4,45/GPT-3, ISO, fournisseurs DC attribués, water fourchette, ranges reconditionné, comparateur cloud, images FR restantes régénérées). Vérifié : `tsc` 0 erreur, build, export.
 - [x] Contrôle complémentaire le 15/09 : outils fiabilisés (facteurs, cas limites, libellés), faits alignés (production vs collecte, unités), pédagogie (glossaire, parcours, liens), bug basePath corrigé. Vérifié : `tsc` 0 erreur, build, export, outils testés.
 - [x] Passe exhaustive du 15/09 : fiches, modèles, composants jamais audités (couleurs Tailwind manquantes, liens fiches, grille, 404/offline noindex, zoom clavier, plan du site complété). Vérifié : `tsc` 0 erreur, build, export, navigateur.
-- [ ] Reste : robots.txt racine du domaine (hors dépôt), lecteur d'écran réel. Optionnel : eslint, e2e auto, i18n.
+- [x] Finitions techniques du 15/09 : hygiène (0 vuln), a11y (axe 0, reduced-motion, focus, h1), perf (Lighthouse ≥94, jspdf dynamique, export PDF réparé), SEO (JSON-LD + OG par page). Vérifié : `tsc` 0 erreur, build, export, navigateurs.
+- [ ] Reste : déploiement en ligne en retard (SW `v1.1.0` servi, dépôt en `v1.3.0`) — resynchroniser côté hébergement ; `robots.txt` racine du domaine (hors dépôt) ; checklist lecteur d'écran réel (NVDA) ; `target-size` des marqueurs Leaflet (clustering) ; bruit console `_rsc` (cosmétique connu). Optionnel : eslint, e2e auto, i18n.
 
 ## 🔴 important mais pas cassé
 

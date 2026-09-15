@@ -269,7 +269,7 @@ export default function CarbonCalculator() {
                 <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">Équivalences</h4>
                 <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                   <li>≈ {Math.round(totalFootprint / 0.12)} km en voiture</li>
-                  <li>≈ {Math.round(totalFootprint / 120)} vols Paris-New York</li>
+                  <li>≈ {Math.round(totalFootprint / 167)} aller-retours Paris-Marseille en avion</li>
                   <li>≈ {Math.round(totalFootprint / 0.9)} repas avec bœuf</li>
                 </ul>
               </div>

@@ -59,10 +59,10 @@ const co2BreakdownData = [
 // Data for Device Comparison
 const deviceComparisonData = [
   { device: "Smartphone", co2: 50, energy: 250, water: 12000 },
-  { device: "Tablette", co2: 75, energy: 350, water: 15000 },
+  { device: "Tablette", co2: 63, energy: 350, water: 15000 },
   { device: "Ordinateur portable", co2: 156, energy: 800, water: 20000 },
   { device: "Ordinateur fixe", co2: 296, energy: 1200, water: 30000 },
-  { device: 'Écran 24"', co2: 248, energy: 600, water: 18000 },
+  { device: 'Écran 24"', co2: 350, energy: 600, water: 18000 },
 ]
 
 // Data for Recycling Rates by Country
@@ -183,8 +183,8 @@ export default function ChiffresPage() {
             <div className="mt-6 rounded-lg bg-blue-50 dark:bg-blue-900/20 p-4">
               <p className="text-sm text-slate-700 dark:text-slate-300">
                 <strong>Analyse :</strong> La production mondiale de déchets électroniques a doublé en 15 ans, passant
-                de 34 Mt en 2010 à 72 Mt début 2026. En France, nous produisons environ 1,7 million de tonnes par an, soit
-                25 kg par habitant.
+                de 34 Mt en 2010 à 72 Mt début 2026. En France, nous produisons environ 1,6 million de tonnes par an, soit
+                24 kg par habitant.
               </p>
             </div>
           </Card>

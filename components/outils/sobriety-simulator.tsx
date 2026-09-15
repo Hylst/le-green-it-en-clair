@@ -37,8 +37,8 @@ export default function SobrietySimulator() {
     else if (scenario.streamingQuality === "1080p") optimizedImpact *= 0.95
 
     // Nettoyage emails
-    if (scenario.emailCleanup === "monthly") optimizedImpact *= 0.95
-    else if (scenario.emailCleanup === "weekly") optimizedImpact *= 0.92
+    if (scenario.emailCleanup === "monthly") optimizedImpact *= 0.99
+    else if (scenario.emailCleanup === "weekly") optimizedImpact *= 0.98
 
     // Stockage cloud
     if (scenario.cloudStorage === "optimize") optimizedImpact *= 0.93

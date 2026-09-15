@@ -23,9 +23,7 @@ export function GrowthAnimation() {
   }, [playing])
 
   const getValue = (year: number) => {
-    const baseValue = 33.8
-    const growth = 1.06
-    return (baseValue * Math.pow(growth, year - 2010)).toFixed(1)
+    return (33.8 + (year - 2010) * 2.4).toFixed(1)
   }
 
   // Linear scale calculation (0-100 Mt map to 250-50 px)

@@ -1,12 +1,19 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion"
 
 export function GrowthAnimation() {
+  const prefersReduced = usePrefersReducedMotion()
   const [year, setYear] = useState(2010)
   const [playing, setPlaying] = useState(true)
 
   useEffect(() => {
+    if (prefersReduced) {
+      setYear(2026)
+      setPlaying(false)
+      return
+    }
     if (!playing) return
 
     const interval = setInterval(() => {
@@ -20,7 +27,7 @@ export function GrowthAnimation() {
     }, 400)
 
     return () => clearInterval(interval)
-  }, [playing])
+  }, [playing, prefersReduced])
 
   const getValue = (year: number) => {
     return (33.8 + (year - 2010) * 2.6).toFixed(1)

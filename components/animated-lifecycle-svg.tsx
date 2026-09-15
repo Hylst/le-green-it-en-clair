@@ -1,16 +1,19 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion"
 
 export function AnimatedLifecycleSVG() {
+  const prefersReduced = usePrefersReducedMotion()
   const [activePhase, setActivePhase] = useState(0)
 
   useEffect(() => {
+    if (prefersReduced) return
     const interval = setInterval(() => {
       setActivePhase((prev) => (prev + 1) % 5)
     }, 3000)
     return () => clearInterval(interval)
-  }, [])
+  }, [prefersReduced])
 
   const phases = [
     { id: 0, name: "Extraction", cx: 100, cy: 200, color: "#f59e0b" },
@@ -93,11 +96,13 @@ export function AnimatedLifecycleSVG() {
         })}
 
         {/* Animated particle */}
-        <circle r="8" fill="#10b981" filter="url(#glow)">
-          <animateMotion dur="15s" repeatCount="indefinite">
-            <mpath href="#circlePath" />
-          </animateMotion>
-        </circle>
+        {!prefersReduced && (
+          <circle r="8" fill="#10b981" filter="url(#glow)">
+            <animateMotion dur="15s" repeatCount="indefinite">
+              <mpath href="#circlePath" />
+            </animateMotion>
+          </circle>
+        )}
         <path
           id="circlePath"
           d={`M ${phases[0].cx},${phases[0].cy} 

@@ -19,7 +19,7 @@ export default function PolitiqueNumeriquePage() {
                         <ArrowLeft className="h-4 w-4" />
                         Retour aux modèles
                     </Link>
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                         <div>
                             <p className="text-3xl font-bold text-white mb-2">Politique numérique responsable</p>
                             <p className="text-emerald-100">Document cadre - 8 pages</p>
@@ -116,7 +116,7 @@ export default function PolitiqueNumeriquePage() {
                         <p className="text-muted-foreground mb-4">
                             En priorité, chercher une solution reconditionnée pour tous les équipements standards.
                         </p>
-                        <table className="w-full text-sm">
+                        <div className="overflow-x-auto"><table className="w-full text-sm">
                             <thead className="border-b border-border">
                                 <tr>
                                     <th className="text-left pb-2 font-semibold text-foreground">Type d'équipement</th>
@@ -141,7 +141,7 @@ export default function PolitiqueNumeriquePage() {
                                     <td className="py-2">50 % minimum</td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table></div>
                     </Card>
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">1.2 Critères environnementaux obligatoires</h3>
@@ -182,7 +182,7 @@ export default function PolitiqueNumeriquePage() {
                     <p className="text-muted-foreground mb-4">
                         Adapter la puissance de l'équipement au besoin réel de l'utilisateur :
                     </p>
-                    <table className="w-full text-sm mb-6 border border-border">
+                    <div className="overflow-x-auto"><table className="w-full text-sm mb-6 border border-border">
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground">Profil utilisateur</th>
@@ -207,7 +207,7 @@ export default function PolitiqueNumeriquePage() {
                                 <td className="p-3">Portable léger ≤ 1.5 kg, autonomie ≥ 8h</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
                 </div>
 
                 {/* Section 2 - Cycle de vie */}
@@ -218,7 +218,7 @@ export default function PolitiqueNumeriquePage() {
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">2.1 Durée de vie cible</h3>
                     <Card className="p-6 mb-6">
-                        <table className="w-full text-sm">
+                        <div className="overflow-x-auto"><table className="w-full text-sm">
                             <thead className="border-b border-border">
                                 <tr>
                                     <th className="text-left pb-2 font-semibold text-foreground">Équipement</th>
@@ -253,7 +253,7 @@ export default function PolitiqueNumeriquePage() {
                                     <td className="py-2">8-10 ans</td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table></div>
                     </Card>
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">2.2 Maintenance et réparation</h3>
@@ -411,7 +411,7 @@ export default function PolitiqueNumeriquePage() {
                         5. Indicateurs de suivi
                     </h2>
 
-                    <table className="w-full text-sm mb-6 border border-border">
+                    <div className="overflow-x-auto"><table className="w-full text-sm mb-6 border border-border">
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground">Indicateur</th>
@@ -446,7 +446,7 @@ export default function PolitiqueNumeriquePage() {
                                 <td className="p-3">100 %</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
 
                     <Card className="p-6 bg-muted/5 border-border">
                         <h3 className="font-semibold text-foreground mb-3">Révision de la politique</h3>

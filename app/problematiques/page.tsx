@@ -741,7 +741,7 @@ export default function ProblematiquesPage() {
                     >
                       <Icon className="h-7 w-7 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">{category.category}</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100">{category.category}</h3>
                   </div>
                   <div className="grid gap-6 md:grid-cols-3">
                     {category.solutions.map((solution, idx) => (
@@ -773,7 +773,7 @@ export default function ProblematiquesPage() {
       {/* Recycling Rates */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
+          <h2 className="mb-12 break-words text-center text-2xl font-bold text-slate-900 dark:text-slate-100 sm:text-3xl lg:text-4xl">
             Taux de collecte des déchets électroniques en Europe (Eurostat/Ecosystem, 2024)
           </h2>
           <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-8 lg:p-12">
@@ -821,7 +821,7 @@ export default function ProblematiquesPage() {
                         <Icon className="h-7 w-7 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">{category.category}</h3>
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100">{category.category}</h3>
                         <p className="text-sm text-slate-600 dark:text-slate-400">Horizon : {category.timeframe}</p>
                       </div>
                     </div>

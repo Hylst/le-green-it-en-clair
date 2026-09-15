@@ -288,7 +288,7 @@ export default function ComprendrePage() {
                     {/* Connector Line */}
                     {index < lifecyclePhases.length - 1 && (
                       <div
-                        className={`absolute left-1/2 top-8 h-1 w-full transition-colors ${isPast ? "bg-primary" : "bg-muted"
+                        className={`absolute left-1/2 top-6 h-1 w-full transition-colors sm:top-8 ${isPast ? "bg-primary" : "bg-muted"
                           }`}
                       />
                     )}
@@ -298,7 +298,7 @@ export default function ComprendrePage() {
                       onClick={() => setSelectedPhase(index)}
                       aria-label={`Afficher la phase : ${phase.title}`}
                       aria-current={isActive ? "step" : undefined}
-                      className={`relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-4 transition-all ${isActive
+                      className={`relative z-10 flex h-12 w-12 items-center justify-center rounded-full border-4 transition-all sm:h-16 sm:w-16 ${isActive
                         ? "border-primary bg-primary shadow-lg scale-110"
                         : isPast
                           ? "border-primary bg-card"
@@ -306,7 +306,7 @@ export default function ComprendrePage() {
                         }`}
                     >
                       <Icon
-                        className={`h-7 w-7 ${isActive ? "text-primary-foreground" : isPast ? "text-primary" : "text-muted-foreground"
+                        className={`h-5 w-5 sm:h-7 sm:w-7 ${isActive ? "text-primary-foreground" : isPast ? "text-primary" : "text-muted-foreground"
                           }`}
                       />
                     </button>
@@ -370,7 +370,7 @@ export default function ComprendrePage() {
               <p className="text-muted-foreground leading-relaxed">{lifecyclePhases[selectedPhase].details}</p>
 
               {/* Navigation Buttons */}
-              <div className="mt-8 flex items-center justify-between">
+              <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
                 <Button
                   variant="outline"
                   onClick={() => setSelectedPhase(Math.max(0, selectedPhase - 1))}

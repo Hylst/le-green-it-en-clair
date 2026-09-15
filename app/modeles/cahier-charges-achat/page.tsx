@@ -18,7 +18,7 @@ export default function CahierChargesPage() {
                         <ArrowLeft className="h-4 w-4" />
                         Retour aux modèles
                     </Link>
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                         <div>
                             <p className="text-3xl font-bold text-white mb-2">Cahier des charges achat responsable</p>
                             <p className="text-emerald-100">Template pour appels d'offres IT - 18 pages</p>
@@ -115,7 +115,7 @@ export default function CahierChargesPage() {
                     </div>
 
                     <h3 className="text-xl font-semibold text-foreground mb-4 mt-6">1.3 Pondération des critères</h3>
-                    <table className="w-full text-sm border border-border">
+                    <div className="overflow-x-auto"><table className="w-full text-sm border border-border">
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground">Critère</th>
@@ -140,7 +140,7 @@ export default function CahierChargesPage() {
                                 <td className="p-3 font-semibold text-emerald-600">10 %</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
                 </div>
 
                 {/* Section 2 - Critères environnementaux */}
@@ -164,7 +164,7 @@ export default function CahierChargesPage() {
                     </Card>
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">2.2 Écoconception et durabilité</h3>
-                    <table className="w-full text-sm mb-6 border border-border">
+                    <div className="overflow-x-auto"><table className="w-full text-sm mb-6 border border-border">
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground">Critère</th>
@@ -199,7 +199,7 @@ export default function CahierChargesPage() {
                                 <td className="p-3">Open source : +2 pts</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">2.3 Empreinte carbone</h3>
                     <Card className="p-6 mb-6">
@@ -267,7 +267,7 @@ export default function CahierChargesPage() {
                     </Card>
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">3.2 Traçabilité de la chaîne d'approvisionnement</h3>
-                    <table className="w-full text-sm mb-6 border border-border">
+                    <div className="overflow-x-auto"><table className="w-full text-sm mb-6 border border-border">
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground">Élément</th>
@@ -297,7 +297,7 @@ export default function CahierChargesPage() {
                                 <td className="p-3">+3</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">3.3 Diversité et inclusion</h3>
                     <Card className="p-6">
@@ -317,7 +317,7 @@ export default function CahierChargesPage() {
                         4. Grille de notation RSE (total 100 points)
                     </h2>
 
-                    <table className="w-full text-sm border border-border mb-6">
+                    <div className="overflow-x-auto"><table className="w-full text-sm border border-border mb-6">
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground">Catégorie</th>
@@ -362,7 +362,7 @@ export default function CahierChargesPage() {
                                 <td className="p-3">8</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
 
                     <Card className="p-6 bg-muted/5 border-border">
                         <h3 className="font-semibold text-foreground mb-3">Seuils de notation</h3>
@@ -442,7 +442,7 @@ export default function CahierChargesPage() {
                     </Card>
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">6.2 Pénalités</h3>
-                    <table className="w-full text-sm border border-border mb-6">
+                    <div className="overflow-x-auto"><table className="w-full text-sm border border-border mb-6">
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground">Non-conformité</th>
@@ -467,7 +467,7 @@ export default function CahierChargesPage() {
                                 <td className="p-3">Résiliation possible du marché</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">6.3 Bonus de performance</h3>
                     <Card className="p-6 bg-muted/5 border-border">

@@ -89,7 +89,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["500g", "5 kg", "20 kg", "70 kg"],
     correctAnswer: 3,
     explanation:
-      "Il faut environ 70 kg de matières premières pour fabriquer un smartphone de 150g, soit 470 fois son poids.",
+      "Il faut environ 70 kg de matières premières pour fabriquer un smartphone de 150g, soit 467 fois son poids.",
     source: "ADEME 2019, La face cachée du numérique",
     points: 15,
   },
@@ -1087,7 +1087,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["1 kg", "10 kg", "50 kg", "200 kg"],
     correctAnswer: 3,
     explanation:
-      "On parle d'environ 200 kg de matières mobilisées (approche MIPS), et non de 200 kg de déchets miniers directement générés (ADEME).",
+      "L'approche MIPS compte toutes les matières mobilisées (environ 200 kg pour un smartphone), pas seulement celles qui finissent dans l'appareil (ADEME, 2019).",
     source: "ADEME 2019, La face cachée du numérique",
     points: 15,
   },

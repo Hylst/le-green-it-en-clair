@@ -376,7 +376,7 @@ export default function PerspectivesPage() {
             {opportunities.map((opportunity, index) => {
               const Icon = opportunity.icon
               return (
-                <Card key={index} className={`border-2 border-${opportunity.color}-500 bg-${opportunity.color}-50 p-6`}>
+                <Card key={index} className={`min-w-0 border-2 border-${opportunity.color}-500 bg-${opportunity.color}-50 p-6`}>
                   <div className="mb-4 flex items-start justify-between">
                     <div className="flex items-center gap-3">
                       <div
@@ -410,7 +410,7 @@ export default function PerspectivesPage() {
             {risks.map((risk, index) => {
               const Icon = risk.icon
               return (
-                <Card key={index} className={`border-2 border-${risk.color}-500 bg-${risk.color}-50 p-6`}>
+                <Card key={index} className={`min-w-0 border-2 border-${risk.color}-500 bg-${risk.color}-50 p-6`}>
                   <div className="mb-4 flex items-start justify-between">
                     <div className="flex items-center gap-3">
                       <div

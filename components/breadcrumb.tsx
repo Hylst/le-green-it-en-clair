@@ -79,7 +79,7 @@ export function Breadcrumb() {
         aria-label="Fil d'Ariane"
       >
       <div className="container mx-auto px-4 py-3">
-        <ol className="flex items-center gap-2 text-sm">
+        <ol className="flex flex-wrap items-center gap-2 text-sm">
           <li>
             <Link
               href="/"
@@ -98,7 +98,7 @@ export function Breadcrumb() {
               <li key={href} className="flex items-center gap-2">
                 <ChevronRight className="w-4 h-4 text-slate-400" />
                 {isLast ? (
-                  <span suppressHydrationWarning className="font-medium text-emerald-700 dark:text-emerald-400">{label}</span>
+                  <span suppressHydrationWarning className="break-words font-medium text-emerald-700 dark:text-emerald-400">{label}</span>
                 ) : (
                   <Link
                     href={href}

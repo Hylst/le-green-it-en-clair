@@ -280,7 +280,7 @@ export default function ChiffresPage() {
               <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-slate-100">Comparaison par appareil</h2>
               <p className="text-slate-600 dark:text-slate-400">Impact environnemental de la fabrication selon le type d'équipement</p>
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <Button
                 variant={selectedMetric === "co2" ? "default" : "outline"}
                 onClick={() => setSelectedMetric("co2")}

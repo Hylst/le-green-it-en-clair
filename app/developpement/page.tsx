@@ -197,7 +197,7 @@ export default function DeveloppementPage() {
           </div>
 
           <div className="grid md:grid-cols-4 gap-6 mt-12">
-            <Card className="border-primary/20 bg-card">
+            <Card className="min-w-0 border-primary/20 bg-card">
               <CardContent className="pt-6">
                 <div className="text-3xl font-bold text-primary mb-2">30-70 %</div>
                 <div className="text-sm text-muted-foreground">
@@ -213,7 +213,7 @@ export default function DeveloppementPage() {
                 </div>
               </CardContent>
             </Card>
-            <Card className="border-primary/20 bg-card">
+            <Card className="min-w-0 border-primary/20 bg-card">
               <CardContent className="pt-6">
                 <div className="text-3xl font-bold text-primary mb-2">552 tonnes</div>
                 <div className="text-sm text-muted-foreground">CO₂ émis pour entraîner GPT-3 (équivalent 120 voitures/an)</div>
@@ -419,7 +419,7 @@ export default function DeveloppementPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <Card className="border-destructive/20 bg-card">
+            <Card className="min-w-0 border-destructive/20 bg-card">
               <CardHeader>
                 <CardTitle className="text-destructive flex items-center gap-2">
                   <XCircle className="w-5 h-5" />
@@ -443,7 +443,7 @@ res.json(users) // 10 MB de données`}
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20 bg-card">
+            <Card className="min-w-0 border-primary/20 bg-card">
               <CardHeader>
                 <CardTitle className="text-primary flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5" />
@@ -825,7 +825,7 @@ res.json(users) // 150 KB compressé`}
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <Card className="border-primary/20 bg-card">
+            <Card className="min-w-0 border-primary/20 bg-card">
               <CardHeader>
                 <CardTitle className="text-primary">Avantages CDN</CardTitle>
               </CardHeader>
@@ -859,7 +859,7 @@ res.json(users) // 150 KB compressé`}
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20 bg-card">
+            <Card className="min-w-0 border-primary/20 bg-card">
               <CardHeader>
                 <CardTitle className="text-primary">CDN recommandés</CardTitle>
               </CardHeader>
@@ -881,7 +881,7 @@ res.json(users) // 150 KB compressé`}
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20 bg-card">
+            <Card className="min-w-0 border-primary/20 bg-card">
               <CardHeader>
                 <CardTitle className="text-primary">À mettre en cache</CardTitle>
               </CardHeader>
@@ -975,7 +975,7 @@ module.exports = {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <Card className="border-destructive/20 bg-card">
+            <Card className="min-w-0 border-destructive/20 bg-card">
               <CardHeader>
                 <CardTitle className="text-destructive flex items-center gap-2">
                   <Server className="w-5 h-5" />
@@ -1000,7 +1000,7 @@ module.exports = {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20 bg-card">
+            <Card className="min-w-0 border-primary/20 bg-card">
               <CardHeader>
                 <CardTitle className="text-primary flex items-center gap-2">
                   <Zap className="w-5 h-5" />

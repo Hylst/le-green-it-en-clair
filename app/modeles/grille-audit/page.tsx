@@ -18,7 +18,7 @@ export default function GrilleAuditPage() {
                         <ArrowLeft className="h-4 w-4" />
                         Retour aux modèles
                     </Link>
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                         <div>
                             <p className="text-3xl font-bold text-white mb-2">Grille d'Audit Green IT</p>
                             <p className="text-emerald-100">26 critères d'évaluation pour démarrer</p>
@@ -80,7 +80,7 @@ export default function GrilleAuditPage() {
                         Axe 1 : Gouvernance et stratégie (5 critères)
                     </h2>
 
-                    <table className="w-full text-sm border border-border mb-6">
+                    <div className="overflow-x-auto"><table className="w-full text-sm border border-border mb-6">
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground w-12">#</th>
@@ -115,7 +115,7 @@ export default function GrilleAuditPage() {
                                 <td className="p-3">☐ 0 ☐ 1 ☐ 2 ☐ 3</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
 
                     <Card className="p-4 bg-muted/5 border-border">
                         <p className="text-sm text-muted-foreground">
@@ -133,7 +133,7 @@ export default function GrilleAuditPage() {
                         Axe 2 : Équipements et infrastructure (6 critères)
                     </h2>
 
-                    <table className="w-full text-sm border border-border mb-6">
+                    <div className="overflow-x-auto"><table className="w-full text-sm border border-border mb-6">
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground w-12">#</th>
@@ -173,7 +173,7 @@ export default function GrilleAuditPage() {
                                 <td className="p-3">☐ 0 ☐ 1 ☐ 2 ☐ 3</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
 
                     <Card className="p-4 bg-muted/5 border-border">
                         <p className="text-sm text-muted-foreground">
@@ -188,7 +188,7 @@ export default function GrilleAuditPage() {
                         Axe 3 : Usages et pratiques (5 critères)
                     </h2>
 
-                    <table className="w-full text-sm border border-border mb-6">
+                    <div className="overflow-x-auto"><table className="w-full text-sm border border-border mb-6">
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground w-12">#</th>
@@ -223,7 +223,7 @@ export default function GrilleAuditPage() {
                                 <td className="p-3">☐ 0 ☐ 1 ☐ 2 ☐ 3</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
 
                     <Card className="p-4 bg-muted/5 border-border">
                         <p className="text-sm text-muted-foreground">
@@ -238,7 +238,7 @@ export default function GrilleAuditPage() {
                         Axe 4 : Services numériques et SI (5 critères)
                     </h2>
 
-                    <table className="w-full text-sm border border-border mb-6">
+                    <div className="overflow-x-auto"><table className="w-full text-sm border border-border mb-6">
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground w-12">#</th>
@@ -273,7 +273,7 @@ export default function GrilleAuditPage() {
                                 <td className="p-3">☐ 0 ☐ 1 ☐ 2 ☐ 3</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
 
                     <Card className="p-4 bg-muted/5 border-border">
                         <p className="text-sm text-muted-foreground">
@@ -288,7 +288,7 @@ export default function GrilleAuditPage() {
                         Axe 5 : Sensibilisation et formation (5 critères)
                     </h2>
 
-                    <table className="w-full text-sm border border-border mb-6">
+                    <div className="overflow-x-auto"><table className="w-full text-sm border border-border mb-6">
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground w-12">#</th>
@@ -323,7 +323,7 @@ export default function GrilleAuditPage() {
                                 <td className="p-3">☐ 0 ☐ 1 ☐ 2 ☐ 3</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
 
                     <Card className="p-4 bg-muted/5 border-border">
                         <p className="text-sm text-muted-foreground">
@@ -336,7 +336,7 @@ export default function GrilleAuditPage() {
                 <Card className="p-8 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 border-2 border-emerald-300 dark:border-emerald-700 mb-12">
                     <h2 className="text-2xl font-bold text-foreground mb-6 text-center">Calcul du score global</h2>
 
-                    <table className="w-full text-sm mb-6">
+                    <div className="overflow-x-auto"><table className="w-full text-sm mb-6">
                         <thead className="border-b-2 border-emerald-600">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground">Axe</th>
@@ -376,7 +376,7 @@ export default function GrilleAuditPage() {
                                 <td className="p-3">78</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
 
                     <div className="grid md:grid-cols-4 gap-4 mt-6">
                         <Card className="p-4 text-center bg-red-50 dark:bg-red-950/20 border-red-300">
@@ -406,7 +406,7 @@ export default function GrilleAuditPage() {
                         et priorisez-les dans votre roadmap Green IT.
                     </p>
 
-                    <table className="w-full text-sm border border-border">
+                    <div className="overflow-x-auto"><table className="w-full text-sm border border-border">
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground">Critère prioritaire</th>
@@ -441,7 +441,7 @@ export default function GrilleAuditPage() {
                                 <td className="p-3">_____________</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
                 </Card>
 
                 {/* Footer */}

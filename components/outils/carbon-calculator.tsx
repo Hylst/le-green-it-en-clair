@@ -286,7 +286,7 @@ export default function CarbonCalculator() {
               </div>
             </div>
 
-            <div className="flex gap-2 mt-6">
+            <div className="flex flex-wrap gap-2 mt-6">
               <Button
                 className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
                 variant="outline"

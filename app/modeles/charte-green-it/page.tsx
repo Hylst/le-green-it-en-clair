@@ -19,7 +19,7 @@ export default function CharteGreenITPage() {
                         <ArrowLeft className="h-4 w-4" />
                         Retour aux modèles
                     </Link>
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                         <div>
                             <p className="text-3xl font-bold text-white mb-2">Charte Green IT pour entreprises</p>
                             <p className="text-emerald-100">Document complet - 12 pages</p>
@@ -217,7 +217,7 @@ export default function CharteGreenITPage() {
                         <p className="text-muted-foreground mb-4">
                             Un comité Green IT est créé pour piloter la démarche. Il est composé de :
                         </p>
-                        <table className="w-full text-sm">
+                        <div className="overflow-x-auto"><table className="w-full text-sm">
                             <thead className="border-b border-border">
                                 <tr className="text-left">
                                     <th className="pb-2 font-semibold text-foreground">Rôle</th>
@@ -242,7 +242,7 @@ export default function CharteGreenITPage() {
                                     <td className="py-3">Relais dans les équipes et remontée besoins</td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table></div>
                     </Card>
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">3.2 Rôles et responsabilités</h3>
@@ -262,7 +262,7 @@ export default function CharteGreenITPage() {
                     </h2>
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">4.1 Axe 1 : Équipements</h3>
-                    <table className="w-full text-sm mb-6 border border-border">
+                    <div className="overflow-x-auto"><table className="w-full text-sm mb-6 border border-border">
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground">Action</th>
@@ -292,7 +292,7 @@ export default function CharteGreenITPage() {
                                 <td className="p-3">Année 1</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">4.2 Axe 2 : Usages</h3>
                     <div className="space-y-3 mb-6">
@@ -342,7 +342,7 @@ export default function CharteGreenITPage() {
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">5.1 Indicateurs clés de performance</h3>
 
-                    <table className="w-full text-sm mb-6 border border-border">
+                    <div className="overflow-x-auto"><table className="w-full text-sm mb-6 border border-border">
                         <thead className="bg-secondary">
                             <tr>
                                 <th className="p-3 text-left font-semibold text-foreground">Indicateur</th>
@@ -377,7 +377,7 @@ export default function CharteGreenITPage() {
                                 <td className="p-3">100 %</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">5.2 Reporting et révision</h3>
                     <Card className="p-6">

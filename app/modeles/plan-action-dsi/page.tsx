@@ -18,7 +18,7 @@ export default function PlanActionDSIPage() {
                         <ArrowLeft className="h-4 w-4" />
                         Retour aux modèles
                     </Link>
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                         <div>
                             <p className="text-3xl font-bold text-white mb-2">Plan d'Action DSI Numérique Responsable</p>
                             <p className="text-emerald-100">Roadmap 36 mois</p>
@@ -171,7 +171,7 @@ export default function PlanActionDSIPage() {
                     <div className="space-y-6">
                         <Card className="p-6">
                             <h3 className="text-xl font-semibold text-foreground mb-4">Actions majeures</h3>
-                            <table className="w-full text-sm">
+                            <div className="overflow-x-auto"><table className="w-full text-sm">
                                 <thead className="border-b border-border">
                                     <tr className="text-left">
                                         <th className="pb-2 font-semibold text-foreground">Trimestre</th>
@@ -201,7 +201,7 @@ export default function PlanActionDSIPage() {
                                         <td className="py-3">40k€</td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table></div>
                         </Card>
 
                         <Card className="p-6 bg-muted/5 border-border">
@@ -290,7 +290,7 @@ export default function PlanActionDSIPage() {
                 <Card className="p-8 mb-12 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 border-2 border-blue-300">
                     <h2 className="text-2xl font-bold text-foreground mb-6">Budget prévisionnel 3 ans</h2>
 
-                    <table className="w-full mb-6">
+                    <div className="overflow-x-auto"><table className="w-full mb-6">
                         <thead className="border-b-2 border-blue-600">
                             <tr className="text-left">
                                 <th className="p-3 font-semibold text-foreground">Année</th>
@@ -325,7 +325,7 @@ export default function PlanActionDSIPage() {
                                 <td className="p-3 text-emerald-600">26 % global</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
 
                     <p className="text-sm text-muted-foreground italic">
                         * Économies issues de : prolongation durée de vie, baisse consommation électrique,
@@ -337,7 +337,7 @@ export default function PlanActionDSIPage() {
                 <Card className="p-8 mb-12">
                     <h2 className="text-2xl font-bold text-foreground mb-6">Tableau de bord des KPIs</h2>
 
-                    <table className="w-full text-sm border border-border">
+                    <div className="overflow-x-auto"><table className="w-full text-sm border border-border">
                         <thead className="bg-secondary">
                             <tr className="text-left">
                                 <th className="p-3 font-semibold text-foreground">Indicateur</th>
@@ -384,7 +384,7 @@ export default function PlanActionDSIPage() {
                                 <td className="p-3">Continu</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
                 </Card>
 
                 {/* Risques */}

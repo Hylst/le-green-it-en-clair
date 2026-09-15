@@ -40,9 +40,9 @@ export function VisualAnalogy({ title, description, visual, color = "emerald" }:
       <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
         {visual.items.map((item, index) => (
           <div key={index} className="text-center">
-            <div className="mb-2 flex items-center justify-center gap-1">
+            <div className="mb-2 flex flex-wrap items-center justify-center gap-1">
               {Array.from({ length: Math.min(item.count, 10) }).map((_, i) => (
-                <span key={i} className="text-3xl">
+                <span key={i} className="text-2xl sm:text-3xl">
                   {item.icon}
                 </span>
               ))}

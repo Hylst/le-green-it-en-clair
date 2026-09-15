@@ -18,7 +18,7 @@ export default function KitSensibilisationPage() {
                         <ArrowLeft className="h-4 w-4" />
                         Retour aux modèles
                     </Link>
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                         <div>
                             <p className="text-3xl font-bold text-white mb-2">Kit de Sensibilisation Green IT</p>
                             <p className="text-emerald-100">Pack complet formation collaborateurs</p>

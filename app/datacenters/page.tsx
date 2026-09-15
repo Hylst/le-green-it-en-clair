@@ -374,7 +374,7 @@ export default function DatacentersPage() {
           </h2>
           <div className="grid gap-6 md:grid-cols-2">
             {coolingMethods.map((method, index) => (
-              <Card key={index} className={`border-2 border-${method.color}-500 bg-${method.color}-50 p-6`}>
+              <Card key={index} className={`min-w-0 border-2 border-${method.color}-500 bg-${method.color}-50 p-6`}>
                 <div className="mb-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-${method.color}-600`}>

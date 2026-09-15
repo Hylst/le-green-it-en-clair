@@ -81,7 +81,7 @@ const risks = [
     icon: TrendingUp,
     color: "amber",
     description:
-      "Le trafic internet double tous les 3 ans. Sans action, l'empreinte carbone du numérique pourrait tripler d'ici 2040.",
+      "Le trafic internet augmente d'environ 13 % par an en France (Arcep 2024). Sans action, l'empreinte carbone du numérique pourrait tripler d'ici 2050 (ADEME-Arcep 2023).",
     impact: "Critique",
   },
   {
@@ -89,7 +89,7 @@ const risks = [
     icon: Zap,
     color: "orange",
     description:
-      "Une requête ChatGPT consomme 10x plus d'énergie qu'une recherche Google. La démocratisation de l'IA augmente drastiquement la consommation.",
+      "Une requête en texte simple consomme environ 0,3 Wh, proche d'une recherche Google ; les usages de raisonnement, d'image ou de vidéo peuvent monter de ×10 à ×100 (Arcep 2026, Epoch AI 2025). La démocratisation de l'IA augmente donc fortement la consommation.",
     impact: "Élevé",
   },
   {
@@ -135,7 +135,7 @@ const solutions2030 = [
       "Sobriété numérique enseignée dès l'école",
       "Limitation volontaire du streaming HD",
       "Réparation devenue réflexe culturel",
-      "Cloud personnel plutôt que services centralisés",
+      "Hébergement mutualisé optimisé plutôt que services surdimensionnés",
     ],
   },
 ]
@@ -212,7 +212,7 @@ export default function PerspectivesPage() {
                 <h3 className="text-xl font-bold text-slate-900">Scénario tendanciel</h3>
               </div>
               <p className="mb-4 text-sm text-slate-700">
-                <strong>+233% d'ici 2040</strong> - Continuation des tendances actuelles sans changement majeur.
+                <strong>Scénario illustratif : ×3 d'ici 2050</strong> - Si les tendances actuelles se poursuivent, l'empreinte du numérique pourrait tripler d'ici 2050 (ADEME-Arcep 2023).
               </p>
               <ul className="space-y-2 text-sm text-slate-700">
                 <li className="flex gap-2">
@@ -468,8 +468,8 @@ export default function PerspectivesPage() {
                 <div>
                   <h3 className="mb-2 font-semibold text-slate-900">L'avenir n'est pas écrit</h3>
                   <p className="text-sm text-slate-700">
-                    Nous avons le choix entre un scénario catastrophe (+233%) et un scénario sobre (-43%). Chaque action
-                    compte.
+                    Nous avons le choix entre un scénario tendanciel (×3 d'ici 2050, ADEME-Arcep 2023) et un scénario de sobriété
+                    (scénario illustratif du site). Chaque action compte.
                   </p>
                 </div>
               </div>

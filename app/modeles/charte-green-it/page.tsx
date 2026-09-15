@@ -102,8 +102,8 @@ export default function CharteGreenITPage() {
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">1.1 Contexte</h3>
                     <p className="mb-4 text-muted-foreground">
-                        Le numérique représente aujourd'hui environ 4% des émissions mondiales de gaz à effet de serre, un chiffre en constante augmentation.
-                        En France, le secteur numérique génère 2,5% des émissions nationales de CO2, soit 17 millions de tonnes équivalent CO2 par an.
+                        Le numérique représente aujourd'hui environ 3,4 % des émissions mondiales de gaz à effet de serre, soit 1,8 Gt CO2e (GreenIT EENM 2025).
+                        En France, le secteur numérique génère environ 2,5 % des émissions nationales (ADEME-Arcep 2023).
                     </p>
                     <p className="mb-6 text-muted-foreground">
                         Face à cette réalité et dans le cadre de notre engagement pour la transition écologique, [NOM DE L'ENTREPRISE] s'engage

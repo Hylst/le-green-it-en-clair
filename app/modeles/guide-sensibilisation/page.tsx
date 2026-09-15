@@ -72,14 +72,14 @@ export default function KitSensibilisationPage() {
                                 <span className="font-bold text-emerald-600 min-w-[30px]">2.</span>
                                 <div>
                                     <h4 className="font-semibold text-foreground">Les chiffres clés (5 min)</h4>
-                                    <p className="text-sm text-muted-foreground">4% émissions mondiales, 2.5% en France, 53 millions de smartphones jetés/an</p>
+                                    <p className="text-sm text-muted-foreground">3,4 % des émissions mondiales (EENM 2025), 2,5 % en France, 100 M d'appareils qui dorment dans les tiroirs (ADEME 2026)</p>
                                 </div>
                             </li>
                             <li className="flex gap-3">
                                 <span className="font-bold text-emerald-600 min-w-[30px]">3.</span>
                                 <div>
                                     <h4 className="font-semibold text-foreground">Phase de fabrication (7 min)</h4>
-                                    <p className="text-sm text-muted-foreground">78% de l'impact, terres rares, eau, énergie</p>
+                                    <p className="text-sm text-muted-foreground">75 % de l'impact, terres rares, eau, énergie</p>
                                 </div>
                             </li>
                             <li className="flex gap-3">
@@ -157,14 +157,14 @@ export default function KitSensibilisationPage() {
                             <p className="text-muted-foreground mb-3">Quelle part du numérique dans les émissions mondiales de CO₂ ?</p>
                             <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li>A. 1%</li>
-                                <li>B. 4% ✓ (Bonne réponse)</li>
+                                <li>B. Environ 3,4 % ✓ (Bonne réponse)</li>
                                 <li>C. 10%</li>
                             </ul>
                         </Card>
 
                         <Card className="p-6">
                             <h4 className="font-semibold text-foreground mb-3">Question 2 : Phase la plus polluante</h4>
-                            <p className="text-muted-foreground mb-3">Quelle phase représente 78% de l'impact d'un smartphone ?</p>
+                            <p className="text-muted-foreground mb-3">Quelle phase représente environ 75 % de l'impact d'un smartphone ?</p>
                             <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li>A. Utilisation</li>
                                 <li>B. Fabrication ✓ (Bonne réponse)</li>
@@ -221,7 +221,7 @@ export default function KitSensibilisationPage() {
                             <div className="text-center">
                                 <div className="text-4xl mb-3">📱</div>
                                 <h3 className="text-xl font-bold text-foreground mb-4">Affiche #2 : Smartphone</h3>
-                                <div className="text-6xl font-bold text-blue-600 mb-2">78%</div>
+                                <div className="text-6xl font-bold text-blue-600 mb-2">75%</div>
                                 <p className="text-sm text-muted-foreground mb-4">de l'impact = fabrication</p>
                                 <div className="text-left text-sm text-muted-foreground space-y-2">
                                     <p>🔹 Gardez-le 5 ans minimum</p>
@@ -236,7 +236,7 @@ export default function KitSensibilisationPage() {
                                 <div className="text-4xl mb-3">🎥</div>
                                 <h3 className="text-xl font-bold text-foreground mb-4">Affiche #3 : Visio</h3>
                                 <div className="text-6xl font-bold text-purple-600 mb-2">-80%</div>
-                                <p className="text-sm text-muted-foreground mb-4">en coupant la caméra</p>
+                                <p className="text-sm text-muted-foreground mb-4">de bande passante en coupant la caméra</p>
                                 <div className="text-left text-sm text-muted-foreground space-y-2">
                                     <p>🔹 Caméra OFF si non nécessaire</p>
                                     <p>🔹 Audio pour réunions simples</p>

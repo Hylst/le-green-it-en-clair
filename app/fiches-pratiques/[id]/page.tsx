@@ -26,14 +26,14 @@ const sheets: Record<string, any> = {
         title: "2. Éteindre complètement la nuit",
         content: "Un appareil en veille consomme encore 5-10W. Sur un an, c'est 40-80 kWh gaspillés.",
         tips: [
-          "Éteignez votre box internet la nuit (économie de 65 kWh/an)",
+          "Éteignez votre box internet la nuit (économie de ~26 kWh/an)",
           "Débranchez les chargeurs (ils consomment même sans appareil)",
           "Utilisez une multiprise avec interrupteur",
         ],
       },
       {
         title: "3. Limiter le streaming vidéo HD",
-        content: "1h de streaming en 4K = 6,5 Go de données transférées = 370g de CO₂. En 720p : seulement 50g de CO₂.",
+        content: "1h de streaming en 4K transfère environ 7 Go et émet plusieurs centaines de grammes de CO₂ selon le mix électrique. En 720p, l'impact est nettement plus faible.",
         tips: [
           "Privilégiez la qualité standard (720p) plutôt que HD/4K",
           "Téléchargez les contenus regardés plusieurs fois",
@@ -52,7 +52,7 @@ const sheets: Record<string, any> = {
       },
       {
         title: "5. Privilégier le Wi-Fi à la 4G/5G",
-        content: "La 4G/5G consomme 20x plus d'énergie que le Wi-Fi pour transférer la même quantité de données.",
+        content: "La 4G/5G consomme environ 4 à 5 fois plus d'énergie que le Wi-Fi en streaming, pour la même quantité de données.",
         tips: [
           "Activez le Wi-Fi dès que disponible",
           "Désactivez les données mobiles à la maison",
@@ -71,9 +71,9 @@ const sheets: Record<string, any> = {
       {
         title: "7. Acheter reconditionné",
         content:
-          "Un appareil reconditionné a un impact 75% inférieur au neuf. En France, 2,5 millions d'appareils reconditionnés vendus en 2024.",
+          "Un appareil reconditionné a un impact environ 75 % inférieur au neuf (ADEME 2022).",
         tips: [
-          "Vérifiez la garantie (minimum 6 mois)",
+          "Vérifiez la garantie légale (2 ans, défauts présumés pendant 24 mois)",
           "Privilégiez les acteurs certifiés (BackMarket, Recommerce, etc.)",
           "Consultez l'indice de réparabilité avant l'achat",
         ],
@@ -92,7 +92,7 @@ const sheets: Record<string, any> = {
     duration: "10 minutes de lecture",
     impact: "75% d'économie d'impact vs un appareil neuf",
     image: "/greenit/comparison-chart-new-vs-refurbished-vs-repaire.webp",
-    date: "5 Mars 2025",
+    date: "5 Mars 2026",
     sections: [
       {
         title: "Évaluer le besoin réel",
@@ -107,7 +107,7 @@ const sheets: Record<string, any> = {
       {
         title: "Prioriser le reconditionné",
         content:
-          "Impact réduit de 75%, prix -30 à -70%, garantie légale de conformité. Le marché représente 2,5 milliards € en 2024.",
+          "Impact réduit de 75%, prix -30 à -70%, garantie légale de conformité (2 ans).",
         tips: [
           "Grade A : comme neuf, très légers défauts esthétiques",
           "Grade B : bon état, quelques rayures visibles",
@@ -120,7 +120,7 @@ const sheets: Record<string, any> = {
           "Obligatoire en France depuis 2021. Note sur 10 indiquant la facilité de réparation (disponibilité pièces, documentation, prix).",
         tips: [
           "Visez minimum 7/10 pour un appareil durable",
-          "Consultez sur quefaire.fr ou sur l'étiquette en magasin",
+          "Consultez sur quefairedemesdechets.ademe.fr ou sur l'étiquette en magasin",
           "Critères : démontage, pièces détachées, prix des réparations",
         ],
       },
@@ -135,7 +135,7 @@ const sheets: Record<string, any> = {
       },
       {
         title: "Comparer l'impact environnemental",
-        content: "Certains fabricants communiquent l'empreinte carbone. Un smartphone moyen émet 50-80 kg CO₂.",
+        content: "Certains fabricants communiquent l'empreinte carbone. Un smartphone moyen émet 40 à 70 kg CO₂e sur son cycle de vie selon le modèle (Base Empreinte 2024).",
         tips: [
           "Cherchez les labels environnementaux (TCO, EPEAT, Blue Angel)",
           "Privilégiez les marques transparentes sur leur chaîne d'approvisionnement",
@@ -145,7 +145,7 @@ const sheets: Record<string, any> = {
     ],
     resources: [
       "Comparateur d'appareils : /outils",
-      "Indice de réparabilité : quefaire.fr",
+      "Indice de réparabilité : quefairedemesdechets.ademe.fr",
       "Acteurs du reconditionné : /recyclage",
     ],
   },
@@ -156,7 +156,7 @@ const sheets: Record<string, any> = {
     duration: "15 minutes de lecture",
     impact: "Sites 3-5x plus légers, temps de chargement -60%",
     image: "/greenit/clean-efficient-code-on-screen-with-green-energy-s.webp",
-    date: "15 Mars 2025",
+    date: "15 Mars 2026",
     sections: [
       {
         title: "Optimiser les algorithmes",
@@ -170,7 +170,7 @@ const sheets: Record<string, any> = {
       },
       {
         title: "Choisir les bons langages",
-        content: "C consomme 57x moins que Python. Pour le web : Rust, Go, Java, puis Node.js, PHP, Python.",
+        content: "C consomme environ 76x moins que Python (Pereira et al. 2017, benchmark précis). Pour le web : Rust, Go, Java, puis Node.js, PHP, Python.",
         tips: [
           "Frontend : JavaScript natif > frameworks lourds",
           "Backend : Rust, Go pour haute performance",
@@ -179,7 +179,7 @@ const sheets: Record<string, any> = {
       },
       {
         title: "Minimiser les transferts de données",
-        content: "Chaque Mo transféré émet 20g CO₂. Le site web moyen fait 2,5 Mo, l'optimal est < 500 Ko.",
+        content: "Chaque Mo transféré émet environ 0,1 g CO₂ (SWD v4, mix mondial). Le site web moyen fait 2,5 Mo, l'optimal est < 500 Ko.",
         tips: [
           "Compressez les images (WebP, AVIF plutôt que JPG/PNG)",
           "Minifiez CSS, JS, HTML en production",
@@ -240,7 +240,7 @@ const sheets: Record<string, any> = {
     duration: "8 minutes de lecture",
     impact: "Réduction de 50% de l'impact écologique annuel",
     image: "/greenit/person-repairing-smartphone-with-tools.webp",
-    date: "20 Mars 2025",
+    date: "20 Mars 2026",
     sections: [
       {
         title: "1. Pourquoi réparer plutôt que changer ?",
@@ -311,7 +311,7 @@ const sheets: Record<string, any> = {
     duration: "20 minutes de lecture",
     impact: "Réduction de 40% à 60% de l'empreinte carbone IT",
     image: "/greenit/images/fiches/green-it-entreprise.webp",
-    date: "25 Mars 2025",
+    date: "25 Mars 2026",
     sections: [
       {
         title: "1. Mesurer pour agir : le diagnostic initial",
@@ -379,17 +379,17 @@ const sheets: Record<string, any> = {
     subtitle: "Où et comment recycler vos appareils en toute responsabilité",
     target: "Tous publics",
     duration: "5 minutes de lecture",
-    impact: "Taux de recyclage de 85% des matériaux",
+    impact: "Taux de recyclage de 79 % des DEEE collectés",
     image: "/greenit/images/recycling-electronics.webp",
-    date: "30 Mars 2025",
+    date: "30 Mars 2026",
     sections: [
       {
         title: "1. Pourquoi recycler ses appareils électroniques ?",
         content:
           "Un smartphone contient 70 matériaux différents dont des métaux rares (or, argent, cuivre, terres rares). Le recyclage permet de les récupérer et d'éviter la pollution.",
         tips: [
-          "Évite 20 kg de CO₂ par appareil recyclé correctement",
-          "Récupère jusqu'à 85% des matériaux pour fabriquer de nouveaux produits",
+          "Évite d'extraire de nouvelles matières (ordre de grandeur : ~2 kg de CO₂ par smartphone recyclé, comme dans le guide PDF)",
+          "Récupère une grande partie des matériaux pour fabriquer de nouveaux produits (~79 % des DEEE collectés sont recyclés ou réutilisés, Ecosystem 2024)",
           "Empêche les substances toxiques (plomb, mercure) de polluer les sols",
         ],
       },
@@ -453,7 +453,7 @@ const sheets: Record<string, any> = {
     duration: "10 minutes de lecture",
     impact: "Réduction de 30% à 50% des émissions liées à l'hébergement",
     image: "/greenit/modern-green-datacenter-with-solar-panels.webp",
-    date: "5 Avril 2025",
+    date: "5 Avril 2026",
     sections: [
       {
         title: "1. Les 3 critères pour choisir un hébergeur vert",
@@ -514,7 +514,7 @@ const sheets: Record<string, any> = {
     duration: "15 minutes de lecture",
     impact: "Conformité légale et exemplarité publique",
     image: "/greenit/city-hall-with-sustainable-technology-infrastructu.webp",
-    date: "12 Avril 2025",
+    date: "12 Avril 2026",
     sections: [
       {
         title: "1. Le cadre légal : Comprendre la loi REEN",

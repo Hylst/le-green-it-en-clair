@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 
 export const PDF_COLORS = {
-  primary: [5, 150, 105], // emerald-600
-  secondary: [16, 185, 129], // emerald-500
-  text: [30, 41, 59], // slate-800
-  lightText: [100, 116, 139], // slate-500
-  bg: [248, 250, 252], // slate-50
+  primary: [5, 150, 105] as [number, number, number], // emerald-600
+  secondary: [16, 185, 129] as [number, number, number], // emerald-500
+  text: [30, 41, 59] as [number, number, number], // slate-800
+  lightText: [100, 116, 139] as [number, number, number], // slate-500
+  bg: [248, 250, 252] as [number, number, number], // slate-50
 }
 
 interface LabeledSliderProps {

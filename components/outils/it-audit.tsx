@@ -5,8 +5,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import jsPDF from "jspdf";
-import "jspdf-autotable";
 import { ClipboardCheck, Download, RotateCcw } from "lucide-react";
 import { LabeledSlider, PDF_COLORS } from "./shared";
 
@@ -132,7 +130,9 @@ export default function ITAudit() {
     return { grade: "E", color: "text-red-600 dark:text-red-400", label: "Critique" }
   }
 
-  const exportPDF = () => {
+  const exportPDF = async () => {
+    const { default: jsPDF } = await import("jspdf")
+    const { autoTable } = await import("jspdf-autotable")
     const doc = new jsPDF()
     const auditResults = calculateResults()
     const scoreGrade = getScoreGrade(auditResults.ecoScore)
@@ -173,8 +173,7 @@ export default function ITAudit() {
       item.co2.toFixed(1) + " kg"
     ])
 
-    // @ts-ignore
-    doc.autoTable({
+    autoTable(doc, {
       startY: 90,
       head: [["Équipement", "Nombre", "Âge moyen", "Impact CO2/an"]],
       body: tableData,
@@ -195,7 +194,7 @@ export default function ITAudit() {
 
     // Recommendations
     // @ts-ignore
-    const finalY = doc.lastAutoTable.finalY + 15
+    const finalY = (doc as any).lastAutoTable.finalY + 15
     doc.setTextColor(PDF_COLORS.text[0], PDF_COLORS.text[1], PDF_COLORS.text[2])
     doc.setFontSize(16)
     doc.text("Recommandations prioritaires", 20, finalY)

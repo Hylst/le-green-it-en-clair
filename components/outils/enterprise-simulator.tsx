@@ -6,8 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from "recharts";
-import jsPDF from "jspdf";
-import "jspdf-autotable";
 import { TrendingUp, Download, RotateCcw } from "lucide-react";
 import { LabeledSlider, PDF_COLORS } from "./shared";
 
@@ -168,7 +166,9 @@ export default function EnterpriseSimulator() {
     return allScenarioResults
   }
 
-  const exportPDF = () => {
+  const exportPDF = async () => {
+    const { default: jsPDF } = await import("jspdf")
+    const { autoTable } = await import("jspdf-autotable")
     const doc = new jsPDF()
     const allScenarioResults = calculateProjections()
     const timestamp = new Date().toLocaleDateString("fr-FR")
@@ -199,8 +199,7 @@ export default function EnterpriseSimulator() {
       s.payback === -1 ? "Non rentable" : s.payback === 0 ? "Immédiat" : s.payback + " mois"
     ])
 
-    // @ts-ignore
-    doc.autoTable({
+    autoTable(doc, {
       startY: 90,
       head: [["Scénario", "Économies (5 ans)", "CO2 Évité (5 ans)", "Retour sur investissement"]],
       body: tableData,
@@ -221,7 +220,7 @@ export default function EnterpriseSimulator() {
 
     // Action Plan
     // @ts-ignore
-    const finalY = doc.lastAutoTable.finalY + 15
+    const finalY = (doc as any).lastAutoTable.finalY + 15
     doc.setFontSize(14)
     doc.text("Plan d'action recommandé", 20, finalY)
     doc.setFontSize(10)

@@ -30,6 +30,15 @@ interface QuizQuestion {
   points: number
 }
 
+function shuffle<T>(items: T[]): T[] {
+  const copy = [...items]
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[copy[i], copy[j]] = [copy[j], copy[i]]
+  }
+  return copy
+}
+
 // Base de 100 questions Green IT
 const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
   // Bases du Green IT (10 questions)
@@ -1458,14 +1467,14 @@ export function QuizGreenITAdvanced() {
 
   // Timer for challenge mode
   useEffect(() => {
-    if (mode === "challenge" && timeLeft > 0 && !showExplanation && !isFinished) {
+    if (mode === "challenge" && timeLeft > 0 && !isFinished) {
       const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000)
       return () => clearTimeout(timer)
     }
     if (timeLeft === 0 && mode === "challenge" && !isFinished) {
-      handleFinish()
+      setIsFinished(true)
     }
-  }, [timeLeft, showExplanation, isFinished, mode])
+  }, [timeLeft, isFinished, mode])
 
   const startQuiz = (selectedMode: QuizMode, category?: string) => {
     setMode(selectedMode)
@@ -1479,8 +1488,7 @@ export function QuizGreenITAdvanced() {
 
     if (selectedMode === "discovery") {
       // 10 random questions
-      const shuffled = [...ALL_QUIZ_QUESTIONS].sort(() => Math.random() - 0.5)
-      questions = shuffled.slice(0, 10)
+      questions = shuffle(ALL_QUIZ_QUESTIONS).slice(0, 10)
       setTimeLeft(0)
     } else if (selectedMode === "full") {
       // All 100 questions
@@ -1492,8 +1500,7 @@ export function QuizGreenITAdvanced() {
       setTimeLeft(0)
     } else if (selectedMode === "challenge") {
       // 20 random questions with timer
-      const shuffled = [...ALL_QUIZ_QUESTIONS].sort(() => Math.random() - 0.5)
-      questions = shuffled.slice(0, 20)
+      questions = shuffle(ALL_QUIZ_QUESTIONS).slice(0, 20)
       setTimeLeft(20 * 60) // 20 minutes
     }
 
@@ -1540,9 +1547,8 @@ export function QuizGreenITAdvanced() {
     setActiveQuestions([])
   }
 
-  const getLevel = (finalScore: number, totalQuestions: number) => {
-    const maxScore = totalQuestions * 15 // Average points per question
-    const percentage = (finalScore / maxScore) * 100
+  const getLevel = (finalScore: number, maxScore: number) => {
+    const percentage = maxScore > 0 ? (finalScore / maxScore) * 100 : 0
 
     if (percentage >= 90) return { level: "Maître Green IT", color: "text-purple-600", icon: Award }
     if (percentage >= 75) return { level: "Expert", color: "text-blue-600", icon: Trophy }
@@ -1661,8 +1667,8 @@ export function QuizGreenITAdvanced() {
 
   // Results screen
   if (isFinished) {
-    const levelInfo = getLevel(score, activeQuestions.length)
     const maxScore = activeQuestions.reduce((sum, q) => sum + q.points, 0)
+    const levelInfo = getLevel(score, maxScore)
     const percentage = Math.round((score / maxScore) * 100)
 
     return (
@@ -1693,7 +1699,7 @@ export function QuizGreenITAdvanced() {
             <div className="flex justify-between text-sm">
               <span className="text-slate-600 dark:text-gray-300">Score moyen par question</span>
               <span className="font-semibold dark:text-gray-100">
-                {Math.round(score / answeredQuestions.length)} points
+                {answeredQuestions.length > 0 ? `${Math.round(score / answeredQuestions.length)} points` : "—"}
               </span>
             </div>
             {mode === "challenge" && (

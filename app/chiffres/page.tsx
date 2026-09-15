@@ -19,6 +19,7 @@ import {
   ResponsiveContainer,
 } from "recharts"
 import { Download, TrendingUp, Globe, MapPin, Zap } from "lucide-react"
+import { SourceTooltip } from "@/components/source-tooltip"
 import { AnimatedDataFlow } from "@/components/animated-data-flow"
 import { GrowthAnimation } from "@/components/growth-animation"
 import dynamic from "next/dynamic"
@@ -453,22 +454,34 @@ export default function ChiffresPage() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="text-center">
               <Globe className="mx-auto mb-4 h-12 w-12 text-emerald-100" />
-              <div className="mb-2 text-4xl font-bold text-white">72,4 Mt</div>
+              <div className="mb-2 text-4xl font-bold text-white">
+                72,4 Mt
+                <SourceTooltip className="ml-1 align-middle text-emerald-50" source="Global E-Waste Monitor 2024 (ONU)" calculation="62 Mt (2022) + 2,6 Mt/an × 4 ans ≈ 72,4 Mt projetés en 2026" />
+              </div>
               <p className="text-emerald-50">de e-déchets projetés dans le monde en 2026</p>
             </div>
             <div className="text-center">
               <Zap className="mx-auto mb-4 h-12 w-12 text-emerald-100" />
-              <div className="mb-2 text-4xl font-bold text-white">60%</div>
+              <div className="mb-2 text-4xl font-bold text-white">
+                60%
+                <SourceTooltip className="ml-1 align-middle text-emerald-50" source="ADEME-Arcep, 2023" calculation="fabrication 60 % + extraction 15 % ≈ 75 % des impacts, dont 60 % pour la seule fabrication" />
+              </div>
               <p className="text-emerald-50">de l'impact vient de la fabrication</p>
             </div>
             <div className="text-center">
               <MapPin className="mx-auto mb-4 h-12 w-12 text-emerald-100" />
-              <div className="mb-2 text-4xl font-bold text-white">46%</div>
+              <div className="mb-2 text-4xl font-bold text-white">
+                46%
+                <SourceTooltip className="ml-1 align-middle text-emerald-50" source="Eurostat / Ecosystem, 2024" calculation="tonnages collectés ÷ tonnages mis sur le marché" />
+              </div>
               <p className="text-emerald-50">taux de collecte en France (Eurostat 2024)</p>
             </div>
             <div className="text-center">
               <TrendingUp className="mx-auto mb-4 h-12 w-12 text-emerald-100" />
-              <div className="mb-2 text-4xl font-bold text-white">+114%</div>
+              <div className="mb-2 text-4xl font-bold text-white">
+                +114%
+                <SourceTooltip className="ml-1 align-middle text-emerald-50" source="Global E-Waste Monitor 2024 (ONU)" calculation="(72,4 − 33,8) ÷ 33,8 ≈ +114 % entre 2010 et 2026" />
+              </div>
               <p className="text-emerald-50">d'augmentation des e-déchets depuis 2010</p>
             </div>
           </div>

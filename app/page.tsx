@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import { SourceTooltip } from "@/components/source-tooltip"
 import Image from "next/image"
 import {
   ArrowRight,
@@ -54,6 +55,11 @@ export default function HomePage() {
             <p className="mx-auto mb-8 max-w-2xl text-pretty text-lg text-muted-foreground lg:text-xl">
               Chaque année en France, nous collectons près de{" "}
               <span className="font-bold text-emerald-700 dark:text-emerald-400">1,6 million de tonnes</span> de déchets électroniques (ADEME 2024).
+              <SourceTooltip
+                className="ml-1"
+                source="ADEME, 2024"
+                calculation="≈ 24 kg collectés par habitant × 68 M d'habitants ≈ 1,6 Mt/an"
+              />
               Découvrez comment agir pour un numérique plus responsable.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -107,18 +113,21 @@ export default function HomePage() {
                   <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2" />
                   <span className="text-muted-foreground">
                     <strong className="text-foreground">70 kg</strong> de matières premières extraites pour un smartphone de 150g
+                    <SourceTooltip className="ml-1" source="ADEME, Base Empreinte (2023)" calculation="70 000 g ÷ 150 g ≈ 467 fois la masse du smartphone" />
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2" />
                   <span className="text-muted-foreground">
                     <strong className="text-foreground">12 000 litres</strong> d'eau nécessaires à la fabrication
+                    <SourceTooltip className="ml-1" source="ADEME (2023)" calculation="12 000 L ÷ 75 L par douche ≈ 160 douches" />
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2" />
                   <span className="text-muted-foreground">
                     <strong className="text-foreground">50 kg CO₂</strong> émis pendant le cycle de vie
+                    <SourceTooltip className="ml-1" source="ADEME (2023)" calculation="50 kg ÷ 0,17 kg CO₂/km ≈ 300 km en voiture thermique" />
                   </span>
                 </li>
               </ul>
@@ -369,22 +378,34 @@ export default function HomePage() {
           <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">Quelques chiffres clés</h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="text-center">
-              <div className="mb-3 text-4xl font-bold text-emerald-700 dark:text-emerald-400 lg:text-5xl">~70 Mt</div>
+              <div className="mb-3 text-4xl font-bold text-emerald-700 dark:text-emerald-400 lg:text-5xl">
+                ~70 Mt
+                <SourceTooltip className="ml-1 align-middle" source="Global E-Waste Monitor 2024 (ONU)" calculation="62 Mt en 2022 + 2,6 Mt/an ≈ 70 Mt en 2025, 82 Mt projetés en 2030" />
+              </div>
               <p className="text-muted-foreground">de déchets électroniques sur la trajectoire 2022-2030 (62 Mt → 82 Mt)</p>
               <p className="mt-2 text-sm text-muted-foreground/70">Source: Global E-waste Monitor 2024, ONU</p>
             </div>
             <div className="text-center">
-              <div className="mb-3 text-4xl font-bold text-teal-700 dark:text-teal-400 lg:text-5xl">~80 %</div>
+              <div className="mb-3 text-4xl font-bold text-teal-700 dark:text-teal-400 lg:text-5xl">
+                ~80 %
+                <SourceTooltip className="ml-1 align-middle" source="ADEME-Arcep, 2023" calculation="extraction ~15 % + fabrication ~60 % ≈ 75-80 % de l'empreinte du numérique (France)" />
+              </div>
               <p className="text-muted-foreground">de l'empreinte carbone du numérique vient de la fabrication des équipements (France)</p>
               <p className="mt-2 text-sm text-muted-foreground/70">Source: ADEME-Arcep 2023</p>
             </div>
             <div className="text-center">
-              <div className="mb-3 text-4xl font-bold text-blue-700 dark:text-blue-400 lg:text-5xl">3,4 %</div>
+              <div className="mb-3 text-4xl font-bold text-blue-700 dark:text-blue-400 lg:text-5xl">
+                3,4 %
+                <SourceTooltip className="ml-1 align-middle" source="GreenIT, EENM 2025" calculation="1,8 Gt CO₂e ÷ ~53 Gt d'émissions mondiales ≈ 3,4 %" />
+              </div>
               <p className="text-muted-foreground">des émissions mondiales de GES (1,8 Gt CO2e) sont dues au numérique</p>
               <p className="mt-2 text-sm text-muted-foreground/70">Source: GreenIT EENM 2025</p>
             </div>
             <div className="text-center">
-              <div className="mb-3 text-4xl font-bold text-emerald-700 dark:text-emerald-400 lg:text-5xl">2 à 3 ans</div>
+              <div className="mb-3 text-4xl font-bold text-emerald-700 dark:text-emerald-400 lg:text-5xl">
+                2 à 3 ans
+                <SourceTooltip className="ml-1 align-middle" source="ADEME, 2026" calculation="durée de vie moyenne observée en France, renouvellement tous les 3 ans" />
+              </div>
               <p className="text-muted-foreground">durée de vie moyenne d'un smartphone en France, changement tous les 3 ans</p>
               <p className="mt-2 text-sm text-muted-foreground/70">Source: ADEME 2026</p>
             </div>

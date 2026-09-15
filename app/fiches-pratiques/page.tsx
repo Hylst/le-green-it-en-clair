@@ -152,6 +152,11 @@ export default function FichesPratiquesPage() {
             ))}
           </div>
 
+          <p className="mb-8 text-center text-sm text-muted-foreground">
+            Sources : ADEME 2022 (reconditionné −75 %) · ADEME-Arcep 2023 (fabrication ≈ 75 % de l&apos;impact) ·
+            Ecosystem 2024 (79 % des DEEE collectés recyclés ou réutilisés) · Uptime 2024 (PUE)
+          </p>
+
           <Card className="border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 p-8 dark:border-emerald-800 dark:from-emerald-950 dark:to-teal-950">
             <div className="flex flex-col items-center gap-6 text-center lg:flex-row lg:text-left">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-600">

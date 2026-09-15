@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { SourceTooltip } from "@/components/source-tooltip"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
 import {
@@ -185,8 +186,12 @@ export default function ReglementationPage() {
                         <h5 className="font-semibold text-card-foreground">Effets mesurés</h5>
                       </div>
                       <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>• Bonus réparation : de 4 à 25 M€ versés en un an (ADEME, 2025)</li>
-                        <li>• Indice de réparabilité &gt; 8,1/10 : +28 % de ventes de lave-vaisselle (Univers Habitat, 2025)</li>
+                        <li>• Bonus réparation : de 4 à 25 M€ versés en un an (ADEME, 2025)
+                          <SourceTooltip className="ml-1" source="ADEME, 2025" calculation="×6 en un an grâce au dispositif bonus réparation (QualiRépar)" />
+                        </li>
+                        <li>• Indice de réparabilité &gt; 8,1/10 : +28 % de ventes de lave-vaisselle (Univers Habitat, 2025)
+                          <SourceTooltip className="ml-1" source="Univers Habitat, 2025" calculation="évolution des ventes de lave-vaisselle bien notés (> 8,1/10) après l'entrée en vigueur de l'indice" />
+                        </li>
                       </ul>
                     </div>
                   </div>

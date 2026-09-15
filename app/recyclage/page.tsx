@@ -17,6 +17,7 @@ import {
   Phone,
 } from "lucide-react"
 import dynamic from "next/dynamic"
+import { SourceTooltip } from "@/components/source-tooltip"
 
 const LeafletMap = dynamic(() => import("@/components/leaflet-map"), {
   ssr: false,
@@ -210,7 +211,10 @@ export default function RecyclagePage() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 grid gap-6 md:grid-cols-4">
             <Card className="border-2 border-primary/20 bg-primary/5 p-6 text-center">
-              <div className="mb-2 text-4xl font-bold text-primary">46%</div>
+              <div className="mb-2 text-4xl font-bold text-primary">
+                46%
+                <SourceTooltip className="ml-1 align-middle" source="Eurostat / Ecosystem, 2024" calculation="tonnages collectés ÷ tonnages mis sur le marché" />
+              </div>
               <p className="text-sm text-muted-foreground">Taux de collecte en France (Eurostat/Ecosystem, 2024)</p>
             </Card>
             <Card className="border-2 border-accent/20 bg-accent/5 p-6 text-center">
@@ -226,11 +230,17 @@ export default function RecyclagePage() {
               </a>
             </Card>
             <Card className="border-2 border-primary/20 bg-primary/5 p-6 text-center">
-              <div className="mb-2 text-4xl font-bold text-primary">79%</div>
+              <div className="mb-2 text-4xl font-bold text-primary">
+                79%
+                <SourceTooltip className="ml-1 align-middle" source="Ecosystem, 2024" calculation="79,2 % des DEEE collectés recyclés ou réutilisés (91,3 % valorisés)" />
+              </div>
               <p className="text-sm text-muted-foreground">des DEEE collectés sont recyclés ou réutilisés (Ecosystem, 2024)</p>
             </Card>
             <Card className="border-2 border-accent/20 bg-accent/5 p-6 text-center">
-              <div className="mb-2 text-4xl font-bold text-accent">1,6 Mt</div>
+              <div className="mb-2 text-4xl font-bold text-accent">
+                1,6 Mt
+                <SourceTooltip className="ml-1 align-middle" source="ADEME, 2024" calculation="≈ 1,6 Mt ÷ 68 M d'habitants ≈ 24 kg/hab/an" />
+              </div>
               <p className="text-sm text-muted-foreground">DEEE collectés par an (~24 kg/hab, ADEME 2024)</p>
             </Card>
           </div>

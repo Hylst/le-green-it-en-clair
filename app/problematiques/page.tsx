@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { SourceTooltip } from "@/components/source-tooltip"
 import {
   AlertTriangle,
   TrendingUp,
@@ -621,7 +622,10 @@ export default function ProblematiquesPage() {
                     <Smartphone className="h-6 w-6 text-red-700 dark:text-red-400" />
                     <h3 className="font-bold text-slate-900 dark:text-slate-100">Équipements utilisateurs</h3>
                   </div>
-                  <span className="text-2xl font-bold text-red-700 dark:text-red-400">79%</span>
+                  <span className="text-2xl font-bold text-red-700 dark:text-red-400">
+                    79%
+                    <SourceTooltip className="ml-1" source="ADEME-Arcep, 2023 (France, tous impacts, 2020-2022)" calculation="équipements utilisateurs : fabrication + usage, soit ~3/4 de l'empreinte" />
+                  </span>
                 </div>
                 <p className="text-sm text-slate-700 dark:text-slate-300">
                   La fabrication des smartphones, ordinateurs, tablettes, objets connectés représente les 3/4 de
@@ -635,7 +639,10 @@ export default function ProblematiquesPage() {
                     <Server className="h-6 w-6 text-amber-700 dark:text-amber-400" />
                     <h3 className="font-bold text-slate-900 dark:text-slate-100">Datacenters</h3>
                   </div>
-                  <span className="text-2xl font-bold text-amber-700 dark:text-amber-400">16%</span>
+                  <span className="text-2xl font-bold text-amber-700 dark:text-amber-400">
+                    16%
+                    <SourceTooltip className="ml-1" source="ADEME-Arcep, 2023 (France, tous impacts, 2020-2022)" calculation="part des datacenters dans l'empreinte du numérique" />
+                  </span>
                 </div>
                 <p className="text-sm text-slate-700 dark:text-slate-300">
                   Les centres de données consomment beaucoup d'énergie, mais leur efficacité s'améliore. Les efforts
@@ -649,7 +656,10 @@ export default function ProblematiquesPage() {
                     <Globe className="h-6 w-6 text-emerald-700 dark:text-emerald-400" />
                     <h3 className="font-bold text-slate-900 dark:text-slate-100">Réseaux</h3>
                   </div>
-                  <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">5%</span>
+                  <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">
+                    5%
+                    <SourceTooltip className="ml-1" source="ADEME-Arcep, 2023 (France, tous impacts, 2020-2022)" calculation="part des réseaux dans l'empreinte du numérique" />
+                  </span>
                 </div>
                 <p className="text-sm text-slate-700 dark:text-slate-300">
                   Les infrastructures réseau (fibre, 4G/5G, routeurs) ont un impact relativement faible mais en

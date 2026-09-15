@@ -16,6 +16,7 @@ import {
   TreePine,
 } from "lucide-react"
 import { ComparisonChart } from "@/components/comparison-chart"
+import { SourceTooltip } from "@/components/source-tooltip"
 import { ScaleComparison } from "@/components/scale-comparison"
 import { RelatedLinks } from "@/components/related-links"
 
@@ -456,6 +457,7 @@ export default function CasPratiquesPage() {
                         <span>
                           La production consomme <strong>800 kWh</strong> (ADEME Base Carbone 2023), soit environ 2 mois de
                           consommation électrique d'un foyer français (~4 700 kWh/an)
+                          <SourceTooltip className="ml-1" source="ADEME, Base Carbone 2023" calculation="800 ÷ 4 700 × 12 ≈ 2 mois de consommation d'un foyer" />
                         </span>
                       </li>
                       <li className="flex gap-2">

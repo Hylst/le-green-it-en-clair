@@ -195,7 +195,7 @@ export default function DatacentersPage() {
                   <Server className="h-6 w-6 text-blue-700 dark:text-blue-400" />
                 </div>
                 <div>
-                  <h4 className="mb-1 font-semibold text-slate-900 dark:text-slate-100">Serveurs (64%)</h4>
+                  <h4 className="mb-1 font-semibold text-slate-900 dark:text-slate-100">Serveurs (64 %)</h4>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Calcul, stockage et traitement des données. C'est la charge utile du datacenter.
                   </p>
@@ -207,7 +207,7 @@ export default function DatacentersPage() {
                   <Wind className="h-6 w-6 text-teal-700 dark:text-teal-400" />
                 </div>
                 <div>
-                  <h4 className="mb-1 font-semibold text-slate-900 dark:text-slate-100">Refroidissement (~28%)</h4>
+                  <h4 className="mb-1 font-semibold text-slate-900 dark:text-slate-100">Refroidissement (~28 %)</h4>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Climatisation nécessaire pour évacuer la chaleur produite par les serveurs.
                   </p>
@@ -219,7 +219,7 @@ export default function DatacentersPage() {
                   <Zap className="h-6 w-6 text-slate-700 dark:text-slate-300" />
                 </div>
                 <div>
-                  <h4 className="mb-1 font-semibold text-slate-900 dark:text-slate-100">Infrastructure (~8%)</h4>
+                  <h4 className="mb-1 font-semibold text-slate-900 dark:text-slate-100">Infrastructure (~8 %)</h4>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Éclairage, sécurité, onduleurs et autres équipements de support.
                   </p>
@@ -273,17 +273,17 @@ export default function DatacentersPage() {
                 <div className="rounded-xl bg-emerald-50 dark:bg-emerald-900/20 p-4 text-center">
                   <div className="mb-2 text-3xl font-bold text-emerald-700 dark:text-emerald-400">1.0</div>
                   <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Parfait (théorique)</p>
-                  <p className="text-xs text-slate-600 dark:text-slate-400">100% de l'énergie pour les serveurs</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">100 % de l'énergie pour les serveurs</p>
                 </div>
                 <div className="rounded-xl bg-blue-50 dark:bg-blue-900/20 p-4 text-center">
                   <div className="mb-2 text-3xl font-bold text-blue-700 dark:text-blue-400">1.5</div>
                   <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Bon</p>
-                  <p className="text-xs text-slate-600 dark:text-slate-400">33% d'énergie perdue</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">33 % d'énergie perdue</p>
                 </div>
                 <div className="rounded-xl bg-amber-50 dark:bg-amber-900/20 p-4 text-center">
                   <div className="mb-2 text-3xl font-bold text-amber-700 dark:text-amber-400">2.0+</div>
                   <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">À améliorer</p>
-                  <p className="text-xs text-slate-600 dark:text-slate-400">50%+ d'énergie perdue</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">50 %+ d'énergie perdue</p>
                 </div>
               </div>
             </div>
@@ -603,10 +603,10 @@ export default function DatacentersPage() {
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="rounded-full bg-emerald-600 px-3 py-1 text-xs font-medium text-white">
-                      PUE 1.2
+                      PUE 1,2
                     </span>
                     <span className="rounded-full bg-emerald-600 px-3 py-1 text-xs font-medium text-white">
-                      100% renouvelable
+                      100 % renouvelable
                     </span>
                     <span className="rounded-full bg-emerald-600 px-3 py-1 text-xs font-medium text-white">
                       Récupération chaleur

@@ -87,8 +87,8 @@ export default function MythesPage() {
       myth: "Mon vieux téléphone consomme plus d'énergie qu'un neuf",
       reality: "Vrai pour l'usage, mais garder l'ancien reste plus écologique",
       explanation:
-        "Un smartphone récent consomme un peu moins à l'usage, mais l'écart reste faible à l'échelle du cycle de vie : la fabrication pèse environ 75 % de l'impact (ADEME 2026). Il faudrait donc de longues années d'usage pour compenser un nouvel appareil. Conclusion : gardez votre ancien appareil tant qu'il fonctionne.",
-      source: "ADEME 2026",
+        "Un smartphone récent consomme un peu moins à l'usage, mais l'écart reste faible à l'échelle du cycle de vie : la fabrication pèse environ 75 % de l'impact (ADEME-Arcep 2023). Il faudrait donc de longues années d'usage pour compenser un nouvel appareil. Conclusion : gardez votre ancien appareil tant qu'il fonctionne.",
+      source: "ADEME-Arcep 2023",
       relatedLink: { label: "Calculer votre impact", href: "/outils" },
     },
     {

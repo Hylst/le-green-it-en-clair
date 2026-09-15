@@ -355,7 +355,7 @@ export default function ReglementationPage() {
                       <div className="bg-card p-3 rounded-lg border border-accent/20">
                         <div className="flex justify-between items-center mb-2">
                           <span className="font-semibold text-card-foreground">Taux de collecte</span>
-                          <Badge variant="outline" className="border-accent text-accent">65% minimum</Badge>
+                          <Badge variant="outline" className="border-accent text-accent">65 % minimum</Badge>
                         </div>
                         <p className="text-sm text-muted-foreground">
                           65% du poids moyen des EEE mis sur le marché les 3 années précédentes

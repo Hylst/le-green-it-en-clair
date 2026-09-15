@@ -244,7 +244,7 @@ export default function PerspectivesPage() {
                 <h3 className="text-xl font-bold text-slate-900">Scénario modéré</h3>
               </div>
               <p className="mb-4 text-sm text-slate-700">
-                <strong>Scénario illustratif : +52% d'ici 2040</strong> - Application partielle des bonnes pratiques et réglementations.
+                <strong>Scénario illustratif : +52 % d'ici 2040</strong> - Application partielle des bonnes pratiques et réglementations.
               </p>
               <ul className="space-y-2 text-sm text-slate-700">
                 <li className="flex gap-2">

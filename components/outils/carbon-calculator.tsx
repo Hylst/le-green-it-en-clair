@@ -267,7 +267,7 @@ export default function CarbonCalculator() {
                   <div className="text-2xl font-bold text-green-600 dark:text-green-400">
                     {Math.round(totalFootprint * 0.3)}
                   </div>
-                  <div className="text-sm text-gray-700 dark:text-gray-300">Économie possible (-30%)</div>
+                  <div className="text-sm text-gray-700 dark:text-gray-300">Économie possible (−30 %)</div>
                 </div>
               </div>
 

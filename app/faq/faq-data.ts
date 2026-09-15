@@ -9,7 +9,7 @@ export const faqCategories = [
       },
       {
         q: "Pourquoi le numérique pollue-t-il ?",
-        a: "L'impact environnemental du numérique provient de trois sources principales : 1) La fabrication des équipements (extraction de matières premières, production, transport) qui représente 75% de l'impact, 2) L'utilisation (consommation d'électricité), 3) La fin de vie (déchets électroniques difficiles à recycler). Un smartphone nécessite par exemple 70 kg de matières premières et émet 50 kg de CO₂ sur son cycle de vie.",
+        a: "L'impact environnemental du numérique provient de trois sources principales : 1) La fabrication des équipements (extraction de matières premières, production, transport) qui représente 75 % de l'impact, 2) L'utilisation (consommation d'électricité), 3) La fin de vie (déchets électroniques difficiles à recycler). Un smartphone nécessite par exemple 70 kg de matières premières et émet 50 kg de CO₂ sur son cycle de vie.",
       },
       {
         q: "Quel est l'impact du numérique en France ?",
@@ -39,7 +39,7 @@ export const faqCategories = [
       },
       {
         q: "Combien de temps garder ses appareils ?",
-        a: "Objectif minimum : 5 ans pour un smartphone, 7 ans pour un ordinateur, 10 ans pour une TV. Actuellement, les Français changent de smartphone en moyenne tous les 3 ans (ADEME, 2026). Passer de 2 à 3 ans réduit l'impact annuel d'environ un tiers (ADEME 2026). La fabrication représentant 75% de l'impact, allonger la durée d'usage est le geste le plus efficace.",
+        a: "Objectif minimum : 5 ans pour un smartphone, 7 ans pour un ordinateur, 10 ans pour une TV. Actuellement, les Français changent de smartphone en moyenne tous les 3 ans (ADEME, 2026). Passer de 2 à 3 ans réduit l'impact annuel d'environ un tiers (ADEME 2026). La fabrication représentant 75 % de l'impact, allonger la durée d'usage est le geste le plus efficace.",
       },
     ],
   },
@@ -75,7 +75,7 @@ export const faqCategories = [
       },
       {
         q: "Vaut-il mieux réparer ou racheter ?",
-        a: "Réparer est presque toujours préférable écologiquement. Exemple smartphone : remplacement batterie (60-80€) vs achat neuf (50 kg CO₂). Même un appareil réparé à 50% de son prix initial reste plus écologique que le neuf. Seule exception : si réparation très coûteuse (>70% prix neuf) et appareil très ancien (>8 ans) avec mauvaise efficacité énergétique.",
+        a: "Réparer est presque toujours préférable écologiquement. Exemple smartphone : remplacement batterie (60-80 €) vs achat neuf (50 kg CO₂). Même un appareil réparé à 50 % de son prix initial reste plus écologique que le neuf. Seule exception : si réparation très coûteuse (>70 % du prix neuf) et appareil très ancien (>8 ans) avec mauvaise efficacité énergétique.",
       },
       {
         q: "Comment recycler mes vieux appareils ?",
@@ -105,7 +105,7 @@ export const faqCategories = [
       },
       {
         q: "Comment mettre en place une stratégie Green IT en entreprise ?",
-        a: "Étapes clés : 1) Mesurer empreinte actuelle (parc informatique, datacenters, usage), 2) Fixer objectifs chiffrés (réduction 30-50% sur 3 ans), 3) Nommer référent Green IT, 4) Former équipes, 5) Allonger durée de vie équipements (5-7 ans), 6) Privilégier reconditionné, 7) Optimiser datacenters (PUE <1.5), 8) Écoconception services numériques, 9) Mesurer progrès annuellement.",
+        a: "Étapes clés : 1) Mesurer empreinte actuelle (parc informatique, datacenters, usage), 2) Fixer objectifs chiffrés (réduction 30-50 % sur 3 ans), 3) Nommer référent Green IT, 4) Former équipes, 5) Allonger durée de vie équipements (5-7 ans), 6) Privilégier reconditionné, 7) Optimiser datacenters (PUE < 1,5), 8) Écoconception services numériques, 9) Mesurer progrès annuellement.",
       },
     ],
   },
@@ -115,7 +115,7 @@ export const faqCategories = [
     questions: [
       {
         q: "Quelles sont les principales lois en France ?",
-        a: "Lois majeures : 1) Loi AGEC (2020) : indice réparabilité, lutte obsolescence programmée, 2) Loi REEN (2021) : mesure impact numérique, écoconception services publics, 3) Droit à la réparation européen (directive 2024/1799, applicable depuis juillet 2026), 4) Indice de durabilité (TV et lave-linge depuis 2025 ; smartphones : étiquette énergie UE depuis juin 2025). Obligations : affichage indices, disponibilité pièces 5-10 ans, mises à jour logicielles longues.",
+        a: "Lois majeures : 1) Loi AGEC (2020) : indice réparabilité, lutte obsolescence programmée, 2) Loi REEN (2021) : mesure impact numérique, écoconception services publics, 3) Droit à la réparation européen (directive 2024/1799, applicable depuis juillet 2026), 4) Indice de durabilité (TV et lave-linge depuis 2025 ; smartphones : étiquette énergie UE depuis juin 2025). Obligations : affichage indices, disponibilité des pièces détachées 5 à 10 ans selon les produits, mises à jour logicielles longues.",
       },
       {
         q: "Qu'est-ce que la REP (Responsabilité Élargie du Producteur) ?",
@@ -123,7 +123,7 @@ export const faqCategories = [
       },
       {
         q: "Que prévoit le droit à la réparation européen ?",
-        a: "Adoptée en 2024 (directive 2024/1799), applicable depuis le 31 juillet 2026, elle impose : 1) Obligation de réparer hors garantie (prix raisonnable, 5 à 10 ans selon les produits, smartphones et tablettes inclus), 2) Pièces détachées et documentation accessibles, 3) Garantie prolongée de 12 mois si réparation sous garantie, 4) Annuaire officiel : Que faire de mes objets (ADEME).",
+        a: "Adoptée en 2024 (directive 2024/1799), applicable depuis le 31 juillet 2026, elle impose : 1) Obligation de réparer hors garantie (prix raisonnable, smartphones et tablettes inclus), 2) Pièces détachées et documentation accessibles, 3) Garantie prolongée de 12 mois si réparation sous garantie, 4) Annuaire officiel : Que faire de mes objets (ADEME).",
       },
       {
         q: "Y a-t-il des aides financières pour la réparation ?",

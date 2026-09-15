@@ -17,7 +17,7 @@ const sheets: Record<string, any> = {
       {
         title: "1. Garder ses appareils plus longtemps",
         content:
-          "La fabrication représente 75% de l'impact (ADEME-Arcep 2023). Garder un smartphone 4 ans au lieu de 2 divise son impact annuel par 2.",
+          "La fabrication représente 75 % de l'impact (ADEME-Arcep 2023). Garder un smartphone 4 ans au lieu de 2 divise son impact annuel par 2.",
         tips: [
           "Objectif : minimum 5 ans pour un smartphone, 7 ans pour un ordinateur",
           "Changez la batterie plutôt que l'appareil (50-80€)",
@@ -63,7 +63,7 @@ const sheets: Record<string, any> = {
       },
       {
         title: "6. Régler la luminosité à 50%",
-        content: "L'écran représente 30-50% de la consommation d'un smartphone. Réduire la luminosité économise 20%.",
+        content: "L'écran représente 30-50 % de la consommation d'un smartphone. Réduire la luminosité économise 20 %.",
         tips: [
           "Activez l'ajustement automatique",
           "Utilisez le mode sombre (3 à 9 % en usage courant, jusqu'à ~47 % à pleine luminosité sur OLED, Purdue 2021)",
@@ -115,11 +115,11 @@ const sheets: Record<string, any> = {
       {
         title: "Prioriser le reconditionné",
         content:
-          "Impact réduit d'environ 75 à 90 % (ADEME 2022), prix -30 à -70% selon le modèle, garantie légale de conformité (2 ans).",
+          "Impact réduit d'environ 75 à 90 % (ADEME 2022), prix −30 à −70 % selon le modèle, garantie légale de conformité (2 ans).",
         tips: [
           "Grade A : comme neuf, très légers défauts esthétiques",
           "Grade B : bon état, quelques rayures visibles",
-          "Grade C : état correct, usure visible mais 100% fonctionnel",
+          "Grade C : état correct, usure visible mais 100 % fonctionnel",
         ],
       },
       {
@@ -259,13 +259,13 @@ const sheets: Record<string, any> = {
     subtitle: "Gestes d'entretien et adresses utiles pour faire durer son matériel",
     target: "Citoyens",
     duration: "8 minutes de lecture",
-    impact: "Réduction de 50% de l'impact écologique annuel",
+    impact: "Réduction de 50 % de l'impact écologique annuel",
     date: "20 Mars 2026",
     sections: [
       {
         title: "1. Pourquoi réparer plutôt que changer ?",
         content:
-          "La fabrication concentre 75% à 80% de l'impact environnemental d'un smartphone ou d'un ordinateur. Prolonger leur durée de vie est le geste écologique n°1.",
+          "La fabrication concentre 75 à 80 % de l'impact environnemental d'un smartphone ou d'un ordinateur. Prolonger leur durée de vie est le geste écologique n°1.",
         tips: [
           "Doubler la durée de vie divise l'impact par 2",
           "Économie financière importante (réparer coûte moins cher que remplacer)",
@@ -285,7 +285,7 @@ const sheets: Record<string, any> = {
         title: "3. Préserver sa batterie",
         content: "La batterie est le composant d'usure principal. Quelques réflexes simples prolongent sa chimie.",
         tips: [
-          "Maintenez la charge entre 20% et 80% le plus souvent possible",
+          "Maintenez la charge entre 20 % et 80 % le plus souvent possible",
           "Évitez les températures extrêmes (froid gel ou plein soleil)",
           "Privilégiez la charge lente (5W-10W) la nuit plutôt que la charge rapide",
         ],
@@ -568,7 +568,7 @@ const sheets: Record<string, any> = {
         title: "2. Commande publique responsable",
         content: "Le levier principal des collectivités est l'achat. Intégrez l'économie circulaire dans vos marchés publics.",
         tips: [
-          "Imposez une part de matériel reconditionné (ex: 20% des PC, 100% des téléphones)",
+          "Imposez une part de matériel reconditionné (ex : 20 % des PC, 100 % des téléphones)",
           "Utilisez des critères d'attribution pondérés sur l'indice de réparabilité",
           "Privilégiez les labels TCO Certified ou EPEAT Gold",
         ],

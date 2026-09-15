@@ -176,7 +176,7 @@ export default function CasPratiquesPage() {
                       <li className="flex gap-2">
                         <span className="text-emerald-600">•</span>
                         <span>
-                          <strong>75% de l'impact environnemental</strong> d'un smartphone provient de sa fabrication,
+                          <strong>75 % de l'impact environnemental</strong> d'un smartphone provient de sa fabrication,
                           pas de son utilisation
                         </span>
                       </li>
@@ -255,7 +255,7 @@ export default function CasPratiquesPage() {
                     value: 8,
                     color: "#3b82f6",
                     icon: Recycle,
-                    description: "≈ −75 à −90 % d'impact et jusqu'à −87 % de GES par rapport au neuf (ADEME 2022/2026)",
+                    description: "≈ −75 à −90 % d'impact par rapport au neuf (ADEME, 2022)",
                   },
                   {
                     label: "Acheter neuf",
@@ -347,7 +347,7 @@ export default function CasPratiquesPage() {
                   </h4>
                   <p className="text-slate-700">
                     Un smartphone reconditionné réduit l'impact de <strong>75 à 90 %</strong> par rapport au neuf, tout en
-                    coûtant 30-50% moins cher. C'est le meilleur compromis entre performance et écologie.
+                          coûtant 30-50 % moins cher. C'est le meilleur compromis entre performance et écologie.
                   </p>
                 </div>
               </Card>
@@ -544,7 +544,7 @@ export default function CasPratiquesPage() {
                 {/* Stats Grid */}
                 <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   <div className="rounded-xl bg-teal-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-teal-700">1,5%</div>
+                    <div className="mb-1 text-2xl font-bold text-teal-700">1,5 %</div>
                     <div className="text-sm text-slate-700">de l'électricité mondiale (AIE, 2024)</div>
                   </div>
                   <div className="rounded-xl bg-teal-50 p-4">
@@ -552,7 +552,7 @@ export default function CasPratiquesPage() {
                     <div className="text-sm text-slate-700">efficacité moyenne mondiale (Uptime, 2024)</div>
                   </div>
                   <div className="rounded-xl bg-teal-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-teal-700">~28%</div>
+                    <div className="mb-1 text-2xl font-bold text-teal-700">~28 %</div>
                     <div className="text-sm text-slate-700">pour le refroidissement (ordre de grandeur)</div>
                   </div>
                   <div className="rounded-xl bg-teal-50 p-4">
@@ -569,21 +569,21 @@ export default function CasPratiquesPage() {
                       <li className="flex gap-2">
                         <span className="text-teal-600">•</span>
                         <span>
-                          Les datacenters consomment <strong>environ 1,5% de l'électricité mondiale</strong> (AIE,
+                          Les datacenters consomment <strong>environ 1,5 % de l'électricité mondiale</strong> (AIE,
                           2024), une part en constante augmentation
                         </span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-teal-600">•</span>
                         <span>
-                          Le <strong>PUE (Power Usage Effectiveness)</strong> mesure l'efficacité : 1.0 est parfait,
+                          Le <strong>PUE (Power Usage Effectiveness)</strong> mesure l'efficacité : 1,0 est parfait,
                           1,56 est la moyenne mondiale actuelle (Uptime Institute, 2024)
                         </span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-teal-600">•</span>
                         <span>
-                          <strong>Environ 28% de l'électricité</strong> est utilisée pour le refroidissement des
+                          <strong>Environ 28 % de l'électricité</strong> est utilisée pour le refroidissement des
                           serveurs (ordre de grandeur, PUE moyen 1,56)
                         </span>
                       </li>
@@ -699,9 +699,9 @@ export default function CasPratiquesPage() {
         <div className="mx-auto max-w-7xl">
           <h3 className="mb-4 text-sm font-semibold text-slate-900">Sources</h3>
           <div className="flex flex-wrap gap-4 text-sm text-slate-600">
-            <span>ADEME - Base Carbone (156 kg CO₂ pour un portable, 50 kg cycle de vie smartphone, 12 000 L d'eau, 70 kg de matières)</span>
+            <span>ADEME - Base Empreinte (2023 : 156 kg CO₂ pour un portable, 50 kg cycle de vie smartphone, 12 000 L d'eau, 70 kg de matières)</span>
             <span>•</span>
-            <span>ADEME - Produits reconditionnés (2022, −75 % à −91 %)</span>
+            <span>ADEME - Produits reconditionnés (2022)</span>
             <span>•</span>
             <span>DGAC - Éco-calculateur (équivalences avion)</span>
             <span>•</span>

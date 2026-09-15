@@ -127,7 +127,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     category: "Bases du Green IT",
     difficulty: "difficile",
     question: "Quel pourcentage des émissions mondiales de GES le numérique représente-t-il ?",
-    options: ["1,5%", "2,5%", "3,4%", "7%"],
+    options: ["1,5 %", "2,5 %", "3,4 %", "7 %"],
     correctAnswer: 2,
     explanation:
       "Le numérique représente environ 3,4 % des émissions mondiales de GES, soit 1,8 Gt CO₂e en 2023 (GreenIT EENM 2025).",
@@ -1008,8 +1008,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["L'indice de durabilité français", "L'étiquette énergie européenne", "Un label privé", "Aucun texte"],
     correctAnswer: 1,
     explanation:
-      "Depuis le 20 juin 2025, les smartphones vendus dans l'UE affichent une étiquette énergie (règlement 2023/1670) : 5 ans de mises à jour, 7 ans de pièces. L'indice de durabilité français s'applique déjà aux TV et lave-linge.",
-    source: "Règlement UE 2023/1670",
+      "Depuis le 20 juin 2025, les smartphones vendus dans l'UE affichent une étiquette énergie (règlement 2023/1669) : 5 ans de mises à jour et 7 ans de pièces (règlement 2023/1670). L'indice de durabilité français s'applique déjà aux TV et lave-linge.",
+    source: "Règlements UE 2023/1669 (étiquette) et 2023/1670 (écoconception)",
     points: 20,
   },
 
@@ -1075,7 +1075,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["Fabrication des équipements", "Datacenters", "Réseaux", "Utilisation des terminaux"],
     correctAnswer: 3,
     explanation:
-      "L'utilisation des terminaux (smartphones, ordinateurs, TV) représente environ 45% de la consommation énergétique du numérique.",
+      "L'utilisation des terminaux (smartphones, ordinateurs, TV) représente environ 45 % de la consommation énergétique du numérique.",
     source: "The Shift Project, Lean ICT 2018",
     points: 10,
   },

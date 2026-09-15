@@ -199,7 +199,7 @@ export default function DeveloppementPage() {
           <div className="grid md:grid-cols-4 gap-6 mt-12">
             <Card className="border-primary/20 bg-card">
               <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-primary mb-2">30-70%</div>
+                <div className="text-3xl font-bold text-primary mb-2">30-70 %</div>
                 <div className="text-sm text-muted-foreground">
                   Ordre de grandeur constaté sur des cas optimisés (très variable selon les projets)
                 </div>
@@ -221,7 +221,7 @@ export default function DeveloppementPage() {
             </Card>
             <Card className="border-accent/20 bg-card">
               <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-accent mb-2">~30%</div>
+                <div className="text-3xl font-bold text-accent mb-2">~30 %</div>
                 <div className="text-sm text-muted-foreground">Réduction de taille avec WebP vs JPEG à qualité égale (Google, fourchette 25-35 %)</div>
               </CardContent>
             </Card>
@@ -614,7 +614,7 @@ res.json(users) // 150 KB compressé`}
                         <li>• Utiliser WebP ou AVIF (environ 30 % plus léger que JPEG à qualité égale)</li>
                         <li>• Lazy loading avec loading="lazy"</li>
                         <li>• Responsive images avec srcset</li>
-                        <li>• Compression adaptée (80-85% qualité)</li>
+                        <li>• Compression adaptée (80-85 % qualité)</li>
                         <li>• SVG pour icônes et logos</li>
                       </ul>
                     </div>
@@ -675,7 +675,7 @@ res.json(users) // 150 KB compressé`}
                       • <strong>Après :</strong> 12 images WebP + lazy loading, 580 KB, 1.2s de chargement
                     </p>
                     <p className="text-primary font-medium mt-2">
-                      → Réduction de 86% du poids et 82% du temps de chargement
+                      → Réduction de 86 % du poids et 82 % du temps de chargement
                     </p>
                   </div>
                 </div>
@@ -867,7 +867,7 @@ res.json(users) // 150 KB compressé`}
                 <ul className="space-y-3 text-sm">
                   <li>
                     <div className="font-semibold text-foreground">Cloudflare</div>
-                    <p className="text-muted-foreground">100% énergies renouvelables, gratuit pour petits sites</p>
+                    <p className="text-muted-foreground">100 % énergies renouvelables, gratuit pour petits sites</p>
                   </li>
                   <li>
                     <div className="font-semibold text-foreground">Vercel Edge Network</div>
@@ -988,13 +988,13 @@ module.exports = {
                     <div className="font-semibold text-foreground mb-2">Serveurs dédiés 24/7</div>
                     <ul className="text-sm text-muted-foreground space-y-1">
                       <li>• Dimensionnés pour le pic de charge</li>
-                      <li>• Tournent à 10-30% en moyenne</li>
+                      <li>• Tournent à 10-30 % en moyenne</li>
                       <li>• Gaspillage énergétique 70-90 % (ordre de grandeur)</li>
                       <li>• Coût fixe élevé</li>
                     </ul>
                   </div>
                   <div className="text-sm text-muted-foreground font-medium">
-                    <strong>Exemple :</strong> Un serveur à 2000€/mois utilisé à 15% = 1700€ gaspillés + énergie inutile
+                    <strong>Exemple :</strong> Un serveur à 2 000 €/mois utilisé à 15 % = 1 700 € gaspillés + énergie inutile
                   </div>
                 </div>
               </CardContent>

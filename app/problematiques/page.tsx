@@ -112,7 +112,7 @@ const mainProblems = [
     severity: "Élevé",
     stats: "3,4 % des émissions mondiales de GES",
     description:
-      "Le numérique génère 1,8 Gt CO₂e, soit 3,4 % des émissions mondiales (GreenIT, EENM 2025), et consomme de l'ordre de 10 % de l'électricité mondiale tous usages confondus (à ne pas confondre avec les 1,5 % des seuls datacenters, AIE 2024). Datacenters, réseaux et équipements utilisateurs en sont les principaux postes.",
+      "Le numérique génère 1,8 Gt CO₂e, soit 3,4 % des émissions mondiales (GreenIT, EENM 2025) ; les datacenters seuls ont consommé environ 415 TWh en 2024, soit 1,5 % de l'électricité mondiale (AIE, Energy and AI, avril 2025). Datacenters, réseaux et équipements utilisateurs en sont les principaux postes.",
     impacts: [
       "Émissions de CO₂ en constante augmentation",
       "Stress sur les réseaux électriques",
@@ -867,7 +867,7 @@ export default function ProblematiquesPage() {
                 <div>
                   <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">Le problème principal : la fabrication</h3>
                   <p className="text-sm text-slate-700 dark:text-slate-300">
-                    79% de l'impact vient des équipements utilisateurs (France, ADEME-Arcep 2023). Allonger la durée de vie de nos appareils est
+                    79 % de l'impact vient des équipements utilisateurs (France, ADEME-Arcep 2023). Allonger la durée de vie de nos appareils est
                     l'action la plus efficace.
                   </p>
                 </div>

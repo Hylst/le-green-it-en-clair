@@ -207,7 +207,7 @@ export default function RecyclagePage() {
           <div className="mb-12 grid gap-6 md:grid-cols-4">
             <Card className="border-2 border-primary/20 bg-primary/5 p-6 text-center">
               <div className="mb-2 text-4xl font-bold text-primary">
-                46%
+                46 %
                 <SourceTooltip className="ml-1 align-middle" source="Eurostat / Ecosystem, 2024" calculation="tonnages collectés ÷ tonnages mis sur le marché" />
               </div>
               <p className="text-sm text-muted-foreground">Taux de collecte en France (Eurostat/Ecosystem, 2024)</p>

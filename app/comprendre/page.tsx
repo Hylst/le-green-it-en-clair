@@ -97,13 +97,13 @@ const lifecyclePhases = [
     color: "teal",
     description: "Collecte, tri et recyclage des appareils en fin de vie pour récupérer les matériaux précieux.",
     impacts: [
-      { icon: Gem, label: "Recyclage", value: "22%", detail: "taux de collecte/recyclage mondial (GEM 2024)" },
+      { icon: Gem, label: "Recyclage", value: "22,3 %", detail: "taux de collecte/recyclage mondial (GEM 2024)" },
       { icon: Trash2, label: "Déchets", value: "62 Mt", detail: "d'e-déchets en 2022" },
       { icon: Droplets, label: "Récupération", value: "variable", detail: "selon les métaux" },
     ],
     analogy: "Recycler 1 million de smartphones permet de récupérer des tonnes de cuivre et de métaux précieux (Ecosystem, 2024).",
     details:
-      "22 % des déchets électroniques sont documentés comme collectés et recyclés dans le monde (GEM 2024). En France, le taux de collecte atteint environ 46 % grâce aux filières REP (Responsabilité Élargie du Producteur, Eurostat 2024).",
+      "22,3 % des déchets électroniques sont documentés comme collectés et recyclés dans le monde (GEM 2024). En France, le taux de collecte atteint environ 46 % grâce aux filières REP (Responsabilité Élargie du Producteur, Eurostat 2024).",
   },
 ]
 
@@ -441,7 +441,7 @@ export default function ComprendrePage() {
             </Card>
 
             <Card className="border-2 bg-card p-6">
-              <div className="mb-3 text-3xl font-bold text-primary">20%</div>
+              <div className="mb-3 text-3xl font-bold text-primary">20 %</div>
               <h3 className="mb-2 font-semibold text-card-foreground">L'usage compte moins qu'on ne pense</h3>
               <p className="text-sm text-muted-foreground">
                 Contrairement aux idées reçues, l'utilisation ne représente qu'environ 20 % de l'impact total. Éteindre ses
@@ -450,7 +450,7 @@ export default function ComprendrePage() {
             </Card>
 
             <Card className="border-2 bg-card p-6">
-              <div className="mb-3 text-3xl font-bold text-primary">45-46%</div>
+              <div className="mb-3 text-3xl font-bold text-primary">45-46 %</div>
               <h3 className="mb-2 font-semibold text-card-foreground">Le recyclage progresse en France</h3>
               <p className="text-sm text-muted-foreground">
                 En France, 45 à 46 % des déchets électroniques sont collectés ou recyclés grâce aux filières REP, contre

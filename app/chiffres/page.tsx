@@ -370,9 +370,9 @@ export default function ChiffresPage() {
             </ResponsiveContainer>
             <div className="mt-6 rounded-lg bg-teal-50 dark:bg-teal-900/20 p-4">
               <p className="text-sm text-slate-700 dark:text-slate-300">
-                <strong>Analyse :</strong> La France recycle 46% de ses déchets électroniques, soit le double de la
-                moyenne mondiale (22%). Les pays nordiques comme la Suède atteignent 54%, montrant qu'il est possible de
-                faire mieux.
+                <strong>Analyse :</strong> La France collecte 46 % de ses déchets électroniques, soit le double de la
+                moyenne mondiale (22,3 % en 2022, collectés et recyclés). Les pays nordiques comme la Suède atteignent
+                54 %, montrant qu'il est possible de faire mieux.
               </p>
             </div>
           </Card>
@@ -463,7 +463,7 @@ export default function ChiffresPage() {
             <div className="text-center">
               <Zap className="mx-auto mb-4 h-12 w-12 text-emerald-100" />
               <div className="mb-2 text-4xl font-bold text-white">
-                60%
+                60 %
                 <SourceTooltip className="ml-1 align-middle text-emerald-50" source="ADEME-Arcep, 2023" calculation="fabrication 60 % + extraction 15 % ≈ 75 % des impacts, dont 60 % pour la seule fabrication" />
               </div>
               <p className="text-emerald-50">de l'impact vient de la fabrication</p>
@@ -471,7 +471,7 @@ export default function ChiffresPage() {
             <div className="text-center">
               <MapPin className="mx-auto mb-4 h-12 w-12 text-emerald-100" />
               <div className="mb-2 text-4xl font-bold text-white">
-                46%
+                46 %
                 <SourceTooltip className="ml-1 align-middle text-emerald-50" source="Eurostat / Ecosystem, 2024" calculation="tonnages collectés ÷ tonnages mis sur le marché" />
               </div>
               <p className="text-emerald-50">taux de collecte en France (Eurostat 2024)</p>
@@ -479,7 +479,7 @@ export default function ChiffresPage() {
             <div className="text-center">
               <TrendingUp className="mx-auto mb-4 h-12 w-12 text-emerald-100" />
               <div className="mb-2 text-4xl font-bold text-white">
-                +114%
+                +114 %
                 <SourceTooltip className="ml-1 align-middle text-emerald-50" source="Global E-Waste Monitor 2024 (ONU)" calculation="(72,4 − 33,8) ÷ 33,8 ≈ +114 % entre 2010 et 2026" />
               </div>
               <p className="text-emerald-50">d'augmentation des e-déchets depuis 2010</p>

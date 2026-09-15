@@ -60,14 +60,14 @@ const carbonBySectorData = [
   { sector: "Réseaux", percentage: 5, color: "#10b981" },
 ]
 
-// Data for recycling rates by country
+// Data for recycling rates by country (Eurostat / Ecosystem, 2024 — même série que /chiffres)
 const recyclingRatesData = [
-  { country: "Norvège", rate: 85 },
-  { country: "Suisse", rate: 78 },
   { country: "France", rate: 46 },
-  { country: "Allemagne", rate: 68 },
-  { country: "Espagne", rate: 42 },
-  { country: "Italie", rate: 38 },
+  { country: "Allemagne", rate: 52 },
+  { country: "Suède", rate: 54 },
+  { country: "Royaume-Uni", rate: 44 },
+  { country: "Espagne", rate: 39 },
+  { country: "Italie", rate: 45 },
 ]
 
 const mainProblems = [
@@ -93,7 +93,7 @@ const mainProblems = [
     icon: Trash2,
     color: "orange",
     severity: "Critique",
-    stats: "~70 Mt de e-déchets en 2025 (GEM 2024)",
+    stats: "~70 Mt d'e-déchets en 2025 (GEM 2024)",
     description:
       "La production mondiale de déchets électroniques augmente environ 5 fois plus vite que le recyclage : 62 Mt en 2022, environ 69-70 Mt en 2025, 82 Mt projetées en 2030 (+2,6 Mt/an). Seuls 22,3 % ont été collectés et recyclés en 2022, et la trajectoire actuelle ne mènerait qu'à ~20 % en 2030 (Global E-waste Monitor 2024).",
     impacts: [
@@ -219,7 +219,7 @@ const currentTrends = [
     impact: "Positif",
     description:
       "L'UE impose des normes strictes : indice de réparabilité, durée de vie minimale, chargeurs universels, écoconception logicielle.",
-    data: "Indice de réparabilité obligatoire en France depuis 2021 ; l'UE impose depuis 2025 l'étiquette énergie et l'indice de durabilité (règlement 2023/1670)",
+    data: "Indice de réparabilité obligatoire en France depuis 2021 ; indice de durabilité depuis 2025 (TV, lave-linge) ; l'UE impose l'étiquette énergie sur les smartphones depuis juin 2025 (règlement 2023/1669)",
   },
   {
     title: "Streaming vidéo en ultra-haute définition",
@@ -245,7 +245,7 @@ const currentSolutions = [
       },
       {
         name: "Réparation facilitée",
-        description: "Indice de réparabilité, pièces détachées disponibles 10 ans, bonus réparation ADEME",
+        description: "Indice de réparabilité, pièces détachées 7 ans pour les smartphones (UE, 2023/1670), bonus réparation",
         adoption: "Moyenne",
       },
       {
@@ -306,7 +306,7 @@ const currentSolutions = [
     solutions: [
       {
         name: "Indice de réparabilité",
-        description: "Note /10 obligatoire en France depuis 2021 ; l'UE impose depuis 2025 l'étiquette énergie et l'indice de durabilité (règlement 2023/1670)",
+        description: "Note /10 obligatoire en France depuis 2021 ; indice de durabilité depuis 2025 (TV, lave-linge) ; étiquette énergie UE sur les smartphones depuis juin 2025 (règlement 2023/1669)",
         adoption: "Élevée",
       },
       {
@@ -380,7 +380,7 @@ const futureSolutions = [
       },
       {
         name: "Garantie légale étendue",
-        description: "Passage de 2 à 10 ans de garantie légale, obligation de réparabilité",
+        description: "Garantie prolongée de 12 mois après réparation (directive UE 2024/1799), obligation de réparabilité",
         potential: "Élevé",
         challenges: "Résistance des fabricants, coûts",
       },
@@ -400,7 +400,7 @@ const futureSolutions = [
     solutions: [
       {
         name: "Datacenters sous-marins",
-        description: "Microsoft Project Natick : refroidissement naturel, énergies marines, fiabilité accrue",
+        description: "Microsoft Project Natick : essai arrêté en 2024 après six ans d'expérimentation (refroidissement naturel, fiabilité accrue) — l'immersion en bassin prend le relais",
         potential: "Moyen",
         challenges: "Impact sur écosystèmes marins, maintenance, coûts",
       },
@@ -774,7 +774,7 @@ export default function ProblematiquesPage() {
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
-            Taux de recyclage en Europe (2025)
+            Taux de collecte des déchets électroniques en Europe (Eurostat/Ecosystem, 2024)
           </h2>
           <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-8 lg:p-12">
             <ResponsiveContainer width="100%" height={400}>

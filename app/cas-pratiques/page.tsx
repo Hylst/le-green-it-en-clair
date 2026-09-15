@@ -100,12 +100,21 @@ export default function CasPratiquesPage() {
               return (
                 <Card
                   key={study.id}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={isSelected}
                   className={`group cursor-pointer border-2 p-6 transition-all hover:shadow-lg ${
                     isSelected
                       ? `border-${study.color}-500 bg-${study.color}-50`
                       : "border-slate-200 hover:border-slate-300"
                   }`}
                   onClick={() => setSelectedCase(study.id)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault()
+                      setSelectedCase(study.id)
+                    }
+                  }}
                 >
                   <div
                     className={`mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl transition-colors ${
@@ -279,7 +288,7 @@ export default function CasPratiquesPage() {
                       <li className="flex items-start gap-2">
                         <TrendingDown className="mt-1 h-5 w-5 shrink-0 text-emerald-600" />
                         <span>
-                          <strong>Coût :</strong> 50-150€ selon la réparation
+                          <strong>Coût :</strong> 50-150 € selon la réparation (fourchette indicative)
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
@@ -313,7 +322,7 @@ export default function CasPratiquesPage() {
                       <li className="flex items-start gap-2">
                         <span className="mt-1 text-slate-400">•</span>
                         <span>
-                          <strong>Coût :</strong> 300-1200€ selon le modèle
+                          <strong>Coût :</strong> 300-1 200 € selon le modèle (fourchette indicative)
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
@@ -424,7 +433,7 @@ export default function CasPratiquesPage() {
                 <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   <div className="rounded-xl bg-blue-50 p-4">
                     <div className="mb-1 text-2xl font-bold text-blue-700">156 kg</div>
-                    <div className="text-sm text-slate-700">CO₂ émis sur le cycle de vie (dont ~39 kg pour la fabrication)</div>
+                    <div className="text-sm text-slate-700">CO₂ émis sur le cycle de vie</div>
                   </div>
                   <div className="rounded-xl bg-blue-50 p-4">
                     <div className="mb-1 text-2xl font-bold text-blue-700">1 500 à 20 000 L</div>
@@ -463,7 +472,7 @@ export default function CasPratiquesPage() {
                       <li className="flex gap-2">
                         <span className="text-blue-600">•</span>
                         <span>
-                          Passer de 4 à 6 ans d'utilisation réduit l'impact annuel de <strong>33%</strong>
+                          Passer de 4 à 6 ans d'utilisation réduit l'impact annuel de <strong>33 %</strong> (calcul : 1 − 4 ÷ 6)
                         </span>
                       </li>
                       <li className="flex gap-2">

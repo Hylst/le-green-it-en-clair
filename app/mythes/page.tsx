@@ -32,8 +32,8 @@ export default function MythesPage() {
       myth: "Le cloud ne pollue pas, c'est virtuel",
       reality: "Faux - Le cloud repose sur des infrastructures physiques très énergivores",
       explanation:
-        "Le cloud n'est pas immatériel : il s'appuie sur des datacenters qui consomment de l'électricité pour fonctionner et se refroidir. Bonne nouvelle : stocker des fichiers pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO₂e (ADEME, Impact CO2 / Base Empreinte). Le geste qui compte vraiment, c'est de garder vos appareils le plus longtemps possible : fabriquer un smartphone représente environ 50 kg de CO₂e sur son cycle de vie, soit bien plus que des années de stockage de photos. Le stockage pèse très peu : le levier qui compte reste la durée de vie des appareils.",
-      source: "ADEME, Impact CO2 / Base Empreinte",
+        "Le cloud n'est pas immatériel : il s'appuie sur des datacenters qui consomment de l'électricité pour fonctionner et se refroidir. Bonne nouvelle : stocker des fichiers pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO₂e (ADEME, Impact CO₂ / Base Empreinte). Le geste qui compte vraiment, c'est de garder vos appareils le plus longtemps possible : fabriquer un smartphone représente environ 50 kg de CO₂e sur son cycle de vie, soit bien plus que des années de stockage de photos. Le stockage pèse très peu : le levier qui compte reste la durée de vie des appareils.",
+      source: "ADEME, Impact CO₂ / Base Empreinte",
       relatedLink: { label: "En savoir plus sur les datacenters", href: "/datacenters" },
     },
     {
@@ -65,7 +65,7 @@ export default function MythesPage() {
       myth: "Les nouveaux appareils sont plus écologiques",
       reality: "Nuancé - Ils sont plus efficaces, mais leur fabrication pollue davantage",
       explanation:
-        "Les appareils récents sont effectivement plus économes en énergie à l'usage (processeurs plus efficients, meilleure gestion de la batterie). Cependant, ils utilisent des composants plus complexes et miniaturisés, nécessitant plus de ressources et d'énergie pour leur fabrication. Acheter un appareil neuf émet en moyenne environ 50 kg de CO₂e, contre environ 8 kg pour un appareil reconditionné (ADEME 2022), soit jusqu'à −87 % d'émissions de GES (ADEME 2026).",
+        "Les appareils récents sont effectivement plus économes en énergie à l'usage (processeurs plus efficients, meilleure gestion de la batterie). Cependant, ils utilisent des composants plus complexes et miniaturisés, nécessitant plus de ressources et d'énergie pour leur fabrication. Acheter un appareil neuf émet en moyenne environ 50 kg de CO₂e, contre environ 8 kg pour un appareil reconditionné (ADEME 2022), soit une réduction de l'ordre de 75 à 90 % des émissions selon les périmètres.",
       source: "ADEME 2022",
       relatedLink: { label: "Comparer neuf vs reconditionné", href: "/cas-pratiques" },
     },
@@ -76,8 +76,8 @@ export default function MythesPage() {
       myth: "Supprimer mes emails réduit significativement mon empreinte",
       reality: "Vrai mais l'impact est minime comparé à d'autres actions",
       explanation:
-        "Oui, trier sa boîte mail aide à y voir plus clair. Mais côté climat, le stockage pèse très peu : compter environ 0,24 g de CO₂e par Go et par an (ADEME, Impact CO2 / Base Empreinte). Garder votre smartphone un an de plus évite bien plus d'émissions que de nettoyer des années d'e-mails. Les actions à fort impact restent prioritaires.",
-      source: "ADEME, Impact CO2 / Base Empreinte",
+        "Oui, trier sa boîte mail aide à y voir plus clair. Mais côté climat, le stockage pèse très peu : compter environ 0,24 g de CO₂e par Go et par an (ADEME, Impact CO₂ / Base Empreinte). Garder votre smartphone un an de plus évite bien plus d'émissions que de nettoyer des années d'e-mails. Les actions à fort impact restent prioritaires.",
+      source: "ADEME, Impact CO₂ / Base Empreinte",
       relatedLink: { label: "Découvrir les actions efficaces", href: "/agir" },
     },
     {
@@ -109,7 +109,7 @@ export default function MythesPage() {
       reality: "Faux - Ils contiennent des matériaux toxiques et non biodégradables",
       explanation:
         "Les équipements électroniques contiennent des métaux lourds (plomb, mercure, cadmium), des plastiques et des composés chimiques qui ne se dégradent pas naturellement. Abandonnés dans la nature, ils polluent les sols et les nappes phréatiques pendant des décennies. C'est pourquoi le recyclage dans des filières spécialisées est obligatoire.",
-      source: "Ministère de la Transition écologique",
+      source: "Ministère de la Transition écologique (consulté en 2026)",
       relatedLink: { label: "Trouver un point de collecte", href: "/recyclage" },
     },
     {
@@ -120,7 +120,7 @@ export default function MythesPage() {
       reality: "Nuancé - Progrès sur le recyclage, mais l'obsolescence reste problématique",
       explanation:
         "Apple a fait des progrès sur les matériaux recyclés et les emballages. Cependant, la réparabilité reste limitée sur plusieurs modèles et le rythme des sorties annuelles pousse au renouvellement. Aucune marque n'est parfaite : l'essentiel est de garder l'appareil longtemps.",
-      source: "iFixit",
+      source: "iFixit (consulté en 2026)",
     },
     {
       id: "10",
@@ -141,7 +141,7 @@ export default function MythesPage() {
       reality: "Faux - Un code mal optimisé augmente la consommation d'énergie",
       explanation:
         "Le code inefficace (algorithmes non optimisés, requêtes multiples inutiles, médias lourds) augmente le temps de traitement des serveurs et la consommation des appareils. Un site web optimisé peut réduire fortement sa consommation énergétique. Les développeurs ont un rôle clé dans l'écoconception numérique.",
-      source: "GreenIT.fr, RGESN",
+      source: "GreenIT.fr, RGESN (consultés en 2026)",
       relatedLink: { label: "Guide développeur", href: "/developpement" },
     },
     {

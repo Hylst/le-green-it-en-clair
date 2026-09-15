@@ -36,9 +36,9 @@ const lifecyclePhases = [
     color: "amber",
     description: "Extraction de métaux rares et précieux nécessaires à la fabrication des composants électroniques.",
     impacts: [
-      { icon: Droplets, label: "Eau", value: "12 000 L", detail: "pour 1 smartphone (ADEME 2023)" },
-      { icon: Zap, label: "Énergie", value: "250 kWh", detail: "≈ 2-3 semaines de consommation d'un foyer (~4 700 kWh/an)" },
-      { icon: Cloud, label: "CO₂", value: "50 kg", detail: "d'émissions de gaz à effet de serre (ADEME 2023)" },
+      { icon: Droplets, label: "Eau", value: "12 000 L", detail: "pour la fabrication, extraction incluse (ADEME 2023)" },
+      { icon: Zap, label: "Énergie", value: "250 kWh", detail: "pour la fabrication, extraction incluse ≈ 2-3 semaines de consommation d'un foyer (~4 700 kWh/an, ADEME 2023)" },
+      { icon: Cloud, label: "CO₂", value: "50 kg", detail: "sur l'ensemble du cycle de vie (ADEME 2023)" },
       { icon: Gem, label: "Métaux", value: "50+", detail: "métaux différents extraits (ADEME 2023)" },
     ],
     analogy: "Fabriquer un smartphone nécessite autant d'eau que 160 douches.",
@@ -53,8 +53,6 @@ const lifecyclePhases = [
     description: "Transformation des matières premières en composants électroniques et assemblage final des appareils.",
     impacts: [
       { icon: Cloud, label: "CO₂", value: "75 %", detail: "de l'empreinte carbone totale (ADEME-Arcep 2023)" },
-      { icon: Zap, label: "Énergie", value: "300 kWh", detail: "pour la fabrication (ADEME 2023)" },
-      { icon: Droplets, label: "Eau", value: "8 000 L", detail: "pour le refroidissement (ADEME 2023)" },
       { icon: Gem, label: "Composants", value: "1000+", detail: "pièces assemblées (ordre de grandeur)" },
     ],
     analogy: "La fabrication d'un ordinateur portable émet autant de CO₂ qu'un aller-retour Paris-Marseille en avion.",
@@ -100,7 +98,7 @@ const lifecyclePhases = [
     description: "Collecte, tri et recyclage des appareils en fin de vie pour récupérer les matériaux précieux.",
     impacts: [
       { icon: Gem, label: "Recyclage", value: "22%", detail: "taux de collecte/recyclage mondial (GEM 2024)" },
-      { icon: Trash2, label: "Déchets", value: "62 Mt", detail: "de e-déchets en 2022" },
+      { icon: Trash2, label: "Déchets", value: "62 Mt", detail: "d'e-déchets en 2022" },
       { icon: Droplets, label: "Récupération", value: "variable", detail: "selon les métaux" },
     ],
     analogy: "Recycler 1 million de smartphones permet de récupérer des tonnes de cuivre et de métaux précieux (Ecosystem, 2024).",
@@ -225,7 +223,7 @@ export default function ComprendrePage() {
                 différents (lithium, cobalt, terres rares, or, argent)
               </p>
               <p>
-                <strong>Impact carbone :</strong> 50 kg de CO2 émis, équivalent à 300 km en voiture thermique
+                <strong>Impact carbone :</strong> 50 kg de CO₂ émis, équivalent à 300 km en voiture thermique
               </p>
               <p>
                 <strong>Consommation d'eau :</strong> 12 000 litres utilisés dans le processus de fabrication
@@ -234,7 +232,7 @@ export default function ComprendrePage() {
                 <strong>Transport :</strong> 15 000 km parcourus en moyenne avant d'atteindre le consommateur
               </p>
               <p>
-                <strong>Compensation nécessaire :</strong> 2,5 arbres pendant 1 an pour absorber le CO2 émis
+                <strong>Compensation nécessaire :</strong> 2,5 arbres pendant 1 an pour absorber le CO₂ émis
               </p>
               <p>
                 <strong>Recommandation :</strong> Conserver son smartphone au moins 5 ans pour amortir l'impact de

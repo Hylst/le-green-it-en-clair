@@ -105,7 +105,7 @@ const risks = [
     icon: Droplets,
     color: "rose",
     description:
-      "Les réserves de lithium, cobalt et terres rares s'épuisent. Risque de pénurie d'ici 2050 sans recyclage massif.",
+      "Les réserves de lithium, cobalt et terres rares sont limitées : le recyclage et la sobriété sont essentiels pour sécuriser les approvisionnements.",
     impact: "Critique",
   },
 ]
@@ -203,6 +203,10 @@ export default function PerspectivesPage() {
                 />
               </LineChart>
             </ResponsiveContainer>
+            <p className="mt-6 text-center text-sm text-slate-600">
+              Projection illustrative du site, périmètre mondial (Gt CO₂eq) : les ordres de grandeur sont indicatifs.
+              La prospective ADEME-Arcep citée ci-dessous porte sur la France.
+            </p>
           </Card>
 
           <div className="grid gap-6 lg:grid-cols-3">

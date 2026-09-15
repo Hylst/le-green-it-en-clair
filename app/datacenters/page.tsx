@@ -79,8 +79,8 @@ export default function DatacentersPage() {
   }
 
   const wastePercentage = calculateWaste(pueValue[0])
-  const totalPower = serverCount[0] * 0.5 // Assuming 500W per server
-  const wastedPower = (totalPower * wastePercentage) / 100
+  const totalPower = serverCount[0] * 0.5 // Hypothèse : 500 W par serveur
+  const wastedPower = totalPower * (pueValue[0] - 1)
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
@@ -135,15 +135,15 @@ export default function DatacentersPage() {
               <div className="space-y-4">
                 <div>
                   <div className="mb-1 text-3xl font-bold text-blue-700 dark:text-blue-400">1,5%</div>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">de l'électricité mondiale (AIE, 2024)</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">de l'électricité mondiale (AIE, Energy and AI, avril 2025)</p>
                 </div>
                 <div>
                   <div className="mb-1 text-3xl font-bold text-teal-700 dark:text-teal-400">10 000+</div>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">datacenters dans le monde (DataCenterMap)</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">datacenters dans le monde (ordre de grandeur, DataCenterMap)</p>
                 </div>
                 <div>
                   <div className="mb-1 text-3xl font-bold text-cyan-700 dark:text-cyan-400">415 TWh</div>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">consommation annuelle mondiale (AIE, 2024)</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">consommation annuelle mondiale (AIE, Energy and AI, avril 2025)</p>
                 </div>
                 <div>
                   <div className="mb-1 text-3xl font-bold text-cyan-700 dark:text-cyan-400">~945 TWh</div>
@@ -306,7 +306,7 @@ export default function DatacentersPage() {
             <h3 className="mb-6 text-2xl font-bold text-slate-900 dark:text-slate-100">Simulateur d'efficacité énergétique</h3>
             <p className="mb-8 text-slate-700 dark:text-slate-300">
               Ajustez le PUE et le nombre de serveurs pour voir l'impact sur la consommation et le gaspillage
-              énergétique.
+              énergétique. Hypothèse : 500 W par serveur.
             </p>
 
             <div className="mb-8 grid gap-8 lg:grid-cols-2">
@@ -315,7 +315,7 @@ export default function DatacentersPage() {
                   <span className="font-medium text-slate-700 dark:text-slate-300">PUE du datacenter</span>
                   <span className="text-2xl font-bold text-blue-700 dark:text-blue-400">{pueValue[0].toFixed(2)}</span>
                 </div>
-                <Slider value={pueValue} onValueChange={setPueValue} min={1.0} max={3.0} step={0.1} className="mb-2" />
+                <Slider value={pueValue} onValueChange={setPueValue} min={1.0} max={3.0} step={0.1} aria-label="PUE du datacenter" className="mb-2" />
                 <div className="flex justify-between text-xs text-slate-500">
                   <span>1.0 (Optimal)</span>
                   <span>3.0 (Inefficace)</span>
@@ -333,6 +333,7 @@ export default function DatacentersPage() {
                   min={10}
                   max={1000}
                   step={10}
+                  aria-label="Nombre de serveurs"
                   className="mb-2"
                 />
                 <div className="flex justify-between text-xs text-slate-500">
@@ -407,7 +408,8 @@ export default function DatacentersPage() {
               <TrendingDown className="mt-1 h-5 w-5 shrink-0 text-emerald-700 dark:text-emerald-400" />
               <p className="text-slate-700 dark:text-slate-300">
                 <strong>Tendance :</strong> Les datacenters modernes adoptent de plus en plus le refroidissement liquide
-                et l'immersion, permettant de réduire le PUE de 2.0 à 1.1, soit une économie d'énergie de 45%.
+                et l'immersion, permettant de réduire le PUE de 2,0 à 1,1, soit une économie d'énergie de 45 % (calcul :
+                (2,0 − 1,1) ÷ 2,0).
               </p>
             </div>
           </div>

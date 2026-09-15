@@ -105,7 +105,7 @@ export default function HomePage() {
             <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg border border-border">
               <Image
                 src="/greenit/electronic-waste-pile-with-smartphones-tablets-and.webp"
-                alt="Impact des déchets électroniques - pile de smartphones et tablettes usagés montrant l'accumulation de e-déchets"
+                alt="Impact des déchets électroniques - pile de smartphones et tablettes usagés montrant l'accumulation d'e-déchets"
                 fill
                 className="object-cover"
                 loading="lazy"
@@ -357,7 +357,8 @@ export default function HomePage() {
                 <div>
                   <p className="mb-2 text-lg font-bold text-emerald-800 dark:text-emerald-300">Bravo, c'est correct !</p>
                   <p className="text-slate-700 dark:text-slate-300">
-                    La production représente environ <strong>75% de l'empreinte carbone</strong> d'un smartphone. C'est
+                    La production représente environ <strong>75 % de l'empreinte carbone</strong> d'un smartphone
+                    <SourceTooltip className="ml-1 align-middle" source="ADEME-Arcep, 2023" calculation="fabrication ≈ 75 % des impacts d'un smartphone sur son cycle de vie" />. C'est
                     pourquoi garder son téléphone plus longtemps est le geste le plus efficace.
                   </p>
                 </div>
@@ -366,7 +367,8 @@ export default function HomePage() {
                   <p className="mb-2 text-lg font-bold text-amber-800 dark:text-amber-400">Pas tout à fait...</p>
                   <p className="text-slate-700 dark:text-slate-300">
                     La bonne réponse est la production. Elle représente environ{" "}
-                    <strong>75% de l'empreinte carbone</strong> d'un smartphone. L'utilisation ne compte que pour 20%
+                    <strong>75 % de l'empreinte carbone</strong> d'un smartphone
+                    <SourceTooltip className="ml-1 align-middle" source="ADEME-Arcep, 2023" calculation="fabrication ≈ 75 % des impacts d'un smartphone sur son cycle de vie" />. L'utilisation ne compte que pour 20 %
                     environ.
                   </p>
                 </div>

@@ -1937,12 +1937,12 @@ export function QuizGreenITAdvanced() {
               Refaire un quiz
             </Button>
             {percentage >= 60 && mode !== "review" ? (
-              <Button onClick={handlePrintCertificate} className="flex-1 bg-blue-600 hover:bg-blue-700">
+              <Button onClick={handlePrintCertificate} className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
                 <Download className="h-4 w-4 mr-2" />
                 Imprimer l'attestation
               </Button>
             ) : (
-              <Button onClick={() => window.print()} className="flex-1 bg-blue-600 hover:bg-blue-700">
+              <Button onClick={() => window.print()} className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
                 <Download className="h-4 w-4 mr-2" />
                 Imprimer mon résultat
               </Button>
@@ -2056,7 +2056,7 @@ export function QuizGreenITAdvanced() {
             Score actuel : <span className="font-bold text-slate-900 dark:text-gray-100">{score} points</span>
           </div>
           {showExplanation && (
-            <Button onClick={handleNext} className="bg-blue-600 hover:bg-blue-700">
+            <Button onClick={handleNext} className="bg-blue-600 hover:bg-blue-700 text-white">
               {currentQuestionIndex < activeQuestions.length - 1 ? "Question suivante" : "Voir les résultats"}
             </Button>
           )}

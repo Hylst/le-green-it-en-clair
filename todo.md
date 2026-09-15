@@ -88,6 +88,7 @@ comptes, dashboard, badges, forum, géoloc carte, offline nickel, formation, esp
 - [x] mythe stockage cloud le 15/09 (tâche 2 vague 1) : `20 kg` / `15 g` / `0,2 kg` -> `0,24 g/Go/an` (ADEME Impact CO2 / Base Empreinte) sur `mythes`/`faq`/fiche `gestes-quotidiens` + facteur calculateur à `0,00024 kg/Go/an`. Build ok.
 
 - [ ] màj chiffres, actus, glossaire, viser 15 fiches, étoffer la FAQ
+- [x] Quiz v2 le 15/09 : reprise de session (tous modes, y compris après rechargement ; en Défi le chrono continue de s'écouler et les questions non répondues sont marquées « Non répondu »), dernière session terminée conservée avec bandeau « Derniers résultats » (Revoir/Refaire), révision des erreurs en accordéon (votre réponse, bonne réponse, explication, source) et « Rejouer mes erreurs » en session `review` sans attestation. Stockage local `greenit-quiz-session-v1` versionné (session invalidée si les questions changent), mentions légales complétées. Vérifié : 12 tests node du stockage, parcours playwright (reprise onglet/reload, rejeu, Défi expiré), axe 0, Firefox/WebKit 0.
 - [ ] SEO / analytics / temps de chargement / backlinks
 
 ## ✅ fait

@@ -103,7 +103,7 @@ export default function HomePage() {
               />
             </div>
             <div>
-              <h3 className="text-3xl font-bold text-foreground mb-4">Un enjeu environnemental majeur</h3>
+              <h2 className="text-3xl font-bold text-foreground mb-4">Un enjeu environnemental majeur</h2>
               <p className="text-lg text-muted-foreground mb-4">
                 Nos équipements numériques ont un impact considérable sur l'environnement, de l'extraction des matières
                 premières jusqu'au recyclage.

@@ -270,6 +270,7 @@ export default function EnterpriseSimulator() {
                   <span className="font-semibold text-gray-900 dark:text-gray-100">{config.employees}</span>
                 </div>
                 <LabeledSlider
+                  label="Nombre d'employés"
                   value={[config.employees]}
                   onValueChange={([value]) => setConfig({ ...config, employees: value })}
                   min={10}
@@ -285,6 +286,7 @@ export default function EnterpriseSimulator() {
                   <span className="font-semibold text-gray-900 dark:text-gray-100">{config.devicesPerEmployee}</span>
                 </div>
                 <LabeledSlider
+                  label="Appareils par employé"
                   value={[config.devicesPerEmployee * 10]}
                   onValueChange={([value]) => setConfig({ ...config, devicesPerEmployee: value / 10 })}
                   min={10}
@@ -300,6 +302,7 @@ export default function EnterpriseSimulator() {
                   <span className="font-semibold text-gray-900 dark:text-gray-100">{config.renewalCycle} ans</span>
                 </div>
                 <LabeledSlider
+                  label="Cycle de renouvellement actuel"
                   value={[config.renewalCycle]}
                   onValueChange={([value]) => setConfig({ ...config, renewalCycle: value })}
                   min={2}
@@ -369,7 +372,7 @@ export default function EnterpriseSimulator() {
 
           {/* Bouton de simulation */}
           <div className="text-center">
-            <Button size="lg" onClick={() => setShowResults(true)} className="bg-purple-600 hover:bg-purple-700">
+            <Button size="lg" onClick={() => setShowResults(true)} className="bg-purple-600 hover:bg-purple-700 text-white">
               <TrendingUp className="w-5 h-5 mr-2" />
               Simuler sur 5 ans
             </Button>

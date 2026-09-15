@@ -92,6 +92,7 @@ export default function SobrietySimulator() {
                   min={2}
                   max={7}
                   step={1}
+                  aria-label="Durée de vie de vos appareils (années)"
                   className="mt-2"
                 />
                 <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">

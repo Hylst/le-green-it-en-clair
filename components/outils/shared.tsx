@@ -18,9 +18,10 @@ interface LabeledSliderProps {
   step: number
   onValueChange: (value: number[]) => void
   unit?: string
+  label: string
 }
 
-export function LabeledSlider({ value, min, max, step, onValueChange, unit }: LabeledSliderProps) {
+export function LabeledSlider({ value, min, max, step, onValueChange, unit, label }: LabeledSliderProps) {
   return (
     <div className="space-y-3">
       <div className="flex items-center gap-3">
@@ -34,7 +35,7 @@ export function LabeledSlider({ value, min, max, step, onValueChange, unit }: La
           -
         </Button>
         <div className="flex-1 relative pb-6">
-          <Slider value={value} onValueChange={onValueChange} min={min} max={max} step={step} className="my-2" />
+          <Slider value={value} onValueChange={onValueChange} min={min} max={max} step={step} aria-label={label} className="my-2" />
           <div className="absolute top-full left-0 w-full flex justify-between text-[10px] text-gray-500 dark:text-gray-400 font-mono -mt-1 select-none pointer-events-none">
             {Array.from({ length: 5 }).map((_, i) => (
               <span key={i} className="flex flex-col items-center gap-1">

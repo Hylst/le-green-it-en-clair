@@ -84,7 +84,7 @@ export default function OutilsPage() {
               >
                 <Calculator className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Empreinte carbone</h3>
+              <h2 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Empreinte carbone</h2>
               <p className="text-xs text-slate-600 dark:text-gray-300">Calculez votre impact personnel</p>
               {activeTab === "calculator" && (
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-emerald-600 animate-pulse" />
@@ -111,7 +111,7 @@ export default function OutilsPage() {
               >
                 <Globe className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Analyse de site web</h3>
+              <h2 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Analyse de site web</h2>
               <p className="text-xs text-slate-600 dark:text-gray-300">Impact carbone d'une URL</p>
               {activeTab === "website" && (
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-blue-600 animate-pulse" />
@@ -138,7 +138,7 @@ export default function OutilsPage() {
               >
                 <Lightbulb className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Simulateur sobriété</h3>
+              <h2 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Simulateur sobriété</h2>
               <p className="text-xs text-slate-600 dark:text-gray-300">Visualisez vos économies</p>
               {activeTab === "simulator" && (
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-teal-600 animate-pulse" />
@@ -165,7 +165,7 @@ export default function OutilsPage() {
               >
                 <TrendingUp className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Économies entreprise</h3>
+              <h2 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Économies entreprise</h2>
               <p className="text-xs text-slate-600 dark:text-gray-300">ROI Green IT sur 5 ans</p>
               {activeTab === "enterprise" && (
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-purple-600 animate-pulse" />
@@ -192,7 +192,7 @@ export default function OutilsPage() {
               >
                 <Cloud className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Comparateur cloud</h3>
+              <h2 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Comparateur cloud</h2>
               <p className="text-xs text-slate-600 dark:text-gray-300">Hébergeurs éco-responsables</p>
               {activeTab === "cloud" && (
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-cyan-600 animate-pulse" />
@@ -219,7 +219,7 @@ export default function OutilsPage() {
               >
                 <ClipboardCheck className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Audit parc IT</h3>
+              <h2 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Audit parc IT</h2>
               <p className="text-xs text-slate-600 dark:text-gray-300">Optimisez votre matériel</p>
               {activeTab === "audit" && (
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-orange-600 animate-pulse" />
@@ -246,7 +246,7 @@ export default function OutilsPage() {
               >
                 <Brain className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Quiz Green IT</h3>
+              <h2 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Quiz Green IT</h2>
               <p className="text-xs text-slate-600 dark:text-gray-300">100 questions interactives</p>
               {activeTab === "quiz" && (
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-indigo-600 animate-pulse" />

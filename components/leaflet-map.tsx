@@ -68,7 +68,7 @@ export default function LeafletMap({ points, center = [46.603354, 1.888334], zoo
                 />
                 <ChangeView center={center} zoom={zoom} />
                 {points.map((point, index) => (
-                    <Marker key={`${point.city}-${index}`} position={[point.lat, point.lng]}>
+                    <Marker key={`${point.city}-${index}`} position={[point.lat, point.lng]} alt={`${point.city}, point de collecte`}>
                         <Popup>
                             <div className="text-center font-sans">
                                 <strong className="text-slate-900">{point.city}</strong>

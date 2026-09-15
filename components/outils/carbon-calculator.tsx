@@ -129,6 +129,7 @@ export default function CarbonCalculator() {
                           <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{data.age} ans</span>
                         </div>
                         <LabeledSlider
+                          label={`${device === "smartphone" ? "Smartphone" : device === "laptop" ? "Ordinateur portable" : device === "tablet" ? "Tablette" : device === "desktop" ? "Ordinateur fixe" : "Télévision"} — âge moyen`}
                           value={[data.age]}
                           onValueChange={([value]) =>
                             setDevices({
@@ -148,6 +149,7 @@ export default function CarbonCalculator() {
                           <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{data.usage}h</span>
                         </div>
                         <LabeledSlider
+                          label={`${device === "smartphone" ? "Smartphone" : device === "laptop" ? "Ordinateur portable" : device === "tablet" ? "Tablette" : device === "desktop" ? "Ordinateur fixe" : "Télévision"} — usage quotidien`}
                           value={[data.usage]}
                           onValueChange={([value]) =>
                             setDevices({
@@ -178,6 +180,7 @@ export default function CarbonCalculator() {
                   <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{cloudUsage.email}</span>
                 </div>
                 <LabeledSlider
+                  label="Emails envoyés par jour"
                   value={[cloudUsage.email]}
                   onValueChange={([value]) => setCloudUsage({ ...cloudUsage, email: value })}
                   min={0}
@@ -192,6 +195,7 @@ export default function CarbonCalculator() {
                   <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{cloudUsage.streaming}</span>
                 </div>
                 <LabeledSlider
+                  label="Streaming vidéo (heures par semaine)"
                   value={[cloudUsage.streaming]}
                   onValueChange={([value]) => setCloudUsage({ ...cloudUsage, streaming: value })}
                   min={0}
@@ -206,6 +210,7 @@ export default function CarbonCalculator() {
                   <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{cloudUsage.cloud}</span>
                 </div>
                 <LabeledSlider
+                  label="Stockage cloud (Go)"
                   value={[cloudUsage.cloud]}
                   onValueChange={([value]) => setCloudUsage({ ...cloudUsage, cloud: value })}
                   min={0}
@@ -220,6 +225,7 @@ export default function CarbonCalculator() {
                   <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{cloudUsage.social}</span>
                 </div>
                 <LabeledSlider
+                  label="Réseaux sociaux (heures par jour)"
                   value={[cloudUsage.social]}
                   onValueChange={([value]) => setCloudUsage({ ...cloudUsage, social: value })}
                   min={0}
@@ -247,7 +253,7 @@ export default function CarbonCalculator() {
                   <span>Comparé à la moyenne française ({averageFrench} kg)</span>
                   <span className="font-semibold">{percentage}%</span>
                 </div>
-                <Progress value={Math.min(percentage, 100)} className="h-3" />
+                <Progress value={Math.min(percentage, 100)} className="h-3" aria-label="Comparé à la moyenne française" />
               </div>
 
               <div className="grid grid-cols-2 gap-4 mt-6">

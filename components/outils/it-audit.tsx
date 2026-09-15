@@ -261,6 +261,7 @@ export default function ITAudit() {
                           <span className="font-semibold text-gray-900 dark:text-gray-100">{count}</span>
                         </div>
                         <LabeledSlider
+                          label={`${data.name} — quantité`}
                           value={[count]}
                           onValueChange={([value]) =>
                             setInventory({ ...inventory, [type]: { ...inventory[type as keyof typeof inventory], count: value } })
@@ -277,6 +278,7 @@ export default function ITAudit() {
                           <span className="font-semibold text-gray-900 dark:text-gray-100">{avgAge} ans</span>
                         </div>
                         <LabeledSlider
+                          label={`${data.name} — âge moyen`}
                           value={[avgAge]}
                           onValueChange={([value]) =>
                             setInventory({ ...inventory, [type]: { ...inventory[type as keyof typeof inventory], avgAge: value } })
@@ -334,7 +336,7 @@ export default function ITAudit() {
                   </div>
                 </div>
 
-                <Progress value={results.ecoScore} className="h-4 mb-2" />
+                <Progress value={results.ecoScore} className="h-4 mb-2" aria-label="Score d'éco-efficacité" />
                 <div className="text-sm text-gray-600 dark:text-gray-400 text-center">
                   Score d'éco-efficacité: {results.ecoScore}/100
                 </div>

@@ -55,10 +55,10 @@ Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à l
 - [x] Typo : `CO2 → CO₂/CO₂e`, « d'e-déchets », coquilles (« filière agréée », « Mise à jour », « avant d'envisager ») et **tous les « % » du texte visible** faits (vérification ligne par ligne : 114 lignes modifiées, uniquement l'espace avant %, aucune valeur touchée). Il ne reste que du code (largeurs CSS, shadcn) listé par `npm run check:typo`.
 - [x] Mobile : **0 débordement horizontal sur les 30 routes** à 320, 390 et 768 px (tableaux en `overflow-x-auto`, en-têtes qui passent à la ligne, fil d'Ariane qui wrap, pas d'étapes réduit, cartes `min-w-0`).
 - [x] Logs : `console.log` du service worker et du bouton Installer supprimés.
-- [ ] Divers restants : emojis-icônes dans l'UI, 30 fichiers `ui/` jamais importés (purger ou assumer le kit : décision à prendre).
+- [x] Divers : emojis retirés des titres/boutons/labels au profit de lucide (pédagogique conservé) et **34 fichiers `ui/` + 2 hooks orphelins supprimés** (`components/ui` passe de 49 à 15 fichiers). Commit `24b38a8`.
 - [x] Vérifié le 15/09 au soir : prospective ADEME-Arcep « ×3 d'ici 2050 » **confirmée** (communiqué ministères du 07/03/2023 : « l'empreinte carbone du numérique pourrait tripler entre 2020 et 2050 ») ; GR491 déplacé → `gr491.isit-europe.org` (fiche corrigée) ; « 70 kg » smartphone confirmé par le **SDES/ministère** (infographie du 11/04/2025) ; « 200 kg MIPS » du quiz non sourcé → question Q76 reformulée (commit `7f977c5`).
-- [ ] ⚠️ **Question en attente (voir échanges)** : les facteurs appareils du site (smartphone 50 kg, portable 156, tablette 63, fixe 169) datent de **2023** ; l'outil officiel ADEME **Impact CO₂ (mise à jour 2025)** donne **80,2 / 193 / 87,1 / 259-300 kg** avec une fabrication à **96-99 %** (le « 20 % d'usage carbone » du site est faux : c'est ~1 % en carbone, ~20 % tous indicateurs). Décision à prendre : migrer ou garder + note de périmètre.
-- [ ] Relecture question par question des 100 questions du quiz (balayage ciblé fait : 4 corrections).
+- [x] ⚠️ Migration **ADEME 2025** faite (commit `609e714`) : smartphone 50→80 kg (fabrication 79, 99 % du carbone), tablette 87, portable 193, fixe 259 (pro), écran 93, TV 370 ; facteurs des outils, pages, modèles et quiz alignés ; le « 20 % carbone » devient explicitement « ~1 % carbone / ~20 % tous indicateurs ».
+- [x] Quiz : les anomalies de l'audit avaient déjà été traitées (100 questions reprises le 15/09) ; balayage complémentaire → 4 corrections (467 fois, Q70 étiquette 2023/1669, Q76 MIPS, « questions répondues »), `QUIZ_CONTENT_VERSION` = 3. Pas de relecture intégrale nécessaire.
 
 ### méthode
 

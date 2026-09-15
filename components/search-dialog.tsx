@@ -132,6 +132,80 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                         <Map className="mr-2 h-4 w-4" />
                         <span>Plan du site</span>
                     </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/offline"))}>
+                        <Info className="mr-2 h-4 w-4" />
+                        <span>Page hors ligne</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/mentions-legales"))}>
+                        <Scale className="mr-2 h-4 w-4" />
+                        <span>Mentions légales</span>
+                    </CommandItem>
+                </CommandGroup>
+                <CommandSeparator />
+                <CommandGroup heading="Fiches pratiques">
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/gestes-quotidiens"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Gestes quotidiens</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/achat-responsable"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Achat responsable</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/ecoconception-web"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Écoconception web</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/reparer-prolonger"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Réparer et prolonger</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/green-it-entreprise"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Green IT en entreprise</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/recyclage-mode-emploi"))}>
+                        <Recycle className="mr-2 h-4 w-4" />
+                        <span>Mode d'emploi du recyclage</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/datacenters-verts"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Datacenters verts</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/collectivites-action"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Collectivités en action</span>
+                    </CommandItem>
+                </CommandGroup>
+                <CommandSeparator />
+                <CommandGroup heading="Modèles détaillés">
+                    <CommandItem onSelect={() => runCommand(() => router.push("/modeles/grille-audit"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Grille d'audit</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/modeles/tableau-bord-impact"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Tableau de bord impact</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/modeles/charte-green-it"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Charte Green IT</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/modeles/cahier-charges-achat"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Cahier des charges achat</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/modeles/politique-numerique"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Politique numérique</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/modeles/guide-sensibilisation"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Guide de sensibilisation</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/modeles/plan-action-dsi"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Plan d'action DSI</span>
+                    </CommandItem>
                 </CommandGroup>
                 <CommandSeparator />
                 <CommandGroup heading="Paramètres">

@@ -864,9 +864,10 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     difficulty: "facile",
     question: "En quelle année la loi AGEC (Anti-Gaspillage pour une Économie Circulaire) a-t-elle été votée ?",
     options: ["2018", "2020", "2021", "2023"],
-    correctAnswer: 2,
-    explanation: "La loi AGEC a été votée en 2021, introduisant l'indice de réparabilité et le bonus réparation.",
-    source: "Loi AGEC 2021",
+    correctAnswer: 1,
+    explanation:
+      "La loi AGEC a été votée le 10 février 2020 (loi n° 2020-105) ; l'indice de réparabilité s'applique depuis 2021.",
+    source: "Loi n° 2020-105",
     points: 10,
   },
   {
@@ -885,12 +886,12 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     id: 63,
     category: "Réglementation",
     difficulty: "difficile",
-    question: "Quel est l'objectif de réduction des émissions du numérique en France pour 2030 ?",
-    options: ["-10%", "-25%", "-45%", "-55%"],
+    question: "Quelle est la trajectoire tendancielle des émissions du numérique en France d'ici 2030 ?",
+    options: ["-45%", "+15%", "+45%", "stable"],
     correctAnswer: 2,
     explanation:
-      "La France vise une réduction de 45% des émissions du secteur numérique d'ici 2030 dans le cadre de la SNBC.",
-    source: "SNBC 2023",
+      "À politiques constantes, l'empreinte carbone du numérique en France augmenterait d'environ 45 % d'ici 2030 (ADEME-Arcep).",
+    source: "ADEME-Arcep 2023",
     points: 20,
   },
   {
@@ -906,7 +907,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctAnswer: 1,
     explanation:
-      "La loi REEN impose aux opérateurs et acteurs du numérique de publier des rapports sur leur empreinte environnementale.",
+      "La loi REEN (2021) impose notamment la publication de rapports environnementaux, encourage l'écoconception et encadre les datacenters.",
     source: "Loi REEN 2021",
     points: 15,
   },
@@ -984,12 +985,12 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     id: 70,
     category: "Réglementation",
     difficulty: "difficile",
-    question: "À partir de quelle année l'indice de durabilité remplacera l'indice de réparabilité en France ?",
-    options: ["2024", "2026", "2028", "2030"],
+    question: "Quel dispositif encadre la durabilité des smartphones depuis juin 2025 ?",
+    options: ["L'indice de durabilité français", "L'étiquette énergie européenne", "Un label privé", "Aucun texte"],
     correctAnswer: 1,
     explanation:
-      "L'indice de durabilité, plus complet que l'indice de réparabilité, remplacera ce dernier progressivement à partir de 2026.",
-    source: "Loi AGEC",
+      "Depuis le 20 juin 2025, les smartphones vendus dans l'UE affichent une étiquette énergie (règlement 2023/1670) : 5 ans de mises à jour, 7 ans de pièces. L'indice de durabilité français s'applique déjà aux TV et lave-linge.",
+    source: "Règlement UE 2023/1670",
     points: 20,
   },
 
@@ -998,12 +999,12 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     id: 71,
     category: "Impact environnemental",
     difficulty: "moyen",
-    question: "Combien de tonnes de CO2e le numérique mondial émet-il par an en 2025 ?",
-    options: ["500 millions", "1 milliard", "1,5 milliard", "2,5 milliards"],
+    question: "Combien de tonnes de CO2e le numérique mondial émet-il par an ?",
+    options: ["500 millions", "1 milliard", "1,8 milliard", "2,5 milliards"],
     correctAnswer: 2,
     explanation:
-      "Le secteur numérique mondial émet environ 1,5 milliard de tonnes de CO2e par an en 2025, soit 4% des émissions globales.",
-    source: "The Shift Project 2025",
+      "Le secteur numérique mondial émet environ 1,8 Gt CO2e en 2023, soit 3,4 % des émissions mondiales (GreenIT EENM 2025).",
+    source: "GreenIT EENM 2025",
     points: 15,
   },
   {

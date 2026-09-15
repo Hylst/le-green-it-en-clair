@@ -95,7 +95,7 @@ const mainProblems = [
     severity: "Critique",
     stats: "~70 Mt de e-déchets en 2025 (GEM 2024)",
     description:
-      "La production mondiale de déchets électroniques augmente environ 5 fois plus vite que le recyclage : 62 Mt en 2022, environ 69-70 Mt en 2025, 82 Mt projetées en 2030 (+2,6 Mt/an). Seuls 22,3 % ont été collectés et recyclés en 2022 (Global E-waste Monitor 2024).",
+      "La production mondiale de déchets électroniques augmente environ 5 fois plus vite que le recyclage : 62 Mt en 2022, environ 69-70 Mt en 2025, 82 Mt projetées en 2030 (+2,6 Mt/an). Seuls 22,3 % ont été collectés et recyclés en 2022, et la trajectoire actuelle ne mènerait qu'à ~20 % en 2030 (Global E-waste Monitor 2024).",
     impacts: [
       "Pollution des sols et de l'eau par métaux lourds",
       "Incinération toxique dans les pays en développement",
@@ -120,7 +120,7 @@ const mainProblems = [
       "Effet rebond : l'efficacité énergétique est annulée par l'augmentation des usages",
     ],
     data2025:
-      "Les datacenters représentent 1,5 % de la consommation électrique mondiale (AIE, 2024). La France en compte plusieurs centaines, dont une vingtaine de grande taille.",
+      "Les datacenters représentent 1,5 % de la consommation électrique mondiale (AIE, 2024). La France en compte de l'ordre de 250, dont une vingtaine de grande taille (France Datacenter).",
   },
   {
     title: "Obsolescence programmée et rapide",

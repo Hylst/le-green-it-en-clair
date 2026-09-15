@@ -65,7 +65,7 @@ export default function MythesPage() {
       myth: "Les nouveaux appareils sont plus écologiques",
       reality: "Nuancé - Ils sont plus efficaces, mais leur fabrication pollue davantage",
       explanation:
-        "Les appareils récents sont effectivement plus économes en énergie à l'usage (processeurs plus efficients, meilleure gestion de la batterie). Cependant, ils utilisent des composants plus complexes et miniaturisés, nécessitant plus de ressources et d'énergie pour leur fabrication. Acheter un appareil neuf émet en moyenne environ 50 kg de CO₂e, contre environ 8 kg pour un appareil reconditionné (ADEME 2022).",
+        "Les appareils récents sont effectivement plus économes en énergie à l'usage (processeurs plus efficients, meilleure gestion de la batterie). Cependant, ils utilisent des composants plus complexes et miniaturisés, nécessitant plus de ressources et d'énergie pour leur fabrication. Acheter un appareil neuf émet en moyenne environ 50 kg de CO₂e, contre environ 8 kg pour un appareil reconditionné (ADEME 2022), soit jusqu'à −87 % d'émissions de GES (ADEME 2026).",
       source: "ADEME 2022",
       relatedLink: { label: "Comparer neuf vs reconditionné", href: "/cas-pratiques" },
     },

@@ -246,7 +246,7 @@ export default function CasPratiquesPage() {
                     value: 8,
                     color: "#3b82f6",
                     icon: Recycle,
-                    description: "≈ −75 à −90 % d'impact par rapport au neuf (ADEME 2022)",
+                    description: "≈ −75 à −90 % d'impact et jusqu'à −87 % de GES par rapport au neuf (ADEME 2022/2026)",
                   },
                   {
                     label: "Acheter neuf",

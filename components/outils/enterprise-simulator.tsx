@@ -20,7 +20,7 @@ export default function EnterpriseSimulator() {
     cloudUsage: "medium" as "low" | "medium" | "high",
     datacenters: 0,
     currentInitiatives: [] as string[],
-    energyPrice: 0.18, // €/kWh
+    energyPrice: 0.20, // €/kWh
   })
 
   const [selectedScenario, setSelectedScenario] = useState<"baseline" | "moderate" | "ambitious">("moderate")
@@ -74,7 +74,7 @@ export default function EnterpriseSimulator() {
         // Costs baseline (without optimization)
         const baseDevicesRenewed = Math.ceil(totalDevices / baseRenewalCycle)
         const baseEquipmentCost = baseDevicesRenewed * 800 // €
-        const baseEnergyCost = totalDevices * 120 // €/an (average consumption)
+        const baseEnergyCost = totalDevices * 60 // €/an (average consumption)
         const baseCloudCost = config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000)
         const baseMaintenanceCost = totalDevices * 50 // €/an
         const baseTotalCost = baseEquipmentCost + baseEnergyCost + baseCloudCost + baseMaintenanceCost
@@ -86,7 +86,7 @@ export default function EnterpriseSimulator() {
         const newDevices = optimizedDevicesRenewed - refurbishedDevices
 
         const optimizedEquipmentCost = newDevices * 800 + refurbishedDevices * 800 * 0.5
-        const optimizedEnergyCost = totalDevices * 120 * (1 - scenario.energyOptimization)
+        const optimizedEnergyCost = totalDevices * 60 * (1 - scenario.energyOptimization)
         const optimizedCloudCost = config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000) * (1 - scenario.cloudOptimization)
         const optimizedMaintenanceCost = totalDevices * 50 * 1.2 // +20% preventive maintenance
         const optimizedTotalCost = optimizedEquipmentCost + optimizedEnergyCost + optimizedCloudCost + optimizedMaintenanceCost
@@ -96,13 +96,13 @@ export default function EnterpriseSimulator() {
 
         // CO2 baseline
         const baseCO2Devices = baseDevicesRenewed * 200 // kg
-        const baseCO2Usage = totalDevices * 30 // kg/an
+        const baseCO2Usage = totalDevices * 22 // kg/an
         const baseCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300)
         const baseTotalCO2 = baseCO2Devices + baseCO2Usage + baseCO2Cloud
 
         // CO2 optimized
         const optimizedCO2Devices = newDevices * 200 + refurbishedDevices * 40 // kg
-        const optimizedCO2Usage = totalDevices * 30 * (1 - scenario.energyOptimization * 0.5)
+        const optimizedCO2Usage = totalDevices * 22 * (1 - scenario.energyOptimization * 0.5)
         const optimizedCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300) * (1 - scenario.cloudOptimization)
         const optimizedTotalCO2 = optimizedCO2Devices + optimizedCO2Usage + optimizedCO2Cloud
 
@@ -126,7 +126,7 @@ export default function EnterpriseSimulator() {
 
           const baseDevicesRenewed = year > 0 ? Math.ceil(totalDevices / baseRenewalCycle) : 0
           const baseEquipmentCost = baseDevicesRenewed * 800
-          const baseEnergyCost = totalDevices * 120
+          const baseEnergyCost = totalDevices * 60
           const baseCloudCost = config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000)
           const baseMaintenanceCost = totalDevices * 50
           const baseTotalCost = baseEquipmentCost + baseEnergyCost + baseCloudCost + baseMaintenanceCost
@@ -136,19 +136,19 @@ export default function EnterpriseSimulator() {
           const newDevices = optimizedDevicesRenewed - refurbishedDevices
 
           const optimizedEquipmentCost = newDevices * 800 + refurbishedDevices * 800 * 0.5
-          const optimizedEnergyCost = totalDevices * 120 * (1 - scenario.energyOptimization)
+          const optimizedEnergyCost = totalDevices * 60 * (1 - scenario.energyOptimization)
           const optimizedCloudCost = config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000) * (1 - scenario.cloudOptimization)
           const optimizedMaintenanceCost = totalDevices * 50 * 1.2
           const optimizedTotalCost = optimizedEquipmentCost + optimizedEnergyCost + optimizedCloudCost + optimizedMaintenanceCost
 
           // CO2 logic for projections
           const baseCO2Devices = year > 0 ? baseDevicesRenewed * 200 : 0
-          const baseCO2Usage = totalDevices * 30
+          const baseCO2Usage = totalDevices * 22
           const baseCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300)
           const currentBaseTotalCO2 = year === 0 ? 0 : baseCO2Devices + baseCO2Usage + baseCO2Cloud
 
           const optimizedCO2Devices = year > 0 ? (newDevices * 200 + refurbishedDevices * 40) : 0
-          const optimizedCO2Usage = totalDevices * 30 * (1 - scenario.energyOptimization * 0.5)
+          const optimizedCO2Usage = totalDevices * 22 * (1 - scenario.energyOptimization * 0.5)
           const optimizedCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300) * (1 - scenario.cloudOptimization)
           const currentOptimizedTotalCO2 = year === 0 ? 0 : optimizedCO2Devices + optimizedCO2Usage + optimizedCO2Cloud
 

@@ -41,7 +41,7 @@ export default function CloudComparator() {
       carbonNeutral: false,
       certifications: ["ISO 14001", "ISO 50001"],
       sustainabilityScore: 82,
-      description: "Refroidissement par eau innovant, objectif neutralité carbone 2025.",
+      description: "Refroidissement par eau innovant et démarche de réduction carbone.",
       color: "teal",
     },
     {
@@ -74,7 +74,7 @@ export default function CloudComparator() {
       carbonNeutral: false,
       certifications: ["ISO 14001", "ISO 50001"],
       sustainabilityScore: 78,
-      description: "Objectif 100% renouvelable 2025, programme Climate Pledge.",
+      description: "100 % renouvelable atteint en 2023 (matching annuel), programme Climate Pledge.",
       color: "cyan",
     },
     {
@@ -141,7 +141,7 @@ export default function CloudComparator() {
             Comparateur de fournisseurs cloud éco-responsables
           </CardTitle>
           <CardDescription>
-            Comparez l'impact environnemental des principaux hébergeurs et fournisseurs cloud (données 2025)
+            Comparez l'impact environnemental des principaux hébergeurs et fournisseurs cloud (données indicatives 2024-2025)
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -188,14 +188,14 @@ export default function CloudComparator() {
             <ul className="text-sm space-y-1 text-gray-700 dark:text-gray-300">
               <li>
                 <strong>PUE (Power Usage Effectiveness)</strong> : Ratio d'efficacité énergétique. Plus il est proche de 1,
-                mieux c'est. Un PUE de 1.2 signifie que 20% de l'énergie est utilisée pour le refroidissement.
+                mieux c'est. Un PUE de 1.2 signifie que 20 % de l'énergie sert aux infrastructures (refroidissement, distribution), pas seulement au calcul.
               </li>
               <li>
                 <strong>Énergie renouvelable</strong> : Pourcentage d'électricité provenant de sources renouvelables
                 (solaire, éolien, hydraulique).
               </li>
               <li>
-                <strong>Score éco</strong> : Score global de durabilité basé sur le PUE, % renouvelable, certifications et
+                <strong>Score éco</strong> : Score indicatif de durabilité, basé sur le PUE, % renouvelable, certifications et
                 engagements.
               </li>
             </ul>

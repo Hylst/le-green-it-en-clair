@@ -1462,6 +1462,7 @@ export function QuizGreenITAdvanced() {
   const [answeredQuestions, setAnsweredQuestions] = useState<number[]>([])
   const [isFinished, setIsFinished] = useState(false)
   const [timeLeft, setTimeLeft] = useState(0)
+  const [playerName, setPlayerName] = useState("")
 
   const categories = Array.from(new Set(ALL_QUIZ_QUESTIONS.map((q) => q.category)))
 
@@ -1544,7 +1545,14 @@ export function QuizGreenITAdvanced() {
     setAnsweredQuestions([])
     setIsFinished(false)
     setTimeLeft(0)
+    setPlayerName("")
     setActiveQuestions([])
+  }
+
+  const handlePrintCertificate = () => {
+    document.body.classList.add("printing-certificate")
+    window.print()
+    window.addEventListener("afterprint", () => document.body.classList.remove("printing-certificate"), { once: true })
   }
 
   const getLevel = (finalScore: number, maxScore: number) => {
@@ -1721,15 +1729,46 @@ export function QuizGreenITAdvanced() {
             </ul>
           </div>
 
+          {percentage >= 60 && (
+            <div className="certificate-print rounded-xl border-2 border-emerald-300 p-6 text-center dark:border-emerald-700">
+              <p className="text-sm text-muted-foreground">Le Green IT en clair</p>
+              <h3 className="mt-2 text-2xl font-bold text-emerald-700">Attestation de réussite</h3>
+              <input
+                value={playerName}
+                onChange={(e) => setPlayerName(e.target.value)}
+                placeholder="Votre nom (facultatif)"
+                className="mx-auto mt-4 block w-full max-w-xs rounded-lg border border-slate-300 bg-transparent p-2 text-center dark:border-slate-600"
+              />
+              <p className="mt-4">
+                {playerName.trim() ? `${playerName.trim()} obtient ` : "Résultat obtenu : "}
+                <strong>
+                  {score} / {maxScore}
+                </strong>{" "}
+                ({percentage}%)
+              </p>
+              <p className="mt-1">
+                Niveau : <strong>{levelInfo.level}</strong> — Mode : {mode}
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">Établie le {new Date().toLocaleDateString("fr-FR")}</p>
+            </div>
+          )}
+
           <div className="flex gap-3">
             <Button onClick={resetQuiz} className="flex-1 bg-transparent" variant="outline">
               <RotateCcw className="h-4 w-4 mr-2" />
               Refaire un quiz
             </Button>
-            <Button onClick={() => window.print()} className="flex-1 bg-blue-600 hover:bg-blue-700">
-              <Download className="h-4 w-4 mr-2" />
-              Imprimer le certificat
-            </Button>
+            {percentage >= 60 ? (
+              <Button onClick={handlePrintCertificate} className="flex-1 bg-blue-600 hover:bg-blue-700">
+                <Download className="h-4 w-4 mr-2" />
+                Imprimer l'attestation
+              </Button>
+            ) : (
+              <Button onClick={() => window.print()} className="flex-1 bg-blue-600 hover:bg-blue-700">
+                <Download className="h-4 w-4 mr-2" />
+                Imprimer mon résultat
+              </Button>
+            )}
           </div>
         </CardContent>
       </Card>
@@ -1782,7 +1821,7 @@ export function QuizGreenITAdvanced() {
           <p className="text-lg font-medium text-slate-900 dark:text-gray-100">{currentQuestion.question}</p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-3" role="radiogroup" aria-label="Réponses possibles">
           {currentQuestion.options.map((option, index) => {
             const isSelected = selectedAnswer === index
             const isCorrect = index === currentQuestion.correctAnswer
@@ -1805,6 +1844,8 @@ export function QuizGreenITAdvanced() {
                 key={index}
                 onClick={() => handleAnswer(index)}
                 disabled={showExplanation}
+                role="radio"
+                aria-checked={isSelected}
                 className={buttonClass}
               >
                 <div className="flex items-center gap-3">
@@ -1812,6 +1853,8 @@ export function QuizGreenITAdvanced() {
                   {showResult && isSelected && !isCorrect && (
                     <XCircle className="h-5 w-5 text-red-600 dark:text-red-400" />
                   )}
+                  {showResult && isCorrect && <span className="sr-only">Bonne réponse : </span>}
+                  {showResult && isSelected && !isCorrect && <span className="sr-only">Votre réponse : </span>}
                   <span className="flex-1 dark:text-gray-100">{option}</span>
                 </div>
               </button>
@@ -1820,7 +1863,10 @@ export function QuizGreenITAdvanced() {
         </div>
 
         {showExplanation && (
-          <div className="p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
+          <div
+            className="p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800"
+            aria-live="polite"
+          >
             <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-2">Explication :</h4>
             <p className="text-sm text-blue-800 dark:text-blue-300 mb-3">{currentQuestion.explanation}</p>
             <p className="text-xs text-blue-600 dark:text-blue-400">Source : {currentQuestion.source}</p>

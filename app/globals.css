@@ -229,3 +229,21 @@ html {
     padding: 0 !important;
   }
 }
+
+/* Impression de l'attestation du quiz : seul le certificat sort */
+@media print {
+  body.printing-certificate * {
+    visibility: hidden;
+  }
+  body.printing-certificate .certificate-print,
+  body.printing-certificate .certificate-print * {
+    visibility: visible;
+  }
+  body.printing-certificate .certificate-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 2cm;
+  }
+}

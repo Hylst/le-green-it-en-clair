@@ -149,7 +149,7 @@ export default function DeveloppementPage() {
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-accent rounded-full" />
-              <span>Mis à jour en 2025</span>
+              <span>Mis à jour en 2026</span>
             </div>
             <div className="flex items-center gap-2 md:ml-auto">
               <Badge variant="outline" className="border-primary/20 text-primary bg-primary/5">

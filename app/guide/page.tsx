@@ -71,7 +71,7 @@ export default function GuidePage() {
             {/* Header */}
             <section className="bg-primary/10 py-16 px-6">
                 <div className="max-w-4xl mx-auto text-center">
-                    <Badge className="mb-4 bg-primary text-primary-foreground">Guide Officiel 2025</Badge>
+                    <Badge className="mb-4 bg-primary text-primary-foreground">Guide officiel 2026</Badge>
                     <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                         Guide du Numérique Responsable
                     </h1>

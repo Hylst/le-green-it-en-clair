@@ -203,7 +203,7 @@ export default function AProposPage() {
               </p>
               <div className="space-y-3">
                 <div className="bg-secondary p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2">Sources de données (2025)</h3>
+                  <h3 className="font-semibold mb-2">Sources de données (2026)</h3>
                   <ul className="space-y-1 text-sm text-muted-foreground">
                     <li>• Bases de données ADEME (Base Empreinte, Base Carbone)</li>
                     <li>• Rapports GreenIT.fr et études d'impact</li>
@@ -229,7 +229,7 @@ export default function AProposPage() {
                   <h3 className="font-semibold mb-2">Mise à jour des données</h3>
                   <p className="text-sm text-muted-foreground">
                     Les données sont mises à jour régulièrement pour refléter les dernières études et évolutions
-                    technologiques. Dernière mise à jour : <strong>Janvier 2025</strong>.
+                    technologiques. Dernière mise à jour : <strong>Septembre 2026</strong>.
                   </p>
                 </div>
               </div>

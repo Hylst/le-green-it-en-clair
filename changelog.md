@@ -12,7 +12,8 @@ Je note ici ce qui change, même les petits trucs.
 - typo (commit `937209e`) : script de contrôle (espace uniquement, diff validé ligne à ligne), tous les « % » du texte visible (y compris options de quiz et libellés), coquilles « filière agréée », « Mise à jour », « avant d'envisager », logs console SW/installer supprimés.
 - mobile (commit `1068cea`) : 0 débordement horizontal sur les 30 routes à 320, 390 et 768 px — tableaux dans `overflow-x-auto`, en-têtes et fil d'Ariane qui passent à la ligne, pas d'étapes réduit et emojis d'analogie adaptés, cartes `min-w-0` ; quiz « 467 fois » et explication Q76 (MIPS) reformulée.
 - vérifié : `tsc` 0 erreur, build 42 pages, classes CSS présentes dans l'export, manifest JSON valide.
-- reste (dans `todo.md`) : emojis UI, 30 fichiers `ui/` orphelins à trancher, millésimes Base Empreinte 2023/2024, prospective ADEME-Arcep ×3, source ADEME 2019 du « 200 kg MIPS » (quiz Q76), relecture question par question du quiz, lecteur d'écran réel.
+- reste (dans `todo.md`) : emojis UI, 30 fichiers `ui/` orphelins à trancher, relecture question par question du quiz, lecteur d'écran réel, et une question de fond : migrer ou non les facteurs appareils vers l'ADEME 2025 (Impact CO₂ : 80 kg smartphone, 193 kg portable…).
+- vérifications en ligne du 15/09 au soir : ×3 ADEME-Arcep confirmé (communiqué ministères 07/03/2023), GR491 déplacé vers `gr491.isit-europe.org` (fiche corrigée), « 70 kg » confirmé par le SDES (infographie 11/04/2025), question MIPS du quiz reformulée (le « 200 kg » n'était pas sourcé), liens de l'export contrôlés (1 935 liens internes, 0 cassé ; 29 externes, seuls des 403 anti-bot).
 
 ## pas encore sorti — septembre 2026 (13 au 15/09)
 

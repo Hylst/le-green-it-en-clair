@@ -56,7 +56,9 @@ Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à l
 - [x] Mobile : **0 débordement horizontal sur les 30 routes** à 320, 390 et 768 px (tableaux en `overflow-x-auto`, en-têtes qui passent à la ligne, fil d'Ariane qui wrap, pas d'étapes réduit, cartes `min-w-0`).
 - [x] Logs : `console.log` du service worker et du bouton Installer supprimés.
 - [ ] Divers restants : emojis-icônes dans l'UI, 30 fichiers `ui/` jamais importés (purger ou assumer le kit : décision à prendre).
-- [ ] À confirmer avant d'écrire : prospective ADEME-Arcep « ×3 d'ici 2050 » (pas trouvée en ligne), millésimes Base Empreinte 2023/2024 (`guide:140`, `tableau-bord:204` vs `[id]:146`), source ADEME 2019 du « 200 kg MIPS » du quiz Q76, relecture question par question des 100 questions du quiz (balayage ciblé fait : 3 corrections, « 470 » → « 467 », explication Q76 reformulée, règlement Q70 corrigé).
+- [x] Vérifié le 15/09 au soir : prospective ADEME-Arcep « ×3 d'ici 2050 » **confirmée** (communiqué ministères du 07/03/2023 : « l'empreinte carbone du numérique pourrait tripler entre 2020 et 2050 ») ; GR491 déplacé → `gr491.isit-europe.org` (fiche corrigée) ; « 70 kg » smartphone confirmé par le **SDES/ministère** (infographie du 11/04/2025) ; « 200 kg MIPS » du quiz non sourcé → question Q76 reformulée (commit `7f977c5`).
+- [ ] ⚠️ **Question en attente (voir échanges)** : les facteurs appareils du site (smartphone 50 kg, portable 156, tablette 63, fixe 169) datent de **2023** ; l'outil officiel ADEME **Impact CO₂ (mise à jour 2025)** donne **80,2 / 193 / 87,1 / 259-300 kg** avec une fabrication à **96-99 %** (le « 20 % d'usage carbone » du site est faux : c'est ~1 % en carbone, ~20 % tous indicateurs). Décision à prendre : migrer ou garder + note de périmètre.
+- [ ] Relecture question par question des 100 questions du quiz (balayage ciblé fait : 4 corrections).
 
 ### méthode
 

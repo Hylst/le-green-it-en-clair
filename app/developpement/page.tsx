@@ -120,7 +120,7 @@ export default function DeveloppementPage() {
         <div className="absolute inset-0 bg-secondary/30" />
         <div className="absolute inset-0 opacity-10 dark:opacity-5">
           <Image
-            src="/greenit/images/sustainable-coding.png"
+            src="/greenit/images/sustainable-coding.webp"
             alt="Développeur travaillant sur du code éco-responsable dans un environnement de travail durable avec plantes vertes, éclairage naturel, et écran affichant du code optimisé pour la performance énergétique"
             fill
             className="object-cover"

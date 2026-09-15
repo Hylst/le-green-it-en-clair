@@ -63,3 +63,5 @@ AUDIT-*.md
 .playwright-mcp/
 
 # pas de fichier par assistant (gemini.md, cursor.md, copilot.md...) : tout est dans agents.md, un seul endroit, pas de doublons
+# sources images locales, jamais servies
+img_ori_non_opti/

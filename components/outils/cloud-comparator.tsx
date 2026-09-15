@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Cloud } from "lucide-react";
+import { Cloud, Lightbulb, Leaf, CheckCircle2, Clock } from "lucide-react";
 
 export default function CloudComparator() {
   const [sortBy, setSortBy] = useState<"score" | "pue" | "renewable" | "name">("score")
@@ -46,7 +46,7 @@ export default function CloudComparator() {
     },
     {
       name: "Google Cloud",
-      country: "🌍 Global",
+      country: "Global",
       pue: 1.1,
       renewableEnergy: 100,
       carbonNeutral: true,
@@ -57,7 +57,7 @@ export default function CloudComparator() {
     },
     {
       name: "Microsoft Azure",
-      country: "🌍 Global",
+      country: "Global",
       pue: 1.18,
       renewableEnergy: 100,
       carbonNeutral: true,
@@ -68,7 +68,7 @@ export default function CloudComparator() {
     },
     {
       name: "AWS",
-      country: "🌍 Global",
+      country: "Global",
       pue: 1.2,
       renewableEnergy: 100,
       carbonNeutral: false,
@@ -184,7 +184,7 @@ export default function CloudComparator() {
 
           {/* Légende */}
           <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
-            <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">💡 Comprendre les métriques</h4>
+            <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100"><Lightbulb className="mr-2 inline h-4 w-4" />Comprendre les métriques</h4>
             <ul className="text-sm space-y-1 text-gray-700 dark:text-gray-300">
               <li>
                 <strong>PUE (Power Usage Effectiveness)</strong> : Ratio d'efficacité énergétique. Plus il est proche de 1,
@@ -249,7 +249,11 @@ export default function CloudComparator() {
                     </div>
                     <div className="bg-white dark:bg-slate-800 p-3 rounded-lg text-center border border-gray-200 dark:border-gray-700">
                       <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-                        {provider.carbonNeutral ? "✅" : "⏳"}
+                        {provider.carbonNeutral ? (
+                          <CheckCircle2 className="mx-auto h-6 w-6 text-emerald-600 dark:text-emerald-400" aria-label="Neutre carbone" />
+                        ) : (
+                          <Clock className="mx-auto h-6 w-6 text-amber-600 dark:text-amber-400" aria-label="Objectif en cours" />
+                        )}
                       </div>
                       <div className="text-xs text-gray-600 dark:text-gray-400">Neutre carbone</div>
                     </div>
@@ -261,7 +265,7 @@ export default function CloudComparator() {
 
           {/* Recommandation */}
           <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 p-6 rounded-lg border-2 border-emerald-200 dark:border-emerald-800">
-            <h4 className="font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100">🌱 Notre recommandation</h4>
+            <h4 className="font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100"><Leaf className="mr-2 inline h-5 w-5" />Notre recommandation</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
               Pour un hébergement web éco-responsable en France ou en Europe, privilégiez :
             </p>

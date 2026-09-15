@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { ClipboardCheck, Download, RotateCcw } from "lucide-react";
+import { ClipboardCheck, Download, RotateCcw, Monitor, PcCase, Laptop, Smartphone, Tablet, Printer, Server, Package, BarChart3, Search, Coins, ClipboardList } from "lucide-react";
 import { LabeledSlider, PDF_COLORS } from "./shared";
 
 export default function ITAudit() {
@@ -22,13 +22,13 @@ export default function ITAudit() {
   const [showResults, setShowResults] = useState(false)
 
   const deviceData = {
-    desktops: { name: "Ordinateurs fixes", fabricationCO2: 205, usageCO2: 9.1, optimalLife: 6, icon: "🖥️" },
-    laptops: { name: "Ordinateurs portables", fabricationCO2: 182, usageCO2: 2.1, optimalLife: 5, icon: "💻" },
-    monitors: { name: "Écrans", fabricationCO2: 66, usageCO2: 4.5, optimalLife: 6, icon: "🖥️" },
-    smartphones: { name: "Smartphones", fabricationCO2: 79, usageCO2: 0.4, optimalLife: 5, icon: "📱" },
-    tablets: { name: "Tablettes", fabricationCO2: 84, usageCO2: 1.1, optimalLife: 5, icon: "📋" },
-    printers: { name: "Imprimantes", fabricationCO2: 130, usageCO2: 35, optimalLife: 7, icon: "🖨️" },
-    servers: { name: "Serveurs", fabricationCO2: 1200, usageCO2: 500, optimalLife: 5, icon: "🖧" },
+    desktops: { name: "Ordinateurs fixes", fabricationCO2: 205, usageCO2: 9.1, optimalLife: 6, icon: PcCase },
+    laptops: { name: "Ordinateurs portables", fabricationCO2: 182, usageCO2: 2.1, optimalLife: 5, icon: Laptop },
+    monitors: { name: "Écrans", fabricationCO2: 66, usageCO2: 4.5, optimalLife: 6, icon: Monitor },
+    smartphones: { name: "Smartphones", fabricationCO2: 79, usageCO2: 0.4, optimalLife: 5, icon: Smartphone },
+    tablets: { name: "Tablettes", fabricationCO2: 84, usageCO2: 1.1, optimalLife: 5, icon: Tablet },
+    printers: { name: "Imprimantes", fabricationCO2: 130, usageCO2: 35, optimalLife: 7, icon: Printer },
+    servers: { name: "Serveurs", fabricationCO2: 1200, usageCO2: 500, optimalLife: 5, icon: Server },
   }
 
   const calculateResults = () => {
@@ -241,7 +241,7 @@ export default function ITAudit() {
         <CardContent className="space-y-8">
           {/* Formulaire d'inventaire */}
           <div>
-            <h3 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100">📦 Inventaire du parc</h3>
+              <h3 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100"><Package className="mr-2 inline h-5 w-5" />Inventaire du parc</h3>
             <div className="grid md:grid-cols-2 gap-4">
               {Object.entries(inventory).map(([type, { count, avgAge }]) => {
                 const data = deviceData[type as keyof typeof deviceData]
@@ -251,7 +251,7 @@ export default function ITAudit() {
                     className="p-4 bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-gray-700"
                   >
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-2xl">{data.icon}</span>
+                      <span className="text-gray-700 dark:text-gray-300"><data.icon className="h-6 w-6" /></span>
                       <span className="font-medium text-gray-900 dark:text-gray-100">{data.name}</span>
                     </div>
                     <div className="space-y-3">
@@ -313,7 +313,7 @@ export default function ITAudit() {
             <div className="space-y-6">
               {/* Score global */}
               <div className="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 p-6 rounded-lg border-2 border-orange-200 dark:border-orange-800">
-                <h3 className="font-semibold text-xl mb-4 text-gray-900 dark:text-gray-100">📊 Résultats de l'audit</h3>
+                <h3 className="font-semibold text-xl mb-4 text-gray-900 dark:text-gray-100"><BarChart3 className="mr-2 inline h-5 w-5" />Résultats de l'audit</h3>
                 <div className="grid md:grid-cols-4 gap-4 mb-6">
                   <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
                     <div className={`text-4xl font-bold ${results.totalDevices === 0 ? "text-gray-400 dark:text-gray-500" : scoreGrade.color}`}>
@@ -360,7 +360,7 @@ export default function ITAudit() {
 
               {/* Détails par catégorie */}
               <div>
-                <h4 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100">🔍 Analyse détaillée</h4>
+                <h4 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100"><Search className="mr-2 inline h-5 w-5" />Analyse détaillée</h4>
                 <div className="space-y-3">
                   {results.details.map((item) => (
                     <div
@@ -369,7 +369,12 @@ export default function ITAudit() {
                     >
                       <div className="flex flex-wrap items-center justify-between gap-4">
                         <div className="flex items-center gap-3">
-                          <span className="text-2xl">{deviceData[item.type as keyof typeof deviceData].icon}</span>
+                          <span className="text-gray-700 dark:text-gray-300">
+                            {(() => {
+                              const DeviceIcon = deviceData[item.type as keyof typeof deviceData].icon
+                              return <DeviceIcon className="h-6 w-6" />
+                            })()}
+                          </span>
                           <div>
                             <div className="font-semibold text-gray-900 dark:text-gray-100">
                               {item.name} ({item.count})
@@ -403,7 +408,7 @@ export default function ITAudit() {
               {results.potentialSavings > 0 && (
                 <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
                   <h4 className="font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100">
-                    💰 Économies potentielles avec le reconditionné
+                    <Coins className="mr-2 inline h-5 w-5" />Économies potentielles avec le reconditionné
                   </h4>
                   <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
                     -{(results.potentialSavings / 1000).toFixed(1)} tonnes CO₂e
@@ -417,7 +422,7 @@ export default function ITAudit() {
 
               {/* Recommandations */}
               <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
-                <h4 className="font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100">📋 Plan d'action recommandé</h4>
+                <h4 className="font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100"><ClipboardList className="mr-2 inline h-5 w-5" />Plan d'action recommandé</h4>
                 <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                   <li>1. <strong>Court terme</strong>: Mettre en place une politique de maintenance préventive pour prolonger la durée de vie</li>
                   <li>2. <strong>Moyen terme</strong>: Planifier le renouvellement des {results.renewalNeeded} équipements critiques en privilégiant le reconditionné</li>

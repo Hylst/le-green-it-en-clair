@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from "recharts";
-import { TrendingUp, Download, RotateCcw } from "lucide-react";
+import { TrendingUp, TrendingDown, Download, RotateCcw, Building2, BarChart3, Calendar, ClipboardList } from "lucide-react";
 import { LabeledSlider, PDF_COLORS } from "./shared";
 
 export default function EnterpriseSimulator() {
@@ -261,7 +261,7 @@ export default function EnterpriseSimulator() {
         <CardContent className="space-y-8">
           {/* Configuration entreprise */}
           <div>
-            <h3 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100">🏢 Profil de l'entreprise</h3>
+            <h3 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100"><Building2 className="mr-2 inline h-5 w-5" />Profil de l'entreprise</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="space-y-3">
                 <div className="flex justify-between">
@@ -344,7 +344,7 @@ export default function EnterpriseSimulator() {
 
           {/* Sélection du scénario */}
           <div>
-            <h3 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100">📊 Choisissez un scénario</h3>
+            <h3 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100"><BarChart3 className="mr-2 inline h-5 w-5" />Choisissez un scénario</h3>
             <div className="grid md:grid-cols-3 gap-4">
               {Object.entries(scenarios).map(([key, s]) => (
                 <button
@@ -383,7 +383,7 @@ export default function EnterpriseSimulator() {
               {/* KPIs principaux */}
               <div className="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 p-6 rounded-lg border-2 border-purple-200 dark:border-purple-800">
                 <h3 className="font-semibold text-xl mb-4 text-gray-900 dark:text-gray-100">
-                  📈 Résultats sur 5 ans - {scenario.name}
+                  <TrendingUp className="mr-2 inline h-5 w-5" />Résultats sur 5 ans - {scenario.name}
                 </h3>
                 <div className="grid md:grid-cols-4 gap-4">
                   <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
@@ -419,7 +419,7 @@ export default function EnterpriseSimulator() {
               {/* Graphique de projection */}
               <div className="bg-white dark:bg-slate-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
                 <h4 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100">
-                  📉 Projection des coûts sur 5 ans
+                  <TrendingDown className="mr-2 inline h-5 w-5" />Projection des coûts sur 5 ans
                 </h4>
                 <ResponsiveContainer width="100%" height={300}>
                   <LineChart data={results.projections}>
@@ -465,7 +465,7 @@ export default function EnterpriseSimulator() {
 
               {/* Détail année par année */}
               <div>
-                <h4 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100">📅 Détail annuel</h4>
+                <h4 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100"><Calendar className="mr-2 inline h-5 w-5" />Détail annuel</h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
@@ -515,7 +515,7 @@ export default function EnterpriseSimulator() {
 
               {/* Plan d'action */}
               <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
-                <h4 className="font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100">📋 Plan d'action recommandé</h4>
+                <h4 className="font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100"><ClipboardList className="mr-2 inline h-5 w-5" />Plan d'action recommandé</h4>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <h5 className="font-medium text-gray-900 dark:text-gray-100 mb-2">Actions immédiates</h5>

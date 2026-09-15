@@ -14,6 +14,10 @@ import {
   CheckCircle2,
   ExternalLink,
   Info,
+  Smartphone,
+  Laptop,
+  Refrigerator,
+  Tv,
 } from "lucide-react"
 import dynamic from "next/dynamic"
 import { SourceTooltip } from "@/components/source-tooltip"
@@ -153,22 +157,22 @@ const recyclableItems = [
   {
     category: "Petits appareils",
     items: ["Smartphones", "Tablettes", "Téléphones", "Appareils photo", "Consoles portables"],
-    icon: "📱",
+    icon: Smartphone,
   },
   {
     category: "Informatique",
     items: ["Ordinateurs portables", "Ordinateurs fixes", "Écrans", "Claviers", "Souris", "Imprimantes"],
-    icon: "💻",
+    icon: Laptop,
   },
   {
     category: "Électroménager",
     items: ["Réfrigérateurs", "Lave-linge", "Lave-vaisselle", "Fours", "Aspirateurs"],
-    icon: "🏠",
+    icon: Refrigerator,
   },
   {
     category: "Audiovisuel",
     items: ["Téléviseurs", "Chaînes hi-fi", "Lecteurs DVD", "Enceintes", "Casques"],
-    icon: "📺",
+    icon: Tv,
   },
 ]
 
@@ -477,7 +481,12 @@ export default function RecyclagePage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {recyclableItems.map((category, index) => (
               <Card key={index} className="border-2 p-6">
-                <div className="mb-4 text-4xl">{category.icon}</div>
+                <div className="mb-4 text-foreground">
+                  {(() => {
+                    const CategoryIcon = category.icon
+                    return <CategoryIcon className="h-8 w-8" />
+                  })()}
+                </div>
                 <h3 className="mb-4 text-lg font-bold text-card-foreground">{category.category}</h3>
                 <ul className="space-y-2">
                   {category.items.map((item, idx) => (

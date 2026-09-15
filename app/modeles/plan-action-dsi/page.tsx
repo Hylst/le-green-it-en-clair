@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowLeft, Printer, FileSpreadsheet } from "lucide-react"
+import { ArrowLeft, Printer, FileSpreadsheet, AlertTriangle } from "lucide-react"
 import Link from "next/link"
 
 export default function PlanActionDSIPage() {
@@ -393,7 +393,7 @@ export default function PlanActionDSIPage() {
 
                     <div className="space-y-3">
                         <div className="flex items-start gap-3">
-                            <span className="text-amber-600 font-bold">⚠️</span>
+                            <span className="text-amber-600 font-bold"><AlertTriangle className="inline h-4 w-4" /></span>
                             <div>
                                 <p className="font-semibold text-foreground">Budget insuffisant</p>
                                 <p className="text-sm text-muted-foreground">
@@ -403,7 +403,7 @@ export default function PlanActionDSIPage() {
                         </div>
 
                         <div className="flex items-start gap-3">
-                            <span className="text-amber-600 font-bold">⚠️</span>
+                            <span className="text-amber-600 font-bold"><AlertTriangle className="inline h-4 w-4" /></span>
                             <div>
                                 <p className="font-semibold text-foreground">Résistance au changement</p>
                                 <p className="text-sm text-muted-foreground">
@@ -413,7 +413,7 @@ export default function PlanActionDSIPage() {
                         </div>
 
                         <div className="flex items-start gap-3">
-                            <span className="text-amber-600 font-bold">⚠️</span>
+                            <span className="text-amber-600 font-bold"><AlertTriangle className="inline h-4 w-4" /></span>
                             <div>
                                 <p className="font-semibold text-foreground">Disponibilité reconditionné limitée</p>
                                 <p className="text-sm text-muted-foreground">

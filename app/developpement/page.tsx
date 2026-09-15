@@ -18,6 +18,9 @@ import {
   CheckCircle2,
   XCircle,
   ArrowRight,
+  Lightbulb,
+  Video,
+  Target,
 } from "lucide-react"
 import {
   BarChart,
@@ -316,7 +319,7 @@ export default function DeveloppementPage() {
                     75x plus énergivores que C. À utiliser pour prototypage, scripts, mais optimiser en production.
                   </p>
                 </div>
-                <div className="font-semibold text-primary text-sm mt-4">💡 Astuce</div>
+                  <div className="font-semibold text-primary text-sm mt-4"><Lightbulb className="mr-1 inline h-4 w-4" />Astuce</div>
                 <p className="text-sm text-muted-foreground">
                   Utilisez Python pour le développement rapide, mais réécrivez les parties critiques en Rust ou C++ pour
                   la production. Ou utilisez PyPy (JIT compiler) pour améliorer les performances.
@@ -609,7 +612,7 @@ res.json(users) // 150 KB compressé`}
                   </h4>
                   <div className="grid md:grid-cols-2 gap-4 text-sm">
                     <div className="space-y-2">
-                      <div className="font-medium text-primary">✅ À faire</div>
+                      <div className="font-medium text-primary"><CheckCircle2 className="mr-1 inline h-4 w-4" />À faire</div>
                       <ul className="space-y-1 text-muted-foreground">
                         <li>• Utiliser WebP ou AVIF (environ 30 % plus léger que JPEG à qualité égale)</li>
                         <li>• Lazy loading avec loading="lazy"</li>
@@ -619,7 +622,7 @@ res.json(users) // 150 KB compressé`}
                       </ul>
                     </div>
                     <div className="space-y-2">
-                      <div className="font-medium text-destructive">❌ À éviter</div>
+                      <div className="font-medium text-destructive"><XCircle className="mr-1 inline h-4 w-4" />À éviter</div>
                       <ul className="space-y-1 text-muted-foreground">
                         <li>• PNG non compressé pour photos</li>
                         <li>• Images plus grandes que l'affichage</li>
@@ -632,7 +635,7 @@ res.json(users) // 150 KB compressé`}
                 </div>
 
                 <div className="border-t pt-6">
-                  <h4 className="font-semibold text-foreground mb-3">🎥 Vidéos</h4>
+                  <h4 className="font-semibold text-foreground mb-3"><Video className="mr-1 inline h-4 w-4" />Vidéos</h4>
                   <div className="grid md:grid-cols-2 gap-4 text-sm text-muted-foreground">
                     <div>
                       <p className="mb-2">
@@ -798,7 +801,7 @@ res.json(users) // 150 KB compressé`}
                     <p className="text-muted-foreground">Stocker les résultats fréquents pour éviter de recalculer</p>
                   </div>
                   <div className="bg-card p-3 rounded border border-primary/20">
-                    <div className="text-primary font-medium mb-1">💡 Impact réel</div>
+                          <div className="text-primary font-medium mb-1"><Lightbulb className="mr-1 inline h-4 w-4" />Impact réel</div>
                     <p className="text-muted-foreground">
                       Utiliser MobileNet au lieu de ResNet pour la classification d'images réduit fortement la consommation (jusqu'à ~98 %, ordre de grandeur Google) avec une précision similaire.
                     </p>
@@ -1139,13 +1142,13 @@ module.exports = {
         <div className="max-w-4xl mx-auto">
           <Card className="border-primary/20 shadow-lg bg-card text-card-foreground">
             <CardHeader className="bg-secondary/30">
-              <CardTitle className="text-2xl text-foreground">✅ Checklist du développeur éco-responsable</CardTitle>
+                        <CardTitle className="text-2xl text-foreground"><CheckCircle2 className="mr-2 inline h-6 w-6 text-primary" />Checklist du développeur éco-responsable</CardTitle>
               <CardDescription className="text-muted-foreground">À vérifier avant chaque mise en production</CardDescription>
             </CardHeader>
             <CardContent className="pt-6">
               <div className="space-y-6">
                 <div>
-                  <h4 className="font-semibold text-foreground mb-3">🎯 Performance & Algorithmes</h4>
+                          <h4 className="font-semibold text-foreground mb-3"><Target className="mr-1 inline h-4 w-4" />Performance & Algorithmes</h4>
                   <div className="space-y-2 text-sm text-muted-foreground">
                     <label className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
                       <input type="checkbox" className="w-4 h-4" />
@@ -1163,7 +1166,7 @@ module.exports = {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-foreground mb-3">💾 Données</h4>
+                          <h4 className="font-semibold text-foreground mb-3"><Database className="mr-1 inline h-4 w-4" />Données</h4>
                   <div className="space-y-2 text-sm text-muted-foreground">
                     <label className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
                       <input type="checkbox" className="w-4 h-4" />
@@ -1185,7 +1188,7 @@ module.exports = {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-foreground mb-3">🖼️ Médias</h4>
+                          <h4 className="font-semibold text-foreground mb-3"><ImageIcon className="mr-1 inline h-4 w-4" />Médias</h4>
                   <div className="space-y-2 text-sm text-muted-foreground">
                     <label className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
                       <input type="checkbox" className="w-4 h-4" />
@@ -1207,7 +1210,7 @@ module.exports = {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-foreground mb-3">🌐 Infrastructure</h4>
+                          <h4 className="font-semibold text-foreground mb-3"><Globe className="mr-1 inline h-4 w-4" />Infrastructure</h4>
                   <div className="space-y-2 text-sm text-muted-foreground">
                     <label className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
                       <input type="checkbox" className="w-4 h-4" />
@@ -1229,7 +1232,7 @@ module.exports = {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-foreground mb-3">🤖 IA / ML</h4>
+                          <h4 className="font-semibold text-foreground mb-3"><Brain className="mr-1 inline h-4 w-4" />IA / ML</h4>
                   <div className="space-y-2 text-sm text-muted-foreground">
                     <label className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
                       <input type="checkbox" className="w-4 h-4" />
@@ -1407,7 +1410,7 @@ module.exports = {
                 </div>
 
                 <div className="mt-8 p-6 bg-secondary/30 rounded-xl border border-primary/20">
-                  <p className="text-foreground font-semibold text-lg mb-2">💡 Le truc à retenir</p>
+                  <p className="text-foreground font-semibold text-lg mb-2"><Lightbulb className="mr-1 inline h-5 w-5" />Le truc à retenir</p>
                   <p className="text-muted-foreground">
                     En résumé, coder plus « vert » n'est pas plus difficile : c'est surtout coder plus sobrement. En général, tout ce qui rend une application plus rapide la rend aussi plus économe.
                   </p>

@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowLeft, Printer, FileText } from "lucide-react"
+import { ArrowLeft, Printer, FileText, Globe, Users, Scale, AlertTriangle, Leaf, Award } from "lucide-react"
 import Link from "next/link"
 
 export default function CahierChargesPage() {
@@ -94,20 +94,20 @@ export default function CahierChargesPage() {
                     <h3 className="text-xl font-semibold text-foreground mb-4">1.2 Enjeux RSE</h3>
                     <div className="space-y-3">
                         <Card className="p-4 bg-muted/5 border-border">
-                            <h4 className="font-semibold text-foreground mb-2">🌍 Environnement</h4>
+                            <h4 className="font-semibold text-foreground mb-2"><Globe className="mr-1 inline h-4 w-4" />Environnement</h4>
                             <p className="text-sm text-muted-foreground">
                                 Réduire l'empreinte carbone de nos achats IT (exemple : −30 % en 3 ans, à adapter) en privilégiant l'économie circulaire
                                 et l'écoconception.
                             </p>
                         </Card>
                         <Card className="p-4 bg-muted/5 border-border">
-                            <h4 className="font-semibold text-foreground mb-2">👥 Social</h4>
+                            <h4 className="font-semibold text-foreground mb-2"><Users className="mr-1 inline h-4 w-4" />Social</h4>
                             <p className="text-sm text-muted-foreground">
                                 Garantir le respect des droits humains dans l'ensemble de la chaîne d'approvisionnement.
                             </p>
                         </Card>
                         <Card className="p-4 bg-purple-50 dark:bg-purple-950/20 border-purple-200 dark:border-purple-800">
-                            <h4 className="font-semibold text-foreground mb-2">⚖️ Éthique</h4>
+                            <h4 className="font-semibold text-foreground mb-2"><Scale className="mr-1 inline h-4 w-4" />Éthique</h4>
                             <p className="text-sm text-muted-foreground">
                                 Favoriser les fournisseurs engagés dans une démarche RSE certifiée et transparente.
                             </p>
@@ -151,7 +151,7 @@ export default function CahierChargesPage() {
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">2.1 Labels et certifications (obligatoires)</h3>
                     <Card className="p-6 mb-6 bg-muted/5 border-border">
-                        <p className="font-semibold text-foreground mb-3">⚠️ Critères éliminatoires</p>
+                        <p className="font-semibold text-foreground mb-3"><AlertTriangle className="mr-1 inline h-4 w-4 text-amber-600" />Critères éliminatoires</p>
                         <p className="text-sm text-muted-foreground mb-4">
                             Les équipements doivent obligatoirement posséder AU MOINS UN des labels suivants :
                         </p>
@@ -219,7 +219,7 @@ export default function CahierChargesPage() {
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">2.4 Option reconditionnée</h3>
                     <Card className="p-6 bg-muted/5 border-border">
-                        <p className="font-semibold text-foreground mb-3">💚 Critère prioritaire</p>
+                            <p className="font-semibold text-foreground mb-3"><Leaf className="mr-1 inline h-4 w-4 text-emerald-600" />Critère prioritaire</p>
                         <p className="text-sm text-muted-foreground mb-4">
                             Le fournisseur doit proposer une option équipement reconditionné de grade A ou B,
                             avec garantie équivalente au neuf.
@@ -252,7 +252,7 @@ export default function CahierChargesPage() {
 
                     <h3 className="text-xl font-semibold text-foreground mb-4">3.1 Conditions de travail (obligatoire)</h3>
                     <Card className="p-6 mb-6 bg-muted/5 border-border">
-                        <p className="font-semibold text-foreground mb-3">⚠️ Critères éliminatoires</p>
+                        <p className="font-semibold text-foreground mb-3"><AlertTriangle className="mr-1 inline h-4 w-4 text-amber-600" />Critères éliminatoires</p>
                         <p className="text-sm text-muted-foreground mb-4">
                             Le fournisseur doit certifier le respect des conventions de l'OIT dans l'ensemble
                             de sa chaîne d'approvisionnement :
@@ -383,7 +383,7 @@ export default function CahierChargesPage() {
 
                     <div className="space-y-4">
                         <Card className="p-6">
-                            <h3 className="font-semibold text-foreground mb-3">🏆 Labels environnementaux</h3>
+                            <h3 className="font-semibold text-foreground mb-3"><Award className="mr-1 inline h-5 w-5" />Labels environnementaux</h3>
                             <div className="space-y-3 text-sm text-muted-foreground">
                                 <div>
                                     <p className="font-semibold text-foreground">EPEAT (Electronic Product Environmental Assessment Tool)</p>
@@ -405,7 +405,7 @@ export default function CahierChargesPage() {
                         </Card>
 
                         <Card className="p-6">
-                            <h3 className="font-semibold text-foreground mb-3">👥 Certifications sociales</h3>
+                            <h3 className="font-semibold text-foreground mb-3"><Users className="mr-1 inline h-5 w-5" />Certifications sociales</h3>
                             <div className="space-y-3 text-sm text-muted-foreground">
                                 <div>
                                     <p className="font-semibold text-foreground">SA8000</p>

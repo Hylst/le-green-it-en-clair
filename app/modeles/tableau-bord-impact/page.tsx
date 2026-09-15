@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowLeft, Printer, BarChart3 } from "lucide-react"
+import { ArrowLeft, Printer, BarChart3, Lightbulb, LineChart, Target, BookOpen } from "lucide-react"
 import Link from "next/link"
 
 export default function TableauBordPage() {
@@ -141,7 +141,7 @@ export default function TableauBordPage() {
                     </Card>
 
                     <Card className="p-6 bg-muted/5 border-border">
-                        <h4 className="font-semibold text-foreground mb-3">💡 Astuce</h4>
+                            <h4 className="font-semibold text-foreground mb-3"><Lightbulb className="mr-1 inline h-4 w-4" />Astuce</h4>
                         <p className="text-sm text-muted-foreground">
                             Utilisez un code-barres/QR code sur chaque équipement pour faciliter l'inventaire et le suivi.
                             Mettez à jour cet onglet à chaque mouvement (achat, attribution, recyclage).
@@ -235,7 +235,7 @@ export default function TableauBordPage() {
 
                     <div className="grid md:grid-cols-2 gap-6">
                         <Card className="p-6">
-                            <h4 className="font-semibold text-foreground mb-4">📊 Indicateurs environnementaux</h4>
+                            <h4 className="font-semibold text-foreground mb-4"><BarChart3 className="mr-1 inline h-4 w-4" />Indicateurs environnementaux</h4>
                             <ul className="space-y-3 text-sm text-muted-foreground">
                                 <li>
                                     <strong className="text-foreground">Empreinte carbone totale</strong>
@@ -280,7 +280,7 @@ export default function TableauBordPage() {
                     </div>
 
                     <Card className="p-6 mt-6 bg-muted/5 border-border">
-                        <h4 className="font-semibold text-foreground mb-3">📈 Tableaux et graphiques automatiques</h4>
+                        <h4 className="font-semibold text-foreground mb-3"><LineChart className="mr-1 inline h-4 w-4" />Tableaux et graphiques automatiques</h4>
                         <p className="text-sm text-muted-foreground mb-4">
                             Créez des graphiques pour visualiser :
                         </p>
@@ -340,7 +340,7 @@ export default function TableauBordPage() {
                     </Card>
 
                     <Card className="p-6 bg-muted/5 border-border">
-                        <h4 className="font-semibold text-foreground mb-3">🎯 Plan d'action recommandé</h4>
+                        <h4 className="font-semibold text-foreground mb-3"><Target className="mr-1 inline h-4 w-4" />Plan d'action recommandé</h4>
                         <ul className="space-y-2 text-sm text-muted-foreground">
                             <li>• <strong className="text-foreground">Court terme (6 mois) :</strong> Inventaire complet du parc</li>
                             <li>• <strong className="text-foreground">Moyen terme (1 an) :</strong> 50 % reconditionné + prolongation durée de vie</li>
@@ -396,7 +396,7 @@ export default function TableauBordPage() {
 
                 {/* Ressources */}
                 <Card className="p-8 mb-12 bg-muted/5 border-border">
-                    <h3 className="text-xl font-semibold text-foreground mb-4">📚 Resources</h3>
+                    <h3 className="text-xl font-semibold text-foreground mb-4"><BookOpen className="mr-1 inline h-5 w-5" />Ressources</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                         <li>• <strong>ADEME Base Empreinte</strong> - Facteurs d'émission officiels</li>
                         <li>• <strong>GreenIT.fr</strong> - Outils de calcul et benchmarks</li>

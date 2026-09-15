@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowLeft, Printer, Users, BookOpen, ClipboardCheck, Image } from "lucide-react"
+import { ArrowLeft, Printer, Users, BookOpen, ClipboardCheck, Image, Mail, Zap, Database, Video, Recycle, Download } from "lucide-react"
 import Link from "next/link"
 
 export default function KitSensibilisationPage() {
@@ -103,7 +103,7 @@ export default function KitSensibilisationPage() {
                         <h3 className="text-xl font-semibold text-foreground mb-4">Diapositive d'exemple : Les 12 écogestes</h3>
                         <div className="grid md:grid-cols-2 gap-3 text-sm">
                             <div className="p-3 bg-secondary rounded">
-                                <p className="font-semibold text-foreground">📧 Emails</p>
+                                <p className="font-semibold text-foreground"><Mail className="mr-1 inline h-4 w-4" />Emails</p>
                                 <ul className="text-muted-foreground mt-2 space-y-1">
                                     <li>• Nettoyer régulièrement sa boîte mail</li>
                                     <li>• Se désabonner des newsletters non lues</li>
@@ -111,7 +111,7 @@ export default function KitSensibilisationPage() {
                                 </ul>
                             </div>
                             <div className="p-3 bg-secondary rounded">
-                                <p className="font-semibold text-foreground">⚡ Équipements</p>
+                                <p className="font-semibold text-foreground"><Zap className="mr-1 inline h-4 w-4" />Équipements</p>
                                 <ul className="text-muted-foreground mt-2 space-y-1">
                                     <li>• Éteindre écran et PC le soir</li>
                                     <li>• Activer mode économie d'énergie</li>
@@ -119,7 +119,7 @@ export default function KitSensibilisationPage() {
                                 </ul>
                             </div>
                             <div className="p-3 bg-secondary rounded">
-                                <p className="font-semibold text-foreground">💾 Stockage</p>
+                                <p className="font-semibold text-foreground"><Database className="mr-1 inline h-4 w-4" />Stockage</p>
                                 <ul className="text-muted-foreground mt-2 space-y-1">
                                     <li>• Supprimer fichiers obsolètes</li>
                                     <li>• Éviter doublons</li>
@@ -127,7 +127,7 @@ export default function KitSensibilisationPage() {
                                 </ul>
                             </div>
                             <div className="p-3 bg-secondary rounded">
-                                <p className="font-semibold text-foreground">🎥 Visio</p>
+                                <p className="font-semibold text-foreground"><Video className="mr-1 inline h-4 w-4" />Visio</p>
                                 <ul className="text-muted-foreground mt-2 space-y-1">
                                     <li>• Couper caméra si non nécessaire</li>
                                     <li>• Privilégier audio pour réunions simples</li>
@@ -285,23 +285,23 @@ export default function KitSensibilisationPage() {
                         <h3 className="text-xl font-bold mb-4 text-center">Green IT - Mémo</h3>
                         <div className="space-y-3 text-sm">
                             <div>
-                                <p className="font-semibold mb-1">📧 Emails</p>
+                                    <p className="font-semibold mb-1"><Mail className="mr-1 inline h-4 w-4" />Emails</p>
                                 <p className="text-emerald-100">Nettoyez, désabonnez, compressez</p>
                             </div>
                             <div>
-                                <p className="font-semibold mb-1">⚡ Équipements</p>
+                                    <p className="font-semibold mb-1"><Zap className="mr-1 inline h-4 w-4" />Équipements</p>
                                 <p className="text-emerald-100">Éteignez, économisez, prolongez</p>
                             </div>
                             <div>
-                                <p className="font-semibold mb-1">💾 Données</p>
+                                    <p className="font-semibold mb-1"><Database className="mr-1 inline h-4 w-4" />Données</p>
                                 <p className="text-emerald-100">Triez, supprimez, archivez</p>
                             </div>
                             <div>
-                                <p className="font-semibold mb-1">🎥 Visio</p>
+                                    <p className="font-semibold mb-1"><Video className="mr-1 inline h-4 w-4" />Visio</p>
                                 <p className="text-emerald-100">Caméra OFF, audio privilégié</p>
                             </div>
                             <div>
-                                <p className="font-semibold mb-1">♻️ Recyclage</p>
+                                    <p className="font-semibold mb-1"><Recycle className="mr-1 inline h-4 w-4" />Recyclage</p>
                                 <p className="text-emerald-100">Filières agréées obligatoires</p>
                             </div>
                         </div>
@@ -317,7 +317,7 @@ export default function KitSensibilisationPage() {
 
                 {/* Footer */}
                 <Card className="p-8 bg-muted/5 border-border">
-                    <h3 className="text-xl font-semibold text-foreground mb-4">📥 Comment utiliser ce kit ?</h3>
+                    <h3 className="text-xl font-semibold text-foreground mb-4"><Download className="mr-2 inline h-5 w-5" />Comment utiliser ce kit ?</h3>
                     <ol className="space-y-2 text-sm text-muted-foreground">
                         <li>1. Personnalisez la présentation avec les chiffres de votre organisation</li>
                         <li>2. Imprimez les 5 affiches au format A3 couleur</li>

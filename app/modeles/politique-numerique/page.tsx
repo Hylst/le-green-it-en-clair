@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowLeft, Printer, ShoppingCart, CheckCircle2 } from "lucide-react"
+import { ArrowLeft, Printer, ShoppingCart, CheckCircle2, ClipboardList, Zap, Mail, Database, Video } from "lucide-react"
 import Link from "next/link"
 
 export default function PolitiqueNumeriquePage() {
@@ -299,7 +299,7 @@ export default function PolitiqueNumeriquePage() {
                         </div>
 
                         <Card className="p-4 bg-muted/5 border-border">
-                            <p className="text-sm font-semibold text-foreground mb-2">📋 Traçabilité obligatoire</p>
+                            <p className="text-sm font-semibold text-foreground mb-2"><ClipboardList className="mr-1 inline h-4 w-4" />Traçabilité obligatoire</p>
                             <p className="text-sm text-muted-foreground">
                                 Chaque équipement en fin de vie doit être enregistré : date, numéro de série, destination (don/recyclage),
                                 certificat de destruction des données.
@@ -318,7 +318,7 @@ export default function PolitiqueNumeriquePage() {
 
                     <div className="grid md:grid-cols-2 gap-4 mb-6">
                         <Card className="p-4">
-                            <h4 className="font-semibold text-foreground mb-3">⚡ Équipements</h4>
+                            <h4 className="font-semibold text-foreground mb-3"><Zap className="mr-1 inline h-4 w-4" />Équipements</h4>
                             <ul className="text-sm text-muted-foreground space-y-2">
                                 <li>✓ Éteindre les équipements en fin de journée</li>
                                 <li>✓ Activer les modes "économie d'énergie"</li>
@@ -328,7 +328,7 @@ export default function PolitiqueNumeriquePage() {
                         </Card>
 
                         <Card className="p-4">
-                            <h4 className="font-semibold text-foreground mb-3">📧 Messagerie</h4>
+                            <h4 className="font-semibold text-foreground mb-3"><Mail className="mr-1 inline h-4 w-4" />Messagerie</h4>
                             <ul className="text-sm text-muted-foreground space-y-2">
                                 <li>✓ Nettoyer régulièrement sa boîte mail</li>
                                 <li>✓ Limiter les pièces jointes volumineuses</li>
@@ -338,7 +338,7 @@ export default function PolitiqueNumeriquePage() {
                         </Card>
 
                         <Card className="p-4">
-                            <h4 className="font-semibold text-foreground mb-3">💾 Stockage</h4>
+                            <h4 className="font-semibold text-foreground mb-3"><Database className="mr-1 inline h-4 w-4" />Stockage</h4>
                             <ul className="text-sm text-muted-foreground space-y-2">
                                 <li>✓ Supprimer les fichiers obsolètes</li>
                                 <li>✓ Éviter les doublons</li>
@@ -348,7 +348,7 @@ export default function PolitiqueNumeriquePage() {
                         </Card>
 
                         <Card className="p-4">
-                            <h4 className="font-semibold text-foreground mb-3">🎥 Visioconférence</h4>
+                            <h4 className="font-semibold text-foreground mb-3"><Video className="mr-1 inline h-4 w-4" />Visioconférence</h4>
                             <ul className="text-sm text-muted-foreground space-y-2">
                                 <li>✓ Couper la caméra quand non nécessaire</li>
                                 <li>✓ Privilégier l'audio pour les réunions simples</li>

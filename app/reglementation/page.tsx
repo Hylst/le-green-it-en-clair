@@ -19,6 +19,9 @@ import {
   Shield,
   Leaf,
   Globe,
+  Award,
+  Zap,
+  BatteryCharging,
 } from "lucide-react"
 import {
   BarChart,
@@ -129,7 +132,7 @@ export default function ReglementationPage() {
             <TabsList className="grid w-full grid-cols-3 mb-8">
               <TabsTrigger value="france">🇫🇷 France</TabsTrigger>
               <TabsTrigger value="europe">🇪🇺 Europe</TabsTrigger>
-              <TabsTrigger value="normes">📋 Normes ISO</TabsTrigger>
+                    <TabsTrigger value="normes"><FileText className="mr-1 inline h-4 w-4" />Normes ISO</TabsTrigger>
             </TabsList>
 
             {/* France Tab */}
@@ -698,7 +701,7 @@ export default function ReglementationPage() {
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="bg-card p-4 rounded-lg border border-primary/20">
-                      <h4 className="font-semibold mb-2 text-card-foreground">🌿 Label Numérique Responsable</h4>
+                        <h4 className="font-semibold mb-2 text-card-foreground"><Leaf className="mr-1 inline h-4 w-4 text-emerald-600" />Label Numérique Responsable</h4>
                       <p className="text-sm text-muted-foreground mb-2">
                         Certification française délivrée par l'INR (Institut du Numérique Responsable)
                       </p>
@@ -710,7 +713,7 @@ export default function ReglementationPage() {
                     </div>
 
                     <div className="bg-card p-4 rounded-lg border border-primary/20">
-                      <h4 className="font-semibold mb-2 text-card-foreground">⚡ Energy Star</h4>
+                        <h4 className="font-semibold mb-2 text-card-foreground"><Zap className="mr-1 inline h-4 w-4 text-amber-600" />Energy Star</h4>
                       <p className="text-sm text-muted-foreground mb-2">
                         Label américain reconnu internationalement pour l'efficacité énergétique
                       </p>
@@ -722,7 +725,7 @@ export default function ReglementationPage() {
                     </div>
 
                     <div className="bg-card p-4 rounded-lg border border-primary/20">
-                      <h4 className="font-semibold mb-2 text-card-foreground">🏆 TCO Certified</h4>
+                        <h4 className="font-semibold mb-2 text-card-foreground"><Award className="mr-1 inline h-4 w-4 text-amber-600" />TCO Certified</h4>
                       <p className="text-sm text-muted-foreground mb-2">Certification suédoise couvrant tout le cycle de vie</p>
                       <ul className="text-xs text-muted-foreground space-y-1">
                         <li>• Critères sociaux et environnementaux stricts</li>
@@ -732,7 +735,7 @@ export default function ReglementationPage() {
                     </div>
 
                     <div className="bg-card p-4 rounded-lg border border-primary/20">
-                      <h4 className="font-semibold mb-2 text-card-foreground">🔋 EPEAT</h4>
+                        <h4 className="font-semibold mb-2 text-card-foreground"><BatteryCharging className="mr-1 inline h-4 w-4 text-emerald-600" />EPEAT</h4>
                       <p className="text-sm text-muted-foreground mb-2">Electronic Product Environmental Assessment Tool</p>
                       <ul className="text-xs text-muted-foreground space-y-1">
                         <li>• 3 niveaux : Bronze, Silver, Gold</li>

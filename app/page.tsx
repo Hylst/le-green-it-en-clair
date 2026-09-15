@@ -368,24 +368,24 @@ export default function HomePage() {
           <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">Quelques chiffres clés</h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="text-center">
-              <div className="mb-3 text-4xl font-bold text-emerald-700 dark:text-emerald-400 lg:text-5xl">74,7 Mt</div>
-              <p className="text-muted-foreground">de déchets électroniques produits dans le monde en 2025</p>
-              <p className="mt-2 text-sm text-muted-foreground/70">Source: Global E-Waste Monitor, ONU</p>
+              <div className="mb-3 text-4xl font-bold text-emerald-700 dark:text-emerald-400 lg:text-5xl">~70 Mt</div>
+              <p className="text-muted-foreground">de déchets électroniques sur la trajectoire 2022-2030 (62 Mt → 82 Mt)</p>
+              <p className="mt-2 text-sm text-muted-foreground/70">Source: Global E-waste Monitor 2024, ONU</p>
             </div>
             <div className="text-center">
-              <div className="mb-3 text-4xl font-bold text-teal-700 dark:text-teal-400 lg:text-5xl">78%</div>
-              <p className="text-muted-foreground">de l'impact carbone du numérique vient des équipements</p>
-              <p className="mt-2 text-sm text-muted-foreground/70">Source: ADEME, GreenIT.fr</p>
+              <div className="mb-3 text-4xl font-bold text-teal-700 dark:text-teal-400 lg:text-5xl">~80 %</div>
+              <p className="text-muted-foreground">de l'empreinte carbone du numérique vient de la fabrication des équipements (France)</p>
+              <p className="mt-2 text-sm text-muted-foreground/70">Source: ADEME-Arcep 2023</p>
             </div>
             <div className="text-center">
-              <div className="mb-3 text-4xl font-bold text-blue-700 dark:text-blue-400 lg:text-5xl">4%</div>
-              <p className="text-muted-foreground">des émissions mondiales de GES sont dues au numérique</p>
-              <p className="mt-2 text-sm text-muted-foreground/70">Source: GreenIT.fr</p>
+              <div className="mb-3 text-4xl font-bold text-blue-700 dark:text-blue-400 lg:text-5xl">3,4 %</div>
+              <p className="text-muted-foreground">des émissions mondiales de GES (1,8 Gt CO2e) sont dues au numérique</p>
+              <p className="mt-2 text-sm text-muted-foreground/70">Source: GreenIT EENM 2025</p>
             </div>
             <div className="text-center">
-              <div className="mb-3 text-4xl font-bold text-emerald-700 dark:text-emerald-400 lg:text-5xl">2,3 ans</div>
-              <p className="text-muted-foreground">durée de vie moyenne d'un smartphone en France</p>
-              <p className="mt-2 text-sm text-muted-foreground/70">Source: ADEME</p>
+              <div className="mb-3 text-4xl font-bold text-emerald-700 dark:text-emerald-400 lg:text-5xl">2 à 3 ans</div>
+              <p className="text-muted-foreground">durée de vie moyenne d'un smartphone en France, changement tous les 3 ans</p>
+              <p className="mt-2 text-sm text-muted-foreground/70">Source: ADEME 2026</p>
             </div>
           </div>
         </div>

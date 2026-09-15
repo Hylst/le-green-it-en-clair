@@ -41,7 +41,7 @@ const lifecyclePhases = [
       { icon: Cloud, label: "CO₂", value: "50 kg", detail: "d'émissions de gaz à effet de serre (ADEME 2023)" },
       { icon: Gem, label: "Métaux", value: "50+", detail: "métaux différents extraits (ADEME 2023)" },
     ],
-    analogy: "Fabriquer un smartphone nécessite autant d'eau que 160 douches !",
+    analogy: "Fabriquer un smartphone nécessite autant d'eau que 160 douches.",
     details:
       "L'extraction minière est particulièrement gourmande en ressources. Les terres rares, indispensables aux composants électroniques, proviennent souvent de mines à ciel ouvert qui détruisent les écosystèmes locaux.",
   },
@@ -52,12 +52,12 @@ const lifecyclePhases = [
     color: "slate",
     description: "Transformation des matières premières en composants électroniques et assemblage final des appareils.",
     impacts: [
-      { icon: Cloud, label: "CO₂", value: "75%", detail: "de l'empreinte carbone totale (ADEME-Arcep 2023)" },
+      { icon: Cloud, label: "CO₂", value: "75 %", detail: "de l'empreinte carbone totale (ADEME-Arcep 2023)" },
       { icon: Zap, label: "Énergie", value: "300 kWh", detail: "pour la fabrication (ADEME 2023)" },
       { icon: Droplets, label: "Eau", value: "8 000 L", detail: "pour le refroidissement (ADEME 2023)" },
       { icon: Gem, label: "Composants", value: "1000+", detail: "pièces assemblées (ordre de grandeur)" },
     ],
-    analogy: "La fabrication d'un ordinateur portable émet autant de CO₂ qu'un aller-retour Paris-Marseille en avion !",
+    analogy: "La fabrication d'un ordinateur portable émet autant de CO₂ qu'un aller-retour Paris-Marseille en avion.",
     details:
       "Cette phase est la plus polluante du cycle de vie. Les usines de fabrication consomment énormément d'énergie, souvent produite à partir de combustibles fossiles dans les pays de production.",
   },
@@ -72,7 +72,7 @@ const lifecyclePhases = [
       { icon: Truck, label: "Distance", value: "15 000 km", detail: "en moyenne par appareil (ADEME-Arcep 2023)" },
       { icon: Zap, label: "Énergie", value: "20 kWh", detail: "pour le transport (ADEME-Arcep 2023)" },
     ],
-    analogy: "Votre smartphone a probablement voyagé plus loin que vous cette année !",
+    analogy: "Votre smartphone a probablement voyagé plus loin que vous cette année.",
     details:
       "Les appareils électroniques parcourent des milliers de kilomètres, principalement par bateau et avion, depuis l'Asie vers l'Europe et les Amériques.",
   },
@@ -88,9 +88,9 @@ const lifecyclePhases = [
       { icon: Cloud, label: "Data", value: "18 Go/mois", detail: "consommation mobile moyenne en France (Arcep 2025)" },
       { icon: Droplets, label: "Durée", value: "2-3 ans", detail: "durée de vie moyenne (ADEME 2026)" },
     ],
-    analogy: "Garder son smartphone 1 an de plus réduit son impact annuel d'environ un tiers !",
+    analogy: "Garder son smartphone 1 an de plus réduit son impact annuel d'environ un tiers.",
     details:
-      "Contraire aux idées reçues, l'utilisation ne représente qu'environ 20% de l'impact environnemental. C'est pourquoi allonger la durée de vie est le geste le plus efficace.",
+      "Contrairement aux idées reçues, l'utilisation ne représente qu'environ 20 % de l'impact environnemental. C'est pourquoi allonger la durée de vie est le geste le plus efficace.",
   },
   {
     id: "end-of-life",
@@ -103,7 +103,7 @@ const lifecyclePhases = [
       { icon: Trash2, label: "Déchets", value: "62 Mt", detail: "de e-déchets en 2022" },
       { icon: Droplets, label: "Récupération", value: "variable", detail: "selon les métaux" },
     ],
-    analogy: "Recycler 1 million de smartphones permet de récupérer 16 tonnes de cuivre !",
+    analogy: "Recycler 1 million de smartphones permet de récupérer des tonnes de cuivre et de métaux précieux (Ecosystem, 2024).",
     details:
       "22 % des déchets électroniques sont documentés comme collectés et recyclés dans le monde (GEM 2024). En France, le taux de collecte atteint environ 46 % grâce aux filières REP (Responsabilité Élargie du Producteur, Eurostat 2024).",
   },
@@ -203,7 +203,7 @@ export default function ComprendrePage() {
           <div>
             <VisualAnalogy
               title="70 kg de matières premières extraites"
-              description="Pour fabriquer un smartphone de 150g, il faut extraire 70 kg de matières premières, soit 467 fois son poids final !"
+              description="Pour fabriquer un smartphone de 150g, il faut extraire 70 kg de matières premières, soit 467 fois son poids final."
               visual={{
                 items: [
                   { icon: "📱", count: 1, label: "Smartphone (150g)" },
@@ -423,7 +423,7 @@ export default function ComprendrePage() {
           <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">Les points clés à retenir</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <Card className="border-2 bg-card p-6">
-              <div className="mb-3 text-3xl font-bold text-primary">75%</div>
+              <div className="mb-3 text-3xl font-bold text-primary">75 %</div>
               <h3 className="mb-2 font-semibold text-card-foreground">La fabrication est la phase la plus polluante</h3>
               <p className="text-sm text-muted-foreground">
                 Les trois quarts de l'impact environnemental d'un appareil proviennent de sa fabrication. C'est pourquoi
@@ -444,7 +444,7 @@ export default function ComprendrePage() {
               <div className="mb-3 text-3xl font-bold text-primary">20%</div>
               <h3 className="mb-2 font-semibold text-card-foreground">L'usage compte moins qu'on ne pense</h3>
               <p className="text-sm text-muted-foreground">
-                Contraire aux idées reçues, l'utilisation ne représente qu'environ 20% de l'impact total. Éteindre ses
+                Contrairement aux idées reçues, l'utilisation ne représente qu'environ 20 % de l'impact total. Éteindre ses
                 appareils est utile, mais les garder plus longtemps l'est bien plus.
               </p>
             </Card>

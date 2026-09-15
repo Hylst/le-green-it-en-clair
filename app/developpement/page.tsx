@@ -1338,9 +1338,7 @@ module.exports = {
                     <div>
                       <h4 className="font-semibold text-foreground mb-2">Traiter que les données utiles</h4>
                       <p className="text-muted-foreground text-sm">
-                        Filtrer avant d'envoyer tout à la base, ne charger que ce que l'utilisateur voit. Si tu peux
-                        éviter un gros <code className="bg-muted px-1 rounded">SELECT * FROM table_de_10Go</code>,
-                        fais-le.
+                        Filtrer avant d'envoyer à la base, ne charger que ce que l'utilisateur voit. Éviter un gros <code className="bg-muted px-1 rounded">SELECT * FROM table_de_10Go</code> évite de mobiliser inutilement le serveur.
                       </p>
                     </div>
                   </div>
@@ -1352,8 +1350,7 @@ module.exports = {
                     <div>
                       <h4 className="font-semibold text-foreground mb-2">Machine learning</h4>
                       <p className="text-muted-foreground text-sm">
-                        Là faut être carrément vigilant. Entraîner un modèle pour prédire un truc trivial, c'est souvent
-                        du gâchis. Réutiliser des modèles pré-entraînés ou simplifier les datasets, c'est déjà un gros
+                        Entraîner un modèle pour une prédiction triviale est souvent inutile. Réutiliser des modèles pré-entraînés ou simplifier les datasets, c'est déjà un gros
                         gain.
                       </p>
                     </div>
@@ -1367,7 +1364,7 @@ module.exports = {
                       <h4 className="font-semibold text-foreground mb-2">Optimiser les médias</h4>
                       <p className="text-muted-foreground text-sm">
                         Compresser les images, utiliser du webp/avif, virer les vidéos autoplay, charger le nécessaire.
-                        Un gif de 10Mo pour un bouton "like", c'est un crime.
+                        Une animation de 10 Mo pour un simple bouton alourdit inutilement la page.
                       </p>
                     </div>
                   </div>
@@ -1405,8 +1402,7 @@ module.exports = {
                     <div>
                       <h4 className="font-semibold text-foreground mb-2">Front plus léger</h4>
                       <p className="text-muted-foreground text-sm">
-                        Éviter les frameworks monstres si t'as un site vitrine. Du HTML/CSS/vanilla JS ça suffit
-                        souvent. Chaque kilo de code JS téléchargé par des milliers d'utilisateurs = conso multipliée.
+                        Éviter les frameworks lourds pour un site vitrine : HTML, CSS et JavaScript vanilla suffisent souvent. Chaque kilo de code JS téléchargé par des milliers d'utilisateurs = conso multipliée.
                       </p>
                     </div>
                   </div>
@@ -1415,8 +1411,7 @@ module.exports = {
                 <div className="mt-8 p-6 bg-secondary/30 rounded-xl border border-primary/20">
                   <p className="text-foreground font-semibold text-lg mb-2">💡 Le truc à retenir</p>
                   <p className="text-muted-foreground">
-                    Bref, coder plus "vert", c'est pas forcément plus dur, c'est surtout coder plus malin. Et en
-                    général, tout ce qui rend ton app plus rapide, la rend aussi plus économe.
+                    En résumé, coder plus « vert » n'est pas plus difficile : c'est surtout coder plus sobrement. En général, tout ce qui rend une application plus rapide la rend aussi plus économe.
                   </p>
                 </div>
               </div>

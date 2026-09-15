@@ -48,10 +48,10 @@ const citizenActions = [
   {
     category: "Achat",
     actions: [
-      "Privilégier les appareils reconditionnés (impact réduit de 75%)",
+      "Privilégier les appareils reconditionnés (impact réduit d'environ 75 %, ADEME 2022)",
       "Choisir des appareils réparables et évolutifs",
       "Vérifier les indices de réparabilité avant l'achat",
-      "Éviter le suréquipement : n'achetez que ce dont vous avez besoin",
+      "Éviter le suréquipement : acheter uniquement le nécessaire",
     ],
   },
   {
@@ -70,7 +70,7 @@ const citizenActions = [
       "Activer le mode économie d'énergie sur tous vos appareils",
       "Débrancher les chargeurs quand ils ne sont pas utilisés",
       "Utiliser une multiprise avec interrupteur pour couper complètement l'alimentation",
-      "Régler la luminosité de l'écran à 50% maximum",
+      "Régler la luminosité de l'écran à 50 % maximum",
       "Désactiver le Bluetooth et le Wi-Fi quand vous ne les utilisez pas",
       "Privilégier le Wi-Fi à la 4G/5G (environ 4 à 5 fois moins d'énergie en streaming)",
       "Laisser le système gérer les applications (les relancer consomme plus que les laisser en pause)",
@@ -79,7 +79,7 @@ const citizenActions = [
   {
     category: "Sobriété numérique",
     actions: [
-      "Limiter le streaming vidéo : préférer 720p à 4K (jusqu'à −75 % de données et de CO₂)",
+      "Limiter le streaming vidéo : préférer 720p à 4K (jusqu'à −75 % de données et de CO₂, The Shift Project 2021)",
       "Télécharger plutôt que streamer pour les contenus regardés plusieurs fois",
       "Désactiver la lecture automatique des vidéos",
       "Supprimer les emails avec pièces jointes volumineuses",
@@ -113,7 +113,7 @@ const businessActions = [
     category: "Stratégie",
     actions: [
       "Définir une politique Green IT avec objectifs mesurables",
-      "Nommer un responsable numérique responsable",
+      "Nommer un référent numérique responsable",
       "Former les équipes aux bonnes pratiques",
       "Intégrer des critères environnementaux dans les achats",
     ],
@@ -171,7 +171,7 @@ const collectivityActions = [
   {
     category: "Infrastructure",
     actions: [
-      "Multiplier les points de collecte de DEEE",
+      "Multiplier les points de collecte de déchets électroniques (DEEE)",
       "Soutenir les ressourceries et Repair Cafés",
       "Créer des partenariats avec Emmaüs, Envie, etc.",
       "Faciliter l'accès au reconditionné pour tous",
@@ -214,10 +214,10 @@ const practicalTips = [
     icon: Wifi,
     color: "teal",
     tips: [
-      "Éteignez votre box internet la nuit (environ 25 kWh/an économisés, soit ~5 €/an)",
+      "Éteignez votre box internet la nuit (environ 26 kWh/an économisés, soit ~5 €/an, Arcep 2026)",
       "Désactivez le Wi-Fi de la box si vous utilisez un câble Ethernet",
       "Placez votre box dans un endroit central pour optimiser la couverture",
-      "Utilisez le Wi-Fi plutôt que la 4G/5G (environ 4 à 5 fois moins énergivore en streaming)",
+      "Utilisez le Wi-Fi plutôt que la 4G/5G (environ 4 à 5 fois moins énergivore en streaming, ordre de grandeur)",
     ],
   },
   {

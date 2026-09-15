@@ -1626,7 +1626,7 @@ export function QuizGreenITAdvanced() {
                 </div>
               </div>
               <p className="text-sm text-slate-500 dark:text-gray-400">
-                Le challenge ultime pour devenir un expert Green IT
+                Le parcours complet pour tester toutes vos connaissances
               </p>
             </button>
 

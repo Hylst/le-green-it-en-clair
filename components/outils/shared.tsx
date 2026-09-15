@@ -11,7 +11,16 @@ export const PDF_COLORS = {
   bg: [248, 250, 252], // slate-50
 }
 
-export function LabeledSlider({ value, min, max, step, onValueChange, unit }: any) {
+interface LabeledSliderProps {
+  value: number[]
+  min: number
+  max: number
+  step: number
+  onValueChange: (value: number[]) => void
+  unit?: string
+}
+
+export function LabeledSlider({ value, min, max, step, onValueChange, unit }: LabeledSliderProps) {
   return (
     <div className="space-y-3">
       <div className="flex items-center gap-3">

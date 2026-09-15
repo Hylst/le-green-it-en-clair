@@ -32,7 +32,7 @@ export default function MythesPage() {
       myth: "Le cloud ne pollue pas, c'est virtuel",
       reality: "Faux - Le cloud repose sur des infrastructures physiques très énergivores",
       explanation:
-        "Le cloud n'est pas immatériel : il s'appuie sur des datacenters qui consomment de l'électricité pour fonctionner et se refroidir. Bonne nouvelle : stocker des fichiers pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO2e (ADEME, Impact CO2 / Base Empreinte). Le geste qui compte vraiment, c'est de garder vos appareils le plus longtemps possible : fabriquer un smartphone représente environ 50 kg de CO2e sur son cycle de vie, soit bien plus que des années de stockage de photos. Pas de stress pour vos souvenirs, concentrez vos efforts là où ça compte vraiment !",
+        "Le cloud n'est pas immatériel : il s'appuie sur des datacenters qui consomment de l'électricité pour fonctionner et se refroidir. Bonne nouvelle : stocker des fichiers pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO₂e (ADEME, Impact CO2 / Base Empreinte). Le geste qui compte vraiment, c'est de garder vos appareils le plus longtemps possible : fabriquer un smartphone représente environ 50 kg de CO₂e sur son cycle de vie, soit bien plus que des années de stockage de photos. Le stockage pèse très peu : le levier qui compte reste la durée de vie des appareils.",
       source: "ADEME, Impact CO2 / Base Empreinte",
       relatedLink: { label: "En savoir plus sur les datacenters", href: "/datacenters" },
     },
@@ -41,9 +41,9 @@ export default function MythesPage() {
       category: "Usage",
       icon: <Zap className="h-5 w-5" />,
       myth: "La phase d'utilisation est la plus polluante",
-      reality: "Faux - La fabrication représente 75% de l'impact environnemental",
+      reality: "Faux - La fabrication représente 75 % de l'impact environnemental",
       explanation:
-        "Contrairement à l'idée reçue, l'utilisation d'un smartphone ne représente que 20% de son empreinte carbone totale. La fabrication (extraction des minerais, assemblage, transport) compte pour 75%. C'est pourquoi garder son appareil le plus longtemps possible est le geste le plus efficace.",
+        "Contrairement à l'idée reçue, l'utilisation d'un smartphone ne représente qu'environ 20 % de son empreinte carbone totale. La fabrication (extraction des minerais, assemblage, transport) compte pour 75 %. C'est pourquoi garder son appareil le plus longtemps possible est le geste le plus efficace.",
       source: "ADEME-Arcep 2023",
       relatedLink: { label: "Découvrir le cycle de vie", href: "/comprendre" },
     },
@@ -52,9 +52,9 @@ export default function MythesPage() {
       category: "Recyclage",
       icon: <Recycle className="h-5 w-5" />,
       myth: "Recycler suffit à résoudre le problème",
-      reality: "Faux - Seuls 22 % des e-déchets ont été collectés et recyclés en 2022",
+      reality: "Faux - Seuls 22 % des déchets électroniques ont été collectés et recyclés en 2022",
       explanation:
-        "En 2022, 22,3 % des déchets électroniques ont été documentés comme collectés et recyclés à l'échelle mondiale (Global E-waste Monitor 2024). En France, ce taux atteint environ 45 %, mais reste insuffisant. De plus, le recyclage lui-même consomme de l'énergie et ne permet pas de récupérer tous les matériaux. La priorité doit être donnée à la réduction, la réparation et la réutilisation.",
+        "En 2022, 22,3 % des déchets électroniques ont été documentés comme collectés et recyclés à l'échelle mondiale (Global E-waste Monitor 2024). En France, le taux de collecte atteint environ 46 %, mais reste insuffisant. De plus, le recyclage lui-même consomme de l'énergie et ne permet pas de récupérer tous les matériaux. La priorité doit être donnée à la réduction, la réparation et la réutilisation.",
       source: "Global E-waste Monitor 2024, ONU",
       relatedLink: { label: "Explorer le recyclage", href: "/recyclage" },
     },
@@ -76,7 +76,7 @@ export default function MythesPage() {
       myth: "Supprimer mes emails réduit significativement mon empreinte",
       reality: "Vrai mais l'impact est minime comparé à d'autres actions",
       explanation:
-        "Oui, trier sa boîte mail aide à y voir plus clair. Mais côté climat, le stockage pèse très peu : compter environ 0,24 g de CO₂e par Go et par an (ADEME, Impact CO2 / Base Empreinte). Garder votre smartphone un an de plus évite bien plus d'émissions que de nettoyer des années d'e-mails. Priorisez les actions à fort impact !",
+        "Oui, trier sa boîte mail aide à y voir plus clair. Mais côté climat, le stockage pèse très peu : compter environ 0,24 g de CO₂e par Go et par an (ADEME, Impact CO2 / Base Empreinte). Garder votre smartphone un an de plus évite bien plus d'émissions que de nettoyer des années d'e-mails. Les actions à fort impact restent prioritaires.",
       source: "ADEME, Impact CO2 / Base Empreinte",
       relatedLink: { label: "Découvrir les actions efficaces", href: "/agir" },
     },

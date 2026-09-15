@@ -393,10 +393,10 @@ export default function CasPratiquesPage() {
                     </div>
                     <p className="text-sm text-slate-700">
                       {lifespanYears[0] <= 2
-                        ? "Essayez de garder votre appareil plus longtemps !"
+                        ? "Garder son appareil plus longtemps réduit nettement l'impact annuel."
                         : lifespanYears[0] <= 4
-                          ? "Bon effort ! Vous réduisez significativement votre impact."
-                          : "Excellent ! Vous maximisez la durée de vie de votre appareil."}
+                          ? "Bonne durée d'usage : l'impact annuel est déjà réduit."
+                          : "Durée optimale : l'impact de fabrication est bien amorti."}
                     </p>
                   </div>
                 </div>

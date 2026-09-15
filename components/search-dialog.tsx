@@ -17,7 +17,7 @@ import {
 
 interface SearchDialogProps {
     open: boolean
-    onOpenChange: (open: boolean) => void
+    onOpenChange: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
@@ -27,7 +27,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
         const down = (e: KeyboardEvent) => {
             if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault()
-                onOpenChange((open) => !open)
+                onOpenChange((prev) => !prev)
             }
         }
 

@@ -115,8 +115,8 @@ const solutions2030 = [
     category: "Technologies émergentes",
     items: [
       "Serveurs à refroidissement liquide généralisés (PUE < 1.1)",
-      "Processeurs ARM ultra-efficaces (-50% de consommation)",
-      "Stockage ADN pour l'archivage (durée de vie 1000 ans)",
+      "Processeurs ARM ultra-efficaces (environ −50 % de consommation, ordre de grandeur ARM 2023)",
+      "Stockage ADN pour l'archivage (durée de vie théorique millénaire)",
       "Réseaux 6G optimisés pour l'efficacité énergétique",
     ],
   },

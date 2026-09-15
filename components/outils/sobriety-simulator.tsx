@@ -95,9 +95,9 @@ export default function SobrietySimulator() {
                   className="mt-2"
                 />
                 <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">
-                  {scenario.deviceLifespan < 3 && "Trop court ! Visez au moins 5 ans."}
-                  {scenario.deviceLifespan >= 3 && scenario.deviceLifespan < 5 && "Bien, mais vous pouvez faire mieux."}
-                  {scenario.deviceLifespan >= 5 && "Excellent ! Impact optimal."}
+                  {scenario.deviceLifespan < 3 && "Durée courte : viser 5 ans ou plus réduit nettement l'impact."}
+                  {scenario.deviceLifespan >= 3 && scenario.deviceLifespan < 5 && "Durée intermédiaire : 5 ans ou plus font baisser l'impact."}
+                  {scenario.deviceLifespan >= 5 && "Durée élevée : l'impact annuel est réduit."}
                 </p>
               </div>
 

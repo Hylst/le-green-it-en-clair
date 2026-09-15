@@ -468,7 +468,7 @@ export function WebsiteCarbonCalculator() {
           {/* Équivalences recalculées sur la vraie valeur, facteurs affichés */}
           <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
             <h3 className="font-semibold text-lg mb-4 text-green-900 dark:text-green-200 font-poppins">
-              Ordres de grandeur ({fr(results.co2PerMonth)} kg CO2e/mois)
+              Ordres de grandeur ({fr(results.co2PerMonth)} kg CO₂e/mois — facteurs ADEME 2023)
             </h3>
             <div className="grid md:grid-cols-3 gap-4 text-sm">
               <div className="text-center">

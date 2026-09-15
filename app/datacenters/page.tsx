@@ -139,7 +139,7 @@ export default function DatacentersPage() {
                 </div>
                 <div>
                   <div className="mb-1 text-3xl font-bold text-teal-700 dark:text-teal-400">8 000+</div>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">datacenters dans le monde</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">datacenters dans le monde (estimation DataCenterMap, 2024)</p>
                 </div>
                 <div>
                   <div className="mb-1 text-3xl font-bold text-cyan-700 dark:text-cyan-400">415 TWh</div>
@@ -530,8 +530,7 @@ export default function DatacentersPage() {
 
               <div className="mt-6 rounded-xl bg-teal-50 dark:bg-teal-900/20 border-2 border-teal-200 dark:border-teal-800 p-4">
                 <p className="text-sm text-slate-700 dark:text-slate-300">
-                  <strong>En France :</strong> Le mix énergétique bas-carbone (70% nucléaire + 12% hydraulique) permet
-                  aux datacenters français d'avoir une empreinte carbone 4x inférieure à la moyenne mondiale.
+                  <strong>En France :</strong> Le mix énergétique bas-carbone (nucléaire ~67 %, hydraulique ~13 %, RTE 2024) donne aux datacenters français une empreinte carbone plusieurs fois inférieure à la moyenne mondiale.
                 </p>
               </div>
             </Card>
@@ -554,7 +553,7 @@ export default function DatacentersPage() {
               <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-slate-100">Récupération de chaleur</h3>
               <p className="text-sm text-slate-700 dark:text-slate-300">
                 La chaleur produite par les serveurs peut chauffer des bâtiments, des serres ou des piscines
-                municipales. Économie : 20-40% d'énergie.
+                municipales. Économie : 20-40 % d'énergie (ordre de grandeur, ADEME 2023).
               </p>
             </Card>
 
@@ -564,8 +563,7 @@ export default function DatacentersPage() {
               </div>
               <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-slate-100">Virtualisation poussée</h3>
               <p className="text-sm text-slate-700 dark:text-slate-300">
-                Un serveur physique peut héberger 10-20 machines virtuelles. Taux d'utilisation optimal : 70-80% au lieu
-                de 10-15%.
+                Un serveur physique peut héberger 10 à 20 machines virtuelles. Taux d'utilisation optimal : 70-80 % au lieu de 10-15 % (Uptime Institute, 2024).
               </p>
             </Card>
 
@@ -575,8 +573,7 @@ export default function DatacentersPage() {
               </div>
               <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-slate-100">Extinction intelligente</h3>
               <p className="text-sm text-slate-700 dark:text-slate-300">
-                Les serveurs inutilisés sont automatiquement mis en veille ou éteints. Économie potentielle : 30% de la
-                consommation.
+                Les serveurs inutilisés sont automatiquement mis en veille ou éteints. Économie potentielle : 30 % de la consommation (ordre de grandeur, Uptime Institute 2024).
               </p>
             </Card>
           </div>

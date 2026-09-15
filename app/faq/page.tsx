@@ -23,11 +23,11 @@ const faqCategories = [
       },
       {
         q: "Quel est l'impact du numérique en France ?",
-        a: "En France, le numérique représente environ 2,5% des émissions de gaz à effet de serre nationales (17 millions de tonnes CO₂eq en 2023). On compte plus de 60 millions de smartphones, 50 millions d'ordinateurs et 26 millions de téléviseurs connectés. Nous produisons 1,5 million de tonnes de déchets électroniques par an, dont seulement 40-45% sont recyclés correctement.",
+        a: "En France, le numérique représente environ 2,5 % des émissions de gaz à effet de serre nationales (17 Mt CO₂eq en 2023, ADEME-Arcep). En France, environ 1,6 million de tonnes de déchets électroniques sont collectées chaque année, soit un taux de collecte d'environ 46 % (ADEME 2024, Eurostat 2024).",
       },
       {
         q: "Peut-on vraiment faire une différence individuellement ?",
-        a: "Oui, absolument ! Garder son smartphone 4 ans au lieu de 2 divise son impact par 2. À l'échelle nationale, si tous les Français gardaient 11 types d'équipements 1 an de plus, on éviterait environ 0,6 million de tonnes de CO₂ par an (ADEME, 2020). Chaque geste compte, surtout multiplié par des millions d'utilisateurs.",
+        a: "Oui, à plusieurs niveaux. Garder son smartphone 4 ans au lieu de 2 divise son impact par 2. À l'échelle nationale, si tous les Français gardaient 11 types d'équipements 1 an de plus, on éviterait environ 0,6 million de tonnes de CO₂ par an (ADEME, 2020). Chaque geste compte, surtout multiplié par des millions d'utilisateurs.",
       },
     ],
   },
@@ -89,7 +89,7 @@ const faqCategories = [
       },
       {
         q: "Comment recycler mes vieux appareils ?",
-        a: "Ne JAMAIS jeter à la poubelle ! Options : 1) Reprise magasin (obligation 1 pour 1 : ils reprennent gratuitement l'ancien), 2) Points de collecte (déchetteries, magasins, mairies), 3) Bornes Ecosystem/Écologic, 4) Don à associations (Emmaüs, Envie) si fonctionnel. Effacez vos données avant. En France, l'objectif de collecte des DEEE est de 65 % depuis 2019 (directive européenne), un objectif rarement atteint.",
+        a: "À déposer dans une filière de collecte agréée (jamais dans la poubelle) : 1) Reprise magasin (obligation 1 pour 1 : ils reprennent gratuitement l'ancien), 2) Points de collecte (déchetteries, magasins, mairies), 3) Bornes Ecosystem/Écologic, 4) Don à associations (Emmaüs, Envie) si fonctionnel. Effacez vos données avant. En France, l'objectif de collecte des DEEE est de 65 % depuis 2019 (directive européenne), un objectif rarement atteint.",
       },
       {
         q: "Que deviennent les appareils recyclés ?",
@@ -107,7 +107,7 @@ const faqCategories = [
       },
       {
         q: "Comment mesurer l'impact environnemental d'un site web ?",
-        a: "Outils disponibles : EcoIndex (note A à G), Website Carbon Calculator, GreenFrame, Lighthouse (Google). Ils mesurent : poids page, requêtes serveur, consommation électrique estimée. Objectif : EcoIndex >B, page <1 Mo, <50 requêtes. L'empreinte d'une page dépend surtout de son poids : une page moyenne pèse environ 2 Mo (HTTP Archive, 2025) — testez la vôtre avec notre estimateur dans /outils. Le site le plus éco-conçu peut descendre à 0,1g CO₂ par vue.",
+        a: "Outils disponibles : EcoIndex (note A à G), Website Carbon Calculator, GreenFrame, Lighthouse (Google). Ils mesurent : poids page, requêtes serveur, consommation électrique estimée. Objectif : EcoIndex >B, page <1 Mo, <50 requêtes. L'empreinte d'une page dépend surtout de son poids : une page moyenne pèse environ 2 Mo (HTTP Archive, 2025) — testez la vôtre avec notre estimateur dans /outils. Le site le plus éco-conçu peut descendre à environ 0,1 g CO₂ par vue (ordre de grandeur).",
       },
       {
         q: "Quels langages de programmation sont les plus éco-responsables ?",
@@ -217,7 +217,7 @@ export default function FAQPage() {
           {filteredFAQ.length === 0 ? (
             <Card className="border-2 border-slate-200 p-12 text-center dark:border-slate-700 dark:bg-slate-800">
               <p className="text-slate-600 dark:text-slate-400">
-                Aucune question trouvée pour "{searchTerm}". Essayez un autre mot-clé ou changez de catégorie.
+                Aucune question trouvée pour « {searchTerm} ». Essayez un autre mot-clé ou changez de catégorie.
               </p>
             </Card>
           ) : (

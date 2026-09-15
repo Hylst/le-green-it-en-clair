@@ -81,7 +81,7 @@ const sheets: Record<string, any> = {
       },
     ],
     resources: [
-      "Calculateur d'empreinte : /outils#calculateur",
+      "Calculateur d'empreinte : /outils#onglet-calculator",
       "Guide du reconditionné : /ressources",
       "Points de collecte : /recyclage",
     ],
@@ -169,7 +169,6 @@ const sheets: Record<string, any> = {
     target: "Développeurs",
     duration: "15 minutes de lecture",
     impact: "Sites 3-5x plus légers, temps de chargement -60%",
-    image: "/greenit/clean-efficient-code-on-screen-with-green-energy-s.webp",
     date: "15 Mars 2026",
     sections: [
       {
@@ -203,11 +202,11 @@ const sheets: Record<string, any> = {
       },
       {
         title: "Optimiser les médias",
-        content: "Les images représentent 50% du poids des pages. Optimisation = gain immédiat.",
+        content: "Les images représentent environ 50 % du poids des pages (HTTP Archive, 2025). Optimisation = gain immédiat.",
         tips: [
-          "Format moderne : WebP (-30%), AVIF (-50% vs JPG)",
+          "Format moderne : WebP (~−30 %), AVIF (~−50 % vs JPG), à qualité égale (Google)",
           "Responsive images avec srcset",
-          "Dimensionnez correctement (pas de 4000px pour afficher 400px)",
+          "Dimensionnez correctement (pas de 4 000 px pour afficher 400 px)",
           "Préférez SVG pour icônes et logos",
         ],
       },
@@ -232,7 +231,7 @@ const sheets: Record<string, any> = {
       },
       {
         title: "Machine Learning responsable",
-        content: "Entraîner GPT-3 émet 552 tonnes CO₂ (Patterson et al., 2021). L'inférence représente 90% de l'impact sur la durée.",
+        content: "Entraîner GPT-3 émet 552 tonnes CO₂ (Patterson et al., 2021). L'inférence domine l'impact sur la durée (ordre de grandeur : ~90 %).",
         tips: [
           "Utilisez des modèles pré-entraînés quand possible",
           "Optimisez les hyperparamètres (early stopping)",
@@ -260,7 +259,6 @@ const sheets: Record<string, any> = {
     target: "Citoyens",
     duration: "8 minutes de lecture",
     impact: "Réduction de 50% de l'impact écologique annuel",
-    image: "/greenit/person-repairing-smartphone-with-tools.webp",
     date: "20 Mars 2026",
     sections: [
       {
@@ -337,7 +335,6 @@ const sheets: Record<string, any> = {
     target: "Entreprises",
     duration: "20 minutes de lecture",
     impact: "Réduction de l'empreinte carbone IT, variable selon le parc et les leviers",
-    image: "/greenit/images/fiches/green-it-entreprise.webp",
     date: "25 Mars 2026",
     sections: [
       {
@@ -413,7 +410,6 @@ const sheets: Record<string, any> = {
     target: "Tous publics",
     duration: "5 minutes de lecture",
     impact: "Taux de recyclage de 79 % des DEEE collectés",
-    image: "/greenit/images/recycling-electronics.webp",
     date: "30 Mars 2026",
     sections: [
       {
@@ -473,7 +469,7 @@ const sheets: Record<string, any> = {
       },
     ],
     resources: [
-      "Carte des points : ecosystem.eco/fr/localiser",
+      "Carte des points : https://ecosystem.eco/fr/localiser",
       "Guide ADEME : ademe.fr",
       "Annuaire recyclage : jerecyclemesdeee.fr",
       "https://quefairedemesdechets.ademe.fr",
@@ -491,7 +487,6 @@ const sheets: Record<string, any> = {
     target: "DSI & Développeurs",
     duration: "10 minutes de lecture",
     impact: "Réduire les émissions de votre hébergement",
-    image: "/greenit/modern-green-datacenter-with-solar-panels.webp",
     date: "5 Avril 2026",
     sections: [
       {
@@ -558,7 +553,6 @@ const sheets: Record<string, any> = {
     target: "Élus & Agents territoriaux",
     duration: "15 minutes de lecture",
     impact: "Conformité légale et exemplarité publique",
-    image: "/greenit/city-hall-with-sustainable-technology-infrastructu.webp",
     date: "12 Avril 2026",
     sections: [
       {

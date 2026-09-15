@@ -129,8 +129,8 @@ export default function GuidePage() {
                                 Le saviez-vous ?
                             </h3>
                             <p className="text-emerald-50 text-lg">
-                                Produire un ordinateur portable de 2kg émet 156 kg de CO₂ et nécessite 800 kg de matières premières.
-                                Allonger sa durée de vie de 2 à 4 ans réduit son impact environnemental de 50%.
+                                Produire un ordinateur portable de 2 kg émet 156 kg de CO₂ et nécessite 800 kg de matières premières (ADEME, Base Empreinte 2023).
+                                Allonger sa durée de vie de 2 à 4 ans réduit son impact environnemental d'environ 50 %.
                             </p>
                         </div>
                         <Button variant="secondary" size="lg" className="w-full md:w-auto" onClick={() => router.push('/agir')}>

@@ -228,12 +228,12 @@ export default function ReglementationPage() {
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-accent/20">
                         <h5 className="font-semibold text-sm mb-1 text-card-foreground">4. Datacenters responsables</h5>
-                        <p className="text-sm text-muted-foreground">Suivi des indicateurs (PUE, WUE) et reporting européen</p>
+                        <p className="text-sm text-muted-foreground">Suivi des indicateurs PUE (efficacité énergétique) et WUE (consommation d'eau), et reporting européen</p>
                       </div>
                       <div className="bg-card p-3 rounded-lg border border-accent/20">
                         <h5 className="font-semibold text-sm mb-1 text-card-foreground">5. Territoires</h5>
                         <p className="text-sm text-muted-foreground">
-                          Stratégie numérique responsable pour collectivités &gt;50k hab.
+                          Stratégie numérique responsable pour les collectivités de plus de 50 000 habitants
                         </p>
                       </div>
                     </div>

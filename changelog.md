@@ -2,6 +2,15 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 16/09/2026 — balayage dark complet (soir) + cleanup écarté
+
+- 7 pages contrôlées pixel par pixel en dark (`motion-off` forcé, état final) : accueil, developpement, reglementation, problematiques (hero + « Solutions à développer » + CTA texture-dots + sources — pleine page trop lourde, 3 timeouts, repli en 3 viewports), chiffres, datacenters, recyclage. Tout lisible, `useChartTheme` fait son job, dégradés et CTA OK, 0 `pageerror` partout.
+- `developpement` `dark:bg-slate-950` requalifié : alternance de sections assumée, pas un bug.
+- cleanup `website-carbon` gray/slate + `carbon-calculator` blue **écarté assumé** (passe pessimiste, lecture du code avant) : variantes `dark:` déjà complètes, rendu vérifié — uniformiser changerait les teintes pour zéro gain visible, contraire à « modif minimale ».
+- `todo.md` : checklist NVDA étoffée (composants phases 1-3 + éCO2mix + quiz, ce qui doit être ignoré).
+- warnings console identifiés (bénins) : bannière PWA (pas d'action utilisateur en test) + preload CSS non utilisé à temps (headless lent). `.playwright-mcp/` ignoré par git (vérifié : rien à nettoyer côté dépôt).
+- vérifié : aucun changement de code ce soir (docs uniquement), build précédent 43/43 toujours valable, captures supprimées après contrôle.
+
 ## 16/09/2026 — axe dark/light (soir) : 8 pages en light + `cas-pratiques` en dark
 
 - balayage light (motion réduite forcée via `localStorage greenit-motion=reduced` : en headless les transitions CSS sont gelées, les screenshots pleine page montraient des sections vides — avec `motion-off` tout est à l'état final) : accueil, developpement, reglementation, problematiques, chiffres, datacenters, cas-pratiques, recyclage — rien de cassé (ticker, compteurs, sommaires, slider, frise, cartes, éCO2mix lisibles).

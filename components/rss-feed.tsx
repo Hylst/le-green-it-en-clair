@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { AlertTriangle, CheckCircle2, ExternalLink, Loader2, RefreshCw, Rss } from "lucide-react"
+import { AlertTriangle, CheckCircle2, ExternalLink, Loader2, RefreshCw, Rss, WifiOff } from "lucide-react"
 
 type Feed = {
   id: string
@@ -65,6 +65,26 @@ function parseDate(value: string | null | undefined) {
 function formatDate(value: string | null) {
   if (!value) return ""
   return new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "short", year: "numeric" }).format(new Date(value))
+}
+
+function getFreshnessBadge(dateStr: string | null): { label: string; className: string } | null {
+  if (!dateStr) return null
+  const time = Date.parse(dateStr)
+  if (!Number.isFinite(time)) return null
+  const diffHours = (Date.now() - time) / (1000 * 60 * 60)
+  if (diffHours < 24 && diffHours >= -4) {
+    return {
+      label: "< 24 h",
+      className: "border-emerald-600/30 bg-emerald-500/10 text-emerald-800 dark:text-emerald-300",
+    }
+  }
+  if (diffHours < 72 && diffHours >= 24) {
+    return {
+      label: "< 3 j",
+      className: "border-sky-600/30 bg-sky-500/10 text-sky-800 dark:text-sky-300",
+    }
+  }
+  return null
 }
 
 function parseXml(text: string, feed: Feed): NewsItem[] {
@@ -181,7 +201,20 @@ export function RssFeed() {
   const [status, setStatus] = useState<Record<string, FeedStatus>>({})
   const [loading, setLoading] = useState(true)
   const [updatedAt, setUpdatedAt] = useState<Date | null>(null)
+  const [isOnline, setIsOnline] = useState(true)
   const isInitialized = useRef(false)
+
+  useEffect(() => {
+    setIsOnline(typeof navigator !== "undefined" ? navigator.onLine : true)
+    const handleOnline = () => setIsOnline(true)
+    const handleOffline = () => setIsOnline(false)
+    window.addEventListener("online", handleOnline)
+    window.addEventListener("offline", handleOffline)
+    return () => {
+      window.removeEventListener("online", handleOnline)
+      window.removeEventListener("offline", handleOffline)
+    }
+  }, [])
 
   useEffect(() => {
     try {
@@ -308,18 +341,27 @@ export function RssFeed() {
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="text-sm text-muted-foreground" aria-live="polite" aria-atomic="true">
-          {loading
-            ? "Chargement des flux…"
-            : updatedAt
-              ? `Mis à jour à ${updatedAt.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })} (${items.length} actualité${items.length > 1 ? "s" : ""}) — titres et liens uniquement, contenus chez les sources.`
-              : "Titres et liens uniquement, contenus chez les sources."}
+        <p className="text-sm text-muted-foreground flex items-center gap-1.5" aria-live="polite" aria-atomic="true">
+          {!isOnline ? (
+            <>
+              <WifiOff className="h-4 w-4 shrink-0 text-amber-700 dark:text-amber-400" aria-hidden="true" />
+              <span className="text-amber-700 dark:text-amber-400">
+                Mode hors-ligne : {items.length > 0 ? "affichage des actualités en cache." : "connexion requise pour charger les flux."}
+              </span>
+            </>
+          ) : loading ? (
+            "Chargement des flux…"
+          ) : updatedAt ? (
+            `Mis à jour à ${updatedAt.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })} (${items.length} actualité${items.length > 1 ? "s" : ""}) — titres et liens uniquement, contenus chez les sources.`
+          ) : (
+            "Titres et liens uniquement, contenus chez les sources."
+          )}
         </p>
         <Button
           variant="outline"
           size="sm"
           onClick={() => load(RSS_FEEDS.filter((feed) => selected.includes(feed.id)), true)}
-          disabled={loading || selected.length === 0}
+          disabled={loading || selected.length === 0 || !isOnline}
         >
           <RefreshCw className={`mr-2 h-4 w-4 ${loading ? "animate-spin" : ""}`} aria-hidden="true" />
           Actualiser
@@ -342,6 +384,7 @@ export function RssFeed() {
       <div className="grid gap-4 md:grid-cols-2">
         {items.map((item) => {
           const feed = feedById.get(item.feedId)
+          const freshness = getFreshnessBadge(item.date)
           return (
             <a
               key={item.link}
@@ -351,10 +394,17 @@ export function RssFeed() {
               className="group flex h-full flex-col justify-between gap-3 rounded-xl border-2 border-border bg-card p-4 transition-colors hover:border-primary/50"
             >
               <div>
-                <div className="mb-2 flex items-center gap-2 text-xs">
-                  <span className="rounded-full bg-muted px-2 py-0.5 font-medium text-foreground">
-                    {feed?.name}
-                  </span>
+                <div className="mb-2 flex flex-wrap items-center justify-between gap-2 text-xs">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-full bg-muted px-2 py-0.5 font-medium text-foreground">
+                      {feed?.name}
+                    </span>
+                    {freshness && (
+                      <span className={`rounded-full border px-2 py-0.5 font-medium ${freshness.className}`}>
+                        {freshness.label}
+                      </span>
+                    )}
+                  </div>
                   {item.date && <span className="text-muted-foreground">{formatDate(item.date)}</span>}
                 </div>
                 <h3 className="font-semibold leading-snug text-foreground group-hover:text-primary">
@@ -372,8 +422,15 @@ export function RssFeed() {
 
       {!loading && selected.length > 0 && items.length === 0 && (
         <Card className="border-2 p-6 text-center text-sm text-muted-foreground">
-          Aucune actualité récupérée pour l'instant. Réessayez dans quelques minutes ou ouvrez directement les flux
-          ci-dessus.
+          {!isOnline ? (
+            <div className="space-y-2">
+              <WifiOff className="mx-auto h-8 w-8 text-amber-700 dark:text-amber-400 opacity-80" aria-hidden="true" />
+              <p className="font-semibold text-foreground">Vous êtes actuellement hors-ligne</p>
+              <p>Les flux d'actualités en direct nécessitent une connexion internet. Les actualités apparaîtront dès que la connexion sera rétablie.</p>
+            </div>
+          ) : (
+            "Aucune actualité récupérée pour l'instant. Réessayez dans quelques minutes ou ouvrez directement les flux ci-dessus."
+          )}
         </Card>
       )}
     </div>

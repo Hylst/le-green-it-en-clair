@@ -19,6 +19,8 @@ interface NewsArticle {
   category: NewsCategory
   date: string
   relatedPage?: string
+  sourceUrl?: string
+  sourceLabel?: string
 }
 
 interface VeilleSource {
@@ -98,6 +100,18 @@ export default function ActualitesPage() {
       category: "etude",
       date: "Exemple de dossier",
       relatedPage: "/fiches-pratiques/ia-generative",
+    },
+    {
+      id: "8",
+      title: "France 2030 : un appel à projets pour des datacenters durables",
+      excerpt:
+        "EcoIDEN, opéré par l'ADEME pour l'État (première relève le 29/10/2026) : soutenir les centres de données exemplaires et l'économie circulaire des équipements numériques. Contexte officiel : le numérique pèse 4,4 % de l'empreinte carbone française en 2022 (29,5 Mt CO₂e), et il faudrait extraire 59 % de métaux en plus en 2050 qu'en 2020 (ADEME).",
+      category: "reglementation",
+      date: "Exemple de dossier",
+      relatedPage: "/datacenters",
+      sourceUrl:
+        "https://www.ecologie.gouv.fr/presse/france-2030-gouvernement-lance-appel-projets-accelerer-developpement-dequipements-numeriques",
+      sourceLabel: "Communiqué officiel (ministères, 31/07/2026)",
     },
   ]
 
@@ -235,6 +249,20 @@ export default function ActualitesPage() {
                     <h3 className="mb-3 text-xl font-bold text-foreground group-hover:text-primary transition-colors">{article.title}</h3>
 
                     <p className="mb-6 text-muted-foreground leading-relaxed">{article.excerpt}</p>
+
+                    {article.sourceUrl && (
+                      <p className="mb-6 text-sm">
+                        <a
+                          href={article.sourceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 font-medium text-primary hover:underline"
+                        >
+                          <ExternalLink className="h-3.5 w-3.5" />
+                          {article.sourceLabel ?? "Source officielle"}
+                        </a>
+                      </p>
+                    )}
 
                     <div className="flex items-center justify-between mt-auto">
                       <span className="text-sm font-medium text-muted-foreground">La rédaction — exemple illustratif</span>

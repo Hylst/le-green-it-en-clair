@@ -1,7 +1,7 @@
 // Service Worker for Le Green IT en clair
 // Enables offline-first functionality
 
-const CACHE_NAME = 'green-it-v1.3.2';
+const CACHE_NAME = 'green-it-v1.3.3';
 const STATIC_ASSETS = [
     '/greenit/',
     '/greenit/offline/',
@@ -102,6 +102,17 @@ self.addEventListener('fetch', (event) => {
                 // Don't cache non-successful responses
                 if (!response || response.status !== 200) {
                     return response;
+                }
+
+                // Ne jamais mettre en cache du HTML sous une URL de script/style :
+                // un fallback serveur (index.html, 404) empoisonnerait le cache
+                // et casserait la mise en page (erreurs « Unexpected token '<' »).
+                const dest = event.request.destination;
+                if (dest === 'script' || dest === 'style') {
+                    const ct = response.headers.get('content-type') || '';
+                    if (!/(javascript|css)/.test(ct)) {
+                        return response;
+                    }
                 }
 
                 // Clone response for caching

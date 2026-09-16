@@ -2,6 +2,13 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 16/09/2026 — axe dark/light (soir) : 8 pages en light + `cas-pratiques` en dark
+
+- balayage light (motion réduite forcée via `localStorage greenit-motion=reduced` : en headless les transitions CSS sont gelées, les screenshots pleine page montraient des sections vides — avec `motion-off` tout est à l'état final) : accueil, developpement, reglementation, problematiques, chiffres, datacenters, cas-pratiques, recyclage — rien de cassé (ticker, compteurs, sommaires, slider, frise, cartes, éCO2mix lisibles).
+- `cas-pratiques` en dark : ~40 variantes `dark:` ajoutées (stats emerald/blue/teal, cartes Réparer/Racheter/reconditionné, Améliorations, Cloud/Serveur local, pastilles icônes, hover des cartes de sélection). Raté puis corrigé : la carte Réparer restée claire avec texte clair (fond conteneur oublié → `dark:border-emerald-700 dark:bg-emerald-900/20`, motif repris de `problematiques`) ; 6 doublons `dark:text-slate-400 dark:text-slate-500` (replaceAll `text-slate-400` passé après l'introduction de `dark:text-slate-400` → réduits). Captures dark avant/après conformes.
+- `todo.md` : 3 puces mensongères corrigées (contrastes light → fait ce soir ; `text-theme`/`bg-theme` déjà câblés ; « teintes eco2mix changées » → choix initial, rien changé ; accueil `slate-*` → faux positif, variantes déjà présentes ; `- [ ] retester le dark partout` → doublon supprimé).
+- vérifié : `tsc` 0 erreur, build 43/43, captures (supprimées après contrôle), 0 `pageerror`.
+
 ## 16/09/2026 — phase 3 animations (séparateurs, textures, héros vivants)
 
 - séparateurs (`components/section-divider.tsx`, 0 Ko) : vague SVG teintée `var(--theme-soft)` après le hero sur 6 pages (`comprendre`, `chiffres`, `problematiques`, `mythes`, `agir`, `datacenters`). Accueil exclu (le ticker fait déjà la transition).

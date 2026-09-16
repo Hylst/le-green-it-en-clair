@@ -16,7 +16,7 @@ Détail dans `audit-design-2026-09.md`, implémenté le 16/09 sans toucher aux c
 - [x] Phase 2 animations le 16/09 : `CountUp` × 11 (accueil/chiffres/datacenters), `Ticker` accueil (CSS pur), `Sommaire` developpement (7) + reglementation (4), `LifespanSlider` cas-pratiques (2e instance écartée : pas de binaire franc sur developpement), `ReadingProgress` × 5 pages. Vérifié : build, valeurs finales, scrollspy, slider, progression, motion-off, 0 pageerror.
 - [x] Phase 3 animations (code) le 16/09 : `SectionDivider` × 6 pages, `.texture-dots` × 3 CTA, `hero-float` via `PageHero`. Vérifié : build, navigateur, motion-off, 0 pageerror.
 - [x] Illustrations phase 3 branchées le 16/09 (soir) : 4 JPEG rapprochés par nom, webp 70 % (11 à 16 Ko), 4 slots avec alts français. Vérifié : build, captures, 0 pageerror.
-- [ ] Reste design (passe pessimiste du 16/09) : re-tester les contrastes en light après migration tokens (pastilles `*-100`) ; `text-theme`/`bg-theme` créés mais pas encore utilisés (seuls `lift`, `glow-theme`, `link-slide`, `icon-shift`, `reveal` sont câblés) ; `sobriety`/`enterprise`/`eco2mix` utilisent `CHART_FALLBACKS` statiques (pas adaptatifs au dark, teintes eco2mix légèrement changées : bio lime → teal) ; lecteur d'écran NVDA sur les nouveaux héros. + reliquats couleurs en dur phase 1 (accueil `slate-*`, `problematiques` dégradés, `website-carbon-calculator` gray/slate, `carbon-calculator` blue, `developpement` `dark:bg-slate-950`) ; 404 RSC `__next.*__PAGE__.txt` au prefetch sous serveur statique (préexistantes, à étudier).
+- [x] Axe dark/light soldé le 16/09 au soir : 8 pages balayées en light (accueil, developpement, reglementation, problematiques, chiffres, datacenters, cas-pratiques, recyclage — 0 pageerror, rien de cassé) + variantes `dark:` complétées sur `cas-pratiques` (~40 classes : stats, cartes Réparer/Racheter/reconditionné, Améliorer, Cloud/Serveur, pastilles, hover). Faux positifs écartés : accueil `slate-*` (variantes dark déjà présentes), `text-theme`/`bg-theme` déjà câblés (hero, sommaire, ticker, progression), « teintes eco2mix changées » (choix initial teal, rien changé). Reste : `website-carbon` gray/slate + `carbon-calculator` blue (avec variantes dark, pas de bug constaté), `developpement` `dark:bg-slate-950` (2 sections, à confirmer en dark), NVDA sur les nouveaux héros ; 404 RSC `__next.*__PAGE__.txt` au prefetch sous serveur statique (préexistantes, à étudier).
 
 ## ✅ plan d'amélioration — audit contenu du 15/09/2026 (soir) — implémenté
 
@@ -142,7 +142,7 @@ Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à l
 - [x] retester le dark partout : couvert par la passe axe du 15/09 au soir (commits `2c0021f`, `b411973` : fonds clairs sans variante dark corrigés, badges 600→700, textes sur fonds sombres, curseurs nommés, `role=group` sur le SVG langages).
 - [x] sitemap.xml -> fait (`sitemap.ts` + robots), complété (offline + modeles + 8 fiches détail)
 - [x] redirects 301 -> fait dans nginx (`/` -> `/greenit/`)
-- [ ] retester le dark partout
+- [x] retester le dark partout : couvert par la passe axe du 15/09 au soir + axe dark/light du 16/09 au soir (8 pages en light, `cas-pratiques` complété en dark)
 
 ## 🟠 contenu, plus tard
 

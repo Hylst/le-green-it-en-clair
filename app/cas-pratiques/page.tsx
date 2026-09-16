@@ -106,7 +106,7 @@ export default function CasPratiquesPage() {
                   className={`group cursor-pointer border-2 p-6 transition-all hover:shadow-lg ${
                     isSelected
                       ? `border-${study.color}-500 bg-${study.color}-50 dark:bg-${study.color}-900/20`
-                      : "border-border bg-card hover:border-slate-300"
+                      : "border-border bg-card hover:border-slate-300 dark:hover:border-slate-600"
                   }`}
                   onClick={() => setSelectedCase(study.id)}
                   onKeyDown={(e) => {
@@ -137,8 +137,8 @@ export default function CasPratiquesPage() {
             <div className="space-y-8">
               <Card className="border-2 border-emerald-500 p-8 lg:p-12">
                 <div className="mb-8 flex items-start gap-4">
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-emerald-100">
-                    <Smartphone className="h-8 w-8 text-emerald-700" />
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-emerald-100 dark:bg-emerald-900/30">
+                    <Smartphone className="h-8 w-8 text-emerald-700 dark:text-emerald-400" />
                   </div>
                   <div>
                     <h2 className="mb-2 text-3xl font-bold text-foreground">Le Smartphone</h2>
@@ -150,21 +150,21 @@ export default function CasPratiquesPage() {
 
                 {/* Stats Grid */}
                 <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                  <div className="rounded-xl bg-emerald-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-emerald-700">80 kg</div>
-                    <div className="text-sm text-slate-700">CO₂ émis sur le cycle de vie (dont ~79 kg pour la fabrication, ADEME 2025)</div>
+                  <div className="rounded-xl bg-emerald-50 p-4 dark:bg-emerald-900/20">
+                    <div className="mb-1 text-2xl font-bold text-emerald-700 dark:text-emerald-400">80 kg</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">CO₂ émis sur le cycle de vie (dont ~79 kg pour la fabrication, ADEME 2025)</div>
                   </div>
-                  <div className="rounded-xl bg-emerald-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-emerald-700">12 000 L</div>
-                    <div className="text-sm text-slate-700">d'eau consommée</div>
+                  <div className="rounded-xl bg-emerald-50 p-4 dark:bg-emerald-900/20">
+                    <div className="mb-1 text-2xl font-bold text-emerald-700 dark:text-emerald-400">12 000 L</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">d'eau consommée</div>
                   </div>
-                  <div className="rounded-xl bg-emerald-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-emerald-700">50+</div>
-                    <div className="text-sm text-slate-700">métaux différents</div>
+                  <div className="rounded-xl bg-emerald-50 p-4 dark:bg-emerald-900/20">
+                    <div className="mb-1 text-2xl font-bold text-emerald-700 dark:text-emerald-400">50+</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">métaux différents</div>
                   </div>
-                  <div className="rounded-xl bg-emerald-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-emerald-700">2-3 ans</div>
-                    <div className="text-sm text-slate-700">durée de vie moyenne</div>
+                  <div className="rounded-xl bg-emerald-50 p-4 dark:bg-emerald-900/20">
+                    <div className="mb-1 text-2xl font-bold text-emerald-700 dark:text-emerald-400">2-3 ans</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">durée de vie moyenne</div>
                   </div>
                 </div>
 
@@ -189,28 +189,28 @@ export default function CasPratiquesPage() {
                     <h3 className="mb-3 font-semibold text-foreground">Le saviez-vous ?</h3>
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex gap-2">
-                        <span className="text-emerald-600">•</span>
+                        <span className="text-emerald-600 dark:text-emerald-400">•</span>
                         <span>
                           <strong>≈ 75 % des impacts (et ~99 % du carbone)</strong> d'un smartphone proviennent de sa fabrication,
                           pas de son utilisation
                         </span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="text-emerald-600">•</span>
+                        <span className="text-emerald-600 dark:text-emerald-400">•</span>
                         <span>
                           Il faut extraire <strong>70 kg de matières premières</strong> pour fabriquer un smartphone de
                           150g
                         </span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="text-emerald-600">•</span>
+                        <span className="text-emerald-600 dark:text-emerald-400">•</span>
                         <span>
                           En France, <strong>62 % des smartphones</strong> sont remplacés alors qu'ils fonctionnent
                           encore (ADEME 2026)
                         </span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="text-emerald-600">•</span>
+                        <span className="text-emerald-600 dark:text-emerald-400">•</span>
                         <span>
                           Garder son smartphone <strong>1 an de plus</strong> réduit son impact annuel d'environ un tiers
                         </span>
@@ -286,81 +286,81 @@ export default function CasPratiquesPage() {
               <Card className="border-2 border-border bg-card p-8 lg:p-12">
                 <h3 className="mb-6 text-2xl font-bold text-foreground">Réparer ou racheter ?</h3>
                 <div className="grid gap-6 lg:grid-cols-2">
-                  <div className="rounded-xl border-2 border-emerald-500 bg-emerald-50 p-6">
+                  <div className="rounded-xl border-2 border-emerald-500 bg-emerald-50 p-6 dark:border-emerald-700 dark:bg-emerald-900/20">
                     <div className="mb-4 flex items-center gap-3">
                       <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600">
                         <Wrench className="h-6 w-6 text-white" />
                       </div>
-                      <h4 className="text-xl font-bold text-slate-900">Réparer</h4>
+                      <h4 className="text-xl font-bold text-slate-900 dark:text-slate-100">Réparer</h4>
                     </div>
-                    <ul className="space-y-3 text-slate-700">
+                    <ul className="space-y-3 text-slate-700 dark:text-slate-300">
                       <li className="flex items-start gap-2">
-                        <TrendingDown className="mt-1 h-5 w-5 shrink-0 text-emerald-600" />
+                        <TrendingDown className="mt-1 h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
                         <span>
                           <strong>Impact réduit :</strong> Évite jusqu'à ~80 kg de CO₂ si cela évite un achat neuf (cycle de vie d'un smartphone, ADEME 2025)
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <TrendingDown className="mt-1 h-5 w-5 shrink-0 text-emerald-600" />
+                        <TrendingDown className="mt-1 h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
                         <span>
                           <strong>Coût :</strong> 50-150 € selon la réparation (fourchette indicative)
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <TrendingDown className="mt-1 h-5 w-5 shrink-0 text-emerald-600" />
+                        <TrendingDown className="mt-1 h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
                         <span>
                           <strong>Durée :</strong> Prolonge la vie de 1-2 ans
                         </span>
                       </li>
                     </ul>
-                    <div className="mt-6 rounded-lg bg-emerald-100 p-4">
-                      <p className="text-sm font-semibold text-emerald-900">
+                    <div className="mt-6 rounded-lg bg-emerald-100 p-4 dark:bg-emerald-900/30">
+                      <p className="text-sm font-semibold text-emerald-900 dark:text-emerald-200">
                         Recommandé pour : écran cassé, batterie usée, problèmes logiciels
                       </p>
                     </div>
                   </div>
 
-                  <div className="rounded-xl border-2 border-slate-300 bg-slate-50 p-6">
+                  <div className="rounded-xl border-2 border-slate-300 bg-slate-50 p-6 dark:border-slate-700 dark:bg-slate-800">
                     <div className="mb-4 flex items-center gap-3">
                       <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-600">
                         <ShoppingCart className="h-6 w-6 text-white" />
                       </div>
-                      <h4 className="text-xl font-bold text-slate-900">Racheter neuf</h4>
+                      <h4 className="text-xl font-bold text-slate-900 dark:text-slate-100">Racheter neuf</h4>
                     </div>
-                    <ul className="space-y-3 text-slate-700">
+                    <ul className="space-y-3 text-slate-700 dark:text-slate-300">
                       <li className="flex items-start gap-2">
-                        <span className="mt-1 text-slate-400">•</span>
+                        <span className="mt-1 text-slate-400 dark:text-slate-500">•</span>
                         <span>
                           <strong>Impact élevé :</strong> 80 kg de CO₂ supplémentaires
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="mt-1 text-slate-400">•</span>
+                        <span className="mt-1 text-slate-400 dark:text-slate-500">•</span>
                         <span>
                           <strong>Coût :</strong> 300-1 200 € selon le modèle (fourchette indicative)
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="mt-1 text-slate-400">•</span>
+                        <span className="mt-1 text-slate-400 dark:text-slate-500">•</span>
                         <span>
                           <strong>Ressources :</strong> 70 kg de matières extraites
                         </span>
                       </li>
                     </ul>
-                    <div className="mt-6 rounded-lg bg-amber-100 p-4">
-                      <p className="text-sm font-semibold text-amber-900">
+                    <div className="mt-6 rounded-lg bg-amber-100 p-4 dark:bg-amber-900/30">
+                      <p className="text-sm font-semibold text-amber-900 dark:text-amber-200">
                         À considérer uniquement si : appareil irréparable ou obsolète
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6 rounded-xl bg-blue-50 border-2 border-blue-200 p-6">
-                  <h4 className="mb-2 flex items-center gap-2 font-semibold text-blue-900">
+                <div className="mt-6 rounded-xl bg-blue-50 border-2 border-blue-200 p-6 dark:border-blue-800 dark:bg-blue-900/20">
+                  <h4 className="mb-2 flex items-center gap-2 font-semibold text-blue-900 dark:text-blue-200">
                     <Recycle className="h-5 w-5" />
                     Alternative recommandée : le reconditionné
                   </h4>
-                  <p className="text-slate-700">
+                  <p className="text-slate-700 dark:text-slate-300">
                     Un smartphone reconditionné réduit l'impact de <strong>75 à 90 %</strong> par rapport au neuf, tout en
                           coûtant 30-50 % moins cher. C'est le meilleur compromis entre performance et écologie.
                   </p>
@@ -380,7 +380,7 @@ export default function CasPratiquesPage() {
                 <div className="mb-8">
                   <div className="mb-4 flex items-center justify-between">
                     <span className="text-sm font-medium text-muted-foreground">Durée de vie</span>
-                    <span className="text-2xl font-bold text-emerald-700">{lifespanYears[0]} ans</span>
+                    <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">{lifespanYears[0]} ans</span>
                   </div>
                   <Slider
                     value={lifespanYears}
@@ -434,8 +434,8 @@ export default function CasPratiquesPage() {
             <div className="space-y-8">
               <Card className="border-2 border-blue-500 p-8 lg:p-12">
                 <div className="mb-8 flex items-start gap-4">
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-blue-100">
-                    <Laptop className="h-8 w-8 text-blue-700" />
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-blue-100 dark:bg-blue-900/30">
+                    <Laptop className="h-8 w-8 text-blue-700 dark:text-blue-400" />
                   </div>
                   <div>
                     <h2 className="mb-2 text-3xl font-bold text-foreground">L'Ordinateur Portable</h2>
@@ -447,21 +447,21 @@ export default function CasPratiquesPage() {
 
                 {/* Stats Grid */}
                 <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                  <div className="rounded-xl bg-blue-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-blue-700">193 kg</div>
-                    <div className="text-sm text-slate-700">CO₂ émis sur le cycle de vie</div>
+                  <div className="rounded-xl bg-blue-50 p-4 dark:bg-blue-900/20">
+                    <div className="mb-1 text-2xl font-bold text-blue-700 dark:text-blue-400">193 kg</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">CO₂ émis sur le cycle de vie</div>
                   </div>
-                  <div className="rounded-xl bg-blue-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-blue-700">1 500 à 20 000 L</div>
-                    <div className="text-sm text-slate-700">d'eau selon la méthode (eau bleue ou empreinte complète)</div>
+                  <div className="rounded-xl bg-blue-50 p-4 dark:bg-blue-900/20">
+                    <div className="mb-1 text-2xl font-bold text-blue-700 dark:text-blue-400">1 500 à 20 000 L</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">d'eau selon la méthode (eau bleue ou empreinte complète)</div>
                   </div>
-                  <div className="rounded-xl bg-blue-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-blue-700">800 kWh</div>
-                    <div className="text-sm text-slate-700">d'énergie pour la production</div>
+                  <div className="rounded-xl bg-blue-50 p-4 dark:bg-blue-900/20">
+                    <div className="mb-1 text-2xl font-bold text-blue-700 dark:text-blue-400">800 kWh</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">d'énergie pour la production</div>
                   </div>
-                  <div className="rounded-xl bg-blue-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-blue-700">4-5 ans</div>
-                    <div className="text-sm text-slate-700">durée de vie moyenne</div>
+                  <div className="rounded-xl bg-blue-50 p-4 dark:bg-blue-900/20">
+                    <div className="mb-1 text-2xl font-bold text-blue-700 dark:text-blue-400">4-5 ans</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">durée de vie moyenne</div>
                   </div>
                 </div>
 
@@ -471,14 +471,14 @@ export default function CasPratiquesPage() {
                     <h3 className="mb-3 font-semibold text-foreground">Points clés</h3>
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex gap-2">
-                        <span className="text-blue-600">•</span>
+                        <span className="text-blue-600 dark:text-blue-400">•</span>
                         <span>
                           Fabriquer un ordinateur portable émet plus de CO₂ qu'un{" "}
                           <strong>vol Paris-Marseille aller-retour</strong> (DGAC)
                         </span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="text-blue-600">•</span>
+                        <span className="text-blue-600 dark:text-blue-400">•</span>
                         <span>
                           La production consomme <strong>800 kWh</strong> (ADEME Base Carbone 2023), soit environ 2 mois de
                           consommation électrique d'un foyer français (~4 700 kWh/an)
@@ -486,13 +486,13 @@ export default function CasPratiquesPage() {
                         </span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="text-blue-600">•</span>
+                        <span className="text-blue-600 dark:text-blue-400">•</span>
                         <span>
                           Passer de 4 à 6 ans d'utilisation réduit l'impact annuel de <strong>33 %</strong> (calcul : 1 − 4 ÷ 6)
                         </span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="text-blue-600">•</span>
+                        <span className="text-blue-600 dark:text-blue-400">•</span>
                         <span>
                           La RAM et le stockage sont parfois <strong>upgradables, sur les modèles qui le
                           permettent</strong> (PC fixes, certains portables pro), pour prolonger la durée de vie
@@ -506,32 +506,32 @@ export default function CasPratiquesPage() {
               {/* Upgrade vs Replace */}
               <Card className="border-2 border-border bg-card p-8 lg:p-12">
                 <h3 className="mb-6 text-2xl font-bold text-foreground">Améliorer ou remplacer ?</h3>
-                <div className="mb-6 rounded-xl bg-blue-50 border-2 border-blue-200 p-6">
-                  <h4 className="mb-4 font-semibold text-blue-900">Améliorations possibles</h4>
+                <div className="mb-6 rounded-xl bg-blue-50 border-2 border-blue-200 p-6 dark:border-blue-800 dark:bg-blue-900/20">
+                  <h4 className="mb-4 font-semibold text-blue-900 dark:text-blue-200">Améliorations possibles</h4>
                   <div className="grid gap-4 md:grid-cols-3">
-                    <div className="rounded-lg bg-white p-4">
-                      <div className="mb-2 font-semibold text-slate-900">RAM</div>
-                      <p className="mb-2 text-sm text-slate-600">Augmenter la mémoire vive</p>
-                      <div className="text-lg font-bold text-blue-700">50-150€</div>
-                      <div className="mt-2 text-xs text-slate-500">Impact : Très faible</div>
+                    <div className="rounded-lg bg-white p-4 dark:bg-slate-900">
+                      <div className="mb-2 font-semibold text-slate-900 dark:text-slate-100">RAM</div>
+                      <p className="mb-2 text-sm text-slate-600 dark:text-slate-400">Augmenter la mémoire vive</p>
+                      <div className="text-lg font-bold text-blue-700 dark:text-blue-400">50-150€</div>
+                      <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">Impact : Très faible</div>
                     </div>
-                    <div className="rounded-lg bg-white p-4">
-                      <div className="mb-2 font-semibold text-slate-900">SSD</div>
-                      <p className="mb-2 text-sm text-slate-600">Remplacer le disque dur</p>
-                      <div className="text-lg font-bold text-blue-700">60-200€</div>
-                      <div className="mt-2 text-xs text-slate-500">Impact : Faible</div>
+                    <div className="rounded-lg bg-white p-4 dark:bg-slate-900">
+                      <div className="mb-2 font-semibold text-slate-900 dark:text-slate-100">SSD</div>
+                      <p className="mb-2 text-sm text-slate-600 dark:text-slate-400">Remplacer le disque dur</p>
+                      <div className="text-lg font-bold text-blue-700 dark:text-blue-400">60-200€</div>
+                      <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">Impact : Faible</div>
                     </div>
-                    <div className="rounded-lg bg-white p-4">
-                      <div className="mb-2 font-semibold text-slate-900">Batterie</div>
-                      <p className="mb-2 text-sm text-slate-600">Changer la batterie</p>
-                      <div className="text-lg font-bold text-blue-700">80-250€</div>
-                      <div className="mt-2 text-xs text-slate-500">Impact : Moyen</div>
+                    <div className="rounded-lg bg-white p-4 dark:bg-slate-900">
+                      <div className="mb-2 font-semibold text-slate-900 dark:text-slate-100">Batterie</div>
+                      <p className="mb-2 text-sm text-slate-600 dark:text-slate-400">Changer la batterie</p>
+                      <div className="text-lg font-bold text-blue-700 dark:text-blue-400">80-250€</div>
+                      <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">Impact : Moyen</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="rounded-xl bg-emerald-50 border-2 border-emerald-200 p-6">
-                  <p className="text-slate-700">
+                <div className="rounded-xl bg-emerald-50 border-2 border-emerald-200 p-6 dark:border-emerald-800 dark:bg-emerald-900/20">
+                  <p className="text-slate-700 dark:text-slate-300">
                     <strong>Conseil :</strong> Avant de remplacer votre ordinateur, vérifiez s'il est possible
                     d'améliorer la RAM ou d'installer un SSD. Ces upgrades simples peuvent donner une seconde jeunesse à
                     votre machine pour une fraction du coût et de l'impact d'un achat neuf.
@@ -546,8 +546,8 @@ export default function CasPratiquesPage() {
             <div className="space-y-8">
               <Card className="border-2 border-teal-500 p-8 lg:p-12">
                 <div className="mb-8 flex items-start gap-4">
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-teal-100">
-                    <Server className="h-8 w-8 text-teal-700" />
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-teal-100 dark:bg-teal-900/30">
+                    <Server className="h-8 w-8 text-teal-700 dark:text-teal-400" />
                   </div>
                   <div>
                     <h2 className="mb-2 text-3xl font-bold text-foreground">Le Datacenter</h2>
@@ -559,21 +559,21 @@ export default function CasPratiquesPage() {
 
                 {/* Stats Grid */}
                 <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                  <div className="rounded-xl bg-teal-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-teal-700">1,5 %</div>
-                    <div className="text-sm text-slate-700">de l'électricité mondiale (AIE, 2024)</div>
+                  <div className="rounded-xl bg-teal-50 p-4 dark:bg-teal-900/20">
+                    <div className="mb-1 text-2xl font-bold text-teal-700 dark:text-teal-400">1,5 %</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">de l'électricité mondiale (AIE, 2024)</div>
                   </div>
-                  <div className="rounded-xl bg-teal-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-teal-700">PUE 1,56</div>
-                    <div className="text-sm text-slate-700">efficacité moyenne mondiale (Uptime, 2024)</div>
+                  <div className="rounded-xl bg-teal-50 p-4 dark:bg-teal-900/20">
+                    <div className="mb-1 text-2xl font-bold text-teal-700 dark:text-teal-400">PUE 1,56</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">efficacité moyenne mondiale (Uptime, 2024)</div>
                   </div>
-                  <div className="rounded-xl bg-teal-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-teal-700">~28 %</div>
-                    <div className="text-sm text-slate-700">pour le refroidissement (ordre de grandeur)</div>
+                  <div className="rounded-xl bg-teal-50 p-4 dark:bg-teal-900/20">
+                    <div className="mb-1 text-2xl font-bold text-teal-700 dark:text-teal-400">~28 %</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">pour le refroidissement (ordre de grandeur)</div>
                   </div>
-                  <div className="rounded-xl bg-teal-50 p-4">
-                    <div className="mb-1 text-2xl font-bold text-teal-700">3-5 ans</div>
-                    <div className="text-sm text-slate-700">durée de vie des serveurs (le bâtiment, lui, dure 10-15 ans)</div>
+                  <div className="rounded-xl bg-teal-50 p-4 dark:bg-teal-900/20">
+                    <div className="mb-1 text-2xl font-bold text-teal-700 dark:text-teal-400">3-5 ans</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">durée de vie des serveurs (le bâtiment, lui, dure 10-15 ans)</div>
                   </div>
                 </div>
 
@@ -583,28 +583,28 @@ export default function CasPratiquesPage() {
                     <h3 className="mb-3 font-semibold text-foreground">Comprendre les datacenters</h3>
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex gap-2">
-                        <span className="text-teal-600">•</span>
+                        <span className="text-teal-600 dark:text-teal-400">•</span>
                         <span>
                           Les datacenters consomment <strong>environ 1,5 % de l'électricité mondiale</strong> (AIE,
                           2024), une part en constante augmentation
                         </span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="text-teal-600">•</span>
+                        <span className="text-teal-600 dark:text-teal-400">•</span>
                         <span>
                           Le <strong>PUE (Power Usage Effectiveness)</strong> mesure l'efficacité : 1,0 est parfait,
                           1,56 est la moyenne mondiale actuelle (Uptime Institute, 2024)
                         </span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="text-teal-600">•</span>
+                        <span className="text-teal-600 dark:text-teal-400">•</span>
                         <span>
                           <strong>Environ 28 % de l'électricité</strong> est utilisée pour le refroidissement des
                           serveurs (ordre de grandeur, PUE moyen 1,56)
                         </span>
                       </li>
                       <li className="flex gap-2">
-                        <span className="text-teal-600">•</span>
+                        <span className="text-teal-600 dark:text-teal-400">•</span>
                         <span>
                           Les datacenters français utilisent majoritairement de l'<strong>énergie nucléaire</strong>,
                           avec une empreinte carbone plus faible
@@ -618,23 +618,23 @@ export default function CasPratiquesPage() {
               <Card className="border-2 border-border bg-card p-8 lg:p-12">
                 <h3 className="mb-6 text-2xl font-bold text-foreground">Cloud vs Serveur local</h3>
                 <div className="grid gap-6 lg:grid-cols-2">
-                  <div className="rounded-xl border-2 border-teal-500 bg-teal-50 p-6">
-                    <h4 className="mb-4 text-xl font-bold text-slate-900">Cloud mutualisé</h4>
-                    <ul className="space-y-3 text-slate-700">
+                  <div className="rounded-xl border-2 border-teal-500 bg-teal-50 p-6 dark:border-teal-700 dark:bg-teal-900/20">
+                    <h4 className="mb-4 text-xl font-bold text-slate-900 dark:text-slate-100">Cloud mutualisé</h4>
+                    <ul className="space-y-3 text-slate-700 dark:text-slate-300">
                       <li className="flex items-start gap-2">
-                        <span className="text-teal-600"><Check className="h-4 w-4" aria-hidden="true" /></span>
+                        <span className="text-teal-600 dark:text-teal-400"><Check className="h-4 w-4" aria-hidden="true" /></span>
                         <span>
                           <strong>Efficacité :</strong> Meilleure mutualisation des ressources
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-teal-600"><Check className="h-4 w-4" aria-hidden="true" /></span>
+                        <span className="text-teal-600 dark:text-teal-400"><Check className="h-4 w-4" aria-hidden="true" /></span>
                         <span>
                           <strong>Optimisation :</strong> Datacenters modernes avec PUE optimisé
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-teal-600"><Check className="h-4 w-4" aria-hidden="true" /></span>
+                        <span className="text-teal-600 dark:text-teal-400"><Check className="h-4 w-4" aria-hidden="true" /></span>
                         <span>
                           <strong>Énergie :</strong> Souvent alimentés par des énergies renouvelables
                         </span>
@@ -642,23 +642,23 @@ export default function CasPratiquesPage() {
                     </ul>
                   </div>
 
-                  <div className="rounded-xl border-2 border-slate-300 bg-slate-50 p-6">
-                    <h4 className="mb-4 text-xl font-bold text-slate-900">Serveur local</h4>
-                    <ul className="space-y-3 text-slate-700">
+                  <div className="rounded-xl border-2 border-slate-300 bg-slate-50 p-6 dark:border-slate-700 dark:bg-slate-800">
+                    <h4 className="mb-4 text-xl font-bold text-slate-900 dark:text-slate-100">Serveur local</h4>
+                    <ul className="space-y-3 text-slate-700 dark:text-slate-300">
                       <li className="flex items-start gap-2">
-                        <span className="text-slate-400">•</span>
+                        <span className="text-slate-400 dark:text-slate-500">•</span>
                         <span>
                           <strong>Sous-utilisation :</strong> Taux d'utilisation souvent faible
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-slate-400">•</span>
+                        <span className="text-slate-400 dark:text-slate-500">•</span>
                         <span>
                           <strong>Refroidissement :</strong> Moins efficace que les grands datacenters
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-slate-400">•</span>
+                        <span className="text-slate-400 dark:text-slate-500">•</span>
                         <span>
                           <strong>Maintenance :</strong> Renouvellement matériel plus fréquent
                         </span>
@@ -667,8 +667,8 @@ export default function CasPratiquesPage() {
                   </div>
                 </div>
 
-                <div className="mt-6 rounded-xl bg-blue-50 border-2 border-blue-200 p-6">
-                  <p className="text-slate-700">
+                <div className="mt-6 rounded-xl bg-blue-50 border-2 border-blue-200 p-6 dark:border-blue-800 dark:bg-blue-900/20">
+                  <p className="text-slate-700 dark:text-slate-300">
                     <strong>Verdict :</strong> Pour la plupart des usages, le cloud mutualisé est plus écologique grâce
                     à une meilleure efficacité énergétique et une mutualisation des ressources. Cependant, la sobriété
                     numérique reste essentielle : n'utilisez que les ressources dont vous avez réellement besoin.

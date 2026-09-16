@@ -34,7 +34,7 @@ export default function SitemapPage() {
         { href: "/chiffres", label: "Chiffres & Données", description: "Statistiques et visualisations interactives" },
         { href: "/cas-pratiques", label: "Cas pratiques", description: "Études de cas détaillées par type d'appareil" },
         { href: "/mythes", label: "Mythes vs Réalités", description: "12 idées reçues passées au crible" },
-        { href: "/actualites", label: "Dossiers et veille", description: "Dossiers thématiques et annuaire de sources" },
+        { href: "/actualites", label: "Dossiers et veille", description: "Dossiers thématiques, veille RSS et annuaire de sources" },
         { href: "/faq", label: "FAQ", description: "Réponses aux questions fréquentes" },
       ],
     },

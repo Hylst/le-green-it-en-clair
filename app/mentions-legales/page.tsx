@@ -94,6 +94,9 @@ export default function MentionsLegalesPage() {
                 <strong className="text-foreground">Cartes :</strong> les pages avec carte (Chiffres, Recyclage) chargent des fonds de carte depuis les serveurs d'OpenStreetMap. Votre adresse IP leur est donc transmise, comme pour n'importe quel site qui affiche du contenu tiers. Pas de compte, pas de suivi de notre côté.
               </p>
               <p>
+                <strong className="text-foreground">Veille RSS :</strong> l'onglet Veille de la page Dossiers affiche, à la demande, les titres des flux de plusieurs médias et organismes. Les flux qui l'autorisent sont lus directement ; les autres passent par le service tiers rss2json.com, auquel votre adresse IP est transmise. Seuls titre, date et lien sont affichés, le contenu reste hébergé chez la source.
+              </p>
+              <p>
                 <strong className="text-foreground">Polices et mesures :</strong> les polices sont hébergées avec le site (aucun appel à Google Fonts) et il n'y a aucun outil d'analyse d'audience.
               </p>
               <p>

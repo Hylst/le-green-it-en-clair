@@ -6,7 +6,8 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Calendar, TrendingUp, ArrowRight, ExternalLink, Newspaper, AlertCircle } from "lucide-react"
+import { Calendar, TrendingUp, ArrowRight, ExternalLink, Newspaper, AlertCircle, Rss } from "lucide-react"
+import { RssFeed } from "@/components/rss-feed"
 
 type NewsCategory = "reglementation" | "innovation" | "tendance" | "etude" | "evenement" | "all"
 
@@ -99,9 +100,9 @@ export default function ActualitesPage() {
     },
   ]
 
-  // --- Veille : annuaire de sources externes fiables (aucun flux automatique) ---
-  // Pas d'agrégateur RSS sur un site statique : on renvoie vers les sites
-  // eux-mêmes, avec une description générique et vraie de chacun.
+  // --- Veille : flux RSS réels (titres + liens) + annuaire de sources ---
+  // Les flux sont chargés côté navigateur ; ceux sans CORS passent par rss2json.com.
+  // Seuls titres, dates et liens sont affichés, le contenu reste chez la source.
   const veilleSources: VeilleSource[] = [
     {
       source: "GreenIT.fr",
@@ -177,8 +178,8 @@ export default function ActualitesPage() {
               <p className="text-sm text-yellow-800 dark:text-yellow-300">
                 <strong className="font-semibold">Page en reconstruction.</strong> Les encarts « À la une » sont des
                 exemples de mise en page rédigés par la rédaction du site, pas des dépêches : ne les citez pas comme
-                des actualités. Pour suivre l&apos;actu réelle, rendez-vous directement sur les sources listées dans
-                l&apos;onglet Veille.
+                des actualités. Pour suivre l&apos;actu réelle, ouvrez l&apos;onglet Veille : les derniers titres y
+                sont récupérés en direct depuis les flux des sources.
               </p>
             </div>
           </div>
@@ -259,12 +260,27 @@ export default function ActualitesPage() {
             </TabsContent>
 
             <TabsContent value="rss" className="space-y-6 animate-in fade-in-50 slide-in-from-bottom-2">
+              <Card className="border-2 border-primary/20 p-6">
+                <div className="mb-6">
+                  <h3 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+                    <Rss className="h-5 w-5 text-primary" />
+                    Dernières nouvelles (veille RSS)
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Titres et liens récupérés en direct depuis les flux des sources, classés du plus récent au plus
+                    ancien. Les contenus restent chez leurs auteurs : chaque carte renvoie vers l&apos;article
+                    d&apos;origine. Les flux sans CORS passent par le service tiers rss2json.com.
+                  </p>
+                </div>
+                <RssFeed />
+              </Card>
+
               <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-card border-2 border-primary/20 p-4 rounded-xl">
                 <div className="flex items-center gap-2">
                   <ExternalLink className="h-5 w-5 text-primary" />
                   <div>
                     <h3 className="font-semibold text-foreground">Sources à suivre</h3>
-                    <p className="text-sm text-muted-foreground">Pas d&apos;agrégateur automatique : consultez ces sites directement, c&apos;est plus fiable.</p>
+                    <p className="text-sm text-muted-foreground">Avec ou sans flux RSS : consultez ces sites directement pour creuser un sujet.</p>
                   </div>
                 </div>
               </div>

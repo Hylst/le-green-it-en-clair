@@ -82,7 +82,7 @@ export default function MentionsLegalesPage() {
                 <strong className="text-foreground">Cookies :</strong> ce site n'utilise aucun cookie. Pas de publicité, pas de mesure d'audience, pas de traceurs.
               </p>
               <p>
-                <strong className="text-foreground">Stockage local :</strong> votre préférence de thème (clair/sombre) est conservée dans le stockage local de votre navigateur (clé <code>greenIT-theme</code>). Elle ne quitte jamais votre appareil et peut être effacée en vidant les données du site.
+                <strong className="text-foreground">Stockage local :</strong> votre préférence de thème (clair/sombre) est conservée dans le stockage local de votre navigateur (clé <code>greenIT-theme</code>), ainsi que votre choix d'animations réduites (clé <code>greenit-motion</code>, interrupteur en pied de page). Elles ne quittent jamais votre appareil et peuvent être effacées en vidant les données du site.
               </p>
               <p>
                 <strong className="text-foreground">Quiz :</strong> le quiz conserve dans votre navigateur (clé <code>greenit-quiz-session-v1</code>) votre session en cours et vos derniers résultats, pour vous permettre de reprendre et de revoir vos erreurs. Ces données ne quittent jamais votre appareil.

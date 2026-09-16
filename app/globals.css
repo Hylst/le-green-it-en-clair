@@ -47,6 +47,10 @@
   /* Destructive */
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(0.97 0.01 260);
+
+  /* Warning - ambre (encarts d'avertissement, ex. a-propos) */
+  --warning: oklch(0.72 0.15 85);
+  --warning-foreground: oklch(0.97 0.01 260);
   
   /* Borders & inputs */
   --border: oklch(0.30 0.01 260);
@@ -115,6 +119,10 @@
   /* Destructive */
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(0.995 0 0);
+
+  /* Warning - ambre */
+  --warning: oklch(0.55 0.15 85);
+  --warning-foreground: oklch(0.995 0 0);
   
   /* Borders & inputs */
   --border: oklch(0.90 0.01 260);
@@ -170,6 +178,13 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  /* Couleurs thématiques par rubrique (posées par data-theme, voir plus bas) */
+  --color-theme: var(--theme, var(--primary));
+  --color-theme-soft: var(--theme-soft, var(--secondary));
+  --color-theme-ink: var(--theme-ink, var(--foreground));
+  --color-theme-border: var(--theme-border, var(--border));
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -208,6 +223,12 @@ html {
   /* RGAA : indicateur de focus bien visible au clavier */
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-ring;
+  }
+  /* Contrôles natifs (checkbox, radio, range des outils/quiz) teintés primaire */
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="range"] {
+    accent-color: var(--primary);
   }
 }
 
@@ -266,4 +287,252 @@ html {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .reveal-init {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .ticker-track {
+    animation: none;
+  }
+  .ticker {
+    overflow-x: auto;
+  }
+  .hero-float {
+    animation: none;
+  }
+}
+
+/* ========================================
+   DESIGN SYSTEM — audit 09/2026
+   Couleurs thématiques par rubrique :
+   la page pose data-theme="...", le CSS fait le reste.
+   Aucune couleur en dur dans les pages.
+   ======================================== */
+
+/* Teintes des graphiques (lues par lib/chart-theme.ts, avec repli JS) */
+:root {
+  --chart-blue: #60a5fa;
+  --chart-teal: #2dd4bf;
+  --chart-emerald: #34d399;
+  --chart-amber: #fbbf24;
+  --chart-red: #f87171;
+  --chart-violet: #a78bfa;
+  --chart-cyan: #22d3ee;
+  --chart-indigo: #818cf8;
+  --chart-slate: #94a3b8;
+  --chart-grid: rgb(148 163 184 / 0.25);
+  --chart-tick: #94a3b8;
+}
+.light {
+  --chart-blue: #2563eb;
+  --chart-teal: #0d9488;
+  --chart-emerald: #059669;
+  --chart-amber: #d97706;
+  --chart-red: #dc2626;
+  --chart-violet: #7c3aed;
+  --chart-cyan: #0891b2;
+  --chart-indigo: #4f46e5;
+  --chart-slate: #64748b;
+  --chart-grid: #e2e8f0;
+  --chart-tick: #64748b;
+}
+
+/* Thèmes par rubrique (variante sombre par défaut, .light en dessous) */
+[data-theme="emerald"] {
+  --theme: #34d399; --theme-soft: rgb(6 78 59 / 0.35);
+  --theme-ink: #a7f3d0; --theme-border: rgb(52 211 153 / 0.4);
+}
+[data-theme="teal"] {
+  --theme: #2dd4bf; --theme-soft: rgb(19 78 74 / 0.35);
+  --theme-ink: #99f6e4; --theme-border: rgb(45 212 191 / 0.4);
+}
+[data-theme="red"] {
+  --theme: #f87171; --theme-soft: rgb(127 29 29 / 0.3);
+  --theme-ink: #fecaca; --theme-border: rgb(248 113 113 / 0.4);
+}
+[data-theme="orange"] {
+  --theme: #fb923c; --theme-soft: rgb(124 45 18 / 0.3);
+  --theme-ink: #fed7aa; --theme-border: rgb(251 146 60 / 0.4);
+}
+[data-theme="amber"] {
+  --theme: #fbbf24; --theme-soft: rgb(120 53 15 / 0.3);
+  --theme-ink: #fde68a; --theme-border: rgb(251 191 36 / 0.4);
+}
+[data-theme="blue"] {
+  --theme: #60a5fa; --theme-soft: rgb(30 58 138 / 0.35);
+  --theme-ink: #bfdbfe; --theme-border: rgb(96 165 250 / 0.4);
+}
+[data-theme="cyan"] {
+  --theme: #22d3ee; --theme-soft: rgb(21 94 117 / 0.35);
+  --theme-ink: #a5f3fc; --theme-border: rgb(34 211 238 / 0.4);
+}
+[data-theme="violet"] {
+  --theme: #a78bfa; --theme-soft: rgb(76 29 149 / 0.35);
+  --theme-ink: #ddd6fe; --theme-border: rgb(167 139 250 / 0.4);
+}
+[data-theme="indigo"] {
+  --theme: #818cf8; --theme-soft: rgb(49 46 129 / 0.35);
+  --theme-ink: #c7d2fe; --theme-border: rgb(129 140 248 / 0.4);
+}
+.light [data-theme="emerald"] {
+  --theme: #059669; --theme-soft: #ecfdf5;
+  --theme-ink: #065f46; --theme-border: #a7f3d0;
+}
+.light [data-theme="teal"] {
+  --theme: #0d9488; --theme-soft: #f0fdfa;
+  --theme-ink: #0f766e; --theme-border: #99f6e4;
+}
+.light [data-theme="red"] {
+  --theme: #dc2626; --theme-soft: #fef2f2;
+  --theme-ink: #7f1d1d; --theme-border: #fecaca;
+}
+.light [data-theme="orange"] {
+  --theme: #ea580c; --theme-soft: #fff7ed;
+  --theme-ink: #7c2d12; --theme-border: #fed7aa;
+}
+.light [data-theme="amber"] {
+  --theme: #d97706; --theme-soft: #fffbeb;
+  --theme-ink: #78350f; --theme-border: #fde68a;
+}
+.light [data-theme="blue"] {
+  --theme: #2563eb; --theme-soft: #eff6ff;
+  --theme-ink: #1e3a8a; --theme-border: #bfdbfe;
+}
+.light [data-theme="cyan"] {
+  --theme: #0891b2; --theme-soft: #ecfeff;
+  --theme-ink: #155e75; --theme-border: #a5f3fc;
+}
+.light [data-theme="violet"] {
+  --theme: #7c3aed; --theme-soft: #f5f3ff;
+  --theme-ink: #4c1d95; --theme-border: #ddd6fe;
+}
+.light [data-theme="indigo"] {
+  --theme: #4f46e5; --theme-soft: #eef2ff;
+  --theme-ink: #312e81; --theme-border: #c7d2fe;
+}
+
+/* Utilitaires thématiques : bg-theme, text-theme, border-theme,
+   bg-theme-soft, text-theme-ink (repli = couleur primaire du site).
+   Définis comme tokens ci-dessus : toutes les variantes (hover:, dark:,
+   from-*, /opacité) fonctionnent nativement. */
+
+/* Bibliothèque d'effets : un seul par élément, 150-300 ms */
+@layer components {
+  /* Carte qui se soulève */
+  .lift {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  .lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -12px rgb(0 0 0 / 0.35);
+  }
+  /* Halo teinté de la couleur thématique (CTA, boutons primaires) */
+  .glow-theme {
+    transition: box-shadow 0.2s ease-in-out;
+  }
+  .glow-theme:hover {
+    box-shadow: 0 8px 30px -6px color-mix(in oklab, var(--theme, var(--primary)) 45%, transparent);
+  }
+  /* L'icône glisse au survol (liens, boutons avec flèche) */
+  .icon-shift svg {
+    transition: transform 0.2s ease-in-out;
+  }
+  .icon-shift:hover svg {
+    transform: translateX(4px);
+  }
+  /* Soulignement animé pour les liens texte */
+  .link-slide {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    padding-bottom: 1px;
+    transition: background-size 0.25s ease-in-out;
+  }
+  .link-slide:hover {
+    background-size: 100% 1px;
+  }
+
+  /* Bandeau défilant (phase 2) : 2 moitiés identiques, boucle à -50 % */
+  .ticker-track {
+    display: flex;
+    animation: ticker-scroll 45s linear infinite;
+  }
+  .ticker:hover .ticker-track,
+  .ticker:focus-within .ticker-track {
+    animation-play-state: paused;
+  }
+  /* Animations réduites : pas de défilement, bandeau lisible au scroll tactile */
+  html.motion-off .ticker-track {
+    animation: none;
+  }
+  html.motion-off .ticker {
+    overflow-x: auto;
+  }
+
+  /* Trame de points pour les bandeaux colorés (phase 3) : statique,
+     donc compatible d'office avec les animations réduites.
+     En ::before (z-index négatif + isolation) car background-image est déjà
+     pris par le dégradé du bandeau — une classe utilitaire l'écraserait. */
+  .texture-dots {
+    position: relative;
+    isolation: isolate;
+  }
+  .texture-dots::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background-image: radial-gradient(rgb(255 255 255 / 0.09) 1.2px, transparent 1.2px);
+    background-size: 22px 22px;
+    pointer-events: none;
+  }
+
+  /* Flottement lent des images de hero (phase 3) : ±6 px sur 8 s */
+  .hero-float {
+    animation: hero-float 8s ease-in-out infinite;
+  }
+  html.motion-off .hero-float {
+    animation: none;
+  }
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(6px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes ticker-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Apparition douce au scroll (posée par lib/motion.tsx, jamais sans JS) */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.reveal-init.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Option « Réduire les animations » (localStorage greenit-motion) */
+html.motion-off .reveal-init {
+  opacity: 1 !important;
+  transform: none !important;
+}
+html.motion-off *,
+html.motion-off *::before,
+html.motion-off *::after {
+  animation: none !important;
+  transition: none !important;
 }

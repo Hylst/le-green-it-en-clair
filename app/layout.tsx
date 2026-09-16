@@ -111,6 +111,11 @@ export default function RootLayout({
                 } catch (e) {
                   document.documentElement.classList.add('dark');
                 }
+                try {
+                  if (localStorage.getItem('greenit-motion') === 'reduced') {
+                    document.documentElement.classList.add('motion-off');
+                  }
+                } catch (e) {}
               })();
             `,
           }}

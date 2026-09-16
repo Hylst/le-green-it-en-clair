@@ -83,7 +83,7 @@ export function Breadcrumb() {
           <li>
             <Link
               href="/"
-              className="flex items-center gap-1 text-slate-600 hover:text-emerald-700 transition-colors dark:text-slate-400 dark:hover:text-emerald-400"
+              className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors link-slide"
             >
               <Home className="w-4 h-4" />
               <span>Accueil</span>
@@ -96,13 +96,13 @@ export function Breadcrumb() {
 
             return (
               <li key={href} className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-slate-400" />
+                <ChevronRight className="w-4 h-4 text-muted-foreground" />
                 {isLast ? (
-                  <span suppressHydrationWarning className="break-words font-medium text-emerald-700 dark:text-emerald-400">{label}</span>
+                  <span suppressHydrationWarning className="break-words font-medium text-primary">{label}</span>
                 ) : (
                   <Link
                     href={href}
-                    className="text-slate-600 hover:text-emerald-700 transition-colors dark:text-slate-400 dark:hover:text-emerald-400"
+                    className="text-muted-foreground hover:text-primary transition-colors link-slide"
                   >
                     {label}
                   </Link>

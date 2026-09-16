@@ -73,12 +73,12 @@ export function Navigation() {
   ]
 
   return (
-    <nav suppressHydrationWarning className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:border-slate-800 dark:bg-slate-950/95 dark:supports-[backdrop-filter]:bg-slate-950/80">
+    <nav suppressHydrationWarning className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-bold text-slate-900 dark:text-slate-100">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-600 shadow-md shadow-emerald-600/20">
-              <Leaf className="h-5 w-5 text-white" />
+          <Link href="/" className="flex items-center gap-2 font-bold text-foreground">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary shadow-md">
+              <Leaf className="h-5 w-5 text-primary-foreground" />
             </div>
             <span className="text-lg">
               Le Green IT <span className="hidden sm:inline">en clair</span>
@@ -90,7 +90,7 @@ export function Navigation() {
               <DropdownMenu key={category.label}>
                 <DropdownMenuTrigger
                   suppressHydrationWarning
-                  className="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-emerald-700 dark:hover:text-emerald-400 focus:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 rounded-sm data-[state=open]:text-emerald-700 dark:data-[state=open]:text-emerald-400"
+                  className="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-primary focus:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 rounded-sm data-[state=open]:text-primary"
                 >
                   {category.label}
                   <ChevronDown className="h-4 w-4 opacity-50" />
@@ -98,7 +98,7 @@ export function Navigation() {
                 <DropdownMenuContent align="start" className="w-56 bg-card border-border">
                   {category.items.map((item) => (
                     <DropdownMenuItem key={item.href} asChild>
-                      <Link href={item.href} className="cursor-pointer text-card-foreground focus:bg-secondary focus:text-emerald-700 dark:focus:text-emerald-400">
+                      <Link href={item.href} className="cursor-pointer text-card-foreground focus:bg-secondary focus:text-primary">
                         {item.label}
                       </Link>
                     </DropdownMenuItem>
@@ -108,21 +108,21 @@ export function Navigation() {
             ))}
             <Link
               href="/ressources"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-emerald-700 dark:hover:text-emerald-400"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
             >
               Ressources
             </Link>
             <Link
               href="/faq"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-emerald-700 dark:hover:text-emerald-400"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
             >
               FAQ
             </Link>
-            <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 mx-2" />
+            <div className="h-4 w-px bg-border mx-2" />
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
-                className="text-slate-600 hover:text-emerald-700 transition-colors dark:text-slate-300 dark:hover:text-emerald-400"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Rechercher"
               >
                 <Search className="h-5 w-5" />
@@ -133,7 +133,7 @@ export function Navigation() {
             <Button
               asChild
                 size="sm"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-md hover:shadow-lg transition-all dark:bg-emerald-700 dark:hover:bg-emerald-600"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md glow-theme"
               >
               <Link href="/outils">
                 <Calculator className="h-4 w-4 mr-1.5" />
@@ -153,7 +153,7 @@ export function Navigation() {
             <ThemeToggle />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-slate-900 dark:text-slate-100 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              className="text-foreground hover:text-primary transition-colors"
               aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             >
               {mobileMenuOpen ? (
@@ -168,9 +168,9 @@ export function Navigation() {
         <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />
 
         {mobileMenuOpen && (
-          <div className="animate-in slide-in-from-top-5 border-t border-slate-200 py-4 lg:hidden dark:border-slate-800 max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <div className="animate-in slide-in-from-top-5 border-t border-border py-4 lg:hidden max-h-[calc(100vh-4rem)] overflow-y-auto">
             <div className="flex flex-col gap-6 pb-20">
-              <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700 text-white justify-center">
+              <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground justify-center">
                 <Link href="/outils" onClick={() => setMobileMenuOpen(false)}>
                   <Calculator className="h-4 w-4 mr-2" />
                   Accéder aux outils interactifs
@@ -179,17 +179,17 @@ export function Navigation() {
 
               {navCategories.map((category) => (
                 <div key={category.label}>
-                  <div className="font-semibold text-sm text-slate-900 mb-3 dark:text-slate-100 flex items-center gap-2">
-                    <div className="h-px bg-slate-200 dark:bg-slate-800 flex-1"></div>
+                  <div className="font-semibold text-sm text-foreground mb-3 flex items-center gap-2">
+                    <div className="h-px bg-border flex-1"></div>
                     {category.label}
-                    <div className="h-px bg-slate-200 dark:bg-slate-800 flex-1"></div>
+                    <div className="h-px bg-border flex-1"></div>
                   </div>
                   <div className="flex flex-col gap-1">
                     {category.items.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="block rounded-md px-3 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-emerald-700 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-emerald-400"
+                        className="block rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         {item.label}
@@ -200,29 +200,29 @@ export function Navigation() {
               ))}
 
               <div>
-                <div className="font-semibold text-sm text-slate-900 mb-3 dark:text-slate-100 flex items-center gap-2">
-                  <div className="h-px bg-slate-200 dark:bg-slate-800 flex-1"></div>
+                <div className="font-semibold text-sm text-foreground mb-3 flex items-center gap-2">
+                  <div className="h-px bg-border flex-1"></div>
                   Plus
-                  <div className="h-px bg-slate-200 dark:bg-slate-800 flex-1"></div>
+                  <div className="h-px bg-border flex-1"></div>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
                   <Link
                     href="/ressources"
-                    className="block rounded-md px-3 py-2 text-sm text-center text-slate-600 bg-slate-50 transition-colors hover:bg-slate-100 hover:text-emerald-700 dark:text-slate-300 dark:bg-slate-900 dark:hover:bg-slate-800 dark:hover:text-emerald-400"
+                    className="block rounded-md px-3 py-2 text-sm text-center text-muted-foreground bg-secondary/50 transition-colors hover:bg-secondary hover:text-primary"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Ressources
                   </Link>
                   <Link
                     href="/faq"
-                    className="block rounded-md px-3 py-2 text-sm text-center text-slate-600 bg-slate-50 transition-colors hover:bg-slate-100 hover:text-emerald-700 dark:text-slate-300 dark:bg-slate-900 dark:hover:bg-slate-800 dark:hover:text-emerald-400"
+                    className="block rounded-md px-3 py-2 text-sm text-center text-muted-foreground bg-secondary/50 transition-colors hover:bg-secondary hover:text-primary"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     FAQ
                   </Link>
                   <Link
                     href="/a-propos"
-                    className="block rounded-md px-3 py-2 text-sm text-center text-slate-600 bg-slate-50 transition-colors hover:bg-slate-100 hover:text-emerald-700 dark:text-slate-300 dark:bg-slate-900 dark:hover:bg-slate-800 dark:hover:text-emerald-400"
+                    className="block rounded-md px-3 py-2 text-sm text-center text-muted-foreground bg-secondary/50 transition-colors hover:bg-secondary hover:text-primary"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     À propos

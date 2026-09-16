@@ -28,7 +28,7 @@ export function ThemeToggle() {
         aria-label="Changer le thème"
         disabled
       >
-        <div className="h-5 w-5 animate-pulse rounded bg-slate-300 dark:bg-slate-600" />
+        <div className="h-5 w-5 animate-pulse rounded bg-muted" />
       </Button>
     )
   }
@@ -40,14 +40,14 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="h-9 w-9 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+      className="h-9 w-9 rounded-lg hover:bg-secondary transition-colors"
       aria-label={isDark ? "Activer le mode clair" : "Activer le mode sombre"}
       title={isDark ? "Mode clair" : "Mode sombre"}
     >
       {isDark ? (
         <Sun className="h-5 w-5 text-amber-400 transition-transform hover:rotate-12" />
       ) : (
-        <Moon className="h-5 w-5 text-slate-700 transition-transform hover:-rotate-12" />
+        <Moon className="h-5 w-5 text-foreground transition-transform hover:-rotate-12" />
       )}
     </Button>
   )

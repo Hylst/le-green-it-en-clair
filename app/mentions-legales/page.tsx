@@ -94,6 +94,9 @@ export default function MentionsLegalesPage() {
                 <strong className="text-foreground">Cartes :</strong> les pages avec carte (Chiffres, Recyclage) chargent des fonds de carte depuis les serveurs d'OpenStreetMap. Votre adresse IP leur est donc transmise, comme pour n'importe quel site qui affiche du contenu tiers. Pas de compte, pas de suivi de notre côté.
               </p>
               <p>
+                <strong className="text-foreground">Données temps réel :</strong> la page Chiffres affiche, à la demande, l'intensité carbone et le mix électrique de production en France (RTE éCO2mix via la plateforme ODRE / Open Data Réseaux Énergies, licence ouverte). Les données sont rafraîchies toutes les 10 minutes et mises en cache dans votre navigateur (clé <code>greenit-eco2mix-cache-v1</code>) ; en cas d'indisponibilité de l'API, des repères de référence (ADEME / RTE 2024) sont affichés. Votre adresse IP est transmise à l'API ODRE. Aucune donnée n'est envoyée à un autre tiers.
+              </p>
+              <p>
                 <strong className="text-foreground">Veille RSS :</strong> l'onglet Veille de la page Dossiers affiche, à la demande, les titres des flux de plusieurs médias et organismes. Les flux qui l'autorisent sont lus directement ; les autres passent par le service tiers rss2json.com, auquel votre adresse IP est transmise. Seuls titre, date et lien sont affichés, le contenu reste hébergé chez la source. Votre sélection de flux est mémorisée localement (clé <code>greenit-selected-feeds-v1</code>) et ne quitte jamais votre appareil.
               </p>
               <p>

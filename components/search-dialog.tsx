@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { BookOpen, Calculator, Calendar, Code2, Download, Eye, FileText, HelpCircle, Home, Info, Laptop, Leaf, Map, Recycle, Rocket, Scale, Settings, Sparkles, User } from "lucide-react"
+import { BookOpen, Calculator, Calendar, Code2, Download, Eye, FileText, HelpCircle, Home, Info, Laptop, Leaf, Map, Recycle, Rocket, Scale, Settings, Sparkles, User, Zap } from "lucide-react"
 import { useRouter } from "next/navigation"
 
 import {
@@ -83,6 +83,10 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                     <CommandItem value="Dossiers & veille RSS actualites news" onSelect={() => runCommand(() => router.push("/actualites"))}>
                         <Calendar className="mr-2 h-4 w-4" />
                         <span>Dossiers & veille RSS</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/chiffres"))}>
+                        <Zap className="mr-2 h-4 w-4" />
+                        <span>Chiffres clés — mix électrique en direct</span>
                     </CommandItem>
                     <CommandItem onSelect={() => runCommand(() => router.push("/par-ou-commencer"))}>
                         <Rocket className="mr-2 h-4 w-4" />

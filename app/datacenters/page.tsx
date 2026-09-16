@@ -19,6 +19,7 @@ import {
   Sun,
   CheckCircle2,
 } from "lucide-react"
+import Eco2MixLive from "@/components/eco2mix-live"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts"
 
 // Data for energy consumption breakdown (ordre de grandeur, PUE moyen 1,56 : Uptime Institute, 2024)
@@ -776,6 +777,8 @@ export default function DatacentersPage() {
           </div>
         </div>
       </section>
+
+      <Eco2MixLive variant="datacenter" />
 
       {/* Sources */}
       <section className="border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-6 py-8">

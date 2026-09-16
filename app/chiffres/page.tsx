@@ -25,6 +25,8 @@ import { RelatedLinks } from "@/components/related-links"
 import { GrowthAnimation } from "@/components/growth-animation"
 import dynamic from "next/dynamic"
 
+import Eco2MixLive from "@/components/eco2mix-live"
+
 const LeafletMap = dynamic(() => import("@/components/leaflet-map"), {
   ssr: false,
   loading: () => (
@@ -489,6 +491,10 @@ export default function ChiffresPage() {
             Sources : Global E-waste Monitor 2024 (62 Mt en 2022, +2,6 Mt/an) ; ADEME-Arcep 2023 ; Eurostat 2024
           </p>
         </div>
+      </section>
+
+      <section className="px-6 py-16 lg:py-24 bg-background">
+        <Eco2MixLive variant="full" />
       </section>
 
       <section className="px-6 py-16 lg:py-24 bg-background">

@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { AlertTriangle, CheckCircle2, ExternalLink, Loader2, RefreshCw, Rss } from "lucide-react"
@@ -26,6 +26,7 @@ export const RSS_FEEDS: Feed[] = [
 ]
 
 const DEFAULT_SELECTED = ["greenit", "inr", "shift", "nextink"]
+const STORAGE_KEY = "greenit-selected-feeds-v1"
 
 type NewsItem = {
   title: string
@@ -38,9 +39,21 @@ type FeedStatus = "idle" | "loading" | "ok" | "error"
 
 function cleanText(value: string | null | undefined) {
   if (!value) return ""
-  const el = document.createElement("textarea")
-  el.innerHTML = value
-  return el.value.replace(/\s+/g, " ").trim()
+  try {
+    const doc = new DOMParser().parseFromString(value, "text/html")
+    return (doc.body.textContent || "").replace(/\s+/g, " ").trim()
+  } catch {
+    return value.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim()
+  }
+}
+
+function isValidHttpUrl(string: string) {
+  try {
+    const url = new URL(string)
+    return url.protocol === "https:"
+  } catch {
+    return false
+  }
 }
 
 function parseDate(value: string | null | undefined) {
@@ -74,12 +87,13 @@ function parseXml(text: string, feed: Feed): NewsItem[] {
         parseDate(entry.getElementsByTagName("updated")[0]?.textContent)
       return { title, link, date, feedId: feed.id }
     })
-    .filter((item) => item.title && item.link)
+    .filter((item) => item.title && item.link && isValidHttpUrl(item.link))
 }
 
 async function fetchDirect(feed: Feed): Promise<NewsItem[]> {
   const res = await fetch(feed.url, {
     headers: { Accept: "application/rss+xml, application/atom+xml, application/xml, text/xml, */*" },
+    signal: AbortSignal.timeout(10000),
   })
   if (!res.ok) throw new Error(`HTTP ${res.status}`)
   const text = await res.text()
@@ -89,7 +103,10 @@ async function fetchDirect(feed: Feed): Promise<NewsItem[]> {
 }
 
 async function fetchViaApi(feed: Feed): Promise<NewsItem[]> {
-  const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`)
+  const res = await fetch(
+    `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`,
+    { signal: AbortSignal.timeout(10000) }
+  )
   if (!res.ok) throw new Error(`HTTP ${res.status}`)
   const json = await res.json()
   if (json.status !== "ok" || !Array.isArray(json.items)) throw new Error("flux indisponible")
@@ -100,22 +117,62 @@ async function fetchViaApi(feed: Feed): Promise<NewsItem[]> {
       date: parseDate(item.pubDate),
       feedId: feed.id,
     }))
-    .filter((item: NewsItem) => item.title && item.link)
+    .filter((item: NewsItem) => item.title && item.link && isValidHttpUrl(item.link))
 }
 
-async function loadFeed(feed: Feed): Promise<NewsItem[]> {
+const CACHE_KEY_PREFIX = "greenit-rss-cache-"
+const CACHE_TTL_MS = 15 * 60 * 1000 // 15 minutes
+
+function getCachedFeed(feedId: string): NewsItem[] | null {
+  try {
+    const raw = sessionStorage.getItem(`${CACHE_KEY_PREFIX}${feedId}`)
+    if (!raw) return null
+    const { timestamp, items } = JSON.parse(raw)
+    if (Date.now() - timestamp < CACHE_TTL_MS && Array.isArray(items)) {
+      return items
+    }
+  } catch {
+    // Ignorer
+  }
+  return null
+}
+
+function setCachedFeed(feedId: string, items: NewsItem[]) {
+  try {
+    sessionStorage.setItem(
+      `${CACHE_KEY_PREFIX}${feedId}`,
+      JSON.stringify({ timestamp: Date.now(), items })
+    )
+  } catch {
+    // Ignorer si quota ou inaccessible
+  }
+}
+
+async function loadFeed(feed: Feed, force = false): Promise<NewsItem[]> {
+  if (!force) {
+    const cached = getCachedFeed(feed.id)
+    if (cached) return cached
+  }
+
+  let items: NewsItem[] = []
   if (feed.direct) {
     try {
-      return await fetchDirect(feed)
+      items = await fetchDirect(feed)
     } catch {
-      return await fetchViaApi(feed)
+      items = await fetchViaApi(feed)
+    }
+  } else {
+    try {
+      items = await fetchViaApi(feed)
+    } catch {
+      items = await fetchDirect(feed)
     }
   }
-  try {
-    return await fetchViaApi(feed)
-  } catch {
-    return await fetchDirect(feed)
+
+  if (items.length > 0) {
+    setCachedFeed(feed.id, items)
   }
+  return items
 }
 
 export function RssFeed() {
@@ -124,14 +181,43 @@ export function RssFeed() {
   const [status, setStatus] = useState<Record<string, FeedStatus>>({})
   const [loading, setLoading] = useState(true)
   const [updatedAt, setUpdatedAt] = useState<Date | null>(null)
+  const isInitialized = useRef(false)
 
-  const load = useCallback(async (feeds: Feed[]) => {
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY)
+      if (stored) {
+        const parsed = JSON.parse(stored)
+        if (Array.isArray(parsed)) {
+          const valid = parsed.filter((id) => RSS_FEEDS.some((feed) => feed.id === id))
+          setSelected(valid)
+        }
+      }
+    } catch {
+      // Ignorer si localStorage n'est pas accessible
+    }
+    isInitialized.current = true
+  }, [])
+
+  const toggleFeed = (id: string) => {
+    setSelected((prev) => {
+      const next = prev.includes(id) ? prev.filter((value) => value !== id) : [...prev, id]
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(next))
+      } catch {
+        // Ignorer si quota ou inaccessible
+      }
+      return next
+    })
+  }
+
+  const load = useCallback(async (feeds: Feed[], force = false) => {
     setLoading(true)
     setStatus(Object.fromEntries(feeds.map((feed) => [feed.id, "loading" as FeedStatus])))
     const results = await Promise.all(
       feeds.map(async (feed) => {
         try {
-          const feedItems = await loadFeed(feed)
+          const feedItems = await loadFeed(feed, force)
           return { feed, feedItems, ok: true as const }
         } catch {
           return { feed, feedItems: [] as NewsItem[], ok: false as const }
@@ -174,10 +260,6 @@ export function RssFeed() {
     }
   }, [selected, load])
 
-  const toggleFeed = (id: string) => {
-    setSelected((prev) => (prev.includes(id) ? prev.filter((value) => value !== id) : [...prev, id]))
-  }
-
   const feedById = useMemo(() => new Map(RSS_FEEDS.map((feed) => [feed.id, feed])), [])
   const hasError = Object.values(status).some((value) => value === "error")
 
@@ -201,11 +283,20 @@ export function RssFeed() {
               }`}
             >
               {feedStatus === "loading" ? (
-                <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden="true" />
+                <>
+                  <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden="true" />
+                  <span className="sr-only">Chargement en cours</span>
+                </>
               ) : feedStatus === "ok" ? (
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
+                <>
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
+                  <span className="sr-only">Flux chargé avec succès</span>
+                </>
               ) : feedStatus === "error" ? (
-                <AlertTriangle className="h-3.5 w-3.5 text-amber-700 dark:text-amber-400" aria-hidden="true" />
+                <>
+                  <AlertTriangle className="h-3.5 w-3.5 text-amber-700 dark:text-amber-400" aria-hidden="true" />
+                  <span className="sr-only">Erreur de chargement du flux</span>
+                </>
               ) : (
                 <Rss className="h-3.5 w-3.5" aria-hidden="true" />
               )}
@@ -217,17 +308,17 @@ export function RssFeed() {
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground" aria-live="polite" aria-atomic="true">
           {loading
             ? "Chargement des flux…"
             : updatedAt
-              ? `Mis à jour à ${updatedAt.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })} — titres et liens uniquement, contenus chez les sources.`
+              ? `Mis à jour à ${updatedAt.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })} (${items.length} actualité${items.length > 1 ? "s" : ""}) — titres et liens uniquement, contenus chez les sources.`
               : "Titres et liens uniquement, contenus chez les sources."}
         </p>
         <Button
           variant="outline"
           size="sm"
-          onClick={() => load(RSS_FEEDS.filter((feed) => selected.includes(feed.id)))}
+          onClick={() => load(RSS_FEEDS.filter((feed) => selected.includes(feed.id)), true)}
           disabled={loading || selected.length === 0}
         >
           <RefreshCw className={`mr-2 h-4 w-4 ${loading ? "animate-spin" : ""}`} aria-hidden="true" />

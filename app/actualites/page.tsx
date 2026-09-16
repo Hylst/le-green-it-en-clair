@@ -259,7 +259,7 @@ export default function ActualitesPage() {
               </div>
             </TabsContent>
 
-            <TabsContent value="rss" className="space-y-6 animate-in fade-in-50 slide-in-from-bottom-2">
+            <TabsContent value="rss" forceMount className="space-y-6 animate-in fade-in-50 slide-in-from-bottom-2">
               <Card className="border-2 border-primary/20 p-6">
                 <div className="mb-6">
                   <h3 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">

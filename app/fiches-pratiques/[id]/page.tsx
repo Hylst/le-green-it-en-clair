@@ -692,6 +692,421 @@ const sheets: Record<string, any> = {
       "RGESN (INR) ; référentiel AFNOR IA frugale",
     ],
   },
+  "streaming-video": {
+    title: "Streaming vidéo et gaming : regarder autrement",
+    subtitle: "Qualité, téléchargement, lecture auto : les réglages qui changent tout",
+    target: "Citoyens",
+    duration: "8 minutes de lecture",
+    impact: "60 % du trafic mondial (Shift Project, 2019)",
+    sections: [
+      {
+        title: "1. Pourquoi la vidéo pèse si lourd",
+        content:
+          "La vidéo en ligne génère à elle seule 60 % des flux mondiaux de données, soit plus de 300 millions de tonnes de CO₂ par an : 20 % des émissions du numérique et 1 % des émissions mondiales, autant que l'Espagne (The Shift Project, rapports 2019, dont les résultats n'ont pas été contestés). Les trois quarts du trafic internet sont liés à la vidéo sous toutes ses formes (The Shift Project, 2026).",
+        tips: [
+          "4 grandes familles se partagent ces 60 % : VOD, tubes, réseaux sociaux et autres (Shift, 2019)",
+          "En toute honnêteté : un chiffre avancé lors d'une interview en 2019 était erroné (erreur de débit), sans remettre en cause les rapports publiés (Shift, 2020)",
+          "Le terminal compte autant que le réseau : une TV 4K consomme bien plus qu'un smartphone",
+        ],
+      },
+      {
+        title: "2. Choisir la bonne qualité d'image",
+        content:
+          "Une heure de streaming en Ultra HD transfère environ 7 Go, contre 3 Go en HD et autour de 1 Go en définition standard (ordres de grandeur des plateformes, mesures CableLabs 2026). Sur un smartphone ou une tablette, la différence entre HD et 4K est invisible à l'œil nu : baisser d'un cran divise le débit par deux ou trois.",
+        tips: [
+          "Réglez la qualité par défaut en 720p sur mobile",
+          "Réservez la 4K au grand écran du salon",
+          "Désactivez la haute qualité en données mobiles",
+        ],
+      },
+      {
+        title: "3. Téléchargez ce que vous regardez en boucle",
+        content:
+          "Dessins animés des enfants, concerts, tutos : télécharger une fois en Wi-Fi ce que vous regardez dix fois évite neuf streams. La plupart des plateformes proposent le téléchargement hors-ligne sur mobile et tablette.",
+        tips: [
+          "Téléchargez en Wi-Fi avant de partir",
+          "Préférez l'audio seul pour la musique et les podcasts",
+          "Gardez en local vos favoris plutôt que dans le cloud",
+        ],
+      },
+      {
+        title: "4. Coupez la lecture automatique",
+        content:
+          "La lecture automatique enchaîne épisodes et vidéos suggérées sans que vous ayez rien demandé. La désactiver, c'est reprendre la main : vous regardez ce que vous avez choisi, ni plus ni moins.",
+        tips: [
+          "Désactivez l'autoplay dans chaque application",
+          "Baissez la luminosité : l'écran, c'est 30 à 50 % de la consommation du smartphone",
+          "Un minuteur aide toute la famille à garder la mesure",
+        ],
+      },
+      {
+        title: "5. Et le jeu vidéo ?",
+        content:
+          "Une console de salon consomme beaucoup en jeu, même en pause : l'éteindre vraiment après la partie (pas de veille) change la donne. Le cloud gaming ajoute le streaming vidéo au calcul à distance : à réserver aux moments où il apporte vraiment quelque chose.",
+        tips: [
+          "Coupez la veille des consoles (multiprise à interrupteur)",
+          "Gardez consoles et manettes le plus longtemps possible",
+          "Préférez le jeu local au cloud gaming quand c'est possible",
+        ],
+      },
+    ],
+    resources: [
+      "Notre estimateur web : /outils#onglet-website-carbon",
+      "Les 7 gestes quotidiens : /fiches-pratiques/gestes-quotidiens",
+      "The Shift Project, sobriété numérique : theshiftproject.org",
+    ],
+    sources: [
+      "The Shift Project, « Climat : l'insoutenable usage de la vidéo en ligne » (2019)",
+      "The Shift Project, mise au point sur l'empreinte de la vidéo en ligne (2020)",
+      "The Shift Project, chiffres clés du numérique (2026)",
+      "CableLabs, consommation horaire des applications vidéo (2026)",
+    ],
+  },
+  "teletravail-visio": {
+    title: "Télétravail et visioconférence sobres",
+    subtitle: "Caméra, réseau, matériel : travailler à distance sans alourdir la facture carbone",
+    target: "Actifs",
+    duration: "8 minutes de lecture",
+    impact: "~1 Go par heure de visio (CableLabs, 2026)",
+    sections: [
+      {
+        title: "1. Combien pèse une heure de visio ?",
+        content:
+          "Un participant en visioconférence consomme environ 1 Go de données par heure, soit trois fois moins qu'un film en HD en streaming (CableLabs, mesures 2026 sur Meet, Teams, Zoom et GoTo). L'audio seul, lui, ne pèse presque rien : pour les points d'équipe sans partage d'écran, la voix suffit largement.",
+        tips: [
+          "Gardez la vidéo pour les échanges qui en ont vraiment besoin",
+          "Coupez votre caméra quand vous ne parlez pas en grand groupe",
+          "Un compte-rendu écrit remplace parfois une réunion",
+        ],
+      },
+      {
+        title: "2. Caméra : les bons réglages",
+        content:
+          "Passer de la Full HD à la HD divise par deux ou trois le débit de votre flux vidéo (données des éditeurs Zoom et Teams). Les fonds virtuels animés et les filtres ajoutent un calcul permanent côté appareil : un fond flouté sobre fait très bien l'affaire.",
+        tips: [
+          "Désactivez la HD dans les réglages de votre application",
+          "Évitez fonds virtuels animés et filtres gourmands",
+          "Rejoignez les grandes réunions caméra coupée par défaut",
+        ],
+      },
+      {
+        title: "3. Le réseau compte double",
+        content:
+          "À quantité de données égale, le réseau mobile consomme 7 fois plus d'énergie par Go que le fixe : 0,14 kWh contre 0,02 kWh (Arcep, enquête 2026 sur données 2024). En télétravail, le Wi-Fi de la box est donc toujours le meilleur choix. Et comme 90 % de la consommation d'une box est invariable, qu'on s'en serve ou non, l'éteindre la nuit reste le geste le plus efficace (Arcep, 2026).",
+        tips: [
+          "Télétravaillez en Wi-Fi, gardez la 4G/5G pour le dépannage",
+          "Éteignez votre box la nuit (économie d'environ 26 kWh par an)",
+          "Téléchargez les gros fichiers en Wi-Fi avant de partir",
+        ],
+      },
+      {
+        title: "4. Un poste de travail qui dure",
+        content:
+          "En télétravail, vous cumulez parfois double équipement (bureau + domicile). Un ordinateur gardé 7 ans au lieu de 3 divise son impact annuel par plus de deux (7 ÷ 3 ≈ 2,3), et le reconditionné professionnel couvre très bien les usages bureautiques : voir notre fiche achat responsable.",
+        tips: [
+          "Demandez du reconditionné pour le second poste",
+          "Une multiprise à interrupteur coupe les veilles du bureau à domicile",
+          "Dépoussiérez régulièrement : un PC qui chauffe moins dure plus longtemps",
+        ],
+      },
+      {
+        title: "5. Organiser le travail à distance",
+        content:
+          "Le premier bénéfice du télétravail, ce sont les déplacements évités. Pour le reste, quelques habitudes suffisent : regrouper les réunions, partager des liens plutôt que des pièces jointes et ne pas garder les enregistrements dans le cloud pour rien.",
+        tips: [
+          "Regroupez vos visios pour éteindre entre deux blocs",
+          "Partagez des liens, pas des pièces jointes de 30 Mo",
+          "Supprimez les enregistrements devenus inutiles",
+        ],
+      },
+    ],
+    resources: [
+      "Guide d'achat responsable : /fiches-pratiques/achat-responsable",
+      "Démarche Green IT en entreprise : /fiches-pratiques/green-it-entreprise",
+      "Enquête Arcep « Pour un numérique soutenable » : arcep.fr",
+    ],
+    sources: [
+      "CableLabs, consommation horaire des applications de visioconférence (2026)",
+      "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026 (données 2024)",
+      "ADEME-Arcep (2023, fabrication ≈ 75 % de l'impact)",
+    ],
+  },
+  "emails-cloud": {
+    title: "E-mails, cloud et stockage : alléger sans se priver",
+    subtitle: "Pièces jointes, tri, hébergeurs : une messagerie plus légère au quotidien",
+    target: "Tous publics",
+    duration: "8 minutes de lecture",
+    impact: "4 g à 50 g par e-mail (ADEME)",
+    sections: [
+      {
+        title: "1. Combien pèse un e-mail ?",
+        content:
+          "Les ordres de grandeur les plus cités viennent de l'ADEME (travaux 2011, toujours repris par les services publics en 2019) : 4 g de CO₂e pour un e-mail simple, 19 g avec une pièce jointe de 1 Mo, jusqu'à 50 g avec de grosses pièces jointes, et 0,3 g pour un spam. Le stockage, lui, pèse peu : 1 Go conservé un an dans le cloud émet environ 0,24 g de CO₂e (ADEME, Impact CO₂).",
+        tips: [
+          "Ces chiffres datent un peu : prenez-les comme des ordres de grandeur, pas des mesures",
+          "Le poids vient surtout des pièces jointes et du nombre de destinataires",
+          "Stocker 1 000 e-mails simples ≈ 4 kg de CO₂e (1 000 × 4 g) : l'équivalent d'une vingtaine de kilomètres en voiture",
+        ],
+      },
+      {
+        title: "2. Pièces jointes : le lien plutôt que le fichier",
+        content:
+          "Une pièce jointe envoyée à dix destinataires, c'est dix copies stockées sur dix boîtes. Un lien vers un fichier partagé, c'est une seule copie. Pour les photos et vidéos, compresser avant d'envoyer divise le poids par cinq ou dix sans perte visible.",
+        tips: [
+          "Partagez un lien (cloud, transfert) plutôt qu'une pièce jointe",
+          "Compressez photos et PDF avant l'envoi",
+          "Limitez les destinataires en copie aux personnes vraiment concernées",
+        ],
+      },
+      {
+        title: "3. Nettoyer malin, sans culpabiliser",
+        content:
+          "Bonne nouvelle : supprimer 1 000 vieux e-mails ne sauvera pas la planète, le stockage pèse très peu. Triez pour y voir plus clair et retrouver vos messages, pas pour « sauver des serveurs ». Le vrai levier, ce sont les pièces jointes que vous envoyez demain.",
+        tips: [
+          "Désinscrivez-vous des newsletters que vous ne lisez plus",
+          "Triez par pièces jointes volumineuses pour un grand ménage rapide",
+          "Videz le dossier des indésirables et la corbeille de temps en temps",
+        ],
+      },
+      {
+        title: "4. Où vont vos données ?",
+        content:
+          "Chaque e-mail conservé dort dans un datacenter, avec ses copies de sauvegarde. Choisir une messagerie hébergée en France, alimentée en électricité bas-carbone, réduit l'impact du stockage. La Green Web Foundation vérifie gratuitement si un hébergeur utilise des énergies renouvelables.",
+        tips: [
+          "Vérifiez votre hébergeur sur Green Web Foundation",
+          "Désactivez la synchronisation des dossiers dont vous n'avez pas besoin",
+          "Un seul compte bien tenu vaut mieux que cinq boîtes dispersées",
+        ],
+      },
+      {
+        title: "5. Au bureau : une charte légère",
+        content:
+          "En entreprise, les e-mails se comptent par dizaines par jour et par personne. Une charte simple change tout : liens internes plutôt que pièces jointes, pas de « merci » ou « bien reçu » systématiques en copie à dix, archivage des dossiers clos.",
+        tips: [
+          "En interne : lien vers l'intranet, jamais de pièce jointe",
+          "Réservez la copie aux personnes qui doivent agir",
+          "Archivez les projets terminés au lieu de tout garder en ligne",
+        ],
+      },
+    ],
+    resources: [
+      "L'empreinte de vos e-mails : /outils#onglet-calculator",
+      "Les 7 gestes quotidiens : /fiches-pratiques/gestes-quotidiens",
+      "Les bases du numérique d'intérêt général : lesbases.anct.gouv.fr",
+    ],
+    sources: [
+      "ADEME, travaux sur l'impact des e-mails (2011, repris 2019)",
+      "ANCT, « L'empreinte carbone de nos e-mails » (rappel de l'ancienneté des chiffres)",
+      "ADEME, Impact CO₂ / Base Empreinte (stockage : 0,24 g/Go/an)",
+    ],
+  },
+  "objets-connectes": {
+    title: "Objets connectés : choisir, sécuriser, faire durer",
+    subtitle: "Montres, enceintes, domotique : le connecté utile, sans l'accumulation",
+    target: "Citoyens",
+    duration: "8 minutes de lecture",
+    impact: "21 Mds d'objets fin 2025 (IoT Analytics)",
+    sections: [
+      {
+        title: "1. Une croissance fulgurante",
+        content:
+          "Le nombre d'objets connectés dans le monde devrait atteindre 21,1 milliards fin 2025, en hausse de 14 % sur un an, et 39 milliards en 2030 (IoT Analytics, octobre 2025). Chacun combine fabrication gourmande en métaux, alimentation permanente et échanges avec le cloud : trois impacts pour un seul gadget.",
+        tips: [
+          "Montres, enceintes, ampoules, capteurs : tout objet « smart » a un coût caché",
+          "La phase de fabrication domine, comme pour les smartphones",
+          "Un objet déconnecté du cloud devient souvent inutilisable : anticipez",
+        ],
+      },
+      {
+        title: "2. Le vrai besoin d'abord",
+        content:
+          "Avant d'acheter, posez-vous la question franchement : qu'est-ce que la version connectée apporte de plus que la version simple ? Un programmateur mécanique fait le même travail qu'une prise connectée, sans application, sans compte, sans mise à jour.",
+        tips: [
+          "Un seul assistant vocal suffit, pas un par pièce",
+          "Mutualisez : une box domotique plutôt que dix applications",
+          "Offrez une seconde vie : revendez ou donnez les objets remplacés",
+        ],
+      },
+      {
+        title: "3. Sécuriser, c'est faire durer",
+        content:
+          "Un objet piraté ou abandonné par son fabricant (plus de mises à jour) finit au rebut bien avant sa fin de vie matérielle. Changer le mot de passe par défaut et appliquer les mises à jour, c'est prolonger la durée de vie autant que protéger vos données.",
+        tips: [
+          "Changez les mots de passe par défaut dès l'installation",
+          "Vérifiez la durée des mises à jour avant d'acheter",
+          "Déconnectez du Wi-Fi les objets que vous n'utilisez plus",
+        ],
+      },
+      {
+        title: "4. La maison connectée sobre",
+        content:
+          "Bien réglée, la domotique peut faire économiser de l'énergie (chauffage piloté, extinction auto). Mal réglée, elle ajoute des veilles permanentes. La règle d'or : chaque automatisation doit supprimer plus de consommation qu'elle n'en ajoute, box internet comprise.",
+        tips: [
+          "Privilégiez les protocoles locaux au tout-cloud",
+          "Programmez l'extinction réelle la nuit (box, TV, consoles)",
+          "En France, box et décodeurs ont consommé 3,4 TWh en 2024 (Arcep, 2026)",
+        ],
+      },
+      {
+        title: "5. Fin de vie : ni tiroir ni poubelle",
+        content:
+          "Un objet connecté est un DEEE comme un autre : ni poubelle grise, ni tiroir éternel. Effacez vos données (réinitialisation usine + suppression du compte cloud), puis apportez-le en point de collecte ou proposez-le au réemploi.",
+        tips: [
+          "Réinitialisez et dissociez le compte avant de vous en séparer",
+          "Pensez revente et don : un objet qui marche encore sert à quelqu'un",
+          "Points de collecte : voir notre fiche recyclage",
+        ],
+      },
+    ],
+    resources: [
+      "Mode d'emploi du recyclage : /fiches-pratiques/recyclage-mode-emploi",
+      "Réparer et prolonger : /fiches-pratiques/reparer-prolonger",
+      "Points de collecte : /recyclage",
+    ],
+    sources: [
+      "IoT Analytics, « State of IoT 2025 » (octobre 2025)",
+      "Statista, objets connectés par type (octobre 2025)",
+      "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026 (données 2024)",
+    ],
+  },
+  "impression-papier": {
+    title: "Imprimer moins, imprimer mieux",
+    subtitle: "Recto-verso, papier recyclé, mutualisation : le bureau sans gaspillage",
+    target: "Entreprises",
+    duration: "6 minutes de lecture",
+    impact: "−50 % de papier en recto-verso",
+    sections: [
+      {
+        title: "1. Le papier, premier déchet du bureau",
+        content:
+          "Le papier reste l'élément le plus consommé et le plus jeté en entreprise : il représente 75 % des déchets produits au bureau (ADEME). Chaque salarié consomme en moyenne 70 à 85 kg de papier par an, soit l'équivalent de 3 ramettes par mois. Pire : 25 % des documents sont jetés 5 minutes après leur impression, et 16 % ne sont jamais lus.",
+        tips: [
+          "75 % des déchets de bureau : le gisement est énorme et facile à attaquer",
+          "3 ramettes par mois et par personne : visualisez la pile sur un an",
+          "Un document sur quatre jeté dans les 5 minutes : imprimez après relecture",
+        ],
+      },
+      {
+        title: "2. Avant d'imprimer : la relecture à l'écran",
+        content:
+          "La plupart des impressions « de confort » (relecture, archivage « au cas où ») ne servent jamais. Les outils d'annotation PDF et la signature électronique couvrent aujourd'hui presque tous les usages, y compris juridiques.",
+        tips: [
+          "Relisez à l'écran, imprimez la version finale uniquement",
+          "Annotez les PDF plutôt que d'imprimer pour corriger",
+          "Adoptez la signature électronique pour les documents courants",
+        ],
+      },
+      {
+        title: "3. Imprimer malin quand c'est nécessaire",
+        content:
+          "Quand l'impression s'impose, les réglages par défaut changent tout : le recto-verso divise la consommation par deux, l'impression de plusieurs pages par feuille divise encore, et le noir et blanc suffit pour les documents de travail.",
+        tips: [
+          "Recto-verso par défaut sur toutes les imprimantes (−50 %)",
+          "2 ou 4 pages par feuille pour les présentations et brouillons",
+          "Noir et blanc par défaut, police légère, marges réduites",
+        ],
+      },
+      {
+        title: "4. Papier et cartouches responsables",
+        content:
+          "Choisissez du papier recyclé ou certifié (FSC, Écolabel européen) au grammage adapté : 80 g suffisent pour le quotidien. Une fibre de cellulose se recycle en moyenne 5 à 7 fois (rapport filière papier-carton, 2021). Côté cartouches, les rechargeables et les consignes de reprise valent mieux que le jetable.",
+        tips: [
+          "Papier recyclé ou certifié, 80 g pour le quotidien",
+          "Cartouches rechargeables ou reprises par le fabricant",
+          "Une imprimante mutualisée vaut mieux que dix imprimantes individuelles",
+        ],
+      },
+      {
+        title: "5. Trier et boucler la boucle",
+        content:
+          "En France, les trois quarts des papiers sont collectés pour être recyclés : un bon score à entretenir. Au bureau, des bacs dédiés près des imprimantes et des postes suffisent. Et les feuilles imprimées d'un seul côté deviennent du brouillon.",
+        tips: [
+          "Des bacs papier dédiés près de chaque imprimante",
+          "Le verso des impressions ratées = brouillon gratuit",
+          "Sensibilisez les nouveaux arrivants : le geste devient une habitude",
+        ],
+      },
+    ],
+    resources: [
+      "Démarche Green IT en entreprise : /fiches-pratiques/green-it-entreprise",
+      "Plan d'action collectivités : /fiches-pratiques/collectivites-action",
+      "Nos outils de calcul : /outils",
+    ],
+    sources: [
+      "ADEME, chiffres sur le papier au bureau (via synthèse 2024)",
+      "CGEFI, rapport de la filière papier-carton (2021, fibre recyclable 5 à 7 fois)",
+    ],
+  },
+  "enfants-ecole": {
+    title: "Écrans des enfants : des repères pour toute la famille",
+    subtitle: "Durées, contenus, premier téléphone : avancer sans culpabiliser",
+    target: "Parents",
+    duration: "8 minutes de lecture",
+    impact: "1h22 à 2h33 par jour (SpF, 2025)",
+    sections: [
+      {
+        title: "1. Combien d'écrans, vraiment ?",
+        content:
+          "Selon Santé publique France (étude Enabee, résultats publiés en septembre 2025 sur des données 2022), les enfants passent en moyenne 1h22 par jour devant les écrans à 3-5 ans, 1h53 à 6-8 ans et 2h33 à 9-11 ans — deux fois plus les jours sans école. Les foyers comptent en moyenne une dizaine d'écrans.",
+        tips: [
+          "1h22, 1h53, 2h33 : la durée augmente avec l'âge, quel que soit le sexe",
+          "Les jours sans école, le temps d'écran double",
+          "La télévision reste l'écran principal jusqu'à la fin du primaire",
+        ],
+      },
+      {
+        title: "2. Les repères officiels (et vous faites déjà bien)",
+        content:
+          "Le ministère de la Santé préconise : pas d'écran avant 3 ans, un usage exceptionnel entre 3 et 6 ans, pas de mobile avec internet avant 11 ans ni de smartphone avant 13 ans. Bonne nouvelle : près de 9 parents sur 10 déclarent déjà limiter le temps d'écran de leur enfant (Enabee). Vous n'êtes pas seuls, et vous faites déjà beaucoup.",
+        tips: [
+          "Zéro écran avant 3 ans, y compris en bruit de fond",
+          "Pas de smartphone connecté avant 13 ans : un téléphone simple suffit",
+          "Valorisez ce que vous faites déjà : les limites posées avec bienveillance marchent",
+        ],
+      },
+      {
+        title: "3. La qualité compte plus que la quantité",
+        content:
+          "Un dessin animé regardé ensemble et discuté n'a rien à voir avec deux heures de vidéos enchaînées seul. Les contenus éducatifs, accompagnés par un adulte, font partie d'un usage raisonné. Évitez les écrans le matin avant l'école : c'est un moment clé pour l'attention (Santé publique France, 2020).",
+        tips: [
+          "Accompagnez : regardez avec eux et parlez-en",
+          "Pas d'écran le matin avant l'école ni pendant les repas",
+          "Chambre sans écran la nuit : un réveil remplace le smartphone",
+        ],
+      },
+      {
+        title: "4. Le premier téléphone, en mode sobre",
+        content:
+          "Pour un premier téléphone, le reconditionné avec forfait bloqué est le combo gagnant : moins cher, moins d'impact, et des limites intégrées. Tablette familiale partagée plutôt qu'un appareil par enfant, contrôle parental activé ensemble (pas en cachette), et règles décidées en famille.",
+        tips: [
+          "Premier téléphone : reconditionné + forfait bloqué",
+          "Activez le contrôle parental avec votre enfant, en expliquant",
+          "Un temps d'écran se négocie, comme l'heure du coucher",
+        ],
+      },
+      {
+        title: "5. À l'école aussi",
+        content:
+          "ENT, manuels numériques, plateforme Pix dès le CM1 : l'école est aussi numérique. Intéressez-vous aux outils utilisés en classe, limitez les impressions « de confort » et signalez les usages excessifs en conseil d'école. Côté ressources : jeprotegemonenfant.gouv.fr accompagne les parents pas à pas.",
+        tips: [
+          "Découvrez les outils numériques de l'école avec votre enfant",
+          "La plateforme Pix développe les compétences dès le CM1",
+          "Besoin d'aide ? jeprotegemonenfant.gouv.fr et les ateliers parentalité numérique",
+        ],
+      },
+    ],
+    resources: [
+      "Les 7 gestes quotidiens : /fiches-pratiques/gestes-quotidiens",
+      "Streaming et gaming : /fiches-pratiques/streaming-video",
+      "Parentalité numérique : jeprotegemonenfant.gouv.fr",
+    ],
+    sources: [
+      "Santé publique France, étude Enabee, premiers résultats (septembre 2025, données 2022)",
+      "Santé publique France, écrans le matin et langage (2020)",
+      "Ministère de la Santé, repères d'usage des écrans ; plan interministériel (2022)",
+      "UNICEF France, cohorte ELFE (exposition précoce, 2026)",
+    ],
+  },
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {

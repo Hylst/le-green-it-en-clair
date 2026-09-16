@@ -89,6 +89,60 @@ const practicalSheets = [
     impact: "~485 TWh dans le monde en 2025 (ADEME 2026)",
     image: "/greenit/images/abstract-green-technology-network-with-leaves-and-.webp",
   },
+  {
+    id: "streaming-video",
+    title: "Streaming vidéo et gaming : regarder autrement",
+    description: "Qualité, téléchargement, lecture auto : les réglages qui changent tout",
+    target: "Citoyens",
+    duration: "8 min",
+    impact: "60 % du trafic mondial (Shift, 2019)",
+    image: "/greenit/images/smartphone-impact-infographic.webp",
+  },
+  {
+    id: "teletravail-visio",
+    title: "Télétravail et visioconférence sobres",
+    description: "Caméra, réseau, matériel : travailler à distance sans alourdir la facture",
+    target: "Actifs",
+    duration: "8 min",
+    impact: "~1 Go/h en visio (CableLabs, 2026)",
+    image: "/greenit/images/sustainable-coding.webp",
+  },
+  {
+    id: "emails-cloud",
+    title: "E-mails, cloud et stockage : alléger sans se priver",
+    description: "Pièces jointes, tri, hébergeurs : une messagerie plus légère",
+    target: "Tous publics",
+    duration: "8 min",
+    impact: "4 g à 50 g par e-mail (ADEME)",
+    image: "/greenit/images/hero-datacenters.webp",
+  },
+  {
+    id: "objets-connectes",
+    title: "Objets connectés : choisir, sécuriser, faire durer",
+    description: "Montres, enceintes, domotique : le connecté utile, sans accumulation",
+    target: "Citoyens",
+    duration: "8 min",
+    impact: "21 Mds d'objets fin 2025 (IoT Analytics)",
+    image: "/greenit/images/hero-perspectives.webp",
+  },
+  {
+    id: "impression-papier",
+    title: "Imprimer moins, imprimer mieux",
+    description: "Recto-verso, papier recyclé, mutualisation : le bureau sans gaspillage",
+    target: "Entreprises",
+    duration: "6 min",
+    impact: "−50 % de papier en recto-verso",
+    image: "/greenit/images/hero-modeles.webp",
+  },
+  {
+    id: "enfants-ecole",
+    title: "Écrans des enfants : des repères pour toute la famille",
+    description: "Durées, contenus, premier téléphone : avancer sans culpabiliser",
+    target: "Parents",
+    duration: "8 min",
+    impact: "1h22 à 2h33/jour (SpF, 2025)",
+    image: "/greenit/images/hero-guide.webp",
+  },
 ]
 
 export default function FichesPratiquesPage() {
@@ -156,7 +210,9 @@ export default function FichesPratiquesPage() {
 
           <p className="mb-8 text-center text-sm text-muted-foreground">
             Sources : ADEME 2022 (reconditionné −75 %) · ADEME-Arcep 2023 (fabrication ≈ 75 % de l&apos;impact) ·
-            Ecosystem 2024 (79 % des DEEE collectés recyclés ou réutilisés) · Uptime 2024 (PUE)
+            Ecosystem 2024 (79 % des DEEE collectés recyclés ou réutilisés) · Uptime 2024 (PUE) · Shift Project 2019
+            (vidéo = 60 % des flux) · Arcep 2026 (box, réseaux) · Santé publique France 2025 (écrans des enfants) ·
+            IoT Analytics 2025 (21 Mds d&apos;objets) · CableLabs 2026 (visio ~1 Go/h)
           </p>
 
           <Card className="border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 p-8 dark:border-emerald-800 dark:from-emerald-950 dark:to-teal-950">

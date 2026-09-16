@@ -632,15 +632,20 @@ export default function DatacentersPage() {
                 <div>
                   <h4 className="mb-2 font-semibold text-foreground">OVHcloud (Roubaix)</h4>
                   <p className="mb-2 text-sm text-slate-700 dark:text-slate-300">
-                    Chiffres communiqués par OVHcloud : refroidissement par eau de pluie, PUE annoncé d'environ 1,09 et serveurs conçus en interne. Objectif affiché de neutralité carbone à horizon 2025 : le bilan est à vérifier dans son rapport RSE.
+                    Chiffres publiés par OVHcloud (bilan carbone 2025) : PUE moyen de 1,24 contre 1,56 en moyenne
+                    sectorielle, serveurs conçus en interne durant jusqu&apos;à 9 ans, 27 composants réutilisés sur 100.
+                    Engagements : −73,4 % d&apos;émissions scopes 1-2 par rapport à 2022, 100 % d&apos;électricité renouvelable
+                    sur ses datacenters et trajectoire SBTi depuis 2023. Le scope 3 (fabrication, chaîne
+                    d&apos;approvisionnement) représente 90 % du bilan : l&apos;atteinte des objectifs 2025 reste à confirmer
+                    dans son rapport annuel.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="rounded-full bg-blue-700 px-3 py-1 text-xs font-medium text-white">PUE théorique ~1,09</span>
+                    <span className="rounded-full bg-blue-700 px-3 py-1 text-xs font-medium text-white">PUE moyen 1,24 (2025)</span>
                     <span className="rounded-full bg-blue-700 px-3 py-1 text-xs font-medium text-white">
-                      Eau de pluie
+                      −73,4 % scopes 1-2 vs 2022
                     </span>
                     <span className="rounded-full bg-blue-700 px-3 py-1 text-xs font-medium text-white">
-                      Neutralité : objectif 2025 (à vérifier)
+                      Scope 3 : 90 % du bilan
                     </span>
                   </div>
                 </div>
@@ -705,10 +710,15 @@ export default function DatacentersPage() {
               <h3 className="mb-2 text-xl font-bold text-foreground">Réglementation stricte</h3>
               <p className="text-sm text-muted-foreground">
                 La France impose des normes environnementales strictes pour les nouveaux datacenters, favorisant
-                l'efficacité énergétique.
+                l&apos;efficacité énergétique.
               </p>
             </Card>
           </div>
+          <p className="mx-auto mt-10 max-w-3xl text-center text-sm text-muted-foreground">
+            En 2024, les datacenters français ont consommé 2,7 TWh d&apos;électricité, +12 % en un an (Arcep, enquête
+            2026). L&apos;ADEME, avec un périmètre élargi à 352 sites, porte la consommation actuelle à 10 TWh, et RTE
+            projette 23 à 28 TWh en 2035 (étude prospective ADEME-RTE, janvier 2026).
+          </p>
         </div>
       </section>
 

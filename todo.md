@@ -2,6 +2,22 @@
 
 Ma liste, mise à jour le 15/09/2026 après une grosse relecture pessimiste (lecture seule, j'ai rien cassé, promis).
 
+## ✅ plan design — audit du 16/09/2026 — implémenté (vagues A à E)
+
+Détail dans `audit-design-2026-09.md`, implémenté le 16/09 sans toucher aux contenus ni aux données.
+- [x] Vague A (fondations) : tokens `--warning` (corrige l'encart `a-propos`), utilitaires thématiques (`bg-theme`, `text-theme`, `bg-theme-soft`, `text-theme-ink`, `border-theme`) + 9 `data-theme`, effets (`lift`, `glow-theme`, `icon-shift`, `link-slide`, `reveal`), `motion-off`, `lib/chart-theme.ts`, `lib/motion.tsx` + `MotionToggle`, 4 illustrations rapatriées dans `public/images/`, règles ajoutées à `AGENTS.md`.
+- [x] Vague B (chrome) : `PageHero` partagé, navigation/footer/breadcrumb/`theme-toggle` vers tokens, bandeau footer en `warning`, `link-slide` sur les liens, `MotionToggle` dans le footer, clé `greenit-motion` documentée (`mentions-legales`).
+- [x] Vague C (héros) : 16 héros migrés vers `PageHero` + `data-theme` (badges restaurés après assouplissement icon/label optionnels).
+- [x] Vague D (pages) : Recharts via `chart-theme` (0 hex restant dans les 12 fichiers), tokens mécaniques, `lift` sur cartes sans hover, `dark:` complétés, `gray` → tokens, `✓` → `Check` lucide (modèles + cas-pratiques), loadings en tokens.
+- [x] Vague E (finitions) : emojis → lucide (comprendre, cloud, it-audit, reglementation, rss), contrôles natifs teintés (`accent-color`), `quality` 85 partout, `useState` mort supprimé (`developpement`).
+- [x] Vérifié : `tsc` 0 erreur, build OK, utilitaires theme présents dans l'export, 0 `pageerror` sur 4 pages (accueil, problematiques, outils, par-ou-commencer), hero rouge dark + light capturés, onglets outils + quiz + toggle motion testés, 0 emoji/`gray-`/hex résiduel (grep).
+- [x] Illustrations générées et branchées le 16/09 : 18 JPEG reçus (`D:\Downloads\images_pour_greenit\`), rapprochés par nom, convertis webp 70 % dans `public/images/` (8 à 70 Ko, tous < 150 Ko), branchés en prop `image` de `PageHero` (15 héros) + hero `outils`/`recyclage` + `offline`/`404` (partagée), dimensions `PageHero` alignées (1376×768). Vérifié : build, 22 pages balayées (0 `pageerror`, 0 image cassée — 1 faux positif lazy), captures mythes/agir.
+- [x] Phase 1 animations le 16/09 : `Reveal` (23 sections developpement/reglementation/problematiques, héros + 1ères sections exclus anti-flash, `guide` écarté car sans sections), `icon-shift` × 12 + `active:scale` × 5 sur l'accueil, feedback « Copié ! » × 3. Vérifié : build, reveals 10/10-4/4-9/9, motion-off, 0 pageerror.
+- [x] Phase 2 animations le 16/09 : `CountUp` × 11 (accueil/chiffres/datacenters), `Ticker` accueil (CSS pur), `Sommaire` developpement (7) + reglementation (4), `LifespanSlider` cas-pratiques (2e instance écartée : pas de binaire franc sur developpement), `ReadingProgress` × 5 pages. Vérifié : build, valeurs finales, scrollspy, slider, progression, motion-off, 0 pageerror.
+- [x] Phase 3 animations (code) le 16/09 : `SectionDivider` × 6 pages, `.texture-dots` × 3 CTA, `hero-float` via `PageHero`. Vérifié : build, navigateur, motion-off, 0 pageerror.
+- [x] Illustrations phase 3 branchées le 16/09 (soir) : 4 JPEG rapprochés par nom, webp 70 % (11 à 16 Ko), 4 slots avec alts français. Vérifié : build, captures, 0 pageerror.
+- [ ] Reste design (passe pessimiste du 16/09) : re-tester les contrastes en light après migration tokens (pastilles `*-100`) ; `text-theme`/`bg-theme` créés mais pas encore utilisés (seuls `lift`, `glow-theme`, `link-slide`, `icon-shift`, `reveal` sont câblés) ; `sobriety`/`enterprise`/`eco2mix` utilisent `CHART_FALLBACKS` statiques (pas adaptatifs au dark, teintes eco2mix légèrement changées : bio lime → teal) ; lecteur d'écran NVDA sur les nouveaux héros. + reliquats couleurs en dur phase 1 (accueil `slate-*`, `problematiques` dégradés, `website-carbon-calculator` gray/slate, `carbon-calculator` blue, `developpement` `dark:bg-slate-950`) ; 404 RSC `__next.*__PAGE__.txt` au prefetch sous serveur statique (préexistantes, à étudier).
+
 ## ✅ plan d'amélioration — audit contenu du 15/09/2026 (soir) — implémenté
 
 Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à la main dans le code ET sur sources officielles en ligne, puis implémentation par vagues et vérification manuelle des données. Commits : `fcd02d6` (A), `f9c2a43` (B), `5497517` (C), `9682f5c` (D), `3e8106d` (docs), `2c0021f` (vérification). Vérifié : `tsc` 0 erreur, build 42 pages, `out/` contrôlé (classes CSS, icônes, manifest), test navigateur sous `/greenit/`. Détail dans `changelog.md`.
@@ -106,6 +122,7 @@ Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à l
 - [x] Contrôle complémentaire le 15/09 : outils fiabilisés (facteurs, cas limites, libellés), faits alignés (production vs collecte, unités), pédagogie (glossaire, parcours, liens), bug basePath corrigé. Vérifié : `tsc` 0 erreur, build, export, outils testés.
 - [x] Passe exhaustive du 15/09 : fiches, modèles, composants jamais audités (couleurs Tailwind manquantes, liens fiches, grille, 404/offline noindex, zoom clavier, plan du site complété). Vérifié : `tsc` 0 erreur, build, export, navigateur.
 - [x] Finitions techniques du 15/09 : hygiène (0 vuln), a11y (axe 0, reduced-motion, focus, h1), perf (Lighthouse ≥94, jspdf dynamique, export PDF réparé), SEO (JSON-LD + OG par page). Vérifié : `tsc` 0 erreur, build, export, navigateurs.
+- [x] Serveur de test local réparé le 16/09 (`scripts/greenit-server.js` ignorait le basePath `/greenit` → accueil servi partout, JS/CSS en HTML) + SW `v1.3.3` (purge auto du cache empoisonné + garde content-type script/style). Vérifié : build, 0 erreur console, parcours profil cliquable.
 - [ ] Reste : déploiement en ligne en retard (SW `v1.1.0` servi, dépôt en `v1.3.0`) — resynchroniser côté hébergement ; `robots.txt` racine du domaine (hors dépôt) ; checklist lecteur d'écran réel (NVDA) ; `target-size` des marqueurs Leaflet (clustering) ; bruit console `_rsc` (cosmétique connu). Optionnel : eslint, e2e auto, i18n.
 
 ## 🔴 important mais pas cassé

@@ -3,7 +3,7 @@
 import { useState, type KeyboardEvent } from "react"
 import dynamic from "next/dynamic"
 import Image from "next/image"
-import { Calculator, Lightbulb, TrendingUp, Cloud, ClipboardCheck, Globe, Brain } from "lucide-react"
+import { Calculator, Lightbulb, TrendingUp, Cloud, ClipboardCheck, Globe, Brain, MonitorPlay } from "lucide-react"
 
 function ToolLoader() {
   return (
@@ -20,10 +20,11 @@ const QuizGreenITAdvanced = dynamic(() => import("@/components/quiz-green-it-adv
 const EnterpriseSimulator = dynamic(() => import("@/components/outils/enterprise-simulator"), { ssr: false, loading: () => <ToolLoader /> })
 const CloudComparator = dynamic(() => import("@/components/outils/cloud-comparator"), { ssr: false, loading: () => <ToolLoader /> })
 const ITAudit = dynamic(() => import("@/components/outils/it-audit"), { ssr: false, loading: () => <ToolLoader /> })
+const StreamingEstimator = dynamic(() => import("@/components/outils/streaming-estimator"), { ssr: false, loading: () => <ToolLoader /> })
 
 export default function OutilsPage() {
   const [activeTab, setActiveTab] = useState<
-    "calculator" | "simulator" | "quiz" | "website" | "enterprise" | "cloud" | "audit"
+    "calculator" | "simulator" | "quiz" | "website" | "enterprise" | "cloud" | "audit" | "streaming"
   >("calculator")
 
   // Navigation clavier des onglets (flèches, Home, End) : motif APG tabs
@@ -55,7 +56,7 @@ export default function OutilsPage() {
               Mesurez, Simulez, Apprenez
             </h1>
             <p className="text-lg text-emerald-50 mb-8 max-w-3xl mx-auto text-pretty">
-              Sept outils interactifs pour comprendre votre impact numérique, optimiser vos choix, et évaluer vos
+              Huit outils interactifs pour comprendre votre impact numérique, optimiser vos choix, et évaluer vos
               connaissances sur le Green IT avec des données récentes (2024-2026) sourcées.
             </p>
             <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-white/20 shadow-lg">
@@ -264,6 +265,33 @@ export default function OutilsPage() {
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-indigo-600 animate-pulse" />
               )}
             </button>
+
+            <button
+              role="tab"
+              id="onglet-streaming"
+              aria-controls="outil-panel"
+              tabIndex={activeTab === "streaming" ? 0 : -1}
+              aria-selected={activeTab === "streaming"}
+              onClick={() => setActiveTab("streaming")}
+              className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "streaming"
+                ? "border-rose-500 bg-rose-50 dark:bg-rose-900/20 shadow-lg"
+                : "border-border bg-card hover:border-rose-300 hover:shadow-md"
+                }`}
+            >
+              <div
+                className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl transition-colors ${activeTab === "streaming"
+                  ? "bg-rose-600 text-white"
+                  : "bg-rose-100 text-rose-700 group-hover:bg-rose-600 group-hover:text-white"
+                  }`}
+              >
+                <MonitorPlay className="h-6 w-6" />
+              </div>
+              <h2 className="text-base font-bold text-foreground mb-2">Streaming &amp; visio</h2>
+              <p className="text-xs text-muted-foreground">Estimez vos Go et kWh</p>
+              {activeTab === "streaming" && (
+                <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-rose-600 animate-pulse" />
+              )}
+            </button>
           </div>
 
           {/* Content */}
@@ -275,6 +303,7 @@ export default function OutilsPage() {
           {activeTab === "enterprise" && <EnterpriseSimulator />}
           {activeTab === "cloud" && <CloudComparator />}
           {activeTab === "audit" && <ITAudit />}
+          {activeTab === "streaming" && <StreamingEstimator />}
           </div>
         </div>
       </div>

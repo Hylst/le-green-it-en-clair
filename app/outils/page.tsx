@@ -2,6 +2,7 @@
 
 import { useState, type KeyboardEvent } from "react"
 import dynamic from "next/dynamic"
+import Image from "next/image"
 import { Calculator, Lightbulb, TrendingUp, Cloud, ClipboardCheck, Globe, Brain } from "lucide-react"
 
 function ToolLoader() {
@@ -42,7 +43,7 @@ export default function OutilsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white dark:bg-gradient-to-b dark:from-green-900 dark:to-gray-900">
+    <div data-theme="emerald" className="min-h-screen bg-gradient-to-b from-green-50 to-white dark:bg-gradient-to-b dark:from-green-900 dark:to-slate-900">
       <div className="bg-gradient-to-br from-emerald-700 to-teal-800 px-6 py-16">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center text-white">
@@ -57,6 +58,17 @@ export default function OutilsPage() {
               Sept outils interactifs pour comprendre votre impact numérique, optimiser vos choix, et évaluer vos
               connaissances sur le Green IT avec des données récentes (2024-2026) sourcées.
             </p>
+            <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-white/20 shadow-lg">
+              <Image
+                src="/greenit/images/hero-outils.webp"
+                alt="Panneau de tableau de bord avec jauges et graphique lumineux"
+                width={1376}
+                height={768}
+                className="h-auto w-full"
+                quality={85}
+                sizes="(max-width: 896px) 100vw, 896px"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -73,7 +85,7 @@ export default function OutilsPage() {
               onClick={() => setActiveTab("calculator")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "calculator"
                 ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 shadow-lg"
-                : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-emerald-300 hover:shadow-md"
+                : "border-border bg-card hover:border-emerald-300 hover:shadow-md"
                 }`}
             >
               <div
@@ -84,8 +96,8 @@ export default function OutilsPage() {
               >
                 <Calculator className="h-6 w-6" />
               </div>
-              <h2 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Empreinte carbone</h2>
-              <p className="text-xs text-slate-600 dark:text-gray-300">Calculez votre impact personnel</p>
+              <h2 className="text-base font-bold text-foreground mb-2">Empreinte carbone</h2>
+              <p className="text-xs text-muted-foreground">Calculez votre impact personnel</p>
               {activeTab === "calculator" && (
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-emerald-600 animate-pulse" />
               )}
@@ -100,7 +112,7 @@ export default function OutilsPage() {
               onClick={() => setActiveTab("website")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "website"
                 ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20 shadow-lg"
-                : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-blue-300 hover:shadow-md"
+                : "border-border bg-card hover:border-blue-300 hover:shadow-md"
                 }`}
             >
               <div
@@ -111,8 +123,8 @@ export default function OutilsPage() {
               >
                 <Globe className="h-6 w-6" />
               </div>
-              <h2 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Analyse de site web</h2>
-              <p className="text-xs text-slate-600 dark:text-gray-300">Impact carbone d'une page (poids saisi)</p>
+              <h2 className="text-base font-bold text-foreground mb-2">Analyse de site web</h2>
+              <p className="text-xs text-muted-foreground">Impact carbone d'une page (poids saisi)</p>
               {activeTab === "website" && (
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-blue-600 animate-pulse" />
               )}
@@ -127,7 +139,7 @@ export default function OutilsPage() {
               onClick={() => setActiveTab("simulator")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "simulator"
                 ? "border-teal-500 bg-teal-50 dark:bg-teal-900/20 shadow-lg"
-                : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-teal-300 hover:shadow-md"
+                : "border-border bg-card hover:border-teal-300 hover:shadow-md"
                 }`}
             >
               <div
@@ -138,8 +150,8 @@ export default function OutilsPage() {
               >
                 <Lightbulb className="h-6 w-6" />
               </div>
-              <h2 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Simulateur sobriété</h2>
-              <p className="text-xs text-slate-600 dark:text-gray-300">Visualisez vos économies</p>
+              <h2 className="text-base font-bold text-foreground mb-2">Simulateur sobriété</h2>
+              <p className="text-xs text-muted-foreground">Visualisez vos économies</p>
               {activeTab === "simulator" && (
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-teal-600 animate-pulse" />
               )}
@@ -154,7 +166,7 @@ export default function OutilsPage() {
               onClick={() => setActiveTab("enterprise")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "enterprise"
                 ? "border-purple-500 bg-purple-50 dark:bg-purple-900/20 shadow-lg"
-                : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-purple-300 hover:shadow-md"
+                : "border-border bg-card hover:border-purple-300 hover:shadow-md"
                 }`}
             >
               <div
@@ -165,8 +177,8 @@ export default function OutilsPage() {
               >
                 <TrendingUp className="h-6 w-6" />
               </div>
-              <h2 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Économies entreprise</h2>
-              <p className="text-xs text-slate-600 dark:text-gray-300">ROI Green IT sur 5 ans</p>
+              <h2 className="text-base font-bold text-foreground mb-2">Économies entreprise</h2>
+              <p className="text-xs text-muted-foreground">ROI Green IT sur 5 ans</p>
               {activeTab === "enterprise" && (
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-purple-600 animate-pulse" />
               )}
@@ -181,7 +193,7 @@ export default function OutilsPage() {
               onClick={() => setActiveTab("cloud")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "cloud"
                 ? "border-cyan-500 bg-cyan-50 dark:bg-cyan-900/20 shadow-lg"
-                : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-cyan-300 hover:shadow-md"
+                : "border-border bg-card hover:border-cyan-300 hover:shadow-md"
                 }`}
             >
               <div
@@ -192,8 +204,8 @@ export default function OutilsPage() {
               >
                 <Cloud className="h-6 w-6" />
               </div>
-              <h2 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Comparateur cloud</h2>
-              <p className="text-xs text-slate-600 dark:text-gray-300">Hébergeurs éco-responsables</p>
+              <h2 className="text-base font-bold text-foreground mb-2">Comparateur cloud</h2>
+              <p className="text-xs text-muted-foreground">Hébergeurs éco-responsables</p>
               {activeTab === "cloud" && (
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-cyan-600 animate-pulse" />
               )}
@@ -208,7 +220,7 @@ export default function OutilsPage() {
               onClick={() => setActiveTab("audit")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "audit"
                 ? "border-orange-500 bg-orange-50 dark:bg-orange-900/20 shadow-lg"
-                : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-orange-300 hover:shadow-md"
+                : "border-border bg-card hover:border-orange-300 hover:shadow-md"
                 }`}
             >
               <div
@@ -219,8 +231,8 @@ export default function OutilsPage() {
               >
                 <ClipboardCheck className="h-6 w-6" />
               </div>
-              <h2 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Audit parc IT</h2>
-              <p className="text-xs text-slate-600 dark:text-gray-300">Optimisez votre matériel</p>
+              <h2 className="text-base font-bold text-foreground mb-2">Audit parc IT</h2>
+              <p className="text-xs text-muted-foreground">Optimisez votre matériel</p>
               {activeTab === "audit" && (
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-orange-600 animate-pulse" />
               )}
@@ -235,7 +247,7 @@ export default function OutilsPage() {
               onClick={() => setActiveTab("quiz")}
               className={`group relative overflow-hidden rounded-xl border-2 p-6 text-left transition-all ${activeTab === "quiz"
                 ? "border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 shadow-lg"
-                : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-indigo-300 hover:shadow-md"
+                : "border-border bg-card hover:border-indigo-300 hover:shadow-md"
                 }`}
             >
               <div
@@ -246,8 +258,8 @@ export default function OutilsPage() {
               >
                 <Brain className="h-6 w-6" />
               </div>
-              <h2 className="text-base font-bold text-slate-900 dark:text-gray-100 mb-2">Quiz Green IT</h2>
-              <p className="text-xs text-slate-600 dark:text-gray-300">100 questions interactives</p>
+              <h2 className="text-base font-bold text-foreground mb-2">Quiz Green IT</h2>
+              <p className="text-xs text-muted-foreground">100 questions interactives</p>
               {activeTab === "quiz" && (
                 <div className="absolute top-4 right-4 h-3 w-3 rounded-full bg-indigo-600 animate-pulse" />
               )}

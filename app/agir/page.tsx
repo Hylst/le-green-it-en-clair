@@ -6,6 +6,8 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { RelatedLinks } from "@/components/related-links"
+import { PageHero } from "@/components/page-hero"
+import { SectionDivider } from "@/components/section-divider"
 import {
   User,
   Building2,
@@ -272,23 +274,20 @@ export default function AgirPage() {
   const progress = Math.round((checkedCount / totalActions) * 100)
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 px-6 py-16 lg:py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 lg:text-5xl">
-            Comment agir pour un numérique responsable
-          </h1>
-          <p className="text-pretty text-lg text-slate-600 dark:text-slate-300 lg:text-xl">
-            Des actions concrètes et efficaces adaptées à votre situation : citoyen, entreprise ou collectivité.
-          </p>
-        </div>
-      </section>
+    <div data-theme="emerald" className="min-h-screen bg-background transition-colors duration-300">
+      <PageHero
+        theme="emerald"
+        image={{ src: "/greenit/images/hero-agir.webp", alt: "Main ouverte tenant une jeune pousse verte, entourée de feuilles" }}
+        title="Comment agir pour un numérique responsable"
+        intro="Des actions concrètes et efficaces adaptées à votre situation : citoyen, entreprise ou collectivité."
+      />
+
+      <SectionDivider />
 
       {/* Audience Selection */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 dark:text-slate-100">Je suis...</h2>
+          <h2 className="mb-8 text-center text-2xl font-bold text-foreground">Je suis...</h2>
           <div className="mb-12 grid gap-6 md:grid-cols-3">
             {audiences.map((audience) => {
               const Icon = audience.icon
@@ -301,7 +300,7 @@ export default function AgirPage() {
                   aria-pressed={isSelected}
                   className={`group cursor-pointer border-2 p-6 transition-all hover:shadow-lg ${isSelected
                     ? `border-${audience.color}-500 bg-${audience.color}-50 dark:bg-${audience.color}-900/20 dark:border-${audience.color}-400`
-                    : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-slate-300 dark:hover:border-slate-600"
+                    : "border-border bg-card hover:border-slate-300 dark:hover:border-slate-600"
                     }`}
                   onClick={() => {
                     setSelectedAudience(audience.id)
@@ -323,8 +322,8 @@ export default function AgirPage() {
                   >
                     <Icon className="h-7 w-7" />
                   </div>
-                  <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-slate-100">{audience.title}</h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">{audience.description}</p>
+                  <h3 className="mb-2 text-xl font-bold text-foreground">{audience.title}</h3>
+                  <p className="text-sm text-muted-foreground">{audience.description}</p>
                 </Card>
               )
             })}
@@ -332,11 +331,11 @@ export default function AgirPage() {
 
           {/* Progress Bar */}
           {checkedCount > 0 && (
-            <Card className="mb-8 border-2 border-emerald-500 bg-emerald-50 p-6">
+            <Card className="mb-8 border-2 border-emerald-500 bg-emerald-50 p-6 dark:border-emerald-800 dark:bg-emerald-950/40">
               <div className="mb-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="h-6 w-6 text-emerald-700" />
-                  <span className="font-semibold text-slate-900 dark:text-slate-100">
+                  <span className="font-semibold text-foreground">
                     Votre progression : {checkedCount} / {totalActions} actions
                   </span>
                 </div>
@@ -391,7 +390,7 @@ export default function AgirPage() {
           {/* Practical Tips Section */}
           <div className="space-y-8">
             {practicalTips.map((tip, tipIndex) => (
-              <Card key={tipIndex} className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 lg:p-8">
+              <Card key={tipIndex} className="border-2 border-border bg-card p-6 lift lg:p-8">
                 <div className="flex items-center gap-4">
                   <div
                     className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-${tip.color}-600`}
@@ -399,8 +398,8 @@ export default function AgirPage() {
                     <tip.icon className="h-7 w-7 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-slate-100">{tip.title}</h3>
-                    <ul className="list-disc pl-6 text-sm text-slate-600 dark:text-slate-400">
+                    <h3 className="mb-2 text-xl font-bold text-foreground">{tip.title}</h3>
+                    <ul className="list-disc pl-6 text-sm text-muted-foreground">
                       {tip.tips.map((tipItem, itemIndex) => (
                         <li key={itemIndex}>{tipItem}</li>
                       ))}
@@ -418,8 +417,8 @@ export default function AgirPage() {
                 <Download className="h-8 w-8 text-white" />
               </div>
               <div className="flex-1">
-                <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-slate-100">Guide du recyclage (PDF)</h3>
-                <p className="text-slate-700 dark:text-slate-300">
+                <h3 className="mb-2 text-xl font-bold text-foreground">Guide du recyclage (PDF)</h3>
+                <p className="text-muted-foreground">
                   Le guide pratique du recyclage : filières, gestes et bonnes adresses, à imprimer ou partager.
                 </p>
               </div>
@@ -461,13 +460,13 @@ export default function AgirPage() {
       </section>
 
       {/* Resources Section */}
-      <section className="bg-slate-50 dark:bg-slate-900 px-6 py-16 lg:py-24">
+      <section className="bg-secondary/30 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">Ressources et partenaires</h2>
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">Ressources et partenaires</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-6">
-              <h3 className="mb-3 text-lg font-bold text-slate-900 dark:text-slate-100">ADEME</h3>
-              <p className="mb-4 text-sm text-slate-600 dark:text-slate-400">
+            <Card className="border-2 border-border bg-background p-6 lift">
+              <h3 className="mb-3 text-lg font-bold text-foreground">ADEME</h3>
+              <p className="mb-4 text-sm text-muted-foreground">
                 Guides pratiques et données sur l'impact environnemental du numérique
               </p>
               <a
@@ -481,9 +480,9 @@ export default function AgirPage() {
               </a>
             </Card>
 
-            <Card className="border-2 border-slate-200 p-6">
-              <h3 className="mb-3 text-lg font-bold text-slate-900 dark:text-slate-100">GreenIT.fr</h3>
-              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
+            <Card className="border-2 border-border bg-background p-6 lift">
+              <h3 className="mb-3 text-lg font-bold text-foreground">GreenIT.fr</h3>
+              <p className="mb-4 text-sm text-muted-foreground">
                 Communauté et ressources sur l'écoconception et le numérique responsable
               </p>
               <a
@@ -497,9 +496,9 @@ export default function AgirPage() {
               </a>
             </Card>
 
-            <Card className="border-2 border-slate-200 p-6">
-              <h3 className="mb-3 text-lg font-bold text-slate-900 dark:text-slate-100">Ecosystem</h3>
-              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
+            <Card className="border-2 border-border bg-background p-6 lift">
+              <h3 className="mb-3 text-lg font-bold text-foreground">Ecosystem</h3>
+              <p className="mb-4 text-sm text-muted-foreground">
                 Éco-organisme pour le recyclage des équipements électriques et électroniques
               </p>
               <a
@@ -513,9 +512,9 @@ export default function AgirPage() {
               </a>
             </Card>
 
-            <Card className="border-2 border-slate-200 p-6">
-              <h3 className="mb-3 text-lg font-bold text-slate-900 dark:text-slate-100">Réseau des Ressourceries</h3>
-              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
+            <Card className="border-2 border-border bg-background p-6 lift">
+              <h3 className="mb-3 text-lg font-bold text-foreground">Réseau des Ressourceries</h3>
+              <p className="mb-4 text-sm text-muted-foreground">
                 Trouver une ressourcerie près de chez vous pour donner une seconde vie à vos appareils
               </p>
               <a
@@ -529,9 +528,9 @@ export default function AgirPage() {
               </a>
             </Card>
 
-            <Card className="border-2 border-slate-200 p-6">
-              <h3 className="mb-3 text-lg font-bold text-slate-900 dark:text-slate-100">Envie</h3>
-              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
+            <Card className="border-2 border-border bg-background p-6 lift">
+              <h3 className="mb-3 text-lg font-bold text-foreground">Envie</h3>
+              <p className="mb-4 text-sm text-muted-foreground">
                 Entreprise solidaire spécialisée dans le reconditionnement d'équipements électroménagers
               </p>
               <a
@@ -545,9 +544,9 @@ export default function AgirPage() {
               </a>
             </Card>
 
-            <Card className="border-2 border-slate-200 p-6">
-              <h3 className="mb-3 text-lg font-bold text-slate-900 dark:text-slate-100">Zero Waste France</h3>
-              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
+            <Card className="border-2 border-border bg-background p-6 lift">
+              <h3 className="mb-3 text-lg font-bold text-foreground">Zero Waste France</h3>
+              <p className="mb-4 text-sm text-muted-foreground">
                 Association pour la réduction des déchets et l'économie circulaire
               </p>
               <a
@@ -567,8 +566,8 @@ export default function AgirPage() {
       {/* CTA Section */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="mb-6 text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">Prêt à calculer votre impact ?</h2>
-          <p className="mb-8 text-lg text-slate-600 dark:text-slate-300">
+          <h2 className="mb-6 text-3xl font-bold text-foreground lg:text-4xl">Prêt à calculer votre impact ?</h2>
+          <p className="mb-8 text-lg text-muted-foreground">
             Utilisez notre calculateur d'empreinte numérique pour mesurer votre impact et suivre vos progrès.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">

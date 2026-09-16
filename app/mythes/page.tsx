@@ -7,6 +7,8 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle2, XCircle, Lightbulb, TrendingUp, Database, Smartphone, Recycle, Zap } from "lucide-react"
+import { PageHero } from "@/components/page-hero"
+import { SectionDivider } from "@/components/section-divider"
 import Link from "next/link"
 
 interface Myth {
@@ -172,24 +174,22 @@ export default function MythesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-emerald-700 to-teal-800 px-6 py-16 lg:py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <Badge className="mb-4 bg-emerald-950/70 text-emerald-50 border-emerald-700/60">Mythes vs Réalités</Badge>
-          <h1 className="mb-6 text-4xl font-bold text-white lg:text-5xl">Démêlons le vrai du faux</h1>
-          <p className="text-xl text-emerald-50">
-            Le Green IT est entouré d'idées reçues. Découvrez ce qui est vraiment efficace pour réduire votre impact
-            numérique, avec des données sourcées et à jour.
-          </p>
-        </div>
-      </section>
+    <div data-theme="amber" className="min-h-screen bg-secondary/30">
+      <PageHero
+        theme="amber"
+        image={{ src: "/greenit/images/hero-mythes.webp", alt: "Ampoule géante en deux moitiés, ambre interrogative et émeraude végétale" }}
+        badge={{ label: "Mythes vs Réalités" }}
+        title="Démêlons le vrai du faux"
+        intro="Le Green IT est entouré d'idées reçues. Découvrez ce qui est vraiment efficace pour réduire votre impact numérique, avec des données sourcées et à jour."
+      />
+
+      <SectionDivider />
 
       {/* Filter Section */}
-      <section className="border-b border-slate-200 bg-white px-6 py-6 dark:border-slate-700 dark:bg-slate-800">
+      <section className="border-b border-border bg-card px-6 py-6">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-wrap gap-3">
-            <span className="text-sm font-medium text-slate-600 dark:text-slate-400 self-center">Filtrer par :</span>
+            <span className="text-sm font-medium text-muted-foreground self-center">Filtrer par :</span>
             {categories.map((cat) => (
               <Button
                 key={cat}
@@ -206,7 +206,7 @@ export default function MythesPage() {
               </Button>
             ))}
           </div>
-          <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">
+          <p className="mt-4 text-sm text-muted-foreground">
             {filteredMyths.length} mythe{filteredMyths.length > 1 ? "s" : ""} trouvé
             {filteredMyths.length > 1 ? "s" : ""}
           </p>
@@ -222,7 +222,7 @@ export default function MythesPage() {
               return (
                 <Card
                   key={myth.id}
-                  className="overflow-hidden border-2 border-slate-200 transition-all hover:shadow-lg dark:border-slate-700 dark:bg-slate-800"
+                  className="overflow-hidden border-2 border-border bg-card transition-all hover:shadow-lg"
                 >
                   <div className="p-6">
                     {/* Header */}
@@ -286,8 +286,8 @@ export default function MythesPage() {
                           </div>
                         </div>
 
-                        <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-700">
-                          <p className="text-xs text-slate-500 dark:text-slate-400">Source : {myth.source}</p>
+                        <div className="flex items-center justify-between pt-2 border-t border-border">
+                          <p className="text-xs text-muted-foreground">Source : {myth.source}</p>
                         </div>
 
                         {myth.relatedLink && (
@@ -302,7 +302,7 @@ export default function MythesPage() {
                           onClick={() => toggleReveal(myth.id)}
                           variant="ghost"
                           size="sm"
-                          className="w-full text-slate-600 dark:text-slate-400"
+                          className="w-full text-muted-foreground"
                         >
                           Masquer
                         </Button>
@@ -317,10 +317,10 @@ export default function MythesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-white px-6 py-16 dark:bg-slate-800">
+      <section className="bg-card px-6 py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-slate-100">Vous avez d'autres questions ?</h2>
-          <p className="mb-8 text-lg text-slate-600 dark:text-slate-400">
+          <h2 className="mb-4 text-3xl font-bold text-foreground">Vous avez d'autres questions ?</h2>
+          <p className="mb-8 text-lg text-muted-foreground">
             Consultez notre FAQ ou explorez nos ressources pour approfondir vos connaissances sur le Green IT.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">

@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { PageHero } from "@/components/page-hero"
 import { Badge } from "@/components/ui/badge"
 import {
   FileText,
@@ -150,21 +151,14 @@ export default function ModelesPage() {
   )
 
   return (
-    <div className="min-h-screen">
-      <section className="bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 px-6 py-16 lg:py-24 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center justify-center rounded-full bg-muted/10 p-3">
-            <FileText className="h-8 w-8 text-emerald-700 dark:text-emerald-400" />
-          </div>
-          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl dark:text-slate-100">
-            Modèles et outils téléchargeables
-          </h1>
-          <p className="text-pretty text-lg text-slate-600 lg:text-xl dark:text-slate-300">
-            Templates prêts à l'emploi pour déployer une démarche Green IT dans votre organisation. Tous les documents
-            sont personnalisables et libres d'usage.
-          </p>
-        </div>
-      </section>
+    <div className="min-h-screen" data-theme="blue">
+      <PageHero
+        theme="blue"
+        image={{ src: "/greenit/images/hero-modeles.webp", alt: "Pile de documents avec cases cochées et stylo" }}
+        badge={{ icon: FileText }}
+        title="Modèles et outils téléchargeables"
+        intro="Templates prêts à l'emploi pour déployer une démarche Green IT dans votre organisation. Tous les documents sont personnalisables et libres d'usage."
+      />
 
       <section className="px-6 py-16">
         <div className="mx-auto max-w-7xl">

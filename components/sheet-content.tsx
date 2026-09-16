@@ -1,9 +1,10 @@
 "use client"
 
+import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Printer, Share2, CheckCircle2 } from "lucide-react"
+import { ArrowLeft, Printer, Share2, Check, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
 import { JsonLd } from "@/components/json-ld"
 import { SITE_NAME, SITE_URL } from "@/lib/metadata"
@@ -13,6 +14,7 @@ interface SheetContentProps {
 }
 
 export function SheetContent({ sheet }: SheetContentProps) {
+    const [copied, setCopied] = useState(false)
     const jsonLd = sheet.id
         ? {
               "@context": "https://schema.org",
@@ -149,14 +151,16 @@ export function SheetContent({ sheet }: SheetContentProps) {
                             await navigator.share({ title: sheet.title, text: sheet.title })
                           } else {
                             await navigator.clipboard.writeText(window.location.href)
+                            setCopied(true)
+                            window.setTimeout(() => setCopied(false), 2000)
                           }
                         } catch {
                           // partage annulé ou indisponible, on ne fait rien
                         }
                       }}
                     >
-                        <Share2 className="mr-2 h-5 w-5" />
-                        Partager
+                        {copied ? <Check className="mr-2 h-5 w-5" /> : <Share2 className="mr-2 h-5 w-5" />}
+                        {copied ? "Copié !" : "Partager"}
                     </Button>
                 </div>
         </div>

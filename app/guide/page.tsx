@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { SourceTooltip } from "@/components/source-tooltip"
-import { Badge } from "@/components/ui/badge"
+import { PageHero } from "@/components/page-hero"
 import { Button } from "@/components/ui/button"
 import {
     FileText,
@@ -75,18 +75,16 @@ export default function GuidePage() {
     ]
 
     return (
-        <div className="min-h-screen bg-background pb-20">
+        <div className="min-h-screen bg-background pb-20" data-theme="emerald">
             {/* Header */}
-            <section className="bg-primary/10 py-16 px-6">
-                <div className="max-w-4xl mx-auto text-center">
-                    <Badge className="mb-4 bg-primary text-primary-foreground">Guide récapitulatif 2026</Badge>
-                    <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                        Guide du Numérique Responsable
-                    </h1>
-                    <p className="text-xl text-muted-foreground mb-8">
-                        Les bons réflexes pour réduire votre empreinte numérique au quotidien.
-                    </p>
-                    <div className="flex flex-wrap items-center justify-center gap-4">
+      <PageHero
+        theme="emerald"
+        image={{ src: "/greenit/images/hero-guide.webp", alt: "Pousse verte sortant des pages d'un guide ouvert" }}
+                badge={{ icon: FileText, label: "Guide récapitulatif 2026" }}
+                title="Guide du Numérique Responsable"
+                intro="Les bons réflexes pour réduire votre empreinte numérique au quotidien."
+                actions={
+                    <>
                         <Button onClick={() => window.print()} className="bg-primary hover:bg-primary/90">
                             <Printer className="mr-2 h-4 w-4" />
                             Imprimer le guide
@@ -97,9 +95,9 @@ export default function GuidePage() {
                                 Guide recyclage (PDF)
                             </a>
                         </Button>
-                    </div>
-                </div>
-            </section>
+                    </>
+                }
+            />
 
             {/* Content */}
             <div className="max-w-5xl mx-auto px-6 mt-12 grid gap-8">

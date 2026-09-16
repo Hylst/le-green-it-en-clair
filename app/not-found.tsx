@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 import { Home, Compass } from "lucide-react"
 import type { Metadata } from "next"
 
@@ -11,6 +12,14 @@ export const metadata: Metadata = {
 export default function NotFound() {
     return (
         <div className="flex min-h-screen flex-col items-center justify-center bg-slate-50 px-6 text-center dark:bg-slate-950">
+            <Image
+                src="/greenit/images/offline-illustration.webp"
+                alt="Prise débranchée reposant à côté d'une feuille endormie"
+                width={256}
+                height={256}
+                className="mb-6 h-40 w-40 rounded-2xl border border-border object-cover shadow-md"
+                quality={85}
+            />
             <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/30">
                 <Compass className="h-10 w-10 text-emerald-600 dark:text-emerald-400" />
             </div>

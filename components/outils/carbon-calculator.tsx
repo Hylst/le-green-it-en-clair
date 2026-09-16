@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { Calculator, Download, Share2 } from "lucide-react";
+import { Calculator, Download, Share2, Check } from "lucide-react";
 import { LabeledSlider } from "./shared";
 
 export default function CarbonCalculator() {
@@ -23,6 +23,7 @@ export default function CarbonCalculator() {
     cloud: 20,
     social: 2,
   })
+  const [copied, setCopied] = useState(false)
 
   // Calcul de l'empreinte carbone (facteurs ADEME, Impact CO₂, mise à jour 2025)
   const calculateFootprint = () => {
@@ -75,15 +76,15 @@ export default function CarbonCalculator() {
         <CardContent className="space-y-8">
           {/* Équipements */}
           <div>
-            <h3 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100">Vos équipements</h3>
+            <h3 className="font-semibold text-lg mb-4 text-foreground">Vos équipements</h3>
             <div className="space-y-6">
               {Object.entries(devices).map(([device, data]) => (
                 <div
                   key={device}
-                  className="space-y-3 p-4 bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-gray-700"
+                  className="space-y-3 p-4 bg-secondary/50 rounded-lg border border-border"
                 >
                   <div className="flex items-center justify-between">
-                    <Label className="capitalize font-medium text-gray-900 dark:text-gray-100">
+                    <Label className="capitalize font-medium text-foreground">
                       {device === "smartphone" && "Smartphone"}
                       {device === "laptop" && "Ordinateur portable"}
                       {device === "tablet" && "Tablette"}
@@ -103,7 +104,7 @@ export default function CarbonCalculator() {
                       >
                         -
                       </Button>
-                      <span className="w-8 text-center font-semibold text-gray-900 dark:text-gray-100">
+                      <span className="w-8 text-center font-semibold text-foreground">
                         {data.count}
                       </span>
                       <Button
@@ -125,8 +126,8 @@ export default function CarbonCalculator() {
                     <>
                       <div>
                         <div className="flex items-center justify-between mb-2">
-                          <Label className="text-sm text-gray-600 dark:text-gray-300">Âge moyen</Label>
-                          <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{data.age} ans</span>
+                          <Label className="text-sm text-muted-foreground">Âge moyen</Label>
+                          <span className="text-sm font-semibold text-foreground">{data.age} ans</span>
                         </div>
                         <LabeledSlider
                           label={`${device === "smartphone" ? "Smartphone" : device === "laptop" ? "Ordinateur portable" : device === "tablet" ? "Tablette" : device === "desktop" ? "Ordinateur fixe" : "Télévision"} — âge moyen`}
@@ -145,8 +146,8 @@ export default function CarbonCalculator() {
                       </div>
                       <div>
                         <div className="flex items-center justify-between mb-2">
-                          <Label className="text-sm text-gray-600 dark:text-gray-300">Usage quotidien</Label>
-                          <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{data.usage}h</span>
+                          <Label className="text-sm text-muted-foreground">Usage quotidien</Label>
+                          <span className="text-sm font-semibold text-foreground">{data.usage}h</span>
                         </div>
                         <LabeledSlider
                           label={`${device === "smartphone" ? "Smartphone" : device === "laptop" ? "Ordinateur portable" : device === "tablet" ? "Tablette" : device === "desktop" ? "Ordinateur fixe" : "Télévision"} — usage quotidien`}
@@ -172,12 +173,12 @@ export default function CarbonCalculator() {
 
           {/* Usages cloud */}
           <div>
-            <h3 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100">Vos usages numériques</h3>
+            <h3 className="font-semibold text-lg mb-4 text-foreground">Vos usages numériques</h3>
             <div className="space-y-4">
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <Label className="text-gray-900 dark:text-gray-100">Emails envoyés par jour</Label>
-                  <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{cloudUsage.email}</span>
+                  <Label className="text-foreground">Emails envoyés par jour</Label>
+                  <span className="text-sm font-semibold text-foreground">{cloudUsage.email}</span>
                 </div>
                 <LabeledSlider
                   label="Emails envoyés par jour"
@@ -191,8 +192,8 @@ export default function CarbonCalculator() {
               </div>
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <Label className="text-gray-900 dark:text-gray-100">Streaming vidéo (heures/semaine)</Label>
-                  <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{cloudUsage.streaming}</span>
+                  <Label className="text-foreground">Streaming vidéo (heures/semaine)</Label>
+                  <span className="text-sm font-semibold text-foreground">{cloudUsage.streaming}</span>
                 </div>
                 <LabeledSlider
                   label="Streaming vidéo (heures par semaine)"
@@ -206,8 +207,8 @@ export default function CarbonCalculator() {
               </div>
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <Label className="text-gray-900 dark:text-gray-100">Stockage cloud (Go)</Label>
-                  <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{cloudUsage.cloud}</span>
+                  <Label className="text-foreground">Stockage cloud (Go)</Label>
+                  <span className="text-sm font-semibold text-foreground">{cloudUsage.cloud}</span>
                 </div>
                 <LabeledSlider
                   label="Stockage cloud (Go)"
@@ -221,8 +222,8 @@ export default function CarbonCalculator() {
               </div>
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <Label className="text-gray-900 dark:text-gray-100">Réseaux sociaux (heures/jour)</Label>
-                  <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{cloudUsage.social}</span>
+                  <Label className="text-foreground">Réseaux sociaux (heures/jour)</Label>
+                  <span className="text-sm font-semibold text-foreground">{cloudUsage.social}</span>
                 </div>
                 <LabeledSlider
                   label="Réseaux sociaux (heures par jour)"
@@ -239,17 +240,17 @@ export default function CarbonCalculator() {
 
           {/* Résultats */}
           <div className="bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-900/20 dark:to-emerald-900/20 p-6 rounded-lg border-2 border-green-200 dark:border-green-800">
-            <h3 className="font-semibold text-xl mb-4 text-gray-900 dark:text-gray-100">
+            <h3 className="font-semibold text-xl mb-4 text-foreground">
               Votre empreinte carbone numérique
             </h3>
             <div className="text-center mb-6">
               <div className="text-5xl font-bold text-green-700 dark:text-green-400 mb-2">{totalFootprint} kg</div>
-              <div className="text-gray-700 dark:text-gray-300 font-medium">CO₂e par an</div>
+              <div className="text-muted-foreground font-medium">CO₂e par an</div>
             </div>
 
             <div className="space-y-4">
               <div>
-                <div className="flex justify-between text-sm mb-2 text-gray-800 dark:text-gray-200">
+                <div className="flex justify-between text-sm mb-2 text-foreground">
                   <span>Comparé à l'empreinte numérique mondiale par internaute ({averageDigitalUser} kg)</span>
                   <span className="font-semibold">{percentage}%</span>
                 </div>
@@ -257,28 +258,28 @@ export default function CarbonCalculator() {
               </div>
 
               <div className="grid grid-cols-2 gap-4 mt-6">
-                <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
+                <div className="bg-card p-4 rounded-lg text-center border border-border">
                   <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
                     {Math.round(totalFootprint / 12)}
                   </div>
-                  <div className="text-sm text-gray-700 dark:text-gray-300">kg CO₂e/mois</div>
+                  <div className="text-sm text-muted-foreground">kg CO₂e/mois</div>
                 </div>
-                <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
+                <div className="bg-card p-4 rounded-lg text-center border border-border">
                   <div className="text-2xl font-bold text-green-600 dark:text-green-400">
                     {Math.round(totalFootprint * 0.3)}
                   </div>
-                  <div className="text-sm text-gray-700 dark:text-gray-300">Économie possible (−30 %)</div>
+                  <div className="text-sm text-muted-foreground">Économie possible (−30 %)</div>
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-slate-800 p-4 rounded-lg mt-4 border border-gray-200 dark:border-gray-700">
-                <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">Équivalences</h4>
-                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+              <div className="bg-card p-4 rounded-lg mt-4 border border-border">
+                <h4 className="font-semibold mb-2 text-foreground">Équivalences</h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>≈ {Math.round(totalFootprint / 0.17)} km en voiture</li>
                   <li>≈ {Math.round(totalFootprint / 167)} aller-retours Paris-Marseille en avion</li>
                   <li>≈ {Math.round(totalFootprint / 7)} repas avec bœuf</li>
                 </ul>
-                <p className="mt-3 text-xs text-gray-600 dark:text-gray-400">
+                <p className="mt-3 text-xs text-muted-foreground">
                   Hypothèses : fabrication amortie sur la durée de vie saisie, usage au prorata des heures (base 24 h/j). Voiture 0,17 kg CO₂/km (ADEME 2023). Streaming compté en
                   qualité SD (~31 g/h), réseaux sociaux hors vidéo (~7 g/h), e-mail ~4 g, cloud ~0,24 g/Go/an
                   (ADEME, Impact CO₂ / Base Empreinte).
@@ -288,7 +289,7 @@ export default function CarbonCalculator() {
 
             <div className="flex flex-wrap gap-2 mt-6">
               <Button
-                className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
+                className="flex-1 bg-card text-foreground hover:bg-secondary border border-border"
                 variant="outline"
                 onClick={() => window.print()}
               >
@@ -296,7 +297,7 @@ export default function CarbonCalculator() {
                 Télécharger le rapport
               </Button>
               <Button
-                className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
+                className="flex-1 bg-card text-foreground hover:bg-secondary border border-border"
                 variant="outline"
                 onClick={async () => {
                   const text = `Mon empreinte numérique : ${totalFootprint} kg CO2e/an`
@@ -305,24 +306,26 @@ export default function CarbonCalculator() {
                       await navigator.share({ title: "Mon empreinte numérique", text })
                     } else {
                       await navigator.clipboard.writeText(text)
+                      setCopied(true)
+                      window.setTimeout(() => setCopied(false), 2000)
                     }
                   } catch {
                     // partage annulé ou indisponible, on ne fait rien
                   }
                 }}
               >
-                <Share2 className="w-4 h-4 mr-2" />
-                Partager
+                {copied ? <Check className="w-4 h-4 mr-2" /> : <Share2 className="w-4 h-4 mr-2" />}
+                {copied ? "Copié !" : "Partager"}
               </Button>
             </div>
           </div>
 
           {/* Recommandations */}
           <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
-            <h3 className="font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100">
+            <h3 className="font-semibold text-lg mb-3 text-foreground">
               Recommandations personnalisées
             </h3>
-            <ul className="space-y-2 text-sm text-gray-800 dark:text-gray-200">
+            <ul className="space-y-2 text-sm text-foreground">
               {totalFootprint > averageDigitalUser && (
                 <li>• Votre empreinte est supérieure à la moyenne. Consultez nos guides d'action pour la réduire.</li>
               )}
@@ -341,7 +344,7 @@ export default function CarbonCalculator() {
         </CardContent>
       </Card>
 
-      <div className="text-sm text-gray-600 dark:text-gray-300 text-center">
+      <div className="text-sm text-muted-foreground text-center">
         Sources : ADEME, Impact CO₂ (mise à jour 2025 : Base Empreinte, étude ADEME-Arcep), GreenIT.fr, Shift Project • Méthodologie : ACV (Analyse du cycle de vie) • Usage modulé selon les heures d'utilisation par jour • Stockage
         cloud : 0,24 g CO₂e/Go/an (ADEME, Impact CO₂ / Base Empreinte)
       </div>

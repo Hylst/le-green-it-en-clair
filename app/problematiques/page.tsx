@@ -4,6 +4,10 @@ import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { SourceTooltip } from "@/components/source-tooltip"
+import { PageHero } from "@/components/page-hero"
+import { SectionDivider } from "@/components/section-divider"
+import { Reveal } from "@/components/reveal"
+import { ReadingProgress } from "@/components/reading-progress"
 import {
   AlertTriangle,
   TrendingUp,
@@ -40,6 +44,7 @@ import {
   Pie,
   Cell,
 } from "recharts"
+import { useChartTheme } from "@/lib/chart-theme"
 
 // Data for e-waste growth
 const eWasteGrowthData = [
@@ -55,9 +60,9 @@ const eWasteGrowthData = [
 
 // Data for digital carbon footprint by sector
 const carbonBySectorData = [
-  { sector: "Équipements", percentage: 79, color: "#ef4444" },
-  { sector: "Datacenters", percentage: 16, color: "#f59e0b" },
-  { sector: "Réseaux", percentage: 5, color: "#10b981" },
+  { sector: "Équipements", percentage: 79 },
+  { sector: "Datacenters", percentage: 16 },
+  { sector: "Réseaux", percentage: 5 },
 ]
 
 // Data for recycling rates by country (Eurostat / Ecosystem, 2024 — même série que /chiffres)
@@ -459,37 +464,33 @@ const futureSolutions = [
 ]
 
 export default function ProblematiquesPage() {
+  const chart = useChartTheme()
+  const carbonColors = [chart.red, chart.amber, chart.emerald]
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-50 via-orange-50 to-amber-50 dark:from-red-950/40 dark:via-orange-950/40 dark:to-amber-950/40 px-6 py-16 lg:py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-red-100 dark:bg-red-900/30 px-4 py-2 text-sm font-medium text-red-800 dark:text-red-300">
-            <AlertTriangle className="h-4 w-4" />
-            Problématiques & Solutions
-          </div>
-          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 lg:text-5xl">
-            Les défis du numérique et les solutions pour y répondre
-          </h1>
-          <p className="text-pretty text-lg text-slate-600 dark:text-slate-300 lg:text-xl">
-            Comprendre les problématiques environnementales du numérique, analyser les tendances actuelles, et découvrir
-            les solutions existantes et à développer pour un avenir durable.
-          </p>
-        </div>
-      </section>
+    <div data-theme="red" className="min-h-screen bg-background transition-colors duration-300">
+      <ReadingProgress />
+      <PageHero
+        theme="red"
+        image={{ src: "/greenit/images/hero-problematiques.webp", alt: "Smartphone fissuré déversant des déchets électroniques sur une planète fragile" }}
+        badge={{ icon: AlertTriangle, label: "Problématiques & Solutions" }}
+        title="Les défis du numérique et les solutions pour y répondre"
+        intro="Comprendre les problématiques environnementales du numérique, analyser les tendances actuelles, et découvrir les solutions existantes et à développer pour un avenir durable."
+      />
+
+      <SectionDivider />
 
       {/* E-Waste Growth Chart */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">
             L'explosion des déchets électroniques
           </h2>
-          <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 lg:p-12">
+          <Card className="border-2 border-border bg-white dark:bg-slate-900 p-8 lg:p-12">
             <ResponsiveContainer width="100%" height={400}>
               <LineChart data={eWasteGrowthData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                <XAxis dataKey="year" stroke="#64748b" />
-                <YAxis stroke="#64748b" label={{ value: "Millions de tonnes", angle: -90, position: "insideLeft" }} />
+                <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
+                <XAxis dataKey="year" stroke={chart.tick} />
+                <YAxis stroke={chart.tick} label={{ value: "Millions de tonnes", angle: -90, position: "insideLeft" }} />
                 <Tooltip
                   contentStyle={{
                     backgroundColor: "var(--card)",
@@ -502,14 +503,14 @@ export default function ProblematiquesPage() {
                 <Line
                   type="monotone"
                   dataKey="amount"
-                  stroke="#ef4444"
+                  stroke={chart.red}
                   strokeWidth={3}
                   name="E-déchets (Mt)"
                   dot={{ r: 5 }}
                 />
               </LineChart>
             </ResponsiveContainer>
-            <p className="mt-6 text-center text-sm text-slate-600 dark:text-slate-400">
+            <p className="mt-6 text-center text-sm text-muted-foreground">
               <strong>+56 % en 10 ans</strong> - 62 Mt en 2022, environ 69-70 Mt en 2025, 82 Mt projetées en 2030
               (+2,6 Mt/an, Global E-waste Monitor 2024).
             </p>
@@ -518,16 +519,16 @@ export default function ProblematiquesPage() {
       </section>
 
       {/* Main Problems */}
-      <section className="bg-slate-50 dark:bg-slate-900 px-6 py-16 lg:py-24">
+      <Reveal as="section" className="bg-secondary/30 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">
             Les 6 problématiques majeures
           </h2>
           <div className="space-y-8">
             {mainProblems.map((problem, index) => {
               const Icon = problem.icon
               return (
-                <Card key={index} className={`border-2 border-${problem.color}-500 bg-white dark:bg-slate-950 p-8`}>
+                <Card key={index} className={`border-2 border-${problem.color}-500 bg-background p-8`}>
                   <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                     <div className="flex items-start gap-4">
                       <div
@@ -536,8 +537,8 @@ export default function ProblematiquesPage() {
                         <Icon className="h-7 w-7 text-white" />
                       </div>
                       <div>
-                        <h3 className="mb-2 text-2xl font-bold text-slate-900 dark:text-slate-100">{problem.title}</h3>
-                        <p className="text-sm text-slate-600 dark:text-slate-400">{problem.description}</p>
+                        <h3 className="mb-2 text-2xl font-bold text-foreground">{problem.title}</h3>
+                        <p className="text-sm text-muted-foreground">{problem.description}</p>
                       </div>
                     </div>
                     <div className="flex shrink-0 flex-col items-end gap-2">
@@ -553,7 +554,7 @@ export default function ProblematiquesPage() {
 
                   <div className="mb-6 grid gap-4 md:grid-cols-2">
                     <div>
-                      <h4 className="mb-3 font-semibold text-slate-900 dark:text-slate-100">Impacts environnementaux et sociaux</h4>
+                      <h4 className="mb-3 font-semibold text-foreground">Impacts environnementaux et sociaux</h4>
                       <ul className="space-y-2">
                         {problem.impacts.map((impact, idx) => (
                           <li key={idx} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
@@ -564,8 +565,8 @@ export default function ProblematiquesPage() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="mb-3 font-semibold text-slate-900 dark:text-slate-100">Données 2025</h4>
-                      <p className="rounded-lg bg-slate-50 dark:bg-slate-900 p-4 text-sm text-slate-700 dark:text-slate-300">{problem.data2025}</p>
+                      <h4 className="mb-3 font-semibold text-foreground">Données 2025</h4>
+                      <p className="rounded-lg bg-secondary/30 p-4 text-sm text-slate-700 dark:text-slate-300">{problem.data2025}</p>
                     </div>
                   </div>
                 </Card>
@@ -573,16 +574,16 @@ export default function ProblematiquesPage() {
             })}
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Carbon Footprint Breakdown */}
-      <section className="px-6 py-16 lg:py-24">
+      <Reveal as="section" className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">
             Répartition de l'empreinte carbone du numérique
           </h2>
           <div className="grid gap-8 lg:grid-cols-2">
-            <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8">
+            <Card className="border-2 border-border bg-white dark:bg-slate-900 p-8">
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
                   <Pie
@@ -592,11 +593,11 @@ export default function ProblematiquesPage() {
                     labelLine={false}
                     label={({ sector, percentage }) => `${sector}: ${percentage}%`}
                     outerRadius={100}
-                    fill="#8884d8"
+                    fill={chart.violet}
                     dataKey="percentage"
                   >
                     {carbonBySectorData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
+                      <Cell key={`cell-${index}`} fill={carbonColors[index % carbonColors.length]} />
                     ))}
                   </Pie>
                   <Tooltip
@@ -620,7 +621,7 @@ export default function ProblematiquesPage() {
                 <div className="mb-3 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <Smartphone className="h-6 w-6 text-red-700 dark:text-red-400" />
-                    <h3 className="font-bold text-slate-900 dark:text-slate-100">Équipements utilisateurs</h3>
+                    <h3 className="font-bold text-foreground">Équipements utilisateurs</h3>
                   </div>
                   <span className="text-2xl font-bold text-red-700 dark:text-red-400">
                     79 %
@@ -637,7 +638,7 @@ export default function ProblematiquesPage() {
                 <div className="mb-3 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <Server className="h-6 w-6 text-amber-700 dark:text-amber-400" />
-                    <h3 className="font-bold text-slate-900 dark:text-slate-100">Datacenters</h3>
+                    <h3 className="font-bold text-foreground">Datacenters</h3>
                   </div>
                   <span className="text-2xl font-bold text-amber-700 dark:text-amber-400">
                     16 %
@@ -654,7 +655,7 @@ export default function ProblematiquesPage() {
                 <div className="mb-3 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <Globe className="h-6 w-6 text-emerald-700 dark:text-emerald-400" />
-                    <h3 className="font-bold text-slate-900 dark:text-slate-100">Réseaux</h3>
+                    <h3 className="font-bold text-foreground">Réseaux</h3>
                   </div>
                   <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">
                     5 %
@@ -669,32 +670,32 @@ export default function ProblematiquesPage() {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Device Lifespan Trends */}
-      <section className="bg-slate-50 dark:bg-slate-900 px-6 py-16 lg:py-24">
+      <Reveal as="section" className="bg-secondary/30 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">
             L'obsolescence accélérée des appareils
           </h2>
-          <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-8 lg:p-12">
+          <Card className="border-2 border-border bg-background p-8 lg:p-12">
             <p className="text-center text-base text-slate-700 dark:text-slate-300">
               <strong>62 % des appareils sont renouvelés alors qu'ils fonctionnent encore, et 100 millions dorment dans les tiroirs (ADEME 2026)</strong> - On change de smartphone tous les 3 ans en moyenne. Les mises à jour logicielles et le manque de réparabilité accélèrent ce renouvellement : garder ses appareils plus longtemps et les réparer reste le premier levier.
             </p>
           </Card>
         </div>
-      </section>
+      </Reveal>
 
       {/* Current Trends */}
-      <section className="px-6 py-16 lg:py-24">
+      <Reveal as="section" className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">Tendances actuelles 2025</h2>
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">Tendances actuelles 2025</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {currentTrends.map((trend, index) => {
               const Icon = trend.icon
               const impactColor = trend.impact === "Positif" ? "emerald" : trend.impact === "Négatif" ? "red" : "amber"
               return (
-                <Card key={index} className={`border-2 border-${impactColor}-500 bg-${impactColor}-50 dark:bg-${impactColor}-900/20 dark:border-${impactColor}-700 p-6`}>
+                <Card key={index} className={`border-2 border-${impactColor}-500 bg-${impactColor}-50 dark:bg-${impactColor}-900/20 dark:border-${impactColor}-700 p-6 lift`}>
                   <div className="mb-4 flex items-start justify-between">
                     <div
                       className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-${impactColor}-600`}
@@ -712,7 +713,7 @@ export default function ProblematiquesPage() {
                       {trend.impact}
                     </span>
                   </div>
-                  <h3 className="mb-3 text-lg font-bold text-slate-900 dark:text-slate-100">{trend.title}</h3>
+                  <h3 className="mb-3 text-lg font-bold text-foreground">{trend.title}</h3>
                   <p className="mb-4 text-sm text-slate-700 dark:text-slate-300">{trend.description}</p>
                   <div className="rounded-lg bg-white dark:bg-slate-900 p-3">
                     <p className="text-xs font-semibold text-slate-900 dark:text-slate-200">{trend.data}</p>
@@ -722,32 +723,32 @@ export default function ProblematiquesPage() {
             })}
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Current Solutions */}
-      <section className="bg-slate-50 dark:bg-slate-900 px-6 py-16 lg:py-24">
+      <Reveal as="section" className="bg-secondary/30 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">
             Solutions actuelles déployées
           </h2>
           <div className="space-y-8">
             {currentSolutions.map((category, index) => {
               const Icon = category.icon
               return (
-                <Card key={index} className={`border-2 border-${category.color}-500 bg-white dark:bg-slate-950 p-8`}>
+                <Card key={index} className={`border-2 border-${category.color}-500 bg-background p-8`}>
                   <div className="mb-6 flex items-center gap-4">
                     <div
                       className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-${category.color}-600`}
                     >
                       <Icon className="h-7 w-7 text-white" />
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100">{category.category}</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold text-foreground">{category.category}</h3>
                   </div>
                   <div className="grid gap-6 md:grid-cols-3">
                     {category.solutions.map((solution, idx) => (
-                      <div key={idx} className="rounded-lg border-2 border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-6">
+                      <div key={idx} className="rounded-lg border-2 border-border bg-secondary/30 p-6">
                         <div className="mb-3 flex items-start justify-between">
-                          <h4 className="font-semibold text-slate-900 dark:text-slate-100">{solution.name}</h4>
+                          <h4 className="font-semibold text-foreground">{solution.name}</h4>
                           <span
                             className={`rounded-full px-2 py-1 text-xs font-semibold ${solution.adoption === "Élevée"
                               ? "bg-emerald-700 text-white"
@@ -768,20 +769,20 @@ export default function ProblematiquesPage() {
             })}
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Recycling Rates */}
-      <section className="px-6 py-16 lg:py-24">
+      <Reveal as="section" className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 break-words text-center text-2xl font-bold text-slate-900 dark:text-slate-100 sm:text-3xl lg:text-4xl">
+          <h2 className="mb-12 break-words text-center text-2xl font-bold text-foreground sm:text-3xl lg:text-4xl">
             Taux de collecte des déchets électroniques en Europe (Eurostat/Ecosystem, 2024)
           </h2>
-          <Card className="border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-8 lg:p-12">
+          <Card className="border-2 border-border bg-background p-8 lg:p-12">
             <ResponsiveContainer width="100%" height={400}>
               <BarChart data={recyclingRatesData} layout="vertical">
-                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                <XAxis type="number" domain={[0, 100]} stroke="#64748b" />
-                <YAxis dataKey="country" type="category" stroke="#64748b" width={100} />
+                <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
+                <XAxis type="number" domain={[0, 100]} stroke={chart.tick} />
+                <YAxis dataKey="country" type="category" stroke={chart.tick} width={100} />
                 <Tooltip
                   contentStyle={{
                     backgroundColor: "var(--card)",
@@ -791,7 +792,7 @@ export default function ProblematiquesPage() {
                   }}
                   itemStyle={{ color: "var(--foreground)" }}
                 />
-                <Bar dataKey="rate" fill="#10b981" radius={[0, 8, 8, 0]} name="Taux de recyclage (%)" />
+                <Bar dataKey="rate" fill={chart.emerald} radius={[0, 8, 8, 0]} name="Taux de recyclage (%)" />
               </BarChart>
             </ResponsiveContainer>
             <p className="mt-6 text-center text-sm text-slate-600 dark:text-slate-300">
@@ -800,19 +801,19 @@ export default function ProblematiquesPage() {
             </p>
           </Card>
         </div>
-      </section>
+      </Reveal>
 
       {/* Future Solutions */}
-      <section className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/40 dark:via-purple-950/40 dark:to-pink-950/40 px-6 py-16 lg:py-24">
+      <Reveal as="section" className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/40 dark:via-purple-950/40 dark:to-pink-950/40 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">
             Solutions à développer pour l'avenir
           </h2>
           <div className="space-y-8">
             {futureSolutions.map((category, index) => {
               const Icon = category.icon
               return (
-                <Card key={index} className={`border-2 border-${category.color}-500 bg-white dark:bg-slate-950 p-8`}>
+                <Card key={index} className={`border-2 border-${category.color}-500 bg-background p-8`}>
                   <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                     <div className="flex items-center gap-4">
                       <div
@@ -821,16 +822,16 @@ export default function ProblematiquesPage() {
                         <Icon className="h-7 w-7 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100">{category.category}</h3>
-                        <p className="text-sm text-slate-600 dark:text-slate-400">Horizon : {category.timeframe}</p>
+                        <h3 className="text-xl sm:text-2xl font-bold text-foreground">{category.category}</h3>
+                        <p className="text-sm text-muted-foreground">Horizon : {category.timeframe}</p>
                       </div>
                     </div>
                   </div>
                   <div className="grid gap-6 md:grid-cols-2">
                     {category.solutions.map((solution, idx) => (
-                      <div key={idx} className="rounded-lg border-2 border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-6">
+                      <div key={idx} className="rounded-lg border-2 border-border bg-secondary/30 p-6">
                         <div className="mb-3 flex items-start justify-between">
-                          <h4 className="font-semibold text-slate-900 dark:text-slate-100">{solution.name}</h4>
+                          <h4 className="font-semibold text-foreground">{solution.name}</h4>
                           <span
                             className={`rounded-full px-2 py-1 text-xs font-semibold ${solution.potential === "Très élevé"
                               ? "bg-emerald-700 text-white"
@@ -854,18 +855,18 @@ export default function ProblematiquesPage() {
             })}
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Key Messages */}
-      <section className="px-6 py-16 lg:py-24">
+      <Reveal as="section" className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">Messages clés</h2>
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">Messages clés</h2>
           <div className="space-y-6">
             <Card className="border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 dark:border-emerald-700 p-6">
               <div className="flex items-start gap-4">
                 <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-emerald-700 dark:text-emerald-400" />
                 <div>
-                  <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">Le problème principal : la fabrication</h3>
+                  <h3 className="mb-2 font-semibold text-foreground">Le problème principal : la fabrication</h3>
                   <p className="text-sm text-slate-700 dark:text-slate-300">
                     79 % de l'impact vient des équipements utilisateurs (France, ADEME-Arcep 2023). Allonger la durée de vie de nos appareils est
                     l'action la plus efficace.
@@ -878,7 +879,7 @@ export default function ProblematiquesPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-teal-700 dark:text-teal-400" />
                 <div>
-                  <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">Des solutions existent déjà</h3>
+                  <h3 className="mb-2 font-semibold text-foreground">Des solutions existent déjà</h3>
                   <p className="text-sm text-slate-700 dark:text-slate-300">
                     Reconditionnement, réparation, écoconception, datacenters verts : de nombreuses solutions sont
                     déployées mais doivent être généralisées.
@@ -891,7 +892,7 @@ export default function ProblematiquesPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-blue-700 dark:text-blue-400" />
                 <div>
-                  <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">L'innovation ne suffit pas</h3>
+                  <h3 className="mb-2 font-semibold text-foreground">L'innovation ne suffit pas</h3>
                   <p className="text-sm text-slate-700 dark:text-slate-300">
                     Les technologies futures (IA, stockage ADN, processeurs efficaces) sont prometteuses mais la
                     sobriété numérique reste indispensable.
@@ -904,7 +905,7 @@ export default function ProblematiquesPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle2 className="mt-1 h-6 w-6 shrink-0 text-purple-700 dark:text-purple-400" />
                 <div>
-                  <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">Agir à tous les niveaux</h3>
+                  <h3 className="mb-2 font-semibold text-foreground">Agir à tous les niveaux</h3>
                   <p className="text-sm text-slate-700 dark:text-slate-300">
                     Citoyens, entreprises, collectivités, législateurs : chacun a un rôle à jouer pour transformer le
                     numérique.
@@ -914,10 +915,10 @@ export default function ProblematiquesPage() {
             </Card>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-emerald-700 to-teal-800 px-6 py-16 lg:py-24">
+      <Reveal as="section" className="texture-dots bg-gradient-to-br from-emerald-700 to-teal-800 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="mb-6 text-3xl font-bold text-white lg:text-4xl">Passez à l'action maintenant</h2>
           <p className="mb-8 text-lg text-emerald-50">
@@ -938,13 +939,13 @@ export default function ProblematiquesPage() {
             </Button>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Sources */}
-      <section className="border-t border-slate-200 bg-slate-50 dark:bg-slate-950 dark:border-slate-800 px-6 py-8">
+      <section className="border-t border-border bg-slate-50 dark:bg-slate-950 px-6 py-8">
         <div className="mx-auto max-w-7xl">
           <h3 className="mb-4 text-sm font-semibold text-slate-900 dark:text-slate-200">Sources</h3>
-          <div className="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-400">
+          <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
             <span>Global E-Waste Monitor 2024 (ONU)</span>
             <span>•</span>
             <span>AIE - Critical Minerals Market Review 2023</span>

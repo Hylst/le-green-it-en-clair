@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -21,6 +22,7 @@ import {
 } from "lucide-react"
 import dynamic from "next/dynamic"
 import { SourceTooltip } from "@/components/source-tooltip"
+import { PageHero } from "@/components/page-hero"
 
 const LeafletMap = dynamic(() => import("@/components/leaflet-map"), {
   ssr: false,
@@ -187,23 +189,15 @@ export default function RecyclagePage() {
   )
 
   return (
-    <div className="min-h-screen bg-background transition-colors duration-300">
+    <div data-theme="emerald" className="min-h-screen bg-background transition-colors duration-300">
       {/* Hero Section */}
-      <section className="bg-secondary/30 px-6 py-16 lg:py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-            <Recycle className="h-4 w-4" />
-            Recyclage & Filières françaises
-          </div>
-          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-foreground lg:text-5xl">
-            Recycler vos équipements électroniques en France
-          </h1>
-          <p className="text-pretty text-lg text-muted-foreground lg:text-xl">
-            Découvrez où et comment recycler vos appareils, et les acteurs français engagés dans l'économie circulaire
-            du numérique.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        theme="emerald"
+        badge={{ icon: Recycle, label: "Recyclage & Filières françaises" }}
+        title="Recycler vos équipements électroniques en France"
+        intro="Découvrez où et comment recycler vos appareils, et les acteurs français engagés dans l'économie circulaire du numérique."
+        image={{ src: "/greenit/images/hero-recyclage.webp", alt: "Boucle de flèches circulaires transportant téléphone, batterie et ordinateur" }}
+      />
 
       {/* Key Stats */}
       <section className="px-6 py-16 lg:py-24">
@@ -377,6 +371,18 @@ export default function RecyclagePage() {
             </a>
             .
           </p>
+
+          <div className="mx-auto mb-8 max-w-2xl overflow-hidden rounded-xl border border-border">
+            <Image
+              src="/greenit/images/carte-france-collecte.webp"
+              alt="Carte de France parsemée de points de collecte lumineux avec des bacs de tri"
+              width={1376}
+              height={768}
+              className="h-auto w-full"
+              quality={85}
+              loading="lazy"
+            />
+          </div>
 
           {/* Search Bar */}
           <div className="mb-8">

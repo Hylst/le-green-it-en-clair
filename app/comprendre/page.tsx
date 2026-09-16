@@ -20,9 +20,11 @@ import {
   Car,
   Home,
   TreePine,
+  Scale,
 } from "lucide-react"
 import { ScaleComparison } from "@/components/scale-comparison"
 import { VisualAnalogy } from "@/components/visual-analogy"
+import { SectionDivider } from "@/components/section-divider"
 import { RelatedLinks } from "@/components/related-links"
 import { AnimatedLifecycleSVG } from "@/components/animated-lifecycle-svg"
 import { AnimatedImpactBars } from "@/components/animated-impact-bars"
@@ -132,6 +134,8 @@ export default function ComprendrePage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* Animated Lifecycle Visualization */}
       <section className="px-6 py-16 lg:py-24 bg-background">
         <div className="mx-auto max-w-5xl">
@@ -161,7 +165,7 @@ export default function ComprendrePage() {
             alt="Infographie détaillée de l'impact environnemental d'un smartphone"
             containerClassName="mb-12 aspect-[4/3] w-full max-w-4xl mx-auto rounded-2xl shadow-lg bg-card border"
             className="p-4"
-            quality={90}
+            quality={85}
             sizes="(max-width: 768px) 100vw, 896px"
           />
 
@@ -204,8 +208,8 @@ export default function ComprendrePage() {
               description="Pour fabriquer un smartphone de 150g, il faut extraire 70 kg de matières premières, soit 467 fois son poids final."
               visual={{
                 items: [
-                  { icon: "📱", count: 1, label: "Smartphone (150g)" },
-                  { icon: "⚖️", count: 467, label: "Fois son poids en matières extraites" },
+                  { icon: Smartphone, count: 1, label: "Smartphone (150g)" },
+                  { icon: Scale, count: 467, label: "Fois son poids en matières extraites" },
                 ],
               }}
               color="amber"

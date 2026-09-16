@@ -20,6 +20,9 @@ import {
   XCircle,
 } from "lucide-react"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from "recharts"
+import { useChartTheme } from "@/lib/chart-theme"
+import { PageHero } from "@/components/page-hero"
+import { ReadingProgress } from "@/components/reading-progress"
 
 // Projection data for digital carbon footprint
 const projectionData = [
@@ -141,46 +144,40 @@ const solutions2030 = [
 ]
 
 export default function PerspectivesPage() {
+  const chart = useChartTheme()
   return (
-    <div className="min-h-screen">
+    <div data-theme="violet" className="min-h-screen bg-background">
+      <ReadingProgress />
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 px-6 py-16 lg:py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800">
-            <Lightbulb className="h-4 w-4" />
-            Perspectives & Avenir
-          </div>
-          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl">
-            L'avenir du numérique responsable
-          </h1>
-          <p className="text-pretty text-lg text-slate-600 lg:text-xl">
-            Entre opportunités technologiques et risques environnementaux : quel futur pour le Green IT en France et
-            dans le monde ?
-          </p>
-        </div>
-      </section>
+      <PageHero
+        theme="violet"
+        image={{ src: "/greenit/images/hero-perspectives.webp", alt: "Lever de soleil sur une ville verte avec éoliennes et panneaux solaires" }}
+        badge={{ icon: Lightbulb, label: "Perspectives & Avenir" }}
+        title="L'avenir du numérique responsable"
+        intro="Entre opportunités technologiques et risques environnementaux : quel futur pour le Green IT en France et dans le monde ?"
+      />
 
       {/* Scenarios 2040 */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">3 scénarios pour 2040</h2>
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">3 scénarios pour 2040</h2>
 
-          <Card className="mb-8 border-2 border-slate-200 p-8 lg:p-12">
-            <h3 className="mb-6 text-center text-xl font-semibold text-slate-900 dark:text-slate-100">
+          <Card className="mb-8 border-2 border-border p-8 lg:p-12">
+            <h3 className="mb-6 text-center text-xl font-semibold text-foreground">
               Projection de l'empreinte carbone du numérique (Gt CO₂eq)
             </h3>
             <ResponsiveContainer width="100%" height={400}>
               <LineChart data={projectionData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                <XAxis dataKey="year" stroke="#64748b" />
-                <YAxis stroke="#64748b" />
+                <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
+                <XAxis dataKey="year" stroke={chart.tick} />
+                <YAxis stroke={chart.tick} />
                 <Tooltip
-                  contentStyle={{ backgroundColor: "#fff", border: "2px solid #e2e8f0", borderRadius: "0.5rem" }}
+                  contentStyle={{ backgroundColor: "var(--card)", border: "2px solid var(--border)", borderRadius: "0.5rem" }}
                 />
                 <Line
                   type="monotone"
                   dataKey="scenario1"
-                  stroke="#ef4444"
+                  stroke={chart.red}
                   strokeWidth={3}
                   name="Scénario tendanciel"
                   dot={{ r: 4 }}
@@ -188,7 +185,7 @@ export default function PerspectivesPage() {
                 <Line
                   type="monotone"
                   dataKey="scenario2"
-                  stroke="#f59e0b"
+                  stroke={chart.amber}
                   strokeWidth={3}
                   name="Scénario modéré"
                   dot={{ r: 4 }}
@@ -196,7 +193,7 @@ export default function PerspectivesPage() {
                 <Line
                   type="monotone"
                   dataKey="scenario3"
-                  stroke="#10b981"
+                  stroke={chart.emerald}
                   strokeWidth={3}
                   name="Scénario sobre"
                   dot={{ r: 4 }}
@@ -210,10 +207,10 @@ export default function PerspectivesPage() {
           </Card>
 
           <div className="grid gap-6 lg:grid-cols-3">
-            <Card className="border-2 border-red-500 bg-red-50 dark:bg-red-900/20 p-6">
+            <Card className="border-2 border-red-500 bg-red-50 dark:bg-red-900/20 p-6 lift">
               <div className="mb-4 flex items-center gap-3">
-                <TrendingUp className="h-8 w-8 text-red-700" />
-                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">Scénario tendanciel</h3>
+                <TrendingUp className="h-8 w-8 text-red-700 dark:text-red-400" />
+                <h3 className="text-xl font-bold text-foreground">Scénario tendanciel</h3>
               </div>
               <p className="mb-4 text-sm text-slate-700 dark:text-slate-300">
                 <strong>Scénario illustratif : ×3 d'ici 2050</strong> - Si les tendances actuelles se poursuivent, l'empreinte du numérique pourrait tripler d'ici 2050 (ADEME-Arcep 2023).
@@ -238,10 +235,10 @@ export default function PerspectivesPage() {
               </ul>
             </Card>
 
-            <Card className="border-2 border-amber-500 bg-amber-50 dark:bg-amber-900/20 p-6">
+            <Card className="border-2 border-amber-500 bg-amber-50 dark:bg-amber-900/20 p-6 lift">
               <div className="mb-4 flex items-center gap-3">
-                <TrendingUp className="h-8 w-8 text-amber-700" />
-                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">Scénario modéré</h3>
+                <TrendingUp className="h-8 w-8 text-amber-700 dark:text-amber-400" />
+                <h3 className="text-xl font-bold text-foreground">Scénario modéré</h3>
               </div>
               <p className="mb-4 text-sm text-slate-700 dark:text-slate-300">
                 <strong>Scénario illustratif : +52 % d'ici 2040</strong> - Application partielle des bonnes pratiques et réglementations.
@@ -268,8 +265,8 @@ export default function PerspectivesPage() {
 
             <Card className="border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 p-6">
               <div className="mb-4 flex items-center gap-3">
-                <TrendingDown className="h-8 w-8 text-emerald-700" />
-                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">Scénario sobre</h3>
+                <TrendingDown className="h-8 w-8 text-emerald-700 dark:text-emerald-400" />
+                <h3 className="text-xl font-bold text-foreground">Scénario sobre</h3>
               </div>
               <p className="mb-4 text-sm text-slate-700 dark:text-slate-300">
                 <strong>Scénario illustratif : -43 % d'ici 2040</strong> - Transformation profonde vers un numérique durable.
@@ -298,26 +295,26 @@ export default function PerspectivesPage() {
       </section>
 
       {/* Renewable Energy Adoption */}
-      <section className="bg-slate-50 dark:bg-slate-900 px-6 py-16 lg:py-24">
+      <section className="bg-secondary/30 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">
             Transition vers les énergies renouvelables
           </h2>
 
           <div className="grid gap-8 lg:grid-cols-2">
-            <Card className="border-2 border-slate-200 p-8">
-              <h3 className="mb-6 text-xl font-semibold text-slate-900 dark:text-slate-100">
+            <Card className="border-2 border-border p-8">
+              <h3 className="mb-6 text-xl font-semibold text-foreground">
                 Adoption des énergies renouvelables dans les datacenters
               </h3>
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={renewableAdoptionData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                  <XAxis dataKey="year" stroke="#64748b" />
-                  <YAxis stroke="#64748b" domain={[0, 100]} />
+                  <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
+                  <XAxis dataKey="year" stroke={chart.tick} />
+                  <YAxis stroke={chart.tick} domain={[0, 100]} />
                   <Tooltip
-                    contentStyle={{ backgroundColor: "#fff", border: "2px solid #e2e8f0", borderRadius: "0.5rem" }}
+                    contentStyle={{ backgroundColor: "var(--card)", border: "2px solid var(--border)", borderRadius: "0.5rem" }}
                   />
-                  <Bar dataKey="percentage" fill="#10b981" radius={[8, 8, 0, 0]} name="% Renouvelable" />
+                  <Bar dataKey="percentage" fill={chart.emerald} radius={[8, 8, 0, 0]} name="% Renouvelable" />
                 </BarChart>
               </ResponsiveContainer>
               <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">
@@ -326,40 +323,40 @@ export default function PerspectivesPage() {
             </Card>
 
             <div className="space-y-6">
-              <Card className="border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 p-6">
+<Card className="border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 p-6 lift">
                 <div className="mb-4 flex items-center gap-3">
-                  <Sun className="h-8 w-8 text-emerald-700" />
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">Solaire</h3>
+                  <Sun className="h-8 w-8 text-emerald-700 dark:text-emerald-400" />
+                  <h3 className="text-lg font-bold text-foreground">Solaire</h3>
                 </div>
                 <p className="mb-3 text-sm text-slate-700 dark:text-slate-300">
                   Les panneaux solaires sur les toits des datacenters peuvent couvrir 20-30 % des besoins d'un site (ordre de grandeur, ADEME 2023).
                 </p>
                 <div className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">30 %</div>
-                <p className="text-xs text-slate-600 dark:text-slate-400">des nouveaux datacenters équipés (illustratif)</p>
+                <p className="text-xs text-muted-foreground">des nouveaux datacenters équipés (illustratif)</p>
               </Card>
 
               <Card className="border-2 border-blue-500 bg-blue-50 dark:bg-blue-900/20 p-6">
                 <div className="mb-4 flex items-center gap-3">
-                  <Wind className="h-8 w-8 text-blue-700" />
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">Éolien</h3>
+                  <Wind className="h-8 w-8 text-blue-700 dark:text-blue-400" />
+                  <h3 className="text-lg font-bold text-foreground">Éolien</h3>
                 </div>
                 <p className="mb-3 text-sm text-slate-700 dark:text-slate-300">
                   Les grands acteurs (Google, Microsoft, Amazon) annoncent 100 % d'électricité renouvelable en équivalent annuel (communication d'entreprise, 2024).
                 </p>
                 <div className="text-2xl font-bold text-blue-700 dark:text-blue-400">100 %</div>
-                <p className="text-xs text-slate-600 dark:text-slate-400">annoncés en équivalent annuel</p>
+                <p className="text-xs text-muted-foreground">annoncés en équivalent annuel</p>
               </Card>
 
               <Card className="border-2 border-teal-500 bg-teal-50 dark:bg-teal-900/20 p-6">
                 <div className="mb-4 flex items-center gap-3">
-                  <Droplets className="h-8 w-8 text-teal-700" />
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">Hydraulique</h3>
+                  <Droplets className="h-8 w-8 text-teal-700 dark:text-teal-400" />
+                  <h3 className="text-lg font-bold text-foreground">Hydraulique</h3>
                 </div>
                 <p className="mb-3 text-sm text-slate-700 dark:text-slate-300">
                   Le mix français est bas-carbone à plus de 90 % : nucléaire ~67 %, hydraulique ~13 % (RTE, 2024).
                 </p>
                 <div className="text-2xl font-bold text-teal-700 dark:text-teal-400">95 %</div>
-                <p className="text-xs text-slate-600 dark:text-slate-400">d'énergie bas-carbone en France (RTE, 2024)</p>
+                <p className="text-xs text-muted-foreground">d'énergie bas-carbone en France (RTE, 2024)</p>
               </Card>
             </div>
           </div>
@@ -369,14 +366,14 @@ export default function PerspectivesPage() {
       {/* Opportunities */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">
             Opportunités et innovations
           </h2>
           <div className="grid gap-6 md:grid-cols-2">
             {opportunities.map((opportunity, index) => {
               const Icon = opportunity.icon
               return (
-                <Card key={index} className={`min-w-0 border-2 border-${opportunity.color}-500 bg-${opportunity.color}-50 dark:bg-${opportunity.color}-900/20 p-6`}>
+                <Card key={index} className={`min-w-0 border-2 border-${opportunity.color}-500 bg-${opportunity.color}-50 dark:bg-${opportunity.color}-900/20 p-6 lift`}>
                   <div className="mb-4 flex items-start justify-between">
                     <div className="flex items-center gap-3">
                       <div
@@ -384,7 +381,7 @@ export default function PerspectivesPage() {
                       >
                         <Icon className="h-6 w-6 text-white" />
                       </div>
-                      <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">{opportunity.title}</h3>
+                      <h3 className="text-lg font-bold text-foreground">{opportunity.title}</h3>
                     </div>
                     <span
                       className={`rounded-full px-3 py-1 text-xs font-semibold ${
@@ -403,14 +400,14 @@ export default function PerspectivesPage() {
       </section>
 
       {/* Risks */}
-      <section className="bg-slate-50 dark:bg-slate-900 px-6 py-16 lg:py-24">
+      <section className="bg-secondary/30 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">Risques et défis</h2>
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">Risques et défis</h2>
           <div className="grid gap-6 md:grid-cols-2">
             {risks.map((risk, index) => {
               const Icon = risk.icon
               return (
-                <Card key={index} className={`min-w-0 border-2 border-${risk.color}-500 bg-${risk.color}-50 dark:bg-${risk.color}-900/20 p-6`}>
+                <Card key={index} className={`min-w-0 border-2 border-${risk.color}-500 bg-${risk.color}-50 dark:bg-${risk.color}-900/20 p-6 lift`}>
                   <div className="mb-4 flex items-start justify-between">
                     <div className="flex items-center gap-3">
                       <div
@@ -418,7 +415,7 @@ export default function PerspectivesPage() {
                       >
                         <Icon className="h-6 w-6 text-white" />
                       </div>
-                      <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">{risk.title}</h3>
+                      <h3 className="text-lg font-bold text-foreground">{risk.title}</h3>
                     </div>
                     <span
                       className={`rounded-full px-3 py-1 text-xs font-semibold ${
@@ -439,11 +436,11 @@ export default function PerspectivesPage() {
       {/* Solutions 2030 */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">Solutions pour 2030</h2>
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">Solutions pour 2030</h2>
           <div className="grid gap-8 lg:grid-cols-3">
             {solutions2030.map((solution, index) => (
-              <Card key={index} className="border-2 border-slate-200 p-6">
-                <h3 className="mb-6 text-xl font-bold text-slate-900 dark:text-slate-100">{solution.category}</h3>
+              <Card key={index} className="border-2 border-border p-6 lift">
+                <h3 className="mb-6 text-xl font-bold text-foreground">{solution.category}</h3>
                 <ul className="space-y-3">
                   {solution.items.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-300">
@@ -469,7 +466,7 @@ export default function PerspectivesPage() {
                   1
                 </div>
                 <div>
-                  <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">L'avenir n'est pas écrit</h3>
+                  <h3 className="mb-2 font-semibold text-foreground">L'avenir n'est pas écrit</h3>
                   <p className="text-sm text-slate-700 dark:text-slate-300">
                     Nous avons le choix entre un scénario tendanciel (×3 d'ici 2050, ADEME-Arcep 2023) et un scénario de sobriété
                     (scénario illustratif du site). Chaque action compte.
@@ -484,7 +481,7 @@ export default function PerspectivesPage() {
                   2
                 </div>
                 <div>
-                  <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">La technologie n'est pas la solution miracle</h3>
+                  <h3 className="mb-2 font-semibold text-foreground">La technologie n'est pas la solution miracle</h3>
                   <p className="text-sm text-slate-700 dark:text-slate-300">
                     Les innovations (IA, énergies renouvelables) sont nécessaires mais insuffisantes. La sobriété
                     numérique est indispensable.
@@ -499,7 +496,7 @@ export default function PerspectivesPage() {
                   3
                 </div>
                 <div>
-                  <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">Agir maintenant pour 2030</h3>
+                  <h3 className="mb-2 font-semibold text-foreground">Agir maintenant pour 2030</h3>
                   <p className="text-sm text-slate-700 dark:text-slate-300">
                     Les 5 prochaines années sont cruciales. Les décisions prises aujourd'hui détermineront la
                     trajectoire jusqu'en 2040.
@@ -514,7 +511,7 @@ export default function PerspectivesPage() {
                   4
                 </div>
                 <div>
-                  <h3 className="mb-2 font-semibold text-slate-900 dark:text-slate-100">La France a un rôle à jouer</h3>
+                  <h3 className="mb-2 font-semibold text-foreground">La France a un rôle à jouer</h3>
                   <p className="text-sm text-slate-700 dark:text-slate-300">
                     Avec son mix énergétique bas-carbone et sa réglementation avancée, la France peut être un modèle
                     européen du Green IT.
@@ -529,7 +526,7 @@ export default function PerspectivesPage() {
       {/* CTA Section */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="mb-6 text-3xl font-bold text-slate-900 dark:text-slate-100 lg:text-4xl">
+          <h2 className="mb-6 text-3xl font-bold text-foreground lg:text-4xl">
             Construisons ensemble un numérique durable
           </h2>
           <p className="mb-8 text-lg text-slate-600 dark:text-slate-300">
@@ -551,10 +548,10 @@ export default function PerspectivesPage() {
       </section>
 
       {/* Sources */}
-      <section className="border-t border-slate-200 bg-slate-50 dark:bg-slate-900 px-6 py-8">
+      <section className="border-t border-border bg-secondary/30 px-6 py-8">
         <div className="mx-auto max-w-7xl">
-          <h3 className="mb-4 text-sm font-semibold text-slate-900 dark:text-slate-100">Sources</h3>
-          <div className="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-400">
+          <h3 className="mb-4 text-sm font-semibold text-foreground">Sources</h3>
+          <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
             <span>The Shift Project – Lean ICT (2018)</span>
             <span>•</span>
             <span>ADEME-Arcep – Prospective 2030-2050 (2023)</span>

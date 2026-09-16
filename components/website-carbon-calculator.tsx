@@ -12,6 +12,7 @@ import {
   Search,
   Download,
   Share2,
+  Check,
   Leaf,
   AlertCircle,
   CheckCircle2,
@@ -97,6 +98,7 @@ export function WebsiteCarbonCalculator() {
   const [gwf, setGwf] = useState<GwfState>(null)
   const [isAnalyzing, setIsAnalyzing] = useState(false)
   const [results, setResults] = useState<Estimation | null>(null)
+  const [copied, setCopied] = useState(false)
 
   const parsedWeight = parseFloat(weightMB.replace(",", "."))
   const parsedVisits = parseInt(visits.replace(/[\s\u202f]/g, ""), 10)
@@ -513,14 +515,16 @@ export function WebsiteCarbonCalculator() {
                     await navigator.share({ title: "Estimation carbone d'une page web", text })
                   } else {
                     await navigator.clipboard.writeText(text)
+                    setCopied(true)
+                    window.setTimeout(() => setCopied(false), 2000)
                   }
                 } catch {
                   // partage annulé ou indisponible, on ne fait rien
                 }
               }}
             >
-              <Share2 className="w-4 h-4 mr-2" />
-              Partager
+              {copied ? <Check className="w-4 h-4 mr-2" /> : <Share2 className="w-4 h-4 mr-2" />}
+              {copied ? "Copié !" : "Partager"}
             </Button>
           </div>
         </CardContent>

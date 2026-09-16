@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 export default function Loading() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-slate-50 px-6 py-12">
+    <div className="min-h-screen bg-gradient-to-b from-secondary/30 via-background to-secondary/30 px-6 py-12">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center">
           <Skeleton className="mx-auto mb-4 h-8 w-64" />

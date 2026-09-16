@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowLeft, Printer, FileText, Globe, Users, Scale, AlertTriangle, Leaf, Award } from "lucide-react"
+import { ArrowLeft, Printer, FileText, Globe, Users, Scale, AlertTriangle, Leaf, Award, Check } from "lucide-react"
 import Link from "next/link"
 
 export default function CahierChargesPage() {
@@ -156,10 +156,10 @@ export default function CahierChargesPage() {
                             Les équipements doivent obligatoirement posséder AU MOINS UN des labels suivants :
                         </p>
                         <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li>✓ <strong>EPEAT</strong> (Gold ou Silver minimum)</li>
-                            <li>✓ <strong>TCO Certified</strong> (certification à jour)</li>
-                            <li>✓ <strong>Energy Star</strong></li>
-                            <li>✓ <strong>EU Ecolabel</strong></li>
+                            <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> <strong>EPEAT</strong> (Gold ou Silver minimum)</li>
+                            <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> <strong>TCO Certified</strong> (certification à jour)</li>
+                            <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> <strong>Energy Star</strong></li>
+                            <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> <strong>EU Ecolabel</strong></li>
                         </ul>
                     </Card>
 
@@ -258,11 +258,11 @@ export default function CahierChargesPage() {
                             de sa chaîne d'approvisionnement :
                         </p>
                         <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li>✓ Interdiction du travail forcé et du travail des enfants</li>
-                            <li>✓ Liberté syndicale et négociation collective</li>
-                            <li>✓ Non-discrimination</li>
-                            <li>✓ Salaire décent et horaires réglementés</li>
-                            <li>✓ Santé et sécurité au travail</li>
+                            <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Interdiction du travail forcé et du travail des enfants</li>
+                            <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Liberté syndicale et négociation collective</li>
+                            <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Non-discrimination</li>
+                            <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Salaire décent et horaires réglementés</li>
+                            <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Santé et sécurité au travail</li>
                         </ul>
                     </Card>
 

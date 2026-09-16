@@ -376,7 +376,7 @@ export function RssFeed() {
 
       {hasError && !loading && (
         <p className="text-sm text-amber-700 dark:text-amber-400">
-          Un flux n'a pas répondu : il reste accessible via son site (icône ⚠ dans la liste ci-dessus). Les autres
+          Un flux n'a pas répondu : il reste accessible via son site (icône triangle dans la liste ci-dessus). Les autres
           s'affichent normalement.
         </p>
       )}

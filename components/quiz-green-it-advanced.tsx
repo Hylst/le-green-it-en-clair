@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
@@ -1686,11 +1687,11 @@ export function QuizGreenITAdvanced() {
   const getLevel = (finalScore: number, maxScore: number) => {
     const percentage = maxScore > 0 ? (finalScore / maxScore) * 100 : 0
 
-    if (percentage >= 90) return { level: "Maître Green IT", color: "text-purple-600", icon: Award }
-    if (percentage >= 75) return { level: "Expert", color: "text-blue-600", icon: Trophy }
-    if (percentage >= 60) return { level: "Intermédiaire avancé", color: "text-teal-600", icon: Target }
-    if (percentage >= 40) return { level: "Intermédiaire", color: "text-green-600", icon: CheckCircle2 }
-    return { level: "Débutant", color: "text-orange-600", icon: Brain }
+    if (percentage >= 90) return { level: "Maître Green IT", color: "text-purple-600 dark:text-purple-400", icon: Award }
+    if (percentage >= 75) return { level: "Expert", color: "text-blue-600 dark:text-blue-400", icon: Trophy }
+    if (percentage >= 60) return { level: "Intermédiaire avancé", color: "text-teal-600 dark:text-teal-400", icon: Target }
+    if (percentage >= 40) return { level: "Intermédiaire", color: "text-green-600 dark:text-green-400", icon: CheckCircle2 }
+    return { level: "Débutant", color: "text-orange-600 dark:text-orange-400", icon: Brain }
   }
 
   // Mode selection screen
@@ -1865,6 +1866,18 @@ export function QuizGreenITAdvanced() {
             <p className="text-lg text-slate-600 dark:text-gray-300">
               {percentage}% de réussite sur {activeQuestions.length} questions
             </p>
+          </div>
+
+          <div className="mx-auto max-w-md overflow-hidden rounded-xl border border-border">
+            <Image
+              src="/greenit/images/quiz-trophee.webp"
+              alt="Trophée vert et or entouré de lauriers célébrant le score du quiz"
+              width={1376}
+              height={768}
+              className="h-auto w-full"
+              quality={85}
+              loading="lazy"
+            />
           </div>
 
           <div className="space-y-3">

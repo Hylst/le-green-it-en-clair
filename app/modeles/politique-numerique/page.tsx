@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowLeft, Printer, ShoppingCart, CheckCircle2, ClipboardList, Zap, Mail, Database, Video } from "lucide-react"
+import { ArrowLeft, Printer, ShoppingCart, CheckCircle2, ClipboardList, Zap, Mail, Database, Video, Check } from "lucide-react"
 import Link from "next/link"
 
 export default function PolitiqueNumeriquePage() {
@@ -320,40 +320,40 @@ export default function PolitiqueNumeriquePage() {
                         <Card className="p-4">
                             <h4 className="font-semibold text-foreground mb-3"><Zap className="mr-1 inline h-4 w-4" />Équipements</h4>
                             <ul className="text-sm text-muted-foreground space-y-2">
-                                <li>✓ Éteindre les équipements en fin de journée</li>
-                                <li>✓ Activer les modes "économie d'énergie"</li>
-                                <li>✓ Réduire la luminosité des écrans</li>
-                                <li>✓ Débrancher les chargeurs inutilisés</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Éteindre les équipements en fin de journée</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Activer les modes "économie d'énergie"</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Réduire la luminosité des écrans</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Débrancher les chargeurs inutilisés</li>
                             </ul>
                         </Card>
 
                         <Card className="p-4">
                             <h4 className="font-semibold text-foreground mb-3"><Mail className="mr-1 inline h-4 w-4" />Messagerie</h4>
                             <ul className="text-sm text-muted-foreground space-y-2">
-                                <li>✓ Nettoyer régulièrement sa boîte mail</li>
-                                <li>✓ Limiter les pièces jointes volumineuses</li>
-                                <li>✓ Se désabonner des newsletters non lues</li>
-                                <li>✓ Éviter les "Répondre à tous" inutiles</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Nettoyer régulièrement sa boîte mail</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Limiter les pièces jointes volumineuses</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Se désabonner des newsletters non lues</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Éviter les "Répondre à tous" inutiles</li>
                             </ul>
                         </Card>
 
                         <Card className="p-4">
                             <h4 className="font-semibold text-foreground mb-3"><Database className="mr-1 inline h-4 w-4" />Stockage</h4>
                             <ul className="text-sm text-muted-foreground space-y-2">
-                                <li>✓ Supprimer les fichiers obsolètes</li>
-                                <li>✓ Éviter les doublons</li>
-                                <li>✓ Compresser les fichiers volumineux</li>
-                                <li>✓ Archiver plutôt que stocker indéfiniment</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Supprimer les fichiers obsolètes</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Éviter les doublons</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Compresser les fichiers volumineux</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Archiver plutôt que stocker indéfiniment</li>
                             </ul>
                         </Card>
 
                         <Card className="p-4">
                             <h4 className="font-semibold text-foreground mb-3"><Video className="mr-1 inline h-4 w-4" />Visioconférence</h4>
                             <ul className="text-sm text-muted-foreground space-y-2">
-                                <li>✓ Couper la caméra quand non nécessaire</li>
-                                <li>✓ Privilégier l'audio pour les réunions simples</li>
-                                <li>✓ Éviter l'enregistrement systématique</li>
-                                <li>✓ Utiliser des arrière-plans fixes</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Couper la caméra quand non nécessaire</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Privilégier l'audio pour les réunions simples</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Éviter l'enregistrement systématique</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Utiliser des arrière-plans fixes</li>
                             </ul>
                         </Card>
                     </div>

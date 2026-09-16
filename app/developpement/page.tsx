@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -35,10 +34,11 @@ import {
   ResponsiveContainer,
 } from "recharts"
 import { LanguageComparisonSVG } from "@/components/language-comparison-svg"
+import { Reveal } from "@/components/reveal"
+import { Sommaire } from "@/components/sommaire"
+import { ReadingProgress } from "@/components/reading-progress"
 
 export default function DeveloppementPage() {
-  const [selectedLanguage, setSelectedLanguage] = useState("python")
-
   // Données de comparaison des langages
   const languageComparison = [
     { name: "C", energie: 1.0, performance: 1.0, co2: 1.0 },
@@ -118,6 +118,7 @@ export default function DeveloppementPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <ReadingProgress />
       {/* Hero Section */}
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-secondary/30" />
@@ -128,7 +129,7 @@ export default function DeveloppementPage() {
             fill
             className="object-cover"
             loading="lazy"
-            quality={90}
+            quality={85}
           />
         </div>
         <div className="max-w-6xl mx-auto relative z-10">
@@ -163,12 +164,24 @@ export default function DeveloppementPage() {
         </div>
       </section>
 
+      <Sommaire
+        items={[
+          { id: "langage", label: "Langage" },
+          { id: "algorithmes", label: "Algorithmes" },
+          { id: "donnees", label: "Données" },
+          { id: "medias", label: "Médias" },
+          { id: "machine-learning", label: "Machine learning" },
+          { id: "cdn", label: "CDN" },
+          { id: "scalabilite", label: "Scalabilité" },
+        ]}
+      />
+
       <section className="px-6 py-12 bg-background">
         <div className="mx-auto max-w-7xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="mb-8 relative h-[400px] rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/greenit/clean-efficient-code-on-screen-with-green-energy-s.webp"
+                src="/greenit/images/clean-efficient-code-on-screen-with-green-energy-s.webp"
                 alt="Code propre et efficace"
                 fill
                 className="object-cover"
@@ -233,7 +246,7 @@ export default function DeveloppementPage() {
       </section>
 
       {/* Choix des langages */}
-      <section className="py-16 px-4">
+      <Reveal as="section" className="py-16 px-4" id="langage">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -328,10 +341,10 @@ export default function DeveloppementPage() {
             </Card>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Optimisation des algorithmes */}
-      <section className="py-16 px-4 bg-secondary/10">
+      <Reveal as="section" className="py-16 px-4 bg-secondary/10" id="algorithmes">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -405,10 +418,10 @@ export default function DeveloppementPage() {
             ))}
           </Tabs>
         </div>
-      </section>
+      </Reveal>
 
       {/* Gestion des données */}
-      <section className="py-16 px-4 dark:bg-slate-950">
+      <Reveal as="section" className="py-16 px-4 dark:bg-slate-950" id="donnees">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -543,10 +556,10 @@ res.json(users) // 150 KB compressé`}
             </CardContent>
           </Card>
         </div>
-      </section>
+      </Reveal>
 
       {/* Optimisation des médias */}
-      <section className="py-16 px-4 bg-background">
+      <Reveal as="section" className="py-16 px-4 bg-background" id="medias">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -686,10 +699,10 @@ res.json(users) // 150 KB compressé`}
             </CardContent>
           </Card>
         </div>
-      </section>
+      </Reveal>
 
       {/* Machine Learning */}
-      <section className="py-16 px-4 dark:bg-slate-950">
+      <Reveal as="section" className="py-16 px-4 dark:bg-slate-950" id="machine-learning">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -811,10 +824,10 @@ res.json(users) // 150 KB compressé`}
             </Card>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* CDN et Infrastructure */}
-      <section className="py-16 px-4 bg-secondary/10">
+      <Reveal as="section" className="py-16 px-4 bg-secondary/10" id="cdn">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -961,10 +974,10 @@ module.exports = {
             </CardContent>
           </Card>
         </div>
-      </section>
+      </Reveal>
 
       {/* Scalabilité */}
-      <section className="py-16 px-4">
+      <Reveal as="section" className="py-16 px-4" id="scalabilite">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -1135,10 +1148,10 @@ module.exports = {
             </CardContent>
           </Card>
         </div>
-      </section>
+      </Reveal>
 
       {/* Checklist finale */}
-      <section className="py-16 px-4 bg-background">
+      <Reveal as="section" className="py-16 px-4 bg-background">
         <div className="max-w-4xl mx-auto">
           <Card className="border-primary/20 shadow-lg bg-card text-card-foreground">
             <CardHeader className="bg-secondary/30">
@@ -1252,12 +1265,12 @@ module.exports = {
             </CardContent>
           </Card>
         </div>
-      </section>
+      </Reveal>
 
       {/* CTA final */}
-      <section className="py-16 px-4 bg-background">
+      <Reveal as="section" className="py-16 px-4 bg-background">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-primary text-primary-foreground rounded-2xl p-12">
+          <div className="texture-dots bg-primary text-primary-foreground rounded-2xl p-12">
             <h2 className="text-3xl font-bold mb-4">Chaque optimisation compte</h2>
             <p className="text-lg mb-8">
               En appliquant ces bonnes pratiques, vous pouvez réduire de l'ordre de 30 à 70 % la consommation énergétique de vos
@@ -1279,9 +1292,9 @@ module.exports = {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="py-16 px-4 bg-background">
+      <Reveal as="section" className="py-16 px-4 bg-background">
         <div className="max-w-4xl mx-auto">
           <Card className="border border-primary/20 shadow-xl bg-card text-card-foreground">
             <CardHeader className="bg-secondary/30">
@@ -1419,7 +1432,7 @@ module.exports = {
             </CardContent>
           </Card>
         </div>
-      </section>
+      </Reveal>
 
     </div >
   )

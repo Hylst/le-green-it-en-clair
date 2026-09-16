@@ -1,9 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Leaf, Target, Users, Heart, Award, Mail, AlertTriangle } from "lucide-react"
+import { Target, Users, Heart, Award, Mail, AlertTriangle, Leaf } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { Metadata } from "next"
 import { pageOpenGraph } from "@/lib/metadata"
 import { SourceTooltip } from "@/components/source-tooltip"
+import { PageHero } from "@/components/page-hero"
 
 export const metadata: Metadata = {
   title: "À propos",
@@ -14,21 +15,16 @@ export const metadata: Metadata = {
 
 export default function AProposPage() {
   return (
-    <div className="min-h-screen bg-background transition-colors duration-300">
+    <div data-theme="emerald" className="min-h-screen bg-background transition-colors duration-300">
+      <PageHero
+        theme="emerald"
+        image={{ src: "/greenit/images/hero-apropos.webp", alt: "Bureau avec pousse en pot, carnet ouvert et loupe" }}
+        badge={{ icon: Leaf }}
+        title="À propos du Green IT en clair"
+        intro="Un site personnel créé par un passionné soucieux de l'environnement pour sensibiliser aux enjeux du numérique responsable en France."
+      />
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
-              <Leaf className="w-8 h-8 text-primary" />
-            </div>
-            <h1 className="font-poppins text-4xl md:text-5xl font-bold text-primary mb-4 text-balance">
-              À propos du Green IT en clair
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              Un site personnel créé par un passionné soucieux de l'environnement pour sensibiliser aux enjeux du
-              numérique responsable en France.
-            </p>
-          </div>
 
           <Card className="mb-8 border-warning/50 bg-warning/10">
             <CardHeader>

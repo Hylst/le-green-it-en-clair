@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Calendar, TrendingUp, ArrowRight, ExternalLink, Newspaper, AlertCircle, Rss } from "lucide-react"
 import { RssFeed } from "@/components/rss-feed"
+import { PageHero } from "@/components/page-hero"
 
 type NewsCategory = "reglementation" | "innovation" | "tendance" | "etude" | "evenement" | "all"
 
@@ -153,21 +154,14 @@ export default function ActualitesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background transition-colors duration-300">
-      <div className="bg-muted/30 border-b border-border">
-        <div className="px-6 py-12 lg:py-16 mx-auto max-w-7xl">
-          <div className="text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-              <TrendingUp className="h-4 w-4" />
-              Dossiers & Veille
-            </div>
-            <h1 className="mb-4 text-4xl font-bold tracking-tight text-foreground lg:text-5xl">Dossiers Green IT</h1>
-            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              Dossiers de fond, analyses et veille réglementaire pour comprendre les enjeux du numérique responsable en 2026.
-            </p>
-          </div>
-        </div>
-      </div>
+    <div data-theme="amber" className="min-h-screen bg-background transition-colors duration-300">
+      <PageHero
+        theme="amber"
+        image={{ src: "/greenit/images/hero-actualites.webp", alt: "Micro vintage diffusant des ondes qui deviennent des feuilles" }}
+        badge={{ icon: TrendingUp, label: "Dossiers & Veille" }}
+        title="Dossiers Green IT"
+        intro="Dossiers de fond, analyses et veille réglementaire pour comprendre les enjeux du numérique responsable en 2026."
+      />
 
       <div className="px-6 py-8 lg:py-12">
         <div className="mx-auto max-w-7xl">

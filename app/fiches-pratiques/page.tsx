@@ -2,6 +2,7 @@
 
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { PageHero } from "@/components/page-hero"
 import { FileText, Download, Printer, Share2 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -50,7 +51,7 @@ const practicalSheets = [
     target: "Développeurs",
     duration: "15 min",
     impact: "Sites 3-5x plus légers",
-    image: "/greenit/clean-efficient-code-on-screen-with-green-energy-s.webp",
+    image: "/greenit/images/clean-efficient-code-on-screen-with-green-energy-s.webp",
   },
   {
     id: "recyclage-mode-emploi",
@@ -77,7 +78,7 @@ const practicalSheets = [
     target: "Collectivités",
     duration: "25 min",
     impact: "Exemplarité publique",
-    image: "/greenit/city-hall-with-sustainable-technology-infrastructu.webp",
+    image: "/greenit/images/city-hall-with-sustainable-technology-infrastructu.webp",
   },
   {
     id: "ia-generative",
@@ -86,27 +87,19 @@ const practicalSheets = [
     target: "Tous publics",
     duration: "10 min",
     impact: "~485 TWh dans le monde en 2025 (ADEME 2026)",
-    image: "/greenit/abstract-green-technology-network-with-leaves-and-.webp",
+    image: "/greenit/images/abstract-green-technology-network-with-leaves-and-.webp",
   },
 ]
 
 export default function FichesPratiquesPage() {
   return (
-    <div className="min-h-screen">
-      <section className="bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 px-6 py-16 lg:py-24 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center justify-center rounded-full bg-emerald-100 p-3 dark:bg-emerald-900/30">
-            <FileText className="h-8 w-8 text-emerald-700 dark:text-emerald-400" />
-          </div>
-          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl dark:text-slate-100">
-            Fiches pratiques Green IT
-          </h1>
-          <p className="text-pretty text-lg text-slate-600 lg:text-xl dark:text-slate-300">
-            Consultez et imprimez nos guides pratiques pour mettre en œuvre facilement les bonnes pratiques du
-            numérique responsable.
-          </p>
-        </div>
-      </section>
+    <div className="min-h-screen" data-theme="emerald">
+      <PageHero
+        theme="emerald"
+        badge={{ icon: FileText }}
+        title="Fiches pratiques Green IT"
+        intro="Consultez et imprimez nos guides pratiques pour mettre en œuvre facilement les bonnes pratiques du numérique responsable."
+      />
 
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">

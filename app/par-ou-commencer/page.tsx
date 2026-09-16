@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import { PageHero } from "@/components/page-hero"
 import {
   User,
   Building2,
@@ -182,28 +183,19 @@ export default function GettingStartedPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-800">
-      {/* Hero Section */}
-      <section className="px-6 py-16 lg:py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-medium text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
-            <Lightbulb className="h-4 w-4" />
-            Guide de démarrage
-          </div>
-          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl dark:text-slate-100">
-            Par où commencer avec le Green IT ?
-          </h1>
-          <p className="mx-auto max-w-2xl text-pretty text-lg text-slate-600 dark:text-slate-300">
-            Que vous soyez citoyen, développeur, entreprise ou collectivité, nous vous guidons vers les ressources
-            adaptées à votre profil pour démarrer votre transition numérique responsable.
-          </p>
-        </div>
-      </section>
+    <div data-theme="emerald" className="min-h-screen bg-gradient-to-b from-background to-secondary/30">
+      <PageHero
+        theme="emerald"
+        image={{ src: "/greenit/images/hero-parcours.webp", alt: "Randonneur à la croisée de quatre sentiers colorés, boussole en main" }}
+        badge={{ icon: Lightbulb, label: "Guide de démarrage" }}
+        title="Par où commencer avec le Green IT ?"
+        intro="Que vous soyez citoyen, développeur, entreprise ou collectivité, nous vous guidons vers les ressources adaptées à votre profil pour démarrer votre transition numérique responsable."
+      />
 
       {/* Profile Selection */}
       <section className="px-6 pb-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 dark:text-slate-100">
+          <h2 className="mb-8 text-center text-2xl font-bold text-foreground">
             Sélectionnez votre profil
           </h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -219,7 +211,7 @@ export default function GettingStartedPage() {
                   className={`cursor-pointer p-6 transition-all hover:shadow-xl ${
                     isSelected
                       ? "ring-2 ring-emerald-500 shadow-lg dark:ring-emerald-400"
-                      : "hover:ring-1 hover:ring-slate-300 dark:hover:ring-slate-600"
+                      : "hover:ring-1 hover:ring-border"
                   }`}
                   onClick={() => setSelectedProfile(profile.id)}
                   onKeyDown={(e) => {
@@ -234,8 +226,8 @@ export default function GettingStartedPage() {
                   >
                     <Icon className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="mb-2 font-bold text-slate-900 dark:text-slate-100">{profile.title}</h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">{profile.description}</p>
+                  <h3 className="mb-2 font-bold text-foreground">{profile.title}</h3>
+                  <p className="text-sm text-muted-foreground">{profile.description}</p>
                   {isSelected && (
                     <div className="mt-4 flex items-center gap-2 text-sm font-medium text-emerald-700 dark:text-emerald-400">
                       <CheckCircle2 className="h-4 w-4" />
@@ -254,10 +246,10 @@ export default function GettingStartedPage() {
         <section className="px-6 pb-16">
           <div className="mx-auto max-w-4xl">
             <div className="mb-8 text-center">
-              <h2 className="mb-3 text-3xl font-bold text-slate-900 dark:text-slate-100">
+              <h2 className="mb-3 text-3xl font-bold text-foreground">
                 Votre parcours personnalisé
               </h2>
-              <p className="text-slate-600 dark:text-slate-400">
+              <p className="text-muted-foreground">
                 Suivez ces étapes pour démarrer efficacement votre transition Green IT
               </p>
             </div>
@@ -277,15 +269,15 @@ export default function GettingStartedPage() {
                       </div>
 
                       {/* Step content */}
-                      <Card className="flex-1 p-6 hover:shadow-lg transition-shadow dark:bg-slate-800">
+                      <Card className="flex-1 p-6 hover:shadow-lg transition-shadow">
                         <div className="mb-3 flex items-start justify-between">
                           <div>
-                            <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-slate-100">{step.title}</h3>
-                            <p className="text-slate-600 dark:text-slate-400">{step.description}</p>
+                            <h3 className="mb-2 text-xl font-bold text-foreground">{step.title}</h3>
+                            <p className="text-muted-foreground">{step.description}</p>
                           </div>
                           <StepIcon className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
                         </div>
-                        <Button asChild className="mt-4 bg-emerald-600 hover:bg-emerald-700">
+                        <Button asChild className="mt-4 bg-emerald-600 hover:bg-emerald-700 icon-shift">
                           <Link href={step.link}>
                             Commencer
                             <ArrowRight className="ml-2 h-4 w-4" />
@@ -302,16 +294,16 @@ export default function GettingStartedPage() {
       )}
 
       {/* Quick Actions */}
-      <section className="bg-slate-100 px-6 py-16 dark:bg-slate-800">
+      <section className="bg-secondary/30 px-6 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-8 text-center text-2xl font-bold text-slate-900 dark:text-slate-100">
+          <h2 className="mb-8 text-center text-2xl font-bold text-foreground">
             Ou explorez directement
           </h2>
           <div className="grid gap-6 md:grid-cols-3">
-            <Card className="p-6 hover:shadow-lg transition-shadow dark:bg-slate-700">
+            <Card className="p-6 hover:shadow-lg transition-shadow">
               <Calculator className="mb-4 h-10 w-10 text-emerald-600 dark:text-emerald-400" />
-              <h3 className="mb-2 font-bold text-slate-900 dark:text-slate-100">Outils interactifs</h3>
-              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
+              <h3 className="mb-2 font-bold text-foreground">Outils interactifs</h3>
+              <p className="mb-4 text-sm text-muted-foreground">
                 Calculateurs, simulateurs et quiz pour mesurer votre impact
               </p>
               <Button asChild variant="outline" className="w-full bg-transparent">
@@ -321,10 +313,10 @@ export default function GettingStartedPage() {
               </Button>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow dark:bg-slate-700">
+            <Card className="p-6 hover:shadow-lg transition-shadow">
               <BookOpen className="mb-4 h-10 w-10 text-blue-600 dark:text-blue-400" />
-              <h3 className="mb-2 font-bold text-slate-900 dark:text-slate-100">Mythes vs Réalités</h3>
-              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
+              <h3 className="mb-2 font-bold text-foreground">Mythes vs Réalités</h3>
+              <p className="mb-4 text-sm text-muted-foreground">
                 Déconstruisez les idées reçues sur le numérique responsable
               </p>
               <Button asChild variant="outline" className="w-full bg-transparent">
@@ -334,10 +326,10 @@ export default function GettingStartedPage() {
               </Button>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow dark:bg-slate-700">
+            <Card className="p-6 hover:shadow-lg transition-shadow">
               <Wrench className="mb-4 h-10 w-10 text-amber-600 dark:text-amber-400" />
-              <h3 className="mb-2 font-bold text-slate-900 dark:text-slate-100">Fiches pratiques</h3>
-              <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
+              <h3 className="mb-2 font-bold text-foreground">Fiches pratiques</h3>
+              <p className="mb-4 text-sm text-muted-foreground">
                 Guides à consulter et imprimer pour passer à l'action immédiatement
               </p>
               <Button asChild variant="outline" className="w-full bg-transparent">

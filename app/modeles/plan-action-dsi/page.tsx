@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowLeft, Printer, FileSpreadsheet, AlertTriangle } from "lucide-react"
+import { ArrowLeft, Printer, FileSpreadsheet, AlertTriangle, Check } from "lucide-react"
 import Link from "next/link"
 
 export default function PlanActionDSIPage() {
@@ -154,10 +154,10 @@ export default function PlanActionDSIPage() {
                     <Card className="p-6 mt-6 bg-muted/5 border-border">
                         <p className="font-semibold text-foreground mb-2">Objectifs Année 1 :</p>
                         <ul className="space-y-1 text-sm text-muted-foreground">
-                            <li>✓ Budget total : 100 000 €</li>
-                            <li>✓ -10 % empreinte carbone vs baseline</li>
-                            <li>✓ 20 % équipements reconditionnés</li>
-                            <li>✓ 100 % nouveaux collaborateurs formés</li>
+                            <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Budget total : 100 000 €</li>
+                            <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> -10 % empreinte carbone vs baseline</li>
+                            <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> 20 % équipements reconditionnés</li>
+                            <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> 100 % nouveaux collaborateurs formés</li>
                         </ul>
                     </Card>
                 </div>
@@ -207,11 +207,11 @@ export default function PlanActionDSIPage() {
                         <Card className="p-6 bg-muted/5 border-border">
                             <p className="font-semibold text-foreground mb-2">Objectifs Année 2 :</p>
                             <ul className="space-y-1 text-sm text-muted-foreground">
-                                <li>✓ Budget total : 140 000 €</li>
-                                <li>✓ -20 % empreinte carbone vs baseline</li>
-                                <li>✓ 40 % équipements reconditionnés</li>
-                                <li>✓ Durée de vie moyenne : 5 ans</li>
-                                <li>✓ 100 % nouvelles applications écoconçues</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Budget total : 140 000 €</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> -20 % empreinte carbone vs baseline</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> 40 % équipements reconditionnés</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Durée de vie moyenne : 5 ans</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> 100 % nouvelles applications écoconçues</li>
                             </ul>
                         </Card>
                     </div>
@@ -276,11 +276,11 @@ export default function PlanActionDSIPage() {
                         <Card className="p-6 bg-muted/5 border-border">
                             <p className="font-semibold text-foreground mb-2">Objectifs Année 3 (cibles finales) :</p>
                             <ul className="space-y-1 text-sm text-muted-foreground">
-                                <li>✓ Budget total : 180 000 €</li>
-                                <li>✓ <strong className="text-emerald-600 dark:text-emerald-400">-30 % empreinte carbone vs baseline (objectif cible)</strong></li>
-                                <li>✓ 50 % équipements reconditionnés</li>
-                                <li>✓ Durée de vie moyenne : 6 ans</li>
-                                <li>✓ Label Numérique Responsable obtenu</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Budget total : 180 000 €</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> <strong className="text-emerald-600 dark:text-emerald-400">-30 % empreinte carbone vs baseline (objectif cible)</strong></li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> 50 % équipements reconditionnés</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Durée de vie moyenne : 6 ans</li>
+                                <li><Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> Label Numérique Responsable obtenu</li>
                             </ul>
                         </Card>
                     </div>

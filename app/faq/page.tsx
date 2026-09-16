@@ -5,9 +5,10 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { ChevronDown, ChevronUp, Search, HelpCircle } from "lucide-react"
+import { ChevronDown, ChevronUp, HelpCircle, Search } from "lucide-react"
 import Link from "next/link"
 import { JsonLd } from "@/components/json-ld"
+import { PageHero } from "@/components/page-hero"
 import { faqCategories } from "./faq-data"
 
 
@@ -50,23 +51,21 @@ export default function FAQPage() {
   }
 
   return (
-    <>
+    <div data-theme="teal">
       <JsonLd data={faqJsonLd} />
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
-      <section className="bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 px-6 py-16 lg:py-24 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center justify-center rounded-full bg-emerald-100 p-3 dark:bg-emerald-900/30">
-            <HelpCircle className="h-8 w-8 text-emerald-700 dark:text-emerald-400" />
-          </div>
-          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-slate-900 lg:text-5xl dark:text-slate-100">
-            Foire aux questions
-          </h1>
-          <p className="text-pretty text-lg text-slate-600 lg:text-xl dark:text-slate-300">
-            Toutes les réponses à vos questions sur le Green IT, le numérique responsable et l'écologie numérique.
-          </p>
-          <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">{totalQuestions} questions répondues</p>
-        </div>
-      </section>
+    <div className="min-h-screen bg-secondary/30">
+      <PageHero
+        theme="teal"
+        image={{ src: "/greenit/images/hero-faq.webp", alt: "Bulles de dialogue flottant au-dessus d'un ordinateur portable ouvert" }}
+        badge={{ icon: HelpCircle }}
+        title="Foire aux questions"
+        intro={
+          <>
+            <p>Toutes les réponses à vos questions sur le Green IT, le numérique responsable et l'écologie numérique.</p>
+            <p className="mt-4 text-sm">{totalQuestions} questions répondues</p>
+          </>
+        }
+      />
 
       <section className="px-6 py-12 lg:py-16">
         <div className="mx-auto max-w-5xl">
@@ -106,8 +105,8 @@ export default function FAQPage() {
           </div>
 
           {filteredFAQ.length === 0 ? (
-            <Card className="border-2 border-slate-200 p-12 text-center dark:border-slate-700 dark:bg-slate-800">
-              <p className="text-slate-600 dark:text-slate-400">
+            <Card className="border-2 border-border bg-card p-12 text-center">
+              <p className="text-muted-foreground">
                 Aucune question trouvée pour « {searchTerm} ». Essayez un autre mot-clé ou changez de catégorie.
               </p>
             </Card>
@@ -115,7 +114,7 @@ export default function FAQPage() {
             <div className="space-y-8">
               {filteredFAQ.map((category, catIndex) => (
                 <div key={catIndex}>
-                  <h2 className="mb-4 flex items-center gap-3 text-2xl font-bold text-slate-900 dark:text-slate-100">
+                  <h2 className="mb-4 flex items-center gap-3 text-2xl font-bold text-foreground">
                     <div className={`h-2 w-2 rounded-full bg-${category.color}-600 dark:bg-${category.color}-400`} />
                     {category.category}
                     <Badge variant="secondary" className="text-xs">
@@ -128,14 +127,14 @@ export default function FAQPage() {
                       return (
                         <Card
                           key={qIndex}
-                          className="border-2 border-slate-200 overflow-hidden transition-all hover:border-slate-300 dark:border-slate-700 dark:bg-slate-800 dark:hover:border-slate-600"
+                          className="border-2 border-border bg-card overflow-hidden transition-all hover:border-slate-300 dark:hover:border-slate-600"
                         >
                           <button
                             onClick={() => toggleQuestion(catIndex, qIndex)}
                             aria-expanded={isOpen}
                             className="flex w-full items-start justify-between gap-4 p-6 text-left transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50"
                           >
-                            <h3 className="flex-1 font-semibold text-slate-900 dark:text-slate-100">{item.q}</h3>
+                            <h3 className="flex-1 font-semibold text-foreground">{item.q}</h3>
                             {isOpen ? (
                               <ChevronUp className="h-5 w-5 flex-shrink-0 text-emerald-600 dark:text-emerald-400" />
                             ) : (
@@ -143,8 +142,8 @@ export default function FAQPage() {
                             )}
                           </button>
                           {isOpen && (
-                            <div className="border-t border-slate-200 bg-slate-50 px-6 py-4 dark:border-slate-700 dark:bg-slate-800/50">
-                              <p className="text-slate-700 leading-relaxed dark:text-slate-300">{item.a}</p>
+                            <div className="border-t border-border bg-secondary/30 px-6 py-4">
+                              <p className="text-muted-foreground leading-relaxed">{item.a}</p>
                             </div>
                           )}
                         </Card>
@@ -184,6 +183,6 @@ export default function FAQPage() {
         </div>
       </section>
     </div>
-    </>
+    </div>
   )
 }

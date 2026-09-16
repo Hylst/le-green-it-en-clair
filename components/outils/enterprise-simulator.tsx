@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from "recharts";
 import { TrendingUp, TrendingDown, Download, RotateCcw, Building2, BarChart3, Calendar, ClipboardList } from "lucide-react";
+import { CHART_FALLBACKS } from "@/lib/chart-theme";
 import { LabeledSlider, PDF_COLORS } from "./shared";
 
 export default function EnterpriseSimulator() {
@@ -261,12 +262,12 @@ export default function EnterpriseSimulator() {
         <CardContent className="space-y-8">
           {/* Configuration entreprise */}
           <div>
-            <h3 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100"><Building2 className="mr-2 inline h-5 w-5" />Profil de l'entreprise</h3>
+            <h3 className="font-semibold text-lg mb-4 text-foreground"><Building2 className="mr-2 inline h-5 w-5" />Profil de l'entreprise</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="space-y-3">
                 <div className="flex justify-between">
-                  <Label className="text-gray-900 dark:text-gray-100">Nombre d'employés</Label>
-                  <span className="font-semibold text-gray-900 dark:text-gray-100">{config.employees}</span>
+                  <Label className="text-foreground">Nombre d'employés</Label>
+                  <span className="font-semibold text-foreground">{config.employees}</span>
                 </div>
                 <LabeledSlider
                   label="Nombre d'employés"
@@ -281,8 +282,8 @@ export default function EnterpriseSimulator() {
 
               <div className="space-y-3">
                 <div className="flex justify-between">
-                  <Label className="text-gray-900 dark:text-gray-100">Appareils par employé</Label>
-                  <span className="font-semibold text-gray-900 dark:text-gray-100">{config.devicesPerEmployee}</span>
+                  <Label className="text-foreground">Appareils par employé</Label>
+                  <span className="font-semibold text-foreground">{config.devicesPerEmployee}</span>
                 </div>
                 <LabeledSlider
                   label="Appareils par employé"
@@ -297,8 +298,8 @@ export default function EnterpriseSimulator() {
 
               <div className="space-y-3">
                 <div className="flex justify-between">
-                  <Label className="text-gray-900 dark:text-gray-100">Cycle de renouvellement actuel</Label>
-                  <span className="font-semibold text-gray-900 dark:text-gray-100">{config.renewalCycle} ans</span>
+                  <Label className="text-foreground">Cycle de renouvellement actuel</Label>
+                  <span className="font-semibold text-foreground">{config.renewalCycle} ans</span>
                 </div>
                 <LabeledSlider
                   label="Cycle de renouvellement actuel"
@@ -312,7 +313,7 @@ export default function EnterpriseSimulator() {
               </div>
 
               <div className="space-y-3">
-                <Label className="text-gray-900 dark:text-gray-100">Utilisation cloud</Label>
+                <Label className="text-foreground">Utilisation cloud</Label>
                 <RadioGroup
                   value={config.cloudUsage}
                   onValueChange={(value) => setConfig({ ...config, cloudUsage: value as typeof config.cloudUsage })}
@@ -325,7 +326,7 @@ export default function EnterpriseSimulator() {
                   ].map((option) => (
                     <div key={option.value} className="flex items-center space-x-2">
                       <RadioGroupItem value={option.value} id={`cloud-${option.value}`} />
-                      <Label htmlFor={`cloud-${option.value}`} className="cursor-pointer text-gray-700 dark:text-gray-300">
+                      <Label htmlFor={`cloud-${option.value}`} className="cursor-pointer text-muted-foreground">
                         {option.label}
                       </Label>
                     </div>
@@ -334,7 +335,7 @@ export default function EnterpriseSimulator() {
               </div>
 
               <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg col-span-full md:col-span-2">
-                <div className="text-sm text-gray-700 dark:text-gray-300">
+                <div className="text-sm text-muted-foreground">
                   <strong>Votre parc :</strong> {Math.round(config.employees * config.devicesPerEmployee)} équipements pour{" "}
                   {config.employees} employés, renouvelés tous les {config.renewalCycle} ans.
                 </div>
@@ -344,7 +345,7 @@ export default function EnterpriseSimulator() {
 
           {/* Sélection du scénario */}
           <div>
-            <h3 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100"><BarChart3 className="mr-2 inline h-5 w-5" />Choisissez un scénario</h3>
+            <h3 className="font-semibold text-lg mb-4 text-foreground"><BarChart3 className="mr-2 inline h-5 w-5" />Choisissez un scénario</h3>
             <div className="grid md:grid-cols-3 gap-4">
               {Object.entries(scenarios).map(([key, s]) => (
                 <button
@@ -352,13 +353,13 @@ export default function EnterpriseSimulator() {
                   onClick={() => setSelectedScenario(key as typeof selectedScenario)}
                   className={`p-4 rounded-xl border-2 text-left transition-all ${selectedScenario === key
                     ? `border-${s.color}-500 bg-${s.color}-50 dark:bg-${s.color}-900/20 shadow-lg`
-                    : "border-gray-200 dark:border-gray-700 hover:border-gray-300"
+                    : "border-border hover:border-border"
                     }`}
                 >
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-1">{s.name}</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{s.description}</p>
+                  <h4 className="font-semibold text-foreground mb-1">{s.name}</h4>
+                  <p className="text-sm text-muted-foreground mb-3">{s.description}</p>
                   {key !== "baseline" && (
-                    <ul className="text-xs space-y-1 text-gray-600 dark:text-gray-400">
+                    <ul className="text-xs space-y-1 text-muted-foreground">
                       <li>• Durée de vie: +{s.deviceLifeExtension} ans</li>
                       <li>• Reconditionné: {s.refurbishedRate * 100}%</li>
                       <li>• Énergie: -{s.energyOptimization * 100}%</li>
@@ -382,34 +383,34 @@ export default function EnterpriseSimulator() {
             <div className="space-y-6">
               {/* KPIs principaux */}
               <div className="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 p-6 rounded-lg border-2 border-purple-200 dark:border-purple-800">
-                <h3 className="font-semibold text-xl mb-4 text-gray-900 dark:text-gray-100">
+                <h3 className="font-semibold text-xl mb-4 text-foreground">
                   <TrendingUp className="mr-2 inline h-5 w-5" />Résultats sur 5 ans - {scenario.name}
                 </h3>
                 <div className="grid md:grid-cols-4 gap-4">
-                  <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
+                  <div className="bg-card p-4 rounded-lg text-center border border-border">
                     <div className="text-3xl font-bold text-green-600 dark:text-green-400">
                       {(results.totalSavings / 1000).toFixed(0)}k€
                     </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Économies totales</div>
+                    <div className="text-sm text-muted-foreground">Économies totales</div>
                   </div>
-                  <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
+                  <div className="bg-card p-4 rounded-lg text-center border border-border">
                     <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">
                       {(results.totalEmissions / 1000).toFixed(1)}t
                     </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">CO₂ évité</div>
+                    <div className="text-sm text-muted-foreground">CO₂ évité</div>
                   </div>
-                  <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
+                  <div className="bg-card p-4 rounded-lg text-center border border-border">
                     <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">
                       {results.totalSavings > 0 ? Math.round((results.totalSavings / (config.employees * 100)) * 100) : 0}%
                     </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">ROI</div>
+                    <div className="text-sm text-muted-foreground">ROI</div>
                   </div>
-                  <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
+                  <div className="bg-card p-4 rounded-lg text-center border border-border">
                     <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">{results.payback === -1 ? "—" : results.payback}</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">{results.payback === -1 ? "Non rentable sur 5 ans" : "Mois pour rentabilité"}</div>
+                    <div className="text-sm text-muted-foreground">{results.payback === -1 ? "Non rentable sur 5 ans" : "Mois pour rentabilité"}</div>
                   </div>
                 </div>
-                <p className="mt-4 text-xs text-gray-600 dark:text-gray-400">
+                <p className="mt-4 text-xs text-muted-foreground">
                   Hypothèses : 800 € par poste renouvelé, 60 €/an d'énergie par poste, cloud 200/500/1 000 €/an selon
                   l'usage, maintenance 50 €/an/poste (+20 % de préventif dans les scénarios optimisés), mise en œuvre
                   100 €/employé. CO₂e : 205 kg par poste neuf, 51 kg reconditionné (ADEME 2022), usage 9 kg/an (ADEME, Impact CO₂ 2025).
@@ -417,26 +418,26 @@ export default function EnterpriseSimulator() {
               </div>
 
               {/* Graphique de projection */}
-              <div className="bg-white dark:bg-slate-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
-                <h4 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100">
+              <div className="bg-card p-6 rounded-lg border border-border">
+                <h4 className="font-semibold text-lg mb-4 text-foreground">
                   <TrendingDown className="mr-2 inline h-5 w-5" />Projection des coûts sur 5 ans
                 </h4>
                 <ResponsiveContainer width="100%" height={300}>
                   <LineChart data={results.projections}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
-                    <XAxis dataKey="year" stroke="rgba(255,255,255,0.6)" />
+                    <CartesianGrid strokeDasharray="3 3" stroke={CHART_FALLBACKS.grid} />
+                    <XAxis dataKey="year" stroke={CHART_FALLBACKS.tick} />
                     <YAxis
-                      stroke="rgba(255,255,255,0.6)"
+                      stroke={CHART_FALLBACKS.tick}
                       tickFormatter={(value) => `${(value / 1000).toFixed(0)}k€`}
                     />
                     <RechartsTooltip
                       formatter={(value: number) => [`${(value / 1000).toFixed(1)}k€`, ""]}
-                      contentStyle={{ backgroundColor: "rgba(255,255,255,0.95)" }}
+                      contentStyle={{ backgroundColor: "var(--card)" }}
                     />
                     <Line
                       type="monotone"
                       dataKey="baselineCost"
-                      stroke="#94a3b8"
+                      stroke={CHART_FALLBACKS.slate}
                       name="Sans changement"
                       strokeWidth={2}
                       dot
@@ -444,7 +445,7 @@ export default function EnterpriseSimulator() {
                     <Line
                       type="monotone"
                       dataKey="optimizedCost"
-                      stroke="#10b981"
+                      stroke={CHART_FALLBACKS.emerald}
                       name={scenario.name}
                       strokeWidth={3}
                       dot
@@ -453,38 +454,38 @@ export default function EnterpriseSimulator() {
                 </ResponsiveContainer>
                 <div className="flex justify-center gap-6 mt-4 text-sm">
                   <div className="flex items-center gap-2">
-                    <div className="w-4 h-1 bg-gray-400 rounded" />
-                    <span className="text-gray-600 dark:text-gray-400">Sans changement</span>
+                    <div className="w-4 h-1 rounded" style={{ backgroundColor: CHART_FALLBACKS.slate }} />
+                    <span className="text-muted-foreground">Sans changement</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-4 h-1 bg-emerald-500 rounded" />
-                    <span className="text-gray-600 dark:text-gray-400">{scenario.name}</span>
+                    <span className="text-muted-foreground">{scenario.name}</span>
                   </div>
                 </div>
               </div>
 
               {/* Détail année par année */}
               <div>
-                <h4 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100"><Calendar className="mr-2 inline h-5 w-5" />Détail annuel</h4>
+                <h4 className="font-semibold text-lg mb-4 text-foreground"><Calendar className="mr-2 inline h-5 w-5" />Détail annuel</h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-gray-200 dark:border-gray-700">
-                        <th className="text-left py-2 px-3 text-gray-900 dark:text-gray-100">Année</th>
-                        <th className="text-right py-2 px-3 text-gray-600 dark:text-gray-400">Coût baseline</th>
-                        <th className="text-right py-2 px-3 text-gray-600 dark:text-gray-400">Coût optimisé</th>
+                      <tr className="border-b border-border">
+                        <th className="text-left py-2 px-3 text-foreground">Année</th>
+                        <th className="text-right py-2 px-3 text-muted-foreground">Coût baseline</th>
+                        <th className="text-right py-2 px-3 text-muted-foreground">Coût optimisé</th>
                         <th className="text-right py-2 px-3 text-green-600 dark:text-green-400">Économies</th>
                         <th className="text-right py-2 px-3 text-emerald-600 dark:text-emerald-400">CO₂ évité</th>
                       </tr>
                     </thead>
                     <tbody>
                       {results.projections.slice(1).map((p, i) => (
-                        <tr key={i} className="border-b border-gray-100 dark:border-gray-800">
-                          <td className="py-2 px-3 font-medium text-gray-900 dark:text-gray-100">{p.year}</td>
-                          <td className="text-right py-2 px-3 text-gray-600 dark:text-gray-400">
+                        <tr key={i} className="border-b border-border">
+                          <td className="py-2 px-3 font-medium text-foreground">{p.year}</td>
+                          <td className="text-right py-2 px-3 text-muted-foreground">
                             {(p.baselineCost / 1000).toFixed(1)}k€
                           </td>
-                          <td className="text-right py-2 px-3 text-gray-600 dark:text-gray-400">
+                          <td className="text-right py-2 px-3 text-muted-foreground">
                             {(p.optimizedCost / 1000).toFixed(1)}k€
                           </td>
                           <td className="text-right py-2 px-3 font-semibold text-green-600 dark:text-green-400">
@@ -497,10 +498,10 @@ export default function EnterpriseSimulator() {
                       ))}
                     </tbody>
                     <tfoot>
-                      <tr className="bg-gray-50 dark:bg-slate-700 font-semibold">
-                        <td className="py-2 px-3 text-gray-900 dark:text-gray-100">Total</td>
-                        <td className="text-right py-2 px-3 text-gray-600 dark:text-gray-400">-</td>
-                        <td className="text-right py-2 px-3 text-gray-600 dark:text-gray-400">-</td>
+                      <tr className="bg-secondary font-semibold">
+                        <td className="py-2 px-3 text-foreground">Total</td>
+                        <td className="text-right py-2 px-3 text-muted-foreground">-</td>
+                        <td className="text-right py-2 px-3 text-muted-foreground">-</td>
                         <td className="text-right py-2 px-3 text-green-600 dark:text-green-400">
                           +{(results.totalSavings / 1000).toFixed(0)}k€
                         </td>
@@ -515,11 +516,11 @@ export default function EnterpriseSimulator() {
 
               {/* Plan d'action */}
               <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
-                <h4 className="font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100"><ClipboardList className="mr-2 inline h-5 w-5" />Plan d'action recommandé</h4>
+                <h4 className="font-semibold text-lg mb-3 text-foreground"><ClipboardList className="mr-2 inline h-5 w-5" />Plan d'action recommandé</h4>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <h5 className="font-medium text-gray-900 dark:text-gray-100 mb-2">Actions immédiates</h5>
-                    <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                    <h5 className="font-medium text-foreground mb-2">Actions immédiates</h5>
+                    <ul className="space-y-1 text-sm text-muted-foreground">
                       <li>• Auditer le parc existant et son état</li>
                       <li>• Former les équipes aux bonnes pratiques</li>
                       <li>• Mettre en place la maintenance préventive</li>
@@ -527,8 +528,8 @@ export default function EnterpriseSimulator() {
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-medium text-gray-900 dark:text-gray-100 mb-2">Actions long terme</h5>
-                    <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                    <h5 className="font-medium text-foreground mb-2">Actions long terme</h5>
+                    <ul className="space-y-1 text-sm text-muted-foreground">
                       <li>• Partenariat avec un reconditionneur</li>
                       <li>• Optimisation de l'infrastructure cloud</li>
                       <li>• Suivi et reporting des indicateurs RSE</li>
@@ -540,7 +541,7 @@ export default function EnterpriseSimulator() {
 
               {/* Boutons d'action */}
               <div className="flex gap-4">
-                <Button className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
+                <Button className="flex-1 bg-card text-foreground hover:bg-secondary border border-border"
                   onClick={exportPDF}>
                   <Download className="w-4 h-4 mr-2" />
                   Télécharger le rapport complet
@@ -555,7 +556,7 @@ export default function EnterpriseSimulator() {
         </CardContent>
       </Card>
 
-      <div className="text-sm text-gray-600 dark:text-gray-300 text-center">
+      <div className="text-sm text-muted-foreground text-center">
         Sources: Base Empreinte / ADEME-Arcep (2024-2025), études TCO Gartner, données sectorielles • Calculs basés sur des moyennes françaises
       </div>
     </div>

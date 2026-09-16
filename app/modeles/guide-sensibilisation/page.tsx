@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowLeft, Printer, Users, BookOpen, ClipboardCheck, Image, Mail, Zap, Database, Video, Recycle, Download } from "lucide-react"
+import { ArrowLeft, Printer, Users, BookOpen, ClipboardCheck, Image, Mail, Zap, Database, Video, Recycle, Download, Check } from "lucide-react"
 import Link from "next/link"
 
 export default function KitSensibilisationPage() {
@@ -157,7 +157,7 @@ export default function KitSensibilisationPage() {
                             <p className="text-muted-foreground mb-3">Quelle part du numérique dans les émissions mondiales de CO₂ ?</p>
                             <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li>A. 1 %</li>
-                                <li>B. Environ 3,4 % ✓ (Bonne réponse)</li>
+                                <li>B. Environ 3,4 % <Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> (Bonne réponse)</li>
                                 <li>C. 10 %</li>
                             </ul>
                         </Card>
@@ -167,7 +167,7 @@ export default function KitSensibilisationPage() {
                             <p className="text-muted-foreground mb-3">Quelle phase représente environ 75 % des impacts (tous indicateurs) d'un smartphone ?</p>
                             <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li>A. Utilisation</li>
-                                <li>B. Fabrication ✓ (Bonne réponse)</li>
+                                <li>B. Fabrication <Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> (Bonne réponse)</li>
                                 <li>C. Recyclage</li>
                             </ul>
                         </Card>
@@ -178,7 +178,7 @@ export default function KitSensibilisationPage() {
                             <ul className="space-y-2 text-sm text-muted-foreground">
                                 <li>A. 2 ans</li>
                                 <li>B. 3-4 ans</li>
-                                <li>C. 5-7 ans ✓ (Bonne réponse)</li>
+                                <li>C. 5-7 ans <Check className="mr-1 inline h-4 w-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" /> (Bonne réponse)</li>
                             </ul>
                         </Card>
 

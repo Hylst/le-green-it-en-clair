@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Download, ExternalLink, FileText, BookOpen, Video, Search } from "lucide-react"
+import { PageHero } from "@/components/page-hero"
 import Link from "next/link"
 
 const resources = [
@@ -321,19 +322,13 @@ export default function RessourcesPage() {
   })
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-secondary/10 px-6 py-16 lg:py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-foreground lg:text-5xl">
-            Ressources et documentation
-          </h1>
-          <p className="text-pretty text-lg text-muted-foreground lg:text-xl">
-            Guides pratiques, rapports, infographies et liens utiles pour approfondir vos connaissances sur le Green IT
-            et le numérique responsable.
-          </p>
-        </div>
-      </section>
+    <div className="min-h-screen" data-theme="blue">
+      <PageHero
+        theme="blue"
+        image={{ src: "/greenit/images/hero-ressources.webp", alt: "Livre ouvert rayonnant au milieu d'étagères et de documents" }}
+        title="Ressources et documentation"
+        intro="Guides pratiques, rapports, infographies et liens utiles pour approfondir vos connaissances sur le Green IT et le numérique responsable."
+      />
 
       {/* Downloadable Resources */}
       <section className="px-6 py-16 lg:py-24 bg-background">

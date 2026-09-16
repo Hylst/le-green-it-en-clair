@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { SourceTooltip } from "@/components/source-tooltip"
@@ -23,6 +24,10 @@ import {
   Zap,
   BatteryCharging,
 } from "lucide-react"
+import { PageHero } from "@/components/page-hero"
+import { Reveal } from "@/components/reveal"
+import { Sommaire } from "@/components/sommaire"
+import { ReadingProgress } from "@/components/reading-progress"
 import {
   BarChart,
   Bar,
@@ -69,39 +74,44 @@ export default function ReglementationPage() {
   const [selectedTab, setSelectedTab] = useState("france")
 
   return (
-    <div className="min-h-screen bg-background">
+    <div data-theme="indigo" className="min-h-screen bg-background">
+      <ReadingProgress />
       {/* Hero Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-br from-emerald-600 via-teal-600 to-blue-600 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)",
-              backgroundSize: "40px 40px",
-            }}
-          />
-        </div>
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="flex items-center gap-3 mb-6">
-            <Scale className="w-12 h-12" />
-            <Badge variant="secondary" className="text-sm">
-              Mise à jour 2026
-            </Badge>
-          </div>
-          <h1 className="text-5xl font-bold mb-6 text-balance text-white">Réglementation Green IT</h1>
-          <p className="text-xl text-white/90 max-w-3xl text-pretty">
-            Découvrez les normes, lois et obligations en France et en Europe pour réduire l'empreinte environnementale
-            du numérique
-          </p>
-        </div>
-      </section>
+      <PageHero
+        theme="indigo"
+        image={{ src: "/greenit/images/hero-reglementation.webp", alt: "Balance de justice fusionnée avec une colonne et un bouclier feuille" }}
+        badge={{ icon: Scale, label: "Mise à jour 2026" }}
+        title="Réglementation Green IT"
+        intro="Découvrez les normes, lois et obligations en France et en Europe pour réduire l'empreinte environnementale du numérique"
+      />
+
+      <Sommaire
+        items={[
+          { id: "chronologie", label: "Chronologie" },
+          { id: "conformite", label: "Conformité" },
+          { id: "defis", label: "Défis" },
+          { id: "ressources", label: "Ressources" },
+        ]}
+      />
 
       {/* Timeline Section */}
-      <section className="py-16 px-4 bg-background">
+      <section className="py-16 px-4 bg-background scroll-mt-32" id="chronologie">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">Chronologie des réglementations</h2>
             <p className="text-lg text-muted-foreground">L'évolution du cadre législatif Green IT en France et en Europe</p>
+          </div>
+
+          <div className="mb-8 overflow-hidden rounded-xl border border-border">
+            <Image
+              src="/greenit/images/frise-chronologique.webp"
+              alt="Frise chronologique avec balance de justice et documents officiels"
+              width={1376}
+              height={768}
+              className="h-auto w-full"
+              quality={85}
+              loading="lazy"
+            />
           </div>
 
           <Card>
@@ -126,12 +136,12 @@ export default function ReglementationPage() {
       </section>
 
       {/* Main Content Tabs */}
-      <section className="py-16 px-4">
+      <Reveal as="section" className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <Tabs value={selectedTab} onValueChange={setSelectedTab} className="w-full">
             <TabsList className="grid w-full grid-cols-3 mb-8">
-              <TabsTrigger value="france">🇫🇷 France</TabsTrigger>
-              <TabsTrigger value="europe">🇪🇺 Europe</TabsTrigger>
+              <TabsTrigger value="france">France</TabsTrigger>
+              <TabsTrigger value="europe">Europe</TabsTrigger>
                     <TabsTrigger value="normes"><FileText className="mr-1 inline h-4 w-4" />Normes ISO</TabsTrigger>
             </TabsList>
 
@@ -749,10 +759,10 @@ export default function ReglementationPage() {
             </TabsContent>
           </Tabs>
         </div>
-      </section>
+      </Reveal>
 
       {/* Compliance Status Section */}
-      <section className="py-16 px-4 bg-secondary/5">
+      <Reveal as="section" className="py-16 px-4 bg-secondary/5" id="conformite">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">État de conformité en France (2026)</h2>
@@ -811,10 +821,10 @@ export default function ReglementationPage() {
             </Card>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Constraints & Challenges Section */}
-      <section className="py-16 px-4">
+      <Reveal as="section" className="py-16 px-4" id="defis">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">Contraintes et défis</h2>
@@ -862,10 +872,10 @@ export default function ReglementationPage() {
             </Card>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Resources Section */}
-      <section className="py-16 px-4 bg-background border-t border-border">
+      <Reveal as="section" className="py-16 px-4 bg-background border-t border-border" id="ressources">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-foreground mb-6">Ressources officielles</h2>
           <p className="text-lg text-muted-foreground mb-8">
@@ -910,7 +920,7 @@ export default function ReglementationPage() {
             </Button>
           </div>
         </div>
-      </section>
+      </Reveal>
     </div>
   )
 }

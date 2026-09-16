@@ -13,7 +13,7 @@ export default function CloudComparator() {
   const providers = [
     {
       name: "Infomaniak",
-      country: "🇨🇭 Suisse",
+      country: "Suisse",
       pue: 1.1,
       renewableEnergy: 100,
       carbonNeutral: true,
@@ -24,7 +24,7 @@ export default function CloudComparator() {
     },
     {
       name: "Scaleway",
-      country: "🇫🇷 France",
+      country: "France",
       pue: 1.2,
       renewableEnergy: 100,
       carbonNeutral: true,
@@ -35,7 +35,7 @@ export default function CloudComparator() {
     },
     {
       name: "OVHcloud",
-      country: "🇫🇷 France",
+      country: "France",
       pue: 1.2,
       renewableEnergy: 78,
       carbonNeutral: false,
@@ -79,7 +79,7 @@ export default function CloudComparator() {
     },
     {
       name: "DigitalOcean",
-      country: "🇺🇸 USA",
+      country: "USA",
       pue: 1.3,
       renewableEnergy: 60,
       carbonNeutral: false,
@@ -90,7 +90,7 @@ export default function CloudComparator() {
     },
     {
       name: "Hetzner",
-      country: "🇩🇪 Allemagne",
+      country: "Allemagne",
       pue: 1.15,
       renewableEnergy: 100,
       carbonNeutral: true,
@@ -148,7 +148,7 @@ export default function CloudComparator() {
           {/* Filtres et tri */}
           <div className="flex flex-wrap gap-4 items-center justify-between bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg">
             <div className="flex items-center gap-4">
-              <Label className="text-gray-900 dark:text-gray-100">Trier par :</Label>
+              <Label className="text-foreground">Trier par :</Label>
               <div className="flex gap-2">
                 {[
                   { key: "score", label: "Score éco" },
@@ -174,9 +174,9 @@ export default function CloudComparator() {
                 id="filterGreen"
                 checked={filterGreen}
                 onChange={(e) => setFilterGreen(e.target.checked)}
-                className="rounded border-gray-300"
+                className="rounded border-border"
               />
-              <Label htmlFor="filterGreen" className="cursor-pointer text-gray-900 dark:text-gray-100">
+              <Label htmlFor="filterGreen" className="cursor-pointer text-foreground">
                 Afficher uniquement les hébergeurs verts (score ≥ 85)
               </Label>
             </div>
@@ -184,8 +184,8 @@ export default function CloudComparator() {
 
           {/* Légende */}
           <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
-            <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100"><Lightbulb className="mr-2 inline h-4 w-4" />Comprendre les métriques</h4>
-            <ul className="text-sm space-y-1 text-gray-700 dark:text-gray-300">
+            <h4 className="font-semibold mb-2 text-foreground"><Lightbulb className="mr-2 inline h-4 w-4" />Comprendre les métriques</h4>
+            <ul className="text-sm space-y-1 text-muted-foreground">
               <li>
                 <strong>PUE (Power Usage Effectiveness)</strong> : Ratio d'efficacité énergétique. Plus il est proche de 1,
                 mieux c'est. Un PUE de 1,2 signifie qu'environ 17 % de l'énergie sert aux infrastructures (refroidissement, distribution), pas seulement au calcul.
@@ -208,23 +208,23 @@ export default function CloudComparator() {
                 key={provider.name}
                 className={`p-6 rounded-xl border-2 transition-all hover:shadow-md ${getScoreBgColor(
                   provider.sustainabilityScore
-                )} border-transparent hover:border-gray-300 dark:hover:border-gray-600`}
+                )} border-transparent hover:border-border`}
               >
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div className="flex-1 min-w-[200px]">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-2xl font-bold text-gray-900 dark:text-gray-100">{index + 1}</span>
+                      <span className="text-2xl font-bold text-foreground">{index + 1}</span>
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">{provider.name}</h3>
-                        <span className="text-sm text-gray-600 dark:text-gray-400">{provider.country}</span>
+                        <h3 className="text-xl font-bold text-foreground">{provider.name}</h3>
+                        <span className="text-sm text-muted-foreground">{provider.country}</span>
                       </div>
                     </div>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{provider.description}</p>
+                    <p className="text-sm text-muted-foreground mb-3">{provider.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {provider.certifications.map((cert) => (
                         <span
                           key={cert}
-                          className="px-2 py-1 text-xs rounded-full bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600"
+                          className="px-2 py-1 text-xs rounded-full bg-card text-muted-foreground border border-border"
                         >
                           {cert}
                         </span>
@@ -233,29 +233,29 @@ export default function CloudComparator() {
                   </div>
 
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                    <div className="bg-white dark:bg-slate-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <div className="bg-card p-3 rounded-lg border border-border">
                       <div className={`text-2xl font-bold ${getScoreColor(provider.sustainabilityScore)}`}>
                         {provider.sustainabilityScore}
                       </div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">Score éco</div>
+                      <div className="text-xs text-muted-foreground">Score éco</div>
                     </div>
-                    <div className="bg-white dark:bg-slate-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
-                      <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">{provider.pue}</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">PUE</div>
+                    <div className="bg-card p-3 rounded-lg border border-border">
+                      <div className="text-2xl font-bold text-foreground">{provider.pue}</div>
+                      <div className="text-xs text-muted-foreground">PUE</div>
                     </div>
-                    <div className="bg-white dark:bg-slate-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
-                      <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">{provider.renewableEnergy}%</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">Renouvelable</div>
+                    <div className="bg-card p-3 rounded-lg border border-border">
+                      <div className="text-2xl font-bold text-foreground">{provider.renewableEnergy}%</div>
+                      <div className="text-xs text-muted-foreground">Renouvelable</div>
                     </div>
-                    <div className="bg-white dark:bg-slate-800 p-3 rounded-lg text-center border border-gray-200 dark:border-gray-700">
-                      <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                    <div className="bg-card p-3 rounded-lg text-center border border-border">
+                      <div className="text-2xl font-bold text-foreground">
                         {provider.carbonNeutral ? (
                           <CheckCircle2 className="mx-auto h-6 w-6 text-emerald-600 dark:text-emerald-400" aria-label="Neutre carbone" />
                         ) : (
                           <Clock className="mx-auto h-6 w-6 text-amber-600 dark:text-amber-400" aria-label="Objectif en cours" />
                         )}
                       </div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">Neutre carbone</div>
+                      <div className="text-xs text-muted-foreground">Neutre carbone</div>
                     </div>
                   </div>
                 </div>
@@ -265,11 +265,11 @@ export default function CloudComparator() {
 
           {/* Recommandation */}
           <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 p-6 rounded-lg border-2 border-emerald-200 dark:border-emerald-800">
-            <h4 className="font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100"><Leaf className="mr-2 inline h-5 w-5" />Notre recommandation</h4>
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
+            <h4 className="font-semibold text-lg mb-3 text-foreground"><Leaf className="mr-2 inline h-5 w-5" />Notre recommandation</h4>
+            <p className="text-muted-foreground mb-4">
               Pour un hébergement web éco-responsable en France ou en Europe, privilégiez :
             </p>
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 • <strong>Infomaniak</strong> ou <strong>Hetzner</strong> pour le meilleur bilan environnemental
               </li>
@@ -284,7 +284,7 @@ export default function CloudComparator() {
         </CardContent>
       </Card>
 
-      <div className="text-sm text-gray-600 dark:text-gray-300 text-center">
+      <div className="text-sm text-muted-foreground text-center">
         Sources : rapports RSE des fournisseurs, The Green Web Foundation, ADEME • Données indicatives 2024-2026
       </div>
     </div>

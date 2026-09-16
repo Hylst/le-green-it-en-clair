@@ -241,24 +241,24 @@ export default function ITAudit() {
         <CardContent className="space-y-8">
           {/* Formulaire d'inventaire */}
           <div>
-              <h3 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100"><Package className="mr-2 inline h-5 w-5" />Inventaire du parc</h3>
+              <h3 className="font-semibold text-lg mb-4 text-foreground"><Package className="mr-2 inline h-5 w-5" />Inventaire du parc</h3>
             <div className="grid md:grid-cols-2 gap-4">
               {Object.entries(inventory).map(([type, { count, avgAge }]) => {
                 const data = deviceData[type as keyof typeof deviceData]
                 return (
                   <div
                     key={type}
-                    className="p-4 bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-gray-700"
+                    className="p-4 bg-secondary/50 rounded-lg border border-border"
                   >
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-gray-700 dark:text-gray-300"><data.icon className="h-6 w-6" /></span>
-                      <span className="font-medium text-gray-900 dark:text-gray-100">{data.name}</span>
+                      <span className="text-muted-foreground"><data.icon className="h-6 w-6" /></span>
+                      <span className="font-medium text-foreground">{data.name}</span>
                     </div>
                     <div className="space-y-3">
                       <div>
                         <div className="flex justify-between text-sm mb-1">
-                          <Label className="text-gray-600 dark:text-gray-400">Quantité</Label>
-                          <span className="font-semibold text-gray-900 dark:text-gray-100">{count}</span>
+                          <Label className="text-muted-foreground">Quantité</Label>
+                          <span className="font-semibold text-foreground">{count}</span>
                         </div>
                         <LabeledSlider
                           label={`${data.name} — quantité`}
@@ -274,8 +274,8 @@ export default function ITAudit() {
                       </div>
                       <div>
                         <div className="flex justify-between text-sm mb-1">
-                          <Label className="text-gray-600 dark:text-gray-400">Âge moyen</Label>
-                          <span className="font-semibold text-gray-900 dark:text-gray-100">{avgAge} ans</span>
+                          <Label className="text-muted-foreground">Âge moyen</Label>
+                          <span className="font-semibold text-foreground">{avgAge} ans</span>
                         </div>
                         <LabeledSlider
                           label={`${data.name} — âge moyen`}
@@ -313,46 +313,46 @@ export default function ITAudit() {
             <div className="space-y-6">
               {/* Score global */}
               <div className="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 p-6 rounded-lg border-2 border-orange-200 dark:border-orange-800">
-                <h3 className="font-semibold text-xl mb-4 text-gray-900 dark:text-gray-100"><BarChart3 className="mr-2 inline h-5 w-5" />Résultats de l'audit</h3>
+                <h3 className="font-semibold text-xl mb-4 text-foreground"><BarChart3 className="mr-2 inline h-5 w-5" />Résultats de l'audit</h3>
                 <div className="grid md:grid-cols-4 gap-4 mb-6">
-                  <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
-                    <div className={`text-4xl font-bold ${results.totalDevices === 0 ? "text-gray-400 dark:text-gray-500" : scoreGrade.color}`}>
+                  <div className="bg-card p-4 rounded-lg text-center border border-border">
+                    <div className={`text-4xl font-bold ${results.totalDevices === 0 ? "text-muted-foreground" : scoreGrade.color}`}>
                       {results.totalDevices === 0 ? "—" : scoreGrade.grade}
                     </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Score éco</div>
-                    <div className={`text-xs ${results.totalDevices === 0 ? "text-gray-500 dark:text-gray-400" : scoreGrade.color}`}>
+                    <div className="text-sm text-muted-foreground">Score éco</div>
+                    <div className={`text-xs ${results.totalDevices === 0 ? "text-muted-foreground" : scoreGrade.color}`}>
                       {results.totalDevices === 0 ? "Ajoutez au moins un équipement" : scoreGrade.label}
                     </div>
                   </div>
-                  <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
-                    <div className="text-3xl font-bold text-gray-900 dark:text-gray-100">{results.totalDevices}</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Équipements</div>
+                  <div className="bg-card p-4 rounded-lg text-center border border-border">
+                    <div className="text-3xl font-bold text-foreground">{results.totalDevices}</div>
+                    <div className="text-sm text-muted-foreground">Équipements</div>
                   </div>
-                  <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
+                  <div className="bg-card p-4 rounded-lg text-center border border-border">
                     <div className="text-3xl font-bold text-red-600 dark:text-red-400">
                       {(results.totalCO2 / 1000).toFixed(1)}t
                     </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">CO₂e/an</div>
+                    <div className="text-sm text-muted-foreground">CO₂e/an</div>
                   </div>
-                  <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
+                  <div className="bg-card p-4 rounded-lg text-center border border-border">
                     <div className="text-3xl font-bold text-orange-600 dark:text-orange-400">{results.renewalNeeded}</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">À renouveler</div>
+                    <div className="text-sm text-muted-foreground">À renouveler</div>
                   </div>
                 </div>
 
                 {results.totalDevices > 0 ? (
                   <>
                     <Progress value={results.ecoScore} className="h-4 mb-2" aria-label="Score d'éco-efficacité" />
-                    <div className="text-sm text-gray-600 dark:text-gray-400 text-center">
+                    <div className="text-sm text-muted-foreground text-center">
                       Score d'éco-efficacité : {results.ecoScore}/100
                     </div>
                   </>
                 ) : (
-                  <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
+                  <p className="text-sm text-muted-foreground text-center">
                     Parc vide : indiquez vos équipements pour lancer l'analyse.
                   </p>
                 )}
-                <p className="mt-4 text-xs text-gray-500 dark:text-gray-400 text-center">
+                <p className="mt-4 text-xs text-muted-foreground text-center">
                   Hypothèses : usage annuel forfaitaire par équipement, fabrication amortie sur l'âge saisi, durées de
                   vie optimales indicatives.
                 </p>
@@ -360,7 +360,7 @@ export default function ITAudit() {
 
               {/* Détails par catégorie */}
               <div>
-                <h4 className="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100"><Search className="mr-2 inline h-5 w-5" />Analyse détaillée</h4>
+                <h4 className="font-semibold text-lg mb-4 text-foreground"><Search className="mr-2 inline h-5 w-5" />Analyse détaillée</h4>
                 <div className="space-y-3">
                   {results.details.map((item) => (
                     <div
@@ -369,23 +369,23 @@ export default function ITAudit() {
                     >
                       <div className="flex flex-wrap items-center justify-between gap-4">
                         <div className="flex items-center gap-3">
-                          <span className="text-gray-700 dark:text-gray-300">
+                          <span className="text-muted-foreground">
                             {(() => {
                               const DeviceIcon = deviceData[item.type as keyof typeof deviceData].icon
                               return <DeviceIcon className="h-6 w-6" />
                             })()}
                           </span>
                           <div>
-                            <div className="font-semibold text-gray-900 dark:text-gray-100">
+                            <div className="font-semibold text-foreground">
                               {item.name} ({item.count})
                             </div>
-                            <div className="text-sm text-gray-600 dark:text-gray-400">
+                            <div className="text-sm text-muted-foreground">
                               Âge moyen: {item.avgAge} ans / Optimal: {item.optimalLife} ans
                             </div>
                           </div>
                         </div>
                         <div className="text-right">
-                          <div className="font-bold text-gray-900 dark:text-gray-100">{item.co2} kg CO₂e/an</div>
+                          <div className="font-bold text-foreground">{item.co2} kg CO₂e/an</div>
                           <div
                             className={`text-sm ${item.status === "good"
                               ? "text-emerald-600 dark:text-emerald-400"
@@ -394,11 +394,11 @@ export default function ITAudit() {
                                 : "text-red-600 dark:text-red-400"
                               }`}
                           >
-                            {item.status === "good" ? "✓ OK" : item.status === "warning" ? "⚠ À surveiller" : "⚠ Critique"}
+                            {item.status === "good" ? "OK" : item.status === "warning" ? "À surveiller" : "Critique"}
                           </div>
                         </div>
                       </div>
-                      <div className="mt-2 text-sm text-gray-700 dark:text-gray-300">{item.recommendation}</div>
+                      <div className="mt-2 text-sm text-muted-foreground">{item.recommendation}</div>
                     </div>
                   ))}
                 </div>
@@ -407,13 +407,13 @@ export default function ITAudit() {
               {/* Économies potentielles */}
               {results.potentialSavings > 0 && (
                 <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
-                  <h4 className="font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100">
+                  <h4 className="font-semibold text-lg mb-3 text-foreground">
                     <Coins className="mr-2 inline h-5 w-5" />Économies potentielles avec le reconditionné
                   </h4>
                   <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
                     -{(results.potentialSavings / 1000).toFixed(1)} tonnes CO₂e
                   </div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                  <p className="text-sm text-muted-foreground">
                     En remplaçant les {results.renewalNeeded} équipements à renouveler par du reconditionné, vous économiseriez
                     l'équivalent de {Math.round(results.potentialSavings / 0.17)} km en voiture.
                   </p>
@@ -422,8 +422,8 @@ export default function ITAudit() {
 
               {/* Recommandations */}
               <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
-                <h4 className="font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100"><ClipboardList className="mr-2 inline h-5 w-5" />Plan d'action recommandé</h4>
-                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <h4 className="font-semibold text-lg mb-3 text-foreground"><ClipboardList className="mr-2 inline h-5 w-5" />Plan d'action recommandé</h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>1. <strong>Court terme</strong>: Mettre en place une politique de maintenance préventive pour prolonger la durée de vie</li>
                   <li>2. <strong>Moyen terme</strong>: Planifier le renouvellement des {results.renewalNeeded} équipements critiques en privilégiant le reconditionné</li>
                   <li>3. <strong>Long terme</strong>: Adopter une politique d'achat responsable (labels, durabilité, réparabilité)</li>
@@ -434,7 +434,7 @@ export default function ITAudit() {
               {/* Boutons d'action */}
               <div className="flex gap-4">
                 <Button
-                  className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
+                  className="flex-1 bg-card text-foreground hover:bg-secondary border border-border"
                   onClick={exportPDF}
                 >
                   <Download className="w-4 h-4 mr-2" />
@@ -454,7 +454,7 @@ export default function ITAudit() {
         </CardContent>
       </Card>
 
-      <div className="text-sm text-gray-600 dark:text-gray-300 text-center">
+      <div className="text-sm text-muted-foreground text-center">
         Sources: Base Empreinte / ADEME-Arcep (2024-2025), GreenIT.fr • Méthodologie: ACV (Analyse du Cycle de Vie) • Usage serveurs : ordre de grandeur variable selon le mix électrique
       </div>
     </div>

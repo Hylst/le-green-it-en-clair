@@ -5,6 +5,8 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { SourceTooltip } from "@/components/source-tooltip"
+import { CountUp } from "@/components/count-up"
+import { Ticker } from "@/components/ticker"
 import { JsonLd } from "@/components/json-ld"
 import { SITE_NAME, SITE_URL } from "@/lib/metadata"
 import Image from "next/image"
@@ -45,7 +47,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 dark:from-background dark:via-secondary dark:to-background px-6 py-20 lg:py-32">
         <div className="absolute inset-0 opacity-20 dark:opacity-10">
           <Image
-            src="/greenit/abstract-green-technology-network-with-leaves-and-.webp"
+            src="/greenit/images/abstract-green-technology-network-with-leaves-and-.webp"
             alt="Green IT concept - réseau technologique écologique avec des feuilles naturelles"
             fill
             className="object-cover"
@@ -77,19 +79,19 @@ export default function HomePage() {
               <Button
                 asChild
                   size="lg"
-                  className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-lg shadow-emerald-600/20"
+                  className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-lg shadow-emerald-600/20 icon-shift active:scale-[0.98]"
                 >
                 <Link href="/par-ou-commencer">
                   Par où commencer ?
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-border text-foreground hover:bg-secondary">
+              <Button asChild size="lg" variant="outline" className="border-border text-foreground hover:bg-secondary active:scale-[0.98]">
                 <Link href="/outils">
                   Calculer mon empreinte
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-border text-foreground hover:bg-secondary">
+              <Button asChild size="lg" variant="outline" className="border-border text-foreground hover:bg-secondary active:scale-[0.98]">
                 <Link href="/comprendre">
                   Découvrir le Green IT
                 </Link>
@@ -99,12 +101,14 @@ export default function HomePage() {
         </div>
       </section>
 
+      <Ticker />
+
       <section className="px-6 py-12 bg-background">
         <div className="mx-auto max-w-7xl">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg border border-border">
               <Image
-                src="/greenit/electronic-waste-pile-with-smartphones-tablets-and.webp"
+                src="/greenit/images/electronic-waste-pile-with-smartphones-tablets-and.webp"
                 alt="Impact des déchets électroniques - pile de smartphones et tablettes usagés montrant l'accumulation d'e-déchets"
                 fill
                 className="object-cover"
@@ -164,7 +168,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/comprendre"
-                className="inline-flex items-center font-semibold text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300"
+                className="icon-shift inline-flex items-center font-semibold text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300"
               >
                 En savoir plus
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -181,7 +185,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/problematiques"
-                className="inline-flex items-center font-semibold text-red-700 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300"
+                className="icon-shift inline-flex items-center font-semibold text-red-700 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300"
               >
                 Découvrir les enjeux
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -197,7 +201,7 @@ export default function HomePage() {
               <p className="mb-6 text-slate-600 dark:text-slate-400">
                 Adoptez des gestes simples et efficaces pour diminuer votre empreinte numérique au quotidien.
               </p>
-              <Link href="/agir" className="inline-flex items-center font-semibold text-teal-700 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300">
+              <Link href="/agir" className="icon-shift inline-flex items-center font-semibold text-teal-700 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300">
                 Découvrir les actions
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -212,7 +216,7 @@ export default function HomePage() {
               <p className="mb-6 text-slate-600 dark:text-slate-400">
                 Mobilisez votre entreprise ou collectivité pour un numérique responsable et durable.
               </p>
-              <Link href="/agir" className="inline-flex items-center font-semibold text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
+              <Link href="/agir" className="icon-shift inline-flex items-center font-semibold text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
                 Passer à l'action
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -227,7 +231,7 @@ export default function HomePage() {
               <p className="mb-6 text-slate-600 dark:text-slate-400">
                 Implémentez des stratégies de Green IT pour réduire l'empreinte carbone de votre organisation.
               </p>
-              <Link href="/agir" className="inline-flex items-center font-semibold text-sky-700 dark:text-sky-400 hover:text-sky-800 dark:hover:text-sky-300">
+              <Link href="/agir" className="icon-shift inline-flex items-center font-semibold text-sky-700 dark:text-sky-400 hover:text-sky-800 dark:hover:text-sky-300">
                 Découvrir les solutions
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -244,7 +248,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/datacenters"
-                className="inline-flex items-center font-semibold text-violet-700 dark:text-violet-400 hover:text-violet-800 dark:hover:text-violet-300"
+                className="icon-shift inline-flex items-center font-semibold text-violet-700 dark:text-violet-400 hover:text-violet-800 dark:hover:text-violet-300"
               >
                 En savoir plus
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -262,7 +266,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/reglementation"
-                className="inline-flex items-center font-semibold text-indigo-700 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300"
+                className="icon-shift inline-flex items-center font-semibold text-indigo-700 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300"
               >
                 Voir les normes
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -280,7 +284,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/developpement"
-                className="inline-flex items-center font-semibold text-orange-700 dark:text-orange-400 hover:text-orange-800 dark:hover:text-orange-300"
+                className="icon-shift inline-flex items-center font-semibold text-orange-700 dark:text-orange-400 hover:text-orange-800 dark:hover:text-orange-300"
               >
                 Guide développeur
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -298,7 +302,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/outils"
-                className="inline-flex items-center font-semibold text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300"
+                className="icon-shift inline-flex items-center font-semibold text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300"
               >
                 Accéder aux outils
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -374,7 +378,7 @@ export default function HomePage() {
               )}
               <Link
                 href="/comprendre"
-                className="mt-4 inline-flex items-center font-semibold text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300"
+                className="icon-shift mt-4 inline-flex items-center font-semibold text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300"
               >
                 En savoir plus sur le cycle de vie
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -391,7 +395,7 @@ export default function HomePage() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="text-center">
               <div className="mb-3 text-4xl font-bold text-emerald-700 dark:text-emerald-400 lg:text-5xl">
-                ~70 Mt
+                <CountUp to={70} prefix="~" suffix=" Mt" />
                 <SourceTooltip className="ml-1 align-middle" source="Global E-Waste Monitor 2024 (ONU)" calculation="62 Mt en 2022 + 2,6 Mt/an ≈ 70 Mt en 2025, 82 Mt projetés en 2030" />
               </div>
               <p className="text-muted-foreground">de déchets électroniques sur la trajectoire 2022-2030 (62 Mt → 82 Mt)</p>
@@ -399,7 +403,7 @@ export default function HomePage() {
             </div>
             <div className="text-center">
               <div className="mb-3 text-4xl font-bold text-teal-700 dark:text-teal-400 lg:text-5xl">
-                ~80 %
+                <CountUp to={80} prefix="~" suffix=" %" />
                 <SourceTooltip className="ml-1 align-middle" source="ADEME-Arcep, 2023" calculation="extraction ~15 % + fabrication ~60 % ≈ 75-80 % de l'empreinte du numérique (France)" />
               </div>
               <p className="text-muted-foreground">de l'empreinte carbone du numérique vient de la fabrication des équipements (France)</p>
@@ -407,7 +411,7 @@ export default function HomePage() {
             </div>
             <div className="text-center">
               <div className="mb-3 text-4xl font-bold text-blue-700 dark:text-blue-400 lg:text-5xl">
-                3,4 %
+                <CountUp to={3.4} decimals={1} suffix=" %" />
                 <SourceTooltip className="ml-1 align-middle" source="GreenIT, EENM 2025" calculation="1,8 Gt CO₂e ÷ ~53 Gt d'émissions mondiales ≈ 3,4 %" />
               </div>
               <p className="text-muted-foreground">des émissions mondiales de GES (1,8 Gt CO₂e) sont dues au numérique</p>
@@ -426,7 +430,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-emerald-700 to-teal-800 dark:from-emerald-800 dark:to-teal-900 px-6 py-16 lg:py-24">
+      <section className="texture-dots bg-gradient-to-br from-emerald-700 to-teal-800 dark:from-emerald-800 dark:to-teal-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="mb-6 text-3xl font-bold text-white lg:text-4xl">Prêt à réduire votre empreinte numérique ?</h2>
           <p className="mb-8 text-lg text-emerald-50 dark:text-emerald-100">
@@ -434,13 +438,13 @@ export default function HomePage() {
             situation.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button asChild size="lg" className="bg-white text-emerald-700 hover:bg-emerald-50 border-white">
+            <Button asChild size="lg" className="bg-white text-emerald-700 hover:bg-emerald-50 border-white icon-shift active:scale-[0.98]">
               <Link href="/outils">
                 Calculer mon empreinte
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent">
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent active:scale-[0.98]">
               <Link href="/ressources">
                 Explorer les ressources
               </Link>

@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from "recharts";
+import { CHART_FALLBACKS } from "@/lib/chart-theme";
 import { Lightbulb, Download, RotateCcw } from "lucide-react";
 
 export default function SobrietySimulator() {
@@ -82,7 +83,7 @@ export default function SobrietySimulator() {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-4">
               <div>
-                <Label className="text-base font-semibold mb-3 block text-gray-900 dark:text-gray-100">
+                <Label className="text-base font-semibold mb-3 block text-foreground">
                   Durée de vie de vos appareils: {scenario.deviceLifespan} ans
                 </Label>
                 <Slider
@@ -94,7 +95,7 @@ export default function SobrietySimulator() {
                   aria-label="Durée de vie de vos appareils (années)"
                   className="mt-2"
                 />
-                <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">
+                <p className="text-sm text-muted-foreground mt-2">
                   {scenario.deviceLifespan < 3 && "Durée courte : viser 5 ans ou plus réduit nettement l'impact."}
                   {scenario.deviceLifespan >= 3 && scenario.deviceLifespan < 5 && "Durée intermédiaire : 5 ans ou plus font baisser l'impact."}
                   {scenario.deviceLifespan >= 5 && "Durée élevée : l'impact annuel est réduit."}
@@ -102,65 +103,65 @@ export default function SobrietySimulator() {
               </div>
 
               <div>
-                <Label className="text-base font-semibold mb-3 block text-gray-900 dark:text-gray-100">
+                <Label className="text-base font-semibold mb-3 block text-foreground">
                   En cas de panne
                 </Label>
                 <RadioGroup
                   value={scenario.repairChoice}
                   onValueChange={(value) => setScenario({ ...scenario, repairChoice: value })}
                 >
-                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
+                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
                     <RadioGroupItem value="new" id="new" />
-                    <Label htmlFor="new" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
+                    <Label htmlFor="new" className="cursor-pointer flex-1 text-foreground">
                       J'achète du neuf
-                      <span className="block text-sm text-gray-600 dark:text-gray-300">Impact : référence</span>
+                      <span className="block text-sm text-muted-foreground">Impact : référence</span>
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
+                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
                     <RadioGroupItem value="repair" id="repair" />
-                    <Label htmlFor="repair" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
+                    <Label htmlFor="repair" className="cursor-pointer flex-1 text-foreground">
                       Je répare
                       <span className="block text-sm text-green-600 dark:text-green-400">Impact : −15 %</span>
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
+                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
                     <RadioGroupItem value="refurb" id="refurb" />
-                    <Label htmlFor="refurb" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
+                    <Label htmlFor="refurb" className="cursor-pointer flex-1 text-foreground">
                       J'achète reconditionné
                       <span className="block text-sm text-green-600 dark:text-green-400">Impact : −75 % (*)</span>
                     </Label>
                   </div>
                 </RadioGroup>
-                <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+                <p className="mt-2 text-xs text-muted-foreground">
                   (*) Achat reconditionné : impact du produit réduit d'environ 75 % par rapport au neuf (ADEME, 2022).
                 </p>
               </div>
 
               <div>
-                <Label className="text-base font-semibold mb-3 block text-gray-900 dark:text-gray-100">
+                <Label className="text-base font-semibold mb-3 block text-foreground">
                   Qualité de streaming
                 </Label>
                 <RadioGroup
                   value={scenario.streamingQuality}
                   onValueChange={(value) => setScenario({ ...scenario, streamingQuality: value })}
                 >
-                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
+                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
                     <RadioGroupItem value="4k" id="4k" />
-                    <Label htmlFor="4k" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
+                    <Label htmlFor="4k" className="cursor-pointer flex-1 text-foreground">
                       4K/UHD
-                      <span className="block text-sm text-gray-600 dark:text-gray-300">7 Go/h</span>
+                      <span className="block text-sm text-muted-foreground">7 Go/h</span>
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
+                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
                     <RadioGroupItem value="1080p" id="1080p" />
-                    <Label htmlFor="1080p" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
+                    <Label htmlFor="1080p" className="cursor-pointer flex-1 text-foreground">
                       Full HD (1080p)
                       <span className="block text-sm text-green-600 dark:text-green-400">3 Go/h (−5 %)</span>
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
+                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
                     <RadioGroupItem value="720p" id="720p" />
-                    <Label htmlFor="720p" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
+                    <Label htmlFor="720p" className="cursor-pointer flex-1 text-foreground">
                       HD (720p)
                       <span className="block text-sm text-green-600 dark:text-green-400">0,9 Go/h (−8 %)</span>
                     </Label>
@@ -171,30 +172,30 @@ export default function SobrietySimulator() {
 
             <div className="space-y-4">
               <div>
-                <Label className="text-base font-semibold mb-3 block text-gray-900 dark:text-gray-100">
+                <Label className="text-base font-semibold mb-3 block text-foreground">
                   Nettoyage des emails
                 </Label>
                 <RadioGroup
                   value={scenario.emailCleanup}
                   onValueChange={(value) => setScenario({ ...scenario, emailCleanup: value })}
                 >
-                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
+                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
                     <RadioGroupItem value="never" id="never" />
-                    <Label htmlFor="never" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
+                    <Label htmlFor="never" className="cursor-pointer flex-1 text-foreground">
                       Jamais
-                      <span className="block text-sm text-gray-600 dark:text-gray-300">Boîte saturée</span>
+                      <span className="block text-sm text-muted-foreground">Boîte saturée</span>
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
+                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
                     <RadioGroupItem value="monthly" id="monthly" />
-                    <Label htmlFor="monthly" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
+                    <Label htmlFor="monthly" className="cursor-pointer flex-1 text-foreground">
                       Mensuel
                       <span className="block text-sm text-green-600 dark:text-green-400">−1 % d'impact (effet faible)</span>
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
+                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
                     <RadioGroupItem value="weekly" id="weekly" />
-                    <Label htmlFor="weekly" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
+                    <Label htmlFor="weekly" className="cursor-pointer flex-1 text-foreground">
                       Hebdomadaire
                       <span className="block text-sm text-green-600 dark:text-green-400">−2 % d'impact (effet faible)</span>
                     </Label>
@@ -203,30 +204,30 @@ export default function SobrietySimulator() {
               </div>
 
               <div>
-                <Label className="text-base font-semibold mb-3 block text-gray-900 dark:text-gray-100">
+                <Label className="text-base font-semibold mb-3 block text-foreground">
                   Stockage cloud
                 </Label>
                 <RadioGroup
                   value={scenario.cloudStorage}
                   onValueChange={(value) => setScenario({ ...scenario, cloudStorage: value })}
                 >
-                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
+                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
                     <RadioGroupItem value="keep" id="keep" />
-                    <Label htmlFor="keep" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
+                    <Label htmlFor="keep" className="cursor-pointer flex-1 text-foreground">
                       Je garde tout
-                      <span className="block text-sm text-gray-600 dark:text-gray-300">Stockage illimité</span>
+                      <span className="block text-sm text-muted-foreground">Stockage illimité</span>
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
+                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
                     <RadioGroupItem value="optimize" id="optimize" />
-                    <Label htmlFor="optimize" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
+                    <Label htmlFor="optimize" className="cursor-pointer flex-1 text-foreground">
                       J'optimise régulièrement
                       <span className="block text-sm text-green-600 dark:text-green-400">−7 % d'impact</span>
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
+                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
                     <RadioGroupItem value="local" id="local" />
-                    <Label htmlFor="local" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
+                    <Label htmlFor="local" className="cursor-pointer flex-1 text-foreground">
                       Stockage local prioritaire
                       <span className="block text-sm text-green-600 dark:text-green-400">−12 % d'impact</span>
                     </Label>
@@ -235,30 +236,30 @@ export default function SobrietySimulator() {
               </div>
 
               <div>
-                <Label className="text-base font-semibold mb-3 block text-gray-900 dark:text-gray-100">
+                <Label className="text-base font-semibold mb-3 block text-foreground">
                   Prochain achat
                 </Label>
                 <RadioGroup
                   value={scenario.deviceType}
                   onValueChange={(value) => setScenario({ ...scenario, deviceType: value })}
                 >
-                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
+                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
                     <RadioGroupItem value="new" id="device-new" />
-                    <Label htmlFor="device-new" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
+                    <Label htmlFor="device-new" className="cursor-pointer flex-1 text-foreground">
                       Neuf
-                      <span className="block text-sm text-gray-600 dark:text-gray-300">Impact maximal</span>
+                      <span className="block text-sm text-muted-foreground">Impact maximal</span>
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
+                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
                     <RadioGroupItem value="repair" id="device-repair" />
-                    <Label htmlFor="device-repair" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
+                    <Label htmlFor="device-repair" className="cursor-pointer flex-1 text-foreground">
                       Réparer l'ancien
                       <span className="block text-sm text-green-600 dark:text-green-400">−15 % d'impact</span>
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700">
+                  <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
                     <RadioGroupItem value="refurb" id="device-refurb" />
-                    <Label htmlFor="device-refurb" className="cursor-pointer flex-1 text-gray-900 dark:text-gray-100">
+                    <Label htmlFor="device-refurb" className="cursor-pointer flex-1 text-foreground">
                       Reconditionné
                       <span className="block text-sm text-green-600 dark:text-green-400">−75 % d'impact (*)</span>
                     </Label>
@@ -270,49 +271,49 @@ export default function SobrietySimulator() {
 
           {/* Résultats */}
           <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-6 rounded-lg border-2 border-green-200 dark:border-green-800">
-            <h3 className="font-semibold text-xl mb-6 text-gray-900 dark:text-gray-100">Impact de vos choix</h3>
+            <h3 className="font-semibold text-xl mb-6 text-foreground">Impact de vos choix</h3>
 
             <div className="grid md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
-                <div className="text-sm text-gray-600 dark:text-gray-300 mb-1">Scénario actuel</div>
-                <div className="text-3xl font-bold text-gray-700 dark:text-gray-100">{impact.baseline}</div>
-                <div className="text-sm text-gray-600 dark:text-gray-300">kg CO₂e/an</div>
+              <div className="bg-card p-4 rounded-lg text-center border border-border">
+                <div className="text-sm text-muted-foreground mb-1">Scénario actuel</div>
+                <div className="text-3xl font-bold text-foreground">{impact.baseline}</div>
+                <div className="text-sm text-muted-foreground">kg CO₂e/an</div>
               </div>
-              <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
-                <div className="text-sm text-gray-600 dark:text-gray-300 mb-1">Avec sobriété</div>
+              <div className="bg-card p-4 rounded-lg text-center border border-border">
+                <div className="text-sm text-muted-foreground mb-1">Avec sobriété</div>
                 <div className="text-3xl font-bold text-green-600 dark:text-green-400">{impact.optimized}</div>
-                <div className="text-sm text-gray-600 dark:text-gray-300">kg CO₂e/an</div>
+                <div className="text-sm text-muted-foreground">kg CO₂e/an</div>
               </div>
-              <div className="bg-white dark:bg-slate-800 p-4 rounded-lg text-center border border-gray-200 dark:border-gray-700">
-                <div className="text-sm text-gray-600 dark:text-gray-300 mb-1">Économie</div>
+              <div className="bg-card p-4 rounded-lg text-center border border-border">
+                <div className="text-sm text-muted-foreground mb-1">Économie</div>
                 <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">-{impact.percentage}%</div>
-                <div className="text-sm text-gray-600 dark:text-gray-300">{impact.savings} kg/an</div>
+                <div className="text-sm text-muted-foreground">{impact.savings} kg/an</div>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-slate-800 p-4 rounded-lg mb-6 border border-gray-200 dark:border-gray-700">
-              <h4 className="font-semibold mb-3 text-gray-900 dark:text-gray-100">Projection sur 5 ans</h4>
+            <div className="bg-card p-4 rounded-lg mb-6 border border-border">
+              <h4 className="font-semibold mb-3 text-foreground">Projection sur 5 ans</h4>
               <ResponsiveContainer width="100%" height={250}>
                 <LineChart data={projectionData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 255, 255, 0.1)" />
-                  <XAxis dataKey="year" stroke="rgba(255, 255, 255, 0.6)" />
-                  <YAxis stroke="rgba(255, 255, 255, 0.6)" />
-                  <RechartsTooltip wrapperStyle={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }} />
-                  <Line type="monotone" dataKey="baseline" stroke="#9ca3af" name="Sans changement" strokeWidth={2} />
-                  <Line type="monotone" dataKey="optimized" stroke="#10b981" name="Avec sobriété" strokeWidth={2} />
+                  <CartesianGrid strokeDasharray="3 3" stroke={CHART_FALLBACKS.grid} />
+                  <XAxis dataKey="year" stroke={CHART_FALLBACKS.tick} />
+                  <YAxis stroke={CHART_FALLBACKS.tick} />
+                  <RechartsTooltip wrapperStyle={{ backgroundColor: "var(--card)" }} />
+                  <Line type="monotone" dataKey="baseline" stroke={CHART_FALLBACKS.slate} name="Sans changement" strokeWidth={2} />
+                  <Line type="monotone" dataKey="optimized" stroke={CHART_FALLBACKS.emerald} name="Avec sobriété" strokeWidth={2} />
                 </LineChart>
               </ResponsiveContainer>
               <div className="text-center mt-4">
                 <div className="text-2xl font-bold text-green-600 dark:text-green-400">
                   {Math.round(impact.savings * 5)} kg CO₂e économisés
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-300">sur 5 ans</div>
+                <div className="text-sm text-muted-foreground">sur 5 ans</div>
               </div>
             </div>
 
             <div className="bg-blue-100 dark:bg-blue-900/10 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
-              <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">Cela équivaut à:</h4>
-              <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
+              <h4 className="font-semibold mb-2 text-foreground">Cela équivaut à:</h4>
+              <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>• {Math.round((impact.savings * 5) / 0.17)} km en voiture économisés</li>
                 <li>• {Math.round((impact.savings * 5) / 20)} arbres pendant 1 an (20 kg/arbre, ADEME)</li>
                 <li>• {Math.round((impact.savings * 5) / 7)} repas avec bœuf évités (7 kg/repas, ADEME)</li>
@@ -322,10 +323,10 @@ export default function SobrietySimulator() {
 
           {/* Actions recommandées */}
           <div className="bg-yellow-50 dark:bg-yellow-900/10 p-6 rounded-lg border border-yellow-200 dark:border-yellow-800">
-            <h3 className="font-semibold text-lg mb-3 text-gray-900 dark:text-gray-100">
+            <h3 className="font-semibold text-lg mb-3 text-foreground">
               Actions prioritaires pour vous
             </h3>
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground">
               {scenario.deviceLifespan < 5 && (
                 <li>
                   • <strong>Allonger la durée de vie</strong> de vos appareils à 5 ans minimum
@@ -356,7 +357,7 @@ export default function SobrietySimulator() {
 
           <div className="flex gap-2">
             <Button
-              className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
+              className="flex-1 bg-card text-foreground hover:bg-secondary border border-border"
               onClick={() => window.print()}
             >
               <Download className="w-4 h-4 mr-2" />
@@ -364,7 +365,7 @@ export default function SobrietySimulator() {
             </Button>
             <Button
               variant="outline"
-              className="flex-1 bg-transparent text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
+              className="flex-1 bg-transparent text-foreground hover:bg-secondary border border-border"
               onClick={() =>
                 setScenario({
                   deviceLifespan: 2,
@@ -383,7 +384,7 @@ export default function SobrietySimulator() {
         </CardContent>
       </Card>
 
-      <div className="text-sm text-gray-600 dark:text-gray-300 text-center">
+      <div className="text-sm text-muted-foreground text-center">
         Sources: Base Empreinte / ADEME-Arcep (2024-2025), Shift Project, GreenIT.fr • Calculs basés sur des moyennes françaises
       </div>
     </div>

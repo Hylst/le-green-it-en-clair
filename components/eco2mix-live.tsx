@@ -26,6 +26,7 @@ import {
   Cell,
 } from "recharts"
 import { fetchEco2MixRealtime, ECO2MIX_FALLBACK, type Eco2MixData } from "@/lib/eco2mix"
+import { CHART_FALLBACKS } from "@/lib/chart-theme"
 import { SourceTooltip } from "@/components/source-tooltip"
 import { cn } from "@/lib/utils"
 
@@ -35,13 +36,13 @@ interface Eco2MixLiveProps {
 }
 
 const MIX_COLORS = {
-  nucleaire: "#3b82f6",
-  eolien: "#10b981",
-  solaire: "#f59e0b",
-  hydraulique: "#06b6d4",
-  bioenergies: "#84cc16",
-  gaz: "#ef4444",
-  charbonFioul: "#78716c",
+  nucleaire: CHART_FALLBACKS.blue,
+  eolien: CHART_FALLBACKS.emerald,
+  solaire: CHART_FALLBACKS.amber,
+  hydraulique: CHART_FALLBACKS.cyan,
+  bioenergies: CHART_FALLBACKS.teal,
+  gaz: CHART_FALLBACKS.red,
+  charbonFioul: CHART_FALLBACKS.slate,
 }
 
 function getEmissionColor(tauxCo2: number): string {

@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowLeft, Printer, BarChart3, Lightbulb, LineChart, Target, BookOpen } from "lucide-react"
+import { ArrowLeft, Printer, BarChart3, Lightbulb, LineChart, Target, BookOpen, Check } from "lucide-react"
 import Link from "next/link"
 
 export default function TableauBordPage() {
@@ -321,7 +321,7 @@ export default function TableauBordPage() {
                                     <td className="p-3">Année 1</td>
                                     <td className="p-3">14.2 t</td>
                                     <td className="p-3">14.7 t (-5 %)</td>
-                                    <td className="p-3 text-emerald-600 dark:text-emerald-400">-3.4 % ✓</td>
+                                    <td className="p-3 text-emerald-600 dark:text-emerald-400">-3,4 % <Check className="ml-1 inline h-4 w-4" aria-hidden="true" /></td>
                                 </tr>
                                 <tr className="border-b border-border">
                                     <td className="p-3">Année 2</td>

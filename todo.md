@@ -134,7 +134,7 @@ Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à l
 - [ ] vidéos : commencer par embed des confs existantes (ADEME, Shift Project sur YouTube) plutôt que produire
 - [ ] blog, 5 articles pour commencer (idées : "mon premier audit Green IT en PME", "reconditionné vs neuf : le calcul", "comprendre le PUE en 5 min", "AGEC/REEN : ce qui change pour moi", "1 an avec un Fairphone")
 - [ ] page "Choisir son FAI / sa box" ? (données Arcep : comparer Wi-Fi vs 4G/5G, box allumée 24/7) — à sourcer avant d'écrire
-- [ ] FAQ : ajouter "Est-ce que le cloud c'est vraiment dans des nuages ?" + "Mon vieux PC peut-il servir encore ?" (questions que les gens posent vraiment)
+- [x] FAQ : questions « Le cloud c'est vraiment dans des nuages ? » et « Mon vieux PC peut-il encore servir ? » ajoutées (+ une sur l'IA) → 27 questions (commit `64cf9aa`)
 - [ ] version anglaise ? peut-être
 - [ ] infographies en plus, section livres
 - [x] `guide/` + `mentions-legales/` : commités (le 14/09)
@@ -153,7 +153,7 @@ comptes, dashboard, badges, forum, géoloc carte, offline nickel, formation, esp
 - [x] collecte illustrative le 14/09 (tâche 1 vague 1) : mentions « chiffres illustratifs » + lien ADEME sur `chiffres`/`recyclage`, `15 000+`/`15 000 bornes` neutralisés, fiche `recyclage-mode-emploi` + ressource ADEME. Build ok.
 - [x] mythe stockage cloud le 15/09 (tâche 2 vague 1) : `20 kg` / `15 g` / `0,2 kg` -> `0,24 g/Go/an` (ADEME Impact CO2 / Base Empreinte) sur `mythes`/`faq`/fiche `gestes-quotidiens` + facteur calculateur à `0,00024 kg/Go/an`. Build ok.
 
-- [ ] màj chiffres, actus, glossaire, viser 15 fiches, étoffer la FAQ
+- [ ] màj chiffres, actus, glossaire, viser 15 fiches, étoffer la FAQ → fait le 15/09 : glossaire 27 termes, FAQ 27 questions, 7e dossier d'actualités (avis ADEME IA 2026), fiche IA ajoutée ; reste : viser 15 fiches (9 aujourd'hui), actus au fil de l'eau.
 - [x] Quiz v2 le 15/09 : reprise de session (tous modes, y compris après rechargement ; en Défi le chrono continue de s'écouler et les questions non répondues sont marquées « Non répondu »), dernière session terminée conservée avec bandeau « Derniers résultats » (Revoir/Refaire), révision des erreurs en accordéon (votre réponse, bonne réponse, explication, source) et « Rejouer mes erreurs » en session `review` sans attestation. Stockage local `greenit-quiz-session-v1` versionné (session invalidée si les questions changent), mentions légales complétées. Vérifié : 12 tests node du stockage, parcours playwright (reprise onglet/reload, rejeu, Défi expiré), axe 0, Firefox/WebKit 0.
 - [ ] SEO / analytics / temps de chargement / backlinks
 

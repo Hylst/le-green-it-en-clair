@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, type KeyboardEvent } from "react"
+import { useState, useEffect, type KeyboardEvent } from "react"
 import dynamic from "next/dynamic"
 import Image from "next/image"
 import { Calculator, Lightbulb, TrendingUp, Cloud, ClipboardCheck, Globe, Brain, MonitorPlay } from "lucide-react"
@@ -26,6 +26,15 @@ export default function OutilsPage() {
   const [activeTab, setActiveTab] = useState<
     "calculator" | "simulator" | "quiz" | "website" | "enterprise" | "cloud" | "audit" | "streaming"
   >("calculator")
+
+  // Deep-link : /outils#onglet-streaming (ou autre onglet) ouvre l'onglet visé
+  useEffect(() => {
+    const hash = window.location.hash.replace("#onglet-", "")
+    const tabs = ["calculator", "simulator", "quiz", "website", "enterprise", "cloud", "audit", "streaming"] as const
+    if ((tabs as readonly string[]).includes(hash)) {
+      setActiveTab(hash as (typeof tabs)[number])
+    }
+  }, [])
 
   // Navigation clavier des onglets (flèches, Home, End) : motif APG tabs
   const onTabListKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {

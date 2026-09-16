@@ -445,6 +445,11 @@ export default function AgirPage() {
                 description: "Utilisez notre calculateur d'empreinte carbone et notre simulateur de sobriété",
               },
               {
+                href: "/fiches-pratiques",
+                label: "Fiches pratiques",
+                description: "15 guides à consulter et imprimer : gestes quotidiens, streaming, enfants et écrans, entreprise",
+              },
+              {
                 href: "/recyclage",
                 label: "Recyclage & Réparation",
                 description: "Trouvez les points de collecte et ateliers de réparation près de chez vous",

@@ -751,7 +751,7 @@ const sheets: Record<string, any> = {
       },
     ],
     resources: [
-      "Notre estimateur web : /outils#onglet-website-carbon",
+      "Notre estimateur streaming & visio : /outils#onglet-streaming",
       "Les 7 gestes quotidiens : /fiches-pratiques/gestes-quotidiens",
       "The Shift Project, sobriété numérique : theshiftproject.org",
     ],

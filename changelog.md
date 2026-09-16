@@ -2,6 +2,16 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 16/09/2026 — programme contenu (soir) : 6 fiches, chiffres 2026, actu, outil, SEO
+
+- 6 nouvelles fiches (9 → 15) : streaming/gaming, télétravail/visio, e-mails/cloud, objets connectés, impression, enfants/école. Chiffres vérifiés en ligne (Shift 2019+2020+2026, CableLabs 2026, Arcep 2026, SpF Enabee 2025, IoT Analytics 2025, ADEME) ; 2 valeurs non sourcées écartées avant écriture (1,4 Md d'e-mails/jour, 100-200 W consoles). Visuels réutilisés en provisoire (doublons discrets avec pages sœurs), vague 4 bienvenue. Testé : 7×200, 0 image cassée, 15/15 liens (le faux « 9 liens » venait du cache SW).
+- chiffres 2026 : OVHcloud corrigé (PUE moyen 1,24 bilan 2025, pas 1,09 ; −73,4 % scopes 1-2, scope 3 = 90 %) + bandeau France (2,7 TWh 2024 Arcep, 10 TWh ADEME, 23-28 TWh 2035 RTE). « À vérifier » levé sur datacenters.
+- 8e dossier d'actu : France 2030 EcoIDEN (ADEME, clôture 29/10/2026, 4,4 % / 29,5 Mt / +59 % métaux) + champ `sourceUrl`/`sourceLabel` pour l'attribution externe.
+- passe ton : 0 correction (vouvoiement déjà OK, 3 « il faut » impersonnels, 2 « jamais » légitimes — consigne DEEE + distracteur quiz).
+- 8e outil : estimateur streaming & visio (Go/mois, kWh/an Arcep, kgCO₂e Base Empreinte 0,0519, équivalence voiture du site). Calculs vérifiés à la main (104/25/1,3 et 225/379/19,6). Virgule décimale FR corrigée. Bug deep-link trouvé et fixé (`#onglet-` vs nom nu).
+- SEO : metas déjà OK (19 layouts), FAQ JSON-LD déjà présent. Maillage : agir → fiches, fiche streaming → outil, deep-link `#onglet-*` (useEffect).
+- builds 49/49 (fiches) puis 49/49 (outil+SEO), tsc 0. Commits : 54b5ba0, ec89f64, a0af4c3, 8352e2b + SEO/maillage.
+
 ## 16/09/2026 — balayage dark complet (soir) + cleanup écarté
 
 - 7 pages contrôlées pixel par pixel en dark (`motion-off` forcé, état final) : accueil, developpement, reglementation, problematiques (hero + « Solutions à développer » + CTA texture-dots + sources — pleine page trop lourde, 3 timeouts, repli en 3 viewports), chiffres, datacenters, recyclage. Tout lisible, `useChartTheme` fait son job, dégradés et CTA OK, 0 `pageerror` partout.

@@ -262,6 +262,48 @@ const glossaryData = [
       "Loi Réduire l'Empreinte Environnementale du Numérique (2021). Impose aux acteurs du numérique de mesurer et réduire leur impact environnemental.",
     category: "Réglementation",
   },
+  {
+    term: "MIPS",
+    definition:
+      "Material Input Per Service : méthode qui compte toute la matière mobilisée pour un produit, au-delà de son poids final. Un smartphone de 150 g correspond à environ 70 kg de matières premières (SDES, 2025).",
+    category: "Méthode",
+  },
+  {
+    term: "RGESN",
+    definition:
+      "Référentiel général d'écoconception de services numériques (INR, ANCT). 78 pratiques pour concevoir des services numériques plus sobres, utilisées par les services publics.",
+    category: "Pratique",
+  },
+  {
+    term: "GR491",
+    definition:
+      "Guide de référence de conception responsable de services numériques publié par l'INR : 491 critères pour les équipes projet (gr491.isit-europe.org).",
+    category: "Pratique",
+  },
+  {
+    term: "IA frugale",
+    definition:
+      "Approche de l'intelligence artificielle qui limite les ressources mobilisées (données, calcul, énergie). Cadrée en France par le référentiel AFNOR et le RGESN.",
+    category: "Pratique",
+  },
+  {
+    term: "Étiquette énergie UE",
+    definition:
+      "Étiquette obligatoire sur les smartphones et tablettes vendus dans l'UE depuis juin 2025 (règlement 2023/1669) : efficacité, autonomie, résistance et facilité de réparation.",
+    category: "Réglementation",
+  },
+  {
+    term: "CSRD",
+    definition:
+      "Corporate Sustainability Reporting Directive : directive européenne de reporting de durabilité. Son périmètre a été resserré par l'Omnibus I (2026) : entreprises de plus de 1 000 salariés et 450 M€ de chiffre d'affaires.",
+    category: "Réglementation",
+  },
+  {
+    term: "Obsolescence logicielle",
+    definition:
+      "Fin du support logiciel d'un appareil (mises à jour de sécurité, versions d'OS), qui pousse au renouvellement alors que le matériel fonctionne encore.",
+    category: "Réglementation",
+  },
 ]
 
 export default function RessourcesPage() {

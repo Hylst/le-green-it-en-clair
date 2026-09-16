@@ -79,6 +79,15 @@ const practicalSheets = [
     impact: "Exemplarité publique",
     image: "/greenit/city-hall-with-sustainable-technology-infrastructu.webp",
   },
+  {
+    id: "ia-generative",
+    title: "IA générative : comprendre et limiter son impact",
+    description: "Datacenters, usages, référentiels : l'essentiel pour agir",
+    target: "Tous publics",
+    duration: "10 min",
+    impact: "~485 TWh dans le monde en 2025 (ADEME 2026)",
+    image: "/greenit/abstract-green-technology-network-with-leaves-and-.webp",
+  },
 ]
 
 export default function FichesPratiquesPage() {

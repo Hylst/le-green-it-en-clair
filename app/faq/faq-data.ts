@@ -16,6 +16,10 @@ export const faqCategories = [
         a: "En France, le numérique représente 2,5 % des émissions nationales en 2020 (17,2 Mt CO₂eq) et 4,4 % en 2022 avec un périmètre élargi aux datacenters étrangers (29,5 Mt, ADEME-Arcep). En France, environ 1,6 million de tonnes de déchets électroniques sont produites chaque année, avec un taux de collecte d'environ 46 % (ADEME 2024, Eurostat 2024).",
       },
       {
+        q: "Le cloud, c'est vraiment dans des nuages ?",
+        a: "Non : le cloud, ce sont des datacenters bien physiques. En 2025, la consommation électrique mondiale des centres de données était d'environ 485 TWh, et elle pourrait doubler d'ici 2030 (ADEME, avis IA 2026). Les usages numériques français dépendent aux deux tiers de datacenters hébergés à l'étranger, souvent avec un mix électrique plus carboné qu'en France. Bonne nouvelle : le cloud mutualise des ressources souvent mieux utilisées qu'un serveur local, et le stockage pèse peu (0,24 g CO₂e/Go/an, ADEME, Impact CO₂). Le geste qui compte reste la durée de vie des appareils.",
+      },
+      {
         q: "Peut-on vraiment faire une différence individuellement ?",
         a: "Oui, à plusieurs niveaux. Garder son smartphone 4 ans au lieu de 2 divise son impact par 2. À l'échelle nationale, si tous les Français gardaient 11 types d'équipements 1 an de plus, on éviterait environ 0,6 million de tonnes de CO₂ par an (ADEME, 2020). Chaque geste compte, surtout multiplié par des millions d'utilisateurs.",
       },
@@ -60,6 +64,10 @@ export const faqCategories = [
         a: "L'impact individuel d'un email est faible (4 g pour un e-mail simple, jusqu'à ~35 g avec pièce jointe, ADEME), mais multiplié par des milliards d'emails quotidiens, ça compte. Bonnes pratiques : supprimer emails avec grosses pièces jointes, désabonner des newsletters inutiles, compresser les pièces jointes, nettoyer boîte mail régulièrement.",
       },
       {
+        q: "Mon vieux PC peut-il encore servir ?",
+        a: "Souvent, oui. Avant de racheter : 1) ajoutez de la RAM et passez sur un SSD (souvent moins de 100 €), 2) installez un système léger (Linux) si Windows ne suit plus, 3) pour la bureautique et le web, un ordinateur de 8-10 ans reste utilisable. Un ordinateur fixe neuf représente environ 259 à 300 kg CO₂e sur son cycle de vie selon le profil (ADEME, Impact CO₂ 2025) : chaque année gagnée compte. S'il est vraiment hors d'usage : don (Emmaüs, Envie) ou filière DEEE agréée, jamais la poubelle.",
+      },
+      {
         q: "Faut-il supprimer ses données dans le cloud ?",
         a: "Bonne nouvelle : le stockage pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO₂e (ADEME, Impact CO₂ / Base Empreinte). Trier vos photos en double reste une bonne habitude pour y voir plus clair, mais sans pression : le geste qui compte vraiment, c'est de garder votre smartphone le plus longtemps possible (environ 80 kg de CO₂e sur son cycle de vie, ADEME, Impact CO₂ 2025). Un petit tri de temps en temps, vider les téléchargements et désactiver les sauvegardes automatiques superflues suffit amplement.",
       },
@@ -102,6 +110,10 @@ export const faqCategories = [
       {
         q: "Quels langages de programmation sont les plus éco-responsables ?",
         a: "Classement par efficacité énergétique : 1) C/C++/Rust (référence), 2) Java, 3) C#, 4) JavaScript/TypeScript, 5) PHP, 6) Python (environ 76x moins efficace que C, Pereira et al., 2017). Pour le web : préférer code natif optimisé, frameworks légers, compilation native. Attention : lisibilité et maintenabilité restent prioritaires. L'optimisation algorithmique compte plus que le langage.",
+      },
+      {
+        q: "L'IA générative, quel est son impact environnemental ?",
+        a: "Des impacts réels, majoritairement liés aux datacenters qui entraînent et font tourner les modèles : la consommation électrique mondiale des centres de données était d'environ 485 TWh en 2025 et pourrait doubler d'ici 2030 ; en France, elle pourrait être multipliée par 3,7 d'ici 2035 (ADEME, avis « L'intelligence artificielle générative, des impacts environnementaux importants », juillet 2026). La fabrication des serveurs et la consommation d'eau comptent aussi, et la transparence des acteurs reste limitée. Côté usages : sollicitez l'IA quand elle apporte une vraie valeur, désactivez les fonctions « augmentées » inutiles, privilégiez des services éco-conçus (référentiels AFNOR IA frugale et RGESN). L'IA « pour la transition écologique » reste minoritaire : ses gains doivent être vérifiés sur tout le cycle de vie, effets rebond inclus.",
       },
       {
         q: "Comment mettre en place une stratégie Green IT en entreprise ?",

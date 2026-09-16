@@ -622,6 +622,76 @@ const sheets: Record<string, any> = {
       "ADEME 2026 (durée de vie)",
     ],
   },
+  "ia-generative": {
+    title: "IA générative : comprendre et limiter son impact",
+    subtitle: "Des usages en forte croissance, des impacts à encadrer",
+    target: "Tous publics",
+    duration: "10 minutes de lecture",
+    impact: "Datacenters mondiaux : ~485 TWh en 2025 (ADEME 2026)",
+    sections: [
+      {
+        title: "1. Pourquoi l'IA générative pèse sur l'environnement",
+        content:
+          "Entraîner et faire tourner les modèles demande des serveurs et des datacenters énergivores. La consommation électrique mondiale des centres de données était d'environ 485 TWh en 2025 et pourrait doubler d'ici 2030 ; en France, elle pourrait être multipliée par 3,7 d'ici 2035 (ADEME, avis IA générative, juillet 2026). Les usages numériques français dépendent aux deux tiers de datacenters hébergés à l'étranger, avec des mix électriques souvent plus carbonés qu'en France.",
+        tips: [
+          "L'impact dépend surtout du mix électrique des datacenters utilisés",
+          "La croissance des usages est le premier facteur d'augmentation",
+          "Les acteurs publient encore peu de données environnementales fiables",
+        ],
+      },
+      {
+        title: "2. Des impacts qui dépassent le carbone",
+        content:
+          "Au-delà de l'électricité : fabrication des serveurs, consommation d'eau de refroidissement et artificialisation des sols comptent aussi. Le numérique représentait 4,4 % de l'empreinte carbone de la France en 2022, avec un périmètre élargi aux datacenters étrangers (ADEME-Arcep).",
+        tips: [
+          "La fabrication des serveurs est intense en métaux et en eau",
+          "Une partie des impacts est délocalisée avec les datacenters",
+          "La transparence des fournisseurs reste un enjeu majeur",
+        ],
+      },
+      {
+        title: "3. IA et transition écologique : des bénéfices à vérifier",
+        content:
+          "Les applications d'IA « pour la transition écologique » sont souvent mises en avant, mais elles restent minoritaires et n'utilisent pas les mêmes technologies que les IA génératives, qui concentrent l'essentiel des impacts. Un gain net ne peut être affirmé qu'après une analyse du cycle de vie complète, effets rebond et transferts d'impact inclus.",
+        tips: [
+          "Demandez une analyse de cycle de vie, pas seulement une estimation",
+          "Méfiez-vous des promesses de compensation par des gains indirects",
+          "Un service utile n'est pas forcément un service sobre",
+        ],
+      },
+      {
+        title: "4. Comment limiter l'impact de vos usages",
+        content:
+          "Le premier levier est la sobriété : solliciter l'IA quand elle apporte une vraie valeur, éviter les générations inutiles, désactiver les fonctionnalités « augmentées » dont vous ne servez pas. Côté organisations : privilégier des services éco-conçus et des modèles dimensionnés au besoin.",
+        tips: [
+          "Désactivez les fonctions IA intégrées que vous n'utilisez pas",
+          "Mutualisez et dimensionnez les services au juste besoin",
+          "Privilégiez les prestataires qui publient leurs données d'impact",
+        ],
+      },
+      {
+        title: "5. Ce que recommandent les pouvoirs publics",
+        content:
+          "L'ADEME recommande de soutenir une méthodologie commune de mesure, de s'appuyer sur les référentiels existants (AFNOR IA frugale, RGESN), de relocaliser les datacenters en France lorsqu'ils remplacent des usages hébergés à l'étranger, d'organiser leur implantation sur le territoire et de former les utilisateurs à un usage raisonné.",
+        tips: [
+          "Référentiels : AFNOR (IA frugale) et RGESN",
+          "Relocalisation : bénéfique surtout si elle remplace de l'existant étranger",
+          "Formation et sensibilisation des utilisateurs : un levier clé",
+        ],
+      },
+    ],
+    resources: [
+      "Avis ADEME sur l'IA générative : ademe.fr",
+      "RGESN et numérique écoresponsable : ecoresponsable.numerique.gouv.fr",
+      "Notre page Outils : /outils",
+    ],
+    sources: [
+      "ADEME, avis « L'intelligence artificielle générative, des impacts environnementaux importants » (juillet 2026)",
+      "ADEME-Arcep (2023, empreinte du numérique en France)",
+      "AIE, Energy and AI (2025)",
+      "RGESN (INR) ; référentiel AFNOR IA frugale",
+    ],
+  },
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {

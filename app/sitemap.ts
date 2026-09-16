@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/fiches-pratiques/recyclage-mode-emploi',
         '/fiches-pratiques/datacenters-verts',
         '/fiches-pratiques/collectivites-action',
+        '/fiches-pratiques/ia-generative',
         '/guide',
         '/mentions-legales',
         '/modeles',

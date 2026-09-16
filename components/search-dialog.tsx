@@ -175,6 +175,10 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                         <FileText className="mr-2 h-4 w-4" />
                         <span>Collectivités en action</span>
                     </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/ia-generative"))}>
+                        <Sparkles className="mr-2 h-4 w-4" />
+                        <span>IA générative : limiter son impact</span>
+                    </CommandItem>
                 </CommandGroup>
                 <CommandSeparator />
                 <CommandGroup heading="Modèles détaillés">

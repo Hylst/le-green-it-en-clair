@@ -71,6 +71,7 @@ export default function SitemapPage() {
         { href: "/fiches-pratiques/recyclage-mode-emploi", label: "Recyclage mode d'emploi", description: "Où et comment recycler" },
         { href: "/fiches-pratiques/datacenters-verts", label: "Datacenters et cloud", description: "Choisir ses hébergeurs" },
         { href: "/fiches-pratiques/collectivites-action", label: "Collectivités", description: "Politique numérique responsable territoriale" },
+        { href: "/fiches-pratiques/ia-generative", label: "IA générative", description: "Comprendre et limiter l'impact de l'IA" },
       ],
     },
     {

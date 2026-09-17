@@ -2,6 +2,13 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 17/09/2026 — repli hors-ligne réparé (nuit)
+
+- signalement : page « Vous êtes hors ligne » affichée sur `/developpement/` avec image cassée + console rouge. Cause : serveur local arrêté (de ma faute, fin de passe e2e) → le service worker a servi le repli depuis son cache, et l'illustration `offline-illustration.webp` n'était pas précachée → carré vide. Le fichier existe bien dans l'export, rien d'autre ne manquait.
+- correctif : illustration ajoutée au précache, SW bumpé `v1.4.1`. Validé en conditions réelles (serveur coupé : repli servi avec image 1024 px depuis le cache).
+- barre grise à droite : non reproduite à 1920 px sur `/offline/` ni `/developpement/` (débordement 0, captures propres) — ressemble au panneau latéral du navigateur, pas au site. À reconfirmer panneau fermé.
+- vérifié : build 63/63.
+
 ## 17/09/2026 — passe e2e + vision (nuit)
 
 - passe end-to-end sur l'export servi en local sous `/greenit/` (Chromium) : 63 pages, 3 101 liens internes (0 mort), 91 blocs JSON-LD (0 invalide, BlogPosting sur les 12 articles), 61 titres distincts (1 doublon 404, noindex, écarté), 74 images (0 sans alt), 8 onglets outils chargés, quiz bonus/IA 4/4, quiz Défi (question, timer, correction sourcée), carte Leaflet (10 marqueurs), éCO2mix (live + repli), recherche, Escape, 5 captures dark/light/mobile.

@@ -1,0 +1,545 @@
+import type { LucideIcon } from "lucide-react"
+import { Calculator, ClipboardCheck, Scale, Smartphone, Zap } from "lucide-react"
+
+/* Contenus du blog : écriture simple, un chiffre sourcé par idée forte,
+   le reste de la précision rangé dans des blocs dépliables. */
+
+export interface BlogFact {
+  value: string
+  label: string
+  source: string
+  calculation?: string
+}
+
+export interface BlogDetails {
+  title: string
+  paragraphs: string[]
+}
+
+export interface BlogSection {
+  heading: string
+  paragraphs: string[]
+  bullets?: string[]
+  fact?: BlogFact
+  details?: BlogDetails[]
+}
+
+export interface RelatedLink {
+  href: string
+  label: string
+  description: string
+}
+
+export interface BlogPost {
+  slug: string
+  title: string
+  excerpt: string
+  date: string
+  readingTime: string
+  icon: LucideIcon
+  essential: string[]
+  sections: BlogSection[]
+  takeaway: string[]
+  related: RelatedLink[]
+  sources: string[]
+}
+
+export const posts: BlogPost[] = [
+  {
+    slug: "premier-audit-green-it-pme",
+    title: "Mon premier audit Green IT en PME : la méthode en 4 étapes",
+    excerpt:
+      "Vingt postes, une box, une imprimante et beaucoup de bonne volonté : comment faire le point sur son parc sans y passer un mois.",
+    date: "Septembre 2026",
+    readingTime: "7 min",
+    icon: ClipboardCheck,
+    essential: [
+      "Un audit, c’est d’abord un inventaire : quoi, quel âge, utilisé combien.",
+      "La fabrication concentre environ 75 % des impacts : la durée de vie est votre meilleur levier.",
+      "Terminez par un plan d’une page, pas par un rapport de 40 pages.",
+    ],
+    sections: [
+      {
+        heading: "Étape 1 : compter, sans se noyer",
+        paragraphs: [
+          "Prenez un tableur et faites le tour des bureaux : ordinateurs, écrans, imprimantes, téléphones, box, et serveur si vous en avez un. Pour chaque appareil, notez trois choses : l’année d’achat, son état, et s’il sert vraiment tous les jours.",
+          "Pour une vingtaine de postes, deux heures suffisent. Ne cherchez pas l’exhaustivité : les câbles et les souris peuvent attendre. Ce qui compte, c’est de repérer les appareils âgés, les doublons (deux écrans là où un suffit) et le matériel qui dort dans un placard.",
+        ],
+        bullets: [
+          "À noter : type d’appareil, année d’achat, état, usage réel",
+          "À ignorer pour l’instant : câbles, accessoires, petits périphériques",
+          "À repérer : doublons, matériel dormant, appareils de plus de 6 ans",
+        ],
+      },
+      {
+        heading: "Étape 2 : observer les usages pendant une semaine",
+        paragraphs: [
+          "Le matériel ne raconte que la moitié de l’histoire. Pendant une semaine, regardez comment il vit : la box reste-t-elle allumée jour et nuit, l’imprimante tourne-t-elle pour des documents lus une fois, les écrans restent-ils allumés à la pause déjeuner.",
+          "Posez deux ou trois questions à l’équipe, sans jugement : qui imprime et pourquoi, qui a vraiment besoin d’un deuxième écran, quels fichiers partent dans le cloud alors qu’un dossier partagé suffirait. Vous obtiendrez plus d’informations en une pause café qu’en une semaine de relevés automatiques.",
+        ],
+      },
+      {
+        heading: "Étape 3 : les trois gestes qui paient",
+        paragraphs: [
+          "Premier geste : allonger la durée de vie. Visez au minimum 5 ans pour un smartphone et 7 ans pour un ordinateur, en prévoyant le remplacement de la batterie plutôt que de l’appareil. C’est le levier le plus puissant, car la fabrication concentre l’essentiel des impacts.",
+          "Deuxième geste : acheter reconditionné au prochain renouvellement. L’impact évité se situe entre 75 et 90 % par rapport au neuf, et le prix baisse de 30 à 70 % selon le modèle. Troisième geste : éteindre la nuit. Une box éteinte la nuit économise environ 26 kWh par an, et une multiprise à interrupteur règle le sort des veilles discrètes.",
+        ],
+        fact: {
+          value: "≈ 75 %",
+          label: "Part de la fabrication dans les impacts du numérique (tous indicateurs confondus)",
+          source: "ADEME-Arcep, 2023",
+          calculation: "Part de la phase de fabrication sur l’ensemble du cycle de vie",
+        },
+        bullets: [
+          "Durée de vie : 5 ans minimum pour un smartphone, 7 ans pour un ordinateur",
+          "Prochain achat : reconditionné avec garantie de 2 ans",
+          "Nuits et week-ends : box et postes éteints, multiprises à interrupteur",
+        ],
+      },
+      {
+        heading: "Étape 4 : écrire le plan sur une page",
+        paragraphs: [
+          "Un audit qui finit dans un tiroir ne sert à rien. Résumez vos décisions sur une page : trois objectifs chiffrés (par exemple « aucun renouvellement avant 5 ans »), un responsable par objectif, et une date de bilan dans six mois.",
+          "Le modèle de plan d’action DSI du site vous donne la trame, et la grille d’audit en 26 critères permet de suivre vos progrès d’une année sur l’autre. La première année, viser juste vaut mieux que viser loin.",
+        ],
+        details: [
+          {
+            title: "Combien de temps prévoir, concrètement ?",
+            paragraphs: [
+              "Comptez une demi-journée pour l’inventaire, une semaine d’observation en tâche de fond, et une réunion d’une heure pour décider du plan. La première fois, nul besoin d’expert externe : votre connaissance du terrain vaut tous les capteurs.",
+              "L’année suivante, le même exercice prendra deux fois moins de temps, car l’inventaire existera déjà. C’est un rendez-vous annuel, pas un chantier.",
+            ],
+          },
+          {
+            title: "Les outils du site servent à quoi, dans tout ça ?",
+            paragraphs: [
+              "La grille d’audit (26 critères notés) structure votre visite et garde une trace comparable d’une année sur l’autre. L’outil d’audit IT en ligne chiffre le poids de votre parc en CO₂e pour objectiver les priorités.",
+              "Mais aucun outil ne remplace le tour des bureaux : c’est en ouvrant les placards qu’on trouve les trois imprimantes oubliées.",
+            ],
+          },
+        ],
+      },
+    ],
+    takeaway: [
+      "Commencez par l’inventaire, pas par les achats.",
+      "La durée de vie du matériel est votre levier numéro un.",
+      "Un plan d’une page appliqué bat un rapport de 40 pages rangé.",
+    ],
+    related: [
+      {
+        href: "/outils",
+        label: "Outil d’audit IT",
+        description: "Chiffrez le poids de votre parc en quelques minutes.",
+      },
+      {
+        href: "/modeles/grille-audit",
+        label: "Grille d’audit en 26 critères",
+        description: "La trame de visite à imprimer pour votre premier tour.",
+      },
+      {
+        href: "/fiches-pratiques/green-it-entreprise",
+        label: "Démarche Green IT en entreprise",
+        description: "Le pas à pas complet pour structurer votre démarche.",
+      },
+    ],
+    sources: [
+      "ADEME-Arcep, enquête annuelle sur l’empreinte environnementale du numérique (2023)",
+      "ADEME, analyse du cycle de vie des appareils reconditionnés (2022)",
+      "Arcep, enquête annuelle « Pour un numérique soutenable » (2026)",
+    ],
+  },
+  {
+    slug: "reconditionne-vs-neuf-le-calcul",
+    title: "Reconditionné ou neuf : le calcul, sans jargon",
+    excerpt:
+      "75 à 90 % d’impact en moins, vraiment ? D’où vient ce chiffre, ce qu’il faut vérifier avant d’acheter, et les cas où le neuf se défend.",
+    date: "Septembre 2026",
+    readingTime: "6 min",
+    icon: Calculator,
+    essential: [
+      "Un smartphone neuf, c’est environ 80 kg de CO₂e, presque tout à la fabrication.",
+      "Le reconditionné évite une fabrication neuve : 75 à 90 % d’impact en moins.",
+      "Vérifiez trois choses : garantie de 2 ans, batterie saine, vendeur établi.",
+    ],
+    sections: [
+      {
+        heading: "Pourquoi la fabrication pèse si lourd",
+        paragraphs: [
+          "Un smartphone concentre des dizaines de métaux extraits sur plusieurs continents, purifiés à haute température, puis assemblés en salle blanche. Résultat : environ 80 kg de CO₂e sur son cycle de vie, dont près de 99 % à la fabrication. L’usage (recharges, réseau) ne pèse presque rien à côté, surtout en France où l’électricité est peu carbonée.",
+          "C’est la clé du calcul : chaque année d’usage supplémentaire dilue cet investissement initial. Garder son téléphone 4 ans au lieu de 2 divise son impact annuel par deux, sans rien acheter.",
+        ],
+        fact: {
+          value: "≈ 80 kg",
+          label: "Empreinte carbone du cycle de vie d’un smartphone, dont ~99 % à la fabrication",
+          source: "ADEME, Impact CO₂ / Base Empreinte, 2025",
+          calculation: "80 kg ÷ 2 ans = 40 kg par an, contre 80 ÷ 4 = 20 kg par an",
+        },
+      },
+      {
+        heading: "Ce que change vraiment le reconditionné",
+        paragraphs: [
+          "Un appareil reconditionné, c’est un appareil existant testé, réparé si besoin, effacé et garanti. Comme on évite de fabriquer un appareil neuf, l’impact chute de 75 à 90 % selon l’appareil et la filière. Le prix suit : 30 à 70 % moins cher selon le modèle et le grade esthétique.",
+          "La fourchette est large parce que les appareils ne sont pas égaux : un smartphone récent avec batterie neuve évite presque tout l’impact du neuf, tandis qu’un appareil ancien très réparé en évite un peu moins. Dans tous les cas, l’ordre de grandeur reste massivement favorable.",
+        ],
+        fact: {
+          value: "−75 à −90 %",
+          label: "Impact évité avec un appareil reconditionné par rapport au neuf",
+          source: "ADEME, 2022",
+          calculation: "Fourchette selon l’appareil et le parcours de reconditionnement",
+        },
+      },
+      {
+        heading: "Les trois vérifications avant d’acheter",
+        paragraphs: [
+          "Première vérification : la garantie. La garantie légale de conformité dure 2 ans, y compris pour le reconditionné, avec présomption de défaut pendant 24 mois. Un vendeur qui propose moins se disqualifie.",
+          "Deuxième vérification : la batterie. Exigez une capacité annoncée (au moins 85 % de la capacité d’origine) ou une batterie neuve. C’est le composant qui vieillit le plus vite, et son remplacement coûte 50 à 80 € : autant l’intégrer au prix dès le départ.",
+          "Troisième vérification : le vendeur. Privilégiez les acteurs établis qui affichent grade, tests effectués et durée de garantie. Les places de marché généralistes sans contrôle qualité réservent davantage de surprises.",
+        ],
+        bullets: [
+          "Garantie légale de 2 ans, présomption de défaut pendant 24 mois",
+          "Batterie : capacité annoncée ou neuve, prix du remplacement intégré",
+          "Vendeur : grade affiché, tests décrits, avis vérifiables",
+        ],
+      },
+      {
+        heading: "Quand le neuf se défend (les exceptions)",
+        paragraphs: [
+          "Le reconditionné n’est pas la réponse à tout. Un besoin professionnel très précis introuvable d’occasion, un appareil de sécurité devant durer dix ans, ou un modèle neuf classé A à l’indice de durabilité et réparable : dans ces cas, acheter neuf et le garder longtemps reste cohérent.",
+          "La règle simple : le meilleur appareil est celui qu’on garde. Neuf sobre et durable, ou reconditionné vérifié, les deux chemins mènent au même objectif si la durée de vie suit.",
+        ],
+        details: [
+          {
+            title: "D’où vient la fourchette 75 à 90 % ?",
+            paragraphs: [
+              "Elle vient de l’analyse de cycle de vie publiée par l’ADEME en 2022, qui compare un appareil reconditionné à son équivalent neuf sur l’ensemble des indicateurs (climat, ressources, eau). La borne basse correspond aux appareils les plus réparés, la borne haute à ceux remis en état avec peu d’intervention.",
+              "Depuis, les filières se sont professionnalisées et les grades se sont standardisés, mais l’ordre de grandeur tient toujours : éviter une fabrication neuve reste le geste décisif.",
+            ],
+          },
+          {
+            title: "La batterie, le point à surveiller",
+            paragraphs: [
+              "Une batterie usée change tout au quotidien : autonomie en berne, pics d’extinction, charge permanente. À l’achat, une capacité annoncée sous 85 % justifie de négocier le prix ou d’exiger son remplacement.",
+              "Bon à savoir : faire remplacer une batterie par un pro coûte 50 à 80 € et prolonge souvent la vie de l’appareil de deux ans. C’est le meilleur rapport euros par année gagnée du marché.",
+            ],
+          },
+        ],
+      },
+    ],
+    takeaway: [
+      "La fabrication concentre l’impact : chaque année gagnée compte double.",
+      "Reconditionné vérifié d’abord, neuf sobre et durable par exception.",
+      "Batterie et garantie : les deux lignes à lire avant le prix.",
+    ],
+    related: [
+      {
+        href: "/fiches-pratiques/achat-responsable",
+        label: "Guide d’achat responsable",
+        description: "Grades, garanties et pièges à éviter, en détail.",
+      },
+      {
+        href: "/fiches-pratiques/reparer-prolonger",
+        label: "Réparer et prolonger",
+        description: "Batterie, écran, adresses utiles pour faire durer.",
+      },
+      {
+        href: "/outils",
+        label: "Calculateur d’empreinte",
+        description: "Chiffrez votre parc actuel avant de décider.",
+      },
+    ],
+    sources: [
+      "ADEME, analyse du cycle de vie des appareils reconditionnés (2022)",
+      "ADEME, Impact CO₂ / Base Empreinte, facteurs d’émission du numérique (2025)",
+      "Code de la consommation, garantie légale de conformité (2 ans)",
+    ],
+  },
+  {
+    slug: "comprendre-le-pue-en-5-minutes",
+    title: "Comprendre le PUE en 5 minutes, et poser les bonnes questions",
+    excerpt:
+      "1,56, 1,2, 1,09 : les hébergeurs affichent leurs PUE comme des trophées. Voici ce que ce chiffre veut vraiment dire.",
+    date: "Septembre 2026",
+    readingTime: "5 min",
+    icon: Zap,
+    essential: [
+      "Le PUE mesure le surplus d’énergie d’un datacenter au-delà de ses serveurs.",
+      "Repères : 1,1 excellent, 1,5 moyenne mondiale, au-delà à optimiser.",
+      "Le PUE ne dit ni d’où vient l’électricité, ni combien d’eau est utilisée.",
+    ],
+    sections: [
+      {
+        heading: "La définition simple",
+        paragraphs: [
+          "Un datacenter consomme de l’électricité pour ses serveurs, mais aussi pour les refroidir, les alimenter sans coupure et éclairer les salles. Le PUE (efficacité d’usage de l’énergie) rapporte le total à la seule part des serveurs : un PUE de 1,5 signifie que pour 1 kW utile aux serveurs, le bâtiment consomme 1,5 kW au total.",
+          "Le PUE parfait serait 1,0 : tout pour les serveurs, rien pour le reste. Il est inatteignable en pratique, car refroidir et sécuriser l’alimentation coûte toujours un peu d’énergie. Les meilleurs sites frôlent 1,1, la moyenne mondiale tourne autour de 1,56.",
+        ],
+        fact: {
+          value: "1,56",
+          label: "PUE moyen des datacenters dans le monde (1,45 en Europe)",
+          source: "Uptime Institute, 2024",
+        },
+      },
+      {
+        heading: "Lire un PUE sans se tromper",
+        paragraphs: [
+          "Sous 1,2 : excellent, typique des hyperscalaires récents et des sites à refroidissement optimisé. Entre 1,2 et 1,4 : bon, la norme des hébergeurs sérieux en Europe. Autour de 1,5 : la moyenne mondiale, correcte sans plus. Au-delà de 1,8 : il y a probablement un gisement d’économies (vieux refroidissement, salles à moitié vides).",
+          "Méfiez-vous des PUE records affichés sans précision : un PUE théorique de conception n’a pas la même valeur qu’un PUE mesuré sur douze mois, hiver compris. Demandez toujours la période de mesure.",
+        ],
+      },
+      {
+        heading: "Ce que le PUE ne dit pas (et c’est beaucoup)",
+        paragraphs: [
+          "Le PUE ne dit pas d’où vient l’électricité. Un datacenter à PUE moyen alimenté en électricité décarbonée peut émettre moins qu’un excellent PUE branché sur un mix carboné. Il ne dit pas non plus combien d’eau le refroidissement consomme, ni si la chaleur perdue chauffe des logements voisins.",
+          "Et il ne dit rien de l’essentiel : vos serveurs sont-ils bien remplis. Un datacenter parfait qui héberge des machines utilisées à 10 % reste un gaspillage. Le taux d’utilisation compte autant que le PUE.",
+        ],
+        fact: {
+          value: "415 TWh",
+          label: "Consommation électrique des datacenters dans le monde en 2024, soit ~1,5 % de l’électricité mondiale",
+          source: "Agence internationale de l’énergie, 2025",
+        },
+      },
+      {
+        heading: "Trois questions à poser à son hébergeur",
+        paragraphs: [
+          "Première question : ce PUE est-il mesuré ou théorique, et sur quelle période. Deuxième question : d’où vient votre électricité, et quel est le taux de CO₂ du mix que vous utilisez. Troisième question : que devient la chaleur perdue, et quel est votre usage de l’eau.",
+          "Un hébergeur sérieux répond en une page, chiffres à l’appui. Un hébergeur qui répond par un slogan vous a déjà répondu.",
+        ],
+        details: [
+          {
+            title: "Le calcul, pas à pas",
+            paragraphs: [
+              "Prenez 100 kW de serveurs avec un PUE de 1,56 : le site consomme 156 kW au total, dont 56 kW pour le refroidissement, les onduleurs et le reste du bâtiment. Avec un PUE de 1,2, le même service ne consommerait que 120 kW : 36 kW économisés en permanence, soit l’équivalent de dizaines de foyers.",
+              "Formule à retenir : puissance totale = puissance IT × PUE. Le simulateur de la page datacenters fait ce calcul avec le taux de CO₂ en direct.",
+            ],
+          },
+          {
+            title: "Même PUE, carbone différent",
+            paragraphs: [
+              "En France, le kilowattheure électrique émet peu de CO₂ grâce au mix décarboné, tandis qu’ailleurs il peut en émettre cinq à dix fois plus. Deux datacenters au même PUE peuvent donc avoir des bilans carbone très différents.",
+              "C’est pour cela que la page datacenters croise le PUE avec le taux de CO₂ mesuré en direct : l’efficacité sans le mix ne raconte que la moitié de l’histoire.",
+            ],
+          },
+        ],
+      },
+    ],
+    takeaway: [
+      "PUE bas : bien, mais vérifiez qu’il est mesuré sur douze mois.",
+      "Ajoutez le mix électrique, l’eau et le taux d’utilisation au tableau.",
+      "Trois questions écrites à l’hébergeur valent tous les slogans.",
+    ],
+    related: [
+      {
+        href: "/datacenters",
+        label: "Datacenters verts",
+        description: "PUE, mix en direct et simulateur d’impact carbone.",
+      },
+      {
+        href: "/fiches-pratiques/datacenters-verts",
+        label: "Fiche datacenters et cloud",
+        description: "Choisir ses hébergeurs et optimiser, pas à pas.",
+      },
+      {
+        href: "/chiffres",
+        label: "Chiffres et données",
+        description: "Le mix électrique français mesuré en direct.",
+      },
+    ],
+    sources: [
+      "Uptime Institute, Global Data Center Survey (2024)",
+      "Agence internationale de l’énergie, Energy and AI (avril 2025)",
+      "RTE, éCO2mix national en temps réel via ODRE (donnée en direct)",
+    ],
+  },
+  {
+    slug: "agec-reen-ce-qui-change",
+    title: "AGEC, REEN : ce qui change pour vous, concrètement",
+    excerpt:
+      "Deux lois, beaucoup d’obligations, et surtout des droits nouveaux : pièces détachées, bonus réparation, garantie prolongée. On trie.",
+    date: "Septembre 2026",
+    readingTime: "6 min",
+    icon: Scale,
+    essential: [
+      "AGEC (2020) : jeter moins, réparer plus, afficher la réparabilité.",
+      "REEN (2021) : le volet numérique, du reconditionné à la sensibilisation.",
+      "Vos droits : pièces 7 ans, bonus réparation, garantie prolongée après réparation.",
+    ],
+    sections: [
+      {
+        heading: "AGEC, en une phrase",
+        paragraphs: [
+          "La loi anti-gaspillage pour une économie circulaire, votée en 2020, veut qu’on répare plutôt qu’on jette : indice de réparabilité affiché en magasin, pièces détachées disponibles, fonds réparation qui finance le bonus. Elle concerne tous les objets, pas seulement le numérique.",
+          "Concrètement, c’est elle qui a fait apparaître les notes sur 10 à côté des prix, et les chèques réparation chez les réparateurs labellisés.",
+        ],
+      },
+      {
+        heading: "REEN, en une phrase",
+        paragraphs: [
+          "La loi visant à réduire l’empreinte environnementale du numérique, votée en 2021, décline le même principe pour nos écrans et nos réseaux : part de reconditionné dans la commande publique, sensibilisation des élèves et des consommateurs, données environnementales des opérateurs.",
+          "Si vous travaillez dans une collectivité ou une administration, c’est ce texte qui justifie d’intégrer le reconditionné dans vos appels d’offres.",
+        ],
+      },
+      {
+        heading: "Ce que vous y gagnez, dès aujourd’hui",
+        paragraphs: [
+          "D’abord, l’information : l’indice de réparabilité puis de durabilité s’affiche avant l’achat (téléviseurs depuis janvier 2025, lave-linge depuis avril 2025), et les pièces détachées doivent rester disponibles 7 ans pour les appareils couverts par le règlement européen 2023/1670.",
+          "Ensuite, l’argent : le bonus réparation a versé de 4 à 25 M€ en un an, preuve que le dispositif tourne. Enfin, le temps : depuis l’application de la directive européenne 2024/1799 le 31 juillet 2026, une réparation sous garantie prolonge celle-ci de 12 mois.",
+        ],
+        fact: {
+          value: "4 à 25 M€",
+          label: "Bonus réparation versés en un an : le dispositif a été multiplié par 6",
+          source: "ADEME, 2025",
+          calculation: "Montants versés via le dispositif QualiRépar sur douze mois",
+        },
+        bullets: [
+          "Avant d’acheter : lisez l’indice affiché à côté du prix",
+          "En cas de panne : pensez réparateur labellisé et bonus d’abord",
+          "Après réparation : conservez la facture, la garantie repart pour 12 mois",
+        ],
+      },
+      {
+        heading: "Et demain",
+        paragraphs: [
+          "L’indice de durabilité va s’étendre à d’autres appareils, et le réexamen européen de la filière des e-déchets est en cours : les règles de collecte et de recyclage vont se resserrer. Côté entreprises, le reporting de durabilité se concentre avec le paquet Omnibus I, mais les grandes structures restent tenues de publier leurs impacts.",
+          "La direction est lisible : des appareils qui durent, des informations affichées, des réparations aidées. Chaque texte nouveau va dans le même sens, ce qui rend les investissements durables (pièces, formation, maintenance) de moins en moins risqués.",
+        ],
+        details: [
+          {
+            title: "Les dates à retenir",
+            paragraphs: [
+              "2020 : loi AGEC, fin du tout-jetable programmé. 2021 : loi REEN, volet numérique. Juin 2025 : application du règlement européen 2023/1670 (5 ans de mises à jour, 7 ans de pièces). Juillet 2026 : application de la directive réparation 2024/1799 (+12 mois de garantie après réparation).",
+              "2025 aussi : l’indice de durabilité démarre sur les téléviseurs en janvier puis les lave-linge en avril. Les smartphones suivront le mouvement européen.",
+            ],
+          },
+          {
+            title: "Où vérifier avant d’acheter ou de jeter ?",
+            paragraphs: [
+              "En magasin et en ligne, l’indice affiché près du prix reste votre premier repère. Pour un appareil en fin de vie, le site quefairedemesdechets.ademe.fr indique le point de dépôt le plus proche selon l’objet.",
+              "Pour réparer, l’annuaire des réparateurs labellisés QualiRépar affiche le montant du bonus déduit directement de la facture. Trois réflexes, trois sites, zéro excuse.",
+            ],
+          },
+        ],
+      },
+    ],
+    takeaway: [
+      "Deux lois, un sens : réparer plutôt que jeter.",
+      "Vos droits valent de l’argent : bonus, pièces, garantie prolongée.",
+      "Lisez l’indice avant d’acheter, gardez la facture après réparation.",
+    ],
+    related: [
+      {
+        href: "/reglementation",
+        label: "Réglementation",
+        description: "Le détail des textes, dates et obligations.",
+      },
+      {
+        href: "/fiches-pratiques/reparer-prolonger",
+        label: "Réparer et prolonger",
+        description: "Mettre vos nouveaux droits en pratique.",
+      },
+      {
+        href: "/recyclage",
+        label: "Recyclage et réparation",
+        description: "Points de collecte et fin de vie des appareils.",
+      },
+    ],
+    sources: [
+      "Légifrance, loi anti-gaspillage pour une économie circulaire (2020)",
+      "Légifrance, loi visant à réduire l’empreinte environnementale du numérique (2021)",
+      "EUR-Lex, règlement 2023/1670 et directive 2024/1799",
+      "ADEME, bilan du bonus réparation QualiRépar (2025)",
+    ],
+  },
+  {
+    slug: "un-an-avec-un-smartphone-reparable",
+    title: "Un an avec un smartphone réparable : carnet de bord",
+    excerpt:
+      "Coque, chute, batterie, mises à jour : le récit d’une année sans changer de téléphone, et ce qu’elle enseigne.",
+    date: "Septembre 2026",
+    readingTime: "6 min",
+    icon: Smartphone,
+    essential: [
+      "Mois 1 : on protège (coque, verre trempé, réglages sobres).",
+      "Mois 6 : on répare au lieu de remplacer (pièce disponible, bonus).",
+      "Mois 12 : on a économisé des centaines d’euros et la moitié de l’impact annuel.",
+    ],
+    sections: [
+      {
+        heading: "Mois 1 à 3 : la prise en main",
+        paragraphs: [
+          "Tout commence par 20 € bien dépensés : une coque correcte et un verre trempé. Les trois quarts des écrans cassés rencontrent un sol sans protection, et aucune réparabilité ne remplace la prévention.",
+          "On règle aussi le téléphone sobrement : luminosité auto, 5G en mode automatique, lecture auto désactivée. Non pas pour « sauver la planète » à soi tout seul, mais parce qu’un téléphone qui tient la journée s’use moins vite, chargeur compris.",
+        ],
+      },
+      {
+        heading: "Mois 4 à 6 : la première chute",
+        paragraphs: [
+          "Elle arrive toujours. La différence avec un téléphone réparable, c’est la suite : la pièce détachée existe, le tutoriel officiel aussi, et le réparateur du coin affiche le bonus déduit de la facture. Écran remplacé en une demi-heure, ou en une journée chez un pro.",
+          "Comparez avec l’alternative : un devis qui dépasse la moitié du prix du neuf, trois semaines d’attente, et la tentation de tout racheter. La disponibilité des pièces change la psychologie autant que le budget.",
+        ],
+      },
+      {
+        heading: "Mois 7 à 9 : le cap des mises à jour",
+        paragraphs: [
+          "C’est le cimetière discret des téléphones : plus de mises à jour, applications qui rament, failles non corrigées. Le règlement européen impose désormais 5 ans de mises à jour du système et 7 ans de pièces détachées : un téléphone réparable récent passe ce cap sans broncher.",
+          "Vérifiez simplement que les mises à jour sont bien activées et que le stockage n’est pas saturé (un téléphone plein vieillit mal). Le reste suit tout seul.",
+        ],
+      },
+      {
+        heading: "Mois 10 à 12 : le bilan",
+        paragraphs: [
+          "Faites les comptes : une batterie à 50 ou 80 € contre 800 € de téléphone neuf, quelques euros de protection, zéro urgence. Et côté climat, garder son téléphone 4 ans au lieu de 2 divise son impact annuel par deux, puisque la fabrication est déjà amortie.",
+          "Le plus surprenant, à la fin, c’est l’indifférence devant les nouveaux modèles : quand l’objet marche et qu’on sait le réparer, l’envie de changer s’éteint toute seule.",
+        ],
+        fact: {
+          value: "÷ 2",
+          label: "Impact annuel divisé par deux en gardant son téléphone 4 ans au lieu de 2",
+          source: "ADEME, Impact CO₂ / Base Empreinte, 2025",
+          calculation: "80 kg ÷ 4 ans = 20 kg par an, contre 80 ÷ 2 = 40 kg par an",
+        },
+        details: [
+          {
+            title: "Combien ça coûte vraiment, sur un an ?",
+            paragraphs: [
+              "Protection (20 €), éventuel remplacement de batterie (50 à 80 €), une réparation d’écran avec bonus (souvent sous les 100 € reste à charge) : l’année coûte entre 20 et 200 € selon la malchance. Un renouvellement annuel, lui, coûte le prix d’un téléphone.",
+              "Même en cas de grosse casse, le plafond reste le prix d’une réparation, pas celui d’un appareil. C’est cette prévisibilité qui rend le réparable économique.",
+            ],
+          },
+          {
+            title: "Et si je ne suis pas bricoleur ?",
+            paragraphs: [
+              "Bonne nouvelle : la réparabilité profite d’abord aux non-bricoleurs. Pièces disponibles veut aussi dire devis raisonnables et délais courts chez les pros, avec le bonus déduit directement.",
+              "Cherchez le label du réparateur, demandez un devis écrit, et gardez la facture : elle prolonge la garantie de 12 mois depuis juillet 2026.",
+            ],
+          },
+        ],
+      },
+    ],
+    takeaway: [
+      "Protéger d’abord : 20 € de prévention valent une réparation.",
+      "Réparer ensuite : pièces, tutos et bonus rendent la panne banale.",
+      "Garder enfin : 4 ans au lieu de 2, et l’impact annuel est divisé par deux.",
+    ],
+    related: [
+      {
+        href: "/fiches-pratiques/reparer-prolonger",
+        label: "Réparer et prolonger",
+        description: "Gestes d’entretien et adresses utiles.",
+      },
+      {
+        href: "/fiches-pratiques/achat-responsable",
+        label: "Guide d’achat responsable",
+        description: "Bien choisir son prochain appareil, neuf ou reconditionné.",
+      },
+      {
+        href: "/recyclage",
+        label: "Recyclage et réparation",
+        description: "Que faire quand vraiment rien ne marche plus.",
+      },
+    ],
+    sources: [
+      "ADEME, Impact CO₂ / Base Empreinte, facteurs d’émission du numérique (2025)",
+      "ADEME, analyse du cycle de vie des appareils reconditionnés (2022)",
+      "EUR-Lex, règlement 2023/1670 (mises à jour 5 ans, pièces 7 ans)",
+    ],
+  },
+]

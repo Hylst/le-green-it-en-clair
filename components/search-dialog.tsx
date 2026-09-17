@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { BookOpen, Calculator, Calendar, Code2, Download, Eye, FileText, HelpCircle, Home, Info, Laptop, Leaf, Map, Recycle, Rocket, Scale, Settings, Sparkles, User, Zap } from "lucide-react"
+import { BookOpen, Calculator, Calendar, Code2, Download, Eye, FileText, HelpCircle, Home, Info, Laptop, Leaf, Map, Newspaper, Recycle, Rocket, Scale, Settings, Sparkles, User, Zap } from "lucide-react"
 import { useRouter } from "next/navigation"
 
 import {
@@ -83,6 +83,10 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                     <CommandItem value="Dossiers & veille RSS actualites news" onSelect={() => runCommand(() => router.push("/actualites"))}>
                         <Calendar className="mr-2 h-4 w-4" />
                         <span>Dossiers & veille RSS</span>
+                    </CommandItem>
+                    <CommandItem value="Blog articles retours experience" onSelect={() => runCommand(() => router.push("/blog"))}>
+                        <Newspaper className="mr-2 h-4 w-4" />
+                        <span>Blog</span>
                     </CommandItem>
                     <CommandItem onSelect={() => runCommand(() => router.push("/chiffres"))}>
                         <Zap className="mr-2 h-4 w-4" />
@@ -206,6 +210,29 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                     <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/enfants-ecole"))}>
                         <FileText className="mr-2 h-4 w-4" />
                         <span>Enfants et écrans</span>
+                    </CommandItem>
+                </CommandGroup>
+                <CommandSeparator />
+                <CommandGroup heading="Blog">
+                    <CommandItem onSelect={() => runCommand(() => router.push("/blog/premier-audit-green-it-pme"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Premier audit Green IT en PME</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/blog/reconditionne-vs-neuf-le-calcul"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Reconditionné ou neuf : le calcul</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/blog/comprendre-le-pue-en-5-minutes"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Comprendre le PUE en 5 minutes</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/blog/agec-reen-ce-qui-change"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>AGEC, REEN : ce qui change</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/blog/un-an-avec-un-smartphone-reparable"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Un an avec un smartphone réparable</span>
                     </CommandItem>
                 </CommandGroup>
                 <CommandSeparator />

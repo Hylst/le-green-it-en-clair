@@ -47,6 +47,7 @@ export default function SitemapPage() {
         { href: "/blog/envie-portrait-reemploi-solidaire", label: "Envie : portrait", description: "Le réemploi qui embauche" },
         { href: "/blog/rgesn-ecoconception-10-minutes", label: "RGESN en 10 minutes", description: "La check-list officielle" },
         { href: "/blog/bonus-reparation-mode-emploi", label: "Bonus réparation", description: "Le mode d'emploi en 10 minutes" },
+        { href: "/blog/ia-generative-avis-ademe-2026", label: "IA générative et ADEME", description: "L'avis de juillet 2026 décrypté" },
         { href: "/faq", label: "FAQ", description: "Réponses aux questions fréquentes" },
       ],
     },

@@ -262,6 +262,10 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                         <FileText className="mr-2 h-4 w-4" />
                         <span>Bonus réparation : mode d'emploi</span>
                     </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/blog/ia-generative-avis-ademe-2026"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>IA générative : l'avis ADEME 2026</span>
+                    </CommandItem>
                 </CommandGroup>
                 <CommandSeparator />
                 <CommandGroup heading="Modèles détaillés">

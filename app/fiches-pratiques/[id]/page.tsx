@@ -710,6 +710,7 @@ const sheets: Record<string, any> = {
     ],
     resources: [
       "Avis ADEME sur l'IA générative : https://www.ademe.fr",
+      "L'avis décrypté en 10 minutes : /blog/ia-generative-avis-ademe-2026",
       "RGESN et numérique écoresponsable : https://ecoresponsable.numerique.gouv.fr",
       "Notre page Outils : /outils",
     ],

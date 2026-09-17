@@ -24,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/blog/envie-portrait-reemploi-solidaire',
         '/blog/rgesn-ecoconception-10-minutes',
         '/blog/bonus-reparation-mode-emploi',
+        '/blog/ia-generative-avis-ademe-2026',
         '/cas-pratiques',
         '/chiffres',
         '/datacenters',

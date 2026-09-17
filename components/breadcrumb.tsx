@@ -42,6 +42,7 @@ export function Breadcrumb() {
     "envie-portrait-reemploi-solidaire": "Envie : portrait",
     "rgesn-ecoconception-10-minutes": "RGESN en 10 minutes",
     "bonus-reparation-mode-emploi": "Bonus réparation",
+    "ia-generative-avis-ademe-2026": "IA générative et ADEME",
     faq: "FAQ",
     "fiches-pratiques": "Fiches pratiques",
     "sitemap-page": "Plan du site",

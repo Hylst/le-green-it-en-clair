@@ -2,6 +2,15 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 17/09/2026 — article IA générative (soir)
+
+- article 12 « IA générative : ce que dit l'ADEME en 2026 » : décryptage de l'avis du 22/07/2026 lu à la source (485 TWh, ×2 en 2030, ×3,7 France 2035, mix électrique, opacité, AI for green à vérifier), widget `ia-quiz` (4 questions, `aria-live`), 2 liens officiels vérifiés (communiqué + librairie ADEME). Sans visuel pour l'instant (icône de repli). Câblage complet + pont fiche IA, SW `v1.4.0`.
+- vérifié : build 63/63, quiz + JSON-LD + ponts dans l'export.
+
+## 17/09/2026 — visuel article bonus (soir)
+
+- `blog-bonus-reparation.webp` (44 Ko, 1376×768, fourni par l'auteur, sans texte ni marque) branché sur l'article + listing. Vérifié dans l'export.
+
 ## 17/09/2026 — article bonus réparation (soir)
 
 - article 11 « Bonus réparation : le mode d'emploi » : montants numériques lus dans la grille officielle (smartphone 25 €, PC 50 €, TV 60 €, seuils 100/150 €), éligibilité (hors garantie, panne bloquante, labellisé uniquement), parcours en 3 gestes, widget `bonus-check` (4 questions, `aria-live`), 4 liens officiels vérifiés à la main (grille PDF 04/2026, Ecosystem, économie.gouv.fr 11/09/2026, ADEME). Fourchette 10-65 € confirmée toutes filières (économie.gouv.fr). Sans visuel pour l'instant (icône de repli, à fournir par l'auteur). Câblage complet, SW `v1.3.9`.

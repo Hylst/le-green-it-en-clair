@@ -13,6 +13,7 @@ import {
   AgecTimeline,
   BonusCheck,
   BoxCalc,
+  IaQuiz,
   PueMiniCalc,
   ReconditionneCalc,
   ReparableQuiz,
@@ -47,6 +48,7 @@ const WIDGETS: Record<BlogWidgetKey, () => React.JSX.Element> = {
   "box-calc": BoxCalc,
   "rgesn-check": RgesnCheck,
   "bonus-check": BonusCheck,
+  "ia-quiz": IaQuiz,
 }
 
 export default async function BlogArticlePage({ params }: { params: Promise<{ slug: string }> }) {

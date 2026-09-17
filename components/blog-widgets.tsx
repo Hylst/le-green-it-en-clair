@@ -689,3 +689,107 @@ export function BonusCheck() {
     </div>
   )
 }
+
+/* 9. Mini-test usages de l'IA : 4 questions, le réflexe sobriété. */
+
+const IA_QUIZ = [
+  {
+    question: "Pourquoi sollicitez-vous l'IA la plupart du temps ?",
+    options: [
+      "Pour des tâches où elle apporte vraiment quelque chose",
+      "Par réflexe, même pour un calcul simple",
+      "Je ne sais pas",
+    ],
+    correct: 0,
+    explain: "L'ADEME recommande un usage raisonné : l'IA quand elle sert, pas par défaut pour tout.",
+  },
+  {
+    question: "Les fonctions « augmentées » à l'IA de vos applis habituelles ?",
+    options: [
+      "Désactivées quand elles ne me servent pas",
+      "Activées partout par défaut",
+      "Je ne sais pas ce que c'est",
+    ],
+    correct: 0,
+    explain: "Pouvoir désactiver ces fonctions est un droit à exiger : chaque gadget actif consomme pour rien.",
+  },
+  {
+    question: "Pour résumer un document, vous choisissez ?",
+    options: [
+      "Le plus petit modèle capable de le faire",
+      "Toujours le plus gros modèle disponible",
+      "Je ne sais pas",
+    ],
+    correct: 0,
+    explain: "Modèles dimensionnés au besoin : un résumé ne demande pas le plus gros système du marché.",
+  },
+  {
+    question: "On vous vend une IA « pour la planète » : votre réflexe ?",
+    options: [
+      "Demander la preuve sur tout le cycle de vie, rebonds inclus",
+      "Y croire sur parole",
+      "Je ne sais pas",
+    ],
+    correct: 0,
+    explain: "Ces applications restent minoritaires et leurs gains doivent être vérifiés, pas seulement promis.",
+  },
+]
+
+export function IaQuiz() {
+  const [answers, setAnswers] = useState<(number | null)[]>([null, null, null, null])
+  const answered = answers.filter((a) => a !== null).length
+  const score = answers.filter((a, i) => a === IA_QUIZ[i].correct).length
+
+  const answer = (question: number, option: number) => {
+    setAnswers((prev) => prev.map((value, i) => (i === question ? option : value)))
+  }
+
+  return (
+    <div className={cardClass}>
+      <WidgetTitle>Vos usages de l'IA sont-ils sobres ?</WidgetTitle>
+      <WidgetHint>4 questions, les bons réflexes. La correction s'affiche aussitôt.</WidgetHint>
+      <div className="space-y-5">
+        {IA_QUIZ.map((item, qi) => (
+          <fieldset key={item.question} className="rounded-lg bg-card p-4">
+            <legend className="px-1 text-sm font-semibold text-foreground">{item.question}</legend>
+            <div className="mt-2 space-y-2">
+              {item.options.map((option, oi) => {
+                const chosen = answers[qi] === oi
+                const revealed = answers[qi] !== null
+                return (
+                  <label
+                    key={option}
+                    className={cn(
+                      "flex cursor-pointer items-start gap-2.5 rounded-lg border p-2.5 text-sm transition-colors",
+                      revealed && oi === item.correct && "border-emerald-500 bg-emerald-500/10",
+                      revealed && chosen && oi !== item.correct && "border-red-400 bg-red-500/10",
+                      !revealed && "border-border hover:bg-secondary/60"
+                    )}
+                  >
+                    <input
+                      type="radio"
+                      name={`ia-q${qi}`}
+                      checked={chosen}
+                      onChange={() => answer(qi, oi)}
+                      className="mt-0.5 h-4 w-4 shrink-0 accent-emerald-600"
+                    />
+                    <span className="text-foreground">{option}</span>
+                  </label>
+                )
+              })}
+            </div>
+            {answers[qi] !== null && (
+              <p className="mt-2 flex items-start gap-2 text-sm text-muted-foreground">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" aria-hidden="true" />
+                {item.explain}
+              </p>
+            )}
+          </fieldset>
+        ))}
+      </div>
+      <p className="mt-4 text-sm font-medium text-foreground" aria-live="polite">
+        Score : {score} sur {IA_QUIZ.length} ({answered} sur {IA_QUIZ.length} répondues)
+      </p>
+    </div>
+  )
+}

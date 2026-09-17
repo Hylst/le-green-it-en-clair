@@ -61,7 +61,7 @@ export default function SitemapPage() {
         {
           href: "/fiches-pratiques",
           label: "Fiches pratiques",
-          description: "8 fiches détaillées par thème",
+          description: "15 fiches détaillées par thème",
         },
         { href: "/fiches-pratiques/gestes-quotidiens", label: "Gestes quotidiens", description: "7 gestes pour un numérique sobre" },
         { href: "/fiches-pratiques/achat-responsable", label: "Achat responsable", description: "Choisir un appareil avec moins d'impact" },
@@ -72,6 +72,12 @@ export default function SitemapPage() {
         { href: "/fiches-pratiques/datacenters-verts", label: "Datacenters et cloud", description: "Choisir ses hébergeurs" },
         { href: "/fiches-pratiques/collectivites-action", label: "Collectivités", description: "Politique numérique responsable territoriale" },
         { href: "/fiches-pratiques/ia-generative", label: "IA générative", description: "Comprendre et limiter l'impact de l'IA" },
+        { href: "/fiches-pratiques/streaming-video", label: "Streaming et gaming", description: "Qualité, téléchargement, lecture auto" },
+        { href: "/fiches-pratiques/teletravail-visio", label: "Télétravail et visio", description: "Caméra, réseau, poste de travail" },
+        { href: "/fiches-pratiques/emails-cloud", label: "E-mails et cloud", description: "Pièces jointes, tri, hébergeurs" },
+        { href: "/fiches-pratiques/objets-connectes", label: "Objets connectés", description: "Choisir, sécuriser, faire durer" },
+        { href: "/fiches-pratiques/impression-papier", label: "Impression", description: "Imprimer moins, imprimer mieux" },
+        { href: "/fiches-pratiques/enfants-ecole", label: "Enfants et écrans", description: "Repères pour toute la famille" },
       ],
     },
     {

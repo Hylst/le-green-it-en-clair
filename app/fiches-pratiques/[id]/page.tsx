@@ -87,7 +87,7 @@ const sheets: Record<string, any> = {
       "Points de collecte : /recyclage",
     ],
     sources: [
-      "ADEME, Impact CO2 / Base Empreinte",
+      "ADEME, Impact CO₂ / Base Empreinte",
       "ADEME 2022 (reconditionné)",
       "ADEME 2026 (durée de vie)",
       "Arcep 2026 (box)",

@@ -183,6 +183,30 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                         <Sparkles className="mr-2 h-4 w-4" />
                         <span>IA générative : limiter son impact</span>
                     </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/streaming-video"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Streaming et gaming</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/teletravail-visio"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Télétravail et visio</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/emails-cloud"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>E-mails et cloud</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/objets-connectes"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Objets connectés</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/impression-papier"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Imprimer moins, imprimer mieux</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/enfants-ecole"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Enfants et écrans</span>
+                    </CommandItem>
                 </CommandGroup>
                 <CommandSeparator />
                 <CommandGroup heading="Modèles détaillés">

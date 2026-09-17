@@ -11,6 +11,7 @@ Je note ici ce qui change, même les petits trucs.
 - 8e outil : estimateur streaming & visio (Go/mois, kWh/an Arcep, kgCO₂e Base Empreinte 0,0519, équivalence voiture du site). Calculs vérifiés à la main (104/25/1,3 et 225/379/19,6). Virgule décimale FR corrigée. Bug deep-link trouvé et fixé (`#onglet-` vs nom nu).
 - SEO : metas déjà OK (19 layouts), FAQ JSON-LD déjà présent. Maillage : agir → fiches, fiche streaming → outil, deep-link `#onglet-*` (useEffect).
 - builds 49/49 (fiches) puis 49/49 (outil+SEO), tsc 0. Commits : 54b5ba0, ec89f64, a0af4c3, 8352e2b + SEO/maillage.
+- passe pessimiste du soir même : 3 listes en dur oubliées et rattrapées (sitemap.ts + search-dialog + sitemap-page « 8 fiches » → 15), typo « Impact CO2 » visible corrigée, sitemap.xml vérifié à 16 URLs, recherche validée (« Streaming et gaming » trouvé), outil vérifié en dark, 0 débordement à 390 px, console = RSC préexistantes uniquement.
 
 ## 16/09/2026 — balayage dark complet (soir) + cleanup écarté
 

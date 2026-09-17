@@ -26,6 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/fiches-pratiques/datacenters-verts',
         '/fiches-pratiques/collectivites-action',
         '/fiches-pratiques/ia-generative',
+        '/fiches-pratiques/streaming-video',
+        '/fiches-pratiques/teletravail-visio',
+        '/fiches-pratiques/emails-cloud',
+        '/fiches-pratiques/objets-connectes',
+        '/fiches-pratiques/impression-papier',
+        '/fiches-pratiques/enfants-ecole',
         '/guide',
         '/mentions-legales',
         '/modeles',
@@ -48,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     return routes.map((route) => ({
         url: `${baseUrl}${route}/`,
-        lastModified: '2026-09-15',
+        lastModified: '2026-09-16',
         changeFrequency: 'monthly',
         priority: route === '' ? 1 : 0.8,
     }))

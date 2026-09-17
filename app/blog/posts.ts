@@ -582,6 +582,8 @@ export const posts: BlogPost[] = [
     ],
   },
   {
+    image: "/greenit/images/blog/blog-back-market-portrait.webp",
+    imageAlt: "Vitrine de boutique de smartphones reconditionnés éclairée le soir dans une rue",
     slug: "back-market-portrait-reconditionne",
     title: "Back Market : le reconditionné à grande échelle (portrait)",
     excerpt:

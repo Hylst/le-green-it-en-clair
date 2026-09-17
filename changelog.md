@@ -2,6 +2,11 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 17/09/2026 — retouches bonus réparation / QualiRépar (soir)
+
+- FAQ + 3 articles blog : formulations harmonisées « réparateur labellisé QualiRépar, bonus déduit de la facture » (10 à 65 €, 25 € smartphone), source blog avec millésime (bilan 2025).
+- vérifié : build 61/61. Reste le vrai chantier article dédié (cf. suivi-contenu chantier 4, toujours ouvert).
+
 ## 17/09/2026 — article RGESN et maillage renforcé (soir)
 
 - article 10 « Le RGESN en 10 minutes » : origine REEN, 78 critères en 8 familles, exemples réels (3.7, 5.7, 6.2), widget `rgesn-check` (4 questions, `aria-live`), visuel `blog-rgesn-10-minutes.webp` (29 Ko), sources et liens officiels. Câblage complet, SW `v1.3.8`.

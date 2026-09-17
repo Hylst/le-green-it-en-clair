@@ -450,7 +450,7 @@ export const posts: BlogPost[] = [
             title: "Où vérifier avant d’acheter ou de jeter ?",
             paragraphs: [
               "En magasin et en ligne, l’indice affiché près du prix reste votre premier repère. Pour un appareil en fin de vie, le site quefairedemesdechets.ademe.fr indique le point de dépôt le plus proche selon l’objet.",
-              "Pour réparer, l’annuaire des réparateurs labellisés QualiRépar affiche le montant du bonus déduit directement de la facture. Trois réflexes, trois sites, zéro excuse.",
+              "Pour réparer, cherchez un réparateur labellisé QualiRépar : le montant du bonus réparation est déduit directement de votre facture. Trois réflexes, trois sites, zéro excuse.",
             ],
           },
         ],
@@ -491,7 +491,7 @@ export const posts: BlogPost[] = [
       "Légifrance, loi anti-gaspillage pour une économie circulaire (2020)",
       "Légifrance, loi visant à réduire l’empreinte environnementale du numérique (2021)",
       "EUR-Lex, règlement 2023/1670 et directive 2024/1799",
-      "ADEME, bilan du bonus réparation QualiRépar (2025)",
+      "ADEME/Ecosystem, bonus réparation QualiRépar : bilan 2025 et annuaire officiel",
     ],
   },
   {
@@ -520,7 +520,7 @@ export const posts: BlogPost[] = [
       {
         heading: "Mois 4 à 6 : la première chute",
         paragraphs: [
-          "Elle arrive toujours. La différence avec un téléphone réparable, c’est la suite : la pièce détachée existe, le tutoriel officiel aussi, et le réparateur du coin affiche le bonus déduit de la facture. Écran remplacé en une demi-heure, ou en une journée chez un pro.",
+          "Elle arrive toujours. La différence avec un téléphone réparable, c’est la suite : la pièce détachée existe, le tutoriel officiel aussi, et le réparateur labellisé QualiRépar applique le bonus déduit de la facture. Écran remplacé en une demi-heure, ou en une journée chez un pro.",
           "Comparez avec l’alternative : un devis qui dépasse la moitié du prix du neuf, trois semaines d’attente, et la tentation de tout racheter. La disponibilité des pièces change la psychologie autant que le budget.",
         ],
       },
@@ -555,7 +555,7 @@ export const posts: BlogPost[] = [
           {
             title: "Et si je ne suis pas bricoleur ?",
             paragraphs: [
-              "Bonne nouvelle : la réparabilité profite d’abord aux non-bricoleurs. Pièces disponibles veut aussi dire devis raisonnables et délais courts chez les pros, avec le bonus déduit directement.",
+              "Bonne nouvelle : la réparabilité profite d’abord aux non-bricoleurs. Pièces disponibles veut aussi dire devis raisonnables et délais courts chez les pros, avec le bonus QualiRépar déduit directement.",
               "Cherchez le label du réparateur, demandez un devis écrit, et gardez la facture : elle prolonge la garantie de 12 mois depuis juillet 2026.",
             ],
           },
@@ -657,7 +657,7 @@ export const posts: BlogPost[] = [
             title: "Acheter malin sur une place de marché",
             paragraphs: [
               "Triez par note vendeur puis par prix, pas l’inverse. Un grade B chez un vendeur noté 4,5 sur 5 vaut mieux qu’un grade A chez un inconnu sans avis. Lisez les avis qui parlent de la batterie et du service après-vente, ce sont les deux sujets qui comptent vraiment.",
-              "Et si la panne arrive malgré tout : réparateur labellisé, bonus déduit de la facture, garantie prolongée de 12 mois depuis juillet 2026.",
+              "Et si la panne arrive malgré tout : réparateur labellisé QualiRépar, bonus déduit de la facture, garantie prolongée de 12 mois depuis juillet 2026.",
             ],
           },
         ],

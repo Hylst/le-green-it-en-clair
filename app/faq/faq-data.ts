@@ -80,7 +80,7 @@ export const faqCategories = [
     questions: [
       {
         q: "Où faire réparer mes appareils ?",
-        a: "Plusieurs options : 1) SAV du fabricant ou revendeur agréé, 2) Réparateurs indépendants labellisés, 3) Repair Cafés (gratuits, entraide), 4) Ressourceries et structures de l'économie sociale et solidaire (Emmaüs, Envie, etc.). Depuis 2021, un bonus réparation existe en France (de 10 à 65 € selon l'appareil, 25 € pour un smartphone, chez un réparateur labellisé QualiRépar). Consultez l'annuaire officiel (quefairedemesdechets.ademe.fr).",
+        a: "Plusieurs options : 1) SAV du fabricant ou revendeur agréé, 2) Réparateurs indépendants labellisés, 3) Repair Cafés (gratuits, entraide), 4) Ressourceries et structures de l'économie sociale et solidaire (Emmaüs, Envie, etc.). Le bonus réparation (10 à 65 € selon l'appareil, 25 € pour un smartphone) est déduit directement de votre facture par les réparateurs labellisés QualiRépar. Trouvez le professionnel le plus proche sur l'annuaire officiel.",
         link: { label: "Annuaire officiel : Que faire de mes objets", url: "https://quefairedemesdechets.ademe.fr" },
       },
       {
@@ -143,7 +143,7 @@ export const faqCategories = [
       },
       {
         q: "Y a-t-il des aides financières pour la réparation ?",
-        a: "Oui, plusieurs dispositifs en France : 1) Bonus réparation : de 10 à 65 € selon l'appareil (25 € pour un smartphone), déduit par un réparateur labellisé QualiRépar, hors garantie (ADEME), 2) Fonds réparation via éco-organismes, 3) Aides locales (certaines régions/communes). Consultez quefairedemesdechets.ademe.fr et longuevieauxobjets.gouv.fr pour les détails et la carte des bénéficiaires.",
+        a: "Oui, plusieurs dispositifs en France : 1) Bonus réparation : de 10 à 65 € selon l'appareil (25 € pour un smartphone), déduit directement de votre facture par un réparateur labellisé QualiRépar, hors garantie (Ecosystem/Ecologic), 2) Fonds réparation via éco-organismes, 3) Aides locales (certaines régions/communes). Consultez l'annuaire officiel pour trouver un réparateur.",
         link: { label: "Trouver un réparateur labellisé près de chez vous", url: "https://quefairedemesdechets.ademe.fr" },
       },
     ],

@@ -28,6 +28,7 @@ import {
 import { fetchEco2MixRealtime, ECO2MIX_FALLBACK, type Eco2MixData } from "@/lib/eco2mix"
 import { CHART_FALLBACKS } from "@/lib/chart-theme"
 import { SourceTooltip } from "@/components/source-tooltip"
+import { MoreDetails } from "@/components/more-details"
 import { cn } from "@/lib/utils"
 
 interface Eco2MixLiveProps {
@@ -431,6 +432,54 @@ export default function Eco2MixLive({ variant = "full", className }: Eco2MixLive
         </div>
 
         {/* Mix chart */}
+        <div className="mb-8 space-y-3">
+          <MoreDetails title="D’où vient cette donnée en direct ?">
+            <p>
+              Elle vient du jeu « éCO2mix national en temps réel » publié par RTE sur ODRE, la plateforme
+              ouverte des réseaux d’énergies. Le jeu est rafraîchi tous les quarts d’heure à partir des
+              télémesures du réseau, complétées par des estimations.
+              <SourceTooltip source="RTE via ODRE, 2026" calculation="Jeu eco2mix-national-tr, rafraîchi tous les quarts d’heure" />
+            </p>
+            <p>
+              Le site interroge l’interface publique de ce jeu et garde la réponse en mémoire pendant
+              10 minutes, pour ne pas surcharger le service (qui applique un quota mensuel par utilisateur).
+              Le bouton Actualiser relance la lecture à tout moment.
+            </p>
+            <p>
+              Si l’interface ne répond pas, la page affiche des repères de référence avec la mention
+              « référence », au lieu du direct. Rien n’est inventé : les valeurs de repli viennent de
+              l’ADEME et de RTE (2024). Voir le jeu d’origine :{" "}
+              <a
+                href="https://odre.opendatasoft.com/explore/dataset/eco2mix-national-tr/table/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-primary hover:underline"
+              >
+                éCO2mix national en temps réel sur ODRE
+              </a>
+              .
+            </p>
+          </MoreDetails>
+          <MoreDetails title="Pourquoi ce taux bouge dans la journée ?">
+            <p>
+              Le nucléaire fournit une base stable, le solaire produit en journée, et le gaz prend le relais
+              lors des pointes du matin et du soir. Le taux de CO₂ monte donc quand les pointes appellent
+              des centrales fossiles, et descend quand le soleil et le vent portent la production.
+            </p>
+            <p>
+              En hiver, le chauffage électrique fait grimper la consommation et appelle davantage de
+              production d’appoint : comparez un dimanche d’été et un soir de janvier, l’écart est visible
+              ici même.
+            </p>
+            <p>
+              Pour un datacenter ou un usage flexible, l’heure compte donc un peu. Mais le premier levier
+              reste ailleurs : allonger la vie du matériel, car la fabrication concentre l’essentiel des
+              impacts.
+              <SourceTooltip source="ADEME-Arcep, 2023" />
+            </p>
+          </MoreDetails>
+        </div>
+
         <div className="mb-8">
           <MixChart data={displayData} />
         </div>

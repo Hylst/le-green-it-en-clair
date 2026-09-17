@@ -2,6 +2,15 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 17/09/2026 — blog (5 articles) + direct éCO2mix enrichi
+
+- blog : nouvelle rubrique `/blog` (thème orange, `PageHero`, listing + 5 articles en pages serveur avec métadonnées, canonical et JSON-LD `BlogPosting`). Sujets du todo : premier audit PME, reconditionné vs neuf, PUE en 5 min, AGEC/REEN, un an avec un smartphone réparable. Écriture simple, vouvoiement, chiffres déjà canoniques du site avec `SourceTooltip` (75 % ADEME-Arcep 2023, 80 kg et ÷2 ADEME 2025, −75 à −90 % ADEME 2022, PUE 1,56 Uptime 2024, 415 TWh AIE 2025, bonus 4→25 M€ ADEME 2025).
+- charge visuelle limitée (règle générale demandée) : « L’essentiel en 30 secondes » en tête, un seul encadré chiffré par section max, approfondissements rangés dans le nouveau `components/more-details.tsx` (`details`/`summary` natifs : lisible sans JS, clavier natif, imprimé ouvert).
+- câblage : navigation (Découvrir), sitemap (+6 URLs), recherche (rubrique Blog + 5 articles), plan du site, fil d’Ariane (blog + 5 slugs).
+- direct éCO2mix : existait déjà (ODRE temps réel, cache 10 min, fallback de référence), enrichi de 2 blocs dépliables sur `/chiffres` et `/datacenters` : d’où vient la donnée (lien direct ODRE vérifié à la main, quota, mémoire 10 min, mention « référence ») + pourquoi le taux bouge (pointes, hiver, premier levier = durée de vie).
+- vérifié : `tsc` 0, build 55/55, 8 URLs en 200, sitemap.xml avec les 6 URLs blog, article PUE au navigateur (détails fermés puis ouverts au clavier et à la souris, liens connexes OK), console = RSC préexistante uniquement.
+- reste pour plus tard (images à générer côté utilisateur) : 6 visuels fiches + 5 visuels blog + hero blog, prompts nano banana fournis (fichiers `fiche-*.webp` dans `images/fiches/`, `blog-*.webp` dans `images/blog/`).
+
 ## 16/09/2026 — programme contenu (soir) : 6 fiches, chiffres 2026, actu, outil, SEO
 
 - 6 nouvelles fiches (9 → 15) : streaming/gaming, télétravail/visio, e-mails/cloud, objets connectés, impression, enfants/école. Chiffres vérifiés en ligne (Shift 2019+2020+2026, CableLabs 2026, Arcep 2026, SpF Enabee 2025, IoT Analytics 2025, ADEME) ; 2 valeurs non sourcées écartées avant écriture (1,4 Md d'e-mails/jour, 100-200 W consoles). Visuels réutilisés en provisoire (doublons discrets avec pages sœurs), vague 4 bienvenue. Testé : 7×200, 0 image cassée, 15/15 liens (le faux « 9 liens » venait du cache SW).

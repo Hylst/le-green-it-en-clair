@@ -154,6 +154,7 @@ const sheets: Record<string, any> = {
     resources: [
       "Comparateur d'appareils : /outils",
       "Reconditionné ou neuf, le calcul : /blog/reconditionne-vs-neuf-le-calcul",
+      "Back Market, le reconditionné à grande échelle (portrait) : /blog/back-market-portrait-reconditionne",
       "Indice de réparabilité : https://quefairedemesdechets.ademe.fr",
       "Acteurs du reconditionné : /recyclage",
     ],
@@ -396,6 +397,7 @@ const sheets: Record<string, any> = {
       },
     ],
     resources: [
+      "Mon premier audit Green IT en PME : /blog/premier-audit-green-it-pme",
       "Institut du Numérique Responsable (INR) : https://label-nr.fr",
       "Club Green IT : https://www.greenit.fr",
       "Référentiel GR491 (INR) : https://gr491.isit-europe.org",

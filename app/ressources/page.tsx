@@ -126,6 +126,8 @@ const videos = [
     duration: "00:09:12",
     date: "23/01/2026",
     pageUrl: "https://www.canal-u.tv/chaines/canal-uved/les-donnees-une-matiere-intangible-aux-impacts-bien-concrets",
+    embedUrl: "https://www.canal-u.tv/chaines/canal-uved/embed/170270?t=0",
+    posterUrl: "https://vod.canal-u.tv/videos/2026/01/110151/sobnum_4_mallarino.jpg",
     relatedHref: "/fiches-pratiques/emails-cloud",
     relatedLabel: "Fiche e-mails et cloud",
   },
@@ -135,6 +137,8 @@ const videos = [
     duration: "00:09:18",
     date: "23/01/2026",
     pageUrl: "https://www.canal-u.tv/chaines/canal-uved/comment-eco-concevoir-un-logiciel",
+    embedUrl: "https://www.canal-u.tv/chaines/canal-uved/embed/170242?t=0",
+    posterUrl: "https://www.canal-u.tv/sites/default/files/medias/images/video-vignette-surcharge/2026/01/Vignette_SobNum_DaCosta9.jpg",
     relatedHref: "/fiches-pratiques/ecoconception-web",
     relatedLabel: "Fiche écoconception web",
   },
@@ -144,6 +148,8 @@ const videos = [
     duration: "00:06:18",
     date: "22/01/2026",
     pageUrl: "https://www.canal-u.tv/chaines/canal-uved/les-impacts-environnementaux-de-l-intelligence-artificielle",
+    embedUrl: "https://www.canal-u.tv/chaines/canal-uved/embed/170206?t=0",
+    posterUrl: "https://www.canal-u.tv/sites/default/files/medias/images/video-vignette-surcharge/2026/01/Vignette_SobNum_Ligozat9_0.jpg",
     relatedHref: "/fiches-pratiques/ia-generative",
     relatedLabel: "Fiche IA générative",
   },
@@ -153,6 +159,8 @@ const videos = [
     duration: "00:11:00",
     date: "12/01/2026",
     pageUrl: "https://www.canal-u.tv/chaines/canal-uved/les-enjeux-d-un-numerique-soutenable",
+    embedUrl: "https://www.canal-u.tv/chaines/canal-uved/embed/169767?t=0",
+    posterUrl: "https://vod.canal-u.tv/videos/2026/01/110134/sobnum_1_ninassi1.jpg",
     relatedHref: "/par-ou-commencer",
     relatedLabel: "Par où commencer",
   },
@@ -162,6 +170,8 @@ const videos = [
     duration: "00:06:12",
     date: "14/01/2026",
     pageUrl: "https://www.canal-u.tv/chaines/canal-uved/le-droit-au-service-de-la-sobriete-numerique",
+    embedUrl: "https://www.canal-u.tv/chaines/canal-uved/embed/169827?t=0",
+    posterUrl: "https://www.canal-u.tv/sites/default/files/medias/images/video-vignette-surcharge/2026/01/Vignette_SobNum_LeGoff8.jpg",
     relatedHref: "/reglementation",
     relatedLabel: "La réglementation",
   },
@@ -555,15 +565,16 @@ export default function RessourcesPage() {
                     {video.duration} · {video.date}
                   </span>
                 </div>
-                <h3 className="mb-2 font-semibold text-card-foreground">{video.title}</h3>
-                <p className="mb-4 flex-1 text-sm text-muted-foreground">{video.author}</p>
-                <div className="flex flex-wrap gap-2">
-                  <Button asChild size="sm" variant="outline">
-                    <a href={video.pageUrl} target="_blank" rel="noopener noreferrer">
-                      Regarder sur Canal-U
-                      <ExternalLink className="ml-2 h-3.5 w-3.5" aria-hidden="true" />
-                    </a>
-                  </Button>
+                <VideoEmbed
+                  title={video.title}
+                  author={video.author}
+                  duration={video.duration}
+                  pageUrl={video.pageUrl}
+                  embedUrl={video.embedUrl}
+                  posterUrl={video.posterUrl}
+                  license="Canal-U / UVED, CC BY-NC-SA"
+                />
+                <div className="mt-4 flex flex-wrap gap-2">
                   <Button asChild size="sm" variant="ghost">
                     <Link href={video.relatedHref}>
                       {video.relatedLabel}

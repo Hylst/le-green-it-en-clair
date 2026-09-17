@@ -154,7 +154,7 @@ Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à l
 - [x] veille RSS (léger) : fait le 16/09 (`components/rss-feed.tsx` + section « Dernières nouvelles » dans l'onglet Veille d'`/actualites`). 8 flux en liste blanche (FR : GreenIT.fr, INR, Shift Project, Next.ink, Numerama ; EN : Data Center Dynamics, The Register, UNEP), chargés côté client à la demande (titres + date + lien + média, jamais de copie), recherche directe si CORS sinon rss2json.com, états de chargement/erreur par flux, bouton Actualiser, mention dans `mentions-legales`. Écartés : ADEME et Arcep (aucun flux exploitable : WAF/proxy), AIE (pas de flux), actu-environnement (404). Vérifié : axe 0 en dark, 0 débordement 320/390, tsc/build.
 - [x] chiffres « en direct » via API gratuites : fait (existant `eco2mix-live` sur `/chiffres` et `/datacenters` : ODRE/RTE temps réel côté client, cache 10 min, fallback « référence », bouton Actualiser) + enrichi le 17/09 de 2 blocs dépliables pédagogiques (origine de la donnée avec lien ODRE vérifié, pourquoi le taux bouge). Contraintes respectées : pas de backend, pas de clé, mention de repli si l’API ne répond pas.
 - [x] FAQ : questions « Le cloud c'est vraiment dans des nuages ? » et « Mon vieux PC peut-il encore servir ? » ajoutées (+ une sur l'IA) → 27 questions (commit `64cf9aa`)
-- [ ] version anglaise ? peut-être
+- [ ] version anglaise ? abandonnée le 17/09 : site en français uniquement, choix assumé
 - [ ] infographies en plus, section livres
 - [x] `guide/` + `mentions-legales/` : commités (le 14/09)
 - [x] les 5 outils avancés : fait (site web, entreprise, cloud, audit, quiz)

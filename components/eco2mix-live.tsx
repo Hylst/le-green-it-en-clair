@@ -216,10 +216,10 @@ function PUECalculator({ data }: { data: Eco2MixData }) {
         Même datacenter, même PUE, mais en France (taux CO₂ en direct : {data.tauxCo2} gCO₂e/kWh), une journée
         émet environ {(co2PerHour * 24 / 1000).toFixed(1)} kg de CO₂e. Dans un pays à mix carboné
         (ex. 350 gCO₂e/kWh), ce serait{" "}
-        {(co2PerHour * 24 / 1000 * (350 / data.tauxCo2)).toFixed(1)} kg —{" "}
+        {(co2PerHour * 24 / 1000 * (350 / data.tauxCo2)).toFixed(1)} kg,{" "}
         {(350 / data.tauxCo2).toFixed(1)} fois plus.
         <SourceTooltip
-          source="RTE éCO2mix (ODRE) — donnée en direct"
+          source="RTE éCO2mix (ODRE), donnée en direct"
           calculation="Consommation totale (kW) × taux CO₂ (g/kWh) ÷ 1000"
         />
       </p>
@@ -300,7 +300,7 @@ export default function Eco2MixLive({ variant = "full", className }: Eco2MixLive
             {!isOnline && (
               <p className="mt-2 flex items-center gap-1.5 text-sm text-amber-700 dark:text-amber-400">
                 <WifiOff className="h-4 w-4" />
-                Mode hors-ligne — données de cache ou de référence affichées.
+                Mode hors-ligne : données de cache ou de référence affichées.
               </p>
             )}
           </div>
@@ -392,7 +392,7 @@ export default function Eco2MixLive({ variant = "full", className }: Eco2MixLive
                 Pourquoi cette donnée est essentielle
               </h3>
               <p className="mb-3 text-slate-700 dark:text-slate-300">
-                En France, l'électricité est fortement décarbonée (~{displayData.tauxCo2} gCO₂e/kWh en direct, contre ~250 gCO₂e/kWh en Europe et ~490 gCO₂e/kWh dans le monde —
+                En France, l'électricité est fortement décarbonée (~{displayData.tauxCo2} gCO₂e/kWh en direct, contre ~250 gCO₂e/kWh en Europe et ~490 gCO₂e/kWh dans le monde,
                 <SourceTooltip source="ADEME-Arcep 2023 / Ember 2024" />).
                 Conséquence : la phase d'<strong>usage</strong> d'un appareil connecté y est très peu émettrice.
               </p>

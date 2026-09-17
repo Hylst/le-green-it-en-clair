@@ -153,6 +153,7 @@ const sheets: Record<string, any> = {
     ],
     resources: [
       "Comparateur d'appareils : /outils",
+      "Reconditionné ou neuf, le calcul : /blog/reconditionne-vs-neuf-le-calcul",
       "Indice de réparabilité : quefairedemesdechets.ademe.fr",
       "Acteurs du reconditionné : /recyclage",
     ],
@@ -320,6 +321,7 @@ const sheets: Record<string, any> = {
     ],
     resources: [
       "Tutoriels : iFixit.com",
+      "Un an avec un smartphone réparable : /blog/un-an-avec-un-smartphone-reparable",
       "Annuaire : annuaire-reparation.fr",
       "Bonus : ecosystem.eco",
     ],
@@ -537,6 +539,7 @@ const sheets: Record<string, any> = {
     ],
     resources: [
       "Simulateur PUE : /datacenters",
+      "Comprendre le PUE en 5 minutes : /blog/comprendre-le-pue-en-5-minutes",
       "Cloud Carbon Footprint : cloudcarbonfootprint.org",
       "Comparatif The Green Web Foundation : thegreenwebfoundation.org",
     ],

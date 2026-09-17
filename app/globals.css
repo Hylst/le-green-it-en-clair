@@ -257,6 +257,10 @@ html {
   main {
     padding: 0 !important;
   }
+  /* Les blocs dépliables sortent ouverts : rien ne se perd sur papier */
+  details:not([open]) > *:not(summary) {
+    display: block !important;
+  }
 }
 
 /* Impression de l'attestation du quiz : seul le certificat sort */

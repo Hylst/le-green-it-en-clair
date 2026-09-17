@@ -2,6 +2,13 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 17/09/2026 — visuels blog + fiches, widgets interactifs, petits oublis
+
+- 12 JPEG reçus convertis en webp 70 % 1376×768 (18 à 66 Ko, tous sous 150 Ko) : 6 vignettes fiches (fin des doublons provisoires), hero du blog, 5 vignettes et 5 héros d’articles. Contrôle visuel : charte OK, aucun texte charabia (sélecteur Low/Medium/High lisible sur la fiche streaming).
+- 1 widget interactif par article (`components/blog-widgets.tsx`, composants clients isolés) : checklist d’audit en 6 cases avec progression mémorisée, calculateur euros et CO₂e selon le grade, mini simulateur PUE (kW, MWh/an, facture à 0,20 €/kWh), frise AGEC/REEN à feuilleter, mini quiz en 3 questions avec correction immédiate. Résultats en `aria-live`, chiffres déjà sourcés du site, aucun tiret cadratin.
+- oublis rattrapés (revue pessimiste) : SW `v1.3.4` (précache + 6 fiches manquantes depuis la vague contenu + 6 URLs blog), print qui déplie les `details` fermés, maillage retour (3 fiches lient leur article de blog), 4 tirets cadratins normalisés dans `eco2mix-live`.
+- vérifié : `tsc` 0 erreur (1 corrigée : `ReactNode` dans le hint du calculateur), build 55/55, 12 images en 200, HTML rendu contrôlé (hero, 5 vignettes, 5 widgets, 6 vignettes fiches), `check:typo` sans signalement nouveau (restes = code préexistant).
+
 ## 17/09/2026 — blog (5 articles) + direct éCO2mix enrichi
 
 - blog : nouvelle rubrique `/blog` (thème orange, `PageHero`, listing + 5 articles en pages serveur avec métadonnées, canonical et JSON-LD `BlogPosting`). Sujets du todo : premier audit PME, reconditionné vs neuf, PUE en 5 min, AGEC/REEN, un an avec un smartphone réparable. Écriture simple, vouvoiement, chiffres déjà canoniques du site avec `SourceTooltip` (75 % ADEME-Arcep 2023, 80 kg et ÷2 ADEME 2025, −75 à −90 % ADEME 2022, PUE 1,56 Uptime 2024, 415 TWh AIE 2025, bonus 4→25 M€ ADEME 2025).

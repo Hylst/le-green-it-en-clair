@@ -431,3 +431,77 @@ export function ReparableQuiz() {
     </div>
   )
 }
+
+/* 6. Mini calculateur box : puissance et heures d'extinction, économie en kWh et en euros. */
+
+export function BoxCalc() {
+  const [watts, setWatts] = useState(9.1)
+  const [offHours, setOffHours] = useState(8)
+
+  const kwhPerYear = (watts * 24 * 365) / 1000
+  const savedKwh = (kwhPerYear * offHours) / 24
+  const savedEuros = savedKwh * 0.2
+
+  return (
+    <div className={cardClass}>
+      <WidgetTitle>Essayez : votre box, éteinte la nuit, ça change quoi ?</WidgetTitle>
+      <WidgetHint>
+        Déplacez les curseurs. Repères : 9,1 W en moyenne
+        <SourceTooltip className="ml-1" source="Arcep, 2026" calculation="Enquête « Pour un numérique soutenable », édition 2026 sur données 2024" />
+        , 0,20 € par kWh.
+      </WidgetHint>
+      <div className="mb-4 grid gap-4 md:grid-cols-2">
+        <div>
+          <label htmlFor="box-watts" className="mb-1 block text-sm font-medium text-foreground">
+            Puissance de la box : {watts.toFixed(1).replace(".", ",")} W
+          </label>
+          <input
+            id="box-watts"
+            type="range"
+            min={5}
+            max={20}
+            step={0.1}
+            value={watts}
+            onChange={(e) => setWatts(Number(e.target.value))}
+            className="w-full"
+          />
+        </div>
+        <div>
+          <label htmlFor="box-off" className="mb-1 block text-sm font-medium text-foreground">
+            Heures éteintes par jour : {offHours} h
+          </label>
+          <input
+            id="box-off"
+            type="range"
+            min={0}
+            max={16}
+            step={1}
+            value={offHours}
+            onChange={(e) => setOffHours(Number(e.target.value))}
+            className="w-full"
+          />
+        </div>
+      </div>
+      <div className="grid gap-3 md:grid-cols-3" aria-live="polite">
+        <div className="rounded-lg bg-card p-4">
+          <p className="text-xs text-muted-foreground">Consommation annuelle</p>
+          <p className="text-xl font-bold text-foreground">
+            {Math.round(kwhPerYear).toLocaleString("fr-FR")} kWh
+          </p>
+        </div>
+        <div className="rounded-lg bg-card p-4">
+          <p className="text-xs text-muted-foreground">Économie réalisée</p>
+          <p className="text-xl font-bold text-foreground">
+            {Math.round(savedKwh).toLocaleString("fr-FR")} kWh/an
+          </p>
+        </div>
+        <div className="rounded-lg bg-card p-4">
+          <p className="text-xs text-muted-foreground">Soit environ</p>
+          <p className="text-xl font-bold text-foreground">
+            {savedEuros.toFixed(0).replace(".", ",")} €/an
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}

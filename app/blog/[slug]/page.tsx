@@ -11,6 +11,7 @@ import { MoreDetails } from "@/components/more-details"
 import {
   AuditChecklist,
   AgecTimeline,
+  BoxCalc,
   PueMiniCalc,
   ReconditionneCalc,
   ReparableQuiz,
@@ -41,6 +42,7 @@ const WIDGETS: Record<BlogWidgetKey, () => React.JSX.Element> = {
   "pue-mini-calc": PueMiniCalc,
   "agec-timeline": AgecTimeline,
   "reparable-quiz": ReparableQuiz,
+  "box-calc": BoxCalc,
 }
 
 export default async function BlogArticlePage({ params }: { params: Promise<{ slug: string }> }) {

@@ -1,7 +1,7 @@
 // Service Worker for Le Green IT en clair
 // Enables offline-first functionality
 
-const CACHE_NAME = 'green-it-v1.3.5';
+const CACHE_NAME = 'green-it-v1.3.6';
 const STATIC_ASSETS = [
     '/greenit/',
     '/greenit/offline/',
@@ -26,6 +26,7 @@ const STATIC_ASSETS = [
     '/greenit/fiches-pratiques/objets-connectes/',
     '/greenit/fiches-pratiques/impression-papier/',
     '/greenit/fiches-pratiques/enfants-ecole/',
+    '/greenit/fiches-pratiques/box-wifi/',
     '/greenit/blog/',
     '/greenit/blog/premier-audit-green-it-pme/',
     '/greenit/blog/reconditionne-vs-neuf-le-calcul/',
@@ -33,6 +34,7 @@ const STATIC_ASSETS = [
     '/greenit/blog/agec-reen-ce-qui-change/',
     '/greenit/blog/un-an-avec-un-smartphone-reparable/',
     '/greenit/blog/back-market-portrait-reconditionne/',
+    '/greenit/blog/que-consomme-vraiment-votre-box/',
     '/greenit/modeles/',
     '/greenit/modeles/cahier-charges-achat/',
     '/greenit/modeles/charte-green-it/',

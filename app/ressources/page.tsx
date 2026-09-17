@@ -41,7 +41,7 @@ const resources = [
         title: "Toutes les fiches pratiques",
         description: "Accédez à l'ensemble de nos guides téléchargeables",
         type: "Collection",
-        size: "15 fiches",
+        size: "16 fiches",
         link: "/fiches-pratiques",
       },
     ],

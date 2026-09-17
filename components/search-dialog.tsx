@@ -211,6 +211,10 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                         <FileText className="mr-2 h-4 w-4" />
                         <span>Enfants et écrans</span>
                     </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques/box-wifi"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Box, Wi-Fi et connexion</span>
+                    </CommandItem>
                 </CommandGroup>
                 <CommandSeparator />
                 <CommandGroup heading="Blog">
@@ -237,6 +241,10 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                     <CommandItem onSelect={() => runCommand(() => router.push("/blog/back-market-portrait-reconditionne"))}>
                         <FileText className="mr-2 h-4 w-4" />
                         <span>Back Market : portrait reconditionné</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/blog/que-consomme-vraiment-votre-box"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Que consomme vraiment votre box ?</span>
                     </CommandItem>
                 </CommandGroup>
                 <CommandSeparator />

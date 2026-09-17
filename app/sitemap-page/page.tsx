@@ -42,6 +42,7 @@ export default function SitemapPage() {
         { href: "/blog/agec-reen-ce-qui-change", label: "AGEC et REEN", description: "Ce qui change pour vous" },
         { href: "/blog/un-an-avec-un-smartphone-reparable", label: "Un an avec un smartphone réparable", description: "Carnet de bord" },
         { href: "/blog/back-market-portrait-reconditionne", label: "Back Market : portrait", description: "Le reconditionné à grande échelle" },
+        { href: "/blog/que-consomme-vraiment-votre-box", label: "Que consomme votre box ?", description: "Le récit chiffré et le mini calculateur" },
         { href: "/faq", label: "FAQ", description: "Réponses aux questions fréquentes" },
       ],
     },
@@ -68,7 +69,7 @@ export default function SitemapPage() {
         {
           href: "/fiches-pratiques",
           label: "Fiches pratiques",
-          description: "15 fiches détaillées par thème",
+          description: "16 fiches détaillées par thème",
         },
         { href: "/fiches-pratiques/gestes-quotidiens", label: "Gestes quotidiens", description: "7 gestes pour un numérique sobre" },
         { href: "/fiches-pratiques/achat-responsable", label: "Achat responsable", description: "Choisir un appareil avec moins d'impact" },
@@ -85,6 +86,7 @@ export default function SitemapPage() {
         { href: "/fiches-pratiques/objets-connectes", label: "Objets connectés", description: "Choisir, sécuriser, faire durer" },
         { href: "/fiches-pratiques/impression-papier", label: "Impression", description: "Imprimer moins, imprimer mieux" },
         { href: "/fiches-pratiques/enfants-ecole", label: "Enfants et écrans", description: "Repères pour toute la famille" },
+        { href: "/fiches-pratiques/box-wifi", label: "Box et Wi-Fi", description: "Éteindre, passer en Wi-Fi, choisir" },
       ],
     },
     {

@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react"
-import { Calculator, ClipboardCheck, Scale, Smartphone, Zap } from "lucide-react"
+import { Calculator, ClipboardCheck, Scale, Smartphone, Wifi, Zap } from "lucide-react"
 
 /* Contenus du blog : écriture simple, un chiffre sourcé par idée forte,
    le reste de la précision rangé dans des blocs dépliables. */
@@ -22,6 +22,7 @@ export type BlogWidgetKey =
   | "pue-mini-calc"
   | "agec-timeline"
   | "reparable-quiz"
+  | "box-calc"
 
 export interface BlogSection {
   heading: string
@@ -682,6 +683,107 @@ export const posts: BlogPost[] = [
       "Back Market, page « À propos » officielle, chiffres de l’entreprise (consultée en septembre 2026)",
       "Wikipédia, article Back Market : histoire, partenariats, rentabilité (consulté en septembre 2026)",
       "Les Echos : licorne française (2021), valorisation et levées (2022)",
+    ],
+  },
+  {
+    image: "/greenit/images/blog/blog-box-conso.webp",
+    imageAlt: "Box internet avec voyants lumineux sur un meuble du salon, la nuit",
+    slug: "que-consomme-vraiment-votre-box",
+    title: "Que consomme vraiment votre box ?",
+    excerpt:
+      "Neuf watts en continu, 80 kWh par an, et un interrupteur qui change tout : le récit chiffré de l'appareil le plus fidèle de la maison.",
+    date: "Septembre 2026",
+    readingTime: "6 min",
+    icon: Wifi,
+    essential: [
+      "Une box allumée jour et nuit consomme environ 80 kWh par an, pour 9 watts en continu.",
+      "90 % de cette consommation ne dépend pas de votre usage : l'éteindre est le geste le plus efficace.",
+      "À la maison, le Wi-Fi consomme nettement moins que les données mobiles : le bon réseau au bon endroit.",
+    ],
+    sections: [
+      {
+        heading: "Le petit radiateur qui ne s'éteint jamais",
+        paragraphs: [
+          "Votre box consomme en moyenne 9,1 watts en fonctionnement, et elle tourne 24 heures sur 24 : faites le calcul, cela donne environ 80 kWh par an (9,1 × 24 × 365 ÷ 1 000). Ni énorme, ni négligeable : c'est l'ordre de grandeur d'un petit réfrigérateur économe, sauf que personne ne songerait à laisser son frigo ouvert toute la nuit.",
+          "À l'échelle du pays, le parc des box et décodeurs TV a consommé 3,4 TWh en 2024, en légère baisse de 3 % sur un an. Cela reste 0,8 % de l'électricité française, et cinq fois la consommation des réseaux fixes eux-mêmes. Autrement dit : les boîtiers consomment bien plus que les tuyaux.",
+        ],
+        fact: {
+          value: "3,4 TWh",
+          label: "Consommation du parc français de box et décodeurs TV en 2024",
+          source: "Arcep, 2026",
+          calculation: "Enquête « Pour un numérique soutenable », édition 2026 sur données 2024, publiée le 21/05/2026",
+        },
+      },
+      {
+        heading: "Pourquoi l'éteindre change tout",
+        widget: "box-calc",
+        paragraphs: [
+          "Voici le chiffre qui change la perspective : environ 90 % de la consommation d'une box est invariable, qu'on s'en serve ou non. Regarder un film ou laisser la maison vide, pour elle, c'est pareil. La conclusion s'impose d'elle-même : puisque consommer ne dépend presque pas de l'usage, autant couper quand on ne s'en sert pas.",
+          "L'éteindre 8 heures par jour fait économiser environ un tiers de sa consommation annuelle, et 12 heures par jour la moitié. Pour une extinction nocturne classique, comptez de l'ordre de 26 kWh économisés par an, soit quelques euros et un geste qui ne demande aucun effort une fois la prise programmable installée.",
+        ],
+        details: [
+          {
+            title: "Et le décodeur, le répéteur ?",
+            paragraphs: [
+              "Le décodeur TV consomme en moyenne 7,4 watts : éteignez-le avec la télévision, pas seulement la télévision. Les répéteurs Wi-Fi ajoutent chacun une consommation permanente pour étendre le signal : un seul bien placé au centre du logement vaut mieux que deux empilés, et l'Arcep les mesure désormais dans son enquête annuelle.",
+              "Couper seulement le Wi-Fi 8 heures par jour (en gardant la box allumée) économise déjà 7 % : une option quand l'extinction complète coince, par exemple avec une alarme connectée.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Wi-Fi contre 4G et 5G : l'ordre de grandeur et ses limites",
+        paragraphs: [
+          "À la maison, passer par le Wi-Fi de la box plutôt que par les données mobiles du téléphone consomme nettement moins : l'ordre de grandeur communément admis est de 4 à 5 fois moins d'énergie. Activez le Wi-Fi automatique à domicile, téléchargez films et mises à jour avant de partir, et gardez la 4G et la 5G pour le dépannage et les déplacements, ce pour quoi elles sont faites.",
+          "Un mot d'honnêteté sur ce ratio : c'est un ordre de grandeur, pas une mesure. La valeur exacte varie énormément selon le type de Wi-Fi, la génération et la fréquence du réseau mobile, la distance à l'antenne, l'environnement et les puces des appareils. Retenez la direction, pas le chiffre exact.",
+        ],
+        details: [
+          {
+            title: "Pourquoi le mobile consomme plus ?",
+            paragraphs: [
+              "Pour joindre votre téléphone, le réseau mobile doit émettre en permanence depuis des antennes parfois lointaines, traverser murs et étages, et gérer vos déplacements d'une antenne à l'autre. Le Wi-Fi de la box, lui, couvre quelques mètres en intérieur. Plus le signal parcourt de distance et d'obstacles, plus l'énergie dépensée grimpe des deux côtés, réseau et téléphone.",
+              "C'est aussi pour cela que votre téléphone chauffe et se vide vite en zone de mauvaise réception : il crie pour se faire entendre de l'antenne.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Choisir et garder : la fin de l'histoire",
+        paragraphs: [
+          "La « 4G/5G fixe », cette box qui capte le réseau mobile, dépanne bien là où le filaire n'arrive pas. Mais elle utilise le réseau mobile avec son coût énergétique : quand la fibre ou l'ADSL est disponible pour un usage fixe, le filaire reste le choix sobre. Comparez aussi les consommations des box des opérateurs avant de changer d'offre : du simple au double selon les modèles.",
+          "Et gardez votre équipement le plus longtemps possible : comme pour les smartphones, la fabrication domine l'impact. Les box et décodeurs reconditionnés existent, et l'enquête de l'Arcep leur consacre désormais un chapitre entier. Rendre sa box en bon état, c'est offrir sa seconde vie.",
+        ],
+      },
+    ],
+    takeaway: [
+      "80 kWh par an en continu : mesurez votre box avec le calculateur ci-dessus.",
+      "Éteindre la nuit rapporte environ 26 kWh par an, sans rien changer d'autre.",
+      "Wi-Fi à la maison, mobile dehors : le bon réseau au bon endroit.",
+    ],
+    related: [
+      {
+        href: "/fiches-pratiques/box-wifi",
+        label: "Fiche box et Wi-Fi",
+        description: "Les 5 gestes détaillés, à consulter et imprimer.",
+      },
+      {
+        href: "/fiches-pratiques/teletravail-visio",
+        label: "Télétravail et visio",
+        description: "Caméra, réseau et poste de travail à distance.",
+      },
+      {
+        href: "/outils",
+        label: "Nos outils de calcul",
+        description: "Chiffrez le reste de votre empreinte numérique.",
+      },
+    ],
+    sourceLinks: [
+      { label: "Arcep, enquête « Pour un numérique soutenable », édition 2026", url: "https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/impact-environnemental/enquete-annuelle-pour-un-numerique-soutenable-edition-2026.html" },
+    ],
+    sources: [
+      "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026 (données 2024, publiée le 21/05/2026)",
+      "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2024 (extinction : −33 % à 8 h/j, −50 % à 12 h/j)",
+      "ADEME, Panel Elecdom 2020-2023 (box ~92 kWh/an)",
     ],
   },
 ]

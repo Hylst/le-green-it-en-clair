@@ -2,6 +2,13 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 17/09/2026 — fiche et article box, fiches enrichies (soir)
+
+- fiche 16 « Box, Wi-Fi et connexion » : 5 sections sourcées Arcep (enquête éd. 2026 sur données 2024 : 3,4 TWh, 9,1 W, ~80 kWh/an ; éd. 2024 : extinction −33 % à 8 h/j), ratio Wi-Fi 4-5× gardé comme ordre de grandeur avec relativisation dans le texte (décision auteur). Visuel `fiche-box-wifi.webp` (25 Ko). Compteurs 15 → 16 fiches, SW `v1.3.6`.
+- article 7 « Que consomme vraiment votre box ? » : récit chiffré + widget `box-calc` (curseurs puissance et heures d'extinction, résultats en `aria-live`), visuel `blog-box-conso.webp` (13 Ko), maillage bidirectionnel avec la fiche.
+- fiches enrichies : `achat-responsable` (+ section garantie/bonus/seconde main, indice de durabilité 2025) et `datacenters-verts` (+ section 415 TWh AIE 2025, PUE de référence, collecte cloud Arcep 2027), chiffres déjà canoniques sur le site, rien de nouveau non sourcé.
+- vérifié : tsc 0, build 58/58, carte box, compteur 16, widget, sitemap 2 URL, 0 « 15 fiches » résiduel.
+
 ## 17/09/2026 — portrait, vidéos, vague liens (soir)
 
 - portrait success story : Back Market en 6e article blog (faits publics vérifiés à la main : Paris 2014, 3 fondateurs, 30 M d’appareils dans 17 pays et ~2 Mt CO₂e selon l’entreprise, partenariat Bouygues 2025 ; sans logo, les faits n’exigent pas d’autorisation). Visuel branché le 17/09 (`blog-back-market-portrait.webp`, 39 Ko, vitrine de reconditionné sans texte ni marque, fournie par l’auteur). Câblage complet du premier coup (sitemap, recherche, plan, fil d’Ariane, SW `v1.3.5`).

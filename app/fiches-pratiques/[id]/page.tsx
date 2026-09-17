@@ -134,7 +134,8 @@ const sheets: Record<string, any> = {
       },
       {
         title: "Privilégier la durabilité",
-        content: "Cherchez des appareils conçus pour durer : batterie remplaçable, mises à jour longues, robustesse.",
+        content:
+          "Cherchez des appareils conçus pour durer : batterie remplaçable, mises à jour longues, robustesse. Depuis 2025, l'indice de durabilité complète l'indice de réparabilité sur les téléviseurs (janvier) puis les lave-linge (avril) : même logique, critères élargis à la fiabilité et à l'évolutivité.",
         tips: [
           "Fairphone : smartphone modulaire et réparable (indice de réparabilité élevé)",
           "Apple : support iOS pendant 5 à 7 ans selon les modèles",
@@ -148,6 +149,16 @@ const sheets: Record<string, any> = {
           "Cherchez les labels environnementaux (TCO, EPEAT, Blue Angel)",
           "Privilégiez les marques transparentes sur leur chaîne d'approvisionnement",
           "Évitez les emballages excessifs",
+        ],
+      },
+      {
+        title: "Acheter en connaissance de cause : garantie, bonus, seconde main",
+        content:
+          "La garantie légale de conformité dure 2 ans, et depuis le 31 juillet 2026 une réparation sous garantie la prolonge de 12 mois (directive européenne 2024/1799) : gardez vos factures. Si la panne arrive hors garantie, le bonus réparation déduit 10 à 65 € de la facture chez un réparateur labellisé (25 € pour un smartphone). Et pour les petits budgets, la seconde main entre particuliers complète le reconditionné professionnel.",
+        tips: [
+          "Gardez factures et preuves d'achat : garantie 2 ans, +12 mois après réparation",
+          "Bonus réparation : 10 à 65 € déduits, 25 € pour un smartphone (QualiRépar)",
+          "Entre particuliers : testez l'appareil sur place, demandez la facture d'origine",
         ],
       },
     ],
@@ -536,6 +547,16 @@ const sheets: Record<string, any> = {
           "Éteignez les environnements de staging (recette) la nuit et le week-end",
           "Utilisez des instances 'Spot' ou 'Preemptible' pour les calculs non critiques",
           "Monitorez votre empreinte carbone cloud (outils cloud native ou tiers)",
+        ],
+      },
+      {
+        title: "6. Mesurer pour progresser : les chiffres de référence",
+        content:
+          "Les datacenters ont consommé 415 TWh dans le monde en 2024, soit environ 1,5 % de l'électricité mondiale (AIE, avril 2025). Le PUE moyen stagne autour de 1,56 dans le monde et 1,45 en Europe (Uptime Institute, 2024) : tout progrès sous ces seuils est un vrai gain. Et la transparence avance : l'Arcep a élargi en 2026 sa collecte aux fournisseurs de cloud, avec des résultats attendus au printemps 2027.",
+        tips: [
+          "415 TWh, 1,5 % : l'ordre de grandeur mondial à connaître (AIE, 2025)",
+          "Suivez votre PUE et votre WUE dans la durée, publiez-les dans vos appels d'offres",
+          "Essayez notre simulateur PUE pour chiffrer vos pistes d'optimisation",
         ],
       },
     ],
@@ -1110,6 +1131,75 @@ const sheets: Record<string, any> = {
       "Santé publique France, écrans le matin et langage (2020)",
       "Ministère de la Santé, repères d'usage des écrans ; plan interministériel (2022)",
       "UNICEF France, cohorte ELFE (exposition précoce, 2026)",
+    ],
+  },
+  "box-wifi": {
+    title: "Box, Wi-Fi et connexion : la sobriété commence à la maison",
+    subtitle: "Éteindre, passer en Wi-Fi, choisir son équipement : les gestes qui allègent la facture",
+    target: "Citoyens",
+    duration: "8 minutes de lecture",
+    impact: "~80 kWh par an et par box (Arcep, 2026)",
+    sections: [
+      {
+        title: "1. Ce que consomme vraiment une box",
+        content:
+          "Une box en fonctionnement consomme en moyenne 9,1 watts, soit environ 80 kWh par an si elle reste allumée jour et nuit (9,1 × 24 × 365 ÷ 1 000). À l'échelle du pays, le parc des box et décodeurs TV a consommé 3,4 TWh en 2024, soit 0,8 % de l'électricité française et cinq fois la consommation des réseaux fixes (Arcep, enquête « Pour un numérique soutenable », édition 2026 sur données 2024).",
+        tips: [
+          "9,1 W pour la box, 7,4 W pour le décodeur TV : deux veilles permanentes (Arcep, 2026)",
+          "80 kWh par an, c'est l'ordre de grandeur d'un petit réfrigérateur économe",
+          "Le décodeur allumé pour « le fond sonore » consomme autant qu'une box au repos",
+        ],
+      },
+      {
+        title: "2. Éteindre la nuit : le geste roi",
+        content:
+          "Environ 90 % de la consommation d'une box est invariable, qu'on s'en serve ou non (Arcep, 2026). Conséquence logique : l'éteindre quand on ne s'en sert pas est le geste le plus efficace. L'éteindre 8 heures par jour fait économiser environ un tiers de sa consommation sur l'année, et 12 heures par jour la moitié (Arcep, 2024), soit de l'ordre de 26 kWh par an pour une extinction nocturne.",
+        tips: [
+          "Une prise programmable ou une multiprise à interrupteur automatise l'extinction",
+          "Couper seulement le Wi-Fi 8 heures par jour économise déjà 7 % (Arcep, 2024)",
+          "Pas d'inquiétude au réveil : la reconnexion prend une à deux minutes",
+        ],
+      },
+      {
+        title: "3. Wi-Fi plutôt que données mobiles",
+        content:
+          "À la maison, passer par le Wi-Fi de la box plutôt que par la 4G ou la 5G du téléphone consomme nettement moins d'énergie : l'ordre de grandeur communément admis est de 4 à 5 fois moins. Ce ratio varie beaucoup selon le type de Wi-Fi, la génération et la fréquence du réseau mobile, la distance à l'antenne, l'environnement (intérieur, extérieur, foule) et les puces des appareils : retenez la direction, pas le chiffre exact.",
+        tips: [
+          "Activez le Wi-Fi automatique à la maison, coupez les données mobiles",
+          "Téléchargez films, podcasts et mises à jour en Wi-Fi avant de partir",
+          "En déplacement, la 4G/5G reste faite pour ça : pas de culpabilité, juste le bon réseau au bon endroit",
+        ],
+      },
+      {
+        title: "4. Décodeur, répéteur et seconde vie",
+        content:
+          "Le décodeur TV (7,4 W en moyenne) mérite le même traitement que la box : éteint quand personne ne regarde. Les répéteurs Wi-Fi, eux, ajoutent une consommation permanente pour étendre le signal : un seul bien placé vaut mieux que deux empilés, et l'Arcep les mesure désormais dans son enquête annuelle. Enfin, les box et décodeurs reconditionnés existent : l'enquête 2026 leur consacre un chapitre entier.",
+        tips: [
+          "Éteignez le décodeur avec la télévision, pas seulement la télévision",
+          "Un répéteur bien placé au centre du logement plutôt que deux en cascade",
+          "Gardez votre box le plus longtemps possible : rendez-la en état pour le reconditionnement",
+        ],
+      },
+      {
+        title: "5. Bien choisir sa connexion",
+        content:
+          "La « 4G/5G fixe » (une box qui capte le réseau mobile) dépanne là où le filaire n'arrive pas, mais elle utilise le réseau mobile avec son coût énergétique : à la maison, une connexion filaire reste le choix sobre quand elle est disponible. Et pour les usages du soir, programmer l'extinction de la box reste plus efficace que n'importe quel changement d'offre.",
+        tips: [
+          "Fibre ou ADSL disponible : préférez le filaire à la box 4G/5G pour un usage fixe",
+          "Comparez les consommations des box des opérateurs avant de changer d'offre",
+          "Un seul mot d'ordre : le bon réseau, au bon endroit, éteint la nuit",
+        ],
+      },
+    ],
+    resources: [
+      "Que consomme vraiment votre box : /blog/que-consomme-vraiment-votre-box",
+      "Télétravail et visio : /fiches-pratiques/teletravail-visio",
+      "Enquête Arcep « Pour un numérique soutenable », édition 2026 : https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/impact-environnemental/enquete-annuelle-pour-un-numerique-soutenable-edition-2026.html",
+    ],
+    sources: [
+      "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026 (données 2024, publiée le 21/05/2026)",
+      "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2024 (extinction : −33 % à 8 h/j, −50 % à 12 h/j)",
+      "ADEME, Panel Elecdom 2020-2023 (box ~92 kWh/an)",
     ],
   },
 }

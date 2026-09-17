@@ -143,6 +143,15 @@ const practicalSheets = [
     impact: "1h22 à 2h33/jour (SpF, 2025)",
     image: "/greenit/images/fiches/fiche-enfants-ecole.webp",
   },
+  {
+    id: "box-wifi",
+    title: "Box, Wi-Fi et connexion : la sobriété commence à la maison",
+    description: "Éteindre, passer en Wi-Fi, choisir : les gestes qui allègent la facture",
+    target: "Citoyens",
+    duration: "8 min",
+    impact: "~80 kWh/an par box (Arcep, 2026)",
+    image: "/greenit/images/fiches/fiche-box-wifi.webp",
+  },
 ]
 
 export default function FichesPratiquesPage() {
@@ -212,7 +221,8 @@ export default function FichesPratiquesPage() {
             Sources : ADEME 2022 (reconditionné −75 %) · ADEME-Arcep 2023 (fabrication ≈ 75 % de l&apos;impact) ·
             Ecosystem 2024 (79 % des DEEE collectés recyclés ou réutilisés) · Uptime 2024 (PUE) · Shift Project 2019
             (vidéo = 60 % des flux) · Arcep 2026 (box, réseaux) · Santé publique France 2025 (écrans des enfants) ·
-            IoT Analytics 2025 (21 Mds d&apos;objets) · CableLabs 2026 (visio ~1 Go/h)
+            IoT Analytics 2025 (21 Mds d&apos;objets) · CableLabs 2026 (visio ~1 Go/h) · Arcep 2026 (box 3,4 TWh,
+            9,1 W)
           </p>
 
           <Card className="border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 p-8 dark:border-emerald-800 dark:from-emerald-950 dark:to-teal-950">

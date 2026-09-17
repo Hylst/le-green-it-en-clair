@@ -38,6 +38,8 @@ export function Breadcrumb() {
     "un-an-avec-un-smartphone-reparable": "Un an avec un smartphone réparable",
     "back-market-portrait-reconditionne": "Back Market : portrait",
     "que-consomme-vraiment-votre-box": "Que consomme votre box ?",
+    "fairphone-portrait-telephone-equitable": "Fairphone : portrait",
+    "envie-portrait-reemploi-solidaire": "Envie : portrait",
     faq: "FAQ",
     "fiches-pratiques": "Fiches pratiques",
     "sitemap-page": "Plan du site",

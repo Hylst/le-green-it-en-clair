@@ -8,11 +8,9 @@ Ordre validé : box/FAI, portraits, livres, articles. Un chantier = sourçage d'
 - [x] vérif : tsc 0, build 58/58, navigateur (carte, compteur, widget, sitemap), 0 « 15 fiches » résiduel
 - [ ] À VÉRIFIER un jour : ratio Wi-Fi 4-5× (ordre de grandeur assumé, piste étude Arcep-Arcom-ADEME oct. 2024) ; URL GreenFrame/EcoIndex toujours non vérifiée
 
-## chantier 2 — portraits Fairphone + Envie (à faire)
-- [ ] faits publics vérifiés à la main (histoire, chiffres, sources + année)
-- [ ] sans logo, sans photo, sans donnée non publiée (pas d'autorisation nécessaire)
-- [ ] format portrait blog comme Back Market, visuels à générer côté utilisateur
-- [ ] vérif : tsc, build, navigateur, changelog + todo
+## chantier 2 — portraits Fairphone + Envie (fait le 17/09 au soir)
+- [x] rédaction + câblage + visuels branchés (39 Ko et 80 Ko)
+- [x] vérif : tsc 0, build 60/60, images + widgets + JSON-LD, listing, sitemap
 
 ## chantier 3 — section livres dans ressources (à faire)
 - [ ] 4 à 6 livres vérifiés à la main (auteur, éditeur, année, lien)

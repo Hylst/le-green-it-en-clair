@@ -20,6 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/blog/un-an-avec-un-smartphone-reparable',
         '/blog/back-market-portrait-reconditionne',
         '/blog/que-consomme-vraiment-votre-box',
+        '/blog/fairphone-portrait-telephone-equitable',
+        '/blog/envie-portrait-reemploi-solidaire',
         '/cas-pratiques',
         '/chiffres',
         '/datacenters',

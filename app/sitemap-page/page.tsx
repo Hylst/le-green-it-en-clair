@@ -43,6 +43,8 @@ export default function SitemapPage() {
         { href: "/blog/un-an-avec-un-smartphone-reparable", label: "Un an avec un smartphone réparable", description: "Carnet de bord" },
         { href: "/blog/back-market-portrait-reconditionne", label: "Back Market : portrait", description: "Le reconditionné à grande échelle" },
         { href: "/blog/que-consomme-vraiment-votre-box", label: "Que consomme votre box ?", description: "Le récit chiffré et le mini calculateur" },
+        { href: "/blog/fairphone-portrait-telephone-equitable", label: "Fairphone : portrait", description: "Le téléphone équitable et réparable" },
+        { href: "/blog/envie-portrait-reemploi-solidaire", label: "Envie : portrait", description: "Le réemploi qui embauche" },
         { href: "/faq", label: "FAQ", description: "Réponses aux questions fréquentes" },
       ],
     },

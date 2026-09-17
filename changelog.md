@@ -2,6 +2,11 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 17/09/2026 — portraits Fairphone et Envie (soir)
+
+- articles 8 et 9 : Fairphone (2013 Amsterdam, Gen.6 599 €, 12 pièces, 29 kg CO₂e, rapport d'impact 2025) et Envie (1984 Strasbourg, 53 entreprises d'insertion, 215 140 appareils et 206 387 t en 2024, garantie 2 ans), format Back Market avec regard critique, widgets existants réutilisés (quiz réparable, calc reconditionné), visuels auteur (`blog-fairphone-portrait.webp` 39 Ko, `blog-envie-portrait.webp` 80 Ko, sans texte ni marque). Câblage complet, SW `v1.3.7`.
+- vérifié : tsc 0, build 60/60, images + widgets + JSON-LD sur les 2 articles, listing, sitemap.
+
 ## 17/09/2026 — fiche et article box, fiches enrichies (soir)
 
 - fiche 16 « Box, Wi-Fi et connexion » : 5 sections sourcées Arcep (enquête éd. 2026 sur données 2024 : 3,4 TWh, 9,1 W, ~80 kWh/an ; éd. 2024 : extinction −33 % à 8 h/j), ratio Wi-Fi 4-5× gardé comme ordre de grandeur avec relativisation dans le texte (décision auteur). Visuel `fiche-box-wifi.webp` (25 Ko). Compteurs 15 → 16 fiches, SW `v1.3.6`.

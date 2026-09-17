@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react"
-import { Calculator, ClipboardCheck, Scale, Smartphone, Wifi, Zap } from "lucide-react"
+import { Calculator, ClipboardCheck, HeartHandshake, Scale, Smartphone, Wifi, Wrench, Zap } from "lucide-react"
 
 /* Contenus du blog : écriture simple, un chiffre sourcé par idée forte,
    le reste de la précision rangé dans des blocs dépliables. */
@@ -784,6 +784,193 @@ export const posts: BlogPost[] = [
       "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026 (données 2024, publiée le 21/05/2026)",
       "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2024 (extinction : −33 % à 8 h/j, −50 % à 12 h/j)",
       "ADEME, Panel Elecdom 2020-2023 (box ~92 kWh/an)",
+    ],
+  },
+  {
+    image: "/greenit/images/blog/blog-fairphone-portrait.webp",
+    imageAlt: "Smartphone modulaire ouvert montrant ses composants remplaçables, tournevis à côté",
+    slug: "fairphone-portrait-telephone-equitable",
+    title: "Fairphone : le téléphone équitable (portrait)",
+    excerpt:
+      "Depuis Amsterdam, une entreprise sociale prouve depuis 2013 qu'on peut vendre des smartphones réparables, traçables et garantis 5 ans. Visite guidée, chiffres à l'appui.",
+    date: "Septembre 2026",
+    readingTime: "6 min",
+    icon: Wrench,
+    essential: [
+      "Une entreprise sociale, pas un fabricant comme les autres : matériaux traçés, usines mieux payées, téléphone modulaire.",
+      "Le modèle de 2025 se répare au tournevis, promet des mises à jour jusqu'en 2033 et affiche 29 kg de CO₂e.",
+      "Les chiffres d'impact sont publiés par l'entreprise : solides et audités en partie, à lire comme une trajectoire.",
+    ],
+    sections: [
+      {
+        heading: "L'idée de départ : ouvrir la boîte noire",
+        paragraphs: [
+          "En 2010, au sein du laboratoire créatif Waag à Amsterdam, une campagne alerte sur les minerais du Congo présents dans nos téléphones : étain, tantale, tungstène, or, extraits parfois dans des conditions dramatiques. Le constat des militants : tant qu'on ne fabrique pas soi-même, on ne comprend rien à la chaîne. En janvier 2013, Fairphone devient une entreprise sociale indépendante, fondée par Bas van Abel, Tessa Wernink et Miquel Ballester.",
+          "Le principe n'a pas changé depuis : utiliser un téléphone comme outil de récit, pour reconnecter l'acheteur à tout ce qu'il y a derrière l'écran. L'entreprise assume d'ailleurs que son téléphone n'est pas « 100 % équitable » : il est « plus équitable », étape par étape.",
+        ],
+      },
+      {
+        heading: "Le modèle : modulaire, réparable, garanti",
+        widget: "reparable-quiz",
+        paragraphs: [
+          "Le Fairphone de 2025 (sixième génération, 599 €) se démonte avec un simple tournevis : 12 pièces remplaçables par l'utilisateur, de la batterie à l'écran en passant par l'appareil photo et le port USB. Les spécialistes d'iFixit lui donnent 10 sur 10 en réparabilité. Les mises à jour sont promises jusqu'en 2033, avec 5 ans de garantie.",
+          "Côté matériaux, l'appareil contient plus de 50 % de matériaux équitables ou recyclés en poids : aluminium, cuivre, étain, plastiques et terres rares recyclés, tungstène équitable, or certifié Fairtrade. Et pour chaque appareil vendu, l'équivalent en poids de déchets électroniques est collecté et recyclé : le produit est « neutre en e-déchets ».",
+        ],
+        details: [
+          {
+            title: "Équitable, ça veut dire quoi concrètement ?",
+            paragraphs: [
+              "Trois chantiers : des minerais tracés jusqu'à la mine (lutte contre le travail des enfants, sécurité), des usines où les ouvriers touchent un bonus de salaire décent (1,25 million de dollars versés depuis 2019 à 1 650 ouvriers de cinq usines), et des produits qui durent pour éviter de réextraire. Aucun fabricant classique ne publie ce niveau de détail, ce qui rend la comparaison difficile, dans un sens comme dans l'autre.",
+              "La limite honnête : à 599 €, l'appareil photo et les performances restent du milieu de gamme. On paie la traçabilité et la durabilité, pas la fiche technique record.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Ce que racontent les chiffres, et leurs limites",
+        paragraphs: [
+          "Selon l'analyse de cycle de vie publiée par l'entreprise (bureau Fraunhofer IZM pour le modèle précédent, calculs internes pour le nouveau), le Fairphone de 2025 affiche 29 kg de CO₂e sur son cycle de vie, contre 42 pour le précédent : 30 % de moins, grâce aux matériaux recyclés, à l'allègement et à l'énergie renouvelable chez les fournisseurs. En 2025, l'entreprise annonce 145 259 téléphones vendus (+42 %, record) et 2 083 tonnes de CO₂e évitées grâce à la longévité.",
+          "Même réserve que pour tout chiffre d'entreprise : périmètre maison, méthode maison. Mais ici le recoupement indépendant existe : audit iFixit, médaille Platine EcoVadis, certification B Corp depuis 2015. Et l'ordre de grandeur colle à la physique : garder un téléphone deux fois plus longtemps divise presque par deux son empreinte, la fabrication dominant le bilan.",
+        ],
+        fact: {
+          value: "29 kg",
+          label: "Empreinte carbone annoncée du Fairphone de 2025, contre 42 pour le précédent",
+          source: "Fairphone, rapport d'impact 2025 (2026)",
+          calculation: "Analyse de cycle de vie publiée par l'entreprise, −30 % d'une génération à l'autre",
+        },
+      },
+      {
+        heading: "Ce qu'on peut en retenir",
+        paragraphs: [
+          "Fairphone ne vendra jamais autant que les géants, et ce n'est pas son but : son rôle est de prouver qu'un autre modèle est viable, pièces détachées et fiches de paie à l'appui. Les idées essaiment d'ailleurs : mises à jour longues et pièces 7 ans sont devenues la loi européenne pour tous.",
+          "Si votre téléphone actuel tient encore, le geste le plus Fairphone reste de le garder. Et s'il faut le remplacer, un appareil conçu pour durer dix ans change la question du prix : 599 € divisés par dix ans d'usage, contre deux téléphones jetables entre-temps.",
+        ],
+      },
+    ],
+    takeaway: [
+      "Modulaire ne veut pas dire bricolage : 10/10 chez iFixit, garantie 5 ans.",
+      "29 kg de CO₂e annoncés : une trajectoire crédible, pas une mesure indépendante.",
+      "Le plus équitable reste le téléphone qu'on ne rachète pas.",
+    ],
+    related: [
+      {
+        href: "/blog/reconditionne-vs-neuf-le-calcul",
+        label: "Reconditionné ou neuf : le calcul",
+        description: "D'où vient le 75 à 90 %, et les vérifications avant d'acheter.",
+      },
+      {
+        href: "/fiches-pratiques/reparer-prolonger",
+        label: "Réparer et prolonger",
+        description: "Gestes d'entretien et adresses utiles.",
+      },
+      {
+        href: "/blog/un-an-avec-un-smartphone-reparable",
+        label: "Un an avec un smartphone réparable",
+        description: "Le carnet de bord d'une année sans téléphone neuf.",
+      },
+    ],
+    sourceLinks: [
+      { label: "Fairphone, rapport d'impact 2025", url: "https://www.fairphone.com/impact-report" },
+      { label: "Fairphone, à propos (2013, fondateurs)", url: "https://www.fairphone.com/en/about/about-us" },
+    ],
+    sources: [
+      "Fairphone, rapport d'impact 2025 (publié le 22/04/2026 : 145 259 ventes, 29 kg CO₂e, 2 083 t évitées)",
+      "Fairphone, communiqué Gen. 6 (25/06/2025 : 12 pièces, support 2033, garantie 5 ans)",
+      "The Guardian, test du Fairphone 6 (04/02/2026 : 599 €, 10/10 iFixit)",
+      "Wikipédia, article Fairphone (janvier 2013, fondateurs, B Corp 2015)",
+    ],
+  },
+  {
+    image: "/greenit/images/blog/blog-envie-portrait.webp",
+    imageAlt: "Atelier de réparation d'électroménager avec appareils rénovés alignés en magasin solidaire",
+    slug: "envie-portrait-reemploi-solidaire",
+    title: "Envie : le réemploi solidaire (portrait)",
+    excerpt:
+      "Depuis 1984, ce réseau d'entreprises d'insertion répare l'électroménager, forme des salariés et vend 30 à 60 % moins cher. Le réemploi qui embauche.",
+    date: "Septembre 2026",
+    readingTime: "6 min",
+    icon: HeartHandshake,
+    essential: [
+      "Un réseau associatif né en 1984 : réparer des appareils pour insérer des personnes éloignées de l'emploi.",
+      "2 897 salariés en insertion, 68 % vers l'emploi ou la formation, 215 140 appareils reconditionnés en 2024.",
+      "Magasins solidaires : 30 à 60 % moins cher que le neuf, garantie nationale de 2 ans minimum.",
+    ],
+    sections: [
+      {
+        heading: "L'idée de départ : un déchet, un emploi",
+        paragraphs: [
+          "En 1984 à Strasbourg, des travailleurs sociaux proches d'Emmaüs posent une équation simple : des appareils jetés d'un côté, des personnes sans emploi de l'autre. Pourquoi ne pas réparer les premiers pour insérer les secondes ? Le réseau Envie naît de ce triptyque : insertion par l'activité économique, préservation de l'environnement, prix accessibles.",
+          "Quarante ans plus tard, la fédération loi 1901 coordonne 53 entreprises d'insertion en France métropolitaine : ateliers de réparation, magasins solidaires, logistique de collecte. Chaque structure est ancrée dans son territoire, avec des emplois non délocalisables.",
+        ],
+      },
+      {
+        heading: "Le modèle : collecter, réparer, revendre, insérer",
+        widget: "reconditionne-calc",
+        paragraphs: [
+          "Gros et petit électroménager, multimédia, téléphonie : les appareils collectés sont testés, réparés par des salariés en parcours d'insertion (12 mois de contrat en moyenne), puis revendus 30 à 60 % moins cher que le neuf, avec une garantie nationale Envie de 2 ans minimum. Le réseau s'est diversifié : matériel médical reconditionné, pièces détachées d'occasion, matelas, panneaux solaires.",
+          "Côté insertion, 2 897 salariés en parcours, et 68 % d'entre eux retrouvent un emploi durable ou une formation qualifiante à la sortie. L'activité se paie : 149 millions d'euros de chiffre d'affaires en 2024, en partie réinvestis dans la mission.",
+        ],
+        details: [
+          {
+            title: "D'où viennent les appareils ?",
+            paragraphs: [
+              "Dons de particuliers, reprises, collecte dans le cadre de la filière des e-déchets : Envie collecte à lui seul près d'un tiers des DEEE français (206 387 tonnes en 2024). Ce qui peut repartir est réparé, le reste part au recyclage dans les règles. Donner son vieil appareil plutôt que le stocker au garage, c'est alimenter la boucle.",
+              "Pour acheter : magasins du réseau partout en France et sites de vente en ligne des adhérents, avec la même garantie de 2 ans qu'en boutique.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Ce que racontent les chiffres, et leurs limites",
+        paragraphs: [
+          "215 140 appareils électroménagers reconditionnés en 2024, 206 387 tonnes de DEEE collectées dont 147 326 traitées : les volumes sont publiés chaque année par la fédération, avec un rapport d'impact social (édition 2025 parue en janvier 2026). L'ancrage public est solide : entreprises d'insertion conventionnées, éco-organismes partenaires, collectivités clientes.",
+          "La limite de l'exercice : le réseau mesure ses moyens (appareils, tonnes, parcours) plus que ses tonnes de CO₂e évitées, contrairement aux fabricants qui publient des analyses de cycle de vie. Les deux mesures se complètent : ici, l'impact social est premier et documenté, l'impact carbone se lit en creux, dans chaque fabrication évitée.",
+        ],
+        fact: {
+          value: "68 %",
+          label: "Salariés en insertion vers un emploi durable ou une formation qualifiante",
+          source: "Envie, 2026",
+          calculation: "Sorties dynamiques : CDI, CDD de 6 mois et plus, ou formation qualifiante",
+        },
+      },
+      {
+        heading: "Ce qu'on peut en retenir",
+        paragraphs: [
+          "Avant d'acheter un lave-linge neuf, regardez s'il existe un magasin Envie près de chez vous : l'appareil coûtera moitié prix, durera avec sa garantie de 2 ans, et votre achat financera un parcours d'insertion. Et votre ancien appareil, même en panne, vaut le détour : apporté en point de collecte, il deviendra pièces, matière ou second souffle.",
+          "Le réemploi n'est pas qu'une affaire de particuliers malins ou de plateformes : c'est aussi, depuis quarante ans, une économie locale qui embauche. La soutenir, c'est voter deux fois, avec son portefeuille et avec ses dons.",
+        ],
+      },
+    ],
+    takeaway: [
+      "Réparer pour insérer : 2 897 parcours, 68 % de sorties positives.",
+      "Acheter moitié prix avec 2 ans de garantie : le réemploi sans le risque.",
+      "Donner ses appareils : la matière première du réseau.",
+    ],
+    related: [
+      {
+        href: "/fiches-pratiques/achat-responsable",
+        label: "Guide d'achat responsable",
+        description: "Grades, garanties et pièges à éviter, en détail.",
+      },
+      {
+        href: "/fiches-pratiques/recyclage-mode-emploi",
+        label: "Mode d'emploi du recyclage",
+        description: "Où et comment recycler vos appareils.",
+      },
+      {
+        href: "/blog/back-market-portrait-reconditionne",
+        label: "Back Market : portrait",
+        description: "L'autre visage du reconditionné, côté plateforme.",
+      },
+    ],
+    sourceLinks: [
+      { label: "Envie, notre impact (chiffres 2024)", url: "https://www.envie.org/decouvrir-envie/notre-impact/" },
+      { label: "Envie, nos activités", url: "http://envie.org/decouvrir-envie/nos-activites" },
+    ],
+    sources: [
+      "Envie, page « Notre impact » (2024 : 215 140 appareils, 206 387 t collectées, 149 M€, 53 entreprises)",
+      "Envie, page d'accueil officielle (2 897 salariés en insertion, 68 %, garantie 2 ans, −30 à −60 %)",
+      "Envie, rapport d'impact social 2025 (publié le 23/01/2026)",
     ],
   },
 ]

@@ -246,6 +246,14 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                         <FileText className="mr-2 h-4 w-4" />
                         <span>Que consomme vraiment votre box ?</span>
                     </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/blog/fairphone-portrait-telephone-equitable"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Fairphone : portrait équitable</span>
+                    </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/blog/envie-portrait-reemploi-solidaire"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Envie : portrait solidaire</span>
+                    </CommandItem>
                 </CommandGroup>
                 <CommandSeparator />
                 <CommandGroup heading="Modèles détaillés">

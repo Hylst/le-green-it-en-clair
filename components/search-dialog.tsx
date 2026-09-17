@@ -234,6 +234,10 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                         <FileText className="mr-2 h-4 w-4" />
                         <span>Un an avec un smartphone réparable</span>
                     </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/blog/back-market-portrait-reconditionne"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Back Market : portrait reconditionné</span>
+                    </CommandItem>
                 </CommandGroup>
                 <CommandSeparator />
                 <CommandGroup heading="Modèles détaillés">

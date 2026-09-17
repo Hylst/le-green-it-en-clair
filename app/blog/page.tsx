@@ -41,17 +41,23 @@ export default function BlogPage() {
                   key={post.slug}
                   className="lift flex flex-col overflow-hidden border-2 border-border bg-card transition-shadow hover:shadow-lg"
                 >
-                  <div className="relative h-40 w-full overflow-hidden bg-secondary/40">
-                    <Image
-                      src={post.image}
-                      alt={post.imageAlt}
-                      fill
-                      className="object-cover"
-                      loading="lazy"
-                      quality={85}
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
+                  {post.image ? (
+                    <div className="relative h-40 w-full overflow-hidden bg-secondary/40">
+                      <Image
+                        src={post.image}
+                        alt={post.imageAlt ?? post.title}
+                        fill
+                        className="object-cover"
+                        loading="lazy"
+                        quality={85}
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  ) : (
+                    <div className="flex h-40 w-full items-center justify-center bg-theme-soft">
+                      <Icon className="h-12 w-12 text-theme-ink" aria-hidden="true" />
+                    </div>
+                  )}
                   <div className="flex flex-1 flex-col p-6">
                   <div className="mb-4 flex items-center gap-3">
                     <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-theme-soft text-theme-ink">

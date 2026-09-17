@@ -41,6 +41,7 @@ export default function SitemapPage() {
         { href: "/blog/comprendre-le-pue-en-5-minutes", label: "Comprendre le PUE", description: "5 minutes et trois bonnes questions" },
         { href: "/blog/agec-reen-ce-qui-change", label: "AGEC et REEN", description: "Ce qui change pour vous" },
         { href: "/blog/un-an-avec-un-smartphone-reparable", label: "Un an avec un smartphone réparable", description: "Carnet de bord" },
+        { href: "/blog/back-market-portrait-reconditionne", label: "Back Market : portrait", description: "Le reconditionné à grande échelle" },
         { href: "/faq", label: "FAQ", description: "Réponses aux questions fréquentes" },
       ],
     },

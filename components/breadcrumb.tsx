@@ -36,6 +36,7 @@ export function Breadcrumb() {
     "comprendre-le-pue-en-5-minutes": "Comprendre le PUE",
     "agec-reen-ce-qui-change": "AGEC et REEN",
     "un-an-avec-un-smartphone-reparable": "Un an avec un smartphone réparable",
+    "back-market-portrait-reconditionne": "Back Market : portrait",
     faq: "FAQ",
     "fiches-pratiques": "Fiches pratiques",
     "sitemap-page": "Plan du site",

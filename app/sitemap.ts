@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/blog/comprendre-le-pue-en-5-minutes',
         '/blog/agec-reen-ce-qui-change',
         '/blog/un-an-avec-un-smartphone-reparable',
+        '/blog/back-market-portrait-reconditionne',
         '/cas-pratiques',
         '/chiffres',
         '/datacenters',

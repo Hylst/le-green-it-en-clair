@@ -45,8 +45,9 @@ export interface BlogPost {
   date: string
   readingTime: string
   icon: LucideIcon
-  image: string
-  imageAlt: string
+  image?: string
+  imageAlt?: string
+  sourceLinks?: { label: string; url: string }[]
   essential: string[]
   sections: BlogSection[]
   takeaway: string[]
@@ -154,6 +155,9 @@ export const posts: BlogPost[] = [
         label: "Démarche Green IT en entreprise",
         description: "Le pas à pas complet pour structurer votre démarche.",
       },
+    ],
+    sourceLinks: [
+      { label: "Rapport ADEME-Arcep 2023 (librairie ADEME)", url: "https://librairie.ademe.fr/consommer-autrement/5226-evaluation-de-l-impact-environnemental-du-numerique-en-france-et-analyse-prospective.html" },
     ],
     sources: [
       "ADEME-Arcep, enquête annuelle sur l’empreinte environnementale du numérique (2023)",
@@ -363,6 +367,9 @@ export const posts: BlogPost[] = [
         description: "Le mix électrique français mesuré en direct.",
       },
     ],
+    sourceLinks: [
+      { label: "Données éCO2mix en temps réel (ODRE)", url: "https://odre.opendatasoft.com/explore/dataset/eco2mix-national-tr/table/" },
+    ],
     sources: [
       "Uptime Institute, Global Data Center Survey (2024)",
       "Agence internationale de l’énergie, Energy and AI (avril 2025)",
@@ -463,6 +470,10 @@ export const posts: BlogPost[] = [
         label: "Recyclage et réparation",
         description: "Points de collecte et fin de vie des appareils.",
       },
+    ],
+    sourceLinks: [
+      { label: "Règlement 2023/1670 (EUR-Lex)", url: "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32023R1670" },
+      { label: "Directive 2024/1799 (EUR-Lex)", url: "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32024L1799" },
     ],
     sources: [
       "Légifrance, loi anti-gaspillage pour une économie circulaire (2020)",
@@ -565,6 +576,110 @@ export const posts: BlogPost[] = [
       "ADEME, Impact CO₂ / Base Empreinte, facteurs d’émission du numérique (2025)",
       "ADEME, analyse du cycle de vie des appareils reconditionnés (2022)",
       "EUR-Lex, règlement 2023/1670 (mises à jour 5 ans, pièces 7 ans)",
+    ],
+    sourceLinks: [
+      { label: "Règlement 2023/1670 (EUR-Lex)", url: "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32023R1670" },
+    ],
+  },
+  {
+    slug: "back-market-portrait-reconditionne",
+    title: "Back Market : le reconditionné à grande échelle (portrait)",
+    excerpt:
+      "Fondée à Paris en 2014, la place de marché annonce 30 millions d’appareils reconditionnés vendus dans 17 pays. Ce que racontent ces chiffres, et leurs limites.",
+    date: "Septembre 2026",
+    readingTime: "6 min",
+    icon: Smartphone,
+    essential: [
+      "Une place de marché, pas un vendeur : elle relie des reconditionneurs pros et des acheteurs.",
+      "Plus de 30 millions d’appareils vendus dans 17 pays, environ 2 Mt de CO₂e évitées selon l’entreprise.",
+      "Les chiffres d’impact sont auto-déclarés : utiles comme ordre de grandeur, à lire avec recul.",
+    ],
+    sections: [
+      {
+        heading: "L’idée de départ : le neuf n’est pas la seule option",
+        paragraphs: [
+          "En 2014 à Paris, trois entrepreneurs (Thibaud Hug de Larauze, Vianney Vaute et Quentin Le Brouster) partent d’un constat simple : des millions de téléphones dorment dans les tiroirs pendant que d’autres s’achètent neufs. Leur réponse n’est pas un magasin de plus, mais une place de marché entièrement dédiée aux appareils reconditionnés par des professionnels vérifiés.",
+          "L’idée fait son chemin : la société annonce ensuite plus d’un milliard d’euros levés depuis sa création pour développer la plateforme, et fête ses 10 ans en 2024.",
+        ],
+      },
+      {
+        heading: "Le modèle : intermédiaire, pas vendeur",
+        paragraphs: [
+          "Back Market ne possède pas les téléphones qu’elle affiche : elle met en relation des reconditionneurs professionnels et des acheteurs, prend une commission sur chaque vente, et impose une charte qualité avec des grades selon l’état. Les vendeurs les mieux notés sont mis en avant.",
+          "Ce modèle a deux conséquences. D’un côté, le choix est immense et les prix baissent par la concurrence entre vendeurs. De l’autre, la qualité dépend de chaque reconditionneur : d’où l’importance des notes, des avis vérifiés et de la garantie, qui reste votre filet de sécurité.",
+        ],
+        bullets: [
+          "Comparez les vendeurs, pas seulement les prix : notes et nombre d’avis",
+          "Vérifiez le grade et l’état de la batterie avant de commander",
+          "Gardez la facture : la garantie légale de conformité dure 2 ans",
+        ],
+      },
+      {
+        heading: "Ce que racontent les chiffres, et leurs limites",
+        paragraphs: [
+          "Sur sa page de présentation, l’entreprise annonce plus de 30 millions d’appareils reconditionnés vendus dans 17 pays, soit environ 2 millions de tonnes de CO₂e évitées par rapport au neuf. C’est un ordre de grandeur cohérent avec les analyses de cycle de vie du reconditionné, qui attribuent 75 à 90 % d’impact en moins par appareil.",
+          "Reste la limite de l’exercice : ces chiffres sont calculés par l’entreprise elle-même, avec sa méthode. Ils décrivent bien une trajectoire, pas une mesure indépendante. La presse économique suit le dossier de près : rentabilité atteinte en Europe en 2024 selon Wikipédia, partenariat avec Bouygues Telecom annoncé en octobre 2025 pour vendre du reconditionné en boutique.",
+        ],
+        fact: {
+          value: "30 M+",
+          label: "Appareils reconditionnés vendus dans 17 pays, selon l’entreprise",
+          source: "Back Market, page À propos (2026)",
+          calculation: "Cumul des ventes déclaré, à lire comme un ordre de grandeur",
+        },
+        details: [
+          {
+            title: "Comment lire un chiffre auto-déclaré ?",
+            paragraphs: [
+              "Un chiffre publié par une entreprise n’est pas faux par principe, mais il sert aussi sa communication : périmètre flatteur, méthode maison, année record mise en avant. Trois réflexes : chercher la méthode, comparer avec une source indépendante (ici l’ADEME 2022 donne la même direction), et retenir l’ordre de grandeur plutôt que le chiffre exact.",
+              "Ici, le recoupement est rassurant : éviter une fabrication neuve fait chuter l’impact dans tous les cas, que le total exact soit 1,6 ou 2 millions de tonnes.",
+            ],
+          },
+          {
+            title: "Acheter malin sur une place de marché",
+            paragraphs: [
+              "Triez par note vendeur puis par prix, pas l’inverse. Un grade B chez un vendeur noté 4,5 sur 5 vaut mieux qu’un grade A chez un inconnu sans avis. Lisez les avis qui parlent de la batterie et du service après-vente, ce sont les deux sujets qui comptent vraiment.",
+              "Et si la panne arrive malgré tout : réparateur labellisé, bonus déduit de la facture, garantie prolongée de 12 mois depuis juillet 2026.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Ce qu’on peut en retenir",
+        paragraphs: [
+          "Le reconditionné est sorti de la brocante pour devenir une industrie, avec ses places de marché, ses grades et ses garanties. C’est une bonne nouvelle pour les prix et pour la planète, à condition de garder ses réflexes d’acheteur : comparer, vérifier, garder la facture.",
+          "Et si vous préférez voir l’appareil avant de l’acheter, le partenariat avec les boutiques d’opérateurs montre que le reconditionné quitte aussi l’écran pour la rue. Le neuf n’a plus le monopole, ni en ligne ni en boutique.",
+        ],
+      },
+    ],
+    takeaway: [
+      "Place de marché ne veut pas dire vendeur unique : la qualité varie par reconditionneur.",
+      "30 millions d’appareils, c’est un ordre de grandeur qui confirme la tendance, pas une mesure.",
+      "Acheteur gagnant : notes, grade, batterie, facture gardée.",
+    ],
+    related: [
+      {
+        href: "/blog/reconditionne-vs-neuf-le-calcul",
+        label: "Reconditionné ou neuf : le calcul",
+        description: "D’où vient le 75 à 90 %, et les vérifications avant d’acheter.",
+      },
+      {
+        href: "/fiches-pratiques/achat-responsable",
+        label: "Guide d’achat responsable",
+        description: "Grades, garanties et pièges à éviter, en détail.",
+      },
+      {
+        href: "/outils",
+        label: "Calculateur d’empreinte",
+        description: "Chiffrez votre parc actuel avant de décider.",
+      },
+    ],
+    sourceLinks: [
+      { label: "Back Market, page À propos officielle", url: "https://www.backmarket.fr/fr-fr/about-us" },
+    ],
+    sources: [
+      "Back Market, page « À propos » officielle, chiffres de l’entreprise (consultée en septembre 2026)",
+      "Wikipédia, article Back Market : histoire, partenariats, rentabilité (consulté en septembre 2026)",
+      "Les Echos : licorne française (2021), valorisation et levées (2022)",
     ],
   },
 ]

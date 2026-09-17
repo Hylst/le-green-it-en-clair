@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowLeft, ArrowRight, Calendar, CheckCircle2, Clock } from "lucide-react"
+import { ArrowLeft, ArrowRight, Calendar, CheckCircle2, Clock, ExternalLink } from "lucide-react"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { Card } from "@/components/ui/card"
@@ -66,7 +66,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
       <JsonLd data={jsonLd} />
       <PageHero
         theme="orange"
-        image={{ src: post.image, alt: post.imageAlt }}
+        image={post.image ? { src: post.image, alt: post.imageAlt ?? post.title } : undefined}
         badge={{ icon: Icon, label: "Blog" }}
         title={post.title}
         intro={
@@ -192,6 +192,22 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                 <li key={source}>{source}</li>
               ))}
             </ul>
+            {post.sourceLinks && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {post.sourceLinks.map((link) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-primary hover:underline"
+                  >
+                    {link.label}
+                    <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
+            )}
           </Card>
         </div>
       </article>

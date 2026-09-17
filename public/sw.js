@@ -1,7 +1,7 @@
 // Service Worker for Le Green IT en clair
 // Enables offline-first functionality
 
-const CACHE_NAME = 'green-it-v1.3.4';
+const CACHE_NAME = 'green-it-v1.3.5';
 const STATIC_ASSETS = [
     '/greenit/',
     '/greenit/offline/',
@@ -32,6 +32,7 @@ const STATIC_ASSETS = [
     '/greenit/blog/comprendre-le-pue-en-5-minutes/',
     '/greenit/blog/agec-reen-ce-qui-change/',
     '/greenit/blog/un-an-avec-un-smartphone-reparable/',
+    '/greenit/blog/back-market-portrait-reconditionne/',
     '/greenit/modeles/',
     '/greenit/modeles/cahier-charges-achat/',
     '/greenit/modeles/charte-green-it/',

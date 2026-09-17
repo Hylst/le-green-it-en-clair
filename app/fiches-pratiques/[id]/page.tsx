@@ -255,6 +255,7 @@ const sheets: Record<string, any> = {
       },
     ],
     resources: [
+      "Le RGESN en 10 minutes : /blog/rgesn-ecoconception-10-minutes",
       "Checklist développeur : /developpement",
       "Outils de mesure : GreenFrame, EcoIndex",
       "Guides ADEME : https://ecoresponsable.numerique.gouv.fr",
@@ -779,6 +780,7 @@ const sheets: Record<string, any> = {
     resources: [
       "Notre estimateur streaming & visio : /outils#onglet-streaming",
       "Les 7 gestes quotidiens : /fiches-pratiques/gestes-quotidiens",
+      "Que consomme vraiment votre box : /blog/que-consomme-vraiment-votre-box",
       "The Shift Project, sobriété numérique : https://theshiftproject.org",
     ],
     sources: [
@@ -849,6 +851,7 @@ const sheets: Record<string, any> = {
     resources: [
       "Guide d'achat responsable : /fiches-pratiques/achat-responsable",
       "Démarche Green IT en entreprise : /fiches-pratiques/green-it-entreprise",
+      "Que consomme vraiment votre box : /blog/que-consomme-vraiment-votre-box",
       "Enquête Arcep « Pour un numérique soutenable » : https://www.arcep.fr",
     ],
     sources: [

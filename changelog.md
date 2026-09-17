@@ -2,6 +2,12 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 17/09/2026 — article RGESN et maillage renforcé (soir)
+
+- article 10 « Le RGESN en 10 minutes » : origine REEN, 78 critères en 8 familles, exemples réels (3.7, 5.7, 6.2), widget `rgesn-check` (4 questions, `aria-live`), visuel `blog-rgesn-10-minutes.webp` (29 Ko), sources et liens officiels. Câblage complet, SW `v1.3.8`.
+- maillage : 6 ponts ajoutés (reconditionné vers Back Market, smartphone réparable vers Fairphone, AGEC vers RGESN, fiches écoconception/streaming/télétravail vers RGESN et box).
+- vérifié : tsc 0, build 61/61, ponts rendus sur les 5 pages, quiz + image + JSON-LD sur l'article RGESN.
+
 ## 17/09/2026 — section livres (soir)
 
 - `/ressources` : nouvelle section « Livres » (ancre `#livres`), 6 livres vérifiés un par un (Bordage ×3 : Buchet-Chastel 2019, Eyrolles 2019, Actes Sud 2021 ; Courboulay, Actes Sud 2021 ; Pitron, Les Liens qui Libèrent 2021 ; Bihouix, Seuil 2014). Liens éditeurs contrôlés (5 en 200, site LLL injoignable : mention « en librairie » sans lien). Résumés maison, pas de copie.

@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/blog/que-consomme-vraiment-votre-box',
         '/blog/fairphone-portrait-telephone-equitable',
         '/blog/envie-portrait-reemploi-solidaire',
+        '/blog/rgesn-ecoconception-10-minutes',
         '/cas-pratiques',
         '/chiffres',
         '/datacenters',

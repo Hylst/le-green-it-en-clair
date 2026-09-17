@@ -254,6 +254,10 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                         <FileText className="mr-2 h-4 w-4" />
                         <span>Envie : portrait solidaire</span>
                     </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/blog/rgesn-ecoconception-10-minutes"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>RGESN en 10 minutes</span>
+                    </CommandItem>
                 </CommandGroup>
                 <CommandSeparator />
                 <CommandGroup heading="Modèles détaillés">

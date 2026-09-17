@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react"
-import { Calculator, ClipboardCheck, HeartHandshake, Scale, Smartphone, Wifi, Wrench, Zap } from "lucide-react"
+import { Calculator, ClipboardCheck, HeartHandshake, Leaf, Scale, Smartphone, Wifi, Wrench, Zap } from "lucide-react"
 
 /* Contenus du blog : écriture simple, un chiffre sourcé par idée forte,
    le reste de la précision rangé dans des blocs dépliables. */
@@ -23,6 +23,7 @@ export type BlogWidgetKey =
   | "agec-timeline"
   | "reparable-quiz"
   | "box-calc"
+  | "rgesn-check"
 
 export interface BlogSection {
   heading: string
@@ -267,6 +268,11 @@ export const posts: BlogPost[] = [
         label: "Calculateur d’empreinte",
         description: "Chiffrez votre parc actuel avant de décider.",
       },
+      {
+        href: "/blog/back-market-portrait-reconditionne",
+        label: "Back Market : portrait",
+        description: "Le reconditionné à grande échelle, côté plateforme.",
+      },
     ],
     sources: [
       "ADEME, analyse du cycle de vie des appareils reconditionnés (2022)",
@@ -471,6 +477,11 @@ export const posts: BlogPost[] = [
         label: "Recyclage et réparation",
         description: "Points de collecte et fin de vie des appareils.",
       },
+      {
+        href: "/blog/rgesn-ecoconception-10-minutes",
+        label: "Le RGESN en 10 minutes",
+        description: "L'autre grand texte de la loi REEN, côté écoconception.",
+      },
     ],
     sourceLinks: [
       { label: "Règlement 2023/1670 (EUR-Lex)", url: "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32023R1670" },
@@ -571,6 +582,11 @@ export const posts: BlogPost[] = [
         href: "/recyclage",
         label: "Recyclage et réparation",
         description: "Que faire quand vraiment rien ne marche plus.",
+      },
+      {
+        href: "/blog/fairphone-portrait-telephone-equitable",
+        label: "Fairphone : portrait",
+        description: "Un téléphone conçu pour durer dix ans.",
       },
     ],
     sources: [
@@ -971,6 +987,99 @@ export const posts: BlogPost[] = [
       "Envie, page « Notre impact » (2024 : 215 140 appareils, 206 387 t collectées, 149 M€, 53 entreprises)",
       "Envie, page d'accueil officielle (2 897 salariés en insertion, 68 %, garantie 2 ans, −30 à −60 %)",
       "Envie, rapport d'impact social 2025 (publié le 23/01/2026)",
+    ],
+  },
+  {
+    image: "/greenit/images/blog/blog-rgesn-10-minutes.webp",
+    imageAlt: "Écran d'ordinateur affichant une liste de critères validés, tasse et carnet sur un bureau",
+    slug: "rgesn-ecoconception-10-minutes",
+    title: "Le RGESN en 10 minutes : la check-list officielle de l'écoconception",
+    excerpt:
+      "78 critères, 8 familles, 3 niveaux : le référentiel français de l'écoconception expliqué simplement, avec un mini test pour votre site.",
+    date: "Septembre 2026",
+    readingTime: "7 min",
+    icon: Leaf,
+    essential: [
+      "Un référentiel public et gratuit : 78 questions pour vérifier qu'un site ou une appli est sobre.",
+      "Trois niveaux de priorité, huit familles : de la stratégie à l'hébergement, rien n'est oublié.",
+      "Sans déclaration publique, on ne peut pas s'en prévaloir : la transparence d'abord.",
+    ],
+    sections: [
+      {
+        heading: "D'où vient ce référentiel ?",
+        paragraphs: [
+          "La loi REEN a confié à l'Arcep et à l'Arcom, avec l'ADEME, la rédaction d'un référentiel général d'écoconception des services numériques. Après une consultation publique à l'automne 2023 (57 contributions) et des ateliers avec l'écosystème, la version 2 est publiée le 17 mai 2024. La DINUM, la CNIL et Inria ont contribué, sur la base des travaux de la mission interministérielle MiNumEco.",
+          "Le point de départ est connu : sans action, l'empreinte carbone du numérique pourrait tripler entre 2020 et 2050 (étude ADEME-Arcep). L'écoconception est l'un des leviers identifiés pour inverser la trajectoire, avec l'allongement de la durée de vie et le réemploi.",
+        ],
+      },
+      {
+        heading: "78 questions en 8 familles",
+        widget: "rgesn-check",
+        paragraphs: [
+          "Le référentiel se présente comme 78 critères formulés en questions : « Le service est-il utilisable sur d'anciens terminaux ? », « Les environnements de test sont-ils éteints la nuit ? », « Une déclaration d'écoconception est-elle publiée ? » Chaque critère porte un niveau : Prioritaire, Recommandé ou Modéré, pour organiser l'effort.",
+          "Les huit familles couvrent tout le cycle de vie : stratégie, spécifications, architecture, expérience utilisateur, contenus, frontend, backend et hébergement. Testez-vous avec le mini quiz ci-dessus : quatre questions, zéro jargon.",
+        ],
+        details: [
+          {
+            title: "Qui décide des niveaux Prioritaire, Recommandé, Modéré ?",
+            paragraphs: [
+              "Les auteurs du référentiel, au croisement de l'impact potentiel et de la facilité de mise en œuvre : un critère fort et simple devient Prioritaire, un critère utile mais coûteux reste Modéré. Les niveaux guident l'ordre, pas l'obligation : le référentiel accompagne des démarches volontaires, il ne sanctionne pas.",
+              "Pour les acheteurs publics et les DSI, ces niveaux font aussi office de grille d'exigence dans les appels d'offres : exiger les critères Prioritaires, c'est déjà filtrer sérieusement.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Trois critères qui changent tout",
+        paragraphs: [
+          "Premier exemple : le service doit rester utilisable sur des terminaux anciens avec des performances adaptées. Un site qui rame sur un téléphone de 5 ans pousse au renouvellement : l'écoconception commence par ne pas exclure. Deuxième exemple : limiter l'économie de l'attention, lecture automatique et défilement infini en tête, qui gonflent les usages sans bénéfice pour l'utilisateur.",
+          "Troisième exemple, côté coulisses : éteindre ou mutualiser les environnements de développement et de test hors usage (critère 3.7), compresser les documents au bon format (5.7), mettre en cache côté utilisateur (6.2). Des gestes d'atelier qui, cumulés, pèsent lourd.",
+        ],
+        fact: {
+          value: "78",
+          label: "Critères du référentiel, de la stratégie à l'hébergement",
+          source: "Arcep et Arcom, 2024",
+          calculation: "Version 2 du 28/05/2024, 8 familles, 3 niveaux de priorité",
+        },
+      },
+      {
+        heading: "Et après ? Déclarer, partager, progresser",
+        paragraphs: [
+          "Le point le plus malin du dispositif : pour se prévaloir du référentiel, il faut publier une déclaration d'écoconception, document public et auditable qui dit ce qui est fait et ce qui reste à faire. Fini le « site éco-conçu » sans preuve : la transparence est le prérequis, pas la cerise.",
+          "Pour aller plus loin : l'outil d'autoévaluation et NumEcoDiag pour se noter, le Forum des parties prenantes pour partager entre acteurs, et notre fiche écoconception pour les gestes au quotidien. Développeurs : commencez par les critères Prioritaires. DSI : exigez la déclaration dans vos achats. Citoyens : demandez-la à vos fournisseurs.",
+        ],
+      },
+    ],
+    takeaway: [
+      "78 questions publiques et gratuites : la check-list existe, utilisez-la.",
+      "Terminaux anciens, attention, extinction nocturne : les trois réflexes.",
+      "Pas de déclaration publique, pas d'écoconception revendiquée.",
+    ],
+    related: [
+      {
+        href: "/fiches-pratiques/ecoconception-web",
+        label: "Fiche écoconception web",
+        description: "Les gestes concrets pour développeurs, à imprimer.",
+      },
+      {
+        href: "/fiches-pratiques/green-it-entreprise",
+        label: "Green IT en entreprise",
+        description: "La démarche complète pour les organisations.",
+      },
+      {
+        href: "/outils",
+        label: "Nos outils de calcul",
+        description: "Mesurez avant d'optimiser.",
+      },
+    ],
+    sourceLinks: [
+      { label: "RGESN officiel (MiNumEco, version 2024)", url: "https://ecoresponsable.numerique.gouv.fr/publications/referentiel-general-ecoconception" },
+      { label: "Arcep, page du référentiel", url: "https://www.arcep.fr/mes-demarches-et-services/entreprises/fiches-pratiques/referentiel-general-ecoconception-services-numeriques.html" },
+    ],
+    sources: [
+      "Arcep et Arcom, RGESN version 2 (17/05/2024, màj 28/05/2024 : 78 critères, 8 familles)",
+      "Arcep, communiqué de publication (17/05/2024 : consultation 2023, 57 contributions, forum)",
+      "ADEME-Arcep, étude d'impact 2023 (×3 entre 2020 et 2050 sans action)",
     ],
   },
 ]

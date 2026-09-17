@@ -15,6 +15,7 @@ import {
   PueMiniCalc,
   ReconditionneCalc,
   ReparableQuiz,
+  RgesnCheck,
 } from "@/components/blog-widgets"
 import { JsonLd } from "@/components/json-ld"
 import { SITE_NAME, SITE_URL, pageOpenGraph } from "@/lib/metadata"
@@ -43,6 +44,7 @@ const WIDGETS: Record<BlogWidgetKey, () => React.JSX.Element> = {
   "agec-timeline": AgecTimeline,
   "reparable-quiz": ReparableQuiz,
   "box-calc": BoxCalc,
+  "rgesn-check": RgesnCheck,
 }
 
 export default async function BlogArticlePage({ params }: { params: Promise<{ slug: string }> }) {

@@ -16,7 +16,8 @@ Ordre validé : box/FAI, portraits, livres, articles. Un chantier = sourçage d'
 - [x] 6 livres vérifiés + section `#livres` (5 liens éditeurs en 200, Pitron sans lien car site injoignable)
 - [x] vérif : tsc 0, build 60/60, 6 cartes rendues
 
-## chantier 4 — nouveaux articles (à faire)
-- [ ] sujets pressentis : RGESN et écoconception, bonus réparation QualiRépar, IA générative (0,3 Wh), à trancher avec l'auteur
-- [ ] 1 article = 1 widget + visuel + sources vérifiées
-- [ ] vérif : tsc, build, navigateur, changelog + todo
+## chantier 4 — nouveaux articles (RGESN fait le 17/09, bonus et IA ensuite)
+- [x] RGESN : article `rgesn-ecoconception-10-minutes` + widget `rgesn-check`, visuel 29 Ko, câblage complet (SW `v1.3.8`), vérifié (build 61/61, quiz + image + JSON-LD)
+- [x] maillage renforcé : 6 ponts (3 côté blog, 3 côté fiches), vérifiés rendus
+- [ ] bonus réparation : sourçage puis rédaction + visuel + vérif
+- [ ] IA générative : sourçage puis rédaction + visuel + vérif

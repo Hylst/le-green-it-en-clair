@@ -40,6 +40,7 @@ export function Breadcrumb() {
     "que-consomme-vraiment-votre-box": "Que consomme votre box ?",
     "fairphone-portrait-telephone-equitable": "Fairphone : portrait",
     "envie-portrait-reemploi-solidaire": "Envie : portrait",
+    "rgesn-ecoconception-10-minutes": "RGESN en 10 minutes",
     faq: "FAQ",
     "fiches-pratiques": "Fiches pratiques",
     "sitemap-page": "Plan du site",

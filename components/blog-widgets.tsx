@@ -505,3 +505,91 @@ export function BoxCalc() {
     </div>
   )
 }
+
+/* 7. Mini auto-test RGESN : 4 questions, le réflexe écoconception. */
+
+const RGESN_QUIZ = [
+  {
+    question: "Votre site s'affiche-t-il correctement sur un smartphone de 5 ans ?",
+    options: ["Oui, sans ralentissement", "Non, il faut un appareil récent", "Je ne sais pas"],
+    correct: 0,
+    explain: "Le RGESN demande un service utilisable sur d'anciens terminaux : c'est le premier levier contre le renouvellement forcé.",
+  },
+  {
+    question: "Les vidéos se lancent-elles toutes seules à l'ouverture des pages ?",
+    options: ["Non, jamais", "Oui, pour l'engagement", "Seulement parfois"],
+    correct: 0,
+    explain: "Lecture auto et défilement infini alimentent l'économie de l'attention : le référentiel demande de les limiter.",
+  },
+  {
+    question: "Vos environnements de test tournent-ils jour et nuit ?",
+    options: ["Non, éteints ou mutualisés la nuit", "Oui, toujours allumés", "Je ne sais pas"],
+    correct: 0,
+    explain: "Serveurs de test allumés pour rien : le critère 3.7 demande extinction ou mutualisation hors usage.",
+  },
+  {
+    question: "Publiez-vous une déclaration d'écoconception ?",
+    options: ["Oui, publique et à jour", "Non", "C'est quoi ?"],
+    correct: 0,
+    explain: "Sans déclaration publique, impossible de se prévaloir du référentiel : la transparence est le prérequis.",
+  },
+]
+
+export function RgesnCheck() {
+  const [answers, setAnswers] = useState<(number | null)[]>([null, null, null, null])
+  const answered = answers.filter((a) => a !== null).length
+  const score = answers.filter((a, i) => a === RGESN_QUIZ[i].correct).length
+
+  const answer = (question: number, option: number) => {
+    setAnswers((prev) => prev.map((value, i) => (i === question ? option : value)))
+  }
+
+  return (
+    <div className={cardClass}>
+      <WidgetTitle>Votre service passerait-il le RGESN ?</WidgetTitle>
+      <WidgetHint>4 questions inspirées des critères. La correction s'affiche aussitôt.</WidgetHint>
+      <div className="space-y-5">
+        {RGESN_QUIZ.map((item, qi) => (
+          <fieldset key={item.question} className="rounded-lg bg-card p-4">
+            <legend className="px-1 text-sm font-semibold text-foreground">{item.question}</legend>
+            <div className="mt-2 space-y-2">
+              {item.options.map((option, oi) => {
+                const chosen = answers[qi] === oi
+                const revealed = answers[qi] !== null
+                return (
+                  <label
+                    key={option}
+                    className={cn(
+                      "flex cursor-pointer items-start gap-2.5 rounded-lg border p-2.5 text-sm transition-colors",
+                      revealed && oi === item.correct && "border-emerald-500 bg-emerald-500/10",
+                      revealed && chosen && oi !== item.correct && "border-red-400 bg-red-500/10",
+                      !revealed && "border-border hover:bg-secondary/60"
+                    )}
+                  >
+                    <input
+                      type="radio"
+                      name={`rgesn-q${qi}`}
+                      checked={chosen}
+                      onChange={() => answer(qi, oi)}
+                      className="mt-0.5 h-4 w-4 shrink-0 accent-emerald-600"
+                    />
+                    <span className="text-foreground">{option}</span>
+                  </label>
+                )
+              })}
+            </div>
+            {answers[qi] !== null && (
+              <p className="mt-2 flex items-start gap-2 text-sm text-muted-foreground">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" aria-hidden="true" />
+                {item.explain}
+              </p>
+            )}
+          </fieldset>
+        ))}
+      </div>
+      <p className="mt-4 text-sm font-medium text-foreground" aria-live="polite">
+        Score : {score} sur {RGESN_QUIZ.length} ({answered} sur {RGESN_QUIZ.length} répondues)
+      </p>
+    </div>
+  )
+}

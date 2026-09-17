@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react"
-import { Calculator, ClipboardCheck, HeartHandshake, Leaf, Scale, Smartphone, Wifi, Wrench, Zap } from "lucide-react"
+import { Calculator, ClipboardCheck, HeartHandshake, Leaf, Scale, Smartphone, Sparkles, Wifi, Wrench, Zap } from "lucide-react"
 
 /* Contenus du blog : écriture simple, un chiffre sourcé par idée forte,
    le reste de la précision rangé dans des blocs dépliables. */
@@ -25,6 +25,7 @@ export type BlogWidgetKey =
   | "box-calc"
   | "rgesn-check"
   | "bonus-check"
+  | "ia-quiz"
 
 export interface BlogSection {
   heading: string
@@ -1089,6 +1090,8 @@ export const posts: BlogPost[] = [
     ],
   },
   {
+    image: "/greenit/images/blog/blog-bonus-reparation.webp",
+    imageAlt: "Établi de réparateur avec smartphone ouvert, tournevis et facture à prix réduit",
     slug: "bonus-reparation-mode-emploi",
     title: "Bonus réparation : le mode d'emploi en 10 minutes",
     excerpt:
@@ -1213,6 +1216,123 @@ export const posts: BlogPost[] = [
       "Jerepare.fr, plateforme officielle du bonus (Ecologic, ecosystem, Ecomaison, Refashion ; consultée en septembre 2026)",
       "ADEME, Épargnons nos ressources, page Bonus réparation (consultée en septembre 2026)",
       "ADEME, Que faire de mes objets, page Bonus Réparation (màj 24/08/2026 : 1,5 M de réparations, 63 M€, 6 500 réparateurs)",
+    ],
+  },
+  {
+    slug: "ia-generative-avis-ademe-2026",
+    title: "IA générative : ce que dit l'ADEME en 2026",
+    excerpt:
+      "485 TWh pour les datacenters mondiaux en 2025, un doublement possible d'ici 2030 : le décryptage de l'avis du 22 juillet 2026, sans catastrophisme ni solution magique.",
+    date: "Septembre 2026",
+    readingTime: "6 min",
+    icon: Sparkles,
+    essential: [
+      "L'avis de l'ADEME du 22 juillet 2026 : 485 TWh pour les datacenters mondiaux en 2025, un doublement possible d'ici 2030.",
+      "Les impacts viennent surtout de l'électricité des datacenters — et du mix électrique derrière la prise.",
+      "L'IA « pour la planète » reste minoritaire : ses gains doivent être prouvés, cycle de vie et rebonds inclus.",
+    ],
+    sections: [
+      {
+        heading: "Un avis qui fait date",
+        paragraphs: [
+          "Le 22 juillet 2026, l'ADEME publie un avis au titre sans détour : « L'intelligence artificielle générative, des impacts environnementaux importants ». L'exercice est inédit par son ampleur : panorama des effets directs et indirects, négatifs et positifs, des IA génératives et agentiques, avec des recommandations pour limiter la casse.",
+          "Le point de départ est connu : en 2022, le numérique représentait déjà 4,4 % de l'empreinte carbone de la France. L'IA générative y ajoute une couche nouvelle : une course technologique féroce, des investissements massifs, et des usages qui explosent plus vite que les méthodes pour les mesurer.",
+        ],
+        fact: {
+          value: "485 TWh",
+          label: "Consommation électrique des datacenters dans le monde en 2025, un doublement possible d'ici 2030",
+          source: "ADEME, avis du 22/07/2026",
+          calculation: "Doublement = l'équivalent de la consommation du Japon ; ×3,7 en France d'ici 2035",
+        },
+      },
+      {
+        heading: "Le gros du problème : l'électricité des datacenters",
+        paragraphs: [
+          "Premier enseignement : les impacts sont majoritairement liés à la consommation énergétique des centres de données qui entraînent les modèles puis les font tourner au quotidien. D'où une conséquence directe : tout dépend du mix électrique employé. Or les usages numériques français dépendent aux deux tiers de datacenters hébergés à l'étranger, avec des mix bien plus carbonés que le français.",
+          "Le reste n'est pas négligeable pour autant : fabrication des serveurs, artificialisation des sols, consommation d'eau de refroidissement. Et un obstacle transverse : l'opacité des acteurs sur les données d'entraînement, la taille des modèles et la consommation réelle, qui complique toute quantification sérieuse.",
+        ],
+        bullets: [
+          "Datacenters d'abord : entraînement des modèles et usages quotidiens",
+          "Mix électrique : le même calcul peut émettre du simple au décuple",
+          "Serveurs, eau, sols : les impacts hors électricité comptent aussi",
+        ],
+        details: [
+          {
+            title: "Pourquoi le mix électrique change tout ?",
+            paragraphs: [
+              "Un kilowattheure ne vaut pas un autre : produit avec du charbon ou avec du nucléaire et des renouvelables, son contenu carbone varie énormément. Deux datacenters à l'efficacité identique peuvent donc avoir des bilans très différents.",
+              "C'est aussi l'argument de la relocalisation : rapatrier en France des usages aujourd'hui hébergés à l'étranger diminue les émissions, à condition de remplacer de l'existant — pas d'ajouter des capacités pour de nouveaux usages.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Et vos usages dans tout ça ?",
+        widget: "ia-quiz",
+        paragraphs: [
+          "Deuxième enseignement : l'explosion des usages crée des impacts indirects difficiles à prévoir — stockage de données supplémentaires, terminaux plus énergivores. Chacun de ces usages pris isolément pèse peu ; multipliés par des centaines de millions d'utilisateurs, ils tirent la trajectoire vers le haut.",
+          "D'où le mot d'ordre de l'avis côté utilisateurs : un usage raisonné et maîtrisé. Solliciter l'IA quand elle apporte une vraie valeur, désactiver les fonctionnalités « augmentées » dont on ne se sert pas, et garder la main sur ses outils plutôt que de subir les réglages par défaut. Testez vos réflexes avec le mini quiz ci-dessus.",
+        ],
+        bullets: [
+          "Vraie valeur d'abord : l'IA quand elle sert, pas par réflexe",
+          "Fonctions « augmentées » : désactivez ce que vous n'utilisez pas",
+          "Modèles dimensionnés au besoin, prestataires transparents",
+        ],
+      },
+      {
+        heading: "L'IA « pour la planète » : promesse à vérifier",
+        paragraphs: [
+          "L'argument revient souvent : l'IA aiderait la transition écologique, ce qui compenserait son empreinte. L'avis douche l'enthousiasme : ces applications restent minoritaires et ne relèvent pas des mêmes technologies que les IA génératives, qui concentrent l'essentiel des impacts.",
+          "La règle posée est simple et saine : un gain net ne s'affirme qu'après analyse complète du cycle de vie, effets rebond et transferts d'impact inclus. Les premiers cas étudiés montrent des gains réels mais d'ampleur très variable — à penser en complément des autres leviers de décarbonation, jamais à leur place.",
+        ],
+        fact: {
+          value: "×3,7",
+          label: "Trajectoire possible de la consommation des datacenters en France d'ici 2035",
+          source: "ADEME, avis du 22/07/2026",
+          calculation: "Analyse prospective 2026, croissance portée notamment par les services d'IA",
+        },
+        details: [
+          {
+            title: "C'est quoi, un effet rebond ?",
+            paragraphs: [
+              "Une IA qui optimise les livraisons fait rouler moins de camions à service égal — gain réel. Mais si la livraison moins chère fait exploser les commandes, le bilan global peut se dégrader : c'est l'effet rebond, l'économie réalisée qui relance la consommation.",
+              "D'où l'exigence de l'avis : mesurer sur tout le cycle de vie et anticiper ces effets, au lieu de compter seulement les gains affichés.",
+            ],
+          },
+        ],
+      },
+    ],
+    takeaway: [
+      "485 TWh en 2025, doublement possible en 2030 : la trajectoire appelle à la vigilance.",
+      "Datacenters et mix électrique : c'est là que se joue l'essentiel.",
+      "Usage raisonné, fonctions superflues coupées, promesses vertes vérifiées.",
+    ],
+    related: [
+      {
+        href: "/fiches-pratiques/ia-generative",
+        label: "Fiche IA générative",
+        description: "Comprendre et limiter l'impact, en 10 minutes.",
+      },
+      {
+        href: "/datacenters",
+        label: "Datacenters verts",
+        description: "PUE, mix en direct et simulateur d'impact carbone.",
+      },
+      {
+        href: "/blog/comprendre-le-pue-en-5-minutes",
+        label: "Comprendre le PUE en 5 minutes",
+        description: "L'indicateur d'efficacité des datacenters.",
+      },
+    ],
+    sourceLinks: [
+      { label: "Communiqué ADEME (22/07/2026)", url: "https://www.ademe.fr/presse/communique-national/ia-generative-comment-quantifier-les-impacts/" },
+      { label: "L'avis complet (librairie ADEME)", url: "https://librairie.ademe.fr/economie-circulaire-et-dechets/9495-avis-de-l-ademe-l-intelligence-artificielle-generative-des-impacts-environnementaux-importants.html" },
+    ],
+    sources: [
+      "ADEME, avis « L'intelligence artificielle générative, des impacts environnementaux importants » (22/07/2026 : 485 TWh, ×2 en 2030, ×3,7 France 2035)",
+      "ADEME, communiqué « IA générative, comment quantifier les impacts ? » (22/07/2026)",
+      "Agence internationale de l'énergie, Energy and AI (avril 2025)",
+      "ADEME-Arcep, enquête annuelle sur l'empreinte environnementale du numérique (2023)",
     ],
   },
 ]

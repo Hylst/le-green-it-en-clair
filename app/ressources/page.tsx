@@ -5,8 +5,9 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Download, ExternalLink, FileText, BookOpen, Video, Search } from "lucide-react"
+import { Download, ExternalLink, FileText, BookOpen, Video, Search, Play, ArrowRight } from "lucide-react"
 import { PageHero } from "@/components/page-hero"
+import { VideoEmbed } from "@/components/video-embed"
 import Link from "next/link"
 
 const resources = [
@@ -103,8 +104,70 @@ const resources = [
   },
 ]
 
-const externalLinks = [
+/* Vidéos vérifiées à la main le 17/09/2026 : collection « Sobriété numérique »
+   (Fondation UVED avec le soutien d’Alt IMPACT, 21 vidéos, mise en ligne le 05/02/2026).
+   Licence CC BY-NC-SA (UVED) : attribution obligatoire, rappelée sous chaque vidéo. */
+const featuredVideo = {
+  title: "Le numérique : des impacts environnementaux multiples",
+  author: "Anne-Cécile Orgerie, directrice de recherche au CNRS · 00:08:22",
+  duration: "00:08:22",
+  pageUrl: "https://www.canal-u.tv/chaines/canal-uved/le-numerique-des-impacts-environnementaux-multiples",
+  embedUrl: "https://www.canal-u.tv/chaines/canal-uved/embed/169865?t=0",
+  posterUrl: "https://vod.canal-u.tv/videos/2026/01/110133/sobnum_2_orgerie1.jpg",
+  license: "Canal-U / UVED, CC BY-NC-SA",
+  relatedHref: "/comprendre",
+  relatedLabel: "Le cycle de vie, en interactif",
+}
+
+const videos = [
   {
+    title: "Les données, une matière intangible aux impacts bien concrets !",
+    author: "Didier Mallarino, ingénieur de recherche au CNRS",
+    duration: "00:09:12",
+    date: "23/01/2026",
+    pageUrl: "https://www.canal-u.tv/chaines/canal-uved/les-donnees-une-matiere-intangible-aux-impacts-bien-concrets",
+    relatedHref: "/fiches-pratiques/emails-cloud",
+    relatedLabel: "Fiche e-mails et cloud",
+  },
+  {
+    title: "Comment éco-concevoir un logiciel ?",
+    author: "Georges Da Costa, professeur à l’université de Toulouse",
+    duration: "00:09:18",
+    date: "23/01/2026",
+    pageUrl: "https://www.canal-u.tv/chaines/canal-uved/comment-eco-concevoir-un-logiciel",
+    relatedHref: "/fiches-pratiques/ecoconception-web",
+    relatedLabel: "Fiche écoconception web",
+  },
+  {
+    title: "Les impacts environnementaux de l’intelligence artificielle",
+    author: "Anne-Laure Ligozat, professeure à l’ensIIE",
+    duration: "00:06:18",
+    date: "22/01/2026",
+    pageUrl: "https://www.canal-u.tv/chaines/canal-uved/les-impacts-environnementaux-de-l-intelligence-artificielle",
+    relatedHref: "/fiches-pratiques/ia-generative",
+    relatedLabel: "Fiche IA générative",
+  },
+  {
+    title: "Les enjeux d’un numérique soutenable",
+    author: "Benjamin Ninassi, Inria (programme Numérique et environnement)",
+    duration: "00:11:00",
+    date: "12/01/2026",
+    pageUrl: "https://www.canal-u.tv/chaines/canal-uved/les-enjeux-d-un-numerique-soutenable",
+    relatedHref: "/par-ou-commencer",
+    relatedLabel: "Par où commencer",
+  },
+  {
+    title: "Le droit au service de la sobriété numérique",
+    author: "Thomas Le Goff, maître de conférences à Télécom Paris",
+    duration: "00:06:12",
+    date: "14/01/2026",
+    pageUrl: "https://www.canal-u.tv/chaines/canal-uved/le-droit-au-service-de-la-sobriete-numerique",
+    relatedHref: "/reglementation",
+    relatedLabel: "La réglementation",
+  },
+]
+
+const externalLinks = [  {
     name: "ADEME",
     description: "Agence de la transition écologique",
     url: "https://www.ademe.fr",
@@ -305,6 +368,41 @@ const glossaryData = [
       "Fin du support logiciel d'un appareil (mises à jour de sécurité, versions d'OS), qui pousse au renouvellement alors que le matériel fonctionne encore.",
     category: "Réglementation",
   },
+  {
+    term: "Réemploi",
+    definition:
+      "Fait de donner une seconde vie à un appareil encore fonctionnel (don, vente d'occasion), sans passer par le recyclage. Avec la réparation, c'est la priorité avant le recyclage : un appareil réemployé évite une fabrication neuve.",
+    category: "Pratique",
+    link: { label: "Où donner et réparer", href: "/recyclage" },
+  },
+  {
+    term: "Bonus réparation",
+    definition:
+      "Aide déduite directement de la facture chez un réparateur labellisé QualiRépar : de 10 à 65 € selon l'appareil, dont 25 € pour un smartphone (ADEME).",
+    category: "Réglementation",
+    link: { label: "Fiche réparer et prolonger", href: "/fiches-pratiques/reparer-prolonger" },
+  },
+  {
+    term: "Free cooling",
+    definition:
+      "Refroidissement d'un datacenter par l'air extérieur plutôt que par climatisation, quand le climat le permet. Un des leviers qui font baisser le PUE sous 1,3.",
+    category: "Datacenters",
+    link: { label: "Comprendre le PUE en 5 minutes", href: "/blog/comprendre-le-pue-en-5-minutes" },
+  },
+  {
+    term: "Garantie légale de conformité",
+    definition:
+      "Garantie de 2 ans qui couvre tout appareil vendu en France, neuf comme reconditionné, avec présomption de défaut pendant 24 mois. Depuis juillet 2026, une réparation sous garantie la prolonge de 12 mois.",
+    category: "Réglementation",
+    link: { label: "Guide d'achat responsable", href: "/fiches-pratiques/achat-responsable" },
+  },
+  {
+    term: "Taux de collecte",
+    definition:
+      "Part des e-déchets effectivement collectés pour traitement, par rapport au gisement. En France, environ 46 % (ADEME 2024, Eurostat 2024) : plus de la moitié des appareils en fin de vie échappe encore à la filière.",
+    category: "Réglementation",
+    link: { label: "Les chiffres en détail", href: "/chiffres" },
+  },
 ]
 
 export default function RessourcesPage() {
@@ -409,9 +507,78 @@ export default function RessourcesPage() {
         </div>
       </section>
 
-      {/* External Links */}
-      <section className="bg-secondary/5 px-6 py-16 lg:py-24">
+      {/* Videos : collection Canal-U vérifiée, lecture au clic */}
+      <section className="px-6 py-16 lg:py-24 bg-background">
         <div className="mx-auto max-w-7xl">
+          <h2 className="mb-4 text-center text-3xl font-bold text-foreground lg:text-4xl">
+            Vidéos : la sobriété numérique expliquée par des chercheurs
+          </h2>
+          <p className="mx-auto mb-12 max-w-2xl text-center text-muted-foreground">
+            Collection « Sobriété numérique » (Fondation UVED avec le soutien d’Alt IMPACT, 21 vidéos).
+            La lecture ne charge la vidéo qu’au clic. Contenus sous licence CC BY-NC-SA, ils restent
+            la propriété de leurs auteurs.
+          </p>
+          <div className="grid gap-10 lg:grid-cols-2">
+            <VideoEmbed
+              title={featuredVideo.title}
+              author={featuredVideo.author}
+              duration={featuredVideo.duration}
+              pageUrl={featuredVideo.pageUrl}
+              embedUrl={featuredVideo.embedUrl}
+              posterUrl={featuredVideo.posterUrl}
+              license={featuredVideo.license}
+            />
+            <div className="flex flex-col justify-center gap-3">
+              <Button asChild variant="outline" className="w-fit">
+                <Link href={featuredVideo.relatedHref}>
+                  <FileText className="mr-2 h-4 w-4" aria-hidden="true" />
+                  {featuredVideo.relatedLabel}
+                </Link>
+              </Button>
+              <a
+                href="https://www.canal-u.tv/chaines/canal-uved/sobriete-numerique"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-fit items-center text-sm font-semibold text-primary hover:underline"
+              >
+                Toute la collection sur Canal-U (21 vidéos)
+                <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {videos.map((video) => (
+              <Card key={video.pageUrl} className="flex flex-col border border-border bg-card p-6">
+                <div className="mb-2 flex items-center gap-2 text-xs text-muted-foreground">
+                  <Play className="h-3.5 w-3.5" aria-hidden="true" />
+                  <span>
+                    {video.duration} · {video.date}
+                  </span>
+                </div>
+                <h3 className="mb-2 font-semibold text-card-foreground">{video.title}</h3>
+                <p className="mb-4 flex-1 text-sm text-muted-foreground">{video.author}</p>
+                <div className="flex flex-wrap gap-2">
+                  <Button asChild size="sm" variant="outline">
+                    <a href={video.pageUrl} target="_blank" rel="noopener noreferrer">
+                      Regarder sur Canal-U
+                      <ExternalLink className="ml-2 h-3.5 w-3.5" aria-hidden="true" />
+                    </a>
+                  </Button>
+                  <Button asChild size="sm" variant="ghost">
+                    <Link href={video.relatedHref}>
+                      {video.relatedLabel}
+                      <ArrowRight className="ml-1 h-3.5 w-3.5" aria-hidden="true" />
+                    </Link>
+                  </Button>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* External Links */}
+      <section className="bg-secondary/5 px-6 py-16 lg:py-24">        <div className="mx-auto max-w-7xl">
           <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">
             Liens utiles
           </h2>
@@ -488,6 +655,15 @@ export default function RessourcesPage() {
                   </Badge>
                 </div>
                 <p className="text-sm text-muted-foreground">{item.definition}</p>
+                {item.link && (
+                  <Link
+                    href={item.link.href}
+                    className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+                  >
+                    {item.link.label}
+                    <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  </Link>
+                )}
               </Card>
             ))}
           </div>

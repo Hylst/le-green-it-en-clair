@@ -8,6 +8,7 @@ Je note ici ce qui change, même les petits trucs.
 - 1 widget interactif par article (`components/blog-widgets.tsx`, composants clients isolés) : checklist d’audit en 6 cases avec progression mémorisée, calculateur euros et CO₂e selon le grade, mini simulateur PUE (kW, MWh/an, facture à 0,20 €/kWh), frise AGEC/REEN à feuilleter, mini quiz en 3 questions avec correction immédiate. Résultats en `aria-live`, chiffres déjà sourcés du site, aucun tiret cadratin.
 - oublis rattrapés (revue pessimiste) : SW `v1.3.4` (précache + 6 fiches manquantes depuis la vague contenu + 6 URLs blog), print qui déplie les `details` fermés, maillage retour (3 fiches lient leur article de blog), 4 tirets cadratins normalisés dans `eco2mix-live`.
 - vérifié : `tsc` 0 erreur (1 corrigée : `ReactNode` dans le hint du calculateur), build 55/55, 12 images en 200, HTML rendu contrôlé (hero, 5 vignettes, 5 widgets, 6 vignettes fiches), `check:typo` sans signalement nouveau (restes = code préexistant).
+- revue du 17/09 (soir) : compteur « 8 fiches » périmé sur `/ressources` → 15, 8 onglets outils confirmés, choix « français uniquement » noté dans le todo.
 
 ## 17/09/2026 — blog (5 articles) + direct éCO2mix enrichi
 

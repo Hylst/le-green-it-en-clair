@@ -72,7 +72,7 @@ export default function HomePage() {
                 className="ml-1"
                 source="ADEME, 2024"
                 calculation="≈ 24 kg produits par habitant × 68 M d'habitants ≈ 1,6 Mt/an ; taux de collecte national ~46 % (Eurostat 2024)"
-              />
+              />{" "}
               Découvrez comment agir pour un numérique plus responsable.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">

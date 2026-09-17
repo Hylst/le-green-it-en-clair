@@ -2,6 +2,13 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 17/09/2026 — passe e2e + vision (nuit)
+
+- passe end-to-end sur l'export servi en local sous `/greenit/` (Chromium) : 63 pages, 3 101 liens internes (0 mort), 91 blocs JSON-LD (0 invalide, BlogPosting sur les 12 articles), 61 titres distincts (1 doublon 404, noindex, écarté), 74 images (0 sans alt), 8 onglets outils chargés, quiz bonus/IA 4/4, quiz Défi (question, timer, correction sourcée), carte Leaflet (10 marqueurs), éCO2mix (live + repli), recherche, Escape, 5 captures dark/light/mobile.
+- 3 correctifs : recherche insensible aux accents (`search-dialog` + `ui/command`, « bonus reparation » et « ia generative » trouvent, vérifié), espace manquante après l'infobulle source du hero accueil (`①Découvrez` → `① Découvrez`, seul vrai cas sur 13 fichiers), `recycling-electronics.webp` 166 → 83 Ko (768 px, q70, vignette uniquement).
+- faux positifs écartés : prefetch RSC `__PAGE__.txt` en 404 (cosmétique connu), chunks lazy outils, images lazy des fiches (16/16 après scroll), `/offline/` hors sitemap (noindex, normal).
+- vérifié : tsc 0, build 63/63, export (0 image > 150 Ko, espace présente).
+
 ## 17/09/2026 — article IA générative (soir)
 
 - article 12 « IA générative : ce que dit l'ADEME en 2026 » : décryptage de l'avis du 22/07/2026 lu à la source (485 TWh, ×2 en 2030, ×3,7 France 2035, mix électrique, opacité, AI for green à vérifier), widget `ia-quiz` (4 questions, `aria-live`), 2 liens officiels vérifiés (communiqué + librairie ADEME). Sans visuel pour l'instant (icône de repli). Câblage complet + pont fiche IA, SW `v1.4.0`.

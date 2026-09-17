@@ -20,6 +20,17 @@ interface SearchDialogProps {
     onOpenChange: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+// Recherche insensible aux accents : « reparation » trouve « réparation ».
+// cmdk attend un score (0 = exclu), on garde la correspondance par mots.
+const stripAccents = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+
+function accentInsensitiveFilter(value: string, search: string): number {
+    const query = stripAccents(search).trim()
+    if (!query) return 1
+    const target = stripAccents(value)
+    return query.split(/\s+/).every((word) => target.includes(word)) ? 1 : 0
+}
+
 export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
     const router = useRouter()
 
@@ -41,7 +52,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
     }, [onOpenChange])
 
     return (
-        <CommandDialog open={open} onOpenChange={onOpenChange}>
+        <CommandDialog open={open} onOpenChange={onOpenChange} filter={accentInsensitiveFilter}>
             <CommandInput placeholder="Rechercher une page ou une fonctionnalité..." />
             <CommandList>
                 <CommandEmpty>Aucun résultat trouvé.</CommandEmpty>

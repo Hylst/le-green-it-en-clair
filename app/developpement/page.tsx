@@ -444,16 +444,16 @@ export default function DeveloppementPage() {
               </CardHeader>
               <CardContent>
                 <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg text-sm overflow-x-auto">
-                  {`// ❌ Charger toute la table
+                  {`// À éviter : charger toute la table
 const users = await db.users.findAll()
 
-// ❌ Requête N+1
+// À éviter : requête N+1
 users.forEach(user => {
   const posts = await db.posts
     .findByUserId(user.id)
 })
 
-// ❌ Tout envoyer au client
+// À éviter : tout envoyer au client
 res.json(users) // 10 MB de données`}
                 </pre>
               </CardContent>
@@ -468,19 +468,19 @@ res.json(users) // 10 MB de données`}
               </CardHeader>
               <CardContent>
                 <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg text-sm overflow-x-auto">
-                  {`// ✅ Pagination + sélection
+                  {`// Mieux : pagination + sélection
 const users = await db.users.findMany({
   select: { id: true, name: true, email: true },
   take: 20,
   skip: page * 20
 })
 
-// ✅ Jointure optimisée
+// Mieux : jointure optimisée
 const users = await db.users.findMany({
   include: { posts: true }
 })
 
-// ✅ Compression
+// Mieux : compression
 res.json(users) // 150 KB compressé`}
                 </pre>
               </CardContent>

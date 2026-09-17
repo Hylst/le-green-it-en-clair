@@ -65,7 +65,7 @@ const carbonBySectorData = [
   { sector: "Réseaux", percentage: 5 },
 ]
 
-// Data for recycling rates by country (Eurostat / Ecosystem, 2024 — même série que /chiffres)
+// Data for recycling rates by country (Eurostat / Ecosystem, 2024, même série que /chiffres)
 const recyclingRatesData = [
   { country: "France", rate: 46 },
   { country: "Allemagne", rate: 52 },
@@ -405,7 +405,7 @@ const futureSolutions = [
     solutions: [
       {
         name: "Datacenters sous-marins",
-        description: "Microsoft Project Natick : essai arrêté en 2024 après six ans d'expérimentation (refroidissement naturel, fiabilité accrue) — l'immersion en bassin prend le relais",
+        description: "Microsoft Project Natick : essai arrêté en 2024 après six ans d'expérimentation (refroidissement naturel, fiabilité accrue), l'immersion en bassin prend le relais",
         potential: "Moyen",
         challenges: "Impact sur écosystèmes marins, maintenance, coûts",
       },

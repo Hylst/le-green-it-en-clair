@@ -56,13 +56,13 @@ for (const f of findings) {
 }
 
 if (findings.length === 0) {
-  console.log("check:typo — aucune occurrence détectée.")
+  console.log("check:typo : aucune occurrence détectée.")
   process.exit(0)
 }
 
-console.log(`check:typo — ${findings.length} occurrence(s) à vérifier (texte visible uniquement) :\n`)
+console.log(`check:typo : ${findings.length} occurrence(s) à vérifier (texte visible uniquement) :\n`)
 for (const [ruleId, items] of byRule) {
-  console.log(`# ${items[0].label} — ${items.length}`)
+  console.log(`# ${items[0].label} : ${items.length}`)
   for (const item of items.slice(0, 40)) {
     console.log(`  ${item.file}:${item.line}  ${item.excerpt}`)
   }

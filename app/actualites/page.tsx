@@ -265,7 +265,7 @@ export default function ActualitesPage() {
                     )}
 
                     <div className="flex items-center justify-between mt-auto">
-                      <span className="text-sm font-medium text-muted-foreground">La rédaction — exemple illustratif</span>
+                      <span className="text-sm font-medium text-muted-foreground">La rédaction (exemple illustratif)</span>
 
                       {article.relatedPage && (
                         <Button asChild variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0 hover:bg-transparent">

@@ -84,7 +84,7 @@ const recyclingRatesData = [
   { country: "Moyenne mondiale", rate: 22 },
 ]
 
-// Points de collecte — données d'exemple (chiffres illustratifs, pas des données officielles)
+// Points de collecte : données d'exemple (chiffres illustratifs, pas des données officielles)
 const recyclingPoints = [
   { city: "Paris", lat: 48.8566, lng: 2.3522, points: 245 },
   { city: "Lyon", lat: 45.764, lng: 4.8357, points: 98 },
@@ -340,7 +340,7 @@ export default function ChiffresPage() {
             </ResponsiveContainer>
           </Card>
 
-          <div className="mt-4 text-sm text-muted-foreground">CO₂ : ADEME, Impact CO₂ (mise à jour 2025). Énergie et eau : ordres de grandeur (ADEME 2023) — eau de 1 500 L (eau bleue) à plus de 20 000 L (empreinte complète) pour un ordinateur portable selon la méthode.</div>
+          <div className="mt-4 text-sm text-muted-foreground">CO₂ : ADEME, Impact CO₂ (mise à jour 2025). Énergie et eau : ordres de grandeur (ADEME 2023) : eau de 1 500 L (eau bleue) à plus de 20 000 L (empreinte complète) pour un ordinateur portable selon la méthode.</div>
         </div>
       </section>
 

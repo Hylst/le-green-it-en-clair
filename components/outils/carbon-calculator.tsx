@@ -29,7 +29,7 @@ export default function CarbonCalculator() {
   const calculateFootprint = () => {
     let total = 0
 
-    // Empreinte fabrication + usage annuel (kg CO2e) — ADEME, Impact CO₂, mise à jour 2025
+    // Empreinte fabrication + usage annuel (kg CO2e), source ADEME Impact CO₂, mise à jour 2025
     const deviceImpact = {
       smartphone: { fabrication: 79, usage: 0.4 },
       laptop: { fabrication: 182, usage: 2.1 },
@@ -130,7 +130,7 @@ export default function CarbonCalculator() {
                           <span className="text-sm font-semibold text-foreground">{data.age} ans</span>
                         </div>
                         <LabeledSlider
-                          label={`${device === "smartphone" ? "Smartphone" : device === "laptop" ? "Ordinateur portable" : device === "tablet" ? "Tablette" : device === "desktop" ? "Ordinateur fixe" : "Télévision"} — âge moyen`}
+                          label={`${device === "smartphone" ? "Smartphone" : device === "laptop" ? "Ordinateur portable" : device === "tablet" ? "Tablette" : device === "desktop" ? "Ordinateur fixe" : "Télévision"} : âge moyen`}
                           value={[data.age]}
                           onValueChange={([value]) =>
                             setDevices({
@@ -150,7 +150,7 @@ export default function CarbonCalculator() {
                           <span className="text-sm font-semibold text-foreground">{data.usage}h</span>
                         </div>
                         <LabeledSlider
-                          label={`${device === "smartphone" ? "Smartphone" : device === "laptop" ? "Ordinateur portable" : device === "tablet" ? "Tablette" : device === "desktop" ? "Ordinateur fixe" : "Télévision"} — usage quotidien`}
+                          label={`${device === "smartphone" ? "Smartphone" : device === "laptop" ? "Ordinateur portable" : device === "tablet" ? "Tablette" : device === "desktop" ? "Ordinateur fixe" : "Télévision"} : usage quotidien`}
                           value={[data.usage]}
                           onValueChange={([value]) =>
                             setDevices({

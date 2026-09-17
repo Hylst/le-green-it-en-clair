@@ -406,7 +406,7 @@ export default function EnterpriseSimulator() {
                     <div className="text-sm text-muted-foreground">ROI</div>
                   </div>
                   <div className="bg-card p-4 rounded-lg text-center border border-border">
-                    <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">{results.payback === -1 ? "—" : results.payback}</div>
+                    <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">{results.payback === -1 ? "-" : results.payback}</div>
                     <div className="text-sm text-muted-foreground">{results.payback === -1 ? "Non rentable sur 5 ans" : "Mois pour rentabilité"}</div>
                   </div>
                 </div>

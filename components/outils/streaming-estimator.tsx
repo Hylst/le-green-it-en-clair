@@ -51,7 +51,7 @@ export default function StreamingEstimator() {
         <div>
           <h2 className="font-poppins text-xl font-bold text-foreground">Estimateur streaming &amp; visio</h2>
           <p className="text-sm text-muted-foreground">
-            Données transférées, énergie du réseau et ordre de grandeur CO₂e — лиens vers nos fiches en bas.
+            Données transférées, énergie du réseau et ordre de grandeur CO₂e, liens vers nos fiches en bas.
           </p>
         </div>
       </div>
@@ -139,7 +139,7 @@ export default function StreamingEstimator() {
           <p className="text-sm text-muted-foreground">
             Soit l&apos;équivalent d&apos;environ <strong className="text-foreground">{Math.round(kmVoiture)} km en voiture</strong>.
             En France, le réseau pèse peu grâce au mix électrique bas-carbone : l&apos;enjeu principal reste la
-            fabrication des terminaux — gardez vos appareils longtemps.
+            fabrication des terminaux : gardez vos appareils longtemps.
           </p>
 
           <div className="rounded-xl border border-rose-200 bg-rose-50/50 p-4 dark:border-rose-800 dark:bg-rose-950/30">

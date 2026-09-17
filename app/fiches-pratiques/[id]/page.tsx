@@ -1078,7 +1078,7 @@ const sheets: Record<string, any> = {
       {
         title: "1. Combien d'écrans, vraiment ?",
         content:
-          "Selon Santé publique France (étude Enabee, résultats publiés en septembre 2025 sur des données 2022), les enfants passent en moyenne 1h22 par jour devant les écrans à 3-5 ans, 1h53 à 6-8 ans et 2h33 à 9-11 ans — deux fois plus les jours sans école. Les foyers comptent en moyenne une dizaine d'écrans.",
+          "Selon Santé publique France (étude Enabee, résultats publiés en septembre 2025 sur des données 2022), les enfants passent en moyenne 1h22 par jour devant les écrans à 3-5 ans, 1h53 à 6-8 ans et 2h33 à 9-11 ans, deux fois plus les jours sans école. Les foyers comptent en moyenne une dizaine d'écrans.",
         tips: [
           "1h22, 1h53, 2h33 : la durée augmente avec l'âge, quel que soit le sexe",
           "Les jours sans école, le temps d'écran double",

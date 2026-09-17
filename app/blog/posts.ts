@@ -1228,7 +1228,7 @@ export const posts: BlogPost[] = [
     icon: Sparkles,
     essential: [
       "L'avis de l'ADEME du 22 juillet 2026 : 485 TWh pour les datacenters mondiaux en 2025, un doublement possible d'ici 2030.",
-      "Les impacts viennent surtout de l'électricité des datacenters — et du mix électrique derrière la prise.",
+      "Les impacts viennent surtout de l'électricité des datacenters, et du mix électrique derrière la prise.",
       "L'IA « pour la planète » reste minoritaire : ses gains doivent être prouvés, cycle de vie et rebonds inclus.",
     ],
     sections: [
@@ -1261,7 +1261,7 @@ export const posts: BlogPost[] = [
             title: "Pourquoi le mix électrique change tout ?",
             paragraphs: [
               "Un kilowattheure ne vaut pas un autre : produit avec du charbon ou avec du nucléaire et des renouvelables, son contenu carbone varie énormément. Deux datacenters à l'efficacité identique peuvent donc avoir des bilans très différents.",
-              "C'est aussi l'argument de la relocalisation : rapatrier en France des usages aujourd'hui hébergés à l'étranger diminue les émissions, à condition de remplacer de l'existant — pas d'ajouter des capacités pour de nouveaux usages.",
+              "C'est aussi l'argument de la relocalisation : rapatrier en France des usages aujourd'hui hébergés à l'étranger diminue les émissions, à condition de remplacer de l'existant, pas d'ajouter des capacités pour de nouveaux usages.",
             ],
           },
         ],
@@ -1270,7 +1270,7 @@ export const posts: BlogPost[] = [
         heading: "Et vos usages dans tout ça ?",
         widget: "ia-quiz",
         paragraphs: [
-          "Deuxième enseignement : l'explosion des usages crée des impacts indirects difficiles à prévoir — stockage de données supplémentaires, terminaux plus énergivores. Chacun de ces usages pris isolément pèse peu ; multipliés par des centaines de millions d'utilisateurs, ils tirent la trajectoire vers le haut.",
+          "Deuxième enseignement : l'explosion des usages crée des impacts indirects difficiles à prévoir : stockage de données supplémentaires, terminaux plus énergivores. Chacun de ces usages pris isolément pèse peu ; multipliés par des centaines de millions d'utilisateurs, ils tirent la trajectoire vers le haut.",
           "D'où le mot d'ordre de l'avis côté utilisateurs : un usage raisonné et maîtrisé. Solliciter l'IA quand elle apporte une vraie valeur, désactiver les fonctionnalités « augmentées » dont on ne se sert pas, et garder la main sur ses outils plutôt que de subir les réglages par défaut. Testez vos réflexes avec le mini quiz ci-dessus.",
         ],
         bullets: [
@@ -1283,7 +1283,7 @@ export const posts: BlogPost[] = [
         heading: "L'IA « pour la planète » : promesse à vérifier",
         paragraphs: [
           "L'argument revient souvent : l'IA aiderait la transition écologique, ce qui compenserait son empreinte. L'avis douche l'enthousiasme : ces applications restent minoritaires et ne relèvent pas des mêmes technologies que les IA génératives, qui concentrent l'essentiel des impacts.",
-          "La règle posée est simple et saine : un gain net ne s'affirme qu'après analyse complète du cycle de vie, effets rebond et transferts d'impact inclus. Les premiers cas étudiés montrent des gains réels mais d'ampleur très variable — à penser en complément des autres leviers de décarbonation, jamais à leur place.",
+          "La règle posée est simple et saine : un gain net ne s'affirme qu'après analyse complète du cycle de vie, effets rebond et transferts d'impact inclus. Les premiers cas étudiés montrent des gains réels mais d'ampleur très variable, à penser en complément des autres leviers de décarbonation, jamais à leur place.",
         ],
         fact: {
           value: "×3,7",
@@ -1295,7 +1295,7 @@ export const posts: BlogPost[] = [
           {
             title: "C'est quoi, un effet rebond ?",
             paragraphs: [
-              "Une IA qui optimise les livraisons fait rouler moins de camions à service égal — gain réel. Mais si la livraison moins chère fait exploser les commandes, le bilan global peut se dégrader : c'est l'effet rebond, l'économie réalisée qui relance la consommation.",
+              "Une IA qui optimise les livraisons fait rouler moins de camions à service égal (gain réel). Mais si la livraison moins chère fait exploser les commandes, le bilan global peut se dégrader : c'est l'effet rebond, l'économie réalisée qui relance la consommation.",
               "D'où l'exigence de l'avis : mesurer sur tout le cycle de vie et anticiper ces effets, au lieu de compter seulement les gains affichés.",
             ],
           },

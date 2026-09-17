@@ -307,7 +307,7 @@ html {
 }
 
 /* ========================================
-   DESIGN SYSTEM — audit 09/2026
+   DESIGN SYSTEM (audit 09/2026)
    Couleurs thématiques par rubrique :
    la page pose data-theme="...", le CSS fait le reste.
    Aucune couleur en dur dans les pages.
@@ -477,7 +477,7 @@ html {
   /* Trame de points pour les bandeaux colorés (phase 3) : statique,
      donc compatible d'office avec les animations réduites.
      En ::before (z-index négatif + isolation) car background-image est déjà
-     pris par le dégradé du bandeau — une classe utilitaire l'écraserait. */
+     pris par le dégradé du bandeau : une classe utilitaire l'écraserait. */
   .texture-dots {
     position: relative;
     isolation: isolate;

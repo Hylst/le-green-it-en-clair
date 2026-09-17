@@ -261,7 +261,7 @@ export default function ITAudit() {
                           <span className="font-semibold text-foreground">{count}</span>
                         </div>
                         <LabeledSlider
-                          label={`${data.name} — quantité`}
+                          label={`${data.name} : quantité`}
                           value={[count]}
                           onValueChange={([value]) =>
                             setInventory({ ...inventory, [type]: { ...inventory[type as keyof typeof inventory], count: value } })
@@ -278,7 +278,7 @@ export default function ITAudit() {
                           <span className="font-semibold text-foreground">{avgAge} ans</span>
                         </div>
                         <LabeledSlider
-                          label={`${data.name} — âge moyen`}
+                          label={`${data.name} : âge moyen`}
                           value={[avgAge]}
                           onValueChange={([value]) =>
                             setInventory({ ...inventory, [type]: { ...inventory[type as keyof typeof inventory], avgAge: value } })
@@ -317,7 +317,7 @@ export default function ITAudit() {
                 <div className="grid md:grid-cols-4 gap-4 mb-6">
                   <div className="bg-card p-4 rounded-lg text-center border border-border">
                     <div className={`text-4xl font-bold ${results.totalDevices === 0 ? "text-muted-foreground" : scoreGrade.color}`}>
-                      {results.totalDevices === 0 ? "—" : scoreGrade.grade}
+                      {results.totalDevices === 0 ? "-" : scoreGrade.grade}
                     </div>
                     <div className="text-sm text-muted-foreground">Score éco</div>
                     <div className={`text-xs ${results.totalDevices === 0 ? "text-muted-foreground" : scoreGrade.color}`}>

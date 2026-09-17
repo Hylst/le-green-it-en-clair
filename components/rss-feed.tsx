@@ -352,7 +352,7 @@ export function RssFeed() {
           ) : loading ? (
             "Chargement des flux…"
           ) : updatedAt ? (
-            `Mis à jour à ${updatedAt.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })} (${items.length} actualité${items.length > 1 ? "s" : ""}) — titres et liens uniquement, contenus chez les sources.`
+            `Mis à jour à ${updatedAt.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })} (${items.length} actualité${items.length > 1 ? "s" : ""}), titres et liens uniquement, contenus chez les sources.`
           ) : (
             "Titres et liens uniquement, contenus chez les sources."
           )}

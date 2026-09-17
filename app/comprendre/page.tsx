@@ -430,7 +430,7 @@ export default function ComprendrePage() {
               <div className="mb-3 text-3xl font-bold text-primary">75 %</div>
               <h3 className="mb-2 font-semibold text-card-foreground">La fabrication est la phase la plus polluante</h3>
               <p className="text-sm text-muted-foreground">
-                Les trois quarts des impacts (tous indicateurs) d'un appareil proviennent de sa fabrication — et jusqu'à
+                Les trois quarts des impacts (tous indicateurs) d'un appareil proviennent de sa fabrication, et jusqu'à
                 ~99 % de l'empreinte carbone d'un smartphone (ADEME, 2025). C'est pourquoi
                 le geste le plus efficace est de garder ses appareils le plus longtemps possible.
               </p>
@@ -449,7 +449,7 @@ export default function ComprendrePage() {
               <div className="mb-3 text-3xl font-bold text-primary">1 %</div>
               <h3 className="mb-2 font-semibold text-card-foreground">L'usage compte moins qu'on ne pense</h3>
               <p className="text-sm text-muted-foreground">
-                Contrairement aux idées reçues, l'utilisation ne représente qu'environ 20 % de l'impact tous indicateurs —
+                Contrairement aux idées reçues, l'utilisation ne représente qu'environ 20 % de l'impact tous indicateurs,
                 et seulement ~1 % de l'empreinte carbone d'un smartphone (ADEME 2025). Éteindre ses
                 appareils est utile, mais les garder plus longtemps l'est bien plus.
               </p>
@@ -500,7 +500,7 @@ export default function ComprendrePage() {
             <span>•</span>
             <span>Global E-Waste Monitor, ONU (2024)</span>
             <span>•</span>
-            <span>GreenIT – Empreinte environnementale du numérique mondial (2025)</span>
+            <span>GreenIT : Empreinte environnementale du numérique mondial (2025)</span>
           </div>
         </div>
       </section>

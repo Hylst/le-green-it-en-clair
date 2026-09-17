@@ -559,7 +559,7 @@ export default function DatacentersPage() {
         </div>
       </section>
 
-      {/* Green Datacenter Best Practices Section */}
+      {/* Les bons réflexes côté datacenters */}
       <section className="bg-secondary/30 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">
@@ -722,7 +722,7 @@ export default function DatacentersPage() {
         </div>
       </section>
 
-      {/* Best Practices */}
+      {/* Ce qu'on peut en retenir */}
       <section className="bg-gradient-to-br from-teal-600 to-blue-700 dark:from-teal-900 dark:to-blue-900 px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-12 text-center text-3xl font-bold text-white lg:text-4xl">

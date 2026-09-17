@@ -165,8 +165,7 @@ export function WebsiteCarbonCalculator() {
             Estimateur d&apos;empreinte d&apos;une page web
           </CardTitle>
           <CardDescription>
-            Une estimation transparente à partir du poids réel de votre page (modèle Sustainable Web Design v4, 2024)
-            — pas une mesure automatique
+            Une estimation transparente à partir du poids réel de votre page (modèle Sustainable Web Design v4, 2024), pas une mesure automatique
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -333,7 +332,7 @@ export function WebsiteCarbonCalculator() {
                 Estimation pour {results.label}
               </CardTitle>
               <CardDescription>
-                Calcul local à partir de vos saisies — modèle Sustainable Web Design v4 (2024)
+                Calcul local à partir de vos saisies : modèle Sustainable Web Design v4 (2024)
               </CardDescription>
             </div>
             <Button
@@ -471,7 +470,7 @@ export function WebsiteCarbonCalculator() {
           {/* Équivalences recalculées sur la vraie valeur, facteurs affichés */}
           <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
             <h3 className="font-semibold text-lg mb-4 text-green-900 dark:text-green-200 font-poppins">
-              Ordres de grandeur ({fr(results.co2PerMonth)} kg CO₂e/mois — facteurs ADEME 2023)
+              Ordres de grandeur ({fr(results.co2PerMonth)} kg CO₂e/mois, facteurs ADEME 2023)
             </h3>
             <div className="grid md:grid-cols-3 gap-4 text-sm">
               <div className="text-center">
@@ -532,7 +531,7 @@ export function WebsiteCarbonCalculator() {
 
       <div className="text-sm text-gray-600 dark:text-gray-300 text-center space-y-2">
         <p>
-          Méthode : Sustainable Web Design v4 (2024) — 0,194 kWh/Go (AIE), 494 gCO₂e/kWh (Ember, 2023), facteur vert
+          Méthode : Sustainable Web Design v4 (2024) : 0,194 kWh/Go (AIE), 494 gCO₂e/kWh (Ember, 2023), facteur vert
           0,243 (Green Web Foundation). Hors fabrication des équipements. Pour une mesure automatique :
         </p>
         <p className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">

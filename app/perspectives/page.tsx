@@ -552,13 +552,13 @@ export default function PerspectivesPage() {
         <div className="mx-auto max-w-7xl">
           <h3 className="mb-4 text-sm font-semibold text-foreground">Sources</h3>
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-            <span>The Shift Project – Lean ICT (2018)</span>
+            <span>The Shift Project : Lean ICT (2018)</span>
             <span>•</span>
-            <span>ADEME-Arcep – Prospective 2030-2050 (2023)</span>
+            <span>ADEME-Arcep : Prospective 2030-2050 (2023)</span>
             <span>•</span>
-            <span>AIE – Net Zero Roadmap (2023)</span>
+            <span>AIE : Net Zero Roadmap (2023)</span>
             <span>•</span>
-            <span>GreenIT – Empreinte environnementale du numérique mondial (2025)</span>
+            <span>GreenIT : Empreinte environnementale du numérique mondial (2025)</span>
           </div>
         </div>
       </section>

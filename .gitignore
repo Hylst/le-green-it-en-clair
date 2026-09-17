@@ -52,6 +52,16 @@ FEATURES.md
 # rapports d'audit locaux (contenu, chất lượng...) - restent sur mon pc
 AUDIT-*.md
 
+# notes de travail locales : seul readme.md est visible sur github
+about.md
+audit-contenu-2026-09.md
+audit-design-2026-09.md
+changelog.md
+suivi-audit-2026-09.md
+suivi-contenu-2026-09.md
+todo.md
+docs/
+
 # au cas où un outil balance ses dossiers
 .superpowers/
 .opencode/

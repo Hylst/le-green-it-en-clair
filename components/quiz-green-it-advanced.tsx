@@ -1888,7 +1888,7 @@ export function QuizGreenITAdvanced() {
             <div className="flex justify-between text-sm">
               <span className="text-slate-600 dark:text-gray-300">Score moyen par question</span>
               <span className="font-semibold dark:text-gray-100">
-                {answeredCount > 0 ? `${Math.round(score / answeredCount)} points` : "—"}
+                {answeredCount > 0 ? `${Math.round(score / answeredCount)} points` : "-"}
               </span>
             </div>
             {mode === "challenge" && (
@@ -1943,7 +1943,7 @@ export function QuizGreenITAdvanced() {
                 ({percentage}%)
               </p>
               <p className="mt-1">
-                Niveau : <strong>{levelInfo.level}</strong> — Mode :{" "}
+                Niveau : <strong>{levelInfo.level}</strong> - Mode :{" "}
                 {mode === "discovery" ? "Découverte" : mode === "full" ? "Complet (100 questions)" : mode === "category" ? "Par catégorie" : "Défi"}
               </p>
               <p className="mt-1 text-sm text-muted-foreground">Établie le {new Date().toLocaleDateString("fr-FR")}</p>

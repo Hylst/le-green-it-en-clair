@@ -58,7 +58,7 @@ export default function MentionsLegalesPage() {
             </div>
             <div className="space-y-3 text-muted-foreground">
               <p>
-                <strong className="text-foreground">Hébergeur :</strong> Hostinger International Ltd. — coordonnées sur{" "}
+                <strong className="text-foreground">Hébergeur :</strong> Hostinger International Ltd., coordonnées sur{" "}
                 <a href="https://www.hostinger.fr" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 underline">
                   hostinger.fr
                 </a>

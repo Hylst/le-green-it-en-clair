@@ -155,7 +155,7 @@ Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à l
 - [x] chiffres « en direct » via API gratuites : fait (existant `eco2mix-live` sur `/chiffres` et `/datacenters` : ODRE/RTE temps réel côté client, cache 10 min, fallback « référence », bouton Actualiser) + enrichi le 17/09 de 2 blocs dépliables pédagogiques (origine de la donnée avec lien ODRE vérifié, pourquoi le taux bouge). Contraintes respectées : pas de backend, pas de clé, mention de repli si l’API ne répond pas.
 - [x] FAQ : questions « Le cloud c'est vraiment dans des nuages ? » et « Mon vieux PC peut-il encore servir ? » ajoutées (+ une sur l'IA) → 27 questions (commit `64cf9aa`)
 - [ ] version anglaise ? abandonnée le 17/09 : site en français uniquement, choix assumé
-- [ ] infographies en plus, section livres
+- [x] infographies en plus, section livres : faite le 17/09 (6 livres vérifiés auteur/éditeur/année dans `/ressources#livres`, liens éditeurs contrôlés) ; reste les infographies
 - [x] `guide/` + `mentions-legales/` : commités (le 14/09)
 - [x] les 5 outils avancés : fait (site web, entreprise, cloud, audit, quiz)
 

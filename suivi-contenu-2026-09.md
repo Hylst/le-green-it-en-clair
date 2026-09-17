@@ -12,10 +12,9 @@ Ordre validé : box/FAI, portraits, livres, articles. Un chantier = sourçage d'
 - [x] rédaction + câblage + visuels branchés (39 Ko et 80 Ko)
 - [x] vérif : tsc 0, build 60/60, images + widgets + JSON-LD, listing, sitemap
 
-## chantier 3 — section livres dans ressources (à faire)
-- [ ] 4 à 6 livres vérifiés à la main (auteur, éditeur, année, lien)
-- [ ] résumé + lien, jamais de republication
-- [ ] vérif : tsc, build, navigateur, changelog + todo
+## chantier 3 — section livres dans ressources (fait le 17/09 au soir)
+- [x] 6 livres vérifiés + section `#livres` (5 liens éditeurs en 200, Pitron sans lien car site injoignable)
+- [x] vérif : tsc 0, build 60/60, 6 cartes rendues
 
 ## chantier 4 — nouveaux articles (à faire)
 - [ ] sujets pressentis : RGESN et écoconception, bonus réparation QualiRépar, IA générative (0,3 Wh), à trancher avec l'auteur

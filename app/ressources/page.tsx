@@ -215,6 +215,50 @@ const externalLinks = [  {
   },
 ]
 
+const books: { title: string; author: string; reference: string; description: string; url?: string }[] = [
+  {
+    title: "Sobriété numérique : les clés pour agir",
+    author: "Frédéric Bordage",
+    reference: "Buchet-Chastel, 2019",
+    description: "Le livre fondateur en français : comprendre les impacts du numérique et agir, à la maison comme au bureau.",
+    url: "https://www.buchetchastel.fr",
+  },
+  {
+    title: "Écoconception web : les 115 bonnes pratiques",
+    author: "Frédéric Bordage",
+    reference: "Eyrolles, 3e édition 2019",
+    description: "La référence des développeurs : 115 pratiques concrètes pour des sites plus légers et plus rapides.",
+    url: "https://www.eyrolles.com",
+  },
+  {
+    title: "Tendre vers la sobriété numérique",
+    author: "Frédéric Bordage",
+    reference: "Actes Sud, 2021",
+    description: "Petit format, grandes questions : un plaidoyer bref pour un numérique à sa juste place.",
+    url: "https://www.actes-sud.fr/",
+  },
+  {
+    title: "Vers un numérique responsable",
+    author: "Vincent Courboulay",
+    reference: "Actes Sud et Colibris, 2021",
+    description: "Repenser notre dépendance aux technologies digitales, avec des pistes pour s'en libérer pas à pas.",
+    url: "https://www.actes-sud.fr/",
+  },
+  {
+    title: "L'Enfer numérique : voyage au bout d'un Like",
+    author: "Guillaume Pitron",
+    reference: "Les Liens qui Libèrent, 2021",
+    description: "Enquête sur la face matérielle du numérique : datacenters, câbles sous-marins, métaux rares.",
+  },
+  {
+    title: "L'Âge des low tech",
+    author: "Philippe Bihouix",
+    reference: "Seuil, 2014 (poche 2021)",
+    description: "Et si la solution n'était pas plus de technologie ? Le manifeste des basses technologies sobres et résilientes.",
+    url: "https://www.seuil.com",
+  },
+]
+
 const glossaryData = [
   {
     term: "Scope 1, 2, 3",
@@ -611,6 +655,44 @@ export default function RessourcesPage() {
                   Visiter le site
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </a>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="livres" className="px-6 py-16 lg:py-24 bg-background scroll-mt-16">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="mb-4 text-center text-3xl font-bold text-foreground lg:text-4xl">
+            Livres
+          </h2>
+          <p className="mx-auto mb-12 max-w-2xl text-center text-muted-foreground">
+            Six livres en français pour aller plus loin, vérifiés un par un (auteur, éditeur, année).
+            Des résumés maison, pas des copies : pour lire, direction votre librairie ou l'éditeur.
+          </p>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {books.map((book) => (
+              <Card
+                key={book.title}
+                className="border border-border p-6 transition-all hover:shadow-lg bg-card"
+              >
+                <div className="mb-2 text-xs font-medium text-muted-foreground">{book.reference}</div>
+                <h3 className="mb-2 text-lg font-bold text-card-foreground">{book.title}</h3>
+                <p className="mb-1 text-sm font-medium text-foreground">{book.author}</p>
+                <p className="mb-4 text-sm text-muted-foreground">{book.description}</p>
+                {book.url ? (
+                  <a
+                    href={book.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-sm font-semibold text-primary hover:underline"
+                  >
+                    Voir chez l'éditeur
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                ) : (
+                  <span className="text-sm text-muted-foreground">Disponible en librairie</span>
+                )}
               </Card>
             ))}
           </div>

@@ -2,6 +2,11 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 17/09/2026 — section livres (soir)
+
+- `/ressources` : nouvelle section « Livres » (ancre `#livres`), 6 livres vérifiés un par un (Bordage ×3 : Buchet-Chastel 2019, Eyrolles 2019, Actes Sud 2021 ; Courboulay, Actes Sud 2021 ; Pitron, Les Liens qui Libèrent 2021 ; Bihouix, Seuil 2014). Liens éditeurs contrôlés (5 en 200, site LLL injoignable : mention « en librairie » sans lien). Résumés maison, pas de copie.
+- vérifié : tsc 0, build 60/60, 6 cartes rendues (5 liens + 1 sans lien).
+
 ## 17/09/2026 — portraits Fairphone et Envie (soir)
 
 - articles 8 et 9 : Fairphone (2013 Amsterdam, Gen.6 599 €, 12 pièces, 29 kg CO₂e, rapport d'impact 2025) et Envie (1984 Strasbourg, 53 entreprises d'insertion, 215 140 appareils et 206 387 t en 2024, garantie 2 ans), format Back Market avec regard critique, widgets existants réutilisés (quiz réparable, calc reconditionné), visuels auteur (`blog-fairphone-portrait.webp` 39 Ko, `blog-envie-portrait.webp` 80 Ko, sans texte ni marque). Câblage complet, SW `v1.3.7`.

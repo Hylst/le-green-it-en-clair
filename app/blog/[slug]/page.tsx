@@ -8,9 +8,16 @@ import { PageHero } from "@/components/page-hero"
 import { SourceTooltip } from "@/components/source-tooltip"
 import { RelatedLinks } from "@/components/related-links"
 import { MoreDetails } from "@/components/more-details"
+import {
+  AuditChecklist,
+  AgecTimeline,
+  PueMiniCalc,
+  ReconditionneCalc,
+  ReparableQuiz,
+} from "@/components/blog-widgets"
 import { JsonLd } from "@/components/json-ld"
 import { SITE_NAME, SITE_URL, pageOpenGraph } from "@/lib/metadata"
-import { posts } from "../posts"
+import { posts, type BlogWidgetKey } from "../posts"
 
 export async function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }))
@@ -26,6 +33,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     alternates: { canonical: `https://hylst.fr/greenit/blog/${slug}` },
     openGraph: pageOpenGraph(`${post.title} | Le Green IT en clair`, post.excerpt, `/blog/${slug}`),
   }
+}
+
+const WIDGETS: Record<BlogWidgetKey, () => React.JSX.Element> = {
+  "audit-checklist": AuditChecklist,
+  "reconditionne-calc": ReconditionneCalc,
+  "pue-mini-calc": PueMiniCalc,
+  "agec-timeline": AgecTimeline,
+  "reparable-quiz": ReparableQuiz,
 }
 
 export default async function BlogArticlePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -51,6 +66,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
       <JsonLd data={jsonLd} />
       <PageHero
         theme="orange"
+        image={{ src: post.image, alt: post.imageAlt }}
         badge={{ icon: Icon, label: "Blog" }}
         title={post.title}
         intro={
@@ -129,6 +145,15 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                     <p className="mt-2 text-sm text-muted-foreground">{section.fact.label}</p>
                   </div>
                 )}
+                {section.widget &&
+                  (() => {
+                    const Widget = WIDGETS[section.widget]
+                    return (
+                      <div className="mt-6">
+                        <Widget />
+                      </div>
+                    )
+                  })()}
                 {section.details && (
                   <div className="mt-6 space-y-3">
                     {section.details.map((detail) => (

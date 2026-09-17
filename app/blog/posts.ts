@@ -16,11 +16,19 @@ export interface BlogDetails {
   paragraphs: string[]
 }
 
+export type BlogWidgetKey =
+  | "audit-checklist"
+  | "reconditionne-calc"
+  | "pue-mini-calc"
+  | "agec-timeline"
+  | "reparable-quiz"
+
 export interface BlogSection {
   heading: string
   paragraphs: string[]
   bullets?: string[]
   fact?: BlogFact
+  widget?: BlogWidgetKey
   details?: BlogDetails[]
 }
 
@@ -37,6 +45,8 @@ export interface BlogPost {
   date: string
   readingTime: string
   icon: LucideIcon
+  image: string
+  imageAlt: string
   essential: string[]
   sections: BlogSection[]
   takeaway: string[]
@@ -46,6 +56,8 @@ export interface BlogPost {
 
 export const posts: BlogPost[] = [
   {
+    image: "/greenit/images/blog/blog-audit-pme.webp",
+    imageAlt: "Petite entreprise vue de haut avec inventaire du parc informatique sur carnet",
     slug: "premier-audit-green-it-pme",
     title: "Mon premier audit Green IT en PME : la méthode en 4 étapes",
     excerpt:
@@ -98,6 +110,7 @@ export const posts: BlogPost[] = [
       },
       {
         heading: "Étape 4 : écrire le plan sur une page",
+        widget: "audit-checklist",
         paragraphs: [
           "Un audit qui finit dans un tiroir ne sert à rien. Résumez vos décisions sur une page : trois objectifs chiffrés (par exemple « aucun renouvellement avant 5 ans »), un responsable par objectif, et une date de bilan dans six mois.",
           "Le modèle de plan d’action DSI du site vous donne la trame, et la grille d’audit en 26 critères permet de suivre vos progrès d’une année sur l’autre. La première année, viser juste vaut mieux que viser loin.",
@@ -149,6 +162,8 @@ export const posts: BlogPost[] = [
     ],
   },
   {
+    image: "/greenit/images/blog/blog-reconditionne-calcul.webp",
+    imageAlt: "Balance comparant un smartphone reconditionné léger à une pile de boîtes neuves",
     slug: "reconditionne-vs-neuf-le-calcul",
     title: "Reconditionné ou neuf : le calcul, sans jargon",
     excerpt:
@@ -177,6 +192,7 @@ export const posts: BlogPost[] = [
       },
       {
         heading: "Ce que change vraiment le reconditionné",
+        widget: "reconditionne-calc",
         paragraphs: [
           "Un appareil reconditionné, c’est un appareil existant testé, réparé si besoin, effacé et garanti. Comme on évite de fabriquer un appareil neuf, l’impact chute de 75 à 90 % selon l’appareil et la filière. Le prix suit : 30 à 70 % moins cher selon le modèle et le grade esthétique.",
           "La fourchette est large parce que les appareils ne sont pas égaux : un smartphone récent avec batterie neuve évite presque tout l’impact du neuf, tandis qu’un appareil ancien très réparé en évite un peu moins. Dans tous les cas, l’ordre de grandeur reste massivement favorable.",
@@ -254,6 +270,8 @@ export const posts: BlogPost[] = [
     ],
   },
   {
+    image: "/greenit/images/blog/blog-pue-5-minutes.webp",
+    imageAlt: "Salle de datacenter en coupe avec flux d’air de refroidissement et cadran de mesure",
     slug: "comprendre-le-pue-en-5-minutes",
     title: "Comprendre le PUE en 5 minutes, et poser les bonnes questions",
     excerpt:
@@ -269,6 +287,7 @@ export const posts: BlogPost[] = [
     sections: [
       {
         heading: "La définition simple",
+        widget: "pue-mini-calc",
         paragraphs: [
           "Un datacenter consomme de l’électricité pour ses serveurs, mais aussi pour les refroidir, les alimenter sans coupure et éclairer les salles. Le PUE (efficacité d’usage de l’énergie) rapporte le total à la seule part des serveurs : un PUE de 1,5 signifie que pour 1 kW utile aux serveurs, le bâtiment consomme 1,5 kW au total.",
           "Le PUE parfait serait 1,0 : tout pour les serveurs, rien pour le reste. Il est inatteignable en pratique, car refroidir et sécuriser l’alimentation coûte toujours un peu d’énergie. Les meilleurs sites frôlent 1,1, la moyenne mondiale tourne autour de 1,56.",
@@ -351,6 +370,8 @@ export const posts: BlogPost[] = [
     ],
   },
   {
+    image: "/greenit/images/blog/blog-agec-reen.webp",
+    imageAlt: "Bureau avec livres de droit, loupe sur un indice de réparabilité et outils de réparation",
     slug: "agec-reen-ce-qui-change",
     title: "AGEC, REEN : ce qui change pour vous, concrètement",
     excerpt:
@@ -398,6 +419,7 @@ export const posts: BlogPost[] = [
       },
       {
         heading: "Et demain",
+        widget: "agec-timeline",
         paragraphs: [
           "L’indice de durabilité va s’étendre à d’autres appareils, et le réexamen européen de la filière des e-déchets est en cours : les règles de collecte et de recyclage vont se resserrer. Côté entreprises, le reporting de durabilité se concentre avec le paquet Omnibus I, mais les grandes structures restent tenues de publier leurs impacts.",
           "La direction est lisible : des appareils qui durent, des informations affichées, des réparations aidées. Chaque texte nouveau va dans le même sens, ce qui rend les investissements durables (pièces, formation, maintenance) de moins en moins risqués.",
@@ -450,6 +472,8 @@ export const posts: BlogPost[] = [
     ],
   },
   {
+    image: "/greenit/images/blog/blog-smartphone-reparable.webp",
+    imageAlt: "Remplacement de la batterie d’un smartphone avec pièces détachées rangées sur un tapis",
     slug: "un-an-avec-un-smartphone-reparable",
     title: "Un an avec un smartphone réparable : carnet de bord",
     excerpt:
@@ -486,6 +510,7 @@ export const posts: BlogPost[] = [
       },
       {
         heading: "Mois 10 à 12 : le bilan",
+        widget: "reparable-quiz",
         paragraphs: [
           "Faites les comptes : une batterie à 50 ou 80 € contre 800 € de téléphone neuf, quelques euros de protection, zéro urgence. Et côté climat, garder son téléphone 4 ans au lieu de 2 divise son impact annuel par deux, puisque la fabrication est déjà amortie.",
           "Le plus surprenant, à la fin, c’est l’indifférence devant les nouveaux modèles : quand l’objet marche et qu’on sait le réparer, l’envie de changer s’éteint toute seule.",

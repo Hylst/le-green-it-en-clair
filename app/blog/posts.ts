@@ -1098,7 +1098,7 @@ export const posts: BlogPost[] = [
     icon: Wrench,
     essential: [
       "Une réduction déduite directement de votre facture : 25 € pour un smartphone, 50 € pour un portable, 60 € pour un téléviseur.",
-      "Deux conditions : appareil hors garantie et réparateur labellisé QualiRépar.",
+      "Conditions : hors garantie, panne qui bloque l'usage, réparateur labellisé QualiRépar.",
       "Le réflexe : devis écrit, facture gardée, réparation garantie 3 mois minimum.",
     ],
     sections: [
@@ -1124,13 +1124,13 @@ export const posts: BlogPost[] = [
         bullets: [
           "Smartphone et tablette : 25 €, sans condition de montant",
           "PC portable et fixe : 50 €, si la réparation coûte au moins 150 €",
-          "Téléviseur : 60 €, le plus gros bonus du numérique",
+          "Téléviseur : 60 €, le plus gros bonus de la grille électrique et électronique",
         ],
         details: [
           {
             title: "Les seuils de déclenchement, c'est quoi ?",
             paragraphs: [
-              "Pour certains appareils, le bonus ne s'applique que si la réparation dépasse un montant minimum : 150 € pour un ordinateur ou une imprimante, 100 € pour un moniteur, 120 € pour un vélo électrique avec le bonus majoré. L'idée est d'éviter que l'aide dépasse le prix réel de l'intervention.",
+              "Pour certains appareils, le bonus ne s'applique que si la réparation dépasse un montant minimum : 150 € pour un ordinateur ou une imprimante, 100 € pour un moniteur, 120 € pour un vélo électrique (second palier). L'idée est d'éviter que l'aide dépasse le prix réel de l'intervention.",
               "Demandez toujours le devis avant : le réparateur labellisé connaît ces seuils et vous dit aussitôt si le bonus s'applique.",
             ],
           },
@@ -1141,12 +1141,12 @@ export const posts: BlogPost[] = [
         widget: "bonus-check",
         paragraphs: [
           "Première condition : l'appareil n'est plus couvert, ni par une garantie (légale, commerciale ou extension), ni par une assurance. Deuxième condition : c'est un appareil de ménage, identifiable (plaque signalétique ou IMEI), utilisé normalement et bien entretenu.",
-          "Troisième condition : la panne. Sont couvertes les pannes qui empêchent le fonctionnement, y compris les casses (écran, poignée) et les batteries inamovibles. Sont exclus : le purement esthétique, les consommables, les accessoires, les batteries amovibles et la maintenance logicielle.",
+          "Troisième condition : la panne. Sont couvertes les pannes qui empêchent le fonctionnement, y compris les casses (écran, poignée) et les batteries inamovibles. Sont exclus : les dommages purement esthétiques, les consommables, les accessoires, les batteries amovibles et la maintenance logicielle.",
           "Quatrième condition, la plus importante : la réparation doit être faite par un réparateur labellisé QualiRépar. Ni le bricolage maison avec une pièce achetée, ni un réparateur non labellisé n'ouvrent droit au bonus. Testez-vous avec le mini quiz ci-dessus.",
         ],
         bullets: [
           "Hors garantie et hors assurance, appareil de ménage identifiable",
-          "Panne qui bloque l'usage, pas le purement esthétique",
+          "Panne qui bloque l'usage, pas les dommages purement esthétiques",
           "Réparateur labellisé QualiRépar, sans exception",
         ],
       },
@@ -1165,9 +1165,10 @@ export const posts: BlogPost[] = [
         },
         details: [
           {
-            title: "Les deux sites officiels à connaître",
+            title: "Les sites officiels à connaître",
             paragraphs: [
               "Que faire de mes objets (quefairedemesdechets.ademe.fr) : l'annuaire et la carte des réparateurs labellisés, les montants par appareil et les conditions d'éligibilité. C'est la porte d'entrée pour agir.",
+              "Jerepare.fr : la plateforme officielle commune du bonus (Ecologic, ecosystem, Ecomaison, Refashion) pour vérifier l'éligibilité et trouver un réparateur labellisé, tous objets confondus.",
               "Épargnons nos ressources (epargnonsnosressources.gouv.fr, ex-« Longue vie aux objets ») : les conseils, le diagnostiqueur de pannes, les tutos et les indices de réparabilité. C'est la porte d'entrée pour comprendre.",
             ],
           },
@@ -1200,6 +1201,7 @@ export const posts: BlogPost[] = [
       { label: "Grille officielle des bonus (PDF, avril 2026)", url: "https://www.label-qualirepar.fr/wp-content/uploads/2026/04/Grille-des-bonus-reparation_2026.04.02.pdf" },
       { label: "Montants et éligibilité (Ecosystem)", url: "https://www.ecosystem.eco/comprendre/bonus-reparation" },
       { label: "Bonus : comment ça marche (économie.gouv.fr, 11/09/2026)", url: "https://www.economie.gouv.fr/particuliers/mes-droits-conso/bien-consommer/bonus-reparation-comment-ca-marche" },
+      { label: "Plateforme officielle du bonus (jerepare.fr)", url: "https://jerepare.fr/" },
       { label: "Le Bonus réparation (ADEME)", url: "https://epargnonsnosressources.gouv.fr/bonus-reparation/" },
     ],
     sources: [
@@ -1207,6 +1209,7 @@ export const posts: BlogPost[] = [
       "Ecosystem, page Bonus Réparation : montants, éligibilité, annuaire (consultée en septembre 2026)",
       "Ministère de l'Économie, « Bonus réparation : comment ça marche ? » (11/09/2026 : 10 à 65 €, +20 % pièce circulaire)",
       "ADEME, bilan du bonus réparation (2025 : 4 à 25 M€)",
+      "Jerepare.fr, plateforme officielle du bonus (Ecologic, ecosystem, Ecomaison, Refashion ; consultée en septembre 2026)",
       "ADEME, Épargnons nos ressources, page Bonus réparation (consultée en septembre 2026)",
     ],
   },

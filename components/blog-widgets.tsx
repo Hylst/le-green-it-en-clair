@@ -611,7 +611,7 @@ const BONUS_QUIZ = [
       "C'est un consommable ou une batterie amovible",
     ],
     correct: 0,
-    explain: "Esthétique seul, consommables et batteries amovibles : non éligibles. Casse qui bloque l'usage, batterie inamovible : éligibles.",
+    explain: "Dommage purement esthétique, consommables et batteries amovibles : non éligibles. Casse qui bloque l'usage, batterie inamovible : éligibles.",
   },
   {
     question: "Qui va réparer ?",

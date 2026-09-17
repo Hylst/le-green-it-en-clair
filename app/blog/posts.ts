@@ -24,6 +24,7 @@ export type BlogWidgetKey =
   | "reparable-quiz"
   | "box-calc"
   | "rgesn-check"
+  | "bonus-check"
 
 export interface BlogSection {
   heading: string
@@ -466,6 +467,11 @@ export const posts: BlogPost[] = [
         href: "/reglementation",
         label: "Réglementation",
         description: "Le détail des textes, dates et obligations.",
+      },
+      {
+        href: "/blog/bonus-reparation-mode-emploi",
+        label: "Bonus réparation : mode d'emploi",
+        description: "Montants, éligibilité et parcours en 10 minutes.",
       },
       {
         href: "/fiches-pratiques/reparer-prolonger",
@@ -1080,6 +1086,128 @@ export const posts: BlogPost[] = [
       "Arcep et Arcom, RGESN version 2 (17/05/2024, màj 28/05/2024 : 78 critères, 8 familles)",
       "Arcep, communiqué de publication (17/05/2024 : consultation 2023, 57 contributions, forum)",
       "ADEME-Arcep, étude d'impact 2023 (×3 entre 2020 et 2050 sans action)",
+    ],
+  },
+  {
+    slug: "bonus-reparation-mode-emploi",
+    title: "Bonus réparation : le mode d'emploi en 10 minutes",
+    excerpt:
+      "25 € pour un smartphone, 50 € pour un PC, 60 € pour une TV : la réduction se déduit directement de votre facture chez un réparateur labellisé. Conditions, montants et parcours, sans formulaire.",
+    date: "Septembre 2026",
+    readingTime: "6 min",
+    icon: Wrench,
+    essential: [
+      "Une réduction déduite directement de votre facture : 25 € pour un smartphone, 50 € pour un portable, 60 € pour un téléviseur.",
+      "Deux conditions : appareil hors garantie et réparateur labellisé QualiRépar.",
+      "Le réflexe : devis écrit, facture gardée, réparation garantie 3 mois minimum.",
+    ],
+    sections: [
+      {
+        heading: "Le principe : réparer moins cher, sans paperasse",
+        paragraphs: [
+          "Le bonus réparation est né de la loi anti-gaspillage (AGEC) : pour un appareil en panne, une partie de la réparation est prise en charge, et la réduction apparaît directement sur votre facture. Aucun dossier à remplir, aucun remboursement à attendre : c'est le réparateur qui applique le bonus, puis se fait compenser par la filière.",
+          "Car ce n'est pas l'État qui paie : le dispositif est financé par les producteurs, via leurs contributions aux éco-organismes agréés (Ecosystem, Ecologic), selon le principe de responsabilité élargie du producteur. Côté périmètre, le bonus couvre près de 68 appareils électriques et électroniques depuis 2025, et 261 objets au total en comptant les autres filières (vêtements, chaussures, meubles).",
+        ],
+        fact: {
+          value: "25 €",
+          label: "Bonus pour un téléphone portable, casse d'écran incluse, déduit de la facture",
+          source: "Grille officielle QualiRépar, avril 2026",
+          calculation: "Tarifs en vigueur au 01/01/2026, label créé par Ecologic et ecosystem",
+        },
+      },
+      {
+        heading: "Combien pour vos appareils numériques",
+        paragraphs: [
+          "Les montants sont forfaitaires et fixés par la grille officielle : téléphone portable 25 €, tablette 25 €, ordinateur portable 50 €, ordinateur fixe ou tout-en-un 50 €, moniteur 30 €, imprimante ou scanner 35 €, console de jeux 20 €, téléviseur 60 €, appareil photo 20 €, vidéoprojecteur 30 €, téléphone fixe 15 €.",
+          "Toutes filières confondues (textile et chaussures inclus), le bonus va de 10 à 65 € selon l'appareil, et il est majoré de 20 % si la réparation utilise une pièce issue de l'économie circulaire. En revanche, si la facture est inférieure au montant du bonus, celui-ci ne s'applique pas.",
+        ],
+        bullets: [
+          "Smartphone et tablette : 25 €, sans condition de montant",
+          "PC portable et fixe : 50 €, si la réparation coûte au moins 150 €",
+          "Téléviseur : 60 €, le plus gros bonus du numérique",
+        ],
+        details: [
+          {
+            title: "Les seuils de déclenchement, c'est quoi ?",
+            paragraphs: [
+              "Pour certains appareils, le bonus ne s'applique que si la réparation dépasse un montant minimum : 150 € pour un ordinateur ou une imprimante, 100 € pour un moniteur, 120 € pour un vélo électrique avec le bonus majoré. L'idée est d'éviter que l'aide dépasse le prix réel de l'intervention.",
+              "Demandez toujours le devis avant : le réparateur labellisé connaît ces seuils et vous dit aussitôt si le bonus s'applique.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Êtes-vous éligible ? Les 4 conditions",
+        widget: "bonus-check",
+        paragraphs: [
+          "Première condition : l'appareil n'est plus couvert, ni par une garantie (légale, commerciale ou extension), ni par une assurance. Deuxième condition : c'est un appareil de ménage, identifiable (plaque signalétique ou IMEI), utilisé normalement et bien entretenu.",
+          "Troisième condition : la panne. Sont couvertes les pannes qui empêchent le fonctionnement, y compris les casses (écran, poignée) et les batteries inamovibles. Sont exclus : le purement esthétique, les consommables, les accessoires, les batteries amovibles et la maintenance logicielle.",
+          "Quatrième condition, la plus importante : la réparation doit être faite par un réparateur labellisé QualiRépar. Ni le bricolage maison avec une pièce achetée, ni un réparateur non labellisé n'ouvrent droit au bonus. Testez-vous avec le mini quiz ci-dessus.",
+        ],
+        bullets: [
+          "Hors garantie et hors assurance, appareil de ménage identifiable",
+          "Panne qui bloque l'usage, pas le purement esthétique",
+          "Réparateur labellisé QualiRépar, sans exception",
+        ],
+      },
+      {
+        heading: "Le parcours en 3 gestes",
+        paragraphs: [
+          "Premier geste : diagnostiquer. Le site Épargnons nos ressources de l'ADEME propose un diagnostiqueur de pannes et des tutos : de quoi vérifier que l'appareil vaut la réparation avant de vous déplacer.",
+          "Deuxième geste : trouver un labellisé. L'annuaire Que faire de mes objets affiche les réparateurs agréés autour de chez vous : demandez un devis écrit en précisant que vous visez le bonus, le montant déduit doit y figurer.",
+          "Troisième geste : garder la facture. Elle prouve la réparation, couverte par une garantie commerciale de 3 mois minimum. Et rappel utile : depuis le 31 juillet 2026, une réparation faite sous garantie prolonge celle-ci de 12 mois.",
+        ],
+        fact: {
+          value: "4 à 25 M€",
+          label: "Bonus réparation versés en un an : le dispositif a été multiplié par 6",
+          source: "ADEME, 2025",
+          calculation: "Montants versés via le dispositif QualiRépar sur douze mois",
+        },
+        details: [
+          {
+            title: "Les deux sites officiels à connaître",
+            paragraphs: [
+              "Que faire de mes objets (quefairedemesdechets.ademe.fr) : l'annuaire et la carte des réparateurs labellisés, les montants par appareil et les conditions d'éligibilité. C'est la porte d'entrée pour agir.",
+              "Épargnons nos ressources (epargnonsnosressources.gouv.fr, ex-« Longue vie aux objets ») : les conseils, le diagnostiqueur de pannes, les tutos et les indices de réparabilité. C'est la porte d'entrée pour comprendre.",
+            ],
+          },
+        ],
+      },
+    ],
+    takeaway: [
+      "Hors garantie + réparateur labellisé = bonus déduit, zéro formulaire.",
+      "25 € smartphone, 50 € PC, 60 € TV : vérifiez votre montant avant le devis.",
+      "Facture gardée : 3 mois de garantie sur la réparation.",
+    ],
+    related: [
+      {
+        href: "/fiches-pratiques/reparer-prolonger",
+        label: "Réparer et prolonger",
+        description: "Gestes d'entretien et adresses utiles.",
+      },
+      {
+        href: "/blog/un-an-avec-un-smartphone-reparable",
+        label: "Un an avec un smartphone réparable",
+        description: "Le carnet de bord d'une année sans téléphone neuf.",
+      },
+      {
+        href: "/reglementation",
+        label: "Réglementation",
+        description: "AGEC, directive réparation et bonus, le détail des textes.",
+      },
+    ],
+    sourceLinks: [
+      { label: "Grille officielle des bonus (PDF, avril 2026)", url: "https://www.label-qualirepar.fr/wp-content/uploads/2026/04/Grille-des-bonus-reparation_2026.04.02.pdf" },
+      { label: "Montants et éligibilité (Ecosystem)", url: "https://www.ecosystem.eco/comprendre/bonus-reparation" },
+      { label: "Bonus : comment ça marche (économie.gouv.fr, 11/09/2026)", url: "https://www.economie.gouv.fr/particuliers/mes-droits-conso/bien-consommer/bonus-reparation-comment-ca-marche" },
+      { label: "Le Bonus réparation (ADEME)", url: "https://epargnonsnosressources.gouv.fr/bonus-reparation/" },
+    ],
+    sources: [
+      "QualiRépar (Ecologic/ecosystem), grille des bonus réparation (avril 2026, tarifs au 01/01/2026)",
+      "Ecosystem, page Bonus Réparation : montants, éligibilité, annuaire (consultée en septembre 2026)",
+      "Ministère de l'Économie, « Bonus réparation : comment ça marche ? » (11/09/2026 : 10 à 65 €, +20 % pièce circulaire)",
+      "ADEME, bilan du bonus réparation (2025 : 4 à 25 M€)",
+      "ADEME, Épargnons nos ressources, page Bonus réparation (consultée en septembre 2026)",
     ],
   },
 ]

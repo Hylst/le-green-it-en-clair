@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/blog/fairphone-portrait-telephone-equitable',
         '/blog/envie-portrait-reemploi-solidaire',
         '/blog/rgesn-ecoconception-10-minutes',
+        '/blog/bonus-reparation-mode-emploi',
         '/cas-pratiques',
         '/chiffres',
         '/datacenters',

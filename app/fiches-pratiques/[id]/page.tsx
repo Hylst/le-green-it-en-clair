@@ -335,6 +335,7 @@ const sheets: Record<string, any> = {
     resources: [
       "Tutoriels : https://www.ifixit.com",
       "Un an avec un smartphone réparable : /blog/un-an-avec-un-smartphone-reparable",
+      "Bonus réparation, le mode d'emploi : /blog/bonus-reparation-mode-emploi",
       "Annuaire : https://www.annuaire-reparation.fr",
       "Bonus : https://www.ecosystem.eco",
     ],

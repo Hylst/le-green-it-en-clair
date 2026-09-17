@@ -258,6 +258,10 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                         <FileText className="mr-2 h-4 w-4" />
                         <span>RGESN en 10 minutes</span>
                     </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/blog/bonus-reparation-mode-emploi"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Bonus réparation : mode d'emploi</span>
+                    </CommandItem>
                 </CommandGroup>
                 <CommandSeparator />
                 <CommandGroup heading="Modèles détaillés">

@@ -143,7 +143,7 @@ export const faqCategories = [
       },
       {
         q: "Y a-t-il des aides financières pour la réparation ?",
-        a: "Oui, plusieurs dispositifs en France : 1) Bonus réparation : de 10 à 65 € selon l'appareil (25 € pour un smartphone), déduit directement de votre facture par un réparateur labellisé QualiRépar, hors garantie (Ecosystem/Ecologic), 2) Fonds réparation via éco-organismes, 3) Aides locales (certaines régions/communes). Consultez l'annuaire officiel pour trouver un réparateur.",
+        a: "Oui, plusieurs dispositifs en France : 1) Bonus réparation : de 10 à 65 € selon l'appareil (25 € pour un smartphone), déduit directement de votre facture par un réparateur labellisé QualiRépar, hors garantie (Ecosystem/Ecologic), 2) Fonds réparation via éco-organismes, 3) Aides locales (certaines régions/communes). Trouvez un réparateur sur l'annuaire officiel (quefairedemesdechets.ademe.fr), et des conseils et tutos sur le site Épargnons nos ressources de l'ADEME (epargnonsnosressources.gouv.fr, ex-« Longue vie aux objets »).",
         link: { label: "Trouver un réparateur labellisé près de chez vous", url: "https://quefairedemesdechets.ademe.fr" },
       },
     ],

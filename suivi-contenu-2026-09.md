@@ -19,5 +19,5 @@ Ordre validé : box/FAI, portraits, livres, articles. Un chantier = sourçage d'
 ## chantier 4 — nouveaux articles (RGESN fait le 17/09, bonus et IA ensuite)
 - [x] RGESN : article `rgesn-ecoconception-10-minutes` + widget `rgesn-check`, visuel 29 Ko, câblage complet (SW `v1.3.8`), vérifié (build 61/61, quiz + image + JSON-LD)
 - [x] maillage renforcé : 6 ponts (3 côté blog, 3 côté fiches), vérifiés rendus
-- [ ] bonus réparation : sourçage puis rédaction + visuel + vérif
+- [x] bonus réparation : sourçage (grille officielle 04/2026, Ecosystem, économie.gouv.fr 11/09/2026, ADEME) + article `bonus-reparation-mode-emploi` + widget `bonus-check` + câblage complet (SW `v1.3.9`), vérifié (build 62/62, quiz + JSON-LD + ponts). Reste : visuel à fournir par l'auteur (`blog-bonus-reparation.webp`, < 150 Ko)
 - [ ] IA générative : sourçage puis rédaction + visuel + vérif

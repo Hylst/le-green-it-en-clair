@@ -2,6 +2,13 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 17/09/2026 — article bonus réparation (soir)
+
+- article 11 « Bonus réparation : le mode d'emploi » : montants numériques lus dans la grille officielle (smartphone 25 €, PC 50 €, TV 60 €, seuils 100/150 €), éligibilité (hors garantie, panne bloquante, labellisé uniquement), parcours en 3 gestes, widget `bonus-check` (4 questions, `aria-live`), 4 liens officiels vérifiés à la main (grille PDF 04/2026, Ecosystem, économie.gouv.fr 11/09/2026, ADEME). Fourchette 10-65 € confirmée toutes filières (économie.gouv.fr). Sans visuel pour l'instant (icône de repli, à fournir par l'auteur). Câblage complet, SW `v1.3.9`.
+- FAQ aides réparation : double porte officielle (annuaire Que faire de mes objets + Épargnons nos ressources, ex-« Longue vie aux objets », redirection vérifiée).
+- maillage : 2 ponts retour (fiche réparer-prolonger, article AGEC).
+- vérifié : tsc 0 (via build), build 62/62, article + quiz + JSON-LD + ponts dans l'export.
+
 ## 17/09/2026 — retouches bonus réparation / QualiRépar (soir)
 
 - FAQ + 3 articles blog : formulations harmonisées « réparateur labellisé QualiRépar, bonus déduit de la facture » (10 à 65 €, 25 € smartphone), source blog avec millésime (bilan 2025).

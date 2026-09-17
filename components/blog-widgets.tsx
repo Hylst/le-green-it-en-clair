@@ -593,3 +593,99 @@ export function RgesnCheck() {
     </div>
   )
 }
+
+/* 8. Mini-test bonus réparation : 4 questions, les vraies conditions d'éligibilité. */
+
+const BONUS_QUIZ = [
+  {
+    question: "Votre appareil est-il encore sous garantie (ou assuré) ?",
+    options: ["Non, ni garantie ni assurance", "Oui, encore couvert", "Je ne sais pas"],
+    correct: 0,
+    explain: "Le bonus ne vaut que pour les appareils hors garantie et non assurés : vérifiez la date d'achat et vos extensions avant de vous déplacer.",
+  },
+  {
+    question: "La panne empêche-t-elle l'appareil de fonctionner ?",
+    options: [
+      "Oui, il ne marche plus (ou mal)",
+      "Non, c'est juste esthétique",
+      "C'est un consommable ou une batterie amovible",
+    ],
+    correct: 0,
+    explain: "Esthétique seul, consommables et batteries amovibles : non éligibles. Casse qui bloque l'usage, batterie inamovible : éligibles.",
+  },
+  {
+    question: "Qui va réparer ?",
+    options: [
+      "Un réparateur labellisé QualiRépar",
+      "Moi-même, avec une pièce achetée",
+      "Un réparateur non labellisé",
+    ],
+    correct: 0,
+    explain: "Le bonus n'existe que chez un réparateur labellisé, qui le déduit lui-même de votre facture. L'annuaire officiel les recense.",
+  },
+  {
+    question: "Devis à 90 € pour un PC portable : le bonus de 50 € s'applique-t-il ?",
+    options: ["Non, sous le seuil de 150 €", "Oui, dans tous les cas", "Je ne sais pas"],
+    correct: 0,
+    explain: "Certains appareils ont un seuil de déclenchement (150 € pour un portable, 100 € pour un moniteur) : en dessous, pas de bonus.",
+  },
+]
+
+export function BonusCheck() {
+  const [answers, setAnswers] = useState<(number | null)[]>([null, null, null, null])
+  const answered = answers.filter((a) => a !== null).length
+  const score = answers.filter((a, i) => a === BONUS_QUIZ[i].correct).length
+
+  const answer = (question: number, option: number) => {
+    setAnswers((prev) => prev.map((value, i) => (i === question ? option : value)))
+  }
+
+  return (
+    <div className={cardClass}>
+      <WidgetTitle>Votre réparation aurait-elle le bonus ?</WidgetTitle>
+      <WidgetHint>4 questions, les vraies conditions. La correction s'affiche aussitôt.</WidgetHint>
+      <div className="space-y-5">
+        {BONUS_QUIZ.map((item, qi) => (
+          <fieldset key={item.question} className="rounded-lg bg-card p-4">
+            <legend className="px-1 text-sm font-semibold text-foreground">{item.question}</legend>
+            <div className="mt-2 space-y-2">
+              {item.options.map((option, oi) => {
+                const chosen = answers[qi] === oi
+                const revealed = answers[qi] !== null
+                return (
+                  <label
+                    key={option}
+                    className={cn(
+                      "flex cursor-pointer items-start gap-2.5 rounded-lg border p-2.5 text-sm transition-colors",
+                      revealed && oi === item.correct && "border-emerald-500 bg-emerald-500/10",
+                      revealed && chosen && oi !== item.correct && "border-red-400 bg-red-500/10",
+                      !revealed && "border-border hover:bg-secondary/60"
+                    )}
+                  >
+                    <input
+                      type="radio"
+                      name={`bonus-q${qi}`}
+                      checked={chosen}
+                      onChange={() => answer(qi, oi)}
+                      className="mt-0.5 h-4 w-4 shrink-0 accent-emerald-600"
+                    />
+                    <span className="text-foreground">{option}</span>
+                  </label>
+                )
+              })}
+            </div>
+            {answers[qi] !== null && (
+              <p className="mt-2 flex items-start gap-2 text-sm text-muted-foreground">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" aria-hidden="true" />
+                {item.explain}
+              </p>
+            )}
+          </fieldset>
+        ))}
+      </div>
+      <p className="mt-4 text-sm font-medium text-foreground" aria-live="polite">
+        Score : {score} sur {BONUS_QUIZ.length} ({answered} sur {BONUS_QUIZ.length} répondues)
+      </p>
+    </div>
+  )
+}

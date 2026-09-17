@@ -41,6 +41,7 @@ export function Breadcrumb() {
     "fairphone-portrait-telephone-equitable": "Fairphone : portrait",
     "envie-portrait-reemploi-solidaire": "Envie : portrait",
     "rgesn-ecoconception-10-minutes": "RGESN en 10 minutes",
+    "bonus-reparation-mode-emploi": "Bonus réparation",
     faq: "FAQ",
     "fiches-pratiques": "Fiches pratiques",
     "sitemap-page": "Plan du site",

@@ -6,7 +6,7 @@ Je note ici ce qui change, même les petits trucs.
 
 - article 11 « Bonus réparation : le mode d'emploi » : montants numériques lus dans la grille officielle (smartphone 25 €, PC 50 €, TV 60 €, seuils 100/150 €), éligibilité (hors garantie, panne bloquante, labellisé uniquement), parcours en 3 gestes, widget `bonus-check` (4 questions, `aria-live`), 4 liens officiels vérifiés à la main (grille PDF 04/2026, Ecosystem, économie.gouv.fr 11/09/2026, ADEME). Fourchette 10-65 € confirmée toutes filières (économie.gouv.fr). Sans visuel pour l'instant (icône de repli, à fournir par l'auteur). Câblage complet, SW `v1.3.9`.
 - FAQ aides réparation : double porte officielle (annuaire Que faire de mes objets + Épargnons nos ressources, ex-« Longue vie aux objets », redirection vérifiée).
-- relecture du 17/09 au soir : 5 correctifs (essential sans « deux conditions », TV = max de la grille EEE, VAE sans déduction sur la majoration, « dommages purement esthétiques » ×3) + plateforme officielle jerepare.fr ajoutée (4 éco-organismes, vérifiée).
+- relecture du 17/09 au soir : 5 correctifs (essential sans « deux conditions », TV = max de la grille EEE, VAE sans déduction sur la majoration, « dommages purement esthétiques » ×3) + plateforme officielle jerepare.fr ajoutée (4 éco-organismes, vérifiée) + deep link ADEME montants/carte (màj 24/08/2026 : 1,5 M de réparations, 63 M€, 6 500 réparateurs).
 - maillage : 2 ponts retour (fiche réparer-prolonger, article AGEC).
 - vérifié : tsc 0 (via build), build 62/62, article + quiz + JSON-LD + ponts dans l'export.
 

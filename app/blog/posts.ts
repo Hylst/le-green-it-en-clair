@@ -1106,7 +1106,7 @@ export const posts: BlogPost[] = [
         heading: "Le principe : réparer moins cher, sans paperasse",
         paragraphs: [
           "Le bonus réparation est né de la loi anti-gaspillage (AGEC) : pour un appareil en panne, une partie de la réparation est prise en charge, et la réduction apparaît directement sur votre facture. Aucun dossier à remplir, aucun remboursement à attendre : c'est le réparateur qui applique le bonus, puis se fait compenser par la filière.",
-          "Car ce n'est pas l'État qui paie : le dispositif est financé par les producteurs, via leurs contributions aux éco-organismes agréés (Ecosystem, Ecologic), selon le principe de responsabilité élargie du producteur. Côté périmètre, le bonus couvre près de 68 appareils électriques et électroniques depuis 2025, et 261 objets au total en comptant les autres filières (vêtements, chaussures, meubles).",
+          "Car ce n'est pas l'État qui paie : le dispositif est financé par les producteurs, via leurs contributions aux éco-organismes agréés (Ecosystem, Ecologic), selon le principe de responsabilité élargie du producteur. Côté périmètre, le bonus couvre près de 68 appareils électriques et électroniques depuis 2025, et 261 objets au total en comptant les autres filières (vêtements, chaussures, meubles). L'échelle est déjà là : en 2025, plus de 6 500 réparateurs labellisés ont réalisé 1,5 million de réparations aidées, pour 63 M€ de bonus versés.",
         ],
         fact: {
           value: "25 €",
@@ -1203,6 +1203,7 @@ export const posts: BlogPost[] = [
       { label: "Bonus : comment ça marche (économie.gouv.fr, 11/09/2026)", url: "https://www.economie.gouv.fr/particuliers/mes-droits-conso/bien-consommer/bonus-reparation-comment-ca-marche" },
       { label: "Plateforme officielle du bonus (jerepare.fr)", url: "https://jerepare.fr/" },
       { label: "Le Bonus réparation (ADEME)", url: "https://epargnonsnosressources.gouv.fr/bonus-reparation/" },
+      { label: "Montants détaillés et carte des réparateurs (ADEME, màj 24/08/2026)", url: "https://quefairedemesdechets.ademe.fr/bonus-reparation/" },
     ],
     sources: [
       "QualiRépar (Ecologic/ecosystem), grille des bonus réparation (avril 2026, tarifs au 01/01/2026)",
@@ -1211,6 +1212,7 @@ export const posts: BlogPost[] = [
       "ADEME, bilan du bonus réparation (2025 : 4 à 25 M€)",
       "Jerepare.fr, plateforme officielle du bonus (Ecologic, ecosystem, Ecomaison, Refashion ; consultée en septembre 2026)",
       "ADEME, Épargnons nos ressources, page Bonus réparation (consultée en septembre 2026)",
+      "ADEME, Que faire de mes objets, page Bonus Réparation (màj 24/08/2026 : 1,5 M de réparations, 63 M€, 6 500 réparateurs)",
     ],
   },
 ]

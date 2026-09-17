@@ -58,6 +58,7 @@ export const faqCategories = [
       {
         q: "Le streaming vidéo pollue-t-il vraiment ?",
         a: "Oui, de manière significative. 1h de streaming en 4K consomme ~7 Go de données et émet de l'ordre de 300 g de CO₂ ; en HD ~100 g, en qualité réduite ~30 g (fourchette 56-400 g/h selon les hypothèses, Shift 2019 / Kamiya 2020 ; très dépendant du mix électrique). Le streaming vidéo représente environ 60 % du trafic internet mondial (Sandvine, 2024). Actions : privilégier 720p, télécharger les contenus regardés plusieurs fois, désactiver lecture automatique, éviter le streaming sur mobile en 4G/5G.",
+        link: { label: "Estimez votre streaming avec notre outil", url: "/outils" },
       },
       {
         q: "Les emails polluent-ils vraiment ?",
@@ -80,6 +81,7 @@ export const faqCategories = [
       {
         q: "Où faire réparer mes appareils ?",
         a: "Plusieurs options : 1) SAV du fabricant ou revendeur agréé, 2) Réparateurs indépendants labellisés, 3) Repair Cafés (gratuits, entraide), 4) Ressourceries et structures de l'économie sociale et solidaire (Emmaüs, Envie, etc.). Depuis 2021, un bonus réparation existe en France (de 10 à 65 € selon l'appareil, 25 € pour un smartphone, chez un réparateur labellisé QualiRépar). Consultez l'annuaire officiel (quefairedemesdechets.ademe.fr).",
+        link: { label: "Annuaire officiel : Que faire de mes objets", url: "https://quefairedemesdechets.ademe.fr" },
       },
       {
         q: "Vaut-il mieux réparer ou racheter ?",
@@ -105,7 +107,8 @@ export const faqCategories = [
       },
       {
         q: "Comment mesurer l'impact environnemental d'un site web ?",
-        a: "Outils disponibles : EcoIndex (note A à G), Website Carbon Calculator, GreenFrame, Lighthouse (Google). Ils mesurent : poids page, requêtes serveur, consommation électrique estimée. Objectif : EcoIndex >B, page <1 Mo, <50 requêtes. L'empreinte d'une page dépend surtout de son poids : une page moyenne pèse environ 2,5 Mo (HTTP Archive, 2025) — testez la vôtre avec notre estimateur dans /outils. Le site le plus éco-conçu peut descendre à environ 0,1 g CO₂ par vue (ordre de grandeur).",
+        a: "Outils disponibles : EcoIndex (note A à G), Website Carbon Calculator, GreenFrame, Lighthouse (Google). Ils mesurent : poids page, requêtes serveur, consommation électrique estimée. Objectif : EcoIndex >B, page <1 Mo, <50 requêtes. L'empreinte d'une page dépend surtout de son poids : une page moyenne pèse environ 2,5 Mo (HTTP Archive, 2025) : testez la vôtre avec notre estimateur dans /outils. Le site le plus éco-conçu peut descendre à environ 0,1 g CO₂ par vue (ordre de grandeur).",
+        link: { label: "Tester avec notre estimateur", url: "/outils" },
       },
       {
         q: "Quels langages de programmation sont les plus éco-responsables ?",
@@ -136,10 +139,12 @@ export const faqCategories = [
       {
         q: "Que prévoit le droit à la réparation européen ?",
         a: "Adoptée en 2024 (directive 2024/1799), applicable depuis le 31 juillet 2026, elle impose : 1) Obligation de réparer hors garantie (prix raisonnable, smartphones et tablettes inclus), 2) Pièces détachées et documentation accessibles, 3) Garantie prolongée de 12 mois si réparation sous garantie, 4) Annuaire officiel : Que faire de mes objets (ADEME).",
+        link: { label: "Le détail dans notre page réglementation", url: "/reglementation" },
       },
       {
         q: "Y a-t-il des aides financières pour la réparation ?",
         a: "Oui, plusieurs dispositifs en France : 1) Bonus réparation : de 10 à 65 € selon l'appareil (25 € pour un smartphone), déduit par un réparateur labellisé QualiRépar, hors garantie (ADEME), 2) Fonds réparation via éco-organismes, 3) Aides locales (certaines régions/communes). Consultez quefairedemesdechets.ademe.fr et longuevieauxobjets.gouv.fr pour les détails et la carte des bénéficiaires.",
+        link: { label: "Trouver un réparateur labellisé près de chez vous", url: "https://quefairedemesdechets.ademe.fr" },
       },
     ],
   },

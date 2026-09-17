@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { ChevronDown, ChevronUp, HelpCircle, Search } from "lucide-react"
+import { ChevronDown, ChevronUp, HelpCircle, Search, ExternalLink, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { JsonLd } from "@/components/json-ld"
 import { PageHero } from "@/components/page-hero"
@@ -144,6 +144,27 @@ export default function FAQPage() {
                           {isOpen && (
                             <div className="border-t border-border bg-secondary/30 px-6 py-4">
                               <p className="text-muted-foreground leading-relaxed">{item.a}</p>
+                              {item.link && (
+                                item.link.url.startsWith("http") ? (
+                                  <a
+                                    href={item.link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+                                  >
+                                    {item.link.label}
+                                    <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                                  </a>
+                                ) : (
+                                  <Link
+                                    href={item.link.url}
+                                    className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+                                  >
+                                    {item.link.label}
+                                    <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                                  </Link>
+                                )
+                              )}
                             </div>
                           )}
                         </Card>

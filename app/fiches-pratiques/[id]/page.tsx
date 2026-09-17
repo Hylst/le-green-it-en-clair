@@ -154,7 +154,7 @@ const sheets: Record<string, any> = {
     resources: [
       "Comparateur d'appareils : /outils",
       "Reconditionné ou neuf, le calcul : /blog/reconditionne-vs-neuf-le-calcul",
-      "Indice de réparabilité : quefairedemesdechets.ademe.fr",
+      "Indice de réparabilité : https://quefairedemesdechets.ademe.fr",
       "Acteurs du reconditionné : /recyclage",
     ],
     sources: [
@@ -245,7 +245,7 @@ const sheets: Record<string, any> = {
     resources: [
       "Checklist développeur : /developpement",
       "Outils de mesure : GreenFrame, EcoIndex",
-      "Guides ADEME : ecoresponsable.numerique.gouv.fr",
+      "Guides ADEME : https://ecoresponsable.numerique.gouv.fr",
     ],
     sources: [
       "Pereira et al. 2017 (langages)",
@@ -320,10 +320,10 @@ const sheets: Record<string, any> = {
       },
     ],
     resources: [
-      "Tutoriels : iFixit.com",
+      "Tutoriels : https://www.ifixit.com",
       "Un an avec un smartphone réparable : /blog/un-an-avec-un-smartphone-reparable",
-      "Annuaire : annuaire-reparation.fr",
-      "Bonus : ecosystem.eco",
+      "Annuaire : https://www.annuaire-reparation.fr",
+      "Bonus : https://www.ecosystem.eco",
     ],
     sources: [
       "ADEME 2026 (durée de vie, réparation)",
@@ -396,9 +396,9 @@ const sheets: Record<string, any> = {
       },
     ],
     resources: [
-      "Institut du Numérique Responsable (INR) : label-nr.fr",
-      "Club Green IT : greenit.fr",
-      "Référentiel GR491 (INR) : gr491.isit-europe.org",
+      "Institut du Numérique Responsable (INR) : https://label-nr.fr",
+      "Club Green IT : https://www.greenit.fr",
+      "Référentiel GR491 (INR) : https://gr491.isit-europe.org",
     ],
     sources: [
       "ADEME 2022 (-75 % reconditionné)",
@@ -473,7 +473,7 @@ const sheets: Record<string, any> = {
     ],
     resources: [
       "Carte des points : https://ecosystem.eco/fr/localiser",
-      "Guide ADEME : ademe.fr",
+      "Guide ADEME : https://www.ademe.fr",
       "Que faire de mes objets : https://quefairedemesdechets.ademe.fr",
     ],
     sources: [
@@ -540,8 +540,8 @@ const sheets: Record<string, any> = {
     resources: [
       "Simulateur PUE : /datacenters",
       "Comprendre le PUE en 5 minutes : /blog/comprendre-le-pue-en-5-minutes",
-      "Cloud Carbon Footprint : cloudcarbonfootprint.org",
-      "Comparatif The Green Web Foundation : thegreenwebfoundation.org",
+      "Cloud Carbon Footprint : https://www.cloudcarbonfootprint.org",
+      "Comparatif The Green Web Foundation : https://www.thegreenwebfoundation.org",
     ],
     sources: [
       "Uptime Institute 2024 (PUE)",
@@ -614,9 +614,9 @@ const sheets: Record<string, any> = {
       },
     ],
     resources: [
-      "Texte de loi REEN : legifrance.gouv.fr",
-      "Guide Achat Public Numérique Responsable : interministeriel",
-      "Mission Interministérielle Numérique Éco-responsable : ecoresponsable.numerique.gouv.fr",
+      "Texte de loi REEN : https://www.legifrance.gouv.fr",
+      "Guide des achats numériques responsables (MiNumEco) : https://ecoresponsable.numerique.gouv.fr/publications/guide-pratique-achats-numeriques-responsables",
+      "Mission Interministérielle Numérique Éco-responsable : https://ecoresponsable.numerique.gouv.fr",
     ],
     sources: [
       "Loi REEN 2021",
@@ -684,8 +684,8 @@ const sheets: Record<string, any> = {
       },
     ],
     resources: [
-      "Avis ADEME sur l'IA générative : ademe.fr",
-      "RGESN et numérique écoresponsable : ecoresponsable.numerique.gouv.fr",
+      "Avis ADEME sur l'IA générative : https://www.ademe.fr",
+      "RGESN et numérique écoresponsable : https://ecoresponsable.numerique.gouv.fr",
       "Notre page Outils : /outils",
     ],
     sources: [
@@ -756,7 +756,7 @@ const sheets: Record<string, any> = {
     resources: [
       "Notre estimateur streaming & visio : /outils#onglet-streaming",
       "Les 7 gestes quotidiens : /fiches-pratiques/gestes-quotidiens",
-      "The Shift Project, sobriété numérique : theshiftproject.org",
+      "The Shift Project, sobriété numérique : https://theshiftproject.org",
     ],
     sources: [
       "The Shift Project, « Climat : l'insoutenable usage de la vidéo en ligne » (2019)",
@@ -826,7 +826,7 @@ const sheets: Record<string, any> = {
     resources: [
       "Guide d'achat responsable : /fiches-pratiques/achat-responsable",
       "Démarche Green IT en entreprise : /fiches-pratiques/green-it-entreprise",
-      "Enquête Arcep « Pour un numérique soutenable » : arcep.fr",
+      "Enquête Arcep « Pour un numérique soutenable » : https://www.arcep.fr",
     ],
     sources: [
       "CableLabs, consommation horaire des applications de visioconférence (2026)",
@@ -895,7 +895,7 @@ const sheets: Record<string, any> = {
     resources: [
       "L'empreinte de vos e-mails : /outils#onglet-calculator",
       "Les 7 gestes quotidiens : /fiches-pratiques/gestes-quotidiens",
-      "Les bases du numérique d'intérêt général : lesbases.anct.gouv.fr",
+      "Les bases du numérique d'intérêt général : https://lesbases.anct.gouv.fr",
     ],
     sources: [
       "ADEME, travaux sur l'impact des e-mails (2011, repris 2019)",
@@ -1101,7 +1101,7 @@ const sheets: Record<string, any> = {
     resources: [
       "Les 7 gestes quotidiens : /fiches-pratiques/gestes-quotidiens",
       "Streaming et gaming : /fiches-pratiques/streaming-video",
-      "Parentalité numérique : jeprotegemonenfant.gouv.fr",
+      "Parentalité numérique : https://jeprotegemonenfant.gouv.fr",
     ],
     sources: [
       "Santé publique France, étude Enabee, premiers résultats (septembre 2025, données 2022)",

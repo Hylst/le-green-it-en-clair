@@ -2,6 +2,17 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 17/09/2026 — portrait, vidéos, vague liens (soir)
+
+- portrait success story : Back Market en 6e article blog (faits publics vérifiés à la main : Paris 2014, 3 fondateurs, 30 M d’appareils dans 17 pays et ~2 Mt CO₂e selon l’entreprise, partenariat Bouygues 2025 ; sans logo, les faits n’exigent pas d’autorisation). Image en repli icône, prompt nano banana à fournir. Câblage complet du premier coup (sitemap, recherche, plan, fil d’Ariane, SW `v1.3.5`).
+- vidéos : section dans `/ressources` avec la collection Canal-U « Sobriété numérique » (UVED avec Alt IMPACT, 21 vidéos, mise en ligne le 05/02/2026, vérifiée à la main). 1 vidéo intégrée en lecture au clic via oEmbed officiel (Orgerie, CNRS, 00:08:22, CC BY-NC-SA avec attribution) + 5 cartes avec durée, auteur et lien. YouTube écarté (aucun ID vérifiable à la main), 5 codes oEmbed restants bloqués par l’anti-robot (à récupérer plus tard, noté au todo).
+- P1 liens : 21 ressources fiches rendues cliquables (16 domaines contrôlés un par un : 200 ou 301 normaux, ademe.fr en 403 anti-bot déjà connu ; entrée « interministeriel » corrigée vers la vraie URL du guide MiNumEco). « GreenFrame, EcoIndex » restés en texte (URL non vérifiée, noté au todo).
+- P2 FAQ : 5 liens ciblés (annuaire officiel ×2, `/outils` ×2, `/reglementation`) + 1 cadratin normalisé au passage.
+- P4 glossaire : 27 → 32 termes (Réemploi, Bonus réparation, Free cooling, Garantie légale, Taux de collecte) avec liens croisés internes.
+- P5 blog : liens de sources vérifiés à la main (librairie ADEME, ODRE, EUR-Lex 2023/1670 et 2024/1799 qui répondent, page À propos Back Market en 200).
+- P7 : contrôle trimestriel des liens externes noté au todo.
+- vérifié : `tsc` 0, build 56/56, portrait en 200 + sitemap, liens fiches/FAQ/blog/vidéos contrôlés dans le HTML rendu, façade vidéo sans iframe avant clic, `check:typo` sans signalement nouveau.
+
 ## 17/09/2026 — visuels blog + fiches, widgets interactifs, petits oublis
 
 - 12 JPEG reçus convertis en webp 70 % 1376×768 (18 à 66 Ko, tous sous 150 Ko) : 6 vignettes fiches (fin des doublons provisoires), hero du blog, 5 vignettes et 5 héros d’articles. Contrôle visuel : charte OK, aucun texte charabia (sélecteur Low/Medium/High lisible sur la fiche streaming).

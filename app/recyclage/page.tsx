@@ -208,7 +208,7 @@ export default function RecyclagePage() {
                 46 %
                 <SourceTooltip className="ml-1 align-middle" source="Eurostat / Ecosystem, 2024" calculation="tonnages collectés ÷ tonnages mis sur le marché" />
               </div>
-              <p className="text-sm text-muted-foreground">Taux de collecte en France (Eurostat/Ecosystem, 2024)</p>
+              <p className="text-sm text-muted-foreground">Taux de collecte en France (Eurostat et Ecosystem, 2024)</p>
             </Card>
             <Card className="border-2 border-accent/20 bg-accent/5 p-6 text-center">
               <div className="mb-2 text-4xl font-bold text-accent">Carte</div>

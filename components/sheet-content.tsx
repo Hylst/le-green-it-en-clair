@@ -137,7 +137,7 @@ export function SheetContent({ sheet }: SheetContentProps) {
                     </Card>
                 )}
 
-                <div className="mt-8 flex items-center justify-center gap-4">
+                <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
                     <Button variant="outline" size="lg" onClick={() => window.print()}>
                         <Printer className="mr-2 h-5 w-5" />
                         Imprimer cette fiche en PDF

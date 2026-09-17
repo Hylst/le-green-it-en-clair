@@ -129,6 +129,7 @@ Passage de contrôle : 6 sous-agents en lecture seule, contre-vérification à l
 
 - [x] testé Chromium + Firefox + WebKit (moteur Safari) en prod `/greenit/` le 15/09 (8 pages, 0 erreur nouvelle). Reste : Safari réel sur Mac, à confirmer si possible.
 - [x] passe e2e + vision le 17/09 au soir (Chromium, export local `/greenit/`) : 63 pages, 3 101 liens (0 mort), JSON-LD 91/91, 8 outils, quiz, Leaflet, éCO2mix, recherche insensible aux accents (corrigée), 5 captures dark/light/mobile. 3 correctifs (recherche, espace hero, image 166 → 83 Ko). Détail dans `changelog.md`.
+- [x] sweep responsive le 17/09 dans la nuit (60 routes × 390/768/1024/1440, script `sweep/` en temp) : 3 bugs flex corrigés (cartes problematiques, boutons fiches, nav) + libellé recyclage. 0 débordement aux 4 largeurs. Détail dans `changelog.md`.
 - [x] tester mobile plusieurs tailles : 320 / 390 / 768 px passés sur les 30 routes, 0 débordement (fix du 15/09 au soir, commit `1068cea`). Reste : lecteur d'écran NVDA/VoiceOver pour de vrai.
 - [ ] bruit console : les prefetch Next (`*_rsc`, `__PAGE__.txt` en 404) sur l'export statique. Cosmétique (la navigation retombe sur la page complète), mais à surveiller si Next propose une option propre un jour.
 - [x] breadcrumb : labels `guide`/`mentions-legales`/`offline` ajoutés + `aria-label` "Fil d'Ariane" (fait le 14/09).

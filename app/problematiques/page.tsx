@@ -530,7 +530,7 @@ export default function ProblematiquesPage() {
               return (
                 <Card key={index} className={`border-2 border-${problem.color}-500 bg-background p-8`}>
                   <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                    <div className="flex items-start gap-4">
+                    <div className="flex min-w-0 items-start gap-4">
                       <div
                         className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-${problem.color}-600`}
                       >
@@ -541,7 +541,7 @@ export default function ProblematiquesPage() {
                         <p className="text-sm text-muted-foreground">{problem.description}</p>
                       </div>
                     </div>
-                    <div className="flex shrink-0 flex-col items-end gap-2">
+                    <div className="flex min-w-0 flex-col items-end gap-2">
                       <span
                         className={`rounded-full px-4 py-1 text-sm font-semibold ${problem.severity === "Critique" ? "bg-red-700 text-white" : "bg-orange-700 text-white"
                           }`}

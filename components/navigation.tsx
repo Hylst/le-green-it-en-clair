@@ -77,16 +77,16 @@ export function Navigation() {
     <nav suppressHydrationWarning className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-bold text-foreground">
+          <Link href="/" className="flex shrink-0 items-center gap-2 font-bold text-foreground">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary shadow-md">
               <Leaf className="h-5 w-5 text-primary-foreground" />
             </div>
-            <span className="text-lg">
+            <span className="whitespace-nowrap text-lg">
               Le Green IT <span className="hidden sm:inline">en clair</span>
             </span>
           </Link>
 
-          <div className="hidden items-center gap-6 lg:flex">
+          <div className="hidden items-center gap-4 lg:flex xl:gap-6">
             {navCategories.map((category) => (
               <DropdownMenu key={category.label}>
                 <DropdownMenuTrigger

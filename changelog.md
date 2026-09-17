@@ -2,6 +2,13 @@
 
 Je note ici ce qui change, même les petits trucs.
 
+## 17/09/2026 — sweep responsive (nuit)
+
+- signalement : débordements visibles (ex. `/developpement/`). Balayage scripté maison (Chrome headless, 60 routes × 390/768/1024/1440, script dans le dossier temp `sweep/`) : 3 vrais bugs, tous le même pattern (flex sans `min-w-0` ni wrap), corrigés en 5 lignes — cartes `problematiques` (+241 px à la charnière 1024, stat `shrink-0` de 936 px), boutons des fiches (+1 px à 390, `flex-wrap`), nav (gaps resserrés sous `xl`, logo en `nowrap`). Plus : libellé KPI `recyclage` qui ne coupait pas au slash (reformulé « Eurostat et Ecosystem »), logo qui wrappait en police navigateur agrandie.
+- faux positifs écartés et notés (ticker, sommaire défilable, `pre` en scroll, barre Radix, tuiles Leaflet, images lazy/Canal-U vérifiées OK au scroll et en 200).
+- incident de manip : mon `npm init -y` a pollué `package.json` (`type: commonjs`, build cassé) — restauré via git, build 63/63. Ne plus lancer npm/npx avec le projet en workdir.
+- vérifié : tsc 0 (via build), build 63/63, 0 débordement aux 4 largeurs, export.
+
 ## 17/09/2026 — repli hors-ligne réparé (nuit)
 
 - signalement : page « Vous êtes hors ligne » affichée sur `/developpement/` avec image cassée + console rouge. Cause : serveur local arrêté (de ma faute, fin de passe e2e) → le service worker a servi le repli depuis son cache, et l'illustration `offline-illustration.webp` n'était pas précachée → carré vide. Le fichier existe bien dans l'export, rien d'autre ne manquait.

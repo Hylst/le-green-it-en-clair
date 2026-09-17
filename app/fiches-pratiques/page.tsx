@@ -96,7 +96,7 @@ const practicalSheets = [
     target: "Citoyens",
     duration: "8 min",
     impact: "60 % du trafic mondial (Shift, 2019)",
-    image: "/greenit/images/smartphone-impact-infographic.webp",
+    image: "/greenit/images/fiches/fiche-streaming-video.webp",
   },
   {
     id: "teletravail-visio",
@@ -105,7 +105,7 @@ const practicalSheets = [
     target: "Actifs",
     duration: "8 min",
     impact: "~1 Go/h en visio (CableLabs, 2026)",
-    image: "/greenit/images/sustainable-coding.webp",
+    image: "/greenit/images/fiches/fiche-teletravail-visio.webp",
   },
   {
     id: "emails-cloud",
@@ -114,7 +114,7 @@ const practicalSheets = [
     target: "Tous publics",
     duration: "8 min",
     impact: "4 g à 50 g par e-mail (ADEME)",
-    image: "/greenit/images/hero-datacenters.webp",
+    image: "/greenit/images/fiches/fiche-emails-cloud.webp",
   },
   {
     id: "objets-connectes",
@@ -123,7 +123,7 @@ const practicalSheets = [
     target: "Citoyens",
     duration: "8 min",
     impact: "21 Mds d'objets fin 2025 (IoT Analytics)",
-    image: "/greenit/images/hero-perspectives.webp",
+    image: "/greenit/images/fiches/fiche-objets-connectes.webp",
   },
   {
     id: "impression-papier",
@@ -132,7 +132,7 @@ const practicalSheets = [
     target: "Entreprises",
     duration: "6 min",
     impact: "−50 % de papier en recto-verso",
-    image: "/greenit/images/hero-modeles.webp",
+    image: "/greenit/images/fiches/fiche-impression-papier.webp",
   },
   {
     id: "enfants-ecole",
@@ -141,7 +141,7 @@ const practicalSheets = [
     target: "Parents",
     duration: "8 min",
     impact: "1h22 à 2h33/jour (SpF, 2025)",
-    image: "/greenit/images/hero-guide.webp",
+    image: "/greenit/images/fiches/fiche-enfants-ecole.webp",
   },
 ]
 

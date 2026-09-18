@@ -170,7 +170,7 @@ export default function FichesPratiquesPage() {
             {practicalSheets.map((sheet) => (
               <Card
                 key={sheet.id}
-                className="group overflow-hidden border-2 border-slate-200 transition-all hover:shadow-xl dark:border-slate-700 dark:bg-slate-800"
+                className="group lift overflow-hidden border-2 border-slate-200 dark:border-slate-700 dark:bg-slate-800"
               >
                 <div className="relative h-48 w-full overflow-hidden bg-slate-100 dark:bg-slate-700">
                   <Image

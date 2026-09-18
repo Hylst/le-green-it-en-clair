@@ -57,7 +57,7 @@ const lifecyclePhases = [
       { icon: Cloud, label: "CO₂", value: "99 %", detail: "de l'empreinte carbone (ADEME, Impact CO₂ 2025) ; ~75 % tous indicateurs (ADEME-Arcep 2023)" },
       { icon: Gem, label: "Composants", value: "1000+", detail: "pièces assemblées (ordre de grandeur)" },
     ],
-    analogy: "La fabrication d'un ordinateur portable émet autant de CO₂ qu'un aller-retour Paris-Marseille en avion.",
+    analogy: "La fabrication d'un smartphone émet autant de CO₂ qu'un trajet Paris-Lyon en voiture thermique (80 kg CO₂ sur le cycle de vie, ADEME 2025 ; 0,17 kg CO₂/km, ADEME 2023).",
     details:
       "Cette phase est la plus polluante du cycle de vie. Les usines de fabrication consomment énormément d'énergie, souvent produite à partir de combustibles fossiles dans les pays de production.",
   },
@@ -126,7 +126,7 @@ export default function ComprendrePage() {
           </p>
           <ImageZoom
             src="/greenit/images/lifecycle-numerique-hero.webp"
-            alt="Cycle de vie du numérique - de l'extraction au recyclage"
+            alt="Illustration du voyage circulaire d'un smartphone : mine aux cristaux verts, usine de fabrication, cargo sur les vagues, mains tenant un téléphone d'où pousse une jeune pousse, et boucle de recyclage avec batterie et téléphone"
             containerClassName="aspect-[16/9] w-full rounded-2xl shadow-xl bg-muted border-2"
             priority
             sizes="(max-width: 768px) 100vw, 896px"
@@ -217,9 +217,9 @@ export default function ComprendrePage() {
           </div>
 
           {/* Text Transcript Section */}
-          <div className="mt-8 rounded-lg border bg-card p-6">
+          <div className="mt-8 rounded-lg border bg-card p-6" role="region" aria-label="Transcription textuelle de l'infographie">
             <h4 className="mb-3 text-lg font-semibold text-card-foreground">
-              Transcription textuelle de l'infographie
+              Un peu plus dans le détail
             </h4>
             <div className="space-y-2 text-sm text-muted-foreground">
               <p>

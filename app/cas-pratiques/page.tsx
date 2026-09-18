@@ -962,6 +962,18 @@ export default function CasPratiquesPage() {
                   </div>
                 </div>
 
+                <div className="mb-8 overflow-hidden rounded-xl border border-border">
+                  <Image
+                    src="/greenit/images/tv-hero.webp"
+                    alt="Illustration d'une télévision allumée dans un salon, une plante poussant depuis une télécommande"
+                    width={1376}
+                    height={768}
+                    className="h-auto w-full"
+                    quality={70}
+                    loading="lazy"
+                  />
+                </div>
+
                 {/* Stats Grid */}
                 <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   <div className="rounded-xl bg-orange-50 p-4 dark:bg-orange-900/20">

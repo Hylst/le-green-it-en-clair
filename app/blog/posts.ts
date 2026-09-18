@@ -1346,6 +1346,8 @@ export const posts: BlogPost[] = [
     ],
   },
   {
+    image: "/greenit/images/blog/blog-greenwashing-numerique.webp",
+    imageAlt: "Loupe révélant des circuits imprimés sous une feuille verte, devant des panneaux publicitaires et des serveurs",
     slug: "greenwashing-numerique-reperes",
     title: "Greenwashing numérique : 3 réflexes pour ne plus se faire avoir",
     excerpt:

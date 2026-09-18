@@ -70,6 +70,8 @@ const deviceComparisonData = [
   { device: "Ordinateur portable", co2: 193, energy: 800, water: 20000 },
   { device: "Ordinateur fixe (sans écran)", co2: 259, energy: 1200, water: 30000 },
   { device: 'Écran 24"', co2: 93, energy: 600, water: 18000 },
+  { device: "Télévision", co2: 370, energy: null, water: null },
+  { device: "Box", co2: 81, energy: null, water: null },
 ]
 
 // Data for Recycling Rates by Country
@@ -340,7 +342,7 @@ export default function ChiffresPage() {
             </ResponsiveContainer>
           </Card>
 
-          <div className="mt-4 text-sm text-muted-foreground">CO₂ : ADEME, Impact CO₂ (mise à jour 2025). Énergie et eau : ordres de grandeur (ADEME 2023) : eau de 1 500 L (eau bleue) à plus de 20 000 L (empreinte complète) pour un ordinateur portable selon la méthode.</div>
+          <div className="mt-4 text-sm text-muted-foreground">CO₂ : ADEME, Impact CO₂ (mise à jour 2025). Énergie et eau : ordres de grandeur (ADEME 2023) : eau de 1 500 L (eau bleue) à plus de 20 000 L (empreinte complète) pour un ordinateur portable selon la méthode. TV et box : CO₂ uniquement, énergie et eau en cours de vérification.</div>
         </div>
       </section>
 

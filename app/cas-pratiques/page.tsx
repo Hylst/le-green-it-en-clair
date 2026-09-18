@@ -2,11 +2,17 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Card } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import { Slider } from "@/components/ui/slider"
 import {
   Smartphone,
   Laptop,
+  Tablet,
+  Tv,
+  Monitor,
+  Router,
   Server,
   TrendingDown,
   Wrench,
@@ -16,6 +22,7 @@ import {
   Car,
   TreePine,
   Check,
+  ArrowRight,
 } from "lucide-react"
 import { ComparisonChart } from "@/components/comparison-chart"
 import { SourceTooltip } from "@/components/source-tooltip"
@@ -50,6 +57,58 @@ const caseStudies = [
       water: "1 500 à 20 000 L",
       lifespan: "4-5 ans",
       metals: "60+",
+    },
+  },
+  {
+    id: "tablet",
+    title: "La Tablette",
+    icon: Tablet,
+    color: "purple",
+    description: "Un écran tactile entre le smartphone et l'ordinateur",
+    stats: {
+      co2: "87 kg",
+      water: "15 000 L",
+      lifespan: "3 ans",
+      metals: "à vérifier",
+    },
+  },
+  {
+    id: "tv",
+    title: "La Télévision Connectée",
+    icon: Tv,
+    color: "orange",
+    description: "Le grand écran du salon, pour la TNT et le streaming",
+    stats: {
+      co2: "370 kg",
+      water: "à vérifier",
+      lifespan: "8 ans",
+      metals: "à vérifier",
+    },
+  },
+  {
+    id: "monitor",
+    title: "L'Écran 24\"",
+    icon: Monitor,
+    color: "indigo",
+    description: "Le périphérique qu'on oublie dans le bilan",
+    stats: {
+      co2: "93 kg",
+      water: "18 000 L",
+      lifespan: "6 ans",
+      metals: "à vérifier",
+    },
+  },
+  {
+    id: "box",
+    title: "La Box Internet",
+    icon: Router,
+    color: "cyan",
+    description: "Toujours allumée, même quand on ne s'en sert pas",
+    stats: {
+      co2: "81 kg",
+      energy: "80 kWh/an",
+      lifespan: "5 ans",
+      metals: "à vérifier",
     },
   },
   {
@@ -473,8 +532,17 @@ export default function CasPratiquesPage() {
                       <li className="flex gap-2">
                         <span className="text-blue-600 dark:text-blue-400">•</span>
                         <span>
-                          Fabriquer un ordinateur portable émet plus de CO₂ qu'un{" "}
-                          <strong>vol Paris-Marseille aller-retour</strong> (DGAC)
+                          <strong>95 % de l'empreinte</strong> vient de la fabrication (182 kg sur 193, ADEME, Impact
+                          CO₂ 2025), 5 % seulement pour l'usage et la fin de vie
+                        </span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-blue-600 dark:text-blue-400">•</span>
+                        <span>
+                          Fabriquer un ordinateur portable émet autant de CO₂ qu'environ{" "}
+                          <strong>1 135 km en voiture thermique</strong> (193 ÷ 0,17, ADEME 2023 et ADEME, Impact CO₂
+                          2025)
+                          <SourceTooltip className="ml-1" source="ADEME, Impact CO₂ 2025 et ADEME 2023" calculation="193 ÷ 0,17 ≈ 1 135 km en voiture thermique" />
                         </span>
                       </li>
                       <li className="flex gap-2">
@@ -538,6 +606,192 @@ export default function CasPratiquesPage() {
                   </p>
                 </div>
               </Card>
+
+              <ScaleComparison
+                type="co2"
+                value={193}
+                unit="kg CO₂"
+                comparisons={[
+                  {
+                    icon: Car,
+                    label: "Trajet en voiture",
+                    equivalent: "1 135 km",
+                    description: "En voiture thermique (0,17 kg CO₂/km, ADEME 2023)",
+                  },
+                  {
+                    icon: TreePine,
+                    label: "Compensation",
+                    equivalent: "10 arbres",
+                    description: "Nécessaires pour absorber le CO₂ en 1 an (≈ 20 kg CO₂/arbre/an, ADEME)",
+                  },
+                  {
+                    icon: Wrench,
+                    label: "À réparer",
+                    equivalent: "RAM, SSD, batterie",
+                    description: "Sur les modèles qui le permettent, pour prolonger la durée de vie",
+                  },
+                ]}
+              />
+
+              <ComparisonChart
+                title="Garder ou remplacer ?"
+                subtitle="Impact CO₂ annuel selon la durée d'usage (193 kg amortis)"
+                unit="kg CO₂/an"
+                items={[
+                  {
+                    label: "Remplacer tous les 4 ans (48 kg/an)",
+                    value: 48,
+                    color: "#b91c1c",
+                    icon: ShoppingCart,
+                    description: "193 ÷ 4, le rythme moyen actuel (4-5 ans)",
+                  },
+                  {
+                    label: "Garder 5 ans (39 kg/an)",
+                    value: 39,
+                    color: "#1d4ed8",
+                    icon: Recycle,
+                    description: "193 ÷ 5, la durée de référence (ADEME, Impact CO₂ 2025)",
+                  },
+                  {
+                    label: "Garder 6 ans (32 kg/an)",
+                    value: 32,
+                    color: "#047857",
+                    icon: Check,
+                    description: "193 ÷ 6, soit un tiers d'impact en moins qu'à 4 ans",
+                  },
+                ]}
+              />
+            </div>
+          )}
+
+          {/* Tablet Case Study */}
+          {selectedCase === "tablet" && (
+            <div className="space-y-8">
+              <Card className="border-2 border-purple-500 p-8 lg:p-12">
+                <div className="mb-8 flex items-start gap-4">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-purple-100 dark:bg-purple-900/30">
+                    <Tablet className="h-8 w-8 text-purple-700 dark:text-purple-400" />
+                  </div>
+                  <div>
+                    <h2 className="mb-2 text-3xl font-bold text-foreground">La Tablette</h2>
+                    <p className="text-lg text-muted-foreground">
+                      Un écran tactile entre le smartphone et l'ordinateur, souvent acheté en plus et pas à la place.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Stats Grid */}
+                <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  <div className="rounded-xl bg-purple-50 p-4 dark:bg-purple-900/20">
+                    <div className="mb-1 text-2xl font-bold text-purple-700 dark:text-purple-400">87 kg</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">CO₂ émis sur le cycle de vie (dont ~84 kg pour la fabrication, ADEME 2025)</div>
+                  </div>
+                  <div className="rounded-xl bg-purple-50 p-4 dark:bg-purple-900/20">
+                    <div className="mb-1 text-2xl font-bold text-purple-700 dark:text-purple-400">96 %</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">de l'empreinte vient de la fabrication (ADEME, Impact CO₂ 2025)</div>
+                  </div>
+                  <div className="rounded-xl bg-purple-50 p-4 dark:bg-purple-900/20">
+                    <div className="mb-1 text-2xl font-bold text-purple-700 dark:text-purple-400">10,5"</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">écran LCD, 4,7 Go de RAM, 144 Go de mémoire (hypothèses ADEME 2025)</div>
+                  </div>
+                  <div className="rounded-xl bg-purple-50 p-4 dark:bg-purple-900/20">
+                    <div className="mb-1 text-2xl font-bold text-purple-700 dark:text-purple-400">3 ans</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">durée d'usage de référence (ADEME, Impact CO₂ 2025)</div>
+                  </div>
+                </div>
+
+                {/* Key Facts */}
+                <div className="space-y-4">
+                  <div className="rounded-xl bg-secondary/30 p-6">
+                    <h3 className="mb-3 font-semibold text-foreground">Le saviez-vous ?</h3>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li className="flex gap-2">
+                        <span className="text-purple-600 dark:text-purple-400">•</span>
+                        <span>
+                          <strong>96 % de l'empreinte</strong> d'une tablette vient de sa fabrication (83,9 kg sur 87,1,
+                          ADEME, Impact CO₂ 2025)
+                        </span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-purple-600 dark:text-purple-400">•</span>
+                        <span>
+                          Une tablette reconditionnée évite <strong>46 à 80 % d'impact annuel</strong> par rapport au
+                          neuf (ADEME, 2022)
+                        </span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-purple-600 dark:text-purple-400">•</span>
+                        <span>
+                          Passer de 2 à 4 ans d'usage <strong>améliore le bilan de 50 %</strong> pour une tablette
+                          (ADEME, La face cachée du numérique)
+                        </span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-purple-600 dark:text-purple-400">•</span>
+                        <span>
+                          Souvent <strong>un écran de plus</strong> dans le foyer : mutualiser les usages (lecture,
+                          streaming, visio) évite d'empiler les appareils
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+
+              <ScaleComparison
+                type="co2"
+                value={87}
+                unit="kg CO₂"
+                comparisons={[
+                  {
+                    icon: Car,
+                    label: "Trajet en voiture",
+                    equivalent: "512 km",
+                    description: "En voiture thermique (87 ÷ 0,17, ADEME 2023)",
+                  },
+                  {
+                    icon: TreePine,
+                    label: "Compensation",
+                    equivalent: "4 arbres",
+                    description: "Nécessaires pour absorber le CO₂ en 1 an (≈ 20 kg CO₂/arbre/an, ADEME)",
+                  },
+                  {
+                    icon: Recycle,
+                    label: "Reconditionné",
+                    equivalent: "−46 à −80 %",
+                    description: "D'impact annuel évité par rapport au neuf (ADEME, 2022)",
+                  },
+                ]}
+              />
+
+              <ComparisonChart
+                title="Garder ou remplacer ?"
+                subtitle="Impact CO₂ annuel selon la durée d'usage (87 kg amortis)"
+                unit="kg CO₂/an"
+                items={[
+                  {
+                    label: "Remplacer tous les 2 ans (44 kg/an)",
+                    value: 44,
+                    color: "#b91c1c",
+                    icon: ShoppingCart,
+                    description: "87 ÷ 2, le renouvellement rapide",
+                  },
+                  {
+                    label: "Garder 3 ans (29 kg/an)",
+                    value: 29,
+                    color: "#1d4ed8",
+                    icon: Recycle,
+                    description: "87 ÷ 3, la durée de référence (ADEME, Impact CO₂ 2025)",
+                  },
+                  {
+                    label: "Garder 4 ans (22 kg/an)",
+                    value: 22,
+                    color: "#047857",
+                    icon: Check,
+                    description: "87 ÷ 4, soit moitié moins qu'à 2 ans",
+                  },
+                ]}
+              />
             </div>
           )}
 
@@ -680,7 +934,378 @@ export default function CasPratiquesPage() {
         </div>
       </section>
 
-      {/* Related Links Section */}
+          {/* TV Case Study */}
+          {selectedCase === "tv" && (
+            <div className="space-y-8">
+              <Card className="border-2 border-orange-500 p-8 lg:p-12">
+                <div className="mb-8 flex items-start gap-4">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-orange-100 dark:bg-orange-900/30">
+                    <Tv className="h-8 w-8 text-orange-700 dark:text-orange-400" />
+                  </div>
+                  <div>
+                    <h2 className="mb-2 text-3xl font-bold text-foreground">La Télévision Connectée</h2>
+                    <p className="text-lg text-muted-foreground">
+                      Le grand écran du salon : le plus lourd du foyer, pour la TNT et le streaming.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Stats Grid */}
+                <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  <div className="rounded-xl bg-orange-50 p-4 dark:bg-orange-900/20">
+                    <div className="mb-1 text-2xl font-bold text-orange-700 dark:text-orange-400">370 kg</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">CO₂ émis sur le cycle de vie (dont ~328 kg pour la fabrication, ADEME 2025)</div>
+                  </div>
+                  <div className="rounded-xl bg-orange-50 p-4 dark:bg-orange-900/20">
+                    <div className="mb-1 text-2xl font-bold text-orange-700 dark:text-orange-400">89 %</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">de l'empreinte vient de la fabrication (ADEME, Impact CO₂ 2025)</div>
+                  </div>
+                  <div className="rounded-xl bg-orange-50 p-4 dark:bg-orange-900/20">
+                    <div className="mb-1 text-2xl font-bold text-orange-700 dark:text-orange-400">45-68"</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">mix moyen : 82 % LCD 45 pouces, OLED 53 et 68 pouces (ADEME 2025)</div>
+                  </div>
+                  <div className="rounded-xl bg-orange-50 p-4 dark:bg-orange-900/20">
+                    <div className="mb-1 text-2xl font-bold text-orange-700 dark:text-orange-400">8 ans</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">durée d'usage de référence (ADEME, Impact CO₂ 2025)</div>
+                  </div>
+                </div>
+
+                {/* Key Facts */}
+                <div className="space-y-4">
+                  <div className="rounded-xl bg-secondary/30 p-6">
+                    <h3 className="mb-3 font-semibold text-foreground">Le saviez-vous ?</h3>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li className="flex gap-2">
+                        <span className="text-orange-600 dark:text-orange-400">•</span>
+                        <span>
+                          <strong>Une TV vaut 2 portables ou 5 smartphones</strong> en CO₂ sur le cycle de vie
+                          (infographie ADEME, Impact CO₂ 2025)
+                        </span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-orange-600 dark:text-orange-400">•</span>
+                        <span>
+                          L'<strong>indice de durabilité</strong> est obligatoire sur les téléviseurs depuis janvier
+                          2025 : comparez les notes avant d'acheter (ADEME, 2025)
+                        </span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-orange-600 dark:text-orange-400">•</span>
+                        <span>
+                          Le <strong>bonus réparation de 60 €</strong> s'applique aux téléviseurs : faites réparer la
+                          dalle ou l'alimentation plutôt que remplacer (grille 2026)
+                        </span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-orange-600 dark:text-orange-400">•</span>
+                        <span>
+                          Plus l'écran est grand, plus la fabrication pèse : <strong>choisir la taille selon le recul
+                          réel</strong> évite le surdimensionnement
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+
+              <ScaleComparison
+                type="co2"
+                value={370}
+                unit="kg CO₂"
+                comparisons={[
+                  {
+                    icon: Car,
+                    label: "Trajet en voiture",
+                    equivalent: "2 176 km",
+                    description: "En voiture thermique (370 ÷ 0,17, ADEME 2023)",
+                  },
+                  {
+                    icon: TreePine,
+                    label: "Compensation",
+                    equivalent: "18 arbres",
+                    description: "Nécessaires pour absorber le CO₂ en 1 an (≈ 20 kg CO₂/arbre/an, ADEME)",
+                  },
+                  {
+                    icon: Wrench,
+                    label: "À réparer",
+                    equivalent: "Bonus 60 €",
+                    description: "Bonus réparation pour un téléviseur (grille officielle 2026)",
+                  },
+                ]}
+              />
+
+              <ComparisonChart
+                title="Garder ou remplacer ?"
+                subtitle="Impact CO₂ annuel selon la durée d'usage (370 kg amortis)"
+                unit="kg CO₂/an"
+                items={[
+                  {
+                    label: "Remplacer tous les 5 ans (74 kg/an)",
+                    value: 74,
+                    color: "#b91c1c",
+                    icon: ShoppingCart,
+                    description: "370 ÷ 5, le renouvellement pour la dernière technologie",
+                  },
+                  {
+                    label: "Garder 8 ans (46 kg/an)",
+                    value: 46,
+                    color: "#1d4ed8",
+                    icon: Recycle,
+                    description: "370 ÷ 8, la durée de référence (ADEME, Impact CO₂ 2025)",
+                  },
+                  {
+                    label: "Garder 10 ans (37 kg/an)",
+                    value: 37,
+                    color: "#047857",
+                    icon: Check,
+                    description: "370 ÷ 10, soit moitié moins qu'à 5 ans",
+                  },
+                ]}
+              />
+            </div>
+          )}
+
+          {/* Monitor Case Study */}
+          {selectedCase === "monitor" && (
+            <div className="space-y-8">
+              <Card className="border-2 border-indigo-500 p-8 lg:p-12">
+                <div className="mb-8 flex items-start gap-4">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-indigo-100 dark:bg-indigo-900/30">
+                    <Monitor className="h-8 w-8 text-indigo-700 dark:text-indigo-400" />
+                  </div>
+                  <div>
+                    <h2 className="mb-2 text-3xl font-bold text-foreground">L'Écran 24"</h2>
+                    <p className="text-lg text-muted-foreground">
+                      Le périphérique qu'on oublie dans le bilan : il pèse plus lourd qu'un smartphone.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Stats Grid */}
+                <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  <div className="rounded-xl bg-indigo-50 p-4 dark:bg-indigo-900/20">
+                    <div className="mb-1 text-2xl font-bold text-indigo-700 dark:text-indigo-400">93 kg</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">CO₂ émis sur le cycle de vie (dont ~66 kg pour la fabrication, ADEME 2025)</div>
+                  </div>
+                  <div className="rounded-xl bg-indigo-50 p-4 dark:bg-indigo-900/20">
+                    <div className="mb-1 text-2xl font-bold text-indigo-700 dark:text-indigo-400">71 %</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">de l'empreinte vient de la fabrication (ADEME, Impact CO₂ 2025)</div>
+                  </div>
+                  <div className="rounded-xl bg-indigo-50 p-4 dark:bg-indigo-900/20">
+                    <div className="mb-1 text-2xl font-bold text-indigo-700 dark:text-indigo-400">24"</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">LCD à 98,6 % (hypothèses ADEME 2025)</div>
+                  </div>
+                  <div className="rounded-xl bg-indigo-50 p-4 dark:bg-indigo-900/20">
+                    <div className="mb-1 text-2xl font-bold text-indigo-700 dark:text-indigo-400">6 ans</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">durée d'usage de référence (ADEME, Impact CO₂ 2025)</div>
+                  </div>
+                </div>
+
+                {/* Key Facts */}
+                <div className="space-y-4">
+                  <div className="rounded-xl bg-secondary/30 p-6">
+                    <h3 className="mb-3 font-semibold text-foreground">Le saviez-vous ?</h3>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li className="flex gap-2">
+                        <span className="text-indigo-600 dark:text-indigo-400">•</span>
+                        <span>
+                          <strong>L'usage compte pour 29 %</strong> de l'empreinte d'un écran (22,7 kg), bien plus que
+                          pour un smartphone : l'éteindre vraiment change la donne (ADEME, Impact CO₂ 2025)
+                        </span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-indigo-600 dark:text-indigo-400">•</span>
+                        <span>
+                          Un <strong>second écran</strong>, c'est un second cycle de vie : 93 kg de plus pour un
+                          confort parfois discutable
+                        </span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-indigo-600 dark:text-indigo-400">•</span>
+                        <span>
+                          La <strong>veille prolongée</strong> consomme pour rien : extinction complète le soir et le
+                          week-end
+                        </span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-indigo-600 dark:text-indigo-400">•</span>
+                        <span>
+                          Passer de 4 à 6 ans d'usage <strong>réduit l'impact annuel d'environ 30 %</strong> (calcul :
+                          1 − 4 ÷ 6)
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+
+              <ScaleComparison
+                type="co2"
+                value={93}
+                unit="kg CO₂"
+                comparisons={[
+                  {
+                    icon: Car,
+                    label: "Trajet en voiture",
+                    equivalent: "547 km",
+                    description: "En voiture thermique (93 ÷ 0,17, ADEME 2023)",
+                  },
+                  {
+                    icon: TreePine,
+                    label: "Compensation",
+                    equivalent: "5 arbres",
+                    description: "Nécessaires pour absorber le CO₂ en 1 an (≈ 20 kg CO₂/arbre/an, ADEME)",
+                  },
+                  {
+                    icon: TrendingDown,
+                    label: "À faire durer",
+                    equivalent: "−30 %",
+                    description: "D'impact annuel en passant de 4 à 6 ans d'usage (1 − 4 ÷ 6)",
+                  },
+                ]}
+              />
+
+              <ComparisonChart
+                title="Garder ou remplacer ?"
+                subtitle="Impact CO₂ annuel selon la durée d'usage (93 kg amortis)"
+                unit="kg CO₂/an"
+                items={[
+                  {
+                    label: "Remplacer tous les 4 ans (23 kg/an)",
+                    value: 23,
+                    color: "#b91c1c",
+                    icon: ShoppingCart,
+                    description: "93 ÷ 4, arrondi",
+                  },
+                  {
+                    label: "Garder 6 ans (16 kg/an)",
+                    value: 16,
+                    color: "#047857",
+                    icon: Check,
+                    description: "93 ÷ 6 arrondi, la durée de référence (ADEME, Impact CO₂ 2025)",
+                  },
+                ]}
+              />
+            </div>
+          )}
+
+          {/* Box Case Study */}
+          {selectedCase === "box" && (
+            <div className="space-y-8">
+              <Card className="border-2 border-cyan-500 p-8 lg:p-12">
+                <div className="mb-8 flex items-start gap-4">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-cyan-100 dark:bg-cyan-900/30">
+                    <Router className="h-8 w-8 text-cyan-700 dark:text-cyan-400" />
+                  </div>
+                  <div>
+                    <h2 className="mb-2 text-3xl font-bold text-foreground">La Box Internet</h2>
+                    <p className="text-lg text-muted-foreground">
+                      Toujours allumée, même quand on ne s'en sert pas : ici, c'est l'usage qui pèse.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Stats Grid */}
+                <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  <div className="rounded-xl bg-cyan-50 p-4 dark:bg-cyan-900/20">
+                    <div className="mb-1 text-2xl font-bold text-cyan-700 dark:text-cyan-400">81 kg</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">CO₂ émis sur le cycle de vie (dont ~61 kg pour la fabrication, ADEME 2025)</div>
+                  </div>
+                  <div className="rounded-xl bg-cyan-50 p-4 dark:bg-cyan-900/20">
+                    <div className="mb-1 text-2xl font-bold text-cyan-700 dark:text-cyan-400">80 kWh/an</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">si elle reste allumée jour et nuit, 9,1 W en continu (Arcep, 2026)</div>
+                  </div>
+                  <div className="rounded-xl bg-cyan-50 p-4 dark:bg-cyan-900/20">
+                    <div className="mb-1 text-2xl font-bold text-cyan-700 dark:text-cyan-400">90 %</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">de sa consommation est invariable, qu'on s'en serve ou non (Arcep, 2026)</div>
+                  </div>
+                  <div className="rounded-xl bg-cyan-50 p-4 dark:bg-cyan-900/20">
+                    <div className="mb-1 text-2xl font-bold text-cyan-700 dark:text-cyan-400">3,4 TWh</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">consommés par le parc français de box et décodeurs en 2024 (Arcep, 2026)</div>
+                  </div>
+                </div>
+
+                {/* Key Facts */}
+                <div className="space-y-4">
+                  <div className="rounded-xl bg-secondary/30 p-6">
+                    <h3 className="mb-3 font-semibold text-foreground">Le saviez-vous ?</h3>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li className="flex gap-2">
+                        <span className="text-cyan-600 dark:text-cyan-400">•</span>
+                        <span>
+                          <strong>L'éteindre 8 heures par jour économise environ un tiers</strong> de sa consommation
+                          sur l'année, soit de l'ordre de 26 kWh par an pour une extinction nocturne (Arcep, 2024)
+                        </span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-cyan-600 dark:text-cyan-400">•</span>
+                        <span>
+                          Le <strong>décodeur TV (7,4 W en moyenne)</strong> mérite le même traitement : éteint quand
+                          personne ne regarde (Arcep, 2026)
+                        </span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-cyan-600 dark:text-cyan-400">•</span>
+                        <span>
+                          Les <strong>box reconditionnées existent</strong> : l'enquête 2026 de l'Arcep leur consacre
+                          un chapitre entier. Rendre sa box en bon état, c'est offrir sa seconde vie
+                        </span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-cyan-600 dark:text-cyan-400">•</span>
+                        <span>
+                          À la maison, le <strong>Wi-Fi consomme 4 à 5 fois moins</strong> que les données mobiles :
+                          activez le Wi-Fi automatique à domicile
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+
+              <ScaleComparison
+                type="co2"
+                value={81}
+                unit="kg CO₂"
+                comparisons={[
+                  {
+                    icon: Car,
+                    label: "Trajet en voiture",
+                    equivalent: "476 km",
+                    description: "En voiture thermique (81 ÷ 0,17, ADEME 2023)",
+                  },
+                  {
+                    icon: TreePine,
+                    label: "Compensation",
+                    equivalent: "4 arbres",
+                    description: "Nécessaires pour absorber le CO₂ en 1 an (≈ 20 kg CO₂/arbre/an, ADEME)",
+                  },
+                  {
+                    icon: Recycle,
+                    label: "Reconditionnée",
+                    equivalent: "Chapitre dédié",
+                    description: "L'enquête Arcep 2026 consacre un chapitre aux box reconditionnées",
+                  },
+                ]}
+              />
+
+              <Card className="border-2 border-border bg-card p-8 lg:p-12">
+                <h3 className="mb-4 text-2xl font-bold text-foreground">Pour aller plus loin</h3>
+                <p className="mb-6 text-muted-foreground">
+                  Le récit chiffré complet, avec mini calculateur : combien consomme vraiment votre box, et que faire
+                  concrètement.
+                </p>
+                <Button asChild size="lg">
+                  <Link href="/blog/que-consomme-vraiment-votre-box">
+                    Lire l'article sur la box
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </Card>
+            </div>
+          )}
+
+          {/* Related Links Section */}
       <section className="px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-5xl">
           <RelatedLinks
@@ -715,7 +1340,11 @@ export default function CasPratiquesPage() {
         <div className="mx-auto max-w-7xl">
           <h3 className="mb-4 text-sm font-semibold text-foreground">Sources</h3>
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-            <span>ADEME, Impact CO₂ (mise à jour 2025 : 193 kg pour un portable, 80 kg pour un smartphone)</span>
+            <span>ADEME, Impact CO₂ (mise à jour 2025 : 193 kg portable, 87 kg tablette, 370 kg TV, 93 kg écran, 81 kg box, 80 kg smartphone)</span>
+            <span>•</span>
+            <span>Arcep, Pour un numérique soutenable (2026 : box 9,1 W et 80 kWh/an, 90 % invariable, parc box et décodeurs 3,4 TWh)</span>
+            <span>•</span>
+            <span>Arcep (2024 : extinction box 8 h par jour, environ un tiers économisé)</span>
             <span>•</span>
             <span>SDES (ministère), infographie smartphone (2025 : 70 kg de matières extraites)</span>
             <span>•</span>

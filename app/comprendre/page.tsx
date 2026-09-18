@@ -10,6 +10,12 @@ import {
   Factory,
   Truck,
   Smartphone,
+  Tablet,
+  Laptop,
+  PcCase,
+  Monitor,
+  Tv,
+  Router,
   Trash2,
   Droplets,
   Zap,
@@ -24,6 +30,8 @@ import {
 } from "lucide-react"
 import { ScaleComparison } from "@/components/scale-comparison"
 import { VisualAnalogy } from "@/components/visual-analogy"
+import { ComparisonChart } from "@/components/comparison-chart"
+import { useChartTheme } from "@/lib/chart-theme"
 import { SectionDivider } from "@/components/section-divider"
 import { RelatedLinks } from "@/components/related-links"
 import { AnimatedLifecycleSVG } from "@/components/animated-lifecycle-svg"
@@ -111,6 +119,7 @@ const lifecyclePhases = [
 
 export default function ComprendrePage() {
   const [selectedPhase, setSelectedPhase] = useState(0)
+  const chart = useChartTheme()
 
   return (
     <div className="min-h-screen bg-background transition-colors duration-300">
@@ -464,6 +473,78 @@ export default function ComprendrePage() {
               </p>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* Other Devices Comparison */}
+      <section className="px-6 py-16 lg:py-24 bg-background border-t">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="mb-8 text-center text-3xl font-bold text-foreground lg:text-4xl">
+            Un smartphone n'est pas un cas isolé
+          </h2>
+          <p className="mb-12 text-center text-lg text-muted-foreground">
+            Le même calcul, pour les autres appareils numériques du foyer : CO₂ sur le cycle de vie complet
+          </p>
+          <ComparisonChart
+            title="CO₂ sur le cycle de vie, par appareil"
+            subtitle="Valeurs arrondies, fabrication incluse (ADEME, Impact CO₂ 2025)"
+            unit="kg CO₂"
+            items={[
+              {
+                label: "Smartphone",
+                value: 80,
+                color: chart.emerald,
+                icon: Smartphone,
+                description: "Dont ~79 kg pour la fabrication",
+              },
+              {
+                label: "Box internet",
+                value: 81,
+                color: chart.cyan,
+                icon: Router,
+                description: "Dont ~61 kg pour la fabrication, 5 ans d'usage",
+              },
+              {
+                label: "Tablette",
+                value: 87,
+                color: chart.violet,
+                icon: Tablet,
+                description: "Dont ~84 kg pour la fabrication, 3 ans d'usage",
+              },
+              {
+                label: "Écran 24 pouces",
+                value: 93,
+                color: chart.indigo,
+                icon: Monitor,
+                description: "Dont ~66 kg pour la fabrication, 6 ans d'usage",
+              },
+              {
+                label: "Ordinateur portable",
+                value: 193,
+                color: chart.blue,
+                icon: Laptop,
+                description: "Dont ~182 kg pour la fabrication, 5 ans d'usage",
+              },
+              {
+                label: "Ordinateur fixe pro",
+                value: 259,
+                color: chart.slate,
+                icon: PcCase,
+                description: "Sans écran, dont ~205 kg pour la fabrication, 6 ans d'usage",
+              },
+              {
+                label: "Télévision",
+                value: 370,
+                color: chart.amber,
+                icon: Tv,
+                description: "Dont ~328 kg pour la fabrication, 8 ans d'usage",
+              },
+            ]}
+          />
+          <p className="mt-6 text-center text-sm text-muted-foreground">
+            Partout la même leçon : la fabrication domine, de 71 % (écran) à 96 % (tablette). Détail par appareil
+            dans les <Link href="/cas-pratiques" className="underline font-medium link-slide">cas pratiques</Link>.
+          </p>
         </div>
       </section>
 

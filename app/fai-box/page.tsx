@@ -203,6 +203,23 @@ export default function FaiBoxPage() {
                     , sans achat ni travaux&nbsp;: c&apos;est l&apos;un des gestes les plus simples pour
                     alléger la facture et l&apos;empreinte du foyer.
                   </p>
+                  <p className="mt-3">
+                    Pour les gestes au quotidien, voir la{" "}
+                    <Link
+                      href="/fiches-pratiques/box-wifi"
+                      className="font-medium text-theme-ink underline underline-offset-4 hover:opacity-80"
+                    >
+                      fiche box et Wi-Fi
+                    </Link>{" "}
+                    et le{" "}
+                    <Link
+                      href="/blog/que-consomme-vraiment-votre-box"
+                      className="font-medium text-theme-ink underline underline-offset-4 hover:opacity-80"
+                    >
+                      récit chiffré de la box
+                    </Link>
+                    .
+                  </p>
                 </div>
               </div>
             </div>

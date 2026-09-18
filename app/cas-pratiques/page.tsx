@@ -1348,14 +1348,21 @@ export default function CasPratiquesPage() {
                 <h3 className="mb-4 text-2xl font-bold text-foreground">Pour aller plus loin</h3>
                 <p className="mb-6 text-muted-foreground">
                   Le récit chiffré complet, avec mini calculateur : combien consomme vraiment votre box, et que faire
-                  concrètement.
+                  concrètement. Pour choisir votre offre, une page dédiée.
                 </p>
-                <Button asChild size="lg">
-                  <Link href="/blog/que-consomme-vraiment-votre-box">
-                    Lire l'article sur la box
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
+                <div className="flex flex-wrap gap-3">
+                  <Button asChild size="lg">
+                    <Link href="/blog/que-consomme-vraiment-votre-box">
+                      Lire l'article sur la box
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
+                  <Button asChild size="lg" variant="outline">
+                    <Link href="/fai-box">
+                      Choisir son FAI et sa box
+                    </Link>
+                  </Button>
+                </div>
               </Card>
             </div>
           )}

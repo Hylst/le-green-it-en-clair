@@ -1197,6 +1197,7 @@ const sheets: Record<string, any> = {
       },
     ],
     resources: [
+      "Choisir son FAI et sa box : /fai-box",
       "Que consomme vraiment votre box : /blog/que-consomme-vraiment-votre-box",
       "Télétravail et visio : /fiches-pratiques/teletravail-visio",
       "Enquête Arcep « Pour un numérique soutenable », édition 2026 : https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/impact-environnemental/enquete-annuelle-pour-un-numerique-soutenable-edition-2026.html",

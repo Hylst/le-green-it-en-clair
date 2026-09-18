@@ -790,6 +790,11 @@ export const posts: BlogPost[] = [
         description: "Les 5 gestes détaillés, à consulter et imprimer.",
       },
       {
+        href: "/fai-box",
+        label: "Choisir son FAI et sa box",
+        description: "Offres, débits et réglages : bien choisir sans surdimensionner.",
+      },
+      {
         href: "/fiches-pratiques/teletravail-visio",
         label: "Télétravail et visio",
         description: "Caméra, réseau et poste de travail à distance.",

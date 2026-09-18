@@ -93,6 +93,13 @@ const sheets: Record<string, any> = {
       "Arcep 2026 (box)",
       "Kamiya 2020, Shift 2019 (streaming, Wi-Fi)",
     ],
+    sourceLinks: [
+      { label: "ADEME, Impact CO2 / Base Empreinte", url: "https://impactco2.fr" },
+      {
+        label: "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026",
+        url: "https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/impact-environnemental/enquete-annuelle-pour-un-numerique-soutenable-edition-2026.html",
+      },
+    ],
   },
   "achat-responsable": {
     title: "Guide d'achat responsable",
@@ -175,6 +182,10 @@ const sheets: Record<string, any> = {
       "Loi AGEC 2020",
       "Règlement UE 2023/1670",
       "Code de la consommation (garantie 2 ans)",
+    ],
+    sourceLinks: [
+      { label: "ADEME, Impact CO2 (mise à jour 2025)", url: "https://impactco2.fr" },
+      { label: "Légifrance : textes officiels (AGEC, garantie légale)", url: "https://www.legifrance.gouv.fr" },
     ],
   },
   "ecoconception-web": {
@@ -267,6 +278,7 @@ const sheets: Record<string, any> = {
       "HTTP Archive 2024",
       "RGESN, GR491",
     ],
+    sourceLinks: [{ label: "GR491, référentiel d'écoconception (INR)", url: "https://gr491.isit-europe.org" }],
   },
   "reparer-prolonger": {
     title: "Réparer et prolonger la vie de ses appareils",
@@ -345,6 +357,10 @@ const sheets: Record<string, any> = {
       "iFixit",
       "service-public.gouv.fr 2026 (bonus, garantie)",
     ],
+    sourceLinks: [
+      { label: "Ecosystem, éco-organisme DEEE", url: "https://www.ecosystem.eco" },
+      { label: "iFixit, tutoriels de réparation", url: "https://www.ifixit.com" },
+    ],
   },
   "green-it-entreprise": {
     title: "Démarche Green IT en entreprise",
@@ -421,6 +437,10 @@ const sheets: Record<string, any> = {
       "ADEME, Impact CO₂ (mise à jour 2025)",
       "INR, GR491",
     ],
+    sourceLinks: [
+      { label: "ADEME, Impact CO2 (mise à jour 2025)", url: "https://impactco2.fr" },
+      { label: "GR491, référentiel d'écoconception (INR)", url: "https://gr491.isit-europe.org" },
+    ],
   },
   "recyclage-mode-emploi": {
     title: "Mode d'emploi du recyclage électronique",
@@ -496,6 +516,14 @@ const sheets: Record<string, any> = {
       "Global E-waste Monitor 2024, ONU",
       "Directive DEEE 2012/19/UE",
       "ADEME, Que faire de mes objets",
+    ],
+    sourceLinks: [
+      { label: "Ecosystem, éco-organisme DEEE", url: "https://www.ecosystem.eco" },
+      {
+        label: "Global E-waste Monitor 2024 (ONU)",
+        url: "https://ewastemonitor.info/the-global-e-waste-monitor-2024/",
+      },
+      { label: "ADEME, Que faire de mes déchets", url: "https://quefairedemesdechets.ademe.fr" },
     ],
   },
   "datacenters-verts": {
@@ -574,6 +602,7 @@ const sheets: Record<string, any> = {
       "The Green Grid (PUE, WUE)",
       "GreenIT.fr 2023",
     ],
+    sourceLinks: [{ label: "AIE, Energy and AI (2025)", url: "https://www.iea.org/reports/energy-and-ai" }],
   },
   "collectivites-action": {
     title: "Plan d'action pour les collectivités",
@@ -649,6 +678,10 @@ const sheets: Record<string, any> = {
       "ecoresponsable.numerique.gouv.fr",
       "ADEME 2026 (durée de vie)",
     ],
+    sourceLinks: [
+      { label: "Légifrance : loi REEN 2021", url: "https://www.legifrance.gouv.fr" },
+      { label: "Mission Numérique éco-responsable", url: "https://ecoresponsable.numerique.gouv.fr" },
+    ],
   },
   "ia-generative": {
     title: "IA générative : comprendre et limiter son impact",
@@ -719,6 +752,13 @@ const sheets: Record<string, any> = {
       "ADEME-Arcep (2023, empreinte du numérique en France)",
       "AIE, Energy and AI (2025)",
       "RGESN (INR) ; référentiel AFNOR IA frugale",
+    ],
+    sourceLinks: [
+      {
+        label: "Avis ADEME : l'IA générative, des impacts importants (juillet 2026)",
+        url: "https://librairie.ademe.fr/economie-circulaire-et-dechets/9495-avis-de-l-ademe-l-intelligence-artificielle-generative-des-impacts-environnementaux-importants.html",
+      },
+      { label: "AIE, Energy and AI (2025)", url: "https://www.iea.org/reports/energy-and-ai" },
     ],
   },
   "streaming-video": {
@@ -861,6 +901,12 @@ const sheets: Record<string, any> = {
       "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026 (données 2024)",
       "ADEME-Arcep (2023, fabrication ≈ 75 % de l'impact)",
     ],
+    sourceLinks: [
+      {
+        label: "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026",
+        url: "https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/impact-environnemental/enquete-annuelle-pour-un-numerique-soutenable-edition-2026.html",
+      },
+    ],
   },
   "emails-cloud": {
     title: "E-mails, cloud et stockage : alléger sans se priver",
@@ -930,6 +976,10 @@ const sheets: Record<string, any> = {
       "ANCT, « L'empreinte carbone de nos e-mails » (rappel de l'ancienneté des chiffres)",
       "ADEME, Impact CO₂ / Base Empreinte (stockage : 0,24 g/Go/an)",
     ],
+    sourceLinks: [
+      { label: "ADEME, Impact CO2 / Base Empreinte", url: "https://impactco2.fr" },
+      { label: "ANCT, Les bases du numérique d'intérêt général", url: "https://lesbases.anct.gouv.fr" },
+    ],
   },
   "objets-connectes": {
     title: "Objets connectés : choisir, sécuriser, faire durer",
@@ -998,6 +1048,12 @@ const sheets: Record<string, any> = {
       "IoT Analytics, « State of IoT 2025 » (octobre 2025)",
       "Statista, objets connectés par type (octobre 2025)",
       "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026 (données 2024)",
+    ],
+    sourceLinks: [
+      {
+        label: "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026",
+        url: "https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/impact-environnemental/enquete-annuelle-pour-un-numerique-soutenable-edition-2026.html",
+      },
     ],
   },
   "impression-papier": {
@@ -1206,6 +1262,16 @@ const sheets: Record<string, any> = {
       "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026 (données 2024, publiée le 21/05/2026)",
       "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2024 (extinction : −33 % à 8 h/j, −50 % à 12 h/j)",
       "ADEME, Panel Elecdom 2020-2023 (box ~92 kWh/an)",
+    ],
+    sourceLinks: [
+      {
+        label: "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026",
+        url: "https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/impact-environnemental/enquete-annuelle-pour-un-numerique-soutenable-edition-2026.html",
+      },
+      {
+        label: "Arcep, dossier « L'empreinte environnementale du numérique » (toutes les éditions)",
+        url: "https://www.arcep.fr/la-regulation/grands-dossiers-thematiques-transverses/lempreinte-environnementale-du-numerique.html",
+      },
     ],
   },
 }

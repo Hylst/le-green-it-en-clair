@@ -630,7 +630,14 @@ export default function RecyclagePage() {
             <span>•</span>
             <span>Eurostat - Taux de collecte DEEE (2024)</span>
             <span>•</span>
-            <span>ADEME - Filière REP DEEE (2024)</span>
+            <a
+              href="https://quefairedemesdechets.ademe.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              ADEME - Filière REP DEEE (2024)
+            </a>
           </div>
         </div>
       </section>

@@ -197,7 +197,9 @@ export default function ChiffresPage() {
                 <SourceTooltip
                   className="ml-1 align-middle"
                   source="UNITAR-UIT, Global E-waste Monitor 2024"
-                  info="Un déchet électronique = tout appareil jeté avec prise ou batterie (smartphone, TV, grille-pain, jouets). Le chiffre = la masse totale des appareils jetés chaque année, estimée depuis les mises sur le marché et les durées de vie (méthode ONU standardisée). Ce n'est ni un cumul d'une année sur l'autre, ni la matière extraite pour les fabriquer (voir MIPS). En 2022 : 62 Mt générées, 22,3 % collectées et recyclées."
+                  info="Un déchet électronique = tout appareil jeté avec prise ou batterie (smartphone, TV, grille-pain, jouets). Le chiffre = la masse totale des appareils jetés chaque année, estimée depuis les mises sur le marché et les durées de vie (méthode ONU standardisée). Ce n'est ni un cumul d'une année sur l'autre, ni la matière extraite pour les fabriquer (voir MIPS). En 2022 : 62 Mt générées, 22,3 % collectées et recyclées. L'UIT (Union Internationale des Télécommunications, agence de l'ONU pour le numérique) co-publie ce rapport avec l'UNITAR."
+                  url="https://ewastemonitor.info/the-global-e-waste-monitor-2024/"
+                  urlLabel="Lire le Global E-waste Monitor 2024"
                 />{" "}
                 a doublé en 15 ans, passant
                 de 34 Mt en 2010 à 72 Mt début 2026. En France, nous produisons environ 1,6 million de tonnes par an, soit
@@ -206,7 +208,7 @@ export default function ChiffresPage() {
             </div>
           </Card>
 
-          <div className="mt-4 text-sm text-muted-foreground">Source : Global E-Waste Monitor, ONU (2024) • ADEME (2023)</div>
+          <div className="mt-4 text-sm text-muted-foreground">Source : <a href="https://ewastemonitor.info/the-global-e-waste-monitor-2024/" target="_blank" rel="noopener noreferrer" className="hover:underline">Global E-Waste Monitor, ONU (2024)</a> • ADEME (2023)</div>
         </div>
       </section>
 

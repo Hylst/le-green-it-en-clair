@@ -143,7 +143,7 @@ export default function HomePage() {
                   <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2" />
                   <span className="text-muted-foreground">
                     <strong className="text-foreground">80 kg CO₂</strong> émis pendant le cycle de vie
-                    <SourceTooltip className="ml-1" source="ADEME, Impact CO₂ (mise à jour 2025)" calculation="80 kg ÷ 0,17 kg CO₂/km ≈ 470 km en voiture thermique" />
+                    <SourceTooltip className="ml-1" source="ADEME, Impact CO₂ (mise à jour 2025)" url="https://impactco2.fr" calculation="80 kg ÷ 0,17 kg CO₂/km ≈ 470 km en voiture thermique" />
                   </span>
                 </li>
               </ul>
@@ -363,7 +363,7 @@ export default function HomePage() {
                   <p className="mb-2 text-lg font-bold text-emerald-800 dark:text-emerald-300">Bravo, c'est correct !</p>
                   <p className="text-slate-700 dark:text-slate-300">
                     La production concentre l'essentiel de l'empreinte carbone d'un smartphone, <strong>environ 99 %</strong> (ADEME, Impact CO₂ 2025)
-                    <SourceTooltip className="ml-1 align-middle" source="ADEME, Impact CO₂ (mise à jour 2025) ; ADEME-Arcep 2023" calculation="fabrication ≈ 99 % du carbone ; ≈ 75 % des impacts tous indicateurs" />. C'est
+                    <SourceTooltip className="ml-1 align-middle" source="ADEME, Impact CO₂ (mise à jour 2025) ; ADEME-Arcep 2023" url="https://impactco2.fr" calculation="fabrication ≈ 99 % du carbone ; ≈ 75 % des impacts tous indicateurs" />. C'est
                     pourquoi garder son téléphone plus longtemps est le geste le plus efficace.
                   </p>
                 </div>
@@ -372,7 +372,7 @@ export default function HomePage() {
                   <p className="mb-2 text-lg font-bold text-amber-800 dark:text-amber-400">Pas tout à fait...</p>
                   <p className="text-slate-700 dark:text-slate-300">
                     La bonne réponse est la production. Elle concentre <strong>environ 99 % de l'empreinte carbone</strong> d'un smartphone
-                    <SourceTooltip className="ml-1 align-middle" source="ADEME, Impact CO₂ (mise à jour 2025) ; ADEME-Arcep 2023" calculation="fabrication ≈ 99 % du carbone ; ≈ 75 % des impacts tous indicateurs" />. L'utilisation ne compte que pour 20 %
+                    <SourceTooltip className="ml-1 align-middle" source="ADEME, Impact CO₂ (mise à jour 2025) ; ADEME-Arcep 2023" url="https://impactco2.fr" calculation="fabrication ≈ 99 % du carbone ; ≈ 75 % des impacts tous indicateurs" />. L'utilisation ne compte que pour 20 %
                     environ des impacts tous indicateurs (et ~1 % du carbone).
                   </p>
                 </div>
@@ -415,7 +415,7 @@ export default function HomePage() {
                 <CountUp to={3.4} decimals={1} suffix=" %" />
                 <SourceTooltip className="ml-1 align-middle" source="GreenIT, EENM 2025" calculation="1,8 Gt CO₂e ÷ ~53 Gt d'émissions mondiales ≈ 3,4 %" />
               </div>
-              <p className="text-muted-foreground">des émissions mondiales de <Acronym title="Gaz à Effet de Serre">GES</Acronym> (1,8 Gt CO₂e) sont dues au numérique</p>
+              <p className="text-muted-foreground">des émissions mondiales de <Acronym title="Gaz à Effet de Serre" glossary="ges">GES</Acronym> (1,8 Gt CO₂e) sont dues au numérique</p>
               <p className="mt-2 text-sm text-muted-foreground">Source : GreenIT EENM 2025</p>
             </div>
             <div className="text-center">

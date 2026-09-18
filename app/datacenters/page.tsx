@@ -23,6 +23,7 @@ import Eco2MixLive from "@/components/eco2mix-live"
 import { SectionDivider } from "@/components/section-divider"
 import { PageHero } from "@/components/page-hero"
 import { CountUp } from "@/components/count-up"
+import { Acronym } from "@/components/acronym"
 import { useChartTheme } from "@/lib/chart-theme"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts"
 
@@ -139,7 +140,7 @@ export default function DatacentersPage() {
               <div className="space-y-4">
                 <div>
                   <div className="mb-1 text-3xl font-bold text-blue-700 dark:text-blue-400"><CountUp to={1.5} decimals={1} suffix=" %" /></div>
-                  <p className="text-sm text-muted-foreground">de l'électricité mondiale (AIE, Energy and AI, avril 2025)</p>
+                  <p className="text-sm text-muted-foreground">de l&apos;électricité mondiale (<Acronym title="Agence Internationale de l'Énergie (IEA en anglais) : rapport Energy and AI, avril 2025" glossary="aie">AIE</Acronym>, Energy and AI, avril 2025)</p>
                 </div>
                 <div>
                   <div className="mb-1 text-3xl font-bold text-teal-700 dark:text-teal-400"><CountUp to={10000} suffix="+" /></div>
@@ -147,12 +148,12 @@ export default function DatacentersPage() {
                 </div>
                 <div>
                   <div className="mb-1 text-3xl font-bold text-cyan-700 dark:text-cyan-400"><CountUp to={415} suffix=" TWh" /></div>
-                  <p className="text-sm text-muted-foreground">consommation annuelle mondiale (AIE, Energy and AI, avril 2025)</p>
+                  <p className="text-sm text-muted-foreground">consommation annuelle mondiale (<Acronym title="Agence Internationale de l'Énergie (IEA en anglais) : rapport Energy and AI, avril 2025">AIE</Acronym>, Energy and AI, avril 2025)</p>
                 </div>
                 <div>
                   <div className="mb-1 text-3xl font-bold text-cyan-700 dark:text-cyan-400"><CountUp to={945} prefix="~" suffix=" TWh" /></div>
                   <p className="text-sm text-muted-foreground">
-                    projection 2030, scénario central (AIE, Energy and AI, 2025)
+                    projection 2030, scénario central (<Acronym title="Agence Internationale de l'Énergie (IEA en anglais) : rapport Energy and AI, avril 2025">AIE</Acronym>, Energy and AI, 2025)
                   </p>
                 </div>
               </div>
@@ -804,9 +805,23 @@ export default function DatacentersPage() {
         <div className="mx-auto max-w-7xl">
           <h3 className="mb-4 text-sm font-semibold text-foreground">Sources</h3>
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-            <span>ADEME - Impact environnemental du numérique (2023)</span>
+            <a
+              href="https://librairie.ademe.fr/consommer-autrement/5226-evaluation-de-l-impact-environnemental-du-numerique-en-france-et-analyse-prospective.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              ADEME - Impact environnemental du numérique (2023)
+            </a>
             <span>•</span>
-            <span>AIE - Energy and AI (2025)</span>
+            <a
+              href="https://www.iea.org/reports/energy-and-ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              AIE - Energy and AI (2025)
+            </a>
             <span>•</span>
             <span>Uptime Institute - Global Data Center Survey (2024)</span>
             <span>•</span>

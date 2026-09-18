@@ -26,6 +26,7 @@ import {
 } from "lucide-react"
 import { ComparisonChart } from "@/components/comparison-chart"
 import { SourceTooltip } from "@/components/source-tooltip"
+import { Acronym } from "@/components/acronym"
 import { ScaleComparison } from "@/components/scale-comparison"
 import { LifespanSlider } from "@/components/lifespan-slider"
 import { ReadingProgress } from "@/components/reading-progress"
@@ -827,7 +828,7 @@ export default function CasPratiquesPage() {
                 <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   <div className="rounded-xl bg-teal-50 p-4 dark:bg-teal-900/20">
                     <div className="mb-1 text-2xl font-bold text-teal-700 dark:text-teal-400">1,5 %</div>
-                    <div className="text-sm text-slate-700 dark:text-slate-300">de l'électricité mondiale (AIE, 2024)</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">de l&apos;électricité mondiale (<Acronym title="Agence Internationale de l'Énergie (IEA en anglais) : rapport Energy and AI, avril 2025" glossary="aie">AIE</Acronym>, 2024)</div>
                   </div>
                   <div className="rounded-xl bg-teal-50 p-4 dark:bg-teal-900/20">
                     <div className="mb-1 text-2xl font-bold text-teal-700 dark:text-teal-400">PUE 1,56</div>
@@ -851,7 +852,7 @@ export default function CasPratiquesPage() {
                       <li className="flex gap-2">
                         <span className="text-teal-600 dark:text-teal-400">•</span>
                         <span>
-                          Les datacenters consomment <strong>environ 1,5 % de l'électricité mondiale</strong> (AIE,
+                          Les datacenters consomment <strong>environ 1,5 % de l&apos;électricité mondiale</strong> (<Acronym title="Agence Internationale de l'Énergie (IEA en anglais) : rapport Energy and AI, avril 2025">AIE</Acronym>,
                           2024), une part en constante augmentation
                         </span>
                       </li>
@@ -1414,11 +1415,25 @@ export default function CasPratiquesPage() {
             <span>•</span>
             <span>DGAC - Éco-calculateur (équivalences avion)</span>
             <span>•</span>
-            <span>AIE - Energy and AI (2025)</span>
+            <a
+              href="https://www.iea.org/reports/energy-and-ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              AIE - Energy and AI (2025)
+            </a>
             <span>•</span>
             <span>Uptime Institute - Global Data Center Survey (2024)</span>
             <span>•</span>
-            <span>Global E-waste Monitor 2024 (ONU)</span>
+            <a
+              href="https://ewastemonitor.info/the-global-e-waste-monitor-2024/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Global E-waste Monitor 2024 (ONU)
+            </a>
           </div>
         </div>
       </section>

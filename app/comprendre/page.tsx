@@ -37,6 +37,7 @@ import { RelatedLinks } from "@/components/related-links"
 import { AnimatedLifecycleSVG } from "@/components/animated-lifecycle-svg"
 import { AnimatedImpactBars } from "@/components/animated-impact-bars"
 import { ImageZoom } from "@/components/image-zoom"
+import { Acronym } from "@/components/acronym"
 
 const lifecyclePhases = [
   {
@@ -107,13 +108,24 @@ const lifecyclePhases = [
     color: "teal",
     description: "Collecte, tri et recyclage des appareils en fin de vie pour récupérer les matériaux précieux.",
     impacts: [
-      { icon: Gem, label: "Recyclage", value: "22,3 %", detail: "taux de collecte/recyclage mondial (GEM 2024)" },
+      { icon: Gem, label: "Recyclage", value: "22,3 %", detail: "taux de collecte/recyclage mondial (Global E-waste Monitor 2024)" },
       { icon: Trash2, label: "Déchets", value: "62 Mt", detail: "d'e-déchets en 2022" },
       { icon: Droplets, label: "Récupération", value: "variable", detail: "selon les métaux" },
     ],
     analogy: "Recycler 1 million de smartphones permet de récupérer des tonnes de cuivre et de métaux précieux (Ecosystem, 2024).",
-    details:
-      "22,3 % des déchets électroniques sont documentés comme collectés et recyclés dans le monde (GEM 2024). En France, le taux de collecte atteint environ 46 % grâce aux filières REP (Responsabilité Élargie du Producteur, Eurostat 2024).",
+    details: (
+      <>
+        22,3 % des déchets électroniques sont documentés comme collectés et recyclés dans le monde (
+        <Acronym
+          title="Global E-waste Monitor : rapport mondial sur les e-déchets, publié par l'UNITAR et l'UIT (édition 2024)"
+          glossary="gem"
+        >
+          GEM
+        </Acronym>{" "}
+        2024). En France, le taux de collecte atteint environ 46 % grâce aux filières REP (Responsabilité Élargie
+        du Producteur, Eurostat 2024).
+      </>
+    ),
   },
 ]
 
@@ -577,11 +589,32 @@ export default function ComprendrePage() {
         <div className="mx-auto max-w-5xl">
           <h3 className="mb-4 text-sm font-semibold text-foreground">Sources</h3>
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-            <span>ADEME - Impact environnemental du numérique (2023)</span>
+            <a
+              href="https://librairie.ademe.fr/consommer-autrement/5226-evaluation-de-l-impact-environnemental-du-numerique-en-france-et-analyse-prospective.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              ADEME - Impact environnemental du numérique (2023)
+            </a>
             <span>•</span>
-            <span>Global E-Waste Monitor, ONU (2024)</span>
+            <a
+              href="https://ewastemonitor.info/the-global-e-waste-monitor-2024/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Global E-Waste Monitor, ONU (2024)
+            </a>
             <span>•</span>
-            <span>GreenIT : Empreinte environnementale du numérique mondial (2025)</span>
+            <a
+              href="https://www.greenit.fr/etude-empreinte-environnementale-du-numerique-mondial/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              GreenIT : Empreinte environnementale du numérique mondial (2025)
+            </a>
           </div>
         </div>
       </section>

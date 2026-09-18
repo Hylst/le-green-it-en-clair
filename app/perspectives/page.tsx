@@ -556,9 +556,23 @@ export default function PerspectivesPage() {
             <span>•</span>
             <span>ADEME-Arcep : Prospective 2030-2050 (2023)</span>
             <span>•</span>
-            <span>AIE : Net Zero Roadmap (2023)</span>
+            <a
+              href="https://www.iea.org/reports/net-zero-roadmap-a-global-pathway-to-keep-the-15-c-goal-in-reach"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              AIE : Net Zero Roadmap (2023)
+            </a>
             <span>•</span>
-            <span>GreenIT : Empreinte environnementale du numérique mondial (2025)</span>
+            <a
+              href="https://www.greenit.fr/etude-empreinte-environnementale-du-numerique-mondial/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              GreenIT : Empreinte environnementale du numérique mondial (2025)
+            </a>
           </div>
         </div>
       </section>

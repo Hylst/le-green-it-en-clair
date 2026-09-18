@@ -135,7 +135,7 @@ export default function GuidePage() {
                                 Le saviez-vous ?
                             </h3>
                             <p className="text-emerald-50 text-lg">
-                                Produire un ordinateur portable de 2 kg émet environ 193 kg de CO₂ et nécessite 800 kg de matières premières (ADEME, Impact CO₂ 2025)<SourceTooltip source="ADEME, Impact CO₂ (mise à jour 2025)" calculation="193 kg de cycle de vie dont ~95 % à la fabrication ; 800 kg de matières extraites ; 2→4 ans d'usage ≈ −50 % d'impact" />.
+                                Produire un ordinateur portable de 2 kg émet environ 193 kg de CO₂ et nécessite 800 kg de matières premières (ADEME, Impact CO₂ 2025)<SourceTooltip source="ADEME, Impact CO₂ (mise à jour 2025)" url="https://impactco2.fr" calculation="193 kg de cycle de vie dont ~95 % à la fabrication ; 800 kg de matières extraites ; 2→4 ans d'usage ≈ −50 % d'impact" />.
                                 Allonger sa durée de vie de 2 à 4 ans réduit son impact environnemental d'environ 50 % (ADEME 2026).
                             </p>
                         </div>

@@ -281,6 +281,9 @@ export const posts: BlogPost[] = [
       "ADEME, Impact CO₂ / Base Empreinte, facteurs d’émission du numérique (2025)",
       "Code de la consommation, garantie légale de conformité (2 ans)",
     ],
+    sourceLinks: [
+      { label: "ADEME, Impact CO2 : données d’émission du numérique", url: "https://impactco2.fr" },
+    ],
   },
   {
     image: "/greenit/images/blog/blog-pue-5-minutes.webp",

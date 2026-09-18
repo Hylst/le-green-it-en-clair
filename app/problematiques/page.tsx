@@ -8,6 +8,7 @@ import { PageHero } from "@/components/page-hero"
 import { SectionDivider } from "@/components/section-divider"
 import { Reveal } from "@/components/reveal"
 import { ReadingProgress } from "@/components/reading-progress"
+import { Acronym } from "@/components/acronym"
 import {
   AlertTriangle,
   TrendingUp,
@@ -90,15 +91,34 @@ const mainProblems = [
       "Conditions de travail dangereuses dans les mines",
       "Épuisement des ressources non renouvelables",
     ],
-    data2025:
-      "Bonne nouvelle : la demande en lithium a triplé entre 2017 et 2022 (AIE, Critical Minerals Market Review 2023), et prolonger la vie de nos batteries reste le geste le plus efficace.",
+    data2025: (
+      <>
+        Bonne nouvelle : la demande en lithium a triplé entre 2017 et 2022 (
+        <Acronym title="Agence Internationale de l'Énergie (IEA en anglais)" glossary="aie">
+          AIE
+        </Acronym>
+        , Critical Minerals Market Review 2023), et prolonger la vie de nos batteries reste le geste le plus
+        efficace.
+      </>
+    ),
   },
   {
     title: "Déchets électroniques exponentiels",
     icon: Trash2,
     color: "orange",
     severity: "Critique",
-    stats: "~70 Mt d'e-déchets en 2025 (GEM 2024)",
+    stats: (
+      <>
+        ~70 Mt d&apos;e-déchets en 2025 (
+        <Acronym
+          title="Global E-waste Monitor : rapport mondial sur les e-déchets, publié par l'UNITAR et l'UIT (édition 2024)"
+          glossary="gem"
+        >
+          GEM
+        </Acronym>{" "}
+        2024)
+      </>
+    ),
     description:
       "La production mondiale de déchets électroniques augmente environ 5 fois plus vite que le recyclage : 62 Mt en 2022, environ 69-70 Mt en 2025, 82 Mt projetées en 2030 (+2,6 Mt/an). Seuls 22,3 % ont été collectés et recyclés en 2022, et la trajectoire actuelle ne mènerait qu'à ~20 % en 2030 (Global E-waste Monitor 2024).",
     impacts: [
@@ -124,8 +144,16 @@ const mainProblems = [
       "Dépendance aux énergies fossiles",
       "Effet rebond : l'efficacité énergétique est annulée par l'augmentation des usages",
     ],
-    data2025:
-      "Les datacenters représentent 1,5 % de la consommation électrique mondiale (AIE, 2024). La France en compte de l'ordre de 250, dont une vingtaine de grande taille (France Datacenter).",
+    data2025: (
+      <>
+        Les datacenters représentent 1,5 % de la consommation électrique mondiale (
+        <Acronym title="Agence Internationale de l'Énergie (IEA en anglais)" glossary="aie">
+          AIE
+        </Acronym>
+        , 2024). La France en compte de l&apos;ordre de 250, dont une vingtaine de grande taille (France
+        Datacenter).
+      </>
+    ),
   },
   {
     title: "Obsolescence programmée et rapide",
@@ -166,7 +194,18 @@ const mainProblems = [
     icon: Globe,
     color: "purple",
     severity: "Élevé",
-    stats: "Export illégal réel mais minoritaire (GEM 2024)",
+    stats: (
+      <>
+        Export illégal réel mais minoritaire (
+        <Acronym
+          title="Global E-waste Monitor : rapport mondial sur les e-déchets, publié par l'UNITAR et l'UIT (édition 2024)"
+          glossary="gem"
+        >
+          GEM
+        </Acronym>{" "}
+        2024)
+      </>
+    ),
     description:
       "Une partie des déchets électroniques est exportée illégalement vers des pays aux filières fragiles, où le démontage se fait parfois dans des conditions dangereuses. Mais la majorité est traitée localement : allonger la durée de vie et trier reste le geste le plus utile (Global E-waste Monitor 2024).",
     impacts: [
@@ -797,7 +836,7 @@ export default function ProblematiquesPage() {
             </ResponsiveContainer>
             <p className="mt-6 text-center text-sm text-slate-600 dark:text-slate-300">
               La France collecte environ 46 % de ses déchets électroniques, en progrès mais encore loin des leaders
-              nordiques. Objectif européen : 65 % de collecte (directive DEEE).
+              nordiques. Objectif européen : 65 % de collecte (directive <Acronym title="Déchets d'Équipements Électriques et Électroniques : appareils en fin de vie fonctionnant à l'électricité ou avec piles/batteries" glossary="deee">DEEE</Acronym>).
             </p>
           </Card>
         </div>
@@ -946,9 +985,23 @@ export default function ProblematiquesPage() {
         <div className="mx-auto max-w-7xl">
           <h3 className="mb-4 text-sm font-semibold text-slate-900 dark:text-slate-200">Sources</h3>
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-            <span>Global E-Waste Monitor 2024 (ONU)</span>
+            <a
+              href="https://ewastemonitor.info/the-global-e-waste-monitor-2024/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Global E-Waste Monitor 2024 (ONU)
+            </a>
             <span>•</span>
-            <span>AIE - Critical Minerals Market Review 2023</span>
+            <a
+              href="https://www.iea.org/reports/critical-minerals-market-review-2023"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              AIE - Critical Minerals Market Review 2023
+            </a>
             <span>•</span>
             <span>Epoch AI, Altman, Google, Joule - mesures IA 2025-2026</span>
             <span>•</span>
@@ -956,13 +1009,34 @@ export default function ProblematiquesPage() {
             <span>•</span>
             <span>UE - 5 ans de mises à jour, 7 ans de pièces (règlement 2023/1670)</span>
             <span>•</span>
-            <span>ADEME - Impact environnemental du numérique (2023)</span>
+            <a
+              href="https://librairie.ademe.fr/consommer-autrement/5226-evaluation-de-l-impact-environnemental-du-numerique-en-france-et-analyse-prospective.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              ADEME - Impact environnemental du numérique (2023)
+            </a>
             <span>•</span>
-            <span>GreenIT.fr - Empreinte environnementale du numérique mondial (2025)</span>
+            <a
+              href="https://www.greenit.fr/etude-empreinte-environnementale-du-numerique-mondial/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              GreenIT.fr - Empreinte environnementale du numérique mondial (2025)
+            </a>
             <span>•</span>
             <span>The Shift Project - Lean ICT (2024)</span>
             <span>•</span>
-            <span>IEA - Energy Efficiency 2024</span>
+            <a
+              href="https://www.iea.org/reports/energy-efficiency-2024"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              IEA - Energy Efficiency 2024
+            </a>
           </div>
         </div>
       </section>

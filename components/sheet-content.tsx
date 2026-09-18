@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Printer, Share2, Check, CheckCircle2 } from "lucide-react"
+import { ArrowLeft, Printer, Share2, Check, CheckCircle2, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { JsonLd } from "@/components/json-ld"
 import { SITE_NAME, SITE_URL } from "@/lib/metadata"
@@ -134,6 +134,22 @@ export function SheetContent({ sheet }: SheetContentProps) {
                                 </li>
                             ))}
                         </ul>
+                        {sheet.sourceLinks?.length > 0 && (
+                            <div className="mt-3 flex flex-wrap gap-2">
+                                {sheet.sourceLinks.map((link: { label: string; url: string }) => (
+                                    <a
+                                        key={link.url}
+                                        href={link.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-primary hover:underline"
+                                    >
+                                        {link.label}
+                                        <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                                    </a>
+                                ))}
+                            </div>
+                        )}
                     </Card>
                 )}
 

@@ -291,6 +291,33 @@ const glossaryData = [
     category: "Environnement",
   },
   {
+    term: "GEM",
+    definition:
+      "Global E-waste Monitor. Rapport mondial de référence sur les déchets électroniques, publié par l'UNITAR et l'UIT (édition 2024 : 62 millions de tonnes produites en 2022, 22,3 % collectées et recyclées).",
+    category: "Environnement",
+    link: { href: "https://ewastemonitor.info/the-global-e-waste-monitor-2024/", label: "Lire le Global E-waste Monitor 2024" },
+  },
+  {
+    term: "AIE",
+    definition:
+      "Agence Internationale de l'Énergie (IEA en anglais). Organisation qui analyse l'énergie des datacenters, dont le rapport Energy and AI (avril 2025).",
+    category: "Général",
+    link: { href: "https://www.iea.org/reports/energy-and-ai", label: "Lire le rapport Energy and AI" },
+  },
+  {
+    term: "UIT",
+    definition:
+      "Union Internationale des Télécommunications. Agence des Nations unies pour le numérique et les télécoms ; co-publie le Global E-waste Monitor avec l'UNITAR.",
+    category: "Général",
+  },
+  {
+    term: "Arcep",
+    definition:
+      "Autorité de régulation des communications électroniques, des postes et de la distribution de la presse. Publie chaque année l'enquête « Pour un numérique soutenable » sur l'empreinte du numérique en France.",
+    category: "Général",
+    link: { href: "https://www.arcep.fr/la-regulation/grands-dossiers-thematiques-transverses/lempreinte-environnementale-du-numerique.html", label: "Voir le dossier de l'Arcep" },
+  },
+  {
     term: "DEEE",
     definition:
       "Déchets d'Équipements Électriques et Électroniques. Tous les appareils fonctionnant à l'électricité ou avec des piles/batteries en fin de vie.",
@@ -757,6 +784,8 @@ export default function RessourcesPage() {
                 {item.link && (
                   <Link
                     href={item.link.href}
+                    target={item.link.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
                   >
                     {item.link.label}

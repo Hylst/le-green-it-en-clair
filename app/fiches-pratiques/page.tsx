@@ -218,9 +218,26 @@ export default function FichesPratiquesPage() {
           </div>
 
           <p className="mb-8 text-center text-sm text-muted-foreground">
-            Sources : ADEME 2022 (reconditionné −75 %) · ADEME-Arcep 2023 (fabrication ≈ 75 % de l&apos;impact) ·
-            Ecosystem 2024 (79 % des DEEE collectés recyclés ou réutilisés) · Uptime 2024 (PUE) · Shift Project 2019
-            (vidéo = 60 % des flux) · Arcep 2026 (box, réseaux) · Santé publique France 2025 (écrans des enfants) ·
+            Sources : ADEME 2022 (reconditionné −75 %) · ADEME-Arcep 2023 (fabrication ≈ 75 % de l&apos;impact) ·{" "}
+            <a
+              href="https://www.ecosystem.eco"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Ecosystem 2024
+            </a>{" "}
+            (79 % des DEEE collectés recyclés ou réutilisés) · Uptime 2024 (PUE) · Shift Project 2019
+            (vidéo = 60 % des flux) ·{" "}
+            <a
+              href="https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/impact-environnemental/enquete-annuelle-pour-un-numerique-soutenable-edition-2026.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Arcep 2026
+            </a>{" "}
+            (box, réseaux) · Santé publique France 2025 (écrans des enfants) ·
             IoT Analytics 2025 (21 Mds d&apos;objets) · CableLabs 2026 (visio ~1 Go/h) · Arcep 2026 (box 3,4 TWh,
             9,1 W)
           </p>

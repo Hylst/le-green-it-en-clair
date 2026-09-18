@@ -65,6 +65,7 @@ export default function FaiBoxPage() {
               <SourceTooltip
                 className="ml-1"
                 source="ADEME, Impact CO₂ (mise à jour 2025)"
+                url="https://impactco2.fr"
                 calculation="dont environ 61 kg pour la fabrication, soit près des trois quarts du total"
               />
               , la fabrication concentrant donc l&apos;essentiel de son empreinte carbone. C&apos;est moins
@@ -76,12 +77,14 @@ export default function FaiBoxPage() {
               <SourceTooltip
                 className="ml-1"
                 source="Arcep, Enquête annuelle « Pour un numérique soutenable », 2026"
+                url="https://www.arcep.fr/la-regulation/grands-dossiers-thematiques-transverses/lempreinte-environnementale-du-numerique.html"
                 calculation="9,1 W × 24 h × 365 jours ÷ 1 000 ≈ 80 kWh/an"
               />
               . Et cette consommation varie très peu&nbsp;: <strong>environ 90&nbsp;% est invariable</strong>
               <SourceTooltip
                 className="ml-1"
                 source="Arcep, Enquête annuelle « Pour un numérique soutenable », 2026"
+                url="https://www.arcep.fr/la-regulation/grands-dossiers-thematiques-transverses/lempreinte-environnementale-du-numerique.html"
                 calculation="part invariable, que la box soit sollicitée ou non"
               />
               , que l&apos;on regarde un film ou que tout le monde dorme.
@@ -92,6 +95,7 @@ export default function FaiBoxPage() {
               <SourceTooltip
                 className="ml-1"
                 source="Arcep, Enquête annuelle « Pour un numérique soutenable », 2026 (données 2024)"
+                url="https://www.arcep.fr/la-regulation/grands-dossiers-thematiques-transverses/lempreinte-environnementale-du-numerique.html"
                 calculation="consommation du parc français des box internet et décodeurs TV"
               />
               . D&apos;où l&apos;intérêt des petits gestes répétés chaque soir&nbsp;: ils comptent à l&apos;échelle
@@ -162,6 +166,7 @@ export default function FaiBoxPage() {
                   <SourceTooltip
                     className="ml-1"
                     source="Arcep, Enquête annuelle « Pour un numérique soutenable », 2024"
+                    url="https://www.arcep.fr/la-regulation/grands-dossiers-thematiques-transverses/lempreinte-environnementale-du-numerique.html"
                     calculation="8 h sur 24 h ≈ 1/3 de la consommation annuelle"
                   />
                   &nbsp;: une prise à interrupteur ou la programmation automatique rendent le geste simple.
@@ -198,6 +203,7 @@ export default function FaiBoxPage() {
                     <SourceTooltip
                       className="ml-1"
                       source="Arcep, Enquête annuelle « Pour un numérique soutenable », 2024"
+                    url="https://www.arcep.fr/la-regulation/grands-dossiers-thematiques-transverses/lempreinte-environnementale-du-numerique.html"
                       calculation="environ 80 kWh/an × 1/3 ≈ 26 kWh/an"
                     />
                     , sans achat ni travaux&nbsp;: c&apos;est l&apos;un des gestes les plus simples pour

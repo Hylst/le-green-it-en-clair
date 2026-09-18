@@ -1,7 +1,7 @@
 // Service Worker for Le Green IT en clair
 // Enables offline-first functionality
 
-const CACHE_NAME = 'green-it-v1.4.1';
+const CACHE_NAME = 'green-it-v1.4.2';
 const STATIC_ASSETS = [
     '/greenit/',
     '/greenit/offline/',
@@ -49,7 +49,7 @@ const STATIC_ASSETS = [
     '/greenit/modeles/politique-numerique/',
     '/greenit/modeles/tableau-bord-impact/',
     '/greenit/manifest.json',
-    '/greenit/icon-light-32x32.webp',
+    '/greenit/icon-32x32.webp',
     '/greenit/apple-icon.webp',
     '/greenit/icon-192.webp',
     '/greenit/icon-512.webp',

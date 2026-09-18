@@ -12,7 +12,7 @@
     "lang": "fr",
     "icons": [
         {
-            "src": "/greenit/icon-light-32x32.webp",
+            "src": "/greenit/icon-32x32.webp",
             "sizes": "32x32",
             "type": "image/webp"
         },

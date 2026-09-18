@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   generator: 'Next.js',
   icons: {
     icon: [
-      { url: "/greenit/icon-light-32x32.webp", sizes: "32x32", type: "image/webp" },
+      { url: "/greenit/icon-32x32.webp", sizes: "32x32", type: "image/webp" },
       { url: "/greenit/icon.svg", type: "image/svg+xml" },
     ],
     apple: [

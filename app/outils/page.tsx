@@ -75,7 +75,7 @@ export default function OutilsPage() {
                 width={1376}
                 height={768}
                 className="h-auto w-full"
-                quality={85}
+                quality={70}
                 sizes="(max-width: 896px) 100vw, 896px"
               />
             </div>

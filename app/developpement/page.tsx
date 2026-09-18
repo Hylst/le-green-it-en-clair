@@ -129,7 +129,7 @@ export default function DeveloppementPage() {
             fill
             className="object-cover"
             loading="lazy"
-            quality={85}
+            quality={70}
           />
         </div>
         <div className="max-w-6xl mx-auto relative z-10">

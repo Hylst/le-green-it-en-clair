@@ -179,7 +179,7 @@ export default function FichesPratiquesPage() {
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
-                    quality={85}
+                    quality={70}
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute right-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-700 backdrop-blur-sm dark:bg-slate-800/90 dark:text-slate-300">

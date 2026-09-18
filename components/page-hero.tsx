@@ -55,7 +55,7 @@ export function PageHero({ theme = "emerald", badge, title, intro, image, action
             width={1376}
             height={768}
             className="hero-float h-auto w-full"
-            quality={85}
+            quality={70}
             sizes="(max-width: 896px) 100vw, 896px"
           />
         </div>

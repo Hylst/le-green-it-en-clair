@@ -19,7 +19,7 @@ export default function OfflinePage() {
                 width={256}
                 height={256}
                 className="mb-6 h-40 w-40 rounded-2xl border border-border object-cover shadow-md"
-                quality={85}
+                quality={70}
             />
             <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/30">
                 <WifiOff className="h-10 w-10 text-emerald-600 dark:text-emerald-400" />

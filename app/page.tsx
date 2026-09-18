@@ -53,7 +53,7 @@ export default function HomePage() {
             fill
             className="object-cover"
             priority
-            quality={85}
+            quality={70}
             sizes="100vw"
           />
         </div>
@@ -114,7 +114,7 @@ export default function HomePage() {
                 fill
                 className="object-cover"
                 loading="lazy"
-                quality={85}
+                quality={70}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>

@@ -1875,7 +1875,7 @@ export function QuizGreenITAdvanced() {
               width={1376}
               height={768}
               className="h-auto w-full"
-              quality={85}
+              quality={70}
               loading="lazy"
             />
           </div>

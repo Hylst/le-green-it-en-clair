@@ -174,7 +174,7 @@ export default function ComprendrePage() {
             alt="Infographie détaillée de l'impact environnemental d'un smartphone"
             containerClassName="mb-12 aspect-[4/3] w-full max-w-4xl mx-auto rounded-2xl shadow-lg bg-card border"
             className="p-4"
-            quality={85}
+            quality={70}
             sizes="(max-width: 768px) 100vw, 896px"
           />
 

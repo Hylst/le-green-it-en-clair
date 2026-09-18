@@ -73,6 +73,7 @@ const citizenActions = [
       "Activer le mode économie d'énergie sur tous vos appareils",
       "Débrancher les chargeurs quand ils ne sont pas utilisés",
       "Utiliser une multiprise avec interrupteur pour couper complètement l'alimentation",
+      "Programmer la veille profonde de la box la nuit plutôt que la débrancher (moins de 0,3 W, plages horaires programmables — Orange, 2022 et 2025)",
       "Régler la luminosité de l'écran à 50 % maximum",
       "Désactiver le Bluetooth et le Wi-Fi quand vous ne les utilisez pas",
       "Privilégier le Wi-Fi à la 4G/5G (environ 4 à 5 fois moins d'énergie en streaming)",

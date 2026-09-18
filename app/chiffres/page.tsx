@@ -193,7 +193,13 @@ export default function ChiffresPage() {
             </ResponsiveContainer>
             <div className="mt-6 rounded-lg bg-blue-50 dark:bg-blue-900/20 p-4">
               <p className="text-sm text-slate-700 dark:text-slate-300">
-                <strong>Analyse :</strong> La production mondiale de déchets électroniques a doublé en 15 ans, passant
+                <strong>Analyse :</strong> La production mondiale de déchets électroniques
+                <SourceTooltip
+                  className="ml-1 align-middle"
+                  source="UNITAR-UIT, Global E-waste Monitor 2024"
+                  info="Un déchet électronique = tout appareil jeté avec prise ou batterie (smartphone, TV, grille-pain, jouets). Le chiffre = la masse totale des appareils jetés chaque année, estimée depuis les mises sur le marché et les durées de vie (méthode ONU standardisée). Ce n'est ni un cumul d'une année sur l'autre, ni la matière extraite pour les fabriquer (voir MIPS). En 2022 : 62 Mt générées, 22,3 % collectées et recyclées."
+                />{" "}
+                a doublé en 15 ans, passant
                 de 34 Mt en 2010 à 72 Mt début 2026. En France, nous produisons environ 1,6 million de tonnes par an, soit
                 24 kg par habitant.
               </p>

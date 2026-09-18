@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { SourceTooltip } from "@/components/source-tooltip"
+import { Acronym } from "@/components/acronym"
 import { CountUp } from "@/components/count-up"
 import { Ticker } from "@/components/ticker"
 import { JsonLd } from "@/components/json-ld"
@@ -414,7 +415,7 @@ export default function HomePage() {
                 <CountUp to={3.4} decimals={1} suffix=" %" />
                 <SourceTooltip className="ml-1 align-middle" source="GreenIT, EENM 2025" calculation="1,8 Gt CO₂e ÷ ~53 Gt d'émissions mondiales ≈ 3,4 %" />
               </div>
-              <p className="text-muted-foreground">des émissions mondiales de GES (1,8 Gt CO₂e) sont dues au numérique</p>
+              <p className="text-muted-foreground">des émissions mondiales de <Acronym title="Gaz à Effet de Serre">GES</Acronym> (1,8 Gt CO₂e) sont dues au numérique</p>
               <p className="mt-2 text-sm text-muted-foreground">Source : GreenIT EENM 2025</p>
             </div>
             <div className="text-center">

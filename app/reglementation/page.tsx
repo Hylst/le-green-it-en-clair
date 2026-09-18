@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { SourceTooltip } from "@/components/source-tooltip"
+import { Acronym } from "@/components/acronym"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
 import {
@@ -510,7 +511,7 @@ export default function ReglementationPage() {
                         <h4 className="font-semibold text-sm mb-2 text-card-foreground">Données numériques à reporter</h4>
                         <ul className="text-sm text-muted-foreground space-y-1">
                           <li>• Consommation énergétique des infrastructures IT</li>
-                          <li>• Émissions GES liées au numérique (scope 1, 2, 3)</li>
+                          <li>• Émissions <Acronym title="Gaz à Effet de Serre">GES</Acronym> liées au numérique (<Acronym title="Périmètres de comptabilité carbone : scope 1 = émissions directes, scope 2 = énergie achetée, scope 3 = autres émissions indirectes">scope 1, 2, 3</Acronym>)</li>
                           <li>• Politique d'achat responsable (matériel reconditionné)</li>
                           <li>• Gestion des e-déchets et taux de recyclage</li>
                           <li>• Durée de vie moyenne des équipements</li>

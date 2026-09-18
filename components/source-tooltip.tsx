@@ -8,16 +8,23 @@ import { cn } from "@/lib/utils"
 interface SourceTooltipProps {
   source: string
   calculation?: string
+  info?: string
   className?: string
 }
 
-export function SourceTooltip({ source, calculation, className }: SourceTooltipProps) {
+export function SourceTooltip({ source, calculation, info, className }: SourceTooltipProps) {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
         <button
           type="button"
-          aria-label={calculation ? `Source : ${source}. Calcul : ${calculation}` : `Source : ${source}`}
+          aria-label={[
+            `Source : ${source}`,
+            info ? `À savoir : ${info}` : null,
+            calculation ? `Calcul : ${calculation}` : null,
+          ]
+            .filter(Boolean)
+            .join(". ")}
           className={cn(
             "inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full align-super text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
             className,
@@ -30,6 +37,11 @@ export function SourceTooltip({ source, calculation, className }: SourceTooltipP
         <p>
           <span className="font-semibold">Source :</span> {source}
         </p>
+        {info ? (
+          <p className="mt-1">
+            <span className="font-semibold">À savoir :</span> {info}
+          </p>
+        ) : null}
         {calculation ? (
           <p className="mt-1">
             <span className="font-semibold">Calcul :</span> {calculation}

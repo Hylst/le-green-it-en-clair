@@ -285,6 +285,12 @@ const glossaryData = [
     category: "Général",
   },
   {
+    term: "GES",
+    definition:
+      "Gaz à Effet de Serre. Gaz qui retiennent la chaleur dans l'atmosphère (CO₂, méthane...) ; les bilans les expriment en équivalent CO₂ (CO₂e).",
+    category: "Environnement",
+  },
+  {
     term: "DEEE",
     definition:
       "Déchets d'Équipements Électriques et Électroniques. Tous les appareils fonctionnant à l'électricité ou avec des piles/batteries en fin de vie.",

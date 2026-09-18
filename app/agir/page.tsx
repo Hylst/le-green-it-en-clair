@@ -60,7 +60,8 @@ const citizenActions = [
     category: "Usage",
     actions: [
       "Garder ses appareils le plus longtemps possible (minimum 5 ans)",
-      "Éteindre complètement ses appareils la nuit",
+      "Éteindre complètement les appareils à forte veille la nuit (box, console, appareils anciens) : le bref pic de courant au rallumage ne change pas le bilan, et les appareils récents sont plafonnés à 0,5 W de veille simple (UE, règlement 2023/826) — le gain vient du cumul (détail dans la FAQ)",
+      "Laisser l'imprimante jet d'encre en veille entre deux impressions proches : chaque allumage déclenche souvent un cycle de nettoyage qui consomme de l'encre (Epson, guides en ligne)",
       "Désactiver les notifications inutiles",
       "Limiter le streaming vidéo en haute définition",
       "Nettoyer sa boîte mail de temps en temps (geste symbolique : l'impact du stockage est minime)",

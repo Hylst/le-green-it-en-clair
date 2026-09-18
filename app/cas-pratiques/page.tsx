@@ -1015,6 +1015,13 @@ export default function CasPratiquesPage() {
                           réel</strong> évite le surdimensionnement
                         </span>
                       </li>
+                      <li className="flex gap-2">
+                        <span className="text-orange-600 dark:text-orange-400">•</span>
+                        <span>
+                          Côté usage, comptez <strong>environ 155 kWh par an</strong> pour 6 h quotidiennes, et la
+                          consommation grimpe avec la taille et la luminosité (ADEME, Panel Elecdom 2025)
+                        </span>
+                      </li>
                     </ul>
                   </div>
                 </div>

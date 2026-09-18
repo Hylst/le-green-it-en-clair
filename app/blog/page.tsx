@@ -49,7 +49,7 @@ export default function BlogPage() {
                         fill
                         className="object-cover"
                         loading="lazy"
-                        quality={85}
+                        quality={70}
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>

@@ -282,7 +282,7 @@ export const posts: BlogPost[] = [
       "Code de la consommation, garantie légale de conformité (2 ans)",
     ],
     sourceLinks: [
-      { label: "ADEME, Impact CO2 : données d’émission du numérique", url: "https://impactco2.fr" },
+      { label: "ADEME, Impact CO₂ : données d’émission du numérique", url: "https://impactco2.fr" },
     ],
   },
   {

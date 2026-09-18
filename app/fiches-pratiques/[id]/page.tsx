@@ -5,6 +5,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 import { pageOpenGraph } from "@/lib/metadata"
 import { SheetContent } from "@/components/sheet-content"
+import { Acronym } from "@/components/acronym"
 
 const sheets: Record<string, any> = {
   "gestes-quotidiens": {
@@ -94,7 +95,7 @@ const sheets: Record<string, any> = {
       "Kamiya 2020, Shift 2019 (streaming, Wi-Fi)",
     ],
     sourceLinks: [
-      { label: "ADEME, Impact CO2 / Base Empreinte", url: "https://impactco2.fr" },
+      { label: "ADEME, Impact CO₂ / Base Empreinte", url: "https://impactco2.fr" },
       {
         label: "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026",
         url: "https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/impact-environnemental/enquete-annuelle-pour-un-numerique-soutenable-edition-2026.html",
@@ -184,7 +185,7 @@ const sheets: Record<string, any> = {
       "Code de la consommation (garantie 2 ans)",
     ],
     sourceLinks: [
-      { label: "ADEME, Impact CO2 (mise à jour 2025)", url: "https://impactco2.fr" },
+      { label: "ADEME, Impact CO₂ (mise à jour 2025)", url: "https://impactco2.fr" },
       { label: "Légifrance : textes officiels (AGEC, garantie légale)", url: "https://www.legifrance.gouv.fr" },
     ],
   },
@@ -295,7 +296,18 @@ const sheets: Record<string, any> = {
         tips: [
           "Doubler la durée de vie divise l'impact par 2",
           "Économie financière importante (réparer coûte moins cher que remplacer)",
-          "Réduction drastique des déchets électroniques (DEEE)",
+          (
+            <>
+              Réduction drastique des déchets électroniques (
+              <Acronym
+                title="Déchets d'Équipements Électriques et Électroniques : appareils en fin de vie fonctionnant à l'électricité ou avec piles/batteries"
+                glossary="deee"
+              >
+                DEEE
+              </Acronym>
+              )
+            </>
+          ),
         ],
       },
       {
@@ -340,7 +352,18 @@ const sheets: Record<string, any> = {
         tips: [
           "Les Repair Cafés : réparer gratuitement et apprendre avec des bénévoles",
           "Le label 'Répar'Acteurs' pour trouver un artisan de confiance",
-          "Le Bonus Réparation : aide financée par la filière REP, déduite directement de la facture",
+          (
+            <>
+              Le Bonus Réparation : aide financée par la filière{" "}
+              <Acronym
+                title="Responsabilité Élargie du Producteur : les fabricants financent la collecte et le traitement de la fin de vie de leurs produits"
+                glossary="rep"
+              >
+                REP
+              </Acronym>
+              , déduite directement de la facture
+            </>
+          ),
         ],
       },
     ],
@@ -421,7 +444,18 @@ const sheets: Record<string, any> = {
         tips: [
           "Proposez le rachat du matériel aux salariés ou faites des dons à des associations",
           "Travaillez avec des brokers certifiés pour le reconditionnement",
-          "Assurez le recyclage aux normes DEEE pour le matériel non récupérable",
+          (
+            <>
+              Assurez le recyclage aux normes{" "}
+              <Acronym
+                title="Déchets d'Équipements Électriques et Électroniques : appareils en fin de vie fonctionnant à l'électricité ou avec piles/batteries"
+                glossary="deee"
+              >
+                DEEE
+              </Acronym>{" "}
+              pour le matériel non récupérable
+            </>
+          ),
         ],
       },
     ],
@@ -438,7 +472,7 @@ const sheets: Record<string, any> = {
       "INR, GR491",
     ],
     sourceLinks: [
-      { label: "ADEME, Impact CO2 (mise à jour 2025)", url: "https://impactco2.fr" },
+      { label: "ADEME, Impact CO₂ (mise à jour 2025)", url: "https://impactco2.fr" },
       { label: "GR491, référentiel d'écoconception (INR)", url: "https://gr491.isit-europe.org" },
     ],
   },
@@ -447,7 +481,18 @@ const sheets: Record<string, any> = {
     subtitle: "Où et comment recycler vos appareils en toute responsabilité",
     target: "Tous publics",
     duration: "5 minutes de lecture",
-    impact: "Taux de recyclage de 79 % des DEEE collectés",
+    impact: (
+      <>
+        Taux de recyclage de 79 % des{" "}
+        <Acronym
+          title="Déchets d'Équipements Électriques et Électroniques : appareils en fin de vie fonctionnant à l'électricité ou avec piles/batteries"
+          glossary="deee"
+        >
+          DEEE
+        </Acronym>{" "}
+        collectés
+      </>
+    ),
     date: "30 Mars 2026",
     sections: [
       {
@@ -538,9 +583,32 @@ const sheets: Record<string, any> = {
         title: "1. Les 3 critères pour choisir un hébergeur vert",
         content: " Ne vous fiez pas seulement au marketing. Exigez des chiffres précis.",
         tips: [
-          "Le PUE (Power Usage Effectiveness) : visez un indice inférieur à 1.3 (moyenne 1,56 monde / 1,45 Europe, Uptime 2024)",
+          (
+            <>
+              Le{" "}
+              <Acronym
+                title="Power Usage Effectiveness : efficacité énergétique des datacenters (1,0 = parfait, moyenne mondiale 1,56)"
+                glossary="pue"
+              >
+                PUE
+              </Acronym>{" "}
+              (Power Usage Effectiveness) : visez un indice inférieur à 1.3 (moyenne 1,56 monde / 1,45 Europe,
+              Uptime 2024)
+            </>
+          ),
           "Le mix énergétique : privilégiez les énergies renouvelables et bas carbone (France ≈ 50 g CO₂/kWh vs Allemagne ≈ 350 g, EEA/RTE 2024)",
-          "Le Water Usage Effectiveness (WUE) : demandez la consommation d'eau pour le refroidissement",
+          (
+            <>
+              Le Water Usage Effectiveness (
+              <Acronym
+                title="Water Usage Effectiveness : eau consommée pour le refroidissement des datacenters"
+                glossary="wue"
+              >
+                WUE
+              </Acronym>
+              ) : demandez la consommation d&apos;eau pour le refroidissement
+            </>
+          ),
         ],
       },
       {
@@ -581,8 +649,18 @@ const sheets: Record<string, any> = {
       },
       {
         title: "6. Mesurer pour progresser : les chiffres de référence",
-        content:
-          "Les datacenters ont consommé 415 TWh dans le monde en 2024, soit environ 1,5 % de l'électricité mondiale (AIE, avril 2025). Le PUE moyen stagne autour de 1,56 dans le monde et 1,45 en Europe (Uptime Institute, 2024) : tout progrès sous ces seuils est un vrai gain. Et la transparence avance : l'Arcep a élargi en 2026 sa collecte aux fournisseurs de cloud, avec des résultats attendus au printemps 2027.",
+        content: (
+          <>
+            Les datacenters ont consommé 415 TWh dans le monde en 2024, soit environ 1,5 % de l&apos;électricité
+            mondiale (
+            <Acronym title="Agence Internationale de l'Énergie (IEA en anglais)" glossary="aie">
+              AIE
+            </Acronym>
+            , avril 2025). Le PUE moyen stagne autour de 1,56 dans le monde et 1,45 en Europe (Uptime Institute,
+            2024) : tout progrès sous ces seuils est un vrai gain. Et la transparence avance : l&apos;Arcep a
+            élargi en 2026 sa collecte aux fournisseurs de cloud, avec des résultats attendus au printemps 2027.
+          </>
+        ),
         tips: [
           "415 TWh, 1,5 % : l'ordre de grandeur mondial à connaître (AIE, 2025)",
           "Suivez votre PUE et votre WUE dans la durée, publiez-les dans vos appels d'offres",
@@ -606,7 +684,17 @@ const sheets: Record<string, any> = {
   },
   "collectivites-action": {
     title: "Plan d'action pour les collectivités",
-    subtitle: "Politique numérique responsable territoriale et application de la loi REEN",
+    subtitle: (
+      <>
+        Politique numérique responsable territoriale et application de la loi{" "}
+        <Acronym
+          title="Réduire l'Empreinte Environnementale du Numérique : loi française de 2021 contre l'empreinte environnementale du numérique"
+          glossary="loi-reen"
+        >
+          REEN
+        </Acronym>
+      </>
+    ),
     target: "Élus & Agents territoriaux",
     duration: "25 minutes de lecture",
     impact: "Conformité légale et exemplarité publique",
@@ -635,7 +723,18 @@ const sheets: Record<string, any> = {
         content: "Vos anciens ordinateurs sont une ressource pour le territoire, pas un déchet.",
         tips: [
           "Donnez le matériel réformé à des associations locales pour réduire la fracture numérique",
-          "Organisez des collectes de DEEE citoyens dans les mairies ou écoles",
+          (
+            <>
+              Organisez des collectes de{" "}
+              <Acronym
+                title="Déchets d'Équipements Électriques et Électroniques : appareils en fin de vie fonctionnant à l'électricité ou avec piles/batteries"
+                glossary="deee"
+              >
+                DEEE
+              </Acronym>{" "}
+              citoyens dans les mairies ou écoles
+            </>
+          ),
           "Cartographiez les acteurs du réemploi (Ressourceries, FabLabs) sur votre territoire",
         ],
       },
@@ -643,7 +742,25 @@ const sheets: Record<string, any> = {
         title: "4. Éco-conception des services publics numériques",
         content: "Les sites et applications de la ville doivent être accessibles et légers.",
         tips: [
-          "Auditez l'accessibilité (RGAA) et l'éco-conception (RGESN) de vos portails",
+          (
+            <>
+              Auditez l&apos;accessibilité (
+              <Acronym
+                title="Référentiel Général d'Amélioration de l'Accessibilité : critères français d'accessibilité des sites publics"
+                glossary="rgaa"
+              >
+                RGAA
+              </Acronym>
+              ) et l&apos;éco-conception (
+              <Acronym
+                title="Référentiel Général d'Écoconception des Services Numériques : 78 critères pour réduire l'empreinte des services numériques"
+                glossary="rgesn"
+              >
+                RGESN
+              </Acronym>
+              ) de vos portails
+            </>
+          ),
           "Simplifiez les parcours usagers (moins de clics = moins d'énergie)",
           "Formez les webmestres et communicants aux bonnes pratiques (images légères, vidéos limitées)",
         ],
@@ -732,8 +849,28 @@ const sheets: Record<string, any> = {
       },
       {
         title: "5. Ce que recommandent les pouvoirs publics",
-        content:
-          "L'ADEME recommande de soutenir une méthodologie commune de mesure, de s'appuyer sur les référentiels existants (AFNOR IA frugale, RGESN), de relocaliser les datacenters en France lorsqu'ils remplacent des usages hébergés à l'étranger, d'organiser leur implantation sur le territoire et de former les utilisateurs à un usage raisonné.",
+        content: (
+          <>
+            L&apos;ADEME recommande de soutenir une méthodologie commune de mesure, de s&apos;appuyer sur les
+            référentiels existants (
+            <Acronym
+              title="Association Française de Normalisation : publie notamment le référentiel « IA frugale »"
+              glossary="afnor"
+            >
+              AFNOR
+            </Acronym>{" "}
+            IA frugale,{" "}
+            <Acronym
+              title="Référentiel Général d'Écoconception des Services Numériques : 78 critères pour réduire l'empreinte des services numériques"
+              glossary="rgesn"
+            >
+              RGESN
+            </Acronym>
+            ), de relocaliser les datacenters en France lorsqu&apos;ils remplacent des usages hébergés à
+            l&apos;étranger, d&apos;organiser leur implantation sur le territoire et de former les utilisateurs à
+            un usage raisonné.
+          </>
+        ),
         tips: [
           "Référentiels : AFNOR (IA frugale) et RGESN",
           "Relocalisation : bénéfique surtout si elle remplace de l'existant étranger",
@@ -977,7 +1114,7 @@ const sheets: Record<string, any> = {
       "ADEME, Impact CO₂ / Base Empreinte (stockage : 0,24 g/Go/an)",
     ],
     sourceLinks: [
-      { label: "ADEME, Impact CO2 / Base Empreinte", url: "https://impactco2.fr" },
+      { label: "ADEME, Impact CO₂ / Base Empreinte", url: "https://impactco2.fr" },
       { label: "ANCT, Les bases du numérique d'intérêt général", url: "https://lesbases.anct.gouv.fr" },
     ],
   },
@@ -1030,8 +1167,19 @@ const sheets: Record<string, any> = {
       },
       {
         title: "5. Fin de vie : ni tiroir ni poubelle",
-        content:
-          "Un objet connecté est un DEEE comme un autre : ni poubelle grise, ni tiroir éternel. Effacez vos données (réinitialisation usine + suppression du compte cloud), puis apportez-le en point de collecte ou proposez-le au réemploi.",
+        content: (
+          <>
+            Un objet connecté est un{" "}
+            <Acronym
+              title="Déchets d'Équipements Électriques et Électroniques : appareils en fin de vie fonctionnant à l'électricité ou avec piles/batteries"
+              glossary="deee"
+            >
+              DEEE
+            </Acronym>{" "}
+            comme un autre : ni poubelle grise, ni tiroir éternel. Effacez vos données (réinitialisation usine +
+            suppression du compte cloud), puis apportez-le en point de collecte ou proposez-le au réemploi.
+          </>
+        ),
         tips: [
           "Réinitialisez et dissociez le compte avant de vous en séparer",
           "Pensez revente et don : un objet qui marche encore sert à quelqu'un",

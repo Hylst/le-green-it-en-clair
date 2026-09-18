@@ -281,6 +281,10 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                         <FileText className="mr-2 h-4 w-4" />
                         <span>IA générative : l'avis ADEME 2026</span>
                     </CommandItem>
+                    <CommandItem onSelect={() => runCommand(() => router.push("/blog/greenwashing-numerique-reperes"))}>
+                        <FileText className="mr-2 h-4 w-4" />
+                        <span>Greenwashing numérique : 3 réflexes</span>
+                    </CommandItem>
                 </CommandGroup>
                 <CommandSeparator />
                 <CommandGroup heading="Modèles détaillés">

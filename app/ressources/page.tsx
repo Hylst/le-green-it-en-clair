@@ -336,6 +336,18 @@ const glossaryData = [
     category: "Général",
   },
   {
+    term: "RGAA",
+    definition:
+      "Référentiel Général d'Amélioration de l'Accessibilité. Référentiel français qui fixe les critères d'accessibilité des sites web publics ; un site accessible est souvent aussi plus léger.",
+    category: "Réglementation",
+  },
+  {
+    term: "AFNOR",
+    definition:
+      "Association Française de Normalisation. Organisme qui publie les normes françaises, dont le référentiel « IA frugale » cité pour encadrer l'intelligence artificielle.",
+    category: "Général",
+  },
+  {
     term: "Greenwashing",
     definition:
       "Écoblanchiment. Communication qui donne une image trompeuse de l'impact environnemental, par exemple un « cloud vert » sans preuve. En France, les allégations environnementales doivent être prouvées et vérifiées.",

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import type { ReactNode } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -74,7 +75,7 @@ export function SheetContent({ sheet }: SheetContentProps) {
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-slate-900 dark:text-slate-100">Points clés :</h3>
                                 <ul className="space-y-2">
-                                    {section.tips.map((tip: string, tipIndex: number) => (
+                                    {section.tips.map((tip: ReactNode, tipIndex: number) => (
                                         <li key={tipIndex} className="flex items-start gap-3">
                                             <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600 dark:text-emerald-400" />
                                             <span className="text-slate-700 dark:text-slate-300">{tip}</span>

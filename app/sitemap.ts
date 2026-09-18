@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/blog/rgesn-ecoconception-10-minutes',
         '/blog/bonus-reparation-mode-emploi',
         '/blog/ia-generative-avis-ademe-2026',
+        '/blog/greenwashing-numerique-reperes',
         '/cas-pratiques',
         '/chiffres',
         '/datacenters',

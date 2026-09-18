@@ -174,6 +174,7 @@ const sheets: Record<string, any> = {
       "Comparateur d'appareils : /outils",
       "Reconditionné ou neuf, le calcul : /blog/reconditionne-vs-neuf-le-calcul",
       "Back Market, le reconditionné à grande échelle (portrait) : /blog/back-market-portrait-reconditionne",
+      "Greenwashing : 3 réflexes pour trier les promesses : /blog/greenwashing-numerique-reperes",
       "Indice de réparabilité : https://quefairedemesdechets.ademe.fr",
       "Acteurs du reconditionné : /recyclage",
     ],

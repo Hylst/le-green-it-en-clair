@@ -19,6 +19,7 @@ import {
   ResponsiveContainer,
 } from "recharts"
 import { Download, TrendingUp, Globe, MapPin, Zap } from "lucide-react"
+import Link from "next/link"
 import { PageHero } from "@/components/page-hero"
 import { SourceTooltip } from "@/components/source-tooltip"
 import { SectionDivider } from "@/components/section-divider"
@@ -72,6 +73,10 @@ const deviceComparisonData = [
   { device: 'Écran 24"', co2: 93, energy: 600, water: 18000 },
   { device: "Télévision", co2: 370, energy: null, water: null },
   { device: "Box", co2: 81, energy: null, water: null },
+  { device: "Casque VR", co2: 73, energy: null, water: null },
+  { device: "Vidéoprojecteur", co2: 59, energy: null, water: null },
+  { device: "Enceinte connectée", co2: 26, energy: null, water: null },
+  { device: "Téléphone basique", co2: 23, energy: null, water: null },
 ]
 
 // Data for Recycling Rates by Country
@@ -350,7 +355,40 @@ export default function ChiffresPage() {
             </ResponsiveContainer>
           </Card>
 
-          <div className="mt-4 text-sm text-muted-foreground">CO₂ : ADEME, Impact CO₂ (mise à jour 2025). Énergie et eau : ordres de grandeur (ADEME 2023) : eau de 1 500 L (eau bleue) à plus de 20 000 L (empreinte complète) pour un ordinateur portable selon la méthode. TV et box : CO₂ uniquement, énergie et eau en cours de vérification.</div>
+          <div className="mt-4 text-sm text-muted-foreground">CO₂ : ADEME, Impact CO₂ (mise à jour 2025), 11 appareils. Énergie et eau : ordres de grandeur (ADEME 2023) : eau de 1 500 L (eau bleue) à plus de 20 000 L (empreinte complète) pour un ordinateur portable selon la méthode. TV, box, casque VR, vidéoprojecteur, enceinte connectée et téléphone basique : CO₂ uniquement, énergie et eau en cours de vérification.</div>
+
+          <div className="mt-6 rounded-lg bg-amber-50 dark:bg-amber-900/20 border-2 border-amber-200 dark:border-amber-800 p-4">
+            <p className="text-sm text-slate-700 dark:text-slate-300">
+              <strong>Les absents du classement :</strong> l'ADEME ne publie pas de fiche Impact CO₂ pour les consoles de jeux, les montres connectées, les drones et les caméras embarquées (vérifié en septembre 2026). Les deux ordres de grandeur ci-dessous viennent donc d'autres méthodes et ne sont pas comparables barre à barre avec le graphique.
+            </p>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700 dark:text-slate-300">
+              <li>
+                <strong>Console de salon :</strong> environ 89 kg CO₂e pour la fabrication d'une PlayStation 4
+                <SourceTooltip
+                  className="ml-1 align-middle"
+                  source="Greenly, octobre 2022 (Justine Dumont), d'après Frédéric Bordage"
+                  info="Article grand public qui compile les rares données disponibles : 37 millions de tonnes pour les jeux sur console dans le monde, 89 kg pour la fabrication d'une PS4, 4,3 TWh pour l'utilisation des PS4 en Europe entre 2013 et 2017. La méthode d'origine (périmètre, année) n'est pas détaillée dans l'article : à prendre comme un repère, pas comme une mesure."
+                  url="https://greenly.earth/blog/secteurs/quelle-est-l-empreinte-carbone-des-jeux-video"
+                  urlLabel="Lire l'article Greenly"
+                />{" "}
+                Pour agir quand même : <Link href="/fiches-pratiques/gestes-quotidiens" className="font-medium underline underline-offset-2">couper la veille des consoles, garder consoles et manettes longtemps</Link>.
+              </li>
+              <li>
+                <strong>Montre connectée :</strong> environ 36 kg CO₂e sur le cycle de vie d'une Apple Watch (modèle 2020)
+                <SourceTooltip
+                  className="ml-1 align-middle"
+                  source="Apple, Product Environmental Report Apple Watch Series 6, septembre 2020"
+                  info="Analyse de cycle de vie selon ISO 14040/44, modèle GPS + Cellular 44 mm avec bracelet sport, 3 ans d'utilisation supposés, configuration américaine. Les modèles récents affichent moins grâce aux matériaux recyclés et à l'électricité renouvelable, mais avec des compensations carbone : le chiffre brut 2020 reste le repère le plus honnête."
+                  url="https://www.apple.com/environment/pdf/products/watch/Apple_Watch_Series6_PER_sept2020.pdf"
+                  urlLabel="Lire le rapport Apple (PDF)"
+                />{" "}
+                Pour agir quand même : <Link href="/fiches-pratiques/objets-connectes" className="font-medium underline underline-offset-2">le connecté utile, sans accumulation</Link>.
+              </li>
+              <li>
+                <strong>Drones et caméras embarquées :</strong> aucune donnée publique fiable trouvée (ni ADEME, ni rapport fabricant avec analyse de cycle de vie). Aucun chiffre affiché par honnêteté : en attendant, les conseils de la <Link href="/fiches-pratiques/objets-connectes" className="font-medium underline underline-offset-2">fiche objets connectés</Link> s'appliquent (acheter utile, garder longtemps, mutualiser).
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -531,6 +569,11 @@ export default function ChiffresPage() {
                 href: "/agir",
                 label: "Passer à l'action",
                 description: "Les gestes et leviers les plus efficaces pour réduire l'impact",
+              },
+              {
+                href: "/fiches-pratiques/objets-connectes",
+                label: "Fiche objets connectés",
+                description: "Montres, enceintes, domotique : le connecté utile, sans accumulation",
               },
             ]}
           />

@@ -1,22 +1,24 @@
 import Link from "next/link"
-import { Leaf, Mail, AlertCircle } from "lucide-react"
+import { Leaf, Mail, BadgeCheck } from "lucide-react"
 import { MotionToggle } from "@/components/motion-toggle"
 
 export function Footer() {
   return (
     <footer className="border-t border-border bg-secondary/30">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:py-16">
-        <div className="mb-8 rounded-lg border border-warning/40 bg-warning/10 p-4">
+        <div className="mb-8 rounded-lg border border-primary/30 bg-primary/5 p-4">
           <div className="flex items-start gap-3">
-            <AlertCircle className="h-5 w-5 text-warning flex-shrink-0 mt-0.5" />
+            <BadgeCheck className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
             <div className="text-sm">
-              <p className="font-semibold mb-1 text-foreground">Site personnel en développement</p>
+              <p className="font-semibold mb-1 text-foreground">Site personnel aux sources vérifiées</p>
               <p className="text-muted-foreground">
-                Les informations présentées peuvent comporter des erreurs ou inexactitudes. En cas de doute,
-                référez-vous aux sources officielles citées. Signalement d'erreurs bienvenu à{" "}
+                Chaque chiffre affiché est sourcé et chaque calcul est détaillé dans son infobulle, à partir des
+                sources officielles citées sur chaque page. En cas de doute, référez-vous à ces sources. Une
+                coquille malgré tout ? Écrivez à{" "}
                 <a href="mailto:geoffroy.streit@gmail.com" className="underline font-medium link-slide">
                   geoffroy.streit@gmail.com
                 </a>
+                , les signalements sont bienvenus.
               </p>
             </div>
           </div>

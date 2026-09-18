@@ -680,6 +680,18 @@ export default function CasPratiquesPage() {
                   </div>
                 </div>
 
+                <div className="mb-8 overflow-hidden rounded-xl border border-border">
+                  <Image
+                    src="/greenit/images/tablette-hero.webp"
+                    alt="Illustration d'une tablette affichant lecture et visioconférence, entourée de circuits en feuilles"
+                    width={1376}
+                    height={768}
+                    className="h-auto w-full"
+                    quality={70}
+                    loading="lazy"
+                  />
+                </div>
+
                 {/* Stats Grid */}
                 <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   <div className="rounded-xl bg-purple-50 p-4 dark:bg-purple-900/20">
@@ -1081,6 +1093,18 @@ export default function CasPratiquesPage() {
                   </div>
                 </div>
 
+                <div className="mb-8 overflow-hidden rounded-xl border border-border">
+                  <Image
+                    src="/greenit/images/ecran-hero.webp"
+                    alt="Illustration d'un écran de bureau éteint, feuille endormie sur le clavier"
+                    width={1376}
+                    height={768}
+                    className="h-auto w-full"
+                    quality={70}
+                    loading="lazy"
+                  />
+                </div>
+
                 {/* Stats Grid */}
                 <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   <div className="rounded-xl bg-indigo-50 p-4 dark:bg-indigo-900/20">
@@ -1203,6 +1227,18 @@ export default function CasPratiquesPage() {
                       Toujours allumée, même quand on ne s'en sert pas : ici, c'est l'usage qui pèse.
                     </p>
                   </div>
+                </div>
+
+                <div className="mb-8 overflow-hidden rounded-xl border border-border">
+                  <Image
+                    src="/greenit/images/box-hero.webp"
+                    alt="Illustration d'une box internet la nuit, ondes wifi se transformant en feuilles au-dessus du salon"
+                    width={1376}
+                    height={768}
+                    className="h-auto w-full"
+                    quality={70}
+                    loading="lazy"
+                  />
                 </div>
 
                 {/* Stats Grid */}

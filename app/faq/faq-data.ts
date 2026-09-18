@@ -23,6 +23,11 @@ export const faqCategories = [
         q: "Peut-on vraiment faire une différence individuellement ?",
         a: "Oui, à plusieurs niveaux. Garder son smartphone 4 ans au lieu de 2 divise son impact par 2. À l'échelle nationale, si tous les Français gardaient 11 types d'équipements 1 an de plus, on éviterait environ 0,6 million de tonnes de CO₂ par an (ADEME, 2020). Chaque geste compte, surtout multiplié par des millions d'utilisateurs.",
       },
+      {
+        q: "Comment repérer le greenwashing dans le numérique ?",
+        a: "Méfiez-vous des formules globales sans preuve : « neutre en carbone », « 100 % compensé », « cloud vert », « dématérialisé donc écologique ». Depuis le 1er janvier 2023, ces allégations sont interdites sans bilan carbone public et trajectoire de réduction (décret 2022-539). Trois réflexes : exiger le chiffre sourcé, vérifier le périmètre et l'année, et comparer au cycle de vie complet (la fabrication concentre l'essentiel de l'empreinte).",
+        link: { label: "Lire l'article : 3 réflexes anti-greenwashing", url: "/blog/greenwashing-numerique-reperes" },
+      },
     ],
   },
   {

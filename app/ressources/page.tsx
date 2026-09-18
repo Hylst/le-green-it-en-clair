@@ -330,6 +330,18 @@ const glossaryData = [
     category: "Réglementation",
   },
   {
+    term: "RSE",
+    definition:
+      "Responsabilité Sociétale des Entreprises. Intégration volontaire par les entreprises des enjeux sociaux et environnementaux ; le numérique y entre via les bilans (CSRD) et les achats responsables.",
+    category: "Général",
+  },
+  {
+    term: "Greenwashing",
+    definition:
+      "Écoblanchiment. Communication qui donne une image trompeuse de l'impact environnemental, par exemple un « cloud vert » sans preuve. En France, les allégations environnementales doivent être prouvées et vérifiées.",
+    category: "Concept",
+  },
+  {
     term: "PUE",
     definition:
       "Power Usage Effectiveness. Indicateur d'efficacité énergétique des datacenters. Un PUE de 1,0 est parfait ; 2,0 signifie que la moitié de l'énergie consommée part dans le refroidissement et la distribution.",

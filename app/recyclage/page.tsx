@@ -22,6 +22,7 @@ import {
 } from "lucide-react"
 import dynamic from "next/dynamic"
 import { SourceTooltip } from "@/components/source-tooltip"
+import { Acronym } from "@/components/acronym"
 import { PageHero } from "@/components/page-hero"
 
 const LeafletMap = dynamic(() => import("@/components/leaflet-map"), {
@@ -227,7 +228,7 @@ export default function RecyclagePage() {
                 79 %
                 <SourceTooltip className="ml-1 align-middle" source="Ecosystem, 2024" calculation="79,2 % des DEEE collectés recyclés ou réutilisés (91,3 % valorisés)" />
               </div>
-              <p className="text-sm text-muted-foreground">des DEEE collectés sont recyclés ou réutilisés (Ecosystem, 2024)</p>
+              <p className="text-sm text-muted-foreground">des <Acronym title="Déchets d'Équipements Électriques et Électroniques : appareils en fin de vie fonctionnant à l'électricité ou avec piles/batteries" glossary="deee">DEEE</Acronym> collectés sont recyclés ou réutilisés (Ecosystem, 2024)</p>
             </Card>
             <Card className="border-2 border-accent/20 bg-accent/5 p-6 text-center">
               <div className="mb-2 text-4xl font-bold text-accent">
@@ -284,7 +285,14 @@ export default function RecyclagePage() {
 
             <div className="mt-8 rounded-xl bg-accent/5 border-2 border-accent/10 p-6">
               <p className="text-muted-foreground">
-                <strong>Résultat :</strong> Grâce à la REP, la France collecte environ 46 % de ses déchets
+                <strong>Résultat :</strong> Grâce à la{" "}
+                <Acronym
+                  title="Responsabilité Élargie du Producteur : les fabricants financent la collecte et le traitement de la fin de vie de leurs produits"
+                  glossary="rep"
+                >
+                  REP
+                </Acronym>
+                , la France collecte environ 46 % de ses déchets
                 électroniques, soit plus du double de la moyenne mondiale (22,3 % en 2022, Global E-waste Monitor
                 2024). En 2025, Ecosystem indique 42 000 points de collecte, 876 kt collectées (65 % à son
                 périmètre, méthode distincte des 46 % Eurostat) et 735 000 réparations via 7 465 réparateurs QualiRépar. C'est gratuit pour les

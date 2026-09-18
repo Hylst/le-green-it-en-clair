@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { ArrowLeft, Printer, FileText, Globe, Users, Scale, AlertTriangle, Leaf, Award, Check } from "lucide-react"
 import Link from "next/link"
+import { Acronym } from "@/components/acronym"
 
 export default function CahierChargesPage() {
     const handlePrint = () => {
@@ -109,7 +110,14 @@ export default function CahierChargesPage() {
                         <Card className="p-4 bg-purple-50 dark:bg-purple-950/20 border-purple-200 dark:border-purple-800">
                             <h4 className="font-semibold text-foreground mb-2"><Scale className="mr-1 inline h-4 w-4" />Éthique</h4>
                             <p className="text-sm text-muted-foreground">
-                                Favoriser les fournisseurs engagés dans une démarche RSE certifiée et transparente.
+                                Favoriser les fournisseurs engagés dans une démarche{" "}
+                                <Acronym
+                                  title="Responsabilité Sociétale des Entreprises : démarche volontaire intégrant les enjeux sociaux et environnementaux"
+                                  glossary="rse"
+                                >
+                                  RSE
+                                </Acronym>{" "}
+                                certifiée et transparente.
                             </p>
                         </Card>
                     </div>

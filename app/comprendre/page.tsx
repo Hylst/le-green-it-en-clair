@@ -480,8 +480,14 @@ export default function ComprendrePage() {
               <div className="mb-3 text-3xl font-bold text-primary">45-46 %</div>
               <h3 className="mb-2 font-semibold text-card-foreground">Le recyclage progresse en France</h3>
               <p className="text-sm text-muted-foreground">
-                En France, 45 à 46 % des déchets électroniques sont collectés ou recyclés grâce aux filières REP, contre
-                environ 22 % au niveau mondial. Mais il reste encore beaucoup à faire.
+                En France, 45 à 46 % des déchets électroniques sont collectés ou recyclés grâce aux filières{" "}
+                <Acronym
+                  title="Responsabilité Élargie du Producteur : les fabricants financent la collecte et le traitement de la fin de vie de leurs produits"
+                  glossary="rep"
+                >
+                  REP
+                </Acronym>
+                , contre environ 22 % au niveau mondial. Mais il reste encore beaucoup à faire.
               </p>
             </Card>
           </div>

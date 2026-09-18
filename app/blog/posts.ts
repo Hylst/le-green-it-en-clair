@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react"
-import { Calculator, ClipboardCheck, HeartHandshake, Leaf, Scale, Smartphone, Sparkles, Wifi, Wrench, Zap } from "lucide-react"
+import { Calculator, ClipboardCheck, HeartHandshake, Leaf, Megaphone, Scale, Smartphone, Sparkles, Wifi, Wrench, Zap } from "lucide-react"
 
 /* Contenus du blog : écriture simple, un chiffre sourcé par idée forte,
    le reste de la précision rangé dans des blocs dépliables. */
@@ -1343,6 +1343,109 @@ export const posts: BlogPost[] = [
       "ADEME, communiqué « IA générative, comment quantifier les impacts ? » (22/07/2026)",
       "Agence internationale de l'énergie, Energy and AI (avril 2025)",
       "ADEME-Arcep, enquête annuelle sur l'empreinte environnementale du numérique (2023)",
+    ],
+  },
+  {
+    slug: "greenwashing-numerique-reperes",
+    title: "Greenwashing numérique : 3 réflexes pour ne plus se faire avoir",
+    excerpt:
+      "« Cloud vert », « neutre en carbone », « dématérialisé donc écologique » : comment trier les promesses, ce que la loi exige depuis 2023, et les bons réflexes avant d'acheter.",
+    date: "Septembre 2026",
+    readingTime: "5 min",
+    icon: Megaphone,
+    essential: [
+      "Le greenwashing, c'est une promesse verte sans preuve : « neutre en carbone », « 100 % compensé », « cloud vert ».",
+      "Depuis le 1er janvier 2023, ces allégations sont interdites sans bilan carbone public et trajectoire de réduction (décret 2022-539).",
+      "Trois réflexes : exiger le chiffre sourcé, se méfier des formules globales, comparer au cycle de vie complet.",
+    ],
+    sections: [
+      {
+        heading: "Des promesses partout, des preuves rarement",
+        paragraphs: [
+          "Le numérique regorge d'arguments verts : cloud « vert », smartphone « éco-conçu », service « neutre en carbone », dématérialisation présentée comme « zéro impact ». Certaines démarches sont sincères et documentées. Mais sans preuve accessible, une promesse verte ne vaut pas mieux qu'un argument de vente.",
+          "Le piège classique, c'est la formule globale : un mot rassurant (« vert », « écolo », « propre », « neutre ») qui ne dit ni quoi, ni combien, ni par rapport à quoi. Or un bilan sérieux précise toujours le périmètre (fabrication ? usage ? lequel ?), l'année et la source.",
+        ],
+        bullets: [
+          "« Neutre en carbone » ou « 100 % compensé » sans bilan publié",
+          "« Vert », « écolo », « propre » sans périmètre ni chiffre",
+          "« Dématérialisé » vendu comme « zéro impact », alors que serveurs et réseaux tournent 24h/24",
+        ],
+      },
+      {
+        heading: "Ce que la loi exige depuis 2023",
+        paragraphs: [
+          "La loi climat et résilience (2021) a serré la vis : le décret n° 2022-539 interdit depuis le 1er janvier 2023 d'affirmer qu'un produit ou un service est « neutre en carbone », « zéro carbone », « climatiquement neutre », « intégralement compensé » ou « 100 % compensé », sauf à rendre publics un bilan des émissions sur tout le cycle de vie, une trajectoire de réduction et les modalités de compensation.",
+          "Côté publicité, la recommandation Développement durable de l'ARPP (version 3, août 2020) exige des arguments justifiés par des éléments objectifs et vérifiables. Et ça se contrôle : le bilan ADEME-ARPP 2023-2024 a passé en revue 1 015 publicités à argument environnemental, avec 93,6 % de conformité et 41 manquements relevés.",
+        ],
+        fact: {
+          value: "93,6 %",
+          label: "Publicités à argument environnemental jugées conformes en 2023-2024, sur 1 015 analysées (41 manquements)",
+          source: "ADEME-ARPP, bilan Publicité et environnement 2023-2024 (02/10/2024)",
+        },
+      },
+      {
+        heading: "3 réflexes avant d'y croire",
+        paragraphs: [
+          "Pas besoin d'être expert pour trier : trois questions simples éliminent la plupart des promesses en l'air, sans se priver et sans culpabiliser.",
+        ],
+        bullets: [
+          "Exiger le chiffre sourcé : un vrai engagement cite une étude, un bilan, une année vérifiable",
+          "Se méfier des formules globales : « vert » ne dit ni quoi, ni combien, ni par rapport à quoi",
+          "Regarder tout le cycle de vie : la fabrication concentre l'essentiel de l'empreinte (ADEME-Arcep 2023 ; ADEME, Impact CO₂ 2025), un accessoire « vert » ne change pas le bilan d'un appareil",
+        ],
+        details: [
+          {
+            title: "Et si la preuve existe, où la trouver ?",
+            paragraphs: [
+              "Une allégation « neutre en carbone » en règle renvoie vers un bilan d'émissions public, mis à jour chaque année, avec la trajectoire de réduction et le détail de la compensation. Si ce lien n'existe pas ou mène à une page floue, la promesse ne respecte pas le décret 2022-539.",
+              "Pour le reste, les repères fiables restent les mêmes que partout sur ce site : ADEME (Impact CO₂, Base Empreinte), Arcep (enquête annuelle), Global E-waste Monitor pour les déchets, et les labels vérifiables plutôt que les slogans.",
+            ],
+          },
+        ],
+      },
+    ],
+    takeaway: [
+      "Promesse verte sans preuve publique : c'est du marketing, pas un bilan.",
+      "Depuis 2023, « neutre en carbone » sans bilan et trajectoire publiés est interdit.",
+      "Chiffre sourcé, périmètre précis, cycle de vie complet : les trois réflexes.",
+    ],
+    related: [
+      {
+        href: "/faq",
+        label: "La FAQ",
+        description: "La question « comment repérer le greenwashing ? » et 27 autres réponses.",
+      },
+      {
+        href: "/ressources#glossaire",
+        label: "Glossaire : greenwashing, GES, ACV",
+        description: "Les définitions pour décrypter les arguments verts.",
+      },
+      {
+        href: "/fiches-pratiques/gestes-quotidiens",
+        label: "7 gestes quotidiens",
+        description: "Des actions vérifiées plutôt que des promesses.",
+      },
+    ],
+    sourceLinks: [
+      { label: "Décret 2022-539 sur Légifrance", url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000045570611" },
+      {
+        label: "Ministère : la lutte contre l'éco-blanchiment",
+        url: "https://www.ecologie.gouv.fr/politiques-publiques/lutte-contre-leco-blanchiment-publicites",
+      },
+      {
+        label: "ARPP, recommandation Développement durable",
+        url: "https://www.arpp.org/nous-consulter/regles/regles-de-deontologie/developpement-durable",
+      },
+      {
+        label: "Bilan ADEME-ARPP Publicité et environnement 2023-2024",
+        url: "https://www.arpp.org/actualite/bilan-publicite-et-environnement-2023-2024",
+      },
+    ],
+    sources: [
+      "Décret n° 2022-539 du 13 avril 2022, allégations de neutralité carbone (applicable au 01/01/2023)",
+      "ARPP, recommandation Développement durable v3 (août 2020)",
+      "ADEME-ARPP, bilan Publicité et environnement 2023-2024 (02/10/2024 : 1 015 publicités, 93,6 % conformes, 41 manquements)",
+      "ADEME, Impact CO₂ (mise à jour 2025) ; ADEME-Arcep 2023 (fabrication ≈ 75 % des impacts)",
     ],
   },
 ]

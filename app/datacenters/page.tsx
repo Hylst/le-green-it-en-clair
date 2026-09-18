@@ -24,6 +24,7 @@ import { SectionDivider } from "@/components/section-divider"
 import { PageHero } from "@/components/page-hero"
 import { CountUp } from "@/components/count-up"
 import { Acronym } from "@/components/acronym"
+import { SourceTooltip } from "@/components/source-tooltip"
 import { useChartTheme } from "@/lib/chart-theme"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts"
 
@@ -140,7 +141,7 @@ export default function DatacentersPage() {
               <div className="space-y-4">
                 <div>
                   <div className="mb-1 text-3xl font-bold text-blue-700 dark:text-blue-400"><CountUp to={1.5} decimals={1} suffix=" %" /></div>
-                  <p className="text-sm text-muted-foreground">de l&apos;électricité mondiale (<Acronym title="Agence Internationale de l'Énergie (IEA en anglais) : rapport Energy and AI, avril 2025" glossary="aie">AIE</Acronym>, Energy and AI, avril 2025)</p>
+                  <p className="text-sm text-muted-foreground">de l&apos;électricité mondiale (<Acronym title="Agence Internationale de l'Énergie (IEA en anglais) : rapport Energy and AI, avril 2025" glossary="aie">AIE</Acronym>, Energy and AI, avril 2025) <SourceTooltip className="ml-1 align-middle" source="AIE, Energy and AI (avril 2025)" url="https://www.iea.org/reports/energy-and-ai" /></p>
                 </div>
                 <div>
                   <div className="mb-1 text-3xl font-bold text-teal-700 dark:text-teal-400"><CountUp to={10000} suffix="+" /></div>
@@ -148,12 +149,12 @@ export default function DatacentersPage() {
                 </div>
                 <div>
                   <div className="mb-1 text-3xl font-bold text-cyan-700 dark:text-cyan-400"><CountUp to={415} suffix=" TWh" /></div>
-                  <p className="text-sm text-muted-foreground">consommation annuelle mondiale (<Acronym title="Agence Internationale de l'Énergie (IEA en anglais) : rapport Energy and AI, avril 2025">AIE</Acronym>, Energy and AI, avril 2025)</p>
+                  <p className="text-sm text-muted-foreground">consommation annuelle mondiale (<Acronym title="Agence Internationale de l'Énergie (IEA en anglais) : rapport Energy and AI, avril 2025">AIE</Acronym>, Energy and AI, avril 2025) <SourceTooltip className="ml-1 align-middle" source="AIE, Energy and AI (avril 2025)" url="https://www.iea.org/reports/energy-and-ai" /></p>
                 </div>
                 <div>
                   <div className="mb-1 text-3xl font-bold text-cyan-700 dark:text-cyan-400"><CountUp to={945} prefix="~" suffix=" TWh" /></div>
                   <p className="text-sm text-muted-foreground">
-                    projection 2030, scénario central (<Acronym title="Agence Internationale de l'Énergie (IEA en anglais) : rapport Energy and AI, avril 2025">AIE</Acronym>, Energy and AI, 2025)
+                    projection 2030, scénario central (<Acronym title="Agence Internationale de l'Énergie (IEA en anglais) : rapport Energy and AI, avril 2025">AIE</Acronym>, Energy and AI, 2025) <SourceTooltip className="ml-1 align-middle" source="AIE, Energy and AI (2025)" url="https://www.iea.org/reports/energy-and-ai" />
                   </p>
                 </div>
               </div>
@@ -288,9 +289,45 @@ export default function DatacentersPage() {
                 <div className="rounded-xl bg-amber-50 dark:bg-amber-900/20 p-4 text-center">
                   <div className="mb-2 text-3xl font-bold text-amber-700 dark:text-amber-400">2.0+</div>
                   <p className="text-sm font-semibold text-foreground">À améliorer</p>
-                  <p className="text-xs text-muted-foreground">50 %+ d'énergie perdue</p>
+                  <p className="text-xs text-muted-foreground">50 %+ d&apos;énergie perdue</p>
                 </div>
               </div>
+            </div>
+
+            <div className="mb-8 rounded-xl border-2 border-amber-200 bg-amber-50 p-6 dark:border-amber-800 dark:bg-amber-900/20">
+              <h4 className="mb-3 text-lg font-semibold text-foreground">Ce que le PUE ne dit pas</h4>
+              <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                <li className="flex gap-2">
+                  <span aria-hidden="true">•</span>
+                  <span>
+                    <strong>Le carbone du mix :</strong> un PUE parfait alimenté au charbon reste très carboné.
+                    Efficacité n&apos;est pas sobriété : la source de l&apos;électricité compte autant que son usage
+                    (voir le mix plus haut).
+                  </span>
+                </li>
+                <li className="flex gap-2">
+                  <span aria-hidden="true">•</span>
+                  <span>
+                    <strong>L&apos;eau :</strong> le refroidissement consomme aussi de l&apos;eau, que le PUE ignore.
+                    C&apos;est l&apos;objet d&apos;un autre indicateur, le{" "}
+                    <Acronym
+                      title="Water Usage Effectiveness : eau consommée pour le refroidissement des datacenters"
+                      glossary="wue"
+                    >
+                      WUE
+                    </Acronym>
+                    .
+                  </span>
+                </li>
+                <li className="flex gap-2">
+                  <span aria-hidden="true">•</span>
+                  <span>
+                    <strong>L&apos;utilisation :</strong> des serveurs qui tournent à 15 % de leur capacité gaspillent,
+                    même avec un bon PUE. Et la fabrication des serveurs n&apos;entre pas dans le calcul : un PUE
+                    flatteur ne dit rien du renouvellement du matériel.
+                  </span>
+                </li>
+              </ul>
             </div>
 
             <ResponsiveContainer width="100%" height={300}>
@@ -717,7 +754,14 @@ export default function DatacentersPage() {
           </div>
           <p className="mx-auto mt-10 max-w-3xl text-center text-sm text-muted-foreground">
             En 2024, les datacenters français ont consommé 2,7 TWh d&apos;électricité, +12 % en un an (Arcep, enquête
-            2026). L&apos;ADEME, avec un périmètre élargi à 352 sites, porte la consommation actuelle à 10 TWh, et RTE
+            2026). La consommation électrique des centres de données progresse vite : +38 % en 3 ans
+            <SourceTooltip
+              className="ml-1 align-middle"
+              source="Arcep, enquête annuelle « Pour un numérique soutenable », 2026"
+              calculation="+38 % en 3 ans pour les centres de données"
+              url="https://www.arcep.fr/la-regulation/grands-dossiers-thematiques-transverses/lempreinte-environnementale-du-numerique.html"
+            />
+            . L&apos;ADEME, avec un périmètre élargi à 352 sites, porte la consommation actuelle à 10 TWh, et RTE
             projette 23 à 28 TWh en 2035 (étude prospective ADEME-RTE, janvier 2026).
           </p>
         </div>

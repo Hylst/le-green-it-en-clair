@@ -21,7 +21,7 @@ export default function FaiBoxPage() {
     <div data-theme="cyan" className="min-h-screen bg-background transition-colors duration-300">
       <PageHero
         theme="cyan"
-        image={{ src: "/greenit/images/box-hero.webp", alt: "Box internet posée sur un meuble du salon, voyants lumineux allumés" }}
+        image={{ src: "/greenit/images/fai-box-hero.webp", alt: "Box internet posée sur un meuble du salon, voyants lumineux allumés" }}
         badge={{ icon: Router, label: "Fournisseur d'accès internet" }}
         title="Choisir son FAI et sa box"
         intro="Wifi allumé jour et nuit, téléphonie fixe, parfois décodeur TV : la box fait partie des appareils qui restent branchés le plus longtemps à la maison. Voici comment elle fonctionne et comment choisir une offre adaptée à vos besoins réels."

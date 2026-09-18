@@ -209,7 +209,7 @@ export default function ComprendrePage() {
               visual={{
                 items: [
                   { icon: Smartphone, count: 1, label: "Smartphone (150g)" },
-                  { icon: Scale, count: 467, label: "Fois son poids en matières extraites" },
+                  { icon: Scale, count: 467, label: "467 fois son poids en matières extraites" },
                 ],
               }}
               color="amber"

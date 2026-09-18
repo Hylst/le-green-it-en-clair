@@ -1224,6 +1224,8 @@ export const posts: BlogPost[] = [
     ],
   },
   {
+    image: "/greenit/images/blog/blog-ia-generative.webp",
+    imageAlt: "Feuille verte luminescente aux nervures en circuits imprimés devant des baies de serveurs",
     slug: "ia-generative-avis-ademe-2026",
     title: "IA générative : ce que dit l'ADEME en 2026",
     excerpt:

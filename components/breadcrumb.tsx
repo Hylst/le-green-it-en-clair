@@ -24,6 +24,7 @@ export function Breadcrumb() {
     agir: "Comment agir",
     datacenters: "Datacenters",
     developpement: "Développement",
+    "fai-box": "Choisir son FAI / sa box",
     recyclage: "Recyclage",
     perspectives: "Perspectives",
     outils: "Outils",

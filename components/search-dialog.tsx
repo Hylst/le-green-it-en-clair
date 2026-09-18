@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { BookOpen, Calculator, Calendar, Code2, Download, Eye, FileText, HelpCircle, Home, Info, Laptop, Leaf, Map, Newspaper, Recycle, Rocket, Scale, Settings, Sparkles, User, Zap } from "lucide-react"
+import { BookOpen, Calculator, Calendar, Code2, Download, Eye, FileText, HelpCircle, Home, Info, Laptop, Leaf, Map, Newspaper, Recycle, Rocket, Router, Scale, Settings, Sparkles, User, Zap } from "lucide-react"
 import { useRouter } from "next/navigation"
 
 import {
@@ -86,6 +86,10 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                     <CommandItem onSelect={() => runCommand(() => router.push("/datacenters"))}>
                         <Laptop className="mr-2 h-4 w-4" />
                         <span>Datacenters</span>
+                    </CommandItem>
+                    <CommandItem value="Choisir son FAI sa box fournisseur acces internet" onSelect={() => runCommand(() => router.push("/fai-box"))}>
+                        <Router className="mr-2 h-4 w-4" />
+                        <span>Choisir son FAI / sa box</span>
                     </CommandItem>
                     <CommandItem onSelect={() => runCommand(() => router.push("/fiches-pratiques"))}>
                         <FileText className="mr-2 h-4 w-4" />

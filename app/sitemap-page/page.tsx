@@ -99,6 +99,7 @@ export default function SitemapPage() {
       icon: AlertCircle,
       pages: [
         { href: "/datacenters", label: "Datacenters verts", description: "Efficacité énergétique et bonnes pratiques" },
+        { href: "/fai-box", label: "Choisir son FAI / sa box", description: "Comprendre sa box et choisir une offre adaptée" },
         {
           href: "/developpement",
           label: "Développement éco-responsable",

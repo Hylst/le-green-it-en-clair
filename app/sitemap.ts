@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/chiffres',
         '/datacenters',
         '/developpement',
+        '/fai-box',
         '/fiches-pratiques',
         '/fiches-pratiques/gestes-quotidiens',
         '/fiches-pratiques/achat-responsable',

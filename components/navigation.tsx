@@ -66,6 +66,7 @@ export function Navigation() {
       label: "Approfondir",
       items: [
         { href: "/datacenters", label: "Datacenters verts" },
+        { href: "/fai-box", label: "Choisir son FAI / sa box" },
         { href: "/developpement", label: "Développement éco-responsable" },
         { href: "/reglementation", label: "Réglementation" },
         { href: "/perspectives", label: "Perspectives d'avenir" },

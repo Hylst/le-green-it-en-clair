@@ -118,8 +118,8 @@ const solutions2030 = [
     category: "Efficacité immédiate (2026-2028)",
     items: [
       "IA frugale : petits modèles, quantification, inférence locale (gains ÷8 à ÷20 possibles, Joule 2026)",
-      "Refroidissement liquide généralisé, PUE de 1,2 ou moins sur les installations neuves (ADEME)",
-      "Serveurs ARM et chiplets : +40 % de performance à puissance égale (Arm)",
+      "Refroidissement liquide généralisé, PUE de 1,2 ou moins sur les installations neuves (ADEME, 2026)",
+      "Serveurs ARM et RISC-V, chiplets : +40 % de performance à puissance égale (Arm, 2020-2023)",
       "Chaleur fatale obligatoire au-delà de 1 MW : l'exemple de Saint-Denis (6,6 MW, 2024)",
     ],
   },
@@ -128,7 +128,7 @@ const solutions2030 = [
     items: [
       "Interconnects optiques co-packagés : -60 à -70 % contre optiques classiques (Broadcom, 2025)",
       "Mémoires sobres (MRAM) et stockage froid (verre 10 000 ans, Nature 2026)",
-      "Micro-datacenters sans eau adossés aux renouvelables, stockage fer-air 100 h",
+      "Micro-datacenters sans eau adossés aux renouvelables (PoliCloud, 2026), stockage fer-air 100 h (Form Energy, 2026)",
       "Réseaux sobres : fibre, SDN, 5G Advanced à mise en veille native",
     ],
   },
@@ -136,9 +136,9 @@ const solutions2030 = [
     category: "Ruptures (2032 et au-delà)",
     items: [
       "Calcul photonique : 160 TOPS/W démontrés (Taichi, Science 2024)",
-      "Neuromorphique et spintronique : 100 fois moins d'énergie que GPU sur certains usages",
-      "Petits réacteurs co-localisés : horizon réaliste 2030-2034 (Natrium, Aalo-Crusoe)",
-      "Quantique ciblé et hybride HPC-IA-quantique (LUMI-IQ, EuroHPC)",
+      "Neuromorphique et spintronique : 100 fois moins d'énergie que GPU sur certains usages (Intel, 2024)",
+      "Petits réacteurs co-localisés : horizon réaliste 2030-2034 (TerraPower et Aalo, 2026)",
+      "Quantique ciblé et hybride HPC-IA-quantique (LUMI-IQ, EuroHPC, 2026)",
     ],
   },
   {

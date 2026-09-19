@@ -379,7 +379,9 @@ const futureSolutions = [
         description: (
           <>
             Modèles Mixture-of-Experts qui n&apos;activent qu&apos;une fraction de leurs paramètres, quantification
-            FP8/INT4, distillation vers des petits modèles spécialisés, exécution locale quand le cloud est inutile.
+            FP8/INT4, distillation vers des petits modèles spécialisés, exécution locale quand le cloud est inutile
+            et ordonnanceurs carbon-aware qui déplacent les jobs non urgents vers les heures et zones à électricité
+            décarbonée.
             L&apos;inférence représente jusqu&apos;à 90 % de l&apos;énergie sur le cycle de vie d&apos;un modèle
             <SourceTooltip
               className="ml-1"
@@ -403,9 +405,16 @@ const futureSolutions = [
         name: "Refroidissement liquide généralisé",
         description: (
           <>
-            Direct-to-chip et immersion : PUE de 1,02 à 1,1 contre 1,8 à 2,5 pour l&apos;air. Les installations neuves
-            doivent viser 1,2 ou moins (ADEME), mais le PUE moyen français reste de 1,7 (2024) et les progrès sont
-            lents à cause du parc existant
+            Direct-to-chip et immersion : PUE de 1,02 à 1,1 contre 1,8 à 2,5 pour l&apos;air (fourchettes de la
+            page Datacenters). Les installations neuves doivent viser 1,2 ou moins quand le PUE moyen français
+            reste de 1,7 (2024)
+            <SourceTooltip
+              className="ml-1"
+              source="ADEME, 2024-2026"
+              calculation="PUE moyen France 1,7 en 2024 contre 1,8 en 2016, objectif 1,2 pour le neuf"
+              url="https://solutions.acciona-energia.fr/blog/consommation-energie-des-data-centers"
+            />
+            et les progrès restent lents à cause du parc existant
             <SourceTooltip
               className="ml-1"
               source="Uptime Institute, Global Data Center Survey 2026"
@@ -423,7 +432,7 @@ const futureSolutions = [
         description: (
           <>
             Neoverse N2 : +40 % de performance à puissance égale par rapport au N1 (Arm, 2020), N3 : +20 % de
-            performance par watt de plus ; chiplets 2 nm démontrés dès 2023 avec TSMC
+            performance par watt de plus, architectures ARM et RISC-V ; chiplets 2 nm démontrés dès 2023 avec TSMC
             <SourceTooltip
               className="ml-1"
               source="Arm, 2020-2023"
@@ -448,8 +457,9 @@ const futureSolutions = [
               calculation="SCI = ((E × I) + M) par R : énergie, intensité carbone, embarqué, par unité fonctionnelle"
               url="https://greensoftware.foundation/standards/sci"
             />
-            . 7 outils open source côté Boavizta (BoaviztAPI, CloudScanner, e-footprint). Runtimes efficaces,
-            extinction à zéro, cache agressif : le logiciel sobre allonge aussi la durée de vie du matériel.
+            . 7 outils open source côté Boavizta (BoaviztAPI, CloudScanner, e-footprint). Langages et runtimes
+            efficaces (Rust, Go, WASM), serverless avec extinction à zéro, cache agressif : le logiciel sobre
+            allonge aussi la durée de vie du matériel.
           </>
         ),
         potential: "Élevé",
@@ -487,7 +497,14 @@ const futureSolutions = [
               url="https://www.engie-solutions.com/fr/references/chaleur-fatale-equinix"
             />
             . Depuis octobre 2025, la loi DDADUE impose la valorisation au-delà de 1 MW. Potentiel national : 4 à
-            13 TWh en 2035 (ADEME, 2026).
+            13 TWh en 2035
+            <SourceTooltip
+              className="ml-1"
+              source="ADEME, prospective datacenters 2024-2060, janvier 2026"
+              calculation="4 à 13 TWh de chaleur fatale valorisable en 2035 selon les 5 trajectoires"
+              url="https://infos.ademe.fr/industrie-production-durable/2026/consommation-electrique-des-data-centers-5-scenarios-pour-demain"
+            />
+            .
           </>
         ),
         potential: "Élevé",
@@ -552,7 +569,14 @@ const futureSolutions = [
               url="https://policloud.com/"
             />
             . Batteries : 20 à 25 GW installés en datacenters en 2030 (AIE, 2026). En France, RTE présélectionne
-            5 sites à 700 MW-1 GW en raccordement accéléré.
+            5 sites à 700 MW-1 GW en raccordement accéléré
+            <SourceTooltip
+              className="ml-1"
+              source="RTE, 2026"
+              calculation="~18 GW réservés en mai 2026 contre 5 GW fin 2024, 5 sites fast-track, Fouju 240 MW → 1 400 MW"
+              url="https://www.les-energies-renouvelables.eu/article/actualites/energies/datacenters-ia-electrification-france-rte-856/"
+            />
+            .
           </>
         ),
         potential: "Élevé",
@@ -570,8 +594,8 @@ const futureSolutions = [
               calculation="100 h à coût système <1/10 du lithium, 300 MW/30 GWh Google Minnesota, 12 GWh Crusoe"
               url="https://formenergy.com/about/"
             />
-            . Sodium-ion sans lithium ni cobalt pour le stationnaire (IRENA, 2025). Indispensable au 24/7
-            renouvelable sans crédits carbone douteux.
+            . Sodium-ion sans lithium ni cobalt pour le stationnaire (IRENA, 2025), supercondensateurs pour les
+            à-coups de puissance des charges IA. Indispensable au 24/7 renouvelable sans crédits carbone douteux.
           </>
         ),
         potential: "Élevé",
@@ -615,8 +639,15 @@ const futureSolutions = [
         description: (
           <>
             Puces à impulsions comme le cerveau : plus de 15 TOPS/W et 100 fois moins d&apos;énergie que GPU sur
-            vision et optimisation (Hala Point, Intel, 2024) ; 120 TOPS/W en analogique (Mythic, 2026). Idéal pour
-            l&apos;edge et la robotique, en évitant les allers-retours mémoire qui coûtent 10 fois l&apos;opération.
+            vision et optimisation (Hala Point, Intel, 2024)
+            <SourceTooltip
+              className="ml-1"
+              source="Intel, Hala Point, avril 2024"
+              calculation="20 pétaops, >15 TOPS/W, 100× moins d'énergie et 50× plus rapide que CPU/GPU sur inférence et optimisation"
+              url="https://www.intel.com/content/www/us/en/newsroom/news/intel-builds-worlds-largest-neuromorphic-system.html"
+            />
+            ; 120 TOPS/W en analogique (Mythic, 2026). Idéal pour l&apos;edge et la robotique, en évitant les
+            allers-retours entre mémoire et calcul, bien plus coûteux que l&apos;opération elle-même.
           </>
         ),
         potential: "Moyen",
@@ -627,8 +658,20 @@ const futureSolutions = [
         description: (
           <>
             Le spin de l&apos;électron plutôt que sa charge : logique MESO 10 à 100 fois plus efficace que le CMOS
-            (Intel et Berkeley, Nature, 2019), encore au stade laboratoire ; bits probabilistes à 2 fJ par tirage et
-            machine à un million de p-bits (2026). Une voie d&apos;accélération sans cryogénie.
+            (Intel et Berkeley, Nature, 2019), encore au stade laboratoire
+            <SourceTooltip
+              className="ml-1"
+              source="Intel et UC Berkeley, Nature, 2019"
+              calculation="10 à 100× l'efficacité du CMOS, 5× la densité logique, commutation à ~100 mV visée"
+            />
+            ; bits probabilistes à 2 fJ par tirage et machine à un million de p-bits (2026)
+            <SourceTooltip
+              className="ml-1"
+              source="Purdue et UC Santa Barbara, 2023-2026"
+              calculation="p-bits spintroniques ~2 fJ/bit, machine programmable à 1 M de p-bits en juin 2026"
+              url="https://arxiv.org/abs/2606.25313"
+            />
+            . Une voie d&apos;accélération sans cryogénie.
           </>
         ),
         potential: "Moyen",
@@ -646,8 +689,14 @@ const futureSolutions = [
               calculation="345 MW sodium + sels fondus → 500 MW en pointe, 1er permis commercial avancé depuis 40 ans"
               url="https://www.terrapower.com/NRC-Approves-Natrium-Reactor-Construction-Permit"
             />
-            ; démo Aalo-Crusoe de 50 MWe en 2027, flotte en 2029. Horizon réaliste : 2030-2034 ; en attendant, gaz
-            et batteries (AIE).
+            ; démo Aalo-Crusoe de 50 MWe en 2027, flotte en 2029
+            <SourceTooltip
+              className="ml-1"
+              source="Aalo Atomics et Crusoe, juillet 2026"
+              calculation="Aalo-X 10 MWe → Pod 50 MWe (5×10), sodium et air sans eau externe, criticité juillet 2026"
+              url="https://www.aalo.com/post/crusoe-and-aalo-atomics-form-strategic-partnership"
+            />
+            . Horizon réaliste : 2030-2034 ; en attendant, gaz et batteries (AIE).
           </>
         ),
         potential: "Moyen",

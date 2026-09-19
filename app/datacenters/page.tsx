@@ -820,7 +820,7 @@ export default function DatacentersPage() {
               className="ml-1 align-middle"
               source="RTE, 2026"
               calculation="~18 GW réservés en mai 2026 contre 5 GW fin 2024, fast-track 5 sites, Fouju 240 MW → 1 400 MW"
-              url="https://www.rte-france.com/bases-electricite/consommation-electricite/essor-data-centers-france"
+              url="https://www.les-energies-renouvelables.eu/article/actualites/energies/datacenters-ia-electrification-france-rte-856/"
             />
             . L&apos;ADEME modélise 5 trajectoires : du tendanciel (×3,7 d&apos;ici 2035, deux tiers à
             l&apos;étranger sur des mix plus carbonés) au frugal (5,7 TWh en 2050). Côté production pilotable, les

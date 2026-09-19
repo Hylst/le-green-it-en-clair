@@ -56,8 +56,8 @@ export default function MythesPage() {
       myth: "Recycler suffit à résoudre le problème",
       reality: "Faux - Seuls 22 % des déchets électroniques ont été collectés et recyclés en 2022",
       explanation:
-        "En 2022, 22,3 % des déchets électroniques ont été documentés comme collectés et recyclés à l'échelle mondiale (Global E-waste Monitor 2024). En France, le taux de collecte atteint environ 46 %, mais reste insuffisant. De plus, le recyclage lui-même consomme de l'énergie et ne permet pas de récupérer tous les matériaux. La priorité doit être donnée à la réduction, la réparation et la réutilisation.",
-      source: "Global E-waste Monitor 2024, ONU",
+        "En 2022, 22,3 % des déchets électroniques ont été documentés comme collectés et recyclés à l'échelle mondiale (Global E-waste Monitor 2024). En France, il atteignait 44,2 % en 2023 (Eurostat), loin de l'objectif européen de 65 %. De plus, le recyclage lui-même consomme de l'énergie et ne permet pas de récupérer tous les matériaux. La priorité doit être donnée à la réduction, la réparation et la réutilisation.",
+      source: "Global E-waste Monitor 2024, Eurostat 2023",
       relatedLink: { label: "Explorer le recyclage", href: "/recyclage" },
     },
     {
@@ -222,6 +222,72 @@ export default function MythesPage() {
         "Regarder une vidéo en 4G ou 5G mobilise les antennes du réseau mobile, bien plus gourmandes que votre box. Quand c'est possible, privilégiez le Wi-Fi et baissez la définition si le grand écran n'est pas nécessaire (Kamiya 2020, Shift 2019).",
       source: "Kamiya 2020, Shift 2019",
       relatedLink: { label: "Découvrir les bonnes pratiques", href: "/agir" },
+    },
+    {
+      id: "19",
+      category: "Recyclage",
+      icon: <Recycle className="h-5 w-5" />,
+      myth: "Jeter un petit appareil à la poubelle, ce n'est pas grave",
+      reality: "Faux - C'est interdit, et il existe des reprises gratuites",
+      explanation:
+        "Un appareil électrique ne va jamais à la poubelle ni sur la voie publique : c'est interdit et passible d'amende (Service Public 2025). Bonne nouvelle, les solutions sont gratuites : reprise un pour un à l'achat, dépôt sans obligation d'achat dans les magasins de plus de 400 m², déchetteries et points de collecte près de chez vous.",
+      source: "Service Public 2025",
+      relatedLink: { label: "Explorer le recyclage", href: "/recyclage" },
+    },
+    {
+      id: "20",
+      category: "Recyclage",
+      icon: <Recycle className="h-5 w-5" />,
+      myth: "Trier ses e-déchets ne sert à rien, tout finit mélangé",
+      reality: "Faux - Les filières existent et progressent, mais la collecte reste insuffisante",
+      explanation:
+        "En France, 44,2 % des e-déchets ont été collectés en 2023 (Eurostat), contre 37,5 % en moyenne dans l'UE — encore loin de l'objectif européen de 65 %. Les filières agréées récupèrent cuivre, or et terres rares : avec environ 62 milliards de dollars de matières perdues chaque année dans le monde (Global E-waste Monitor 2024), chaque appareil rapporté compte.",
+      source: "Eurostat 2023, Global E-waste Monitor 2024",
+      relatedLink: { label: "Explorer le recyclage", href: "/recyclage" },
+    },
+    {
+      id: "21",
+      category: "Recyclage",
+      icon: <Recycle className="h-5 w-5" />,
+      myth: "Donner son vieil appareil, c'est juste déplacer le problème",
+      reality: "Nuancé - Le réemploi évite une fabrication neuve, via des structures sérieuses",
+      explanation:
+        "Un appareil réemployé, c'est une fabrication évitée : environ 80 kg de CO₂e pour un smartphone neuf (ADEME, Impact CO₂ 2025), contre 75 à 90 % d'émissions en moins pour du reconditionné (ADEME 2022). Confiez vos appareils à des structures qui diagnostiquent, réparent et garantissent (Emmaüs, Envie, ressourceries) : ce qui est réparable est revendu, le reste part en filière agréée.",
+      source: "ADEME 2022, ADEME Impact CO₂ 2025",
+      relatedLink: { label: "Comprendre le reconditionné", href: "/cas-pratiques" },
+    },
+    {
+      id: "22",
+      category: "Développement",
+      icon: <Database className="h-5 w-5" />,
+      myth: "Un site web, c'est immatériel, son poids ne compte pas",
+      reality: "Faux - Une page médiane pèse plus de 2 Mo, et chaque octet voyage",
+      explanation:
+        "La page web médiane pèse environ 2,6 Mo sur ordinateur et 2,3 Mo sur mobile (HTTP Archive, Web Almanac 2024) — et chaque octet transféré consomme de l'énergie sur le réseau, dans les datacenters et sur votre appareil. D'où l'éco-conception : images optimisées, scripts limités, pages sobres (RGESN 2024).",
+      source: "HTTP Archive 2024, RGESN 2024",
+      relatedLink: { label: "Guide développeur", href: "/developpement" },
+    },
+    {
+      id: "23",
+      category: "Développement",
+      icon: <Lightbulb className="h-5 w-5" />,
+      myth: "Choisir un hébergeur vert suffit à régler l'impact du numérique",
+      reality: "Nuancé - L'efficacité progresse, mais la consommation totale explose",
+      explanation:
+        "Les datacenters deviennent plus efficaces, mais leur consommation mondiale atteignait 415 TWh en 2024 et pourrait doubler d'ici 2030, tirée par l'IA (AIE, Energy and AI 2025). Un hébergeur alimenté en électricité décarbonée, c'est bien ; des services sobres et utiles, c'est indispensable (RGESN 2024).",
+      source: "AIE 2025, RGESN 2024",
+      relatedLink: { label: "Comprendre les datacenters", href: "/datacenters" },
+    },
+    {
+      id: "24",
+      category: "Développement",
+      icon: <Zap className="h-5 w-5" />,
+      myth: "Mettre de l'IA partout, c'est toujours un progrès",
+      reality: "Nuancé - Chaque fonctionnalité IA a un coût : elle doit répondre à un vrai besoin",
+      explanation:
+        "Avant de développer un service, la première question de l'éco-conception est sa raison d'être : une alternative non numérique est-elle préférable (RGESN 2024) ? Avec la croissance rapide de la demande d'électricité liée à l'IA (AIE, Energy and AI 2025), ajouter de l'IA par défaut, c'est consommer par défaut.",
+      source: "RGESN 2024, AIE 2025",
+      relatedLink: { label: "Guide développeur", href: "/developpement" },
     },
   ]
 

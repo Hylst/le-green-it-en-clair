@@ -6,9 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Legend } from "recharts";
 import { CHART_FALLBACKS } from "@/lib/chart-theme";
-import { Lightbulb, Download, RotateCcw } from "lucide-react";
+import { Lightbulb, Printer, RotateCcw } from "lucide-react";
+import { SourceTooltip } from "@/components/source-tooltip";
+import Link from "next/link";
 
 export default function SobrietySimulator() {
   const [scenario, setScenario] = useState({
@@ -133,7 +135,7 @@ export default function SobrietySimulator() {
                   </div>
                 </RadioGroup>
                 <p className="mt-2 text-xs text-muted-foreground">
-                  (*) Achat reconditionné : impact du produit réduit d'environ 75 % par rapport au neuf (ADEME, 2022).
+                  (*) Achat reconditionné : impact du produit réduit d'environ 75 % par rapport au neuf (ADEME, 2022 <SourceTooltip source="ADEME, 2022" info="Impact du produit reconditionné réduit d'environ 75 % par rapport au neuf" />).
                 </p>
               </div>
 
@@ -183,7 +185,7 @@ export default function SobrietySimulator() {
                     <RadioGroupItem value="never" id="never" />
                     <Label htmlFor="never" className="cursor-pointer flex-1 text-foreground">
                       Jamais
-                      <span className="block text-sm text-muted-foreground">Boîte saturée</span>
+                      <span className="block text-sm text-muted-foreground">Jamais pour l'instant</span>
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
@@ -247,7 +249,7 @@ export default function SobrietySimulator() {
                     <RadioGroupItem value="new" id="device-new" />
                     <Label htmlFor="device-new" className="cursor-pointer flex-1 text-foreground">
                       Neuf
-                      <span className="block text-sm text-muted-foreground">Impact maximal</span>
+                      <span className="block text-sm text-muted-foreground">Impact de référence</span>
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2 p-3 rounded-lg hover:bg-secondary">
@@ -275,7 +277,7 @@ export default function SobrietySimulator() {
 
             <div className="grid md:grid-cols-3 gap-4 mb-6">
               <div className="bg-card p-4 rounded-lg text-center border border-border">
-                <div className="text-sm text-muted-foreground mb-1">Scénario actuel</div>
+                <div className="text-sm text-muted-foreground mb-1">Référence moyenne</div>
                 <div className="text-3xl font-bold text-foreground">{impact.baseline}</div>
                 <div className="text-sm text-muted-foreground">kg CO₂e/an</div>
               </div>
@@ -299,15 +301,30 @@ export default function SobrietySimulator() {
                   <XAxis dataKey="year" stroke={CHART_FALLBACKS.tick} />
                   <YAxis stroke={CHART_FALLBACKS.tick} />
                   <RechartsTooltip wrapperStyle={{ backgroundColor: "var(--card)" }} />
+                  <Legend />
                   <Line type="monotone" dataKey="baseline" stroke={CHART_FALLBACKS.slate} name="Sans changement" strokeWidth={2} />
                   <Line type="monotone" dataKey="optimized" stroke={CHART_FALLBACKS.emerald} name="Avec sobriété" strokeWidth={2} />
                 </LineChart>
               </ResponsiveContainer>
+              <table className="sr-only">
+                <caption>Projection des émissions cumulées sur 5 ans, en kg CO₂e</caption>
+                <thead>
+                  <tr><th>Année</th><th>Sans changement</th><th>Avec sobriété</th></tr>
+                </thead>
+                <tbody>
+                  {projectionData.map((p) => (
+                    <tr key={p.year}><td>{p.year}</td><td>{Math.round(p.baseline)}</td><td>{Math.round(p.optimized)}</td></tr>
+                  ))}
+                </tbody>
+              </table>
               <div className="text-center mt-4">
                 <div className="text-2xl font-bold text-green-600 dark:text-green-400">
                   {Math.round(impact.savings * 5)} kg CO₂e économisés
                 </div>
                 <div className="text-sm text-muted-foreground">sur 5 ans</div>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Référence : 330 kg CO₂e/an par internaute <SourceTooltip source="GreenIT, Étude empreinte numérique mondiale (EENM), 2025" calculation="1,8 Gt CO₂e ÷ ~5,35 Md d'internautes ≈ 330 kg CO₂e/an" />. Pour partir de votre cas réel, <Link href="/outils#onglet-calculator" className="underline underline-offset-2">calculez votre empreinte</Link>.
+                </p>
               </div>
             </div>
 
@@ -360,8 +377,8 @@ export default function SobrietySimulator() {
               className="flex-1 bg-card text-foreground hover:bg-secondary border border-border"
               onClick={() => window.print()}
             >
-              <Download className="w-4 h-4 mr-2" />
-              Télécharger mon plan d'action
+              <Printer className="w-4 h-4 mr-2" />
+              Imprimer mon plan d'action
             </Button>
             <Button
               variant="outline"
@@ -385,7 +402,7 @@ export default function SobrietySimulator() {
       </Card>
 
       <div className="text-sm text-muted-foreground text-center">
-        Sources: Base Empreinte / ADEME-Arcep (2024-2025), Shift Project, GreenIT.fr • Calculs basés sur des moyennes françaises
+        Sources: Base Empreinte / ADEME-Arcep (2024-2025), Shift Project, GreenIT.fr • Calculs basés sur des moyennes mondiales (référence : 330 kg CO₂e/an par internaute, GreenIT 2025)
       </div>
     </div>
   )

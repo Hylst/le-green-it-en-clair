@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import { Card } from "@/components/ui/card"
-import { MonitorPlay, Wifi, Signal, Info, Video } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { MonitorPlay, Wifi, Signal, Info, Video, Printer, Share2, Check } from "lucide-react"
 import { LabeledSlider } from "./shared"
 import Link from "next/link"
 
@@ -21,14 +22,20 @@ type Reseau = keyof typeof KWH_PAR_GO
 
 const VISIO_GO_HEURE = 1 // CableLabs, mesures 2026 sur Meet, Teams, Zoom et GoTo
 const FACTEUR_FR = 0.0519 // kgCO₂e/kWh, Base Empreinte 2024 (mix moyen France)
-const KG_PAR_KM_VOITURE = 50 / 300 // 50 kg ≈ 300 km, infographie du site
+const KG_PAR_KM_VOITURE = 0.17 // kgCO₂e/km, ADEME Base Empreinte 2023 (même repère que les autres outils)
 const SEMAINES_PAR_MOIS = 52 / 12
+
+// Petites valeurs : une décimale plutôt qu'un "0" qui décourage
+function fmtPetit(v: number) {
+  return v > 0 && v < 10 ? v.toFixed(1).replace(".", ",") : String(Math.round(v))
+}
 
 export default function StreamingEstimator() {
   const [hVideo, setHVideo] = useState([7])
   const [qualite, setQualite] = useState<Qualite>("hd")
   const [hVisio, setHVisio] = useState([3])
   const [reseau, setReseau] = useState<Reseau>("wifi")
+  const [copied, setCopied] = useState(false)
 
   const goMois = (hVideo[0] * DEBITS[qualite].goHeure + hVisio[0] * VISIO_GO_HEURE) * SEMAINES_PAR_MOIS
   const kwhAn = goMois * 12 * KWH_PAR_GO[reseau]
@@ -38,9 +45,10 @@ export default function StreamingEstimator() {
   const conseils: string[] = []
   if (qualite === "uhd") conseils.push("Passer de la 4K à la HD divise le débit par plus de deux, invisible sur petit écran.")
   if (reseau === "mobile") conseils.push("Le réseau mobile consomme 7 fois plus d'énergie par Go que le Wi-Fi : préférez le Wi-Fi à la maison.")
-  if (hVisio[0] >= 5) conseils.push("Couper la caméra quand vous ne parlez pas allège chaque réunion sans rien perdre.")
+  if (hVisio[0] >= 5) conseils.push("Pour les réunions d'écoute, testez l'audio seul : simple et souvent suffisant.")
   if (hVideo[0] >= 14) conseils.push("Téléchargez en Wi-Fi les contenus regardés en boucle : un téléchargement remplace dix streams.")
-  if (conseils.length === 0) conseils.push("Vos réglages sont déjà sobres : gardez la 720p par défaut sur mobile.")
+  if (hVideo[0] === 0 && hVisio[0] === 0) conseils.push("Aucune vidéo cette semaine : difficile de faire plus sobre, bravo.")
+  else if (conseils.length === 0) conseils.push("Vos réglages sont déjà sobres : gardez la 720p par défaut sur mobile.")
 
   return (
     <Card className="border-2 border-border bg-card p-6 shadow-lg dark:bg-slate-800 md:p-8">
@@ -123,11 +131,11 @@ export default function StreamingEstimator() {
         <div className="space-y-4" aria-live="polite">
           <div className="grid grid-cols-3 gap-3">
             <div className="rounded-xl bg-rose-50 p-4 text-center dark:bg-rose-900/20">
-              <p className="font-poppins text-2xl font-bold text-rose-700 dark:text-rose-300">{Math.round(goMois)}</p>
+              <p className="font-poppins text-2xl font-bold text-rose-700 dark:text-rose-300">{fmtPetit(goMois)}</p>
               <p className="text-xs text-muted-foreground">Go / mois</p>
             </div>
             <div className="rounded-xl bg-rose-50 p-4 text-center dark:bg-rose-900/20">
-              <p className="font-poppins text-2xl font-bold text-rose-700 dark:text-rose-300">{Math.round(kwhAn)}</p>
+              <p className="font-poppins text-2xl font-bold text-rose-700 dark:text-rose-300">{fmtPetit(kwhAn)}</p>
               <p className="text-xs text-muted-foreground">kWh / an (réseau)</p>
             </div>
             <div className="rounded-xl bg-rose-50 p-4 text-center dark:bg-rose-900/20">
@@ -170,6 +178,38 @@ export default function StreamingEstimator() {
               .
             </span>
           </p>
+
+          <div className="flex gap-2">
+            <Button
+              variant="outline"
+              className="flex-1 bg-card text-foreground hover:bg-secondary border border-border"
+              onClick={() => window.print()}
+            >
+              <Printer className="w-4 h-4 mr-2" />
+              Imprimer
+            </Button>
+            <Button
+              variant="outline"
+              className="flex-1 bg-card text-foreground hover:bg-secondary border border-border"
+              onClick={async () => {
+                const text = `Streaming et visio : ${fmtPetit(goMois)} Go/mois, ${fmtPetit(kwhAn)} kWh/an (réseau uniquement)`
+                try {
+                  if (navigator.share) {
+                    await navigator.share({ title: "Mon estimation streaming", text })
+                  } else {
+                    await navigator.clipboard.writeText(text)
+                    setCopied(true)
+                    window.setTimeout(() => setCopied(false), 2000)
+                  }
+                } catch {
+                  // partage annulé ou indisponible, on ne fait rien
+                }
+              }}
+            >
+              {copied ? <Check className="w-4 h-4 mr-2" /> : <Share2 className="w-4 h-4 mr-2" />}
+              {copied ? "Copié !" : "Partager"}
+            </Button>
+          </div>
         </div>
       </div>
     </Card>

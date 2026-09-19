@@ -461,6 +461,25 @@ export default function DatacentersPage() {
               </p>
             </div>
           </div>
+
+          <div className="mt-6 rounded-xl bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800 p-6">
+            <div className="flex items-start gap-3">
+              <Droplets className="mt-1 h-5 w-5 shrink-0 text-blue-700 dark:text-blue-400" />
+              <p className="text-slate-700 dark:text-slate-300">
+                <strong>Au-delà du PUE : eau et carbone.</strong> Le PUE ne dit rien de l&apos;eau ni du carbone :
+                le WUE (litres d&apos;eau par kWh informatique) et le CUE (kg CO₂e par kWh informatique) complètent
+                le tableau. Plus de la moitié des exploitants suivent désormais leur consommation d&apos;eau
+                <SourceTooltip
+                  className="ml-1 align-middle"
+                  source="Uptime Institute, Global Data Center Survey 2026"
+                  calculation="retour à la hausse du suivi des indicateurs durabilité, dont l'eau (>50 %)"
+                  url="https://uptimeinstitute.com/resources/research-and-reports/uptime-institute-global-data-center-survey-results-2026"
+                />
+                . Un datacenter « efficace » qui assèche une nappe n&apos;est pas un datacenter vert : l&apos;efficacité
+                IT réelle (par requête, par inférence) compte autant que les ratios.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -709,6 +728,37 @@ export default function DatacentersPage() {
                   </div>
                 </div>
               </div>
+
+              <div className="flex items-start gap-4 rounded-xl bg-orange-50 dark:bg-orange-900/20 p-6">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange-600">
+                  <CheckCircle2 className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="mb-2 font-semibold text-foreground">Equinix et Saint-Denis (93)</h4>
+                  <p className="mb-2 text-sm text-slate-700 dark:text-slate-300">
+                    Depuis juin 2024, la chaleur du datacenter PA10 (6,6 MW récupérés à 28 °C via pompes à chaleur)
+                    alimente la ZAC Saulnier et le Centre Aquatique Olympique : 10 800 MWh visés par an, plus de 75 %
+                    d&apos;énergie renouvelable sur le réseau
+                    <SourceTooltip
+                      className="ml-1 align-middle"
+                      source="ENGIE Solutions, Equinix et SMIREC, 2024"
+                      calculation="6,6 MW à 28 °C, 10 800 MWh/an visés, investissement 5,7 M€ (ADEME et Région)"
+                      url="https://www.engie-solutions.com/fr/references/chaleur-fatale-equinix"
+                    />
+                    . Une première nationale, devenue obligation légale au-delà de 1 MW depuis octobre 2025 (loi
+                    DDADUE n° 2025-391).
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="rounded-full bg-orange-700 px-3 py-1 text-xs font-medium text-white">6,6 MW récupérés</span>
+                    <span className="rounded-full bg-orange-700 px-3 py-1 text-xs font-medium text-white">
+                      Piscine olympique chauffée
+                    </span>
+                    <span className="rounded-full bg-orange-700 px-3 py-1 text-xs font-medium text-white">
+                      Obligation légale depuis 2025
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </Card>
         </div>
@@ -762,7 +812,20 @@ export default function DatacentersPage() {
               url="https://www.arcep.fr/la-regulation/grands-dossiers-thematiques-transverses/lempreinte-environnementale-du-numerique.html"
             />
             . L&apos;ADEME, avec un périmètre élargi à 352 sites, porte la consommation actuelle à 10 TWh, et RTE
-            projette 23 à 28 TWh en 2035 (étude prospective ADEME-RTE, janvier 2026).
+            projette 23 à 28 TWh en 2035 (étude prospective ADEME-RTE, janvier 2026). La demande change
+            d&apos;échelle : 28,6 GW de puissance demandée, dont ~18 GW déjà réservés en mai 2026, et un
+            raccordement accéléré pour 5 sites de 700 MW à 1 GW — dont le Campus IA de Fouju (240 MW fin 2027,
+            jusqu&apos;à 1 400 MW)
+            <SourceTooltip
+              className="ml-1 align-middle"
+              source="RTE, 2026"
+              calculation="~18 GW réservés en mai 2026 contre 5 GW fin 2024, fast-track 5 sites, Fouju 240 MW → 1 400 MW"
+              url="https://www.rte-france.com/bases-electricite/consommation-electricite/essor-data-centers-france"
+            />
+            . L&apos;ADEME modélise 5 trajectoires : du tendanciel (×3,7 d&apos;ici 2035, deux tiers à
+            l&apos;étranger sur des mix plus carbonés) au frugal (5,7 TWh en 2050). Côté production pilotable, les
+            petits réacteurs avancent (permis Natrium en mars 2026, démo Aalo-Crusoe en 2027) avec un horizon
+            réaliste de 2030-2034 : en attendant, gaz et batteries.
           </p>
         </div>
       </section>
@@ -877,6 +940,42 @@ export default function DatacentersPage() {
             </a>
             <span>•</span>
             <span>GreenIT.fr - Étude datacenters (2023)</span>
+            <span>•</span>
+            <a
+              href="https://www.rte-france.com/bases-electricite/consommation-electricite/essor-data-centers-france"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              RTE - Les datacenters en chiffres clés (2026)
+            </a>
+            <span>•</span>
+            <a
+              href="https://infos.ademe.fr/industrie-production-durable/2026/consommation-electrique-des-data-centers-5-scenarios-pour-demain"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              ADEME - Prospective datacenters 2024-2060 (2026)
+            </a>
+            <span>•</span>
+            <a
+              href="https://uptimeinstitute.com/resources/research-and-reports/uptime-institute-global-data-center-survey-results-2026"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Uptime Institute - Global Data Center Survey (2026)
+            </a>
+            <span>•</span>
+            <a
+              href="https://www.engie-solutions.com/fr/references/chaleur-fatale-equinix"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              ENGIE - Chaleur fatale Equinix Saint-Denis (2024)
+            </a>
           </div>
         </div>
       </section>

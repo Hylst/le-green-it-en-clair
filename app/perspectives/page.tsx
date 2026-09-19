@@ -115,12 +115,30 @@ const risks = [
 
 const solutions2030 = [
   {
-    category: "Technologies émergentes",
+    category: "Efficacité immédiate (2026-2028)",
     items: [
-      "Serveurs à refroidissement liquide généralisés (PUE < 1.1)",
-      "Processeurs ARM ultra-efficaces (environ −50 % de consommation, ordre de grandeur ARM 2023)",
-      "Stockage ADN pour l'archivage (durée de vie théorique millénaire)",
-      "Réseaux 6G optimisés pour l'efficacité énergétique",
+      "IA frugale : petits modèles, quantification, inférence locale (gains ÷8 à ÷20 possibles, Joule 2026)",
+      "Refroidissement liquide généralisé, PUE de 1,2 ou moins sur les installations neuves (ADEME)",
+      "Serveurs ARM et chiplets : +40 % de performance à puissance égale (Arm)",
+      "Chaleur fatale obligatoire au-delà de 1 MW : l'exemple de Saint-Denis (6,6 MW, 2024)",
+    ],
+  },
+  {
+    category: "Industrialisation (2028-2032)",
+    items: [
+      "Interconnects optiques co-packagés : -60 à -70 % contre optiques classiques (Broadcom, 2025)",
+      "Mémoires sobres (MRAM) et stockage froid (verre 10 000 ans, Nature 2026)",
+      "Micro-datacenters sans eau adossés aux renouvelables, stockage fer-air 100 h",
+      "Réseaux sobres : fibre, SDN, 5G Advanced à mise en veille native",
+    ],
+  },
+  {
+    category: "Ruptures (2032 et au-delà)",
+    items: [
+      "Calcul photonique : 160 TOPS/W démontrés (Taichi, Science 2024)",
+      "Neuromorphique et spintronique : 100 fois moins d'énergie que GPU sur certains usages",
+      "Petits réacteurs co-localisés : horizon réaliste 2030-2034 (Natrium, Aalo-Crusoe)",
+      "Quantique ciblé et hybride HPC-IA-quantique (LUMI-IQ, EuroHPC)",
     ],
   },
   {

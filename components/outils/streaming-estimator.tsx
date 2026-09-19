@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { MonitorPlay, Wifi, Signal, Info, Video, Printer, Share2, Check } from "lucide-react"
-import { LabeledSlider } from "./shared"
+import { LabeledSlider, ScopeNote } from "./shared"
 import Link from "next/link"
 
 // Débits moyens constatés (plateformes + mesures CableLabs, 2026), en Go/heure
@@ -62,6 +62,10 @@ export default function StreamingEstimator() {
             Données transférées, énergie du réseau et ordre de grandeur CO₂e, liens vers nos fiches en bas.
           </p>
         </div>
+      </div>
+
+      <div className="mb-6">
+        <ScopeNote />
       </div>
 
       <div className="grid gap-8 lg:grid-cols-2">

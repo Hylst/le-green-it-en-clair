@@ -2,6 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
+import { Info } from "lucide-react";
+import { SourceTooltip } from "@/components/source-tooltip";
 
 export const PDF_COLORS = {
   primary: [5, 150, 105] as [number, number, number], // emerald-600
@@ -9,6 +11,29 @@ export const PDF_COLORS = {
   text: [30, 41, 59] as [number, number, number], // slate-800
   lightText: [100, 116, 139] as [number, number, number], // slate-500
   bg: [248, 250, 252] as [number, number, number], // slate-50
+}
+
+// Bandeau « périmètres » partagé (vague 2, plan outils 09/2026) : les trois outils
+// d'estimation ne regardent pas la même chose, on l'annonce pour éviter les fausses
+// comparaisons (« le streaming ne compte pas »). N'utilise que des chiffres déjà cités
+// dans le code des outils (≈ 330 kg CO₂e/an par internaute, GreenIT EENM 2025) ;
+// le streaming et la page web sont formulés sans chiffre.
+export function ScopeNote() {
+  return (
+    <p className="flex items-start gap-2 rounded-lg border border-border bg-muted/50 p-3 text-sm leading-relaxed text-muted-foreground">
+      <Info className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+      <span>
+        Chaque outil a son périmètre, ne comparez pas les résultats entre eux : le calculateur couvre votre vie
+        numérique complète (équipements + usages, ≈ 330 kg CO₂e/an par internaute{" "}
+        <SourceTooltip
+          source="GreenIT, Étude empreinte numérique mondiale (EENM), 2025"
+          calculation="1,8 Gt CO₂e ÷ ~5,35 Md d'internautes ≈ 330 kg CO₂e/an"
+        />
+        ), le streaming ne compte que l&apos;énergie du réseau, et la page web une seule page hors fabrication.
+        L&apos;important, c&apos;est la tendance, pas le chiffre exact.
+      </span>
+    </p>
+  )
 }
 
 interface LabeledSliderProps {

@@ -18,6 +18,7 @@ import {
   CheckCircle2,
   ExternalLink,
 } from "lucide-react"
+import { ScopeNote } from "./outils/shared"
 
 // Modèle Sustainable Web Design v4 (2024, Wholegrain Digital / Green Web Foundation) :
 // CO2e par visite = poids (Go) x 0,194 kWh/Go (AIE) x 494 gCO2e/kWh (Ember, 2023)
@@ -172,6 +173,7 @@ export function WebsiteCarbonCalculator() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
+          <ScopeNote />
           <div className="space-y-4">
             <div>
               <Label htmlFor="url" className="text-base font-semibold mb-2 block dark:text-gray-100">

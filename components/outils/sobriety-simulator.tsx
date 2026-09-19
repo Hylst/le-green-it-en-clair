@@ -26,27 +26,36 @@ export default function SobrietySimulator() {
     const baselineImpact = 330 // kg CO₂e/an, ordre de grandeur mondial par internaute (1,8 Gt ÷ ~5,35 Md, Green IT 2025)
     let optimizedImpact = baselineImpact
 
-    // Durée de vie des appareils
+    // Durée de vie des appareils — hypothèse du site, ordre de grandeur (à vérifier) :
+    // allonger la durée de vie fait baisser l'impact annuel amorti, paliers indicatifs.
+    // Le seuil « 5 ans ou plus » fait écho au règlement UE 2023/1670 (5 ans de mises à jour,
+    // 7 ans de pièces, cité dans le quiz et la réglementation), mais les paliers −15/−25/−35 %
+    // ne viennent d'aucune source : ce sont des ordres de grandeur du site.
     if (scenario.deviceLifespan >= 5) optimizedImpact *= 0.65
     else if (scenario.deviceLifespan >= 4) optimizedImpact *= 0.75
     else if (scenario.deviceLifespan >= 3) optimizedImpact *= 0.85
 
-    // Réparation vs remplacement (deux moments distincts : on retient le facteur le plus sobre, sans cumul)
+    // Réparation vs remplacement (deux moments distincts : on retient le facteur le plus sobre, sans cumul).
+    // « Réparer » (−15 %) : hypothèse du site, ordre de grandeur (à vérifier).
+    // « Reconditionné » (−75 %) : ADEME, 2022 (déjà cité dans l'outil, voir notes (*)).
     const repairFactor =
       scenario.repairChoice === "repair" || scenario.deviceType === "repair" ? 0.85 : 1
     const refurbFactor =
       scenario.repairChoice === "refurb" || scenario.deviceType === "refurb" ? 0.25 : 1
     optimizedImpact *= Math.min(repairFactor, refurbFactor)
 
-    // Qualité streaming
+    // Qualité streaming — hypothèse du site, ordre de grandeur (à vérifier) : les données
+    // chutent (7 → 3 → 0,9 Go/h affichés dans l'outil) mais l'effet sur le total reste faible,
+    // les données ne pesant que via l'énergie du réseau (voir la note sous le réglage).
     if (scenario.streamingQuality === "720p") optimizedImpact *= 0.92
     else if (scenario.streamingQuality === "1080p") optimizedImpact *= 0.95
 
-    // Nettoyage emails
+    // Nettoyage e-mails — hypothèse du site, ordre de grandeur (à vérifier) : effet
+    // volontairement faible, les e-mails pèsent peu dans le total (voir calculateur carbone).
     if (scenario.emailCleanup === "monthly") optimizedImpact *= 0.99
     else if (scenario.emailCleanup === "weekly") optimizedImpact *= 0.98
 
-    // Stockage cloud
+    // Stockage cloud — hypothèse du site, ordre de grandeur (à vérifier).
     if (scenario.cloudStorage === "optimize") optimizedImpact *= 0.93
     else if (scenario.cloudStorage === "local") optimizedImpact *= 0.88
 
@@ -60,7 +69,10 @@ export default function SobrietySimulator() {
 
   const impact = calculateImpact()
 
-  // Données pour le graphique de projection
+  // Projection linéaire simplifiée, hors renouvellements : les valeurs annuelles sont des
+  // moyennes amorties, on les cumule telles quelles. Modéliser les pics de renouvellement
+  // demanderait un partage fabrication/usage que le simulateur n'a pas : on l'affiche tel
+  // quel plutôt que d'inventer des chiffres.
   const projectionData = Array.from({ length: 6 }, (_, i) => ({
     year: `Année ${i}`,
     baseline: impact.baseline * i,
@@ -77,7 +89,7 @@ export default function SobrietySimulator() {
             Simulateur de sobriété numérique
           </CardTitle>
           <CardDescription>
-            Visualisez l'impact de vos choix de consommation numérique sur 5 ans (repères sourcés 2022-2025)
+            Visualisez l'impact de vos choix de consommation numérique sur 5 ans (repères 2022-2025 et hypothèses du site)
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8">
@@ -169,6 +181,11 @@ export default function SobrietySimulator() {
                     </Label>
                   </div>
                 </RadioGroup>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Pourquoi −57 % de données ne font que −5 % sur le total ? Parce que la fabrication de vos appareils
+                  domine l&apos;empreinte, et que les données ne pèsent que via l&apos;énergie du réseau : baisser la
+                  qualité aide, garder vos appareils longtemps aide bien plus.
+                </p>
               </div>
             </div>
 
@@ -267,6 +284,12 @@ export default function SobrietySimulator() {
                     </Label>
                   </div>
                 </RadioGroup>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  (*) Reconditionné : impact du produit réduit d'environ 75 % par rapport au neuf (ADEME, 2022 <SourceTooltip source="ADEME, 2022" info="Impact du produit reconditionné réduit d'environ 75 % par rapport au neuf" />).
+                </p>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  En cas de panne comme pour le prochain achat, on retient votre choix le plus sobre, sans les cumuler.
+                </p>
               </div>
             </div>
           </div>
@@ -322,6 +345,9 @@ export default function SobrietySimulator() {
                   {Math.round(impact.savings * 5)} kg CO₂e économisés
                 </div>
                 <div className="text-sm text-muted-foreground">sur 5 ans</div>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Projection linéaire simplifiée, hors renouvellements.
+                </p>
                 <p className="mt-2 text-xs text-muted-foreground">
                   Référence : 330 kg CO₂e/an par internaute <SourceTooltip source="GreenIT, Étude empreinte numérique mondiale (EENM), 2025" calculation="1,8 Gt CO₂e ÷ ~5,35 Md d'internautes ≈ 330 kg CO₂e/an" />. Pour partir de votre cas réel, <Link href="/outils#onglet-calculator" className="underline underline-offset-2">calculez votre empreinte</Link>.
                 </p>

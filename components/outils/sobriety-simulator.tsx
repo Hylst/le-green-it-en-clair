@@ -4,11 +4,12 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Legend } from "recharts";
 import { CHART_FALLBACKS } from "@/lib/chart-theme";
-import { Lightbulb, Printer, RotateCcw } from "lucide-react";
+import { Euro, Lightbulb, Printer, RotateCcw, Wrench } from "lucide-react";
 import { SourceTooltip } from "@/components/source-tooltip";
 import Link from "next/link";
 
@@ -21,6 +22,7 @@ export default function SobrietySimulator() {
     cloudStorage: "keep",
     deviceType: "new",
   })
+  const [devicePriceInput, setDevicePriceInput] = useState("")
 
   const calculateImpact = () => {
     const baselineImpact = 330 // kg CO₂e/an, ordre de grandeur mondial par internaute (1,8 Gt ÷ ~5,35 Md, Green IT 2025)
@@ -68,6 +70,17 @@ export default function SobrietySimulator() {
   }
 
   const impact = calculateImpact()
+
+  // Volet € (purement additionnel, aucun effet sur les calculs CO₂e ci-dessus) :
+  // le CO₂e ne se convertit pas en €, on estime seulement des € évités
+  // à partir d'un prix saisi par l'utilisateur.
+  const normalizedPrice = devicePriceInput.trim().replace(/\s/g, "").replace(",", ".")
+  const parsedPrice = normalizedPrice === "" ? NaN : Number(normalizedPrice)
+  const hasValidPrice = Number.isFinite(parsedPrice) && parsedPrice > 0
+  const priceTouched = devicePriceInput.trim() !== ""
+  const isRepairChoice = scenario.repairChoice === "repair" || scenario.deviceType === "repair"
+  const isRefurbChoice = scenario.repairChoice === "refurb" || scenario.deviceType === "refurb"
+  const refurbSaving = hasValidPrice ? parsedPrice * 0.5 : 0
 
   // Projection linéaire simplifiée, hors renouvellements : les valeurs annuelles sont des
   // moyennes amorties, on les cumule telles quelles. Modéliser les pics de renouvellement
@@ -362,6 +375,88 @@ export default function SobrietySimulator() {
                 <li>• {Math.round((impact.savings * 5) / 7)} repas avec bœuf évités (7 kg/repas, ADEME)</li>
               </ul>
             </div>
+
+            <details className="bg-card p-4 rounded-lg border border-border">
+              <summary className="cursor-pointer font-semibold text-foreground rounded-sm transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                <Euro className="mr-2 inline h-4 w-4" aria-hidden="true" />
+                Volet € : estimez vos économies
+              </summary>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Le CO₂e ne se convertit pas en € : ce volet estime seulement des € évités, à partir
+                d&apos;un prix que vous saisissez et de vos choix ci-dessus.
+              </p>
+              <div className="mt-4 space-y-2">
+                <Label htmlFor="sobriety-device-price" className="text-foreground">
+                  Prix de votre appareil neuf (€)
+                </Label>
+                <Input
+                  id="sobriety-device-price"
+                  type="text"
+                  inputMode="decimal"
+                  autoComplete="off"
+                  placeholder="Votre facture, sans les centimes si vous préférez"
+                  value={devicePriceInput}
+                  onChange={(e) => setDevicePriceInput(e.target.value)}
+                  aria-describedby="sobriety-device-price-hint"
+                  aria-invalid={priceTouched && !hasValidPrice}
+                />
+                <p id="sobriety-device-price-hint" className="text-xs text-muted-foreground">
+                  Saisissez le prix de votre facture, avec une virgule si besoin. Rien n&apos;est pré-rempli.
+                </p>
+              </div>
+              {!hasValidPrice && !priceTouched && (
+                <p className="mt-3 text-sm text-muted-foreground">
+                  Indiquez un prix pour estimer vos économies en €.
+                </p>
+              )}
+              {priceTouched && !hasValidPrice && (
+                <p className="mt-3 text-sm text-muted-foreground">
+                  Saisissez un montant supérieur à 0 € pour estimer, par exemple le prix de votre facture.
+                </p>
+              )}
+              {hasValidPrice && isRefurbChoice && (
+                <div className="mt-3 rounded-lg border border-border p-3">
+                  <p className="text-sm text-foreground">
+                    Économie indicative : ≈ {refurbSaving.toLocaleString("fr-FR", { maximumFractionDigits: 0 })} €{" "}
+                    <SourceTooltip
+                      source="Hypothèse du site (simulateur entreprise)"
+                      info="Ordre de grandeur indicatif, même hypothèse que le simulateur entreprise."
+                      calculation="prix saisi × 50 % : reconditionné à moitié prix (même hypothèse que le simulateur entreprise)"
+                    />
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Soit environ la moitié du prix saisi (50{"\u00A0"}%),
+                    bonne nouvelle à compléter en gardant vos appareils longtemps.
+                  </p>
+                </div>
+              )}
+              {hasValidPrice && !isRefurbChoice && (
+                <p className="mt-3 text-sm text-muted-foreground">
+                  Avec le choix « J&apos;achète reconditionné », cette même saisie donnerait une économie
+                  indicative d&apos;environ la moitié du prix (hypothèse du site).
+                </p>
+              )}
+              {isRepairChoice && (
+                <div className="mt-3 rounded-lg border border-border p-3">
+                  <p className="text-sm text-foreground">
+                    <Wrench className="mr-2 inline h-4 w-4" aria-hidden="true" />
+                    Bonus réparation : 15 à 60 € déduits de votre facture chez un réparateur labellisé QualiRépar{" "}
+                    <SourceTooltip
+                      source="Ecosystem 2025 et 2026 (bilan 3 ans, 01/2026)"
+                      info="Déduit de la facture chez un réparateur labellisé QualiRépar, appareil hors garantie."
+                      calculation="15 à 60 € selon l'appareil, 73 équipements ; ~1,9 M de réparations, 33 € d'aide moyenne"
+                    />
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Montants révisés chaque année.{" "}
+                    <Link href="/recyclage" className="underline underline-offset-2">
+                      Voir le détail sur la page recyclage
+                    </Link>
+                    .
+                  </p>
+                </div>
+              )}
+            </details>
           </div>
 
           {/* Actions recommandées */}
@@ -409,7 +504,7 @@ export default function SobrietySimulator() {
             <Button
               variant="outline"
               className="flex-1 bg-transparent text-foreground hover:bg-secondary border border-border"
-              onClick={() =>
+              onClick={() => {
                 setScenario({
                   deviceLifespan: 2,
                   repairChoice: "new",
@@ -418,7 +513,8 @@ export default function SobrietySimulator() {
                   cloudStorage: "keep",
                   deviceType: "new",
                 })
-              }
+                setDevicePriceInput("")
+              }}
             >
               <RotateCcw className="w-4 h-4 mr-2" />
               Réinitialiser

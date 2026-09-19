@@ -6,7 +6,7 @@ import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle2, XCircle, Lightbulb, TrendingUp, Database, Smartphone, Recycle, Zap } from "lucide-react"
+import { CheckCircle2, XCircle, Lightbulb, TrendingUp, Database, Smartphone, Recycle, Zap, Gamepad2 } from "lucide-react"
 import { PageHero } from "@/components/page-hero"
 import { SectionDivider } from "@/components/section-divider"
 import Link from "next/link"
@@ -178,6 +178,50 @@ export default function MythesPage() {
         "L'électronique moderne supporte très bien les cycles marche/arrêt. Une box en veille profonde consomme moins de 0,3 W (Orange et SoftAtHome 2022) et un PC éteint 0,27 W (ASUS 2022) : éteindre reste gagnant. Seule exception : l'imprimante jet d'encre, qui lance un cycle de nettoyage — donc consomme de l'encre — à chaque rallumage.",
       source: "Orange/SoftAtHome 2022, ASUS ErP 2022, Epson",
       relatedLink: { label: "Découvrir les actions efficaces", href: "/agir" },
+    },
+    {
+      id: "15",
+      category: "Usage",
+      icon: <Gamepad2 className="h-5 w-5" />,
+      myth: "Une console de jeu en veille ne consomme presque rien",
+      reality: "Nuancé - Tout dépend du mode veille choisi",
+      explanation:
+        "En mode économie d'énergie, la console tombe à environ 0,5 W. En démarrage instantané (téléchargements et réveil vocal actifs), elle reste autour de 10 à 15 W, soit l'équivalent d'une ampoule LED allumée en permanence (Microsoft 2023). Le bon réflexe : activer le mode éco dans les réglages.",
+      source: "Microsoft 2023",
+      relatedLink: { label: "Découvrir les actions efficaces", href: "/agir" },
+    },
+    {
+      id: "16",
+      category: "Usage",
+      icon: <Database className="h-5 w-5" />,
+      myth: "Poser une question à une IA, c'est juste du texte, ça ne pèse rien",
+      reality: "Nuancé - Une requête semble légère, mais des milliards de requêtes font une lourde facture",
+      explanation:
+        "Chaque réponse mobilise des serveurs à processeurs graphiques dans un datacenter, pour répondre comme pour entraîner les modèles. À l'échelle mondiale, la consommation d'électricité liée à l'IA croît rapidement (AIE, Energy and AI 2025). Le réflexe : utiliser l'IA à bon escient, sans culpabiliser pour un usage ponctuel.",
+      source: "AIE, Energy and AI 2025",
+      relatedLink: { label: "Comprendre les datacenters", href: "/datacenters" },
+    },
+    {
+      id: "17",
+      category: "Équipement",
+      icon: <Smartphone className="h-5 w-5" />,
+      myth: "La 5G est plus efficace, donc elle est forcément plus verte",
+      reality: "Nuancé - Le réseau est plus efficace, mais les usages explosent",
+      explanation:
+        "Transmettre un gigaoctet en 5G demande moins d'énergie qu'en 4G. Mais les nouveaux usages et le renouvellement des mobiles qu'elle entraîne effacent une partie du gain : c'est l'effet rebond (Arcep 2022, ADEME-Arcep 2023). Comme souvent, c'est la durée de vie du téléphone qui pèse le plus.",
+      source: "Arcep 2022, ADEME-Arcep 2023",
+      relatedLink: { label: "Découvrir le cycle de vie", href: "/comprendre" },
+    },
+    {
+      id: "18",
+      category: "Usage",
+      icon: <Zap className="h-5 w-5" />,
+      myth: "Wi-Fi ou 4G, c'est pareil pour regarder une vidéo",
+      reality: "Faux - Le Wi-Fi consomme environ 4 à 5 fois moins d'énergie",
+      explanation:
+        "Regarder une vidéo en 4G ou 5G mobilise les antennes du réseau mobile, bien plus gourmandes que votre box. Quand c'est possible, privilégiez le Wi-Fi et baissez la définition si le grand écran n'est pas nécessaire (Kamiya 2020, Shift 2019).",
+      source: "Kamiya 2020, Shift 2019",
+      relatedLink: { label: "Découvrir les bonnes pratiques", href: "/agir" },
     },
   ]
 

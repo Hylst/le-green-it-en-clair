@@ -111,7 +111,10 @@ export default function ITAudit() {
         status = "critical"
         renewalNeeded += count
         recommendation = `Renouvellement à planifier. Privilégiez le reconditionné (−75 à −90 % de CO₂, ADEME 2022).`
-        potentialSavings += data.fabricationCO2 * 0.75 * count // Économie si reconditionné
+        // Économie si reconditionné : seulement sur la part non reconditionnée
+        // (sinon un parc déjà reconditionné afficherait deux fois le même gain,
+        // déjà compté dans le total via refurbFactor ci-dessus).
+        potentialSavings += data.fabricationCO2 * 0.75 * count * (1 - Math.min(100, Math.max(0, refurbPct)) / 100)
       }
 
       if (count > 0) {

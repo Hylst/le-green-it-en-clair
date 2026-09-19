@@ -208,7 +208,7 @@ export default function EnterpriseSimulator() {
     doc.text(`Effectif : ${config.employees} employés`, 20, 65)
     doc.text(`Équipements par employé : ${config.devicesPerEmployee}`, 20, 72)
     doc.text(`Cycle de renouvellement : ${config.renewalCycle} ans`, 20, 79)
-    doc.text(`Prix poste neuf : ${config.devicePrice.toLocaleString("fr-FR")} €, énergie : ${config.energyCostPerDevice.toLocaleString("fr-FR")} €/an/poste, mise en œuvre : ${config.implementationCostPerEmployee.toLocaleString("fr-FR")} €/employé`, 20, 86)
+    doc.text(`Prix appareil neuf : ${config.devicePrice.toLocaleString("fr-FR")} €, énergie : ${config.energyCostPerDevice.toLocaleString("fr-FR")} €/an/appareil, mise en œuvre : ${config.implementationCostPerEmployee.toLocaleString("fr-FR")} €/employé`, 20, 86)
     doc.text(`Taux d'actualisation : ${config.discountRate.toLocaleString("fr-FR")}${"\u00A0"}% (indicatif, à adapter à votre coût du capital)`, 20, 93)
 
     // Comparison Table
@@ -389,11 +389,11 @@ export default function EnterpriseSimulator() {
 
               <div className="space-y-3">
                 <div className="flex justify-between">
-                  <Label className="text-foreground">Énergie par poste et par an</Label>
+                  <Label className="text-foreground">Énergie par appareil et par an</Label>
                   <span className="font-semibold text-foreground">{config.energyCostPerDevice.toLocaleString("fr-FR")} €</span>
                 </div>
                 <LabeledSlider
-                  label="Énergie par poste et par an"
+                  label="Énergie par appareil et par an"
                   value={[config.energyCostPerDevice]}
                   onValueChange={([value]) => setConfig({ ...config, energyCostPerDevice: value })}
                   min={20}
@@ -535,7 +535,7 @@ export default function EnterpriseSimulator() {
                 </div>
                 <p className="mt-4 text-xs text-muted-foreground">
                   Hypothèses : {config.devicePrice.toLocaleString("fr-FR")} € par poste renouvelé (reconditionné à moitié prix), {config.energyCostPerDevice.toLocaleString("fr-FR")} €/an d'énergie par poste, cloud 200/500/1 000 €/an selon
-                  l'usage, maintenance 50 €/an/poste (+20 % de préventif dans les scénarios optimisés), mise en œuvre
+                  l'usage, maintenance 50 €/an/appareil (+20 % de préventif dans les scénarios optimisés), mise en œuvre
                   {` ${config.implementationCostPerEmployee.toLocaleString("fr-FR")} €/employé`}. ROI = économies nettes ÷ mise en œuvre. VAN calculée au taux de {config.discountRate.toLocaleString("fr-FR")}{" "}% (indicatif, à adapter à votre coût du capital). CO₂e : 205 kg par poste neuf, 51 kg reconditionné (ADEME 2022), usage 9 kg/an (ADEME, Impact CO₂ 2025 <SourceTooltip source="ADEME, Impact CO₂ / Base Empreinte, 2025" info="205 kg par poste fixe neuf, 51 kg reconditionné (−75 %, ADEME 2022), usage 9 kg/an" />).
                 </p>
               </div>

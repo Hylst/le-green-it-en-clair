@@ -867,7 +867,14 @@ export default function DatacentersPage() {
               AIE - Energy and AI (2025)
             </a>
             <span>•</span>
-            <span>Uptime Institute - Global Data Center Survey (2024)</span>
+            <a
+              href="https://uptimeinstitute.com/resources/research-and-reports/uptime-institute-global-data-center-survey-results-2024"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Uptime Institute - Global Data Center Survey (2024)
+            </a>
             <span>•</span>
             <span>GreenIT.fr - Étude datacenters (2023)</span>
           </div>

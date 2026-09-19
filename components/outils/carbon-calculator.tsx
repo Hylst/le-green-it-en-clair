@@ -59,15 +59,27 @@ export default function CarbonCalculator() {
       tv: 8,
     }
 
+    // Référence d'usage typique (h/j) : les défauts des curseurs. La valeur ADEME
+    // (annuelle, usage typique) est modulée au prorata : au réglage par défaut,
+    // on retombe exactement sur le chiffre ADEME. Avant, on divisait par 24
+    // comme si l'ADEME chiffrait du 24 h/24, ce qui sous-comptait l'usage.
+    const referenceUsage: Record<keyof typeof deviceImpact, number> = {
+      smartphone: 3,
+      laptop: 6,
+      tablet: 2,
+      desktop: 8,
+      tv: 4,
+    }
+
     Object.entries(devices).forEach(([device, data]) => {
       if (data.count > 0) {
         const impact = deviceImpact[device as keyof typeof deviceImpact]
         // Amortissement fabrication sur la durée de référence, pas sur l'âge saisi
         // (diviser par l'âge récompensait le vieux matériel)
         const fabricationPerYear = impact.fabrication / referenceLife[device as keyof typeof deviceImpact]
-        // Hypothèse du site : usage annuel au prorata des heures (base 24 h/j),
-        // origine du facteur ADEME non tranchable ici — à vérifier (voir todo.md)
-        const usageImpact = (impact.usage * data.usage) / 24 // Proportionnel à l'usage
+        // Hypothèse du site : usage annuel ADEME modulé au prorata des heures
+        // par rapport à l'usage typique (voir referenceUsage ci-dessus).
+        const usageImpact = (impact.usage * data.usage) / referenceUsage[device as keyof typeof deviceImpact]
         total += (fabricationPerYear + usageImpact) * data.count
       }
     })
@@ -314,7 +326,7 @@ export default function CarbonCalculator() {
                     calculation="79 ÷ 5 (smartphone), 182 ÷ 5 (portable), 84 ÷ 3 (tablette), 262 ÷ 6 (fixe), 328 ÷ 8 (TV), en kg CO₂e/an, + usage annuel au prorata"
                     info="Portable, tablette et TV : durées de référence ADEME (cas pratiques) ; smartphone et fixe : durées du site (FAQ et audit). L'âge saisi n'entre plus dans le calcul."
                   />{" "}
-                  Usage au prorata des heures (base 24 h/j, hypothèse du site). Voiture 0,17 kg CO₂/km (ADEME, Base Empreinte 2023 <SourceTooltip source="ADEME, Base Empreinte, 2023" info="Facteur moyen voiture thermique en France" />). Streaming compté en
+                  Usage modulé au prorata des heures par rapport à l'usage typique (hypothèse du site : au réglage par défaut, on retombe sur le chiffre ADEME). Voiture 0,17 kg CO₂/km (ADEME, Base Empreinte 2023 <SourceTooltip source="ADEME, Base Empreinte, 2023" info="Facteur moyen voiture thermique en France" />). Streaming compté en
                   qualité SD (~31 g/h), réseaux sociaux hors vidéo (~7 g/h), e-mail ~4 g, cloud ~0,24 g/Go/an
                   (ADEME, Impact CO₂ / Base Empreinte).
                 </p>

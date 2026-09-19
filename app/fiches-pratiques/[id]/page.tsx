@@ -100,6 +100,10 @@ const sheets: Record<string, any> = {
         label: "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026",
         url: "https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/impact-environnemental/enquete-annuelle-pour-un-numerique-soutenable-edition-2026.html",
       },
+      {
+        label: "ADEME, impacts du reconditionné (étude 2022)",
+        url: "https://librairie.ademe.fr/economie-circulaire-et-dechets/5241-evaluation-de-l-impact-environnemental-d-un-ensemble-de-produits-reconditionnes.html",
+      },
     ],
   },
   "achat-responsable": {
@@ -187,6 +191,10 @@ const sheets: Record<string, any> = {
     ],
     sourceLinks: [
       { label: "ADEME, Impact CO₂ (mise à jour 2025)", url: "https://impactco2.fr" },
+      {
+        label: "ADEME, impacts du reconditionné (étude 2022)",
+        url: "https://librairie.ademe.fr/economie-circulaire-et-dechets/5241-evaluation-de-l-impact-environnemental-d-un-ensemble-de-produits-reconditionnes.html",
+      },
       { label: "Légifrance : textes officiels (AGEC, garantie légale)", url: "https://www.legifrance.gouv.fr" },
     ],
   },
@@ -681,7 +689,14 @@ const sheets: Record<string, any> = {
       "The Green Grid (PUE, WUE)",
       "GreenIT.fr 2023",
     ],
-    sourceLinks: [{ label: "AIE, Energy and AI (2025)", url: "https://www.iea.org/reports/energy-and-ai" }],
+    sourceLinks: [
+      { label: "AIE, Energy and AI (2025)", url: "https://www.iea.org/reports/energy-and-ai" },
+      {
+        label: "Uptime Institute, Global Data Center Survey 2024",
+        url: "https://uptimeinstitute.com/resources/research-and-reports/uptime-institute-global-data-center-survey-results-2024",
+      },
+      { label: "The Green Grid (PUE, WUE)", url: "https://www.thegreengrid.org/" },
+    ],
   },
   "collectivites-action": {
     title: "Plan d'action pour les collectivités",
@@ -909,7 +924,7 @@ const sheets: Record<string, any> = {
       {
         title: "1. Pourquoi la vidéo pèse si lourd",
         content:
-          "La vidéo en ligne génère à elle seule 60 % des flux mondiaux de données, soit plus de 300 millions de tonnes de CO₂ par an : 20 % des émissions du numérique et 1 % des émissions mondiales, autant que l'Espagne (The Shift Project, rapports 2019, dont les résultats n'ont pas été contestés). Les trois quarts du trafic internet sont liés à la vidéo sous toutes ses formes (The Shift Project, 2026).",
+          "La vidéo en ligne génère à elle seule 60 % des flux mondiaux de données, soit plus de 300 millions de tonnes de CO₂ par an : 20 % des émissions du numérique et 1 % des émissions mondiales, autant que l'Espagne (The Shift Project, rapports 2019, dont les résultats n'ont pas été contestés).",
         tips: [
           "4 grandes familles se partagent ces 60 % : VOD, tubes, réseaux sociaux et autres (Shift, 2019)",
           "En toute honnêteté : un chiffre avancé lors d'une interview en 2019 était erroné (erreur de débit), sans remettre en cause les rapports publiés (Shift, 2020)",
@@ -966,8 +981,13 @@ const sheets: Record<string, any> = {
     sources: [
       "The Shift Project, « Climat : l'insoutenable usage de la vidéo en ligne » (2019)",
       "The Shift Project, mise au point sur l'empreinte de la vidéo en ligne (2020)",
-      "The Shift Project, chiffres clés du numérique (2026)",
       "Netflix, centre d'aide « Contrôler la quantité de données » (SD 1, HD 3, 4K 7 Go/h, consulté 09/2026)",
+    ],
+    sourceLinks: [
+      {
+        label: "Netflix, centre d'aide « Contrôler la quantité de données »",
+        url: "https://help.netflix.com/fr/node/87",
+      },
     ],
   },
   "teletravail-visio": {
@@ -980,7 +1000,7 @@ const sheets: Record<string, any> = {
       {
         title: "1. Combien pèse une heure de visio ?",
         content:
-          "Un participant en visioconférence consomme environ 1 Go de données par heure, soit trois fois moins qu'un film en HD en streaming (CableLabs, mesures 2021). L'audio seul, lui, ne pèse presque rien : pour les points d'équipe sans partage d'écran, la voix suffit largement.",
+          "Un participant en visioconférence consomme environ 1 Go de données par heure, soit trois fois moins qu'un film en HD en streaming (CableLabs, mesures 2021 sur Meet, Teams, Zoom et GoToMeeting). L'audio seul, lui, ne pèse presque rien : pour les points d'équipe sans partage d'écran, la voix suffit largement.",
         tips: [
           "Gardez la vidéo pour les échanges qui en ont vraiment besoin",
           "Coupez votre caméra quand vous ne parlez pas en grand groupe",
@@ -1040,6 +1060,10 @@ const sheets: Record<string, any> = {
       "ADEME-Arcep (2023, fabrication ≈ 75 % de l'impact)",
     ],
     sourceLinks: [
+      {
+        label: "CableLabs, conso horaire de la visio (Meet, Teams, Zoom, GoToMeeting, 2021)",
+        url: "https://www.cablelabs.com/blog/hourly-data-consumption-of-popular-video-conferencing-applications",
+      },
       {
         label: "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026",
         url: "https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/impact-environnemental/enquete-annuelle-pour-un-numerique-soutenable-edition-2026.html",
@@ -1199,6 +1223,14 @@ const sheets: Record<string, any> = {
       "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026 (données 2024)",
     ],
     sourceLinks: [
+      {
+        label: "IoT Analytics, « State of IoT 2025 » (octobre 2025)",
+        url: "https://iot-analytics.com/number-connected-iot-devices",
+      },
+      {
+        label: "Statista, objets connectés par type (octobre 2025)",
+        url: "https://www.statista.com/statistics/1559435/connected-devices-worldwide/",
+      },
       {
         label: "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026",
         url: "https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/impact-environnemental/enquete-annuelle-pour-un-numerique-soutenable-edition-2026.html",
@@ -1420,6 +1452,10 @@ const sheets: Record<string, any> = {
       {
         label: "Arcep, dossier « L'empreinte environnementale du numérique » (toutes les éditions)",
         url: "https://www.arcep.fr/la-regulation/grands-dossiers-thematiques-transverses/lempreinte-environnementale-du-numerique.html",
+      },
+      {
+        label: "ADEME, Panel Elecdom — consommations annuelles (open data)",
+        url: "https://data.ademe.fr/datasets/elecdom-conso-annuelles",
       },
     ],
   },

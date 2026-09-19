@@ -501,9 +501,9 @@ const futureSolutions = [
             les trajectoires
             <SourceTooltip
               className="ml-1"
-              source="Citepa, janvier 2026, d'après la prospective ADEME 2024-2060"
-              calculation="potentiel net 1,77 TWh (2024) → 4,09 TWh en scénario frugal à 12,94 TWh en tendanciel (2035) ; plafond de récupération 18,8 % → 38 %"
-              url="https://www.citepa.org/la-consommation-delectricite-et-les-emissions-de-ges-des-centres-de-donnees-pourraient-plus-que-tripler-dici-2035-ademe"
+              source="ADEME, prospective datacenters 2024-2060, janvier 2026"
+              calculation="potentiel brut = chaleur totale émise par l'IT ; net = pondéré par l'efficacité de captation et les débouchés ; le liquid cooling capte plus chaud donc mieux valorisable"
+              url="https://www.ademe.fr/presse/communique-national/centres-de-donnees-numeriques-perspectives-devolution-de-leurs-consommations"
             />
             . Mais potentiel théorique : moins de 1 % de la chaleur est réutilisée aujourd&apos;hui en France,
             contre 1,9 % en Europe
@@ -539,6 +539,14 @@ const futureSolutions = [
               source="Broadcom, 2025-2026"
               calculation="5 W/800G mesurés sur Bailly 51,2T, -60 à -70 % contre transceivers DSP"
               url="https://www.broadcom.com/info/optics/cpo"
+            />
+            . Côté français, Scintil Photonics (Grenoble) lève 50 M€ en 2025, avec Nvidia, pour industrialiser sa
+            puce LEAF Light à lasers intégrés
+            <SourceTooltip
+              className="ml-1"
+              source="Le Monde Informatique, septembre 2025"
+              calculation="50 M€ menés par Yotta et NGP, lasers DWDM intégrés silicium + III-V, production grande échelle chez les fondeurs"
+              url="https://www.lemondeinformatique.fr/actualites/lire-le-francais-scintil-photonics-leve-50-meteuro-97823.html"
             />
             .
           </>
@@ -636,6 +644,14 @@ const futureSolutions = [
               source="Tsinghua, Science, avril 2024"
               calculation="160 TOPS/W sur puce, +2 ordres de grandeur contre puces IA"
               url="https://doi.org/10.1126/science.adl1203"
+            />
+            . Côté français, LightOn a intégré son coprocesseur OPU au supercalculateur Jean Zay (pilote
+            GENCI-IDRIS, Top500) : plus de 1 500 TOPS pour environ 30 W
+            <SourceTooltip
+              className="ml-1"
+              source="LightOn et HPCwire, mars 2021"
+              calculation="boîtier 2U en datacenter, >1 500 TeraOPS pour ~30 W TDP ; première intégration photonique en infra HPC"
+              url="https://lighton.ai/lighton-blogs/lighton-photonic-coprocessor-integrated-into-european-ai-supercomputer"
             />
             . D&apos;abord les interconnects, ensuite l&apos;inférence.
           </>

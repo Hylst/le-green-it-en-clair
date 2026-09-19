@@ -28,17 +28,17 @@ import { SourceTooltip } from "@/components/source-tooltip"
 import { useChartTheme } from "@/lib/chart-theme"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts"
 
-// Data for energy consumption breakdown (ordre de grandeur, PUE moyen 1,56 : Uptime Institute, 2024)
+// Data for energy consumption breakdown (ordre de grandeur, PUE moyen 1,52 : Uptime Institute, 2026)
 const energyBreakdownData = [
   { category: "Serveurs", percentage: 64, colorKey: "blue" as const },
   { category: "Refroidissement", percentage: 28, colorKey: "teal" as const },
   { category: "Infrastructure", percentage: 8, colorKey: "slate" as const },
 ]
 
-// Data for PUE comparison (Uptime Institute, 2024)
+// Data for PUE comparison (moyenne mondiale : Uptime Institute, 2026 ; autres repères : Uptime Institute, 2024)
 const pueComparisonData = [
   { type: "Ancien datacenter", pue: 2.5 },
-  { type: "Moyenne mondiale", pue: 1.56 },
+  { type: "Moyenne mondiale", pue: 1.52 },
   { type: "Moyenne Europe", pue: 1.45 },
   { type: "Datacenter moderne", pue: 1.2 },
   { type: "Datacenter optimal", pue: 1.05 },
@@ -238,8 +238,8 @@ export default function DatacentersPage() {
             <div className="flex items-start gap-3">
               <Info className="mt-1 h-5 w-5 shrink-0 text-blue-700 dark:text-blue-400" />
               <p className="text-slate-700 dark:text-slate-300">
-                <strong>Point clé :</strong> Avec un PUE moyen de 1,56, plus d'un tiers de l'électricité alimente le
-                refroidissement et l'infrastructure plutôt que les serveurs (Uptime Institute, 2024). C'est pourquoi
+                <strong>Point clé :</strong> Avec un PUE moyen de 1,52, plus d'un tiers de l'électricité alimente le
+                refroidissement et l'infrastructure plutôt que les serveurs (Uptime Institute, 2026). C'est pourquoi
                 l'optimisation du refroidissement reste cruciale pour réduire l'impact environnemental des
                 datacenters.
               </p>
@@ -689,8 +689,8 @@ export default function DatacentersPage() {
                 <div>
                   <h4 className="mb-2 font-semibold text-foreground">OVHcloud (Roubaix)</h4>
                   <p className="mb-2 text-sm text-slate-700 dark:text-slate-300">
-                    Chiffres publiés par OVHcloud (bilan carbone 2025) : PUE moyen de 1,24 contre 1,56 en moyenne
-                    sectorielle, serveurs conçus en interne durant jusqu&apos;à 9 ans, 27 composants réutilisés sur 100.
+                    Chiffres publiés par OVHcloud (bilan carbone 2025) : PUE moyen de 1,24 contre 1,52 en moyenne
+                    sectorielle (Uptime Institute, 2026), serveurs conçus en interne durant jusqu&apos;à 9 ans, 27 composants réutilisés sur 100.
                     Engagements : −73,4 % d&apos;émissions scopes 1-2 par rapport à 2022, 100 % d&apos;électricité renouvelable
                     sur ses datacenters et trajectoire SBTi depuis 2023. Le scope 3 (fabrication, chaîne
                     d&apos;approvisionnement) représente 90 % du bilan : l&apos;atteinte des objectifs 2025 reste à confirmer

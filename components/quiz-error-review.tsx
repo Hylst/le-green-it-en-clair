@@ -52,7 +52,22 @@ export function ErrorReview({ items }: { items: ErrorReviewItem[] }) {
                   Bonne réponse : {question.options[question.correctAnswer]}
                 </p>
                 <p className="text-slate-600 dark:text-gray-300">{question.explanation}</p>
-                <p className="text-xs text-slate-500 dark:text-gray-400">Source : {question.source}</p>
+                <p className="text-xs text-slate-500 dark:text-gray-400">
+                  Source : {question.source}
+                  {question.sourceUrl ? (
+                    <>
+                      {" — "}
+                      <a
+                        href={question.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-2"
+                      >
+                        Voir le texte officiel (nouvel onglet)
+                      </a>
+                    </>
+                  ) : null}
+                </p>
               </div>
             )}
           </div>

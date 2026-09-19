@@ -7,100 +7,131 @@ import { Label } from "@/components/ui/label";
 import { Cloud, Lightbulb, Leaf, CheckCircle2, Clock } from "lucide-react";
 import { SourceTooltip } from "@/components/source-tooltip";
 
+/* Méthode transparente : scores recalculés à partir des données affichées.
+   Score éco (0-100, arrondi) = 40 % PUE + 40 % renouvelable + 20 % engagements.
+   - PUE : 100 à 1,0, 0 à 1,5 et au-delà, linéaire entre les deux.
+   - Renouvelable : le % affiché (matching annuel déclaré, pas un 24/7).
+   - Engagements : 10 pts neutralité déclarée + jusqu'à 10 pts certifications
+     (≥ 3 certifications : 10 ; 2 : 7 ; 1 : 3 ; 0 : 0). */
+const SCORE_WEIGHTS = { pue: 0.4, renewable: 0.4, commitments: 0.2 } as const
+
+function pueSubScore(pue: number): number {
+  return Math.max(0, Math.min(100, ((1.5 - pue) / 0.5) * 100))
+}
+
+function commitmentsSubScore(carbonNeutral: boolean, certificationsCount: number): number {
+  const neutralPoints = carbonNeutral ? 10 : 0
+  const certPoints = certificationsCount >= 3 ? 10 : certificationsCount === 2 ? 7 : certificationsCount === 1 ? 3 : 0
+  return (neutralPoints + certPoints) * 5
+}
+
+function computeSustainabilityScore(provider: { pue: number; renewableEnergy: number; carbonNeutral: boolean; certifications: string[] }): number {
+  const score =
+    SCORE_WEIGHTS.pue * pueSubScore(provider.pue) +
+    SCORE_WEIGHTS.renewable * provider.renewableEnergy +
+    SCORE_WEIGHTS.commitments * commitmentsSubScore(provider.carbonNeutral, provider.certifications.length)
+  return Math.round(score)
+}
+
+type CloudProvider = {
+  name: string
+  country: string
+  pue: number
+  renewableEnergy: number
+  carbonNeutral: boolean
+  certifications: string[]
+  description: string
+  color: string
+}
+
 export default function CloudComparator() {
   const [sortBy, setSortBy] = useState<"score" | "pue" | "renewable" | "name">("score")
   const [filterGreen, setFilterGreen] = useState(false)
 
-  const providers = [
-    {
-      name: "Infomaniak",
-      country: "Suisse",
-      pue: 1.1,
-      renewableEnergy: 100,
-      carbonNeutral: true,
-      certifications: ["ISO 14001", "ISO 50001", "Engagement climat"],
-      sustainabilityScore: 98,
-      description: "Leader européen de l'hébergement écologique, 100 % énergies renouvelables locales.",
-      color: "emerald",
-    },
-    {
-      name: "Scaleway",
-      country: "France",
-      pue: 1.2,
-      renewableEnergy: 100,
-      carbonNeutral: true,
-      certifications: ["ISO 14001", "HDS", "DC4"],
-      sustainabilityScore: 95,
-      description: "Datacenters français éco-conçus avec refroidissement adiabatique.",
-      color: "emerald",
-    },
-    {
-      name: "OVHcloud",
-      country: "France",
-      pue: 1.2,
-      renewableEnergy: 78,
-      carbonNeutral: false,
-      certifications: ["ISO 14001", "ISO 50001"],
-      sustainabilityScore: 82,
-      description: "Refroidissement par eau innovant et démarche de réduction carbone.",
-      color: "teal",
-    },
-    {
-      name: "Google Cloud",
-      country: "Global",
-      pue: 1.1,
-      renewableEnergy: 100,
-      carbonNeutral: true,
-      certifications: ["ISO 14001", "ISO 50001", "LEED"],
-      sustainabilityScore: 90,
-      description: "Neutralité carbone annoncée depuis 2007 ; 100 % renouvelable en matching annuel depuis 2017, objectif 24/7 d'ici 2030.",
-      color: "emerald",
-    },
-    {
-      name: "Microsoft Azure",
-      country: "Global",
-      pue: 1.18,
-      renewableEnergy: 100,
-      carbonNeutral: true,
-      certifications: ["ISO 14001", "LEED"],
-      sustainabilityScore: 88,
-      description: "Objectif carbone négatif 2030, investissements massifs dans le renouvelable.",
-      color: "teal",
-    },
-    {
-      name: "AWS",
-      country: "Global",
-      pue: 1.2,
-      renewableEnergy: 100,
-      carbonNeutral: false,
-      certifications: ["ISO 14001", "ISO 50001"],
-      sustainabilityScore: 78,
-      description: "100 % renouvelable atteint en 2023 (matching annuel), programme Climate Pledge.",
-      color: "cyan",
-    },
-    {
-      name: "DigitalOcean",
-      country: "USA",
-      pue: 1.3,
-      renewableEnergy: 60,
-      carbonNeutral: false,
-      certifications: ["SOC 2"],
-      sustainabilityScore: 55,
-      description: "Efforts en cours sur l'efficacité, mais encore limités sur le renouvelable.",
-      color: "orange",
-    },
-    {
-      name: "Hetzner",
-      country: "Allemagne",
-      pue: 1.15,
-      renewableEnergy: 100,
-      carbonNeutral: true,
-      certifications: ["ISO 14001", "TÜV"],
-      sustainabilityScore: 92,
-      description: "Datacenters allemands alimentés à 100 % par énergies renouvelables.",
-      color: "emerald",
-    },
-  ]
+  const providers: (CloudProvider & { sustainabilityScore: number })[] = (
+    [
+      {
+        name: "Infomaniak",
+        country: "Suisse",
+        pue: 1.1,
+        renewableEnergy: 100,
+        carbonNeutral: true,
+        certifications: ["ISO 14001", "ISO 50001", "Engagement climat"],
+        description: "Leader européen de l'hébergement écologique, 100 % énergies renouvelables locales.",
+        color: "emerald",
+      },
+      {
+        name: "Scaleway",
+        country: "France",
+        pue: 1.2,
+        renewableEnergy: 100,
+        carbonNeutral: true,
+        certifications: ["ISO 14001", "HDS", "DC4"],
+        description: "Datacenters français éco-conçus avec refroidissement adiabatique.",
+        color: "emerald",
+      },
+      {
+        name: "OVHcloud",
+        country: "France",
+        pue: 1.2,
+        renewableEnergy: 78,
+        carbonNeutral: false,
+        certifications: ["ISO 14001", "ISO 50001"],
+        description: "Refroidissement par eau innovant et démarche de réduction carbone.",
+        color: "teal",
+      },
+      {
+        name: "Google Cloud",
+        country: "Global",
+        pue: 1.1,
+        renewableEnergy: 100,
+        carbonNeutral: true,
+        certifications: ["ISO 14001", "ISO 50001", "LEED"],
+        description: "Neutralité carbone annoncée depuis 2007 ; 100 % renouvelable en matching annuel depuis 2017, objectif 24/7 d'ici 2030.",
+        color: "emerald",
+      },
+      {
+        name: "Microsoft Azure",
+        country: "Global",
+        pue: 1.18,
+        renewableEnergy: 100,
+        carbonNeutral: true,
+        certifications: ["ISO 14001", "LEED"],
+        description: "Objectif carbone négatif 2030, investissements massifs dans le renouvelable.",
+        color: "teal",
+      },
+      {
+        name: "AWS",
+        country: "Global",
+        pue: 1.2,
+        renewableEnergy: 100,
+        carbonNeutral: false,
+        certifications: ["ISO 14001", "ISO 50001"],
+        description: "100 % renouvelable atteint en 2023 (matching annuel), programme Climate Pledge.",
+        color: "cyan",
+      },
+      {
+        name: "DigitalOcean",
+        country: "USA",
+        pue: 1.3,
+        renewableEnergy: 60,
+        carbonNeutral: false,
+        certifications: ["SOC 2"],
+        description: "Efforts en cours sur l'efficacité, mais encore limités sur le renouvelable.",
+        color: "orange",
+      },
+      {
+        name: "Hetzner",
+        country: "Allemagne",
+        pue: 1.15,
+        renewableEnergy: 100,
+        carbonNeutral: true,
+        certifications: ["ISO 14001", "TÜV"],
+        description: "Datacenters allemands alimentés à 100 % par énergies renouvelables.",
+        color: "emerald",
+      },
+    ] as CloudProvider[]
+  ).map((provider) => ({ ...provider, sustainabilityScore: computeSustainabilityScore(provider) }))
 
   const sortedProviders = [...providers]
     .filter((p) => !filterGreen || p.sustainabilityScore >= 85)
@@ -193,11 +224,13 @@ export default function CloudComparator() {
               </li>
               <li>
                 <strong>Énergie renouvelable</strong> : Pourcentage d'électricité provenant de sources renouvelables
-                (solaire, éolien, hydraulique).
+                (solaire, éolien, hydraulique). Note générique : un « 100 % renouvelable » déclaré correspond
+                souvent à un matching annuel (achats compensés sur l'année), pas à un fonctionnement 24/7 décarboné.
               </li>
               <li>
-                <strong>Score éco</strong> : synthèse indicative propre au site (PUE, % renouvelable, certifications et
-                engagements, sans pondération publiée) pour ordonner les fiches, pas une certification.
+                <strong>Score éco</strong> : synthèse propre au site pour ordonner les fiches, pas une certification.
+                Méthode transparente : scores recalculés — 40 % PUE (100 à 1,0, 0 à 1,5, linéaire) + 40 % renouvelable
+                + 20 % engagements (10 pts neutralité déclarée, jusqu'à 10 pts certifications : ≥ 3 = 10, 2 = 7, 1 = 3).
               </li>
             </ul>
           </div>
@@ -289,7 +322,7 @@ export default function CloudComparator() {
       </Card>
 
       <div className="text-sm text-muted-foreground text-center">
-        Sources : rapports RSE des fournisseurs, The Green Web Foundation, ADEME • Données et score indicatifs 2024-2026, méthodologie non pondérée publiquement <SourceTooltip source="Rapports RSE des fournisseurs, The Green Web Foundation, ADEME" info="Données et score indicatifs 2024-2026. Le score éco est une synthèse propre au site, sans pondération publiée : il sert à ordonner les fiches, pas de certification." />
+        Sources : rapports RSE des fournisseurs, The Green Web Foundation, ADEME • Données et score indicatifs 2024-2026, méthode transparente : scores recalculés <SourceTooltip source="Rapports RSE des fournisseurs, The Green Web Foundation, ADEME" info="Données indicatives 2024-2026. Le score éco est une synthèse propre au site pour ordonner les fiches, pas une certification." calculation="Score = 40 % PUE + 40 % renouvelable + 20 % engagements. PUE : 100 à 1,0, 0 à 1,5 (linéaire). Renouvelable : % affiché. Engagements : 10 pts neutralité déclarée + jusqu'à 10 pts certifications (≥ 3 = 10, 2 = 7, 1 = 3)." />
       </div>
     </div>
   )

@@ -38,6 +38,7 @@ export interface QuizQuestion {
   correctAnswer: number
   explanation: string
   source: string
+  sourceUrl?: string
   points: number
 }
 
@@ -257,7 +258,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Un appareil reconditionné est un équipement d'occasion qui a été vérifié, réparé si nécessaire, nettoyé et remis en état de fonctionnement.",
-    source: "ADEME",
+    source: "Ordre de grandeur — culture générale du domaine",
     points: 10,
   },
   {
@@ -336,7 +337,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 0,
     explanation:
       "Réduire la luminosité peut économiser une part notable de la consommation, variable selon l'écran et la luminosité initiale (ADEME).",
-    source: "ADEME",
+    source: "Ordre de grandeur — culture générale du domaine",
     points: 10,
   },
   {
@@ -452,7 +453,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["0,01 kWh", "0,05 kWh", "0,1 kWh", "0,5 kWh"],
     correctAnswer: 0,
     explanation: "Une charge complète de smartphone consomme environ 0,01 kWh, soit moins de 0,5 centime d'euro.",
-    source: "Mesures ADEME",
+    source: "Ordre de grandeur — culture générale du domaine",
     points: 15,
   },
 
@@ -472,6 +473,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "L'indice de réparabilité est une note sur 10 qui informe sur la facilité de réparation d'un produit électronique. Depuis 2025, un indice de durabilité le complète pour certains produits.",
     source: "Loi AGEC 2020",
+    sourceUrl: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000041553759",
     points: 10,
   },
   {
@@ -484,6 +486,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "Depuis le 20 juin 2025, le règlement européen 2023/1670 impose 7 ans de disponibilité des pièces détachées pour les smartphones.",
     source: "Règlement UE 2023/1670",
+    sourceUrl: "https://eur-lex.europa.eu/eli/reg/2023/1670/oj/",
     points: 15,
   },
   {
@@ -518,6 +521,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "DEEE signifie Déchets d'Équipements Électriques et Électroniques, les e-déchets à recycler obligatoirement.",
     source: "Directive 2012/19/UE",
+    sourceUrl: "https://eur-lex.europa.eu/eli/dir/2012/19/oj",
     points: 10,
   },
   {
@@ -571,6 +575,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "Les appareils électroniques peuvent être déposés gratuitement en déchetterie ; en magasin, la reprise est gratuite (1 pour 1, et 1 pour 0 pour certains petits appareils).",
     source: "Directive DEEE 2012/19/UE",
+    sourceUrl: "https://eur-lex.europa.eu/eli/dir/2012/19/oj",
     points: 10,
   },
   {
@@ -583,6 +588,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "Depuis 2019, la directive DEEE fixe un objectif de collecte de 65 % ; il est rarement atteint. Ne pas confondre collecte, recyclage et valorisation.",
     source: "Directive DEEE 2012/19/UE",
+    sourceUrl: "https://eur-lex.europa.eu/eli/dir/2012/19/oj",
     points: 15,
   },
   {
@@ -861,7 +867,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "La virtualisation permet de faire fonctionner plusieurs serveurs virtuels sur une seule machine physique, optimisant les ressources.",
-    source: "VMware/Hyper-V",
+    source: "Ordre de grandeur — culture générale du domaine",
     points: 10,
   },
   {
@@ -888,6 +894,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "La loi AGEC a été votée le 10 février 2020 (loi n° 2020-105) ; l'indice de réparabilité s'applique depuis 2021.",
     source: "Loi n° 2020-105",
+    sourceUrl: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000041553759",
     points: 10,
   },
   {
@@ -900,6 +907,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "La directive WEEE (Waste Electrical and Electronic Equipment) impose des objectifs de collecte et recyclage des DEEE.",
     source: "Directive 2012/19/UE",
+    sourceUrl: "https://eur-lex.europa.eu/eli/dir/2012/19/oj",
     points: 15,
   },
   {
@@ -929,6 +937,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "La loi REEN (2021) impose notamment la publication de rapports environnementaux, encourage l'écoconception et encadre les datacenters.",
     source: "Loi REEN 2021",
+    sourceUrl: "https://www.legifrance.gouv.fr/eli/loi/2021/11/15/2021-1485/jo/texte",
     points: 15,
   },
   {
@@ -958,6 +967,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "Le RGPD (Règlement Général sur la Protection des Données) encadre l'utilisation des données personnelles en Europe.",
     source: "Règlement UE 2016/679",
+    sourceUrl: "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
     points: 15,
   },
   {
@@ -970,6 +980,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "Le RGPD permet des amendes jusqu'à 20 millions d'euros ou 4 % du chiffre d'affaires mondial, le montant le plus élevé étant retenu.",
     source: "RGPD Article 83",
+    sourceUrl: "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
     points: 20,
   },
   {
@@ -987,6 +998,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "Le DSA est une réglementation européenne qui encadre la responsabilité des plateformes numériques et la modération de contenus.",
     source: "Règlement UE 2022/2065",
+    sourceUrl: "https://eur-lex.europa.eu/eli/reg/2022/2065/oj/",
     points: 15,
   },
   {
@@ -1011,6 +1023,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "Depuis le 20 juin 2025, les smartphones vendus dans l'UE affichent une étiquette énergie (règlement 2023/1669) : 5 ans de mises à jour et 7 ans de pièces (règlement 2023/1670). L'indice de durabilité français s'applique déjà aux TV et lave-linge.",
     source: "Règlements UE 2023/1669 (étiquette) et 2023/1670 (écoconception)",
+    sourceUrl: "https://eur-lex.europa.eu/eli/reg_del/2023/1669/oj/eng",
     points: 20,
   },
 
@@ -1223,7 +1236,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctAnswer: 2,
     explanation: "Configurer l'impression recto-verso par défaut peut réduire la consommation de papier de 30 à 50 %.",
-    source: "ADEME",
+    source: "Ordre de grandeur — culture générale du domaine",
     points: 10,
   },
   {
@@ -1257,7 +1270,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 0,
     explanation:
       "L'impact dépend du volume d'envois et de réceptions, de la taille des pièces jointes et du stockage ; il n'existe pas de nombre universel d'e-mails par employé.",
-    source: "ADEME",
+    source: "Ordre de grandeur — culture générale du domaine",
     points: 15,
   },
   {
@@ -1368,7 +1381,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "L'edge computing traite les données au plus près de leur source : il peut réduire le trafic réseau, mais le bilan dépend des usages et des équipements déployés.",
-    source: "Notion générale (littérature Green IT)",
+    source: "Ordre de grandeur — culture générale du domaine",
     points: 15,
   },
   {
@@ -1443,7 +1456,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Les bioplastiques issus de ressources renouvelables sont étudiés pour remplacer les plastiques pétrochimiques.",
-    source: "Notion générale (littérature matériaux)",
+    source: "Ordre de grandeur — culture générale du domaine",
     points: 10,
   },
   {
@@ -1466,7 +1479,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
 ]
 
 // À incrémenter si les questions changent (invalide proprement les sessions en cours)
-const QUIZ_CONTENT_VERSION = 3
+const QUIZ_CONTENT_VERSION = 4
 
 const questionIndex = (question: QuizQuestion) => ALL_QUIZ_QUESTIONS.indexOf(question)
 
@@ -1928,7 +1941,10 @@ export function QuizGreenITAdvanced() {
           {percentage >= 60 && mode !== "review" && (
             <div className="certificate-print rounded-xl border-2 border-emerald-300 p-6 text-center dark:border-emerald-700">
               <p className="text-sm text-muted-foreground">Le Green IT en clair</p>
-              <h3 className="mt-2 text-2xl font-bold text-emerald-700">Attestation de réussite</h3>
+              <h3 className="mt-2 text-2xl font-bold text-emerald-700">Attestation de participation</h3>
+              <p className="mx-auto mt-2 max-w-md text-xs text-muted-foreground">
+                Document auto-déclaratif généré à partir de vos réponses, sans valeur certificative.
+              </p>
               <input
                 value={playerName}
                 onChange={(e) => setPlayerName(e.target.value)}
@@ -1958,7 +1974,7 @@ export function QuizGreenITAdvanced() {
             {percentage >= 60 && mode !== "review" ? (
               <Button onClick={handlePrintCertificate} className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
                 <Download className="h-4 w-4 mr-2" />
-                Imprimer l'attestation
+                Imprimer l'attestation de participation
               </Button>
             ) : (
               <Button onClick={() => window.print()} className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
@@ -2066,7 +2082,22 @@ export function QuizGreenITAdvanced() {
           >
             <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-2">Explication :</h4>
             <p className="text-sm text-blue-800 dark:text-blue-300 mb-3">{currentQuestion.explanation}</p>
-            <p className="text-xs text-blue-600 dark:text-blue-400">Source : {currentQuestion.source}</p>
+            <p className="text-xs text-blue-600 dark:text-blue-400">
+              Source : {currentQuestion.source}
+              {currentQuestion.sourceUrl ? (
+                <>
+                  {" — "}
+                  <a
+                    href={currentQuestion.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2 hover:text-blue-800 dark:hover:text-blue-200"
+                  >
+                    Voir le texte officiel (nouvel onglet)
+                  </a>
+                </>
+              ) : null}
+            </p>
           </div>
         )}
 

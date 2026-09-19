@@ -373,11 +373,11 @@ export default function EnterpriseSimulator() {
 
               <div className="space-y-3">
                 <div className="flex justify-between">
-                  <Label className="text-foreground">Prix d'un poste neuf</Label>
+                  <Label className="text-foreground">Prix d'un appareil neuf</Label>
                   <span className="font-semibold text-foreground">{config.devicePrice.toLocaleString("fr-FR")} €</span>
                 </div>
                 <LabeledSlider
-                  label="Prix d'un poste neuf"
+                  label="Prix d'un appareil neuf"
                   value={[config.devicePrice]}
                   onValueChange={([value]) => setConfig({ ...config, devicePrice: value })}
                   min={400}
@@ -534,9 +534,9 @@ export default function EnterpriseSimulator() {
                   </div>
                 </div>
                 <p className="mt-4 text-xs text-muted-foreground">
-                  Hypothèses : {config.devicePrice.toLocaleString("fr-FR")} € par poste renouvelé (reconditionné à moitié prix), {config.energyCostPerDevice.toLocaleString("fr-FR")} €/an d'énergie par poste, cloud 200/500/1 000 €/an selon
+                  Hypothèses : {config.devicePrice.toLocaleString("fr-FR")} € par appareil renouvelé (reconditionné à moitié prix), {config.energyCostPerDevice.toLocaleString("fr-FR")} €/an d'énergie par appareil, cloud 200/500/1 000 €/an selon
                   l'usage, maintenance 50 €/an/appareil (+20 % de préventif dans les scénarios optimisés), mise en œuvre
-                  {` ${config.implementationCostPerEmployee.toLocaleString("fr-FR")} €/employé`}. ROI = économies nettes ÷ mise en œuvre. VAN calculée au taux de {config.discountRate.toLocaleString("fr-FR")}{" "}% (indicatif, à adapter à votre coût du capital). CO₂e : 205 kg par poste neuf, 51 kg reconditionné (ADEME 2022), usage 9 kg/an (ADEME, Impact CO₂ 2025 <SourceTooltip source="ADEME, Impact CO₂ / Base Empreinte, 2025" info="205 kg par poste fixe neuf, 51 kg reconditionné (−75 %, ADEME 2022), usage 9 kg/an" />).
+                  {` ${config.implementationCostPerEmployee.toLocaleString("fr-FR")} €/employé`}. ROI = économies nettes ÷ mise en œuvre. VAN calculée au taux de {config.discountRate.toLocaleString("fr-FR")}{" "}% (indicatif, à adapter à votre coût du capital). CO₂e : 205 kg par appareil neuf, 51 kg reconditionné (ADEME 2022), usage 9 kg/an (ADEME, Impact CO₂ 2025 <SourceTooltip source="ADEME, Impact CO₂ / Base Empreinte, 2025" info="205 kg par appareil neuf (fixe), 51 kg reconditionné (−75 %, ADEME 2022), usage 9 kg/an" />).
                 </p>
               </div>
 

@@ -767,8 +767,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["1,2", "1,6", "2,0", "3,0"],
     correctAnswer: 1,
     explanation:
-      "Le PUE moyen mondial est d'environ 1,56 (1,45 en Europe) en 2024 (Uptime Institute) ; 1,2 correspond aux meilleurs sites récents.",
-    source: "Uptime Institute 2024",
+      "Le PUE moyen mondial est d'environ 1,52 en 2026 (1,45 pour les plus grands sites) d'après Uptime Institute ; 1,2 correspond aux meilleurs sites récents.",
+    source: "Uptime Institute 2026",
     points: 10,
   },
   {

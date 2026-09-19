@@ -421,6 +421,13 @@ const futureSolutions = [
               calculation="PUE en progrès lent : parc ancien conservé, climats chauds, +21 % d'inférence comme moteur de racks denses"
               url="https://uptimeinstitute.com/resources/research-and-reports/uptime-institute-global-data-center-survey-results-2026"
             />
+            . Côté fournisseurs, 83 % voient l&apos;adoption du refroidissement liquide direct augmenter en 2026
+            <SourceTooltip
+              className="ml-1"
+              source="Uptime Institute, Global Data Center Survey 2026, volet fournisseurs"
+              calculation="83 % des fournisseurs signalent une adoption client en hausse (n=606) ; 68 % pour la production électrique sur site"
+              url="https://datacenter.uptimeinstitute.com/rs/711-RIA-145/images/2026.AnnualSurvey.SupplierViewReport.pdf?version=0"
+            />
             . Enjeu jumeau : ne pas échanger des kWh contre des litres d&apos;eau.
           </>
         ),

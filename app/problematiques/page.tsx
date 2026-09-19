@@ -428,6 +428,14 @@ const futureSolutions = [
               calculation="83 % des fournisseurs signalent une adoption client en hausse (n=606) ; 68 % pour la production électrique sur site"
               url="https://datacenter.uptimeinstitute.com/rs/711-RIA-145/images/2026.AnnualSurvey.SupplierViewReport.pdf?version=0"
             />
+            . Au Nord, le free-air fait déjà le travail : PUE de 1,07 à 1,09, 8 000 heures de refroidissement
+            gratuit par an (Compute Nordic sous 1,1, hyperscale arctique à 1,07)
+            <SourceTooltip
+              className="ml-1"
+              source="w.media via atNorth, 2026"
+              calculation="8 000 h/an de free-air, Compute Nordic <1,1 (<1,15 haute densité), atNorth Islande ~1,2"
+              url="https://w.media/special-feature-just-chill-cooling-innovations-in-nordic-data-centers-setting-new-sustainability-standards"
+            />
             . Enjeu jumeau : ne pas échanger des kWh contre des litres d&apos;eau.
           </>
         ),
@@ -733,6 +741,13 @@ const futureSolutions = [
               source="Aalo Atomics et Crusoe, juillet 2026"
               calculation="Aalo-X 10 MWe → Pod 50 MWe (5×10), sodium et air sans eau externe, criticité juillet 2026"
               url="https://www.aalo.com/post/crusoe-and-aalo-atomics-form-strategic-partnership"
+            />
+            ; Blue Energy vise 1,5 GW au Texas pour Crusoe, gaz dès 2028 puis nucléaire en 2031
+            <SourceTooltip
+              className="ml-1"
+              source="DataCenterDynamics, octobre 2025"
+              calculation="1,5 GW max au port de Victoria, pont gaz puis nucléaire 2031 ; Blue Energy fondée en 2023 (MIT)"
+              url="https://www.datacenterdynamics.com/en/news/crusoe-taps-blue-energy-to-supply-nuclear-power-for-up-to-15gw-data-center-in-port-of-victoria-texas"
             />
             . Horizon réaliste : 2030-2034 ; en attendant, gaz et batteries (AIE).
           </>

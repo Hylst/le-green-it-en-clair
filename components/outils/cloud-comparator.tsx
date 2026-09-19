@@ -4,8 +4,9 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Cloud, Lightbulb, Leaf, CheckCircle2, Clock } from "lucide-react";
+import { Cloud, Lightbulb, Leaf, CheckCircle2, Clock, Compass, Download, RotateCcw } from "lucide-react";
 import { SourceTooltip } from "@/components/source-tooltip";
+import { MoreDetails } from "@/components/more-details";
 
 /* Méthode transparente : scores recalculés à partir des données affichées.
    Score éco (0-100, arrondi) = 40 % PUE + 40 % renouvelable + 20 % engagements.
@@ -44,9 +45,157 @@ type CloudProvider = {
   color: string
 }
 
+/* Questionnaire besoin (chantier V3.2) : 3 questions maximum, logique 100 %
+   basée sur les données affichées (pays, PUE, renouvelable, scores calculés).
+   Pas de question budget : le site ne publie aucune donnée prix. */
+type UsageAnswer = "site" | "services" | "mondial"
+type RegionAnswer = "france" | "europe" | "monde"
+type PriorityAnswer = "score" | "pue" | "renouvelable"
+
+type ScoredProvider = CloudProvider & { sustainabilityScore: number }
+
+type RecommendationItem = { name: string; reason: string }
+type RecommendationResult = { intro: string; items: RecommendationItem[]; note: string }
+
+/* Espace insécable (typographie française devant « % ») et BOM pour Excel. */
+const NBSP = " "
+const CSV_BOM = "﻿"
+
+const EUROPEAN_COUNTRIES = ["France", "Suisse", "Allemagne"]
+
+const USAGE_OPTIONS: { value: UsageAnswer; label: string }[] = [
+  { value: "site", label: "Héberger un site ou une application web" },
+  { value: "services", label: "Déployer des services cloud ou des API" },
+  { value: "mondial", label: "Déployer à l'échelle mondiale" },
+]
+
+const REGION_OPTIONS: { value: RegionAnswer; label: string }[] = [
+  { value: "france", label: "France" },
+  { value: "europe", label: "Europe" },
+  { value: "monde", label: "Monde entier" },
+]
+
+const PRIORITY_OPTIONS: { value: PriorityAnswer; label: string }[] = [
+  { value: "score", label: "Le meilleur score éco global" },
+  { value: "pue", label: "Le meilleur PUE (efficacité énergétique)" },
+  { value: "renouvelable", label: "La part de renouvelable la plus élevée" },
+]
+
+const USAGE_INTROS: Record<UsageAnswer, string> = {
+  site: "héberger un site ou une application web",
+  services: "déployer des services cloud ou des API",
+  mondial: "un déploiement à l'échelle mondiale",
+}
+
+const REGION_LABELS: Record<RegionAnswer, string> = {
+  france: "en France",
+  europe: "en Europe (France, Suisse, Allemagne)",
+  monde: "sans filtre géographique",
+}
+
+const PRIORITY_LABELS: Record<PriorityAnswer, string> = {
+  score: "score éco",
+  pue: "PUE",
+  renouvelable: "part d'énergie renouvelable",
+}
+
+const USAGE_NOTES: Record<UsageAnswer, string> = {
+  site: "Pensez à vérifier la localisation exacte du datacenter au moment de souscrire.",
+  services:
+    "Rappel : un « 100 % renouvelable » affiché correspond souvent à un matching annuel, pas à un fonctionnement 24/7 décarboné.",
+  mondial:
+    "Les acteurs « Global » opèrent sur plusieurs continents : la localisation réelle de vos données dépendra de la région choisie au moment de souscrire.",
+}
+
+function filterByRegion(all: ScoredProvider[], region: RegionAnswer): ScoredProvider[] {
+  if (region === "france") return all.filter((p) => p.country === "France")
+  if (region === "europe") return all.filter((p) => EUROPEAN_COUNTRIES.includes(p.country))
+  return [...all]
+}
+
+function sortByPriority(pool: ScoredProvider[], priority: PriorityAnswer): ScoredProvider[] {
+  return [...pool].sort((a, b) => {
+    if (priority === "pue") return a.pue - b.pue || b.sustainabilityScore - a.sustainabilityScore
+    if (priority === "renouvelable")
+      return b.renewableEnergy - a.renewableEnergy || b.sustainabilityScore - a.sustainabilityScore
+    return b.sustainabilityScore - a.sustainabilityScore
+  })
+}
+
+function buildReason(provider: ScoredProvider, rank: number, total: number): string {
+  const pue = provider.pue.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 2 })
+  const neutrality = provider.carbonNeutral ? "neutralité carbone déclarée" : "neutralité carbone encore en cours"
+  return `Score éco de ${provider.sustainabilityScore} (n° ${rank} sur ${total} au classement général), données hébergées en ${provider.country}, PUE de ${pue} et ${provider.renewableEnergy}${NBSP}% d'énergie renouvelable, ${neutrality}.`
+}
+
+/* Règles de recommandation (transparentes, 100 % basées sur les données affichées) :
+   1. la région filtre sur le pays (France : 2 hébergeurs ; Europe : France, Suisse, Allemagne) ;
+   2. le critère prioritaire trie le groupe (score décroissant, PUE croissant, renouvelable décroissant) ;
+   3. les ex æquo se départagent au score éco (ordre stable, comme le classement général) ;
+   4. on retient les 3 premiers (2 si le filtre France n'en donne que 2) ;
+   5. l'usage principal ne filtre ni ne trie : il contextualise l'intro et le point de vigilance. */
+function recommendProviders(
+  all: ScoredProvider[],
+  usage: UsageAnswer,
+  region: RegionAnswer,
+  priority: PriorityAnswer
+): RecommendationResult {
+  const generalOrder = [...all].sort((a, b) => b.sustainabilityScore - a.sustainabilityScore)
+  const shortlist = sortByPriority(filterByRegion(all, region), priority).slice(0, 3)
+  return {
+    intro: `Pour ${USAGE_INTROS[usage]} ${REGION_LABELS[region]}, classés par ${PRIORITY_LABELS[priority]} :`,
+    items: shortlist.map((p) => ({
+      name: p.name,
+      reason: buildReason(p, generalOrder.findIndex((g) => g.name === p.name) + 1, all.length),
+    })),
+    note: USAGE_NOTES[usage],
+  }
+}
+
+/* Export CSV des 8 hébergeurs (Blob + URL.createObjectURL, sans dépendance) :
+   ordre du classement général (score décroissant), formule du score rappelée
+   en commentaire d'en-tête. */
+function exportProvidersCsv(all: ScoredProvider[]): void {
+  const header = [
+    "# Comparateur cloud : export des 8 hébergeurs (données indicatives 2024-2026)",
+    `# Score éco (0-100) = 40${NBSP}% PUE (100 à 1,0, 0 à 1,5, linéaire) + 40${NBSP}% renouvelable (${NBSP}% affiché) + 20${NBSP}% engagements (10 pts neutralité déclarée + jusqu'à 10 pts certifications : 3 et + = 10, 2 = 7, 1 = 3)`,
+    "# Sources : rapports RSE des fournisseurs, The Green Web Foundation, ADEME",
+    "nom;pays;PUE;renouvelable_%;neutralite_carbone;certifications;score_eco",
+  ]
+  const rows = [...all]
+    .sort((a, b) => b.sustainabilityScore - a.sustainabilityScore)
+    .map((p) =>
+      [
+        p.name,
+        p.country,
+        p.pue.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 2 }),
+        String(p.renewableEnergy),
+        p.carbonNeutral ? "Déclarée" : "En cours",
+        `"${p.certifications.join(" | ")}"`,
+        String(p.sustainabilityScore),
+      ].join(";")
+    )
+  const csv = `${CSV_BOM}${[...header, ...rows].join("\r\n")}\r\n`
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" })
+  const url = URL.createObjectURL(blob)
+  const link = document.createElement("a")
+  link.href = url
+  link.download = "comparateur-cloud-eco.csv"
+  document.body.appendChild(link)
+  link.click()
+  link.remove()
+  URL.revokeObjectURL(url)
+}
+
 export default function CloudComparator() {
   const [sortBy, setSortBy] = useState<"score" | "pue" | "renewable" | "name">("score")
   const [filterGreen, setFilterGreen] = useState(false)
+  /* Questionnaire besoin : brouillon (radios) + résultat validé. Tant que
+     l'utilisateur ne valide pas, le classement affiché reste inchangé. */
+  const [usage, setUsage] = useState<UsageAnswer | null>(null)
+  const [region, setRegion] = useState<RegionAnswer | null>(null)
+  const [priority, setPriority] = useState<PriorityAnswer | null>(null)
+  const [recommendation, setRecommendation] = useState<RecommendationResult | null>(null)
 
   const providers: (CloudProvider & { sustainabilityScore: number })[] = (
     [
@@ -164,6 +313,18 @@ export default function CloudComparator() {
     return "bg-orange-100 dark:bg-orange-900/30"
   }
 
+  const handleValidateRecommendation = () => {
+    if (usage === null || region === null || priority === null) return
+    setRecommendation(recommendProviders(providers, usage, region, priority))
+  }
+
+  const handleResetRecommendation = () => {
+    setUsage(null)
+    setRegion(null)
+    setPriority(null)
+    setRecommendation(null)
+  }
+
   return (
     <div className="space-y-6">
       <Card>
@@ -200,7 +361,16 @@ export default function CloudComparator() {
                 ))}
               </div>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => exportProvidersCsv(providers)}
+                title="Télécharger les données des 8 hébergeurs au format CSV, dans l'ordre du classement général"
+              >
+                <Download aria-hidden="true" />
+                Exporter en CSV
+              </Button>
               <input
                 type="checkbox"
                 id="filterGreen"
@@ -213,6 +383,113 @@ export default function CloudComparator() {
               </Label>
             </div>
           </div>
+
+          {/* Questionnaire besoin : panneau replié, ne touche pas au classement.
+              Les recommandations se calculent uniquement à la validation. */}
+          <MoreDetails title="Trouver l'hébergeur adapté à mon besoin (3 questions)">
+            <p className="text-sm">
+              Répondez aux 3 questions puis validez : nous vous proposons 2 à 3 hébergeurs, classés selon
+              vos réponses et expliqués à partir des données du tableau. Le classement général ci-dessous
+              reste inchangé.
+            </p>
+            <fieldset>
+              <legend className="mb-2 text-sm font-semibold text-foreground">1. Votre besoin principal ?</legend>
+              <div className="flex flex-wrap gap-2">
+                {USAGE_OPTIONS.map((option) => (
+                  <label
+                    key={option.value}
+                    className="flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-sm text-foreground transition-colors duration-200 hover:bg-secondary/60 has-checked:border-primary has-checked:bg-secondary/40"
+                  >
+                    <input
+                      type="radio"
+                      name="cloud-need-usage"
+                      value={option.value}
+                      checked={usage === option.value}
+                      onChange={() => setUsage(option.value)}
+                      className="h-4 w-4 shrink-0"
+                    />
+                    <span>{option.label}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend className="mb-2 text-sm font-semibold text-foreground">2. La région souhaitée pour vos données ?</legend>
+              <div className="flex flex-wrap gap-2">
+                {REGION_OPTIONS.map((option) => (
+                  <label
+                    key={option.value}
+                    className="flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-sm text-foreground transition-colors duration-200 hover:bg-secondary/60 has-checked:border-primary has-checked:bg-secondary/40"
+                  >
+                    <input
+                      type="radio"
+                      name="cloud-need-region"
+                      value={option.value}
+                      checked={region === option.value}
+                      onChange={() => setRegion(option.value)}
+                      className="h-4 w-4 shrink-0"
+                    />
+                    <span>{option.label}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend className="mb-2 text-sm font-semibold text-foreground">3. Votre critère prioritaire ?</legend>
+              <div className="flex flex-wrap gap-2">
+                {PRIORITY_OPTIONS.map((option) => (
+                  <label
+                    key={option.value}
+                    className="flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-sm text-foreground transition-colors duration-200 hover:bg-secondary/60 has-checked:border-primary has-checked:bg-secondary/40"
+                  >
+                    <input
+                      type="radio"
+                      name="cloud-need-priority"
+                      value={option.value}
+                      checked={priority === option.value}
+                      onChange={() => setPriority(option.value)}
+                      className="h-4 w-4 shrink-0"
+                    />
+                    <span>{option.label}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <div className="flex flex-wrap gap-2">
+              <Button
+                size="sm"
+                onClick={handleValidateRecommendation}
+                disabled={usage === null || region === null || priority === null}
+                className="bg-cyan-600 hover:bg-cyan-700"
+              >
+                <Compass aria-hidden="true" />
+                Voir mes recommandations
+              </Button>
+              <Button size="sm" variant="outline" onClick={handleResetRecommendation}>
+                <RotateCcw aria-hidden="true" />
+                Réinitialiser
+              </Button>
+            </div>
+            {recommendation === null && (
+              <p className="text-xs">Répondez aux 3 questions pour afficher vos recommandations.</p>
+            )}
+            {recommendation !== null && (
+              <div aria-live="polite" className="space-y-2 rounded-lg border border-border bg-background p-4">
+                <p className="text-sm font-semibold text-foreground">{recommendation.intro}</p>
+                <ol className="list-decimal space-y-2 pl-5 text-sm marker:text-foreground">
+                  {recommendation.items.map((item) => (
+                    <li key={item.name}>
+                      <strong className="text-foreground">{item.name}</strong>
+                      <span className="text-muted-foreground"> — {item.reason}</span>
+                    </li>
+                  ))}
+                </ol>
+                <p className="text-xs text-muted-foreground">
+                  {recommendation.note} Le classement général ci-dessous reste inchangé.
+                </p>
+              </div>
+            )}
+          </MoreDetails>
 
           {/* Légende */}
           <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
@@ -268,7 +545,7 @@ export default function CloudComparator() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
                     <div className="bg-card p-3 rounded-lg border border-border">
                       <div className={`text-2xl font-bold ${getScoreColor(provider.sustainabilityScore)}`}>
                         {provider.sustainabilityScore}

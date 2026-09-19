@@ -238,6 +238,16 @@ export default function RecyclagePage() {
               <p className="text-sm text-muted-foreground">DEEE produits par an (~24 kg/hab, ADEME 2024)</p>
             </Card>
           </div>
+          <div className="rounded-xl bg-accent/5 border-2 border-accent/10 p-6 text-center">
+            <p className="text-muted-foreground">
+              <strong className="text-foreground">Mine urbaine :</strong> environ 100 millions de téléphones
+              dorment dans les tiroirs français (estimation ADEME 2020, la plus récente publiée), et 26 millions
+              arrivent en fin de vie chaque année (ADEME)
+              <SourceTooltip className="ml-1 align-middle" source="ADEME 2020 (100 M) ; ADEME via Consoglobe 2026 (26 M/an)" calculation="100 M : estimation 2020, la plus récente publiée ; 26 M d'appareils par an" />
+              . Ils sont conçus pour durer 6 à 8 ans, mais remplacés après 2 à 3 ans : le gisement est déjà
+              chez nous.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -480,7 +490,26 @@ export default function RecyclagePage() {
               <div className="mt-6 rounded-xl bg-primary/5 border-2 border-primary/10 p-4">
                 <p className="text-sm text-muted-foreground">
                   <strong>Astuce :</strong> Vous pouvez aussi rapporter vos anciens appareils directement en magasin
-                  lors de l'achat d'un nouvel équipement (reprise 1 pour 1).
+                  lors de l'achat d'un nouvel équipement (reprise 1 pour 1). Pour un téléphone, même hors d'usage,
+                  le don par courrier est gratuit :{" "}
+                  <a
+                    href="https://www.jedonnemontelephone.fr"
+                    target="_blank"
+                    rel="noopener"
+                    className="font-medium text-primary underline underline-offset-2"
+                  >
+                    jedonnemontelephone.fr
+                  </a>{" "}
+                  (Ecosystem, données effacées).
+                </p>
+              </div>
+
+              <div className="mt-4 rounded-xl bg-accent/5 border-2 border-accent/10 p-4">
+                <p className="text-sm text-muted-foreground">
+                  <strong>Bon à savoir, la loi :</strong> il est interdit de jeter un appareil électrique à la
+                  poubelle ou sur la voie publique, sous peine d'amende (Service Public 2025)
+                  <SourceTooltip className="ml-1 align-middle" source="Service Public, fiche DEEE 2025" calculation="fiche F31955, mise à jour 24/10/2025 : poubelle et voie publique interdites ; reprise 1 pour 1, sans obligation d'achat dès 400 m²" />
+                  . Les magasins de plus de 400 m² reprennent votre ancien appareil même sans obligation d'achat.
                 </p>
               </div>
             </div>
@@ -594,6 +623,62 @@ export default function RecyclagePage() {
                 </div>
               </div>
             </Card>
+
+            <Card className="border-2 p-6">
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground">
+                  5
+                </div>
+                <div>
+                  <h3 className="mb-2 font-semibold text-card-foreground">Sécuriser les piles et batteries</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Ne jetez jamais une pile ou batterie à la poubelle : 65 % des incendies de la filière déchets
+                    viennent d'erreurs de tri (Sénat 2025)
+                    <SourceTooltip className="ml-1 align-middle" source="Sénat, proposition de loi 19/02/2025" calculation="~65 % des événements liés à l'orientation de piles ou batteries au lithium vers des filières inappropriées" />
+                    . Retirez la batterie si elle est amovible, scotchez les bornes, apportez-la en point de collecte.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Repair Before Recycling */}
+      <section className="px-6 py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="mb-12 text-center text-3xl font-bold text-foreground lg:text-4xl">
+            Réparer avant de recycler
+          </h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            <Card className="border-2 p-6 lg:p-8">
+              <h3 className="mb-2 text-xl font-bold text-card-foreground">Le Bonus Réparation : 15 à 60 €</h3>
+              <p className="text-muted-foreground">
+                Déduit de la facture chez un réparateur labellisé{" "}
+                <a
+                  href="https://www.ecosystem.eco"
+                  target="_blank"
+                  rel="noopener"
+                  className="font-medium text-primary underline underline-offset-2"
+                >
+                  QualiRépar
+                </a>
+                , appareil hors garantie (loi AGEC) : écran de smartphone 25 €, portable 50 €, TV 60 €, +20 %
+                si pièces reconditionnées. En 3 ans, 1,9 million de réparations aidées (Ecosystem 2026)
+                <SourceTooltip className="ml-1 align-middle" source="Ecosystem 2025 et 2026 (bilan 3 ans, 01/2026)" calculation="15 à 60 € selon l'appareil, 73 équipements ; ~1,9 M de réparations, 33 € d'aide moyenne" />
+                . Montants révisés chaque année : vérifiez sur ecosystem.eco.
+              </p>
+            </Card>
+            <Card className="border-2 p-6 lg:p-8">
+              <h3 className="mb-2 text-xl font-bold text-card-foreground">Un droit européen à réparer</h3>
+              <p className="text-muted-foreground">
+                La directive UE 2024/1799 impose aux fabricants de réparer les appareils concernés (lave-linge,
+                smartphones...) à partir de juillet 2026, avec 12 mois de garantie en plus si vous choisissez la
+                réparation plutôt que le remplacement (Parlement européen 2024)
+                <SourceTooltip className="ml-1 align-middle" source="Parlement européen 2024, Commission européenne" calculation="directive 2024/1799 du 13/06/2024, application au 31/07/2026 ; 35 Mt de déchets/an dus au jetable dans l'UE" />
+                .
+              </p>
+            </Card>
           </div>
         </div>
       </section>
@@ -646,6 +731,16 @@ export default function RecyclagePage() {
             >
               ADEME - Filière REP DEEE (2024)
             </a>
+            <span>•</span>
+            <span>ADEME - 100 M de téléphones en tiroirs (2020)</span>
+            <span>•</span>
+            <span>Service Public - DEEE : interdiction et reprise (2025)</span>
+            <span>•</span>
+            <span>Sénat - Incendies batteries lithium (2025)</span>
+            <span>•</span>
+            <span>Ecosystem - Bonus Réparation, bilan 3 ans (2026)</span>
+            <span>•</span>
+            <span>Parlement européen - Directive réparation 2024/1799 (2024)</span>
           </div>
         </div>
       </section>

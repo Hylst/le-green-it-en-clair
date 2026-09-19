@@ -1,15 +1,22 @@
 "use client"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { ClipboardCheck, Download, RotateCcw, Monitor, PcCase, Laptop, Smartphone, Tablet, Printer, Server, Package, BarChart3, Search, Coins, ClipboardList } from "lucide-react";
+import { ClipboardCheck, Download, RotateCcw, Monitor, PcCase, Laptop, Smartphone, Tablet, Printer, Server, Package, BarChart3, Search, Coins, ClipboardList, Save, FolderOpen } from "lucide-react";
 import { LabeledSlider, PDF_COLORS } from "./shared";
 import { SourceTooltip } from "@/components/source-tooltip";
+import {
+  AUDIT_PARC_STORAGE_KEY,
+  loadAuditParc,
+  saveAuditParc,
+  type AuditParcInventaire,
+  type AuditParcSnapshot,
+} from "@/lib/audit-parc-storage";
 
 export default function ITAudit() {
-  const [inventory, setInventory] = useState({
+  const [inventory, setInventory] = useState<AuditParcInventaire>({
     desktops: { count: 10, avgAge: 4 },
     laptops: { count: 20, avgAge: 3 },
     monitors: { count: 25, avgAge: 4 },
@@ -18,6 +25,35 @@ export default function ITAudit() {
     printers: { count: 3, avgAge: 5 },
     servers: { count: 2, avgAge: 4 },
   })
+
+  // Part reconditionnée du parc (0-100 %, défaut 0 % : résultats identiques à avant)
+  const [refurbishedPct, setRefurbishedPct] = useState(0)
+  const [savedSnapshot, setSavedSnapshot] = useState<AuditParcSnapshot | null>(null)
+  const [saveMessage, setSaveMessage] = useState("")
+
+  useEffect(() => {
+    setSavedSnapshot(loadAuditParc())
+  }, [])
+
+  const handleSaveParc = () => {
+    const snapshot = saveAuditParc(inventory, refurbishedPct)
+    setSavedSnapshot(snapshot)
+    setSaveMessage(
+      `Parc sauvegardé le ${new Date(snapshot.date).toLocaleString("fr-FR", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" })} (clé ${AUDIT_PARC_STORAGE_KEY}, sur votre appareil uniquement).`,
+    )
+  }
+
+  const handleReloadParc = () => {
+    const snapshot = loadAuditParc()
+    if (!snapshot) {
+      setSavedSnapshot(null)
+      return
+    }
+    setSavedSnapshot(snapshot)
+    setInventory(snapshot.inventaire)
+    setRefurbishedPct(snapshot.partReconditionnee)
+    setSaveMessage("Parc rechargé depuis votre sauvegarde locale.")
+  }
 
   const [showResults, setShowResults] = useState(false)
 
@@ -31,7 +67,7 @@ export default function ITAudit() {
     servers: { name: "Serveurs", fabricationCO2: 1200, usageCO2: 500, optimalLife: 5, icon: Server },
   }
 
-  const calculateResults = () => {
+  const calculateResultsFor = (sourceInventory: AuditParcInventaire, refurbPct: number) => {
     let totalCO2 = 0
     let totalDevices = 0
     let renewalNeeded = 0
@@ -47,13 +83,16 @@ export default function ITAudit() {
       recommendation: string
     }> = []
 
-    Object.entries(inventory).forEach(([type, { count, avgAge }]) => {
+    Object.entries(sourceInventory).forEach(([type, { count, avgAge }]) => {
       const data = deviceData[type as keyof typeof deviceData]
       totalDevices += count
 
       // Calcul CO2 annuel : fabrication amortie sur la durée optimale (pas sur l'âge
-      // saisi — diviser par l'âge rendait un parc vieillissant artificiellement vertueux)
-      const fabricationPerYear = (data.fabricationCO2 / data.optimalLife) * count
+      // saisi — diviser par l'âge rendait un parc vieillissant artificiellement vertueux).
+      // La part reconditionnée réduit la fabrication : −75 % par appareil reconditionné
+      // (ADEME 2022), soit fabrication × (1 − 0,75 × part). À 0 %, inchangé.
+      const refurbFactor = 1 - 0.75 * (Math.min(100, Math.max(0, refurbPct)) / 100)
+      const fabricationPerYear = (data.fabricationCO2 / data.optimalLife) * count * refurbFactor
       const usagePerYear = data.usageCO2 * count
       const co2 = fabricationPerYear + usagePerYear
       totalCO2 += co2
@@ -93,7 +132,7 @@ export default function ITAudit() {
     // optimale (cible interne du site, non sourcée — à harmoniser, voir todo.md)
     const avgLifeRatio =
       totalDevices > 0
-        ? Object.entries(inventory).reduce((acc, [type, { count, avgAge }]) => {
+        ? Object.entries(sourceInventory).reduce((acc, [type, { count, avgAge }]) => {
             const data = deviceData[type as keyof typeof deviceData]
             return acc + (avgAge / data.optimalLife) * count
           }, 0) / totalDevices
@@ -111,7 +150,24 @@ export default function ITAudit() {
     }
   }
 
+  const calculateResults = () => calculateResultsFor(inventory, refurbishedPct)
+
   const results = calculateResults()
+
+  const savedResults = savedSnapshot
+    ? calculateResultsFor(savedSnapshot.inventaire, savedSnapshot.partReconditionnee)
+    : null
+
+  const inventoryDiffers =
+    !!savedSnapshot &&
+    !!savedResults &&
+    (JSON.stringify(savedSnapshot.inventaire) !== JSON.stringify(inventory) ||
+      savedSnapshot.partReconditionnee !== refurbishedPct)
+
+  const formatEcart = (value: number, unit: string) => {
+    const formatted = value > 0 ? `+${value.toLocaleString("fr-FR")}` : value.toLocaleString("fr-FR")
+    return `${formatted} ${unit}`
+  }
 
   const getStatusColor = (status: "good" | "warning" | "critical") => {
     switch (status) {
@@ -171,6 +227,9 @@ export default function ITAudit() {
     doc.setFontSize(12)
     doc.text(`Empreinte totale : ${auditResults.totalCO2.toLocaleString("fr-FR")} kg CO₂e / an`, 20, 65)
     doc.text(`Économies possibles : ${auditResults.potentialSavings.toLocaleString("fr-FR")} kg CO₂e (gain à l'achat)`, 20, 72);
+    if (refurbishedPct > 0) {
+      doc.text(`Dont parc reconditionné : ${refurbishedPct.toLocaleString("fr-FR")} % (−75 % fabrication, ADEME 2022)`, 20, 79)
+    }
 
     // Score Badge
     doc.setDrawColor(200, 200, 200)
@@ -311,7 +370,99 @@ export default function ITAudit() {
                 )
               })}
             </div>
+            <div className="mt-4 p-4 bg-secondary/50 rounded-lg border border-border">
+              <div className="flex justify-between text-sm mb-1">
+                <span className="text-muted-foreground">
+                  Part reconditionnée du parc{" "}
+                  <SourceTooltip
+                    source="ADEME, 2022"
+                    calculation="Fabrication × (1 − 0,75 × part reconditionnée)"
+                    info="Chaque appareil reconditionné évite environ 75 % de l'impact de fabrication (bas de la fourchette −75 à −90 % déjà citée). À 0 %, les résultats sont inchangés."
+                  />
+                </span>
+                <span className="font-semibold text-foreground">{refurbishedPct.toLocaleString("fr-FR")} %</span>
+              </div>
+              <LabeledSlider
+                label="Part reconditionnée du parc"
+                value={[refurbishedPct]}
+                onValueChange={([value]) => setRefurbishedPct(value)}
+                min={0}
+                max={100}
+                step={5}
+                unit=" %"
+              />
+              <p className="mt-1 text-xs text-muted-foreground">
+                Estimation prudente : seul l'impact de fabrication est réduit, l'usage annuel reste identique.
+              </p>
+            </div>
           </div>
+
+          {/* Sauvegarde locale */}
+          <div className="p-4 bg-card rounded-lg border border-border">
+            <div className="flex flex-wrap gap-2">
+              <Button variant="outline" size="sm" onClick={handleSaveParc}>
+                <Save className="mr-2 h-4 w-4" />
+                Sauvegarder ce parc
+              </Button>
+              {savedSnapshot && (
+                <Button variant="outline" size="sm" onClick={handleReloadParc}>
+                  <FolderOpen className="mr-2 h-4 w-4" />
+                  Recharger
+                </Button>
+              )}
+            </div>
+            <p className="mt-2 text-xs text-muted-foreground">
+              Données sur votre appareil uniquement (clé {AUDIT_PARC_STORAGE_KEY}, sans compte ni envoi).
+              {savedSnapshot && (
+                <> Sauvegarde du {new Date(savedSnapshot.date).toLocaleString("fr-FR", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" })}.</>
+              )}
+            </p>
+            {saveMessage && (
+              <p aria-live="polite" className="mt-1 text-xs text-muted-foreground">
+                {saveMessage}
+              </p>
+            )}
+          </div>
+
+          {/* Comparaison avant/après */}
+          {savedSnapshot && savedResults && inventoryDiffers && (
+            <div className="p-4 bg-card rounded-lg border border-border transition-colors duration-200">
+              <h3 className="font-semibold text-base mb-2 text-foreground">Sauvegarde contre parc actuel</h3>
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-105 text-sm">
+                  <caption className="sr-only">Comparaison entre le parc sauvegardé et le parc actuel</caption>
+                  <thead>
+                    <tr className="text-muted-foreground">
+                      <th scope="col" className="text-left font-medium py-1 pr-2">Indicateur</th>
+                      <th scope="col" className="text-right font-medium py-1 px-2">Sauvegarde</th>
+                      <th scope="col" className="text-right font-medium py-1 px-2">Actuel</th>
+                      <th scope="col" className="text-right font-medium py-1 pl-2">Écart</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-foreground">
+                    <tr className="border-t border-border">
+                      <th scope="row" className="text-left font-normal py-1 pr-2">Équipements</th>
+                      <td className="text-right py-1 px-2">{savedResults.totalDevices.toLocaleString("fr-FR")}</td>
+                      <td className="text-right py-1 px-2">{results.totalDevices.toLocaleString("fr-FR")}</td>
+                      <td className="text-right py-1 pl-2">{formatEcart(results.totalDevices - savedResults.totalDevices, "appareils")}</td>
+                    </tr>
+                    <tr className="border-t border-border">
+                      <th scope="row" className="text-left font-normal py-1 pr-2">CO₂e/an</th>
+                      <td className="text-right py-1 px-2">{savedResults.totalCO2.toLocaleString("fr-FR")} kg</td>
+                      <td className="text-right py-1 px-2">{results.totalCO2.toLocaleString("fr-FR")} kg</td>
+                      <td className="text-right py-1 pl-2">{formatEcart(results.totalCO2 - savedResults.totalCO2, "kg")}</td>
+                    </tr>
+                    <tr className="border-t border-border">
+                      <th scope="row" className="text-left font-normal py-1 pr-2">Score</th>
+                      <td className="text-right py-1 px-2">{savedResults.ecoScore.toLocaleString("fr-FR")}/100</td>
+                      <td className="text-right py-1 px-2">{results.ecoScore.toLocaleString("fr-FR")}/100</td>
+                      <td className="text-right py-1 pl-2">{formatEcart(results.ecoScore - savedResults.ecoScore, "pts")}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
 
           {/* Bouton d'analyse */}
           <div className="text-center">

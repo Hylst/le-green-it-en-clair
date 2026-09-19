@@ -412,7 +412,7 @@ const futureSolutions = [
               className="ml-1"
               source="ADEME, 2024-2026"
               calculation="PUE moyen France 1,7 en 2024 contre 1,8 en 2016, objectif 1,2 pour le neuf"
-              url="https://solutions.acciona-energia.fr/blog/consommation-energie-des-data-centers"
+              url="https://solutions.acciona-energia.fr/blog/consommation-denergie-des-data-centers"
             />
             et les progrès restent lents à cause du parc existant
             <SourceTooltip
@@ -496,13 +496,13 @@ const futureSolutions = [
               calculation="6,6 MW récupérés à 28 °C via pompes à chaleur, 10 800 MWh/an visés"
               url="https://www.engie-solutions.com/fr/references/chaleur-fatale-equinix"
             />
-            . Depuis octobre 2025, la loi DDADUE impose la valorisation au-delà de 1 MW. Potentiel national : 4 à
-            13 TWh en 2035
+            . Depuis octobre 2025, la loi DDADUE impose la valorisation au-delà de 1 MW. Potentiel identifié
+            dès 2017 : 3,6 TWh sur 177 sites
             <SourceTooltip
               className="ml-1"
-              source="ADEME, prospective datacenters 2024-2060, janvier 2026"
-              calculation="4 à 13 TWh de chaleur fatale valorisable en 2035 selon les 5 trajectoires"
-              url="https://infos.ademe.fr/industrie-production-durable/2026/consommation-electrique-des-data-centers-5-scenarios-pour-demain"
+              source="ACCIONA Energía, juillet 2026, d'après une étude ADEME 2017"
+              calculation="3,6 TWh de chaleur fatale récupérables sur 177 sites ; 80 % des gisements à moins de 40 °C"
+              url="https://solutions.acciona-energia.fr/blog/consommation-denergie-des-data-centers"
             />
             .
           </>

@@ -6,21 +6,104 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from "recharts";
-import { TrendingUp, TrendingDown, Download, RotateCcw, Building2, BarChart3, Calendar, ClipboardList } from "lucide-react";
+import { TrendingUp, TrendingDown, Download, RotateCcw, Building2, BarChart3, Calendar, ClipboardList, Info } from "lucide-react";
 import { CHART_FALLBACKS } from "@/lib/chart-theme";
 import { LabeledSlider, PDF_COLORS } from "./shared";
 import { SourceTooltip } from "@/components/source-tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+
+type CloudUsage = "low" | "medium" | "high";
+
+interface EnterpriseConfig {
+  employees: number;
+  devicesPerEmployee: number;
+  renewalCycle: number;
+  cloudUsage: CloudUsage;
+  devicePrice: number;
+  energyCostPerDevice: number;
+  implementationCostPerEmployee: number;
+  discountRate: number;
+}
+
+interface ScenarioParams {
+  deviceLifeExtension: number;
+  refurbishedRate: number;
+  energyOptimization: number;
+  cloudOptimization: number;
+}
+
+function cloudCostPerEmployee(usage: CloudUsage): number {
+  return usage === "low" ? 200 : usage === "medium" ? 500 : 1000;
+}
+
+function cloudCO2PerEmployee(usage: CloudUsage): number {
+  return usage === "low" ? 50 : usage === "medium" ? 150 : 300;
+}
+
+/* Fonction utilitaire unique de calcul annuel : utilisée à la fois pour
+   les totaux (années 1-5), le graphe et le tableau. Année 0 = 0 partout
+   (aucun coût ni CO₂e compté « aujourd'hui »). Valeurs exactes non
+   arrondies : l'arrondi se fait à l'affichage comme avant. */
+function computeYear(config: EnterpriseConfig, scenario: ScenarioParams, year: number) {
+  if (year === 0) {
+    return { baselineCost: 0, optimizedCost: 0, savings: 0, baselineCO2: 0, optimizedCO2: 0, co2Savings: 0 };
+  }
+  const totalDevices = Math.round(config.employees * config.devicesPerEmployee);
+  const baseRenewalCycle = config.renewalCycle;
+  const optimizedRenewalCycle = baseRenewalCycle + scenario.deviceLifeExtension;
+
+  const baseDevicesRenewed = Math.ceil(totalDevices / baseRenewalCycle);
+  const baseEquipmentCost = baseDevicesRenewed * config.devicePrice;
+  const baseEnergyCost = totalDevices * config.energyCostPerDevice;
+  const baseCloudCost = config.employees * cloudCostPerEmployee(config.cloudUsage);
+  const baseMaintenanceCost = totalDevices * 50;
+  const baselineCost = baseEquipmentCost + baseEnergyCost + baseCloudCost + baseMaintenanceCost;
+
+  const optimizedDevicesRenewed = Math.ceil(totalDevices / optimizedRenewalCycle);
+  const refurbishedDevices = Math.round(optimizedDevicesRenewed * scenario.refurbishedRate);
+  const newDevices = optimizedDevicesRenewed - refurbishedDevices;
+
+  const optimizedEquipmentCost = newDevices * config.devicePrice + refurbishedDevices * config.devicePrice * 0.5;
+  const optimizedEnergyCost = totalDevices * config.energyCostPerDevice * (1 - scenario.energyOptimization);
+  const optimizedCloudCost = config.employees * cloudCostPerEmployee(config.cloudUsage) * (1 - scenario.cloudOptimization);
+  const optimizedMaintenanceCost = totalDevices * 50 * (scenario.deviceLifeExtension > 0 ? 1.2 : 1);
+  const optimizedCost = optimizedEquipmentCost + optimizedEnergyCost + optimizedCloudCost + optimizedMaintenanceCost;
+
+  const baseCO2Devices = baseDevicesRenewed * 205;
+  const baseCO2Usage = totalDevices * 9;
+  const baseCO2Cloud = config.employees * cloudCO2PerEmployee(config.cloudUsage);
+  const baselineCO2 = baseCO2Devices + baseCO2Usage + baseCO2Cloud;
+
+  const optimizedCO2Devices = newDevices * 205 + refurbishedDevices * 51;
+  const optimizedCO2Usage = totalDevices * 9 * (1 - scenario.energyOptimization * 0.5);
+  const optimizedCO2Cloud = config.employees * cloudCO2PerEmployee(config.cloudUsage) * (1 - scenario.cloudOptimization);
+  const optimizedCO2 = optimizedCO2Devices + optimizedCO2Usage + optimizedCO2Cloud;
+
+  return {
+    baselineCost,
+    optimizedCost,
+    savings: baselineCost - optimizedCost,
+    baselineCO2,
+    optimizedCO2,
+    co2Savings: baselineCO2 - optimizedCO2,
+  };
+}
 
 export default function EnterpriseSimulator() {
-  const [config, setConfig] = useState({
+  const [config, setConfig] = useState<EnterpriseConfig>({
     employees: 50,
     devicesPerEmployee: 2.5,
     renewalCycle: 3,
-    cloudUsage: "medium" as "low" | "medium" | "high",
+    cloudUsage: "medium",
+    devicePrice: 800,
+    energyCostPerDevice: 60,
+    implementationCostPerEmployee: 100,
+    discountRate: 4,
   })
 
   const [selectedScenario, setSelectedScenario] = useState<"baseline" | "moderate" | "ambitious">("moderate")
   const [showResults, setShowResults] = useState(false)
+  const [chartMetric, setChartMetric] = useState<"cost" | "co2">("cost")
 
   const scenarios = {
     baseline: {
@@ -53,110 +136,44 @@ export default function EnterpriseSimulator() {
   }
 
   const calculateProjections = () => {
-    const totalDevices = Math.round(config.employees * config.devicesPerEmployee)
     const years = [0, 1, 2, 3, 4, 5]
 
     const allScenarioResults = Object.entries(scenarios).map(([key, scenario]) => {
-      let totalSavings = 0
+      let grossSavings = 0
       let totalCO2Savings = 0
-      let cumulativeBaselineCost = 0
-      let cumulativeOptimizedCost = 0
+      let discountedGrossSavings = 0
+      const rate = config.discountRate / 100
 
-      for (let year = 1; year <= 5; year++) { // Calculate for 5 years
-        // Number of renewals necessary
-        const baseRenewalCycle = config.renewalCycle
-        const optimizedRenewalCycle = baseRenewalCycle + scenario.deviceLifeExtension
-
-        // Costs baseline (without optimization)
-        const baseDevicesRenewed = Math.ceil(totalDevices / baseRenewalCycle)
-        const baseEquipmentCost = baseDevicesRenewed * 800 // €
-        const baseEnergyCost = totalDevices * 60 // €/an (average consumption)
-        const baseCloudCost = config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000)
-        const baseMaintenanceCost = totalDevices * 50 // €/an
-        const baseTotalCost = baseEquipmentCost + baseEnergyCost + baseCloudCost + baseMaintenanceCost
-        cumulativeBaselineCost += baseTotalCost
-
-        // Costs optimized
-        const optimizedDevicesRenewed = Math.ceil(totalDevices / optimizedRenewalCycle)
-        const refurbishedDevices = Math.round(optimizedDevicesRenewed * scenario.refurbishedRate)
-        const newDevices = optimizedDevicesRenewed - refurbishedDevices
-
-        const optimizedEquipmentCost = newDevices * 800 + refurbishedDevices * 800 * 0.5
-        const optimizedEnergyCost = totalDevices * 60 * (1 - scenario.energyOptimization)
-        const optimizedCloudCost = config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000) * (1 - scenario.cloudOptimization)
-        const optimizedMaintenanceCost = totalDevices * 50 * (scenario.deviceLifeExtension > 0 ? 1.2 : 1) // +20 % de maintenance préventive dans les scénarios optimisés
-        const optimizedTotalCost = optimizedEquipmentCost + optimizedEnergyCost + optimizedCloudCost + optimizedMaintenanceCost
-        cumulativeOptimizedCost += optimizedTotalCost
-
-        totalSavings += (baseTotalCost - optimizedTotalCost)
-
-        // CO2 baseline
-        const baseCO2Devices = baseDevicesRenewed * 205 // kg, ADEME Impact CO₂ 2025 (fixe pro)
-        const baseCO2Usage = totalDevices * 9 // kg/an
-        const baseCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300)
-        const baseTotalCO2 = baseCO2Devices + baseCO2Usage + baseCO2Cloud
-
-        // CO2 optimized
-        const optimizedCO2Devices = newDevices * 205 + refurbishedDevices * 51 // kg, reconditionné −75 % (ADEME 2022)
-        const optimizedCO2Usage = totalDevices * 9 * (1 - scenario.energyOptimization * 0.5)
-        const optimizedCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300) * (1 - scenario.cloudOptimization)
-        const optimizedTotalCO2 = optimizedCO2Devices + optimizedCO2Usage + optimizedCO2Cloud
-
-        totalCO2Savings += (baseTotalCO2 - optimizedTotalCO2)
+      for (let year = 1; year <= 5; year++) {
+        const y = computeYear(config, scenario, year)
+        grossSavings += y.savings
+        totalCO2Savings += y.co2Savings
+        discountedGrossSavings += rate === 0 ? y.savings : y.savings / Math.pow(1 + rate, year)
       }
 
-      const implementationCost = key === "baseline" ? 0 : config.employees * 100 // Coût de mise en œuvre (formation, process)
-      const netSavings = totalSavings - implementationCost
-      const paybackMonths = netSavings > 0 ? Math.round((implementationCost / (totalSavings / 60))) : 0
+      const implementationCost = key === "baseline" ? 0 : config.employees * config.implementationCostPerEmployee
+      const netSavings = grossSavings - implementationCost
+      const netPresentValue = discountedGrossSavings - implementationCost
+      const paybackMonths = netSavings > 0 ? Math.round((implementationCost / (grossSavings / 60))) : 0
 
       return {
         id: key,
         name: scenario.name,
         totalSavings: Math.round(netSavings),
         totalEmissions: Math.round(totalCO2Savings),
+        discountedSavings: Math.round(netPresentValue),
         payback: netSavings > 0 ? paybackMonths : -1,
         projections: years.map((year) => {
-          // Recalculate for chart
-          const baseRenewalCycle = config.renewalCycle
-          const optimizedRenewalCycle = baseRenewalCycle + scenario.deviceLifeExtension
-
-          const baseDevicesRenewed = year > 0 ? Math.ceil(totalDevices / baseRenewalCycle) : 0
-          const baseEquipmentCost = baseDevicesRenewed * 800
-          // Année 0 = aujourd'hui : aucun coût annuel récurrent, comme pour le CO₂ ci-dessous
-          const baseEnergyCost = year > 0 ? totalDevices * 60 : 0
-          const baseCloudCost = year > 0 ? config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000) : 0
-          const baseMaintenanceCost = year > 0 ? totalDevices * 50 : 0
-          const baseTotalCost = baseEquipmentCost + baseEnergyCost + baseCloudCost + baseMaintenanceCost
-
-          const optimizedDevicesRenewed = year > 0 ? Math.ceil(totalDevices / optimizedRenewalCycle) : 0
-          const refurbishedDevices = Math.round(optimizedDevicesRenewed * scenario.refurbishedRate)
-          const newDevices = optimizedDevicesRenewed - refurbishedDevices
-
-          const optimizedEquipmentCost = newDevices * 800 + refurbishedDevices * 800 * 0.5
-          const optimizedEnergyCost = year > 0 ? totalDevices * 60 * (1 - scenario.energyOptimization) : 0
-          const optimizedCloudCost = year > 0 ? config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000) * (1 - scenario.cloudOptimization) : 0
-          const optimizedMaintenanceCost = year > 0 ? totalDevices * 50 * (scenario.deviceLifeExtension > 0 ? 1.2 : 1) : 0
-          const optimizedTotalCost = optimizedEquipmentCost + optimizedEnergyCost + optimizedCloudCost + optimizedMaintenanceCost
-
-          // CO2 logic for projections
-          const baseCO2Devices = year > 0 ? baseDevicesRenewed * 205 : 0
-          const baseCO2Usage = totalDevices * 9
-          const baseCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300)
-          const currentBaseTotalCO2 = year === 0 ? 0 : baseCO2Devices + baseCO2Usage + baseCO2Cloud
-
-          const optimizedCO2Devices = year > 0 ? (newDevices * 205 + refurbishedDevices * 51) : 0
-          const optimizedCO2Usage = totalDevices * 9 * (1 - scenario.energyOptimization * 0.5)
-          const optimizedCO2Cloud = config.employees * (config.cloudUsage === "low" ? 50 : config.cloudUsage === "medium" ? 150 : 300) * (1 - scenario.cloudOptimization)
-          const currentOptimizedTotalCO2 = year === 0 ? 0 : optimizedCO2Devices + optimizedCO2Usage + optimizedCO2Cloud
+          const y = computeYear(config, scenario, year)
 
           return {
             year: `Année ${year}`,
-            baselineCost: Math.round(baseTotalCost),
-            optimizedCost: Math.round(optimizedTotalCost),
-            savings: Math.round(baseTotalCost - optimizedTotalCost),
-            baselineCO2: Math.round(currentBaseTotalCO2),
-            optimizedCO2: Math.round(currentOptimizedTotalCO2),
-            co2Savings: Math.round(currentBaseTotalCO2 - currentOptimizedTotalCO2),
+            baselineCost: Math.round(y.baselineCost),
+            optimizedCost: Math.round(y.optimizedCost),
+            savings: Math.round(y.savings),
+            baselineCO2: Math.round(y.baselineCO2),
+            optimizedCO2: Math.round(y.optimizedCO2),
+            co2Savings: Math.round(y.co2Savings),
           }
         })
       }
@@ -191,18 +208,21 @@ export default function EnterpriseSimulator() {
     doc.text(`Effectif : ${config.employees} employés`, 20, 65)
     doc.text(`Équipements par employé : ${config.devicesPerEmployee}`, 20, 72)
     doc.text(`Cycle de renouvellement : ${config.renewalCycle} ans`, 20, 79)
+    doc.text(`Prix poste neuf : ${config.devicePrice.toLocaleString("fr-FR")} €, énergie : ${config.energyCostPerDevice.toLocaleString("fr-FR")} €/an/poste, mise en œuvre : ${config.implementationCostPerEmployee.toLocaleString("fr-FR")} €/employé`, 20, 86)
+    doc.text(`Taux d'actualisation : ${config.discountRate.toLocaleString("fr-FR")}${"\u00A0"}% (indicatif, à adapter à votre coût du capital)`, 20, 93)
 
     // Comparison Table
     const tableData = allScenarioResults.map(s => [
       s.name,
       s.totalSavings.toLocaleString("fr-FR") + " €",
+      s.discountedSavings.toLocaleString("fr-FR") + " €",
       s.totalEmissions.toLocaleString("fr-FR") + " kg CO₂e", // This is actually CO2 savings
       s.payback === -1 ? "Non rentable" : s.payback === 0 ? "Immédiat" : s.payback + " mois"
     ])
 
     autoTable(doc, {
-      startY: 90,
-      head: [["Scénario", "Économies (5 ans)", "CO₂ évité (5 ans)", "Retour sur investissement"]],
+      startY: 100,
+      head: [["Scénario", "Économies (5 ans)", "VAN (5 ans)", "CO₂ évité (5 ans)", "Retour sur investissement"]],
       body: tableData,
       headStyles: { fillColor: PDF_COLORS.primary },
       theme: "striped",
@@ -244,9 +264,14 @@ export default function EnterpriseSimulator() {
     projections: [],
     totalSavings: 0,
     totalEmissions: 0, // This is CO2 savings
+    discountedSavings: 0,
     payback: 0,
   };
   const scenario = scenarios[selectedScenario]
+  const implementationCost = selectedScenario === "baseline" ? 0 : config.employees * config.implementationCostPerEmployee
+  const roiPercent = implementationCost > 0 && results.totalSavings > 0
+    ? Math.round((results.totalSavings / implementationCost) * 100)
+    : 0
 
   return (
     <div className="space-y-6">
@@ -336,6 +361,71 @@ export default function EnterpriseSimulator() {
                 </RadioGroup>
               </div>
 
+              <div className="space-y-3">
+                <div className="flex justify-between">
+                  <Label className="text-foreground">Prix d'un poste neuf</Label>
+                  <span className="font-semibold text-foreground">{config.devicePrice.toLocaleString("fr-FR")} €</span>
+                </div>
+                <LabeledSlider
+                  label="Prix d'un poste neuf"
+                  value={[config.devicePrice]}
+                  onValueChange={([value]) => setConfig({ ...config, devicePrice: value })}
+                  min={400}
+                  max={1500}
+                  step={50}
+                  unit=" €"
+                />
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex justify-between">
+                  <Label className="text-foreground">Énergie par poste et par an</Label>
+                  <span className="font-semibold text-foreground">{config.energyCostPerDevice.toLocaleString("fr-FR")} €</span>
+                </div>
+                <LabeledSlider
+                  label="Énergie par poste et par an"
+                  value={[config.energyCostPerDevice]}
+                  onValueChange={([value]) => setConfig({ ...config, energyCostPerDevice: value })}
+                  min={20}
+                  max={150}
+                  step={5}
+                  unit=" €"
+                />
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex justify-between">
+                  <Label className="text-foreground">Mise en œuvre par employé</Label>
+                  <span className="font-semibold text-foreground">{config.implementationCostPerEmployee.toLocaleString("fr-FR")} €</span>
+                </div>
+                <LabeledSlider
+                  label="Mise en œuvre par employé"
+                  value={[config.implementationCostPerEmployee]}
+                  onValueChange={([value]) => setConfig({ ...config, implementationCostPerEmployee: value })}
+                  min={0}
+                  max={300}
+                  step={10}
+                  unit=" €"
+                />
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex justify-between">
+                  <Label className="text-foreground">Taux d'actualisation</Label>
+                  <span className="font-semibold text-foreground">{config.discountRate.toLocaleString("fr-FR")}{" "}%</span>
+                </div>
+                <LabeledSlider
+                  label="Taux d'actualisation"
+                  value={[config.discountRate]}
+                  onValueChange={([value]) => setConfig({ ...config, discountRate: value })}
+                  min={0}
+                  max={10}
+                  step={0.5}
+                  unit=" %"
+                />
+                <p className="text-xs text-muted-foreground">Indicatif, à adapter à votre coût du capital.</p>
+              </div>
+
               <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg col-span-full md:col-span-2">
                 <div className="text-sm text-muted-foreground">
                   <strong>Votre parc :</strong> {Math.round(config.employees * config.devicesPerEmployee)} équipements pour{" "}
@@ -363,9 +453,9 @@ export default function EnterpriseSimulator() {
                   <p className="text-sm text-muted-foreground mb-3">{s.description}</p>
                   {key !== "baseline" && (
                     <ul className="text-xs space-y-1 text-muted-foreground">
-                      <li>• Durée de vie: +{s.deviceLifeExtension} ans</li>
-                      <li>• Reconditionné: {s.refurbishedRate * 100}%</li>
-                      <li>• Énergie: -{s.energyOptimization * 100}%</li>
+                      <li>• Durée de vie : +{s.deviceLifeExtension.toLocaleString("fr-FR")} ans</li>
+                      <li>• Reconditionné : {(s.refurbishedRate * 100).toLocaleString("fr-FR")}{" "}%</li>
+                      <li>• Énergie : −{(s.energyOptimization * 100).toLocaleString("fr-FR")}{" "}%</li>
                     </ul>
                   )}
                 </button>
@@ -394,17 +484,37 @@ export default function EnterpriseSimulator() {
                     <div className="text-3xl font-bold text-green-600 dark:text-green-400">
                       {(results.totalSavings / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 0 })} k€
                     </div>
-                    <div className="text-sm text-muted-foreground">Économies totales</div>
+                    <div className="text-sm text-muted-foreground">Économies nettes (5 ans)</div>
+                    <div className="mt-1 text-xs text-muted-foreground">
+                      VAN : {(results.discountedSavings / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 0 })} k€{" "}
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <button
+                            type="button"
+                            aria-label={`Valeur actuelle nette : économies futures ramenées à aujourd'hui avec un taux de ${config.discountRate.toLocaleString("fr-FR")}${" "}%. Calcul : somme des économies annuelles divisées par (1 + taux) puissance année, moins la mise en œuvre.`}
+                            className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring align-super"
+                          >
+                            <Info className="h-3.5 w-3.5" />
+                          </button>
+                        </TooltipTrigger>
+                        <TooltipContent side="top" className="max-w-xs">
+                          <p>
+                            La VAN ramène les économies futures à leur valeur d'aujourd'hui : chaque année est divisée
+                            par (1 + taux){` puissance année`}, puis la mise en œuvre est déduite.
+                          </p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </div>
                   </div>
                   <div className="bg-card p-4 rounded-lg text-center border border-border">
                     <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">
                       {(results.totalEmissions / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} t
                     </div>
-                    <div className="text-sm text-muted-foreground">CO₂ évité</div>
+                    <div className="text-sm text-muted-foreground">CO₂e évité</div>
                   </div>
                   <div className="bg-card p-4 rounded-lg text-center border border-border">
                     <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">
-                      {results.totalSavings > 0 ? Math.round((results.totalSavings / (config.employees * 100)) * 100) : 0}%
+                      {implementationCost > 0 ? `${roiPercent.toLocaleString("fr-FR")}${" "}%` : "—"}
                     </div>
                     <div className="text-sm text-muted-foreground">ROI</div>
                   </div>
@@ -414,32 +524,58 @@ export default function EnterpriseSimulator() {
                   </div>
                 </div>
                 <p className="mt-4 text-xs text-muted-foreground">
-                  Hypothèses : 800 € par poste renouvelé, 60 €/an d'énergie par poste, cloud 200/500/1 000 €/an selon
+                  Hypothèses : {config.devicePrice.toLocaleString("fr-FR")} € par poste renouvelé (reconditionné à moitié prix), {config.energyCostPerDevice.toLocaleString("fr-FR")} €/an d'énergie par poste, cloud 200/500/1 000 €/an selon
                   l'usage, maintenance 50 €/an/poste (+20 % de préventif dans les scénarios optimisés), mise en œuvre
-                  100 €/employé. ROI = économies nettes ÷ mise en œuvre. CO₂e : 205 kg par poste neuf, 51 kg reconditionné (ADEME 2022), usage 9 kg/an (ADEME, Impact CO₂ 2025 <SourceTooltip source="ADEME, Impact CO₂ / Base Empreinte, 2025" info="205 kg par poste fixe neuf, 51 kg reconditionné (−75 %, ADEME 2022), usage 9 kg/an" />).
+                  {` ${config.implementationCostPerEmployee.toLocaleString("fr-FR")} €/employé`}. ROI = économies nettes ÷ mise en œuvre. VAN calculée au taux de {config.discountRate.toLocaleString("fr-FR")}{" "}% (indicatif, à adapter à votre coût du capital). CO₂e : 205 kg par poste neuf, 51 kg reconditionné (ADEME 2022), usage 9 kg/an (ADEME, Impact CO₂ 2025 <SourceTooltip source="ADEME, Impact CO₂ / Base Empreinte, 2025" info="205 kg par poste fixe neuf, 51 kg reconditionné (−75 %, ADEME 2022), usage 9 kg/an" />).
                 </p>
               </div>
 
               {/* Graphique de projection */}
               <div className="bg-card p-6 rounded-lg border border-border">
-                <h4 className="font-semibold text-lg mb-4 text-foreground">
-                  <TrendingDown className="mr-2 inline h-5 w-5" />Projection des coûts sur 5 ans
-                </h4>
+                <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+                  <h4 className="font-semibold text-lg text-foreground">
+                    <TrendingDown className="mr-2 inline h-5 w-5" />{chartMetric === "cost" ? "Projection des coûts sur 5 ans" : "Projection des émissions sur 5 ans"}
+                  </h4>
+                  <div className="flex gap-2" role="group" aria-label="Choisir la grandeur affichée">
+                    <Button
+                      type="button"
+                      variant={chartMetric === "cost" ? "default" : "outline"}
+                      size="sm"
+                      aria-pressed={chartMetric === "cost"}
+                      onClick={() => setChartMetric("cost")}
+                    >
+                      € (coûts)
+                    </Button>
+                    <Button
+                      type="button"
+                      variant={chartMetric === "co2" ? "default" : "outline"}
+                      size="sm"
+                      aria-pressed={chartMetric === "co2"}
+                      onClick={() => setChartMetric("co2")}
+                    >
+                      CO₂e (émissions)
+                    </Button>
+                  </div>
+                </div>
                 <ResponsiveContainer width="100%" height={300}>
                   <LineChart data={results.projections}>
                     <CartesianGrid strokeDasharray="3 3" stroke={CHART_FALLBACKS.grid} />
                     <XAxis dataKey="year" stroke={CHART_FALLBACKS.tick} />
                     <YAxis
                       stroke={CHART_FALLBACKS.tick}
-                      tickFormatter={(value) => `${(value / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 0 })} k€`}
+                      tickFormatter={(value) => chartMetric === "cost"
+                        ? `${(value / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 0 })} k€`
+                        : `${(value / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 0 })} t`}
                     />
                     <RechartsTooltip
-                      formatter={(value: number) => [`${(value / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} k€`, ""]}
+                      formatter={(value: number) => chartMetric === "cost"
+                        ? [`${(value / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} k€`, ""]
+                        : [`${Number(value).toLocaleString("fr-FR", { maximumFractionDigits: 0 })} kg CO₂e`, ""]}
                       contentStyle={{ backgroundColor: "var(--card)" }}
                     />
                     <Line
                       type="monotone"
-                      dataKey="baselineCost"
+                      dataKey={chartMetric === "cost" ? "baselineCost" : "baselineCO2"}
                       stroke={CHART_FALLBACKS.slate}
                       name="Sans changement"
                       strokeWidth={2}
@@ -447,8 +583,8 @@ export default function EnterpriseSimulator() {
                     />
                     <Line
                       type="monotone"
-                      dataKey="optimizedCost"
-                      stroke={CHART_FALLBACKS.emerald}
+                      dataKey={chartMetric === "cost" ? "optimizedCost" : "optimizedCO2"}
+                      stroke={chartMetric === "cost" ? CHART_FALLBACKS.emerald : CHART_FALLBACKS.teal}
                       name={scenario.name}
                       strokeWidth={3}
                       dot
@@ -478,7 +614,7 @@ export default function EnterpriseSimulator() {
                         <th className="text-right py-2 px-3 text-muted-foreground">Coût baseline</th>
                         <th className="text-right py-2 px-3 text-muted-foreground">Coût optimisé</th>
                         <th className="text-right py-2 px-3 text-green-600 dark:text-green-400">Économies</th>
-                        <th className="text-right py-2 px-3 text-emerald-600 dark:text-emerald-400">CO₂ évité</th>
+                        <th className="text-right py-2 px-3 text-emerald-600 dark:text-emerald-400">CO₂e évité</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -516,7 +652,7 @@ export default function EnterpriseSimulator() {
                   </table>
                   {selectedScenario !== "baseline" && (
                     <p className="mt-2 text-xs text-muted-foreground">
-                      Total net : mise en œuvre ({(config.employees * 100).toLocaleString("fr-FR")} €, soit 100 €/employé) déduite des économies annuelles ci-dessus.
+                      Total net : mise en œuvre ({implementationCost.toLocaleString("fr-FR")} €, soit {config.implementationCostPerEmployee.toLocaleString("fr-FR")} €/employé) déduite des économies annuelles ci-dessus. VAN au taux de {config.discountRate.toLocaleString("fr-FR")}{" "}% : {(results.discountedSavings / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 0 })} k€.
                     </p>
                   )}
                 </div>

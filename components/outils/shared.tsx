@@ -19,9 +19,12 @@ interface LabeledSliderProps {
   onValueChange: (value: number[]) => void
   unit?: string
   label: string
+  // Diviseur d'affichage des graduations : le slider "appareils par employé"
+  // manipule value × 10 (10-50) pour des pas de 0,5, mais affiche 1-5.
+  tickDivisor?: number
 }
 
-export function LabeledSlider({ value, min, max, step, onValueChange, unit, label }: LabeledSliderProps) {
+export function LabeledSlider({ value, min, max, step, onValueChange, unit, label, tickDivisor = 1 }: LabeledSliderProps) {
   return (
     <div className="space-y-3">
       <div className="flex items-center gap-3">
@@ -33,7 +36,7 @@ export function LabeledSlider({ value, min, max, step, onValueChange, unit, labe
           disabled={value[0] <= min}
           aria-label={`Diminuer ${label}`}
         >
-          -
+          −
         </Button>
         <div className="flex-1 relative pb-6">
           <Slider value={value} onValueChange={onValueChange} min={min} max={max} step={step} aria-label={label} className="my-2" />
@@ -42,7 +45,7 @@ export function LabeledSlider({ value, min, max, step, onValueChange, unit, labe
               <span key={i} className="flex flex-col items-center gap-1">
                 <span className="h-1 w-px bg-border" />
                 <span>
-                  {Math.round(min + ((max - min) / 4) * i)}
+                  {Math.round((min + ((max - min) / 4) * i) / tickDivisor)}
                   {unit}
                 </span>
               </span>

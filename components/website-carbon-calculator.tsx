@@ -103,7 +103,7 @@ export function WebsiteCarbonCalculator() {
   const parsedWeight = parseFloat(weightMB.replace(",", "."))
   const parsedVisits = parseInt(visits.replace(/[\s\u202f]/g, ""), 10)
   const inputsValid =
-    Number.isFinite(parsedWeight) && parsedWeight > 0 && Number.isFinite(parsedVisits) && parsedVisits > 0
+    Number.isFinite(parsedWeight) && parsedWeight > 0 && parsedWeight <= 1000 && Number.isFinite(parsedVisits) && parsedVisits > 0 && parsedVisits <= 100000000
 
   const estimate = async () => {
     if (!inputsValid || isAnalyzing) return
@@ -141,6 +141,9 @@ export function WebsiteCarbonCalculator() {
 
   const toggleGreenAfterResult = (checked: boolean) => {
     setGreenHost(checked)
+    // La bascule manuelle remplace la vérification auto : on oublie le statut
+    // Green Web Foundation pour afficher "saisie manuelle".
+    setGwf(null)
     setResults((prev) => {
       if (!prev) return prev
       const { co2PerVisit, co2PerMonth } = computeEstimation(prev.weightMB, prev.visits, checked)
@@ -197,9 +200,8 @@ export function WebsiteCarbonCalculator() {
                 </Label>
                 <Input
                   id="poids"
-                  type="number"
-                  min="0.1"
-                  step="0.1"
+                  type="text"
+                  inputMode="decimal"
                   value={weightMB}
                   onChange={(e) => setWeightMB(e.target.value)}
                   className="dark:bg-slate-700 dark:text-gray-100 dark:border-slate-600"
@@ -322,7 +324,7 @@ export function WebsiteCarbonCalculator() {
   const rating = getCarbonRating(results.co2PerVisit)
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6" aria-live="polite">
       <Card className="shadow-lg dark:bg-slate-800">
         <CardHeader>
           <div className="flex items-center justify-between">
@@ -403,6 +405,11 @@ export function WebsiteCarbonCalculator() {
                     `La vérification automatique a échoué pour ${gwf.domain} : la case ci-dessous reflète votre saisie.`}
                   {gwf?.status === "skipped" && "Pas d'URL saisie : la case ci-dessous reflète votre saisie."}
                 </p>
+                {gwf?.status === "failed" && (
+                  <Button size="sm" variant="outline" className="mt-2" onClick={estimate} disabled={isAnalyzing}>
+                    Réessayer la vérification
+                  </Button>
+                )}
                 <div className="flex items-center gap-2 mt-3">
                   <Checkbox
                     id="hebergeur-vert-resultat"

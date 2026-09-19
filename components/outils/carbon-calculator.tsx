@@ -5,8 +5,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { Calculator, Download, Share2, Check } from "lucide-react";
+import { Calculator, Printer, Share2, Check } from "lucide-react";
 import { LabeledSlider } from "./shared";
+import { SourceTooltip } from "@/components/source-tooltip";
+
+const DEVICE_LABELS: Record<string, string> = {
+  smartphone: "Smartphone",
+  laptop: "Ordinateur portable",
+  tablet: "Tablette",
+  desktop: "Ordinateur fixe",
+  tv: "Télévision",
+};
 
 export default function CarbonCalculator() {
   const [devices, setDevices] = useState({
@@ -95,6 +104,7 @@ export default function CarbonCalculator() {
                       <Button
                         size="sm"
                         variant="outline"
+                        aria-label={`Retirer un appareil : ${DEVICE_LABELS[device] ?? device}`}
                         onClick={() =>
                           setDevices({
                             ...devices,
@@ -110,6 +120,7 @@ export default function CarbonCalculator() {
                       <Button
                         size="sm"
                         variant="outline"
+                        aria-label={`Ajouter un appareil : ${DEVICE_LABELS[device] ?? device}`}
                         onClick={() =>
                           setDevices({
                             ...devices,
@@ -251,7 +262,7 @@ export default function CarbonCalculator() {
             <div className="space-y-4">
               <div>
                 <div className="flex justify-between text-sm mb-2 text-foreground">
-                  <span>Comparé à l'empreinte numérique mondiale par internaute ({averageDigitalUser} kg)</span>
+                  <span>Comparé à l'empreinte numérique mondiale par internaute ({averageDigitalUser} kg) <SourceTooltip source="GreenIT, Étude empreinte numérique mondiale (EENM), 2025" calculation="1,8 Gt CO₂e ÷ ~5,35 Md d'internautes ≈ 330 kg CO₂e/an" /></span>
                   <span className="font-semibold">{percentage}%</span>
                 </div>
                 <Progress value={Math.min(percentage, 100)} className="h-3" aria-label="Comparé à l'empreinte numérique mondiale par internaute" />
@@ -280,7 +291,7 @@ export default function CarbonCalculator() {
                   <li>≈ {Math.round(totalFootprint / 7)} repas avec bœuf</li>
                 </ul>
                 <p className="mt-3 text-xs text-muted-foreground">
-                  Hypothèses : fabrication amortie sur la durée de vie saisie, usage au prorata des heures (base 24 h/j). Voiture 0,17 kg CO₂/km (ADEME 2023). Streaming compté en
+                  Hypothèses : fabrication amortie sur la durée de vie saisie, usage au prorata des heures (base 24 h/j). Voiture 0,17 kg CO₂/km (ADEME, Base Empreinte 2023 <SourceTooltip source="ADEME, Base Empreinte, 2023" info="Facteur moyen voiture thermique en France" />). Streaming compté en
                   qualité SD (~31 g/h), réseaux sociaux hors vidéo (~7 g/h), e-mail ~4 g, cloud ~0,24 g/Go/an
                   (ADEME, Impact CO₂ / Base Empreinte).
                 </p>
@@ -293,8 +304,8 @@ export default function CarbonCalculator() {
                 variant="outline"
                 onClick={() => window.print()}
               >
-                <Download className="w-4 h-4 mr-2" />
-                Télécharger le rapport
+                <Printer className="w-4 h-4 mr-2" />
+                Imprimer le rapport
               </Button>
               <Button
                 className="flex-1 bg-card text-foreground hover:bg-secondary border border-border"
@@ -327,7 +338,7 @@ export default function CarbonCalculator() {
             </h3>
             <ul className="space-y-2 text-sm text-foreground">
               {totalFootprint > averageDigitalUser && (
-                <li>• Votre empreinte est supérieure à la moyenne. Consultez nos guides d'action pour la réduire.</li>
+                <li>• Votre empreinte dépasse la moyenne : pas de panique, nos guides d'action peuvent vous aider à la réduire.</li>
               )}
               {devices.smartphone.age < 3 && (
                 <li>• Conservez votre smartphone au moins 5 ans pour amortir son impact de fabrication.</li>
@@ -338,7 +349,7 @@ export default function CarbonCalculator() {
               {cloudUsage.email > 100 && (
                 <li>• Nettoyez régulièrement votre boîte mail et désabonnez-vous des newsletters inutiles.</li>
               )}
-              <li>• Privilégiez le reconditionné pour vos prochains achats (~75 % d'impact en moins, ADEME 2022).</li>
+              <li>• Privilégiez le reconditionné pour vos prochains achats (~75 % d'impact en moins <SourceTooltip source="ADEME, 2022" info="Impact du produit reconditionné réduit d'environ 75 % par rapport au neuf" />).</li>
             </ul>
           </div>
         </CardContent>

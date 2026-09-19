@@ -157,6 +157,28 @@ export default function MythesPage() {
       source: "Code de la consommation (garantie 2 ans), ADEME 2022",
       relatedLink: { label: "Comprendre le reconditionné", href: "/cas-pratiques" },
     },
+    {
+      id: "13",
+      category: "Usage",
+      icon: <Zap className="h-5 w-5" />,
+      myth: "Rallumer une TV consomme plus que la laisser en veille",
+      reality: "Faux - Même un démarrage gourmand coûte moins cher que 10 h de veille",
+      explanation:
+        "Pire cas mesuré : un grand OLED 65 pouces qui démarrerait 1 minute à pleine puissance (environ 150 à 200 W en HDR) consomme environ 3 Wh — moins que les environ 5 Wh de 10 h de veille à 0,5 W (Tom's Guide 2024, Capital 2024). Et en veille connectée (réveil vocal, casting), certains modèles montent à 2 W voire 5 à 14 W en laboratoire (DOE et Pacific Crest 2021) : désactiver ces fonctions rapporte plus que tout le débat extinction/veille.",
+      source: "Tom's Guide 2024, Capital 2024, DOE/Pacific Crest 2021",
+      relatedLink: { label: "Voir la FAQ sur l'extinction", href: "/faq" },
+    },
+    {
+      id: "14",
+      category: "Équipement",
+      icon: <Smartphone className="h-5 w-5" />,
+      myth: "Éteindre et rallumer use les appareils, mieux vaut laisser en veille",
+      reality: "Nuancé - Aucune usure significative, sauf pour les imprimantes jet d'encre",
+      explanation:
+        "L'électronique moderne supporte très bien les cycles marche/arrêt. Une box en veille profonde consomme moins de 0,3 W (Orange et SoftAtHome 2022) et un PC éteint 0,27 W (ASUS 2022) : éteindre reste gagnant. Seule exception : l'imprimante jet d'encre, qui lance un cycle de nettoyage — donc consomme de l'encre — à chaque rallumage.",
+      source: "Orange/SoftAtHome 2022, ASUS ErP 2022, Epson",
+      relatedLink: { label: "Découvrir les actions efficaces", href: "/agir" },
+    },
   ]
 
   const categories = ["all", "Usage", "Équipement", "Recyclage", "Développement"]

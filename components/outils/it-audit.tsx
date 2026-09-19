@@ -126,17 +126,31 @@ export default function ITAudit() {
     if (score >= 80) return { grade: "A", color: "text-emerald-600 dark:text-emerald-400", label: "Excellent" }
     if (score >= 60) return { grade: "B", color: "text-teal-600 dark:text-teal-400", label: "Bon" }
     if (score >= 40) return { grade: "C", color: "text-yellow-600 dark:text-yellow-400", label: "À améliorer" }
-    if (score >= 20) return { grade: "D", color: "text-orange-600 dark:text-orange-400", label: "Insuffisant" }
-    return { grade: "E", color: "text-red-600 dark:text-red-400", label: "Critique" }
+    if (score >= 20) return { grade: "D", color: "text-orange-600 dark:text-orange-400", label: "À renforcer" }
+    return { grade: "E", color: "text-red-600 dark:text-red-400", label: "Prioritaire" }
+  }
+
+  // Couleurs du badge dans le PDF, calées sur les teintes de l'écran
+  const getGradePdfColor = (grade: string): [number, number, number] => {
+    switch (grade) {
+      case "A": return [5, 150, 105] // emerald-600
+      case "B": return [13, 148, 136] // teal-600
+      case "C": return [202, 138, 4] // yellow-600
+      case "D": return [234, 88, 12] // orange-600
+      default: return [220, 38, 38] // red-600
+    }
   }
 
   const exportPDF = async () => {
     const { default: jsPDF } = await import("jspdf")
     const { autoTable } = await import("jspdf-autotable")
-    const doc = new jsPDF()
     const auditResults = calculateResults()
+    if (auditResults.totalDevices === 0) return // parc vide : rien à exporter
+    const doc = new jsPDF()
     const scoreGrade = getScoreGrade(auditResults.ecoScore)
-    const timestamp = new Date().toLocaleDateString("fr-FR")
+    const now = new Date()
+    const timestamp = now.toLocaleDateString("fr-FR")
+    const fileStamp = `${timestamp.replace(/\//g, "-")}-${now.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" }).replace(":", "h")}`
 
     // Header
     doc.setFillColor(PDF_COLORS.primary[0], PDF_COLORS.primary[1], PDF_COLORS.primary[2])
@@ -153,8 +167,8 @@ export default function ITAudit() {
     doc.text("Résumé de l'impact", 20, 55)
 
     doc.setFontSize(12)
-    doc.text(`Empreinte totale : ${auditResults.totalCO2.toFixed(1)} kg CO₂e / an`, 20, 65)
-    doc.text(`Économies possibles : ${auditResults.potentialSavings.toFixed(1)} kg CO₂e (gain à l'achat)`, 20, 72);
+    doc.text(`Empreinte totale : ${auditResults.totalCO2.toLocaleString("fr-FR")} kg CO₂e / an`, 20, 65)
+    doc.text(`Économies possibles : ${auditResults.potentialSavings.toLocaleString("fr-FR")} kg CO₂e (gain à l'achat)`, 20, 72);
 
     // Score Badge
     doc.setDrawColor(200, 200, 200)
@@ -162,7 +176,8 @@ export default function ITAudit() {
     doc.setFontSize(10)
     doc.text("Score Éco-IT", 145, 58)
     doc.setFontSize(24)
-    doc.setTextColor(scoreGrade.color.includes("emerald") ? 5 : scoreGrade.color.includes("red") ? 200 : 0, scoreGrade.color.includes("emerald") ? 150 : 0, 0) // Simplified color mapping for PDF
+    const gradeColor = getGradePdfColor(scoreGrade.grade)
+    doc.setTextColor(gradeColor[0], gradeColor[1], gradeColor[2])
     doc.text(scoreGrade.grade, 160, 72)
 
     // Inventory Table
@@ -170,7 +185,7 @@ export default function ITAudit() {
       item.name,
       item.count,
       item.avgAge + " ans",
-      item.co2.toFixed(1) + " kg"
+      item.co2.toLocaleString("fr-FR") + " kg"
     ])
 
     autoTable(doc, {
@@ -215,7 +230,7 @@ export default function ITAudit() {
     doc.setTextColor(PDF_COLORS.lightText[0], PDF_COLORS.lightText[1], PDF_COLORS.lightText[2])
     doc.text("Le Green IT en clair - Pour un numérique plus responsable", 105, 285, { align: "center" })
 
-    doc.save(`Audit-Green-IT-${timestamp.replace(/\//g, "-")}.pdf`)
+    doc.save(`Audit-Green-IT-${fileStamp}.pdf`)
   }
 
   const scoreGrade = getScoreGrade(results.ecoScore)
@@ -394,7 +409,7 @@ export default function ITAudit() {
                                 : "text-red-600 dark:text-red-400"
                               }`}
                           >
-                            {item.status === "good" ? "OK" : item.status === "warning" ? "À surveiller" : "Critique"}
+                            {item.status === "good" ? "OK" : item.status === "warning" ? "À surveiller" : "À renouveler"}
                           </div>
                         </div>
                       </div>
@@ -415,7 +430,8 @@ export default function ITAudit() {
                   </div>
                   <p className="text-sm text-muted-foreground">
                     En remplaçant les {results.renewalNeeded} équipements à renouveler par du reconditionné, vous économiseriez
-                    l'équivalent de {Math.round(results.potentialSavings / 0.17)} km en voiture.
+                    l'équivalent de {Math.round(results.potentialSavings / 0.17).toLocaleString("fr-FR")} km en voiture (0,17 kg/km, ADEME 2023).
+                    Hypothèse prudente : bas de la fourchette −75 à −90 % (ADEME 2022).
                   </p>
                 </div>
               )}

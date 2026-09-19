@@ -9,16 +9,14 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsToolti
 import { TrendingUp, TrendingDown, Download, RotateCcw, Building2, BarChart3, Calendar, ClipboardList } from "lucide-react";
 import { CHART_FALLBACKS } from "@/lib/chart-theme";
 import { LabeledSlider, PDF_COLORS } from "./shared";
+import { SourceTooltip } from "@/components/source-tooltip";
 
 export default function EnterpriseSimulator() {
   const [config, setConfig] = useState({
     employees: 50,
     devicesPerEmployee: 2.5,
-    averageDeviceAge: 3,
     renewalCycle: 3,
     cloudUsage: "medium" as "low" | "medium" | "high",
-    datacenters: 0,
-    currentInitiatives: [] as string[],
   })
 
   const [selectedScenario, setSelectedScenario] = useState<"baseline" | "moderate" | "ambitious">("moderate")
@@ -28,7 +26,7 @@ export default function EnterpriseSimulator() {
     baseline: {
       name: "Scénario de base",
       description: "Aucun changement de pratiques",
-      color: "gray",
+      selectedStyle: "border-gray-500 bg-gray-50 dark:bg-gray-900/20",
       deviceLifeExtension: 0,
       refurbishedRate: 0,
       energyOptimization: 0,
@@ -37,7 +35,7 @@ export default function EnterpriseSimulator() {
     moderate: {
       name: "Green IT modéré",
       description: "Extension durée de vie + reconditionné partiel",
-      color: "teal",
+      selectedStyle: "border-teal-500 bg-teal-50 dark:bg-teal-900/20",
       deviceLifeExtension: 1.5, // +1.5 ans
       refurbishedRate: 0.3, // 30 % reconditionné
       energyOptimization: 0.15, // -15 % énergie
@@ -46,7 +44,7 @@ export default function EnterpriseSimulator() {
     ambitious: {
       name: "Green IT ambitieux",
       description: "Stratégie complète de sobriété numérique",
-      color: "emerald",
+      selectedStyle: "border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20",
       deviceLifeExtension: 2.5, // +2.5 ans
       refurbishedRate: 0.6, // 60 % reconditionné
       energyOptimization: 0.3, // -30 % énergie
@@ -124,9 +122,10 @@ export default function EnterpriseSimulator() {
 
           const baseDevicesRenewed = year > 0 ? Math.ceil(totalDevices / baseRenewalCycle) : 0
           const baseEquipmentCost = baseDevicesRenewed * 800
-          const baseEnergyCost = totalDevices * 60
-          const baseCloudCost = config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000)
-          const baseMaintenanceCost = totalDevices * 50
+          // Année 0 = aujourd'hui : aucun coût annuel récurrent, comme pour le CO₂ ci-dessous
+          const baseEnergyCost = year > 0 ? totalDevices * 60 : 0
+          const baseCloudCost = year > 0 ? config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000) : 0
+          const baseMaintenanceCost = year > 0 ? totalDevices * 50 : 0
           const baseTotalCost = baseEquipmentCost + baseEnergyCost + baseCloudCost + baseMaintenanceCost
 
           const optimizedDevicesRenewed = year > 0 ? Math.ceil(totalDevices / optimizedRenewalCycle) : 0
@@ -134,9 +133,9 @@ export default function EnterpriseSimulator() {
           const newDevices = optimizedDevicesRenewed - refurbishedDevices
 
           const optimizedEquipmentCost = newDevices * 800 + refurbishedDevices * 800 * 0.5
-          const optimizedEnergyCost = totalDevices * 60 * (1 - scenario.energyOptimization)
-          const optimizedCloudCost = config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000) * (1 - scenario.cloudOptimization)
-          const optimizedMaintenanceCost = totalDevices * 50 * (scenario.deviceLifeExtension > 0 ? 1.2 : 1)
+          const optimizedEnergyCost = year > 0 ? totalDevices * 60 * (1 - scenario.energyOptimization) : 0
+          const optimizedCloudCost = year > 0 ? config.employees * (config.cloudUsage === "low" ? 200 : config.cloudUsage === "medium" ? 500 : 1000) * (1 - scenario.cloudOptimization) : 0
+          const optimizedMaintenanceCost = year > 0 ? totalDevices * 50 * (scenario.deviceLifeExtension > 0 ? 1.2 : 1) : 0
           const optimizedTotalCost = optimizedEquipmentCost + optimizedEnergyCost + optimizedCloudCost + optimizedMaintenanceCost
 
           // CO2 logic for projections
@@ -171,7 +170,9 @@ export default function EnterpriseSimulator() {
     const { autoTable } = await import("jspdf-autotable")
     const doc = new jsPDF()
     const allScenarioResults = calculateProjections()
-    const timestamp = new Date().toLocaleDateString("fr-FR")
+    const now = new Date()
+    const timestamp = now.toLocaleDateString("fr-FR")
+    const fileStamp = `${timestamp.replace(/\//g, "-")}-${now.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" }).replace(":", "h")}`
 
     // Header
     doc.setFillColor(PDF_COLORS.primary[0], PDF_COLORS.primary[1], PDF_COLORS.primary[2])
@@ -235,7 +236,7 @@ export default function EnterpriseSimulator() {
       doc.text(`${index + 1}. ${action}`, 20, finalY + 10 + (index * 7))
     })
 
-    doc.save(`Simulation-Green-IT-${timestamp.replace(/\//g, "-")}.pdf`)
+    doc.save(`Simulation-Green-IT-${fileStamp}.pdf`)
   }
 
   const resultsForSelectedScenario = calculateProjections().find(r => r.id === selectedScenario);
@@ -293,6 +294,7 @@ export default function EnterpriseSimulator() {
                   max={50}
                   step={5}
                   unit=""
+                  tickDivisor={10}
                 />
               </div>
 
@@ -351,8 +353,9 @@ export default function EnterpriseSimulator() {
                 <button
                   key={key}
                   onClick={() => setSelectedScenario(key as typeof selectedScenario)}
+                  aria-pressed={selectedScenario === key}
                   className={`p-4 rounded-xl border-2 text-left transition-all ${selectedScenario === key
-                    ? `border-${s.color}-500 bg-${s.color}-50 dark:bg-${s.color}-900/20 shadow-lg`
+                    ? `${s.selectedStyle} shadow-lg`
                     : "border-border hover:border-border"
                     }`}
                 >
@@ -406,14 +409,14 @@ export default function EnterpriseSimulator() {
                     <div className="text-sm text-muted-foreground">ROI</div>
                   </div>
                   <div className="bg-card p-4 rounded-lg text-center border border-border">
-                    <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">{results.payback === -1 ? "-" : results.payback}</div>
-                    <div className="text-sm text-muted-foreground">{results.payback === -1 ? "Non rentable sur 5 ans" : "Mois pour rentabilité"}</div>
+                    <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">{selectedScenario === "baseline" ? "—" : results.payback === -1 ? "-" : results.payback}</div>
+                    <div className="text-sm text-muted-foreground">{selectedScenario === "baseline" ? "Scénario de référence" : results.payback === -1 ? "Non rentable sur 5 ans" : "Mois pour rentabilité"}</div>
                   </div>
                 </div>
                 <p className="mt-4 text-xs text-muted-foreground">
                   Hypothèses : 800 € par poste renouvelé, 60 €/an d'énergie par poste, cloud 200/500/1 000 €/an selon
                   l'usage, maintenance 50 €/an/poste (+20 % de préventif dans les scénarios optimisés), mise en œuvre
-                  100 €/employé. CO₂e : 205 kg par poste neuf, 51 kg reconditionné (ADEME 2022), usage 9 kg/an (ADEME, Impact CO₂ 2025).
+                  100 €/employé. ROI = économies nettes ÷ mise en œuvre. CO₂e : 205 kg par poste neuf, 51 kg reconditionné (ADEME 2022), usage 9 kg/an (ADEME, Impact CO₂ 2025 <SourceTooltip source="ADEME, Impact CO₂ / Base Empreinte, 2025" info="205 kg par poste fixe neuf, 51 kg reconditionné (−75 %, ADEME 2022), usage 9 kg/an" />).
                 </p>
               </div>
 
@@ -511,6 +514,11 @@ export default function EnterpriseSimulator() {
                       </tr>
                     </tfoot>
                   </table>
+                  {selectedScenario !== "baseline" && (
+                    <p className="mt-2 text-xs text-muted-foreground">
+                      Total net : mise en œuvre ({(config.employees * 100).toLocaleString("fr-FR")} €, soit 100 €/employé) déduite des économies annuelles ci-dessus.
+                    </p>
+                  )}
                 </div>
               </div>
 

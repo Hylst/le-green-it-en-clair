@@ -112,7 +112,7 @@ export default function CloudComparator() {
         case "renewable":
           return b.renewableEnergy - a.renewableEnergy
         case "name":
-          return a.name.localeCompare(b.name)
+          return a.name.localeCompare(b.name, "fr")
         default:
           return 0
       }
@@ -195,8 +195,8 @@ export default function CloudComparator() {
                 (solaire, éolien, hydraulique).
               </li>
               <li>
-                <strong>Score éco</strong> : Score indicatif de durabilité, basé sur le PUE, % renouvelable, certifications et
-                engagements.
+                <strong>Score éco</strong> : synthèse indicative propre au site (PUE, % renouvelable, certifications et
+                engagements, sans pondération publiée) pour ordonner les fiches, pas une certification.
               </li>
             </ul>
           </div>
@@ -213,7 +213,9 @@ export default function CloudComparator() {
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div className="flex-1 min-w-[200px]">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-2xl font-bold text-foreground">{index + 1}</span>
+                      {sortBy === "score" && (
+                        <span className="text-2xl font-bold text-foreground" title="Rang selon le tri par score éco">{index + 1}</span>
+                      )}
                       <div>
                         <h3 className="text-xl font-bold text-foreground">{provider.name}</h3>
                         <span className="text-sm text-muted-foreground">{provider.country}</span>
@@ -240,7 +242,7 @@ export default function CloudComparator() {
                       <div className="text-xs text-muted-foreground">Score éco</div>
                     </div>
                     <div className="bg-card p-3 rounded-lg border border-border">
-                      <div className="text-2xl font-bold text-foreground">{provider.pue}</div>
+                      <div className="text-2xl font-bold text-foreground">{provider.pue.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 2 })}</div>
                       <div className="text-xs text-muted-foreground">PUE</div>
                     </div>
                     <div className="bg-card p-3 rounded-lg border border-border">
@@ -256,6 +258,7 @@ export default function CloudComparator() {
                         )}
                       </div>
                       <div className="text-xs text-muted-foreground">Neutre carbone</div>
+                      <div className="text-xs font-medium text-foreground">{provider.carbonNeutral ? "Déclarée" : "En cours"}</div>
                     </div>
                   </div>
                 </div>
@@ -285,7 +288,7 @@ export default function CloudComparator() {
       </Card>
 
       <div className="text-sm text-muted-foreground text-center">
-        Sources : rapports RSE des fournisseurs, The Green Web Foundation, ADEME • Données indicatives 2024-2026
+        Sources : rapports RSE des fournisseurs, The Green Web Foundation, ADEME • Données et score indicatifs 2024-2026, méthodologie non pondérée publiquement
       </div>
     </div>
   )

@@ -436,7 +436,23 @@ const futureSolutions = [
               calculation="8 000 h/an de free-air, Compute Nordic <1,1 (<1,15 haute densité), atNorth Islande ~1,2"
               url="https://w.media/special-feature-just-chill-cooling-innovations-in-nordic-data-centers-setting-new-sustainability-standards"
             />
-            . Enjeu jumeau : ne pas échanger des kWh contre des litres d&apos;eau.
+            . Enjeu jumeau : ne pas échanger des kWh contre des litres d&apos;eau. Pourtant 23 % des
+            exploitants tournent déjà sous 1,3 de PUE et 24 % ont des racks à 30 kW ou plus
+            <SourceTooltip
+              className="ml-1"
+              source="Uptime Institute, Global Data Center Survey 2026"
+              calculation="23 % sous 1,3 de PUE ; 24 % avec des racks à 30 kW ou plus (borne basse de la haute densité)"
+              url="https://uptimeinstitute.com/resources/research-and-reports/uptime-institute-global-data-center-survey-results-2026"
+            />
+            . En France, NFrance (Toulouse) est passé de 1,55 à 1,35 de PUE avec zéro eau de refroidissement
+            (WUE 0, juin 2026)
+            <SourceTooltip
+              className="ml-1"
+              source="NFrance, juin 2026"
+              calculation="1,55 en 2023 → 1,35 en juin 2026 (-13 %), WUE 0, -20 % d'électricité de climatisation (Vertiv)"
+              url="https://www.nfrance.com/fr/blog/sobriete-energetique-hydrique-le-datacenter-nfrance-atteint-les-1-35-de-pue-et-supprime-sa-consommation-deau"
+            />
+            .
           </>
         ),
         potential: "Très élevé",
@@ -520,6 +536,14 @@ const futureSolutions = [
               calculation="potentiel brut = chaleur totale émise par l'IT ; net = pondéré par l'efficacité de captation et les débouchés ; le liquid cooling capte plus chaud donc mieux valorisable"
               url="https://www.ademe.fr/presse/communique-national/centres-de-donnees-numeriques-perspectives-devolution-de-leurs-consommations"
             />
+            . À Levallois, Idex couplera dès 2029 la chaleur du datacenter Global Switch (~28 GWh) à la
+            géothermie (90 GWh) pour alimenter le réseau Kalita à plus de 120 GWh par an (70 M€)
+            <SourceTooltip
+              className="ml-1"
+              source="Idex, avril 2026"
+              calculation="90 GWh géothermie + ~28 GWh chaleur fatale, réseau >120 GWh/an à plus de 75 % d'énergies renouvelables et de récupération"
+              url="https://www.idex.fr/nos-actualites/idex-investit-70-meu-pour-valoriser-la-chaleur-du-sous-sol-et-la-chaleur-fatale-des-data-centers-et-fournir-levallois-une-energie-locale-propre-prix-stable-et-maitrise"
+            />
             . Mais potentiel théorique : moins de 1 % de la chaleur est réutilisée aujourd&apos;hui en France,
             contre 1,9 % en Europe
             <SourceTooltip
@@ -581,7 +605,9 @@ const futureSolutions = [
               calculation="verre borosilicate courant, 4,84 To par dalle, zéro énergie au repos"
               url="https://www.microsoft.com/en-us/research/blog/project-silicas-advances-in-glass-storage-technology"
             />
-            . Bande magnétique et ADN synthétique pour les archives froides : zéro énergie au repos. Déplacer les
+            . Bande magnétique et ADN synthétique pour les archives froides : zéro énergie au repos. Côté IA,
+            la mémoire HBM empilée sur les GPU augmente surtout le débit : un levier de performance avant
+            d&apos;être un levier de sobriété, sans gain énergétique démontré à service égal. Déplacer les
             données coûte bien plus cher que calculer : la mémoire sobre, c&apos;est du calcul sobre.
           </>
         ),
@@ -601,12 +627,12 @@ const futureSolutions = [
               url="https://policloud.com/"
             />
             . Batteries : 20 à 25 GW installés en datacenters en 2030 (AIE, 2026). En France, RTE présélectionne
-            5 sites à 700 MW-1 GW en raccordement accéléré
+            5 sites de 400 MW à plus de 1 GW en raccordement accéléré
             <SourceTooltip
               className="ml-1"
-              source="RTE, 2026"
-              calculation="~18 GW réservés en mai 2026 contre 5 GW fin 2024, 5 sites fast-track, Fouju 240 MW → 1 400 MW"
-              url="https://www.les-energies-renouvelables.eu/article/actualites/energies/datacenters-ia-electrification-france-rte-856/"
+              source="RTE, chiffres clés datacenters, juin 2026"
+              calculation="~300 DC en France, ~10 TWh (~2 %), 18 GW réservés pour ~80 projets en mai 2026, 23 à 28 TWh en 2035 ; 5 sites fast-track"
+              url="https://www.rte-france.com/bases-electricite/consommation-electricite/essor-data-centers-france"
             />
             .
           </>

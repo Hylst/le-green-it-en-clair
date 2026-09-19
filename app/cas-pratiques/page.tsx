@@ -993,6 +993,20 @@ export default function CasPratiquesPage() {
                           consommation grimpe avec la taille et la luminosité (ADEME, Panel Elecdom 2025)
                         </span>
                       </li>
+                      <li className="flex gap-2">
+                        <span className="text-orange-600 dark:text-orange-400">•</span>
+                        <span>
+                          Gare à la <strong>veille connectée</strong> : le « smart wake » (réveil vocal ou par
+                          casting) fait passer la veille de 0,6 W à 12,5 W mesurés en labo, soit 108 contre
+                          191 kWh par an (+76 %) — et deux fabricants prouvent qu&apos;on peut l&apos;éviter
+                          <SourceTooltip
+                            className="ml-1"
+                            source="NRDC, 24 mars 2021 (Noah Horowitz, mesures Pacific Crest Labs)"
+                            calculation="10 TV testées : 0,6 W sans smart wake, 12,5 W avec (NEEA, ~40 TV) ; 60 W en usage 5 h/j : 108 → 191 kWh/an (+76,3 %) ; Samsung/LG sans surcoût ; +750 M$ et +3 Mt CO₂ en modélisation américaine"
+                            url="https://www.nrdc.org/bio/noah-horowitz/your-smart-tv-may-have-insomnia-and-guzzle-power-when"
+                          />
+                        </span>
+                      </li>
                     </ul>
                   </div>
                 </div>

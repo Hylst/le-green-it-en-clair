@@ -851,6 +851,59 @@ export default function DatacentersPage() {
             petits réacteurs avancent (permis Natrium en mars 2026, démo Aalo-Crusoe en 2027) avec un horizon
             réaliste de 2030-2034 : en attendant, gaz et batteries.
           </p>
+
+          <div className="mt-6 rounded-xl bg-amber-50 dark:bg-amber-900/20 border-2 border-amber-200 dark:border-amber-800 p-6">
+            <div className="flex items-start gap-3">
+              <Globe className="mt-1 h-5 w-5 shrink-0 text-amber-700 dark:text-amber-400" />
+              <p className="text-slate-700 dark:text-slate-300">
+                <strong>Territoires : quand le datacenter devient voisin.</strong> À Slough (Royaume-Uni),
+                30 à 40 très gros sites (~1 GW au total) cohabitent avec le centre-ville : une pré-étude de
+                Cambridge mesure un îlot de chaleur de +2 °C en moyenne autour de ces complexes
+                (jusqu&apos;à +9 °C à proximité immédiate), et la station proche du parc tech a affiché
+                36,7 °C contre 34,7 °C en centre-ville
+                <SourceTooltip
+                  className="ml-1 align-middle"
+                  source="The Guardian, 26 juin 2026 (Aisha Down)"
+                  calculation="+2 °C robuste (décennies de données satellite, monde) / jusqu'à +9 °C à proximité ; 30-40 sites ~1 GW ; le gouvernement britannique veut valoriser cette chaleur pour des milliers de logements"
+                  url="https://www.theguardian.com/environment/2026/jun/26/slough-is-like-an-experiment-europes-largest-datacentre-hub-leaves-town-sweltering"
+                />
+                . En France, le campus CyrusOne pour AWS à Wissous (15 000 m², 83 MW) a vu ses permis
+                refusés en 2021 puis un déféré préfectoral en 2022, sans récupération de chaleur prévue
+                malgré un réseau à proximité
+                <SourceTooltip
+                  className="ml-1 align-middle"
+                  source="Journal du Net, 18 octobre 2022 (Antoine Crochet-Damais)"
+                  calculation="15 000 m² / 83 MW pour AWS ; refus du maire le 18/08/2021, déféré préfectoral le 15/04/2022 (TA Versailles) ; groupes à 380-480 °C sans filtre, site à moins de 100 m d'un accueil de mineurs"
+                  url="https://www.journaldunet.com/cloud/1515711-exclu-jdn-le-projet-secret-du-data-center-geant-d-amazon-en-ile-de-france-devoile"
+                />
+                ; à Brétigny, riverains et maire bloquent depuis 2021 un projet AWS (nappe phréatique,
+                lignes haute tension, stockage diesel)
+                <SourceTooltip
+                  className="ml-1 align-middle"
+                  source="Data Center Dynamics, 10 mai 2021 (Sebastian Moss)"
+                  calculation="~40 manifestants (Brétigny Transition, Amis de la Terre, Attac, Greenpeace) ; nappe déjà sollicitée + ferme l'Envol, 2 lignes THT, maire : dossier bloqué sans réponses d'AWS"
+                  url="https://www.datacenterdynamics.com/en/news/br%C3%A9tigny-sur-orge-residents-protest-proposed-amazon-web-services-data-center"
+                />
+                . D&apos;où l&apos;appel de La Quadrature du Net et du collectif Le Nuage était sous nos
+                pieds à un moratoire de deux ans sur les plus gros sites et à un vrai débat public
+                (article 15 de la loi simplification maintenu en avril 2025), adossé à leur carte
+                participative : 354 sites et 83 projets recensés en juillet 2026
+                <SourceTooltip
+                  className="ml-1 align-middle"
+                  source="La Quadrature du Net, 2025 (avec Le Nuage était sous nos pieds, coalition Hiatus)"
+                  calculation="moratoire 2 ans + rejet de l'article 15 ; article 15 maintenu le 30/04/2025 (71 voix contre, 33 pour)"
+                  url="https://www.laquadrature.net/moratoire-data-centers/"
+                />
+                <SourceTooltip
+                  className="ml-1 align-middle"
+                  source="Le Nuage était sous nos pieds, 9 juillet 2026"
+                  calculation="carte participative : 354 sites existants + 83 projets ; 35 sites clés-en-main ≈ 1 200 ha, dont Fouju et ses 70 ha de terres agricoles"
+                  url="https://lenuageetaitsousnospieds.org/articles/2026-07-09-artificialisation-et-confiscation-des-territoires-par-les-datacenters.html"
+                />
+                .
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { ClipboardCheck, Download, RotateCcw, Monitor, PcCase, Laptop, Smartphone, Tablet, Printer, Server, Package, BarChart3, Search, Coins, ClipboardList } from "lucide-react";
 import { LabeledSlider, PDF_COLORS } from "./shared";
+import { SourceTooltip } from "@/components/source-tooltip";
 
 export default function ITAudit() {
   const [inventory, setInventory] = useState({
@@ -25,7 +26,7 @@ export default function ITAudit() {
     laptops: { name: "Ordinateurs portables", fabricationCO2: 182, usageCO2: 2.1, optimalLife: 5, icon: Laptop },
     monitors: { name: "Écrans", fabricationCO2: 66, usageCO2: 4.5, optimalLife: 6, icon: Monitor },
     smartphones: { name: "Smartphones", fabricationCO2: 79, usageCO2: 0.4, optimalLife: 5, icon: Smartphone },
-    tablets: { name: "Tablettes", fabricationCO2: 84, usageCO2: 1.1, optimalLife: 5, icon: Tablet },
+    tablets: { name: "Tablettes", fabricationCO2: 84, usageCO2: 1.1, optimalLife: 3, icon: Tablet },
     printers: { name: "Imprimantes", fabricationCO2: 130, usageCO2: 35, optimalLife: 7, icon: Printer },
     servers: { name: "Serveurs", fabricationCO2: 1200, usageCO2: 500, optimalLife: 5, icon: Server },
   }
@@ -50,8 +51,9 @@ export default function ITAudit() {
       const data = deviceData[type as keyof typeof deviceData]
       totalDevices += count
 
-      // Calcul CO2 annuel: fabrication amortie + usage
-      const fabricationPerYear = (data.fabricationCO2 / avgAge) * count
+      // Calcul CO2 annuel : fabrication amortie sur la durée optimale (pas sur l'âge
+      // saisi — diviser par l'âge rendait un parc vieillissant artificiellement vertueux)
+      const fabricationPerYear = (data.fabricationCO2 / data.optimalLife) * count
       const usagePerYear = data.usageCO2 * count
       const co2 = fabricationPerYear + usagePerYear
       totalCO2 += co2
@@ -87,7 +89,8 @@ export default function ITAudit() {
       }
     })
 
-    // Score éco-efficacité (0-100)
+    // Score éco-efficacité (0-100) : 100 ≈ parc utilisé à environ 70 % de sa durée
+    // optimale (cible interne du site, non sourcée — à harmoniser, voir todo.md)
     const avgLifeRatio =
       totalDevices > 0
         ? Object.entries(inventory).reduce((acc, [type, { count, avgAge }]) => {
@@ -360,6 +363,14 @@ export default function ITAudit() {
                     <div className="text-sm text-muted-foreground text-center">
                       Score d'éco-efficacité : {results.ecoScore}/100
                     </div>
+                    <p className="mt-1 text-xs text-muted-foreground text-center">
+                      100 correspond à un parc utilisé à environ 70 % de sa durée optimale (cible interne du site){" "}
+                      <SourceTooltip
+                        source="Méthode du site (cible interne, sans source externe)"
+                        calculation="Score = (1 − |ratio − 0,7| × 2) × 100, où ratio = âge moyen ÷ durée optimale"
+                        info="Un parc renouvelé trop vite comme un parc trop âgé font baisser le score."
+                      />
+                    </p>
                   </>
                 ) : (
                   <p className="text-sm text-muted-foreground text-center">
@@ -367,8 +378,14 @@ export default function ITAudit() {
                   </p>
                 )}
                 <p className="mt-4 text-xs text-muted-foreground text-center">
-                  Hypothèses : usage annuel forfaitaire par équipement, fabrication amortie sur l'âge saisi, durées de
-                  vie optimales indicatives.
+                  Hypothèses : usage annuel forfaitaire par équipement, fabrication amortie sur la durée optimale
+                  (fixes 6 ans, portables 5 ans, écrans 6 ans, smartphones 5 ans, tablettes 3 ans — durée de référence
+                  ADEME, Impact CO₂ 2025 —, imprimantes 7 ans, serveurs 5 ans — durées internes du site){" "}
+                  <SourceTooltip
+                    source="Base Empreinte / ADEME-Arcep, 2024-2025"
+                    calculation="Fabrication ÷ durée optimale + usage annuel forfaitaire, par équipement"
+                    info="Avant, la fabrication était divisée par l'âge saisi : un parc vieillissant paraissait vertueux. Ce biais est corrigé."
+                  />
                 </p>
               </div>
 

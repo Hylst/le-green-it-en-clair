@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { Calculator, Printer, Share2, Check } from "lucide-react";
-import { LabeledSlider } from "./shared";
+import { LabeledSlider, ScopeNote } from "./shared";
 import { SourceTooltip } from "@/components/source-tooltip";
 
 const DEVICE_LABELS: Record<string, string> = {
@@ -47,11 +47,26 @@ export default function CarbonCalculator() {
       tv: { fabrication: 328, usage: 5.2 },
     }
 
+    // Durées de référence déjà assumées par le site (zéro valeur inventée) :
+    // portable 5 ans, tablette 3 ans, TV 8 ans = durées de référence ADEME Impact CO₂ 2025
+    // (cas pratiques) ; smartphone 5 ans = objectif FAQ + durée optimale de l'audit ;
+    // fixe 6 ans = durée optimale de l'audit (fixes).
+    const referenceLife: Record<keyof typeof deviceImpact, number> = {
+      smartphone: 5,
+      laptop: 5,
+      tablet: 3,
+      desktop: 6,
+      tv: 8,
+    }
+
     Object.entries(devices).forEach(([device, data]) => {
       if (data.count > 0) {
         const impact = deviceImpact[device as keyof typeof deviceImpact]
-        // Amortissement fabrication sur durée de vie
-        const fabricationPerYear = impact.fabrication / data.age
+        // Amortissement fabrication sur la durée de référence, pas sur l'âge saisi
+        // (diviser par l'âge récompensait le vieux matériel)
+        const fabricationPerYear = impact.fabrication / referenceLife[device as keyof typeof deviceImpact]
+        // Hypothèse du site : usage annuel au prorata des heures (base 24 h/j),
+        // origine du facteur ADEME non tranchable ici — à vérifier (voir todo.md)
         const usageImpact = (impact.usage * data.usage) / 24 // Proportionnel à l'usage
         total += (fabricationPerYear + usageImpact) * data.count
       }
@@ -83,6 +98,7 @@ export default function CarbonCalculator() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8">
+          <ScopeNote />
           {/* Équipements */}
           <div>
             <h3 className="font-semibold text-lg mb-4 text-foreground">Vos équipements</h3>
@@ -291,7 +307,14 @@ export default function CarbonCalculator() {
                   <li>≈ {Math.round(totalFootprint / 7)} repas avec bœuf</li>
                 </ul>
                 <p className="mt-3 text-xs text-muted-foreground">
-                  Hypothèses : fabrication amortie sur la durée de vie saisie, usage au prorata des heures (base 24 h/j). Voiture 0,17 kg CO₂/km (ADEME, Base Empreinte 2023 <SourceTooltip source="ADEME, Base Empreinte, 2023" info="Facteur moyen voiture thermique en France" />). Streaming compté en
+                  Hypothèses : fabrication amortie sur la durée de référence (smartphone 5 ans, portable 5 ans,
+                  tablette 3 ans, fixe 6 ans, TV 8 ans — durées déjà utilisées sur le site){" "}
+                  <SourceTooltip
+                    source="ADEME, Impact CO₂, 2025"
+                    calculation="79 ÷ 5 (smartphone), 182 ÷ 5 (portable), 84 ÷ 3 (tablette), 262 ÷ 6 (fixe), 328 ÷ 8 (TV), en kg CO₂e/an, + usage annuel au prorata"
+                    info="Portable, tablette et TV : durées de référence ADEME (cas pratiques) ; smartphone et fixe : durées du site (FAQ et audit). L'âge saisi n'entre plus dans le calcul."
+                  />{" "}
+                  Usage au prorata des heures (base 24 h/j, hypothèse du site). Voiture 0,17 kg CO₂/km (ADEME, Base Empreinte 2023 <SourceTooltip source="ADEME, Base Empreinte, 2023" info="Facteur moyen voiture thermique en France" />). Streaming compté en
                   qualité SD (~31 g/h), réseaux sociaux hors vidéo (~7 g/h), e-mail ~4 g, cloud ~0,24 g/Go/an
                   (ADEME, Impact CO₂ / Base Empreinte).
                 </p>

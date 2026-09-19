@@ -16,7 +16,8 @@ export const PDF_COLORS = {
 // Bandeau « périmètres » partagé (vague 2, plan outils 09/2026) : les trois outils
 // d'estimation ne regardent pas la même chose, on l'annonce pour éviter les fausses
 // comparaisons (« le streaming ne compte pas »). N'utilise que des chiffres déjà cités
-// dans le code des outils (≈ 330 kg CO₂e/an par internaute, GreenIT EENM 2025) ;
+// dans le code des outils (≈ 195 kg avec les réglages par défaut du calculateur,
+// ≈ 330 kg CO₂e/an par internaute, GreenIT EENM 2025) ;
 // le streaming et la page web sont formulés sans chiffre.
 export function ScopeNote() {
   return (
@@ -24,7 +25,8 @@ export function ScopeNote() {
       <Info className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
       <span>
         Chaque outil a son périmètre, ne comparez pas les résultats entre eux : le calculateur couvre votre vie
-        numérique complète (équipements + usages, ≈ 330 kg CO₂e/an par internaute{" "}
+        numérique complète (équipements + usages, ≈ 195 kg CO₂e/an avec les réglages par défaut — smartphone,
+        portable et TV — à comparer aux ≈ 330 kg de la moyenne mondiale par internaute{" "}
         <SourceTooltip
           source="GreenIT, Étude empreinte numérique mondiale (EENM), 2025"
           calculation="1,8 Gt CO₂e ÷ ~5,35 Md d'internautes ≈ 330 kg CO₂e/an"

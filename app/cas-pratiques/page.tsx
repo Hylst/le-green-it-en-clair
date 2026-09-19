@@ -40,12 +40,6 @@ const caseStudies = [
     icon: Smartphone,
     color: "emerald",
     description: "L'appareil le plus personnel et le plus renouvelé",
-    stats: {
-      co2: "80 kg",
-      water: "12 000 L",
-      lifespan: "2-3 ans",
-      metals: "50+",
-    },
   },
   {
     id: "laptop",
@@ -53,12 +47,6 @@ const caseStudies = [
     icon: Laptop,
     color: "blue",
     description: "Un outil de travail essentiel mais énergivore à produire",
-    stats: {
-      co2: "193 kg",
-      water: "1 500 à 20 000 L",
-      lifespan: "4-5 ans",
-      metals: "60+",
-    },
   },
   {
     id: "tablet",
@@ -66,12 +54,6 @@ const caseStudies = [
     icon: Tablet,
     color: "purple",
     description: "Un écran tactile entre le smartphone et l'ordinateur",
-    stats: {
-      co2: "87 kg",
-      water: "15 000 L",
-      lifespan: "3 ans",
-      metals: "à vérifier",
-    },
   },
   {
     id: "tv",
@@ -79,12 +61,6 @@ const caseStudies = [
     icon: Tv,
     color: "orange",
     description: "Le grand écran du salon, pour la TNT et le streaming",
-    stats: {
-      co2: "370 kg",
-      water: "à vérifier",
-      lifespan: "8 ans",
-      metals: "à vérifier",
-    },
   },
   {
     id: "monitor",
@@ -92,12 +68,6 @@ const caseStudies = [
     icon: Monitor,
     color: "indigo",
     description: "Le périphérique qu'on oublie dans le bilan",
-    stats: {
-      co2: "93 kg",
-      water: "18 000 L",
-      lifespan: "6 ans",
-      metals: "à vérifier",
-    },
   },
   {
     id: "box",
@@ -105,12 +75,6 @@ const caseStudies = [
     icon: Router,
     color: "cyan",
     description: "Toujours allumée, même quand on ne s'en sert pas",
-    stats: {
-      co2: "81 kg",
-      energy: "80 kWh/an",
-      lifespan: "5 ans",
-      metals: "à vérifier",
-    },
   },
   {
     id: "datacenter",
@@ -118,12 +82,6 @@ const caseStudies = [
     icon: Server,
     color: "teal",
     description: "L'infrastructure invisible qui fait tourner le cloud",
-    stats: {
-      co2: "Plusieurs tonnes",
-      water: "Millions de L",
-      lifespan: "3-5 ans",
-      servers: "1000+",
-    },
   },
 ]
 

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from "recharts";
-import { TrendingUp, TrendingDown, Download, RotateCcw, Building2, BarChart3, Calendar, ClipboardList, Info } from "lucide-react";
+import { TrendingUp, TrendingDown, Download, RotateCcw, Building2, BarChart3, Calendar, ClipboardList, Info, Scale, Trophy } from "lucide-react";
 import { CHART_FALLBACKS } from "@/lib/chart-theme";
 import { LabeledSlider, PDF_COLORS } from "./shared";
 import { SourceTooltip } from "@/components/source-tooltip";
@@ -259,7 +259,8 @@ export default function EnterpriseSimulator() {
     doc.save(`Simulation-Green-IT-${fileStamp}.pdf`)
   }
 
-  const resultsForSelectedScenario = calculateProjections().find(r => r.id === selectedScenario);
+  const allScenarioResults = calculateProjections()
+  const resultsForSelectedScenario = allScenarioResults.find(r => r.id === selectedScenario);
   const results = resultsForSelectedScenario ? resultsForSelectedScenario : {
     projections: [],
     totalSavings: 0,
@@ -272,6 +273,15 @@ export default function EnterpriseSimulator() {
   const roiPercent = implementationCost > 0 && results.totalSavings > 0
     ? Math.round((results.totalSavings / implementationCost) * 100)
     : 0
+  /* Repères d'affichage du comparatif : simples max/min sur les totaux
+     déjà calculés par calculateProjections(), aucune valeur recalculée. */
+  const bestSavings = Math.max(...allScenarioResults.map((s) => s.totalSavings))
+  const bestVan = Math.max(...allScenarioResults.map((s) => s.discountedSavings))
+  const bestCo2 = Math.max(...allScenarioResults.map((s) => s.totalEmissions))
+  const payableScenarios = allScenarioResults.filter((s) => s.payback >= 0)
+  const bestPayback = payableScenarios.length > 0
+    ? Math.min(...payableScenarios.map((s) => s.payback))
+    : null
 
   return (
     <div className="space-y-6">
@@ -527,6 +537,91 @@ export default function EnterpriseSimulator() {
                   Hypothèses : {config.devicePrice.toLocaleString("fr-FR")} € par poste renouvelé (reconditionné à moitié prix), {config.energyCostPerDevice.toLocaleString("fr-FR")} €/an d'énergie par poste, cloud 200/500/1 000 €/an selon
                   l'usage, maintenance 50 €/an/poste (+20 % de préventif dans les scénarios optimisés), mise en œuvre
                   {` ${config.implementationCostPerEmployee.toLocaleString("fr-FR")} €/employé`}. ROI = économies nettes ÷ mise en œuvre. VAN calculée au taux de {config.discountRate.toLocaleString("fr-FR")}{" "}% (indicatif, à adapter à votre coût du capital). CO₂e : 205 kg par poste neuf, 51 kg reconditionné (ADEME 2022), usage 9 kg/an (ADEME, Impact CO₂ 2025 <SourceTooltip source="ADEME, Impact CO₂ / Base Empreinte, 2025" info="205 kg par poste fixe neuf, 51 kg reconditionné (−75 %, ADEME 2022), usage 9 kg/an" />).
+                </p>
+              </div>
+
+              {/* Comparatif des 3 scénarios — pur affichage des totaux déjà
+                  calculés par calculateProjections(), mêmes champs que le PDF. */}
+              <div className="bg-card p-6 rounded-lg border border-border">
+                <h4 className="font-semibold text-lg text-foreground">
+                  <Scale className="mr-2 inline h-5 w-5" />Comparatif des 3 scénarios sur 5 ans
+                </h4>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Mêmes chiffres que le rapport PDF, à configuration égale. La ligne « référence » correspond au scénario sans changement.
+                </p>
+                <div className="mt-4 overflow-x-auto">
+                  <table className="w-full min-w-[640px] text-sm">
+                    <thead>
+                      <tr className="border-b border-border">
+                        <th scope="col" className="text-left py-2 px-3 text-foreground">Scénario</th>
+                        <th scope="col" className="text-right py-2 px-3 text-muted-foreground">Économies nettes (5 ans)</th>
+                        <th scope="col" className="text-right py-2 px-3 text-muted-foreground">VAN (5 ans)</th>
+                        <th scope="col" className="text-right py-2 px-3 text-muted-foreground">CO₂e évité (5 ans)</th>
+                        <th scope="col" className="text-right py-2 px-3 text-muted-foreground">Retour</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {allScenarioResults.map((s) => {
+                        const isReference = s.id === "baseline"
+                        const isBestSavings = !isReference && s.totalSavings === bestSavings
+                        const isBestVan = !isReference && s.discountedSavings === bestVan
+                        const isBestCo2 = !isReference && s.totalEmissions === bestCo2
+                        const isBestPayback = !isReference && bestPayback !== null && s.payback === bestPayback
+                        const paybackLabel = isReference
+                          ? "—"
+                          : s.payback === -1
+                            ? "Non rentable"
+                            : s.payback === 0
+                              ? "Immédiat"
+                              : `${s.payback.toLocaleString("fr-FR")} mois`
+                        return (
+                          <tr key={s.id} className="border-b border-border">
+                            <td className="py-2 px-3 font-medium text-foreground">
+                              {s.name}
+                              {isReference && (
+                                <span className="block text-xs font-normal text-muted-foreground">référence</span>
+                              )}
+                            </td>
+                            <td className={`text-right py-2 px-3 text-muted-foreground ${isBestSavings ? "font-bold text-foreground" : ""}`}>
+                              {s.totalSavings.toLocaleString("fr-FR")} €
+                              {isBestSavings && (
+                                <span className="ml-2 inline-flex items-center gap-1 rounded-full bg-secondary px-2 py-0.5 text-xs font-semibold text-foreground">
+                                  <Trophy className="h-3 w-3" aria-hidden="true" />meilleur
+                                </span>
+                              )}
+                            </td>
+                            <td className={`text-right py-2 px-3 text-muted-foreground ${isBestVan ? "font-bold text-foreground" : ""}`}>
+                              {s.discountedSavings.toLocaleString("fr-FR")} €
+                              {isBestVan && (
+                                <span className="ml-2 inline-flex items-center gap-1 rounded-full bg-secondary px-2 py-0.5 text-xs font-semibold text-foreground">
+                                  <Trophy className="h-3 w-3" aria-hidden="true" />meilleur
+                                </span>
+                              )}
+                            </td>
+                            <td className={`text-right py-2 px-3 text-muted-foreground ${isBestCo2 ? "font-bold text-foreground" : ""}`}>
+                              {s.totalEmissions.toLocaleString("fr-FR")} kg CO₂e
+                              {isBestCo2 && (
+                                <span className="ml-2 inline-flex items-center gap-1 rounded-full bg-secondary px-2 py-0.5 text-xs font-semibold text-foreground">
+                                  <Trophy className="h-3 w-3" aria-hidden="true" />meilleur
+                                </span>
+                              )}
+                            </td>
+                            <td className={`text-right py-2 px-3 text-muted-foreground ${isBestPayback ? "font-bold text-foreground" : ""}`}>
+                              {paybackLabel}
+                              {isBestPayback && (
+                                <span className="ml-2 inline-flex items-center gap-1 rounded-full bg-secondary px-2 py-0.5 text-xs font-semibold text-foreground">
+                                  <Trophy className="h-3 w-3" aria-hidden="true" />meilleur
+                                </span>
+                              )}
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Le meilleur de chaque colonne est indiqué par la pastille « meilleur ». VAN calculée au taux de {config.discountRate.toLocaleString("fr-FR")}{" "}%.
                 </p>
               </div>
 

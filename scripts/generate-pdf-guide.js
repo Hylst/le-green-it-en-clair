@@ -118,6 +118,24 @@ const qrStrip = (items) => {
     y += 44;
 };
 
+// Illustration interne (JPG pré-généré depuis le webp du site, quality 70)
+const addIllustration = (caption = "") => {
+    const w = 150, h = Math.round(w * 572 / 1024); // 16:9
+    need(h + (caption ? 16 : 8));
+    const buf = fs.readFileSync(path.join(__dirname, "../public/images/hero-recyclage-guide.jpg"));
+    doc.addImage("data:image/jpeg;base64," + buf.toString("base64"), "JPEG", LEFT + (WIDTH - w) / 2, y, w, h);
+    y += h + 4;
+    if (caption) {
+        doc.setTextColor(...COLORS.slateLight);
+        doc.setFont("helvetica", "italic");
+        doc.setFontSize(9);
+        doc.text(caption, 105, y, { align: "center" });
+        y += 8;
+    } else {
+        y += 4;
+    }
+};
+
 // ================= PAGE 1 =================
 paintBg();
 
@@ -133,6 +151,9 @@ doc.setFontSize(14);
 doc.text("Donnez une seconde vie à votre matériel informatique", 20, 40);
 
 y = 65;
+
+// Couverture : illustration + légende, puis la section 1 suit en flux
+addIllustration("Chaque appareil a un chemin : don, réparation ou recyclage.");
 
 // Section 1
 sectionHeader("1. Pourquoi recycler est-il vital" + N + "?");
@@ -198,7 +219,30 @@ bulletBlock("4. RÉEMPLOYER :",
     "Don ou reconditionné garanti 2 ans. Un smartphone reconditionné émet 75 à 90" + N + "% de CO2e en moins qu'un neuf (ADEME 2022) ; le revendre rapporte 170 euros en moyenne (indice Recommerce 2025).");
 
 bulletBlock("5. RECYCLER :",
-    "En dernier recours, toujours en filière agréée (voir section 4).");
+    "En dernier recours, toujours en filière agréée (voir section 5).");
+
+// ================= Arbre de décision =================
+sectionHeader("4. Que faire de mon appareil ?");
+para("Trois questions, trois bons chemins :");
+
+const situations = [
+    ["Il s'allume et fonctionne", "Donner, revendre, reconditionner", "Reprise distributeur, don par courrier, associations (voir section 5)."],
+    ["Il est en panne", "Réparer avec le Bonus", "15 à 60 euros déduits chez un réparateur QualiRépar, hors garantie (voir section 3)."],
+    ["Il est mort, même cassé", "Recycler en filière agréée", "Jamais à la poubelle : point ADEME, déchetterie, bornes (voir section 5)."]
+];
+
+need(30);
+autoTable(doc, {
+    startY: y,
+    theme: 'grid',
+    head: [["État de l'appareil", "Bonne décision", "En pratique"]],
+    body: situations,
+    headStyles: { fillColor: COLORS.emerald },
+    styles: { fontSize: 9 },
+    margin: { left: LEFT, right: LEFT }
+});
+
+y = doc.lastAutoTable.finalY + 10;
 
 // ================= PAGE 3 =================
 doc.addPage();
@@ -206,7 +250,7 @@ paintBg();
 y = 25;
 
 // Section 4
-sectionHeader("4. Les filières de confiance");
+sectionHeader("5. Les filières de confiance");
 
 const filieres = [
     ["REPRISE DISTRIBUTEUR", "En magasin : un pour un à l'achat, sans obligation d'achat dès 400 m² (Service Public 2025)", "À l'achat d'un neuf, ou pour un petit appareil."],
@@ -238,7 +282,7 @@ qrStrip([
 ]);
 
 // Section 5
-sectionHeader("5. L'impact de votre geste en chiffres", 88);
+sectionHeader("6. L'impact de votre geste en chiffres", 88);
 
 const stats = [
     ["46" + N + "%", "des e-déchets collectés en France (Eurostat, Ecosystem 2024)"],

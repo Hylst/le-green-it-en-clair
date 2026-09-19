@@ -523,8 +523,8 @@ const futureSolutions = [
         description: (
           <>
             Optique co-packagée avec la puce : 5 W pour 800 Gb/s, soit 60 à 70 % de moins que les modules classiques
-            (Broadcom, 2025). Commutateurs 51,2 Tb/s déjà en production, 102,4 Tb/s annoncés, marché estimé à
-            39 Md$ en 2030 (TrendForce)
+            (Broadcom, 2025).             Commutateurs 51,2 Tb/s déjà en production, 102,4 Tb/s annoncés, marché CPO et optiques proches
+            estimé à 39 Md$ en 2030 (TrendForce)
             <SourceTooltip
               className="ml-1"
               source="Broadcom, 2025-2026"
@@ -587,7 +587,7 @@ const futureSolutions = [
         description: (
           <>
             Fer-air : 100 heures de décharge à moins d&apos;un dixième du coût du lithium, avec 30 GWh pour un
-            datacenter Google et 12 GWh pour Crusoe (2026, livraisons 2027)
+            datacenter Google et 12 GWh pour Crusoe (annoncés en 2026 ; livraisons Crusoe dès 2027)
             <SourceTooltip
               className="ml-1"
               source="Form Energy, 2026"
@@ -646,7 +646,13 @@ const futureSolutions = [
               calculation="20 pétaops, >15 TOPS/W, 100× moins d'énergie et 50× plus rapide que CPU/GPU sur inférence et optimisation"
               url="https://www.intel.com/content/www/us/en/newsroom/news/intel-builds-worlds-largest-neuromorphic-system.html"
             />
-            ; 120 TOPS/W en analogique (Mythic, 2026). Idéal pour l&apos;edge et la robotique, en évitant les
+            ; 120 TOPS/W en analogique
+            <SourceTooltip
+              className="ml-1"
+              source="Mythic et Microchip, mars 2026"
+              calculation="120 TOPS/W en inférence analogique en mémoire, ~100× un GPU classique"
+            />
+            . Idéal pour l&apos;edge et la robotique, en évitant les
             allers-retours entre mémoire et calcul, bien plus coûteux que l&apos;opération elle-même.
           </>
         ),

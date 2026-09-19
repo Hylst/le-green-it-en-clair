@@ -919,7 +919,7 @@ const sheets: Record<string, any> = {
       {
         title: "2. Choisir la bonne qualité d'image",
         content:
-          "Une heure de streaming en Ultra HD transfère environ 7 Go, contre 3 Go en HD et autour de 1 Go en définition standard (ordres de grandeur des plateformes, mesures CableLabs 2026). Sur un smartphone ou une tablette, la différence entre HD et 4K est invisible à l'œil nu : baisser d'un cran divise le débit par deux ou trois.",
+          "Une heure de streaming en Ultra HD transfère environ 7 Go, contre 3 Go en HD et autour de 1 Go en définition standard (ordres de grandeur des plateformes : Netflix SD 1, HD 3, 4K 7 Go/h, centre d'aide). Sur un smartphone ou une tablette, la différence entre HD et 4K est invisible à l'œil nu : baisser d'un cran divise le débit par deux ou trois.",
         tips: [
           "Réglez la qualité par défaut en 720p sur mobile",
           "Réservez la 4K au grand écran du salon",
@@ -967,7 +967,7 @@ const sheets: Record<string, any> = {
       "The Shift Project, « Climat : l'insoutenable usage de la vidéo en ligne » (2019)",
       "The Shift Project, mise au point sur l'empreinte de la vidéo en ligne (2020)",
       "The Shift Project, chiffres clés du numérique (2026)",
-      "CableLabs, consommation horaire des applications vidéo (2026)",
+      "Netflix, centre d'aide « Contrôler la quantité de données » (SD 1, HD 3, 4K 7 Go/h, consulté 09/2026)",
     ],
   },
   "teletravail-visio": {
@@ -975,12 +975,12 @@ const sheets: Record<string, any> = {
     subtitle: "Caméra, réseau, matériel : travailler à distance sans alourdir la facture carbone",
     target: "Actifs",
     duration: "8 minutes de lecture",
-    impact: "~1 Go par heure de visio (CableLabs, 2026)",
+    impact: "~1 Go par heure de visio (CableLabs, 2021)",
     sections: [
       {
         title: "1. Combien pèse une heure de visio ?",
         content:
-          "Un participant en visioconférence consomme environ 1 Go de données par heure, soit trois fois moins qu'un film en HD en streaming (CableLabs, mesures 2026 sur Meet, Teams, Zoom et GoTo). L'audio seul, lui, ne pèse presque rien : pour les points d'équipe sans partage d'écran, la voix suffit largement.",
+          "Un participant en visioconférence consomme environ 1 Go de données par heure, soit trois fois moins qu'un film en HD en streaming (CableLabs, mesures 2021). L'audio seul, lui, ne pèse presque rien : pour les points d'équipe sans partage d'écran, la voix suffit largement.",
         tips: [
           "Gardez la vidéo pour les échanges qui en ont vraiment besoin",
           "Coupez votre caméra quand vous ne parlez pas en grand groupe",
@@ -1035,7 +1035,7 @@ const sheets: Record<string, any> = {
       "Enquête Arcep « Pour un numérique soutenable » : https://www.arcep.fr",
     ],
     sources: [
-      "CableLabs, consommation horaire des applications de visioconférence (2026)",
+      "CableLabs, consommation horaire des applications de visioconférence (2021)",
       "Arcep, enquête annuelle « Pour un numérique soutenable », édition 2026 (données 2024)",
       "ADEME-Arcep (2023, fabrication ≈ 75 % de l'impact)",
     ],

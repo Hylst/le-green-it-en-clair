@@ -104,7 +104,7 @@ const practicalSheets = [
     description: "Caméra, réseau, matériel : travailler à distance sans alourdir la facture",
     target: "Actifs",
     duration: "8 min",
-    impact: "~1 Go/h en visio (CableLabs, 2026)",
+    impact: "~1 Go/h en visio (CableLabs, 2021)",
     image: "/greenit/images/fiches/fiche-teletravail-visio.webp",
   },
   {
@@ -238,7 +238,7 @@ export default function FichesPratiquesPage() {
               Arcep 2026
             </a>{" "}
             (box, réseaux) · Santé publique France 2025 (écrans des enfants) ·
-            IoT Analytics 2025 (21 Mds d&apos;objets) · CableLabs 2026 (visio ~1 Go/h) · Arcep 2026 (box 3,4 TWh,
+            IoT Analytics 2025 (21 Mds d&apos;objets) · CableLabs 2021 (visio ~1 Go/h) · Arcep 2026 (box 3,4 TWh,
             9,1 W)
           </p>
 

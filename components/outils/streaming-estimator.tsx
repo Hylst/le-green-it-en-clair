@@ -10,7 +10,7 @@ import { LabeledSlider, ScopeNote } from "./shared"
 import { SourceTooltip } from "@/components/source-tooltip"
 import Link from "next/link"
 
-// Débits moyens constatés (plateformes + mesures CableLabs, 2026), en Go/heure
+// Débits plateformes : Netflix SD 1, HD 3, 4K 7 Go/h (centre d'aide, consulté 09/2026), en Go/heure
 const DEBITS = {
   sd: { label: "Standard (480p)", goHeure: 1 },
   hd: { label: "HD (720p-1080p)", goHeure: 3 },
@@ -23,7 +23,7 @@ type Qualite = keyof typeof DEBITS
 const KWH_PAR_GO = { wifi: 0.02, mobile: 0.14 } as const
 type Reseau = keyof typeof KWH_PAR_GO
 
-const VISIO_GO_HEURE = 1 // CableLabs, mesures 2026 sur Meet, Teams, Zoom et GoTo
+const VISIO_GO_HEURE = 1 // CableLabs 2021 : ~1 Go/h en visioconférence
 const FACTEUR_FR = 0.0519 // kgCO₂e/kWh, Base Empreinte 2024 (mix moyen France)
 const KG_PAR_KM_VOITURE = 0.17 // kgCO₂e/km, ADEME Base Empreinte 2023 (même repère que les autres outils)
 const SEMAINES_PAR_MOIS = 52 / 12
@@ -257,7 +257,7 @@ export default function StreamingEstimator() {
             <span>
               Estimation {inclureTerminaux ? "réseau + terminaux cochés" : "réseau uniquement"}, hors fabrication
               {inclureTerminaux ? " (détail des terminaux ci-dessus)" : " et consommation des terminaux (TV, smartphone, box)"}.
-              Débits : plateformes et CableLabs 2026 · réseau : Arcep 2026 (0,02 kWh/Go fixe, 0,14 mobile) · électricité
+              Débits : Netflix (SD 1, HD 3, 4K 7 Go/h, centre d'aide) et CableLabs 2021 (visio ~1 Go/h) · réseau : Arcep 2026 (0,02 kWh/Go fixe, 0,14 mobile) · électricité
               France : 0,0519 kgCO₂e/kWh (Base Empreinte 2024). Détail dans nos fiches{" "}
               <Link href="/fiches-pratiques/streaming-video" className="font-medium text-primary hover:underline">
                 streaming

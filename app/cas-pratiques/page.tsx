@@ -831,8 +831,8 @@ export default function CasPratiquesPage() {
                     <div className="text-sm text-slate-700 dark:text-slate-300">de l&apos;électricité mondiale (<Acronym title="Agence Internationale de l'Énergie (IEA en anglais) : rapport Energy and AI, avril 2025" glossary="aie">AIE</Acronym>, 2024)</div>
                   </div>
                   <div className="rounded-xl bg-teal-50 p-4 dark:bg-teal-900/20">
-                    <div className="mb-1 text-2xl font-bold text-teal-700 dark:text-teal-400">PUE 1,56</div>
-                    <div className="text-sm text-slate-700 dark:text-slate-300">efficacité moyenne mondiale (Uptime, 2024)</div>
+                    <div className="mb-1 text-2xl font-bold text-teal-700 dark:text-teal-400">PUE 1,52</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">efficacité moyenne mondiale (Uptime, 2026)</div>
                   </div>
                   <div className="rounded-xl bg-teal-50 p-4 dark:bg-teal-900/20">
                     <div className="mb-1 text-2xl font-bold text-teal-700 dark:text-teal-400">~28 %</div>
@@ -860,14 +860,14 @@ export default function CasPratiquesPage() {
                         <span className="text-teal-600 dark:text-teal-400">•</span>
                         <span>
                           Le <strong>PUE (Power Usage Effectiveness)</strong> mesure l'efficacité : 1,0 est parfait,
-                          1,56 est la moyenne mondiale actuelle (Uptime Institute, 2024)
+                          1,52 est la moyenne mondiale actuelle (Uptime Institute, 2026)
                         </span>
                       </li>
                       <li className="flex gap-2">
                         <span className="text-teal-600 dark:text-teal-400">•</span>
                         <span>
                           <strong>Environ 28 % de l'électricité</strong> est utilisée pour le refroidissement des
-                          serveurs (ordre de grandeur, PUE moyen 1,56)
+                          serveurs (ordre de grandeur, PUE moyen 1,52)
                         </span>
                       </li>
                       <li className="flex gap-2">
@@ -1424,7 +1424,7 @@ export default function CasPratiquesPage() {
               AIE - Energy and AI (2025)
             </a>
             <span>•</span>
-            <span>Uptime Institute - Global Data Center Survey (2024)</span>
+            <span>Uptime Institute - Global Data Center Survey (2026)</span>
             <span>•</span>
             <a
               href="https://ewastemonitor.info/the-global-e-waste-monitor-2024/"

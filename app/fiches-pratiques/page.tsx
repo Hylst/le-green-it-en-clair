@@ -227,7 +227,7 @@ export default function FichesPratiquesPage() {
             >
               Ecosystem 2024
             </a>{" "}
-            (79 % des DEEE collectés recyclés ou réutilisés) · Uptime 2024 (PUE) · Shift Project 2019
+            (79 % des DEEE collectés recyclés ou réutilisés) · Uptime 2026 (PUE) · Shift Project 2019
             (vidéo = 60 % des flux) ·{" "}
             <a
               href="https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/impact-environnemental/enquete-annuelle-pour-un-numerique-soutenable-edition-2026.html"

@@ -90,7 +90,7 @@ const sheets: Record<string, any> = {
     sources: [
       "ADEME, Impact CO₂ / Base Empreinte",
       "ADEME 2022 (reconditionné)",
-      "ADEME 2026 (durée de vie)",
+      "ADEME, guide téléphone durable (2026)",
       "Arcep 2026 (box)",
       "Kamiya 2020, Shift 2019 (streaming, Wi-Fi)",
     ],
@@ -103,6 +103,10 @@ const sheets: Record<string, any> = {
       {
         label: "ADEME, impacts du reconditionné (étude 2022)",
         url: "https://librairie.ademe.fr/economie-circulaire-et-dechets/5241-evaluation-de-l-impact-environnemental-d-un-ensemble-de-produits-reconditionnes.html",
+      },
+      {
+        label: "ADEME, guide téléphone durable (2026)",
+        url: "https://agirpourlatransition.ademe.fr/particuliers/mieux-consommer/numerique/prolonger-vie-telephone-portable",
       },
     ],
   },
@@ -384,7 +388,7 @@ const sheets: Record<string, any> = {
       "Bonus : https://www.ecosystem.eco",
     ],
     sources: [
-      "ADEME 2026 (durée de vie, réparation)",
+      "ADEME, guide téléphone durable (2026)",
       "Ecosystem 2024",
       "iFixit",
       "service-public.gouv.fr 2026 (bonus, garantie)",
@@ -392,6 +396,10 @@ const sheets: Record<string, any> = {
     sourceLinks: [
       { label: "Ecosystem, éco-organisme DEEE", url: "https://www.ecosystem.eco" },
       { label: "iFixit, tutoriels de réparation", url: "https://www.ifixit.com" },
+      {
+        label: "ADEME, guide téléphone durable (2026)",
+        url: "https://agirpourlatransition.ademe.fr/particuliers/mieux-consommer/numerique/prolonger-vie-telephone-portable",
+      },
     ],
   },
   "green-it-entreprise": {
@@ -476,13 +484,17 @@ const sheets: Record<string, any> = {
     ],
     sources: [
       "ADEME 2022 (-75 % reconditionné)",
-      "ADEME 2026 (durée de vie)",
+      "ADEME, guide téléphone durable (2026)",
       "ADEME, Impact CO₂ (mise à jour 2025)",
       "INR, GR491",
     ],
     sourceLinks: [
       { label: "ADEME, Impact CO₂ (mise à jour 2025)", url: "https://impactco2.fr" },
       { label: "GR491, référentiel d'écoconception (INR)", url: "https://gr491.isit-europe.org" },
+      {
+        label: "ADEME, guide téléphone durable (2026)",
+        url: "https://agirpourlatransition.ademe.fr/particuliers/mieux-consommer/numerique/prolonger-vie-telephone-portable",
+      },
     ],
   },
   "recyclage-mode-emploi": {
@@ -596,13 +608,13 @@ const sheets: Record<string, any> = {
             <>
               Le{" "}
               <Acronym
-                title="Power Usage Effectiveness : efficacité énergétique des datacenters (1,0 = parfait, moyenne mondiale 1,56)"
+                title="Power Usage Effectiveness : efficacité énergétique des datacenters (1,0 = parfait, moyenne mondiale 1,52)"
                 glossary="pue"
               >
                 PUE
               </Acronym>{" "}
-              (Power Usage Effectiveness) : visez un indice inférieur à 1.3 (moyenne 1,56 monde / 1,45 Europe,
-              Uptime 2024)
+              (Power Usage Effectiveness) : visez un indice inférieur à 1,3 (moyenne mondiale 1,52,
+              Uptime 2026)
             </>
           ),
           "Le mix énergétique : privilégiez les énergies renouvelables et bas carbone (France ≈ 50 g CO₂/kWh vs Allemagne ≈ 350 g, EEA/RTE 2024)",
@@ -665,8 +677,8 @@ const sheets: Record<string, any> = {
             <Acronym title="Agence Internationale de l'Énergie (IEA en anglais)" glossary="aie">
               AIE
             </Acronym>
-            , avril 2025). Le PUE moyen stagne autour de 1,56 dans le monde et 1,45 en Europe (Uptime Institute,
-            2024) : tout progrès sous ces seuils est un vrai gain. Et la transparence avance : l&apos;Arcep a
+            , avril 2025). Le PUE moyen stagne autour de 1,52 dans le monde (Uptime Institute,
+            2026) : tout progrès sous ce seuil est un vrai gain. Et la transparence avance : l&apos;Arcep a
             élargi en 2026 sa collecte aux fournisseurs de cloud, avec des résultats attendus au printemps 2027.
           </>
         ),
@@ -684,16 +696,15 @@ const sheets: Record<string, any> = {
       "Comparatif The Green Web Foundation : https://www.thegreenwebfoundation.org",
     ],
     sources: [
-      "Uptime Institute 2024 (PUE)",
+      "Uptime Institute 2026 (PUE)",
       "AIE, Energy & AI 2025 (415 TWh)",
       "The Green Grid (PUE, WUE)",
-      "GreenIT.fr 2023",
     ],
     sourceLinks: [
       { label: "AIE, Energy and AI (2025)", url: "https://www.iea.org/reports/energy-and-ai" },
       {
-        label: "Uptime Institute, Global Data Center Survey 2024",
-        url: "https://uptimeinstitute.com/resources/research-and-reports/uptime-institute-global-data-center-survey-results-2024",
+        label: "Uptime Institute, Global Data Center Survey 2026",
+        url: "https://uptimeinstitute.com/resources/research-and-reports/uptime-institute-global-data-center-survey-results-2026",
       },
       { label: "The Green Grid (PUE, WUE)", url: "https://www.thegreengrid.org/" },
     ],
@@ -809,11 +820,15 @@ const sheets: Record<string, any> = {
       "Loi REEN 2021",
       "ADEME (achat public)",
       "ecoresponsable.numerique.gouv.fr",
-      "ADEME 2026 (durée de vie)",
+      "ADEME, guide téléphone durable (2026)",
     ],
     sourceLinks: [
       { label: "Légifrance : loi REEN 2021", url: "https://www.legifrance.gouv.fr" },
       { label: "Mission Numérique éco-responsable", url: "https://ecoresponsable.numerique.gouv.fr" },
+      {
+        label: "ADEME, guide téléphone durable (2026)",
+        url: "https://agirpourlatransition.ademe.fr/particuliers/mieux-consommer/numerique/prolonger-vie-telephone-portable",
+      },
     ],
   },
   "ia-generative": {
@@ -924,7 +939,7 @@ const sheets: Record<string, any> = {
       {
         title: "1. Pourquoi la vidéo pèse si lourd",
         content:
-          "La vidéo en ligne génère à elle seule 60 % des flux mondiaux de données, soit plus de 300 millions de tonnes de CO₂ par an : 20 % des émissions du numérique et 1 % des émissions mondiales, autant que l'Espagne (The Shift Project, rapports 2019, dont les résultats n'ont pas été contestés).",
+          "La vidéo en ligne génère à elle seule 60 % des flux mondiaux de données, soit plus de 300 millions de tonnes de CO₂ par an : 20 % des émissions du numérique et 1 % des émissions mondiales, autant que l'Espagne (The Shift Project, rapports 2019, chiffres discutés depuis — voir la nuance ci-dessous).",
         tips: [
           "4 grandes familles se partagent ces 60 % : VOD, tubes, réseaux sociaux et autres (Shift, 2019)",
           "En toute honnêteté : un chiffre avancé lors d'une interview en 2019 était erroné (erreur de débit), sans remettre en cause les rapports publiés (Shift, 2020)",

@@ -11,6 +11,7 @@ Je m'appelle Geoffroy Streit, alias Hylst, et je suis développeur d'application
 ## Ce qu'on y trouve
 
 - des pages qui expliquent : cycle de vie des appareils, chiffres clés, datacenters, recyclage, réglementation, idées reçues...
+- une veille sur les technologies sobres et les datacenters (efficacité des puces, refroidissement, chaleur fatale, petits réacteurs...), mise à jour au fil des rapports officiels (AIE, ADEME, RTE, Uptime)
 - des outils interactifs : calculateur d'empreinte, estimateurs, simulateurs, quiz pour tester ses réflexes
 - des fiches pratiques et des modèles prêts à l'emploi pour les entreprises et les collectivités
 - une carte des points de collecte, une FAQ, un blog qui suit l'actualité (bonus réparation, avis de l'ADEME sur l'IA...), un guide du recyclage en PDF (6 pages, chiffres sourcés, QR vers les points de collecte)

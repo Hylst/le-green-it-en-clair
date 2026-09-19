@@ -306,12 +306,12 @@ export const posts: BlogPost[] = [
         widget: "pue-mini-calc",
         paragraphs: [
           "Un datacenter consomme de l’électricité pour ses serveurs, mais aussi pour les refroidir, les alimenter sans coupure et éclairer les salles. Le PUE (efficacité d’usage de l’énergie) rapporte le total à la seule part des serveurs : un PUE de 1,5 signifie que pour 1 kW utile aux serveurs, le bâtiment consomme 1,5 kW au total.",
-          "Le PUE parfait serait 1,0 : tout pour les serveurs, rien pour le reste. Il est inatteignable en pratique, car refroidir et sécuriser l’alimentation coûte toujours un peu d’énergie. Les meilleurs sites frôlent 1,1, la moyenne mondiale tourne autour de 1,56.",
+          "Le PUE parfait serait 1,0 : tout pour les serveurs, rien pour le reste. Il est inatteignable en pratique, car refroidir et sécuriser l’alimentation coûte toujours un peu d’énergie. Les meilleurs sites frôlent 1,1, la moyenne mondiale tourne autour de 1,52 (Uptime, 2026).",
         ],
         fact: {
-          value: "1,56",
-          label: "PUE moyen des datacenters dans le monde (1,45 en Europe)",
-          source: "Uptime Institute, 2024",
+          value: "1,52",
+          label: "PUE moyen des datacenters dans le monde",
+          source: "Uptime Institute, 2026",
         },
       },
       {
@@ -383,7 +383,7 @@ export const posts: BlogPost[] = [
       { label: "Données éCO2mix en temps réel (ODRE)", url: "https://odre.opendatasoft.com/explore/dataset/eco2mix-national-tr/table/" },
     ],
     sources: [
-      "Uptime Institute, Global Data Center Survey (2024)",
+      "Uptime Institute, Global Data Center Survey (2026)",
       "Agence internationale de l’énergie, Energy and AI (avril 2025)",
       "RTE, éCO2mix national en temps réel via ODRE (donnée en direct)",
     ],

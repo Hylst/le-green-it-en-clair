@@ -39,7 +39,7 @@ const energyBreakdownData = [
 const pueComparisonData = [
   { type: "Ancien datacenter", pue: 2.5 },
   { type: "Moyenne mondiale", pue: 1.52 },
-  { type: "Moyenne Europe", pue: 1.45 },
+  { type: "Moyenne Europe (2024)", pue: 1.45 },
   { type: "Datacenter moderne", pue: 1.2 },
   { type: "Datacenter optimal", pue: 1.05 },
 ]
@@ -938,8 +938,6 @@ export default function DatacentersPage() {
             >
               Uptime Institute - Global Data Center Survey (2024)
             </a>
-            <span>•</span>
-            <span>GreenIT.fr - Étude datacenters (2023)</span>
             <span>•</span>
             <a
               href="https://www.rte-france.com/bases-electricite/consommation-electricite/essor-data-centers-france"

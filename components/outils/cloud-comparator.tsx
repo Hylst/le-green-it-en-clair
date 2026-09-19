@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Cloud, Lightbulb, Leaf, CheckCircle2, Clock } from "lucide-react";
+import { SourceTooltip } from "@/components/source-tooltip";
 
 export default function CloudComparator() {
   const [sortBy, setSortBy] = useState<"score" | "pue" | "renewable" | "name">("score")
@@ -288,7 +289,7 @@ export default function CloudComparator() {
       </Card>
 
       <div className="text-sm text-muted-foreground text-center">
-        Sources : rapports RSE des fournisseurs, The Green Web Foundation, ADEME • Données et score indicatifs 2024-2026, méthodologie non pondérée publiquement
+        Sources : rapports RSE des fournisseurs, The Green Web Foundation, ADEME • Données et score indicatifs 2024-2026, méthodologie non pondérée publiquement <SourceTooltip source="Rapports RSE des fournisseurs, The Green Web Foundation, ADEME" info="Données et score indicatifs 2024-2026. Le score éco est une synthèse propre au site, sans pondération publiée : il sert à ordonner les fiches, pas de certification." />
       </div>
     </div>
   )

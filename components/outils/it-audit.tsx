@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { ClipboardCheck, Download, RotateCcw, Monitor, PcCase, Laptop, Smartphone, Tablet, Printer, Server, Package, BarChart3, Search, Coins, ClipboardList } from "lucide-react";
 import { LabeledSlider, PDF_COLORS } from "./shared";
@@ -272,7 +271,7 @@ export default function ITAudit() {
                     <div className="space-y-3">
                       <div>
                         <div className="flex justify-between text-sm mb-1">
-                          <Label className="text-muted-foreground">Quantité</Label>
+                          <span className="text-muted-foreground">Quantité</span>
                           <span className="font-semibold text-foreground">{count}</span>
                         </div>
                         <LabeledSlider
@@ -289,7 +288,7 @@ export default function ITAudit() {
                       </div>
                       <div>
                         <div className="flex justify-between text-sm mb-1">
-                          <Label className="text-muted-foreground">Âge moyen</Label>
+                          <span className="text-muted-foreground">Âge moyen</span>
                           <span className="font-semibold text-foreground">{avgAge} ans</span>
                         </div>
                         <LabeledSlider
@@ -345,7 +344,7 @@ export default function ITAudit() {
                   </div>
                   <div className="bg-card p-4 rounded-lg text-center border border-border">
                     <div className="text-3xl font-bold text-red-600 dark:text-red-400">
-                      {(results.totalCO2 / 1000).toFixed(1)}t
+                      {(results.totalCO2 / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} t
                     </div>
                     <div className="text-sm text-muted-foreground">CO₂e/an</div>
                   </div>
@@ -426,7 +425,7 @@ export default function ITAudit() {
                     <Coins className="mr-2 inline h-5 w-5" />Économies potentielles avec le reconditionné
                   </h4>
                   <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
-                    -{(results.potentialSavings / 1000).toFixed(1)} tonnes CO₂e
+                    -{(results.potentialSavings / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} tonnes CO₂e
                   </div>
                   <p className="text-sm text-muted-foreground">
                     En remplaçant les {results.renewalNeeded} équipements à renouveler par du reconditionné, vous économiseriez

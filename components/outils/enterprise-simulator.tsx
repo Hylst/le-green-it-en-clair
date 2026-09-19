@@ -195,8 +195,8 @@ export default function EnterpriseSimulator() {
     // Comparison Table
     const tableData = allScenarioResults.map(s => [
       s.name,
-      s.totalSavings.toLocaleString() + " €",
-      s.totalEmissions.toLocaleString() + " kg CO₂e", // This is actually CO2 savings
+      s.totalSavings.toLocaleString("fr-FR") + " €",
+      s.totalEmissions.toLocaleString("fr-FR") + " kg CO₂e", // This is actually CO2 savings
       s.payback === -1 ? "Non rentable" : s.payback === 0 ? "Immédiat" : s.payback + " mois"
     ])
 
@@ -392,13 +392,13 @@ export default function EnterpriseSimulator() {
                 <div className="grid md:grid-cols-4 gap-4">
                   <div className="bg-card p-4 rounded-lg text-center border border-border">
                     <div className="text-3xl font-bold text-green-600 dark:text-green-400">
-                      {(results.totalSavings / 1000).toFixed(0)}k€
+                      {(results.totalSavings / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 0 })} k€
                     </div>
                     <div className="text-sm text-muted-foreground">Économies totales</div>
                   </div>
                   <div className="bg-card p-4 rounded-lg text-center border border-border">
                     <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">
-                      {(results.totalEmissions / 1000).toFixed(1)}t
+                      {(results.totalEmissions / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} t
                     </div>
                     <div className="text-sm text-muted-foreground">CO₂ évité</div>
                   </div>
@@ -431,10 +431,10 @@ export default function EnterpriseSimulator() {
                     <XAxis dataKey="year" stroke={CHART_FALLBACKS.tick} />
                     <YAxis
                       stroke={CHART_FALLBACKS.tick}
-                      tickFormatter={(value) => `${(value / 1000).toFixed(0)}k€`}
+                      tickFormatter={(value) => `${(value / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 0 })} k€`}
                     />
                     <RechartsTooltip
-                      formatter={(value: number) => [`${(value / 1000).toFixed(1)}k€`, ""]}
+                      formatter={(value: number) => [`${(value / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} k€`, ""]}
                       contentStyle={{ backgroundColor: "var(--card)" }}
                     />
                     <Line
@@ -486,16 +486,16 @@ export default function EnterpriseSimulator() {
                         <tr key={i} className="border-b border-border">
                           <td className="py-2 px-3 font-medium text-foreground">{p.year}</td>
                           <td className="text-right py-2 px-3 text-muted-foreground">
-                            {(p.baselineCost / 1000).toFixed(1)}k€
+                            {(p.baselineCost / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} k€
                           </td>
                           <td className="text-right py-2 px-3 text-muted-foreground">
-                            {(p.optimizedCost / 1000).toFixed(1)}k€
+                            {(p.optimizedCost / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} k€
                           </td>
                           <td className="text-right py-2 px-3 font-semibold text-green-600 dark:text-green-400">
-                            +{(p.savings / 1000).toFixed(1)}k€
+                            +{(p.savings / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} k€
                           </td>
                           <td className="text-right py-2 px-3 font-semibold text-emerald-600 dark:text-emerald-400">
-                            -{(p.co2Savings / 1000).toFixed(2)}t
+                            -{(p.co2Savings / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 2 })} t
                           </td>
                         </tr>
                       ))}
@@ -506,10 +506,10 @@ export default function EnterpriseSimulator() {
                         <td className="text-right py-2 px-3 text-muted-foreground">-</td>
                         <td className="text-right py-2 px-3 text-muted-foreground">-</td>
                         <td className="text-right py-2 px-3 text-green-600 dark:text-green-400">
-                          +{(results.totalSavings / 1000).toFixed(0)}k€
+                          +{(results.totalSavings / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 0 })} k€
                         </td>
                         <td className="text-right py-2 px-3 text-emerald-600 dark:text-emerald-400">
-                          -{(results.totalEmissions / 1000).toFixed(1)}t
+                          -{(results.totalEmissions / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} t
                         </td>
                       </tr>
                     </tfoot>

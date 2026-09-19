@@ -496,13 +496,22 @@ const futureSolutions = [
               calculation="6,6 MW récupérés à 28 °C via pompes à chaleur, 10 800 MWh/an visés"
               url="https://www.engie-solutions.com/fr/references/chaleur-fatale-equinix"
             />
-            . Depuis octobre 2025, la loi DDADUE impose la valorisation au-delà de 1 MW. Potentiel identifié
-            dès 2017 : 3,6 TWh sur 177 sites
+            . Depuis octobre 2025, la loi DDADUE impose la valorisation au-delà de 1 MW, avec un taux de
+            réutilisation de 20 % (ERF ≥ 0,20). Potentiel net : 1,77 TWh en 2024, 4,1 à 12,9 TWh en 2035 selon
+            les trajectoires
             <SourceTooltip
               className="ml-1"
-              source="ACCIONA Energía, juillet 2026, d'après une étude ADEME 2017"
-              calculation="3,6 TWh de chaleur fatale récupérables sur 177 sites ; 80 % des gisements à moins de 40 °C"
-              url="https://solutions.acciona-energia.fr/blog/consommation-denergie-des-data-centers"
+              source="Citepa, janvier 2026, d'après la prospective ADEME 2024-2060"
+              calculation="potentiel net 1,77 TWh (2024) → 4,09 TWh en scénario frugal à 12,94 TWh en tendanciel (2035) ; plafond de récupération 18,8 % → 38 %"
+              url="https://www.citepa.org/la-consommation-delectricite-et-les-emissions-de-ges-des-centres-de-donnees-pourraient-plus-que-tripler-dici-2035-ademe"
+            />
+            . Mais potentiel théorique : moins de 1 % de la chaleur est réutilisée aujourd&apos;hui en France,
+            contre 1,9 % en Europe
+            <SourceTooltip
+              className="ml-1"
+              source="Next, avril 2026, d'après la Commission européenne"
+              calculation="premier reporting EED : ERF moyen de 0,019 en UE ; loin de l'obligation française de 20 %"
+              url="https://next.ink/236053/datacenters-01-de-la-chaleur-fatale-reutilisee-en-france-moins-de-2-en-europe"
             />
             .
           </>

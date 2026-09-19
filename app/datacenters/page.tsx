@@ -476,7 +476,16 @@ export default function DatacentersPage() {
                   url="https://uptimeinstitute.com/resources/research-and-reports/uptime-institute-global-data-center-survey-results-2026"
                 />
                 . Un datacenter « efficace » qui assèche une nappe n&apos;est pas un datacenter vert : l&apos;efficacité
-                IT réelle (par requête, par inférence) compte autant que les ratios.
+                IT réelle (par requête, par inférence) compte autant que les ratios. À l&apos;échelle mondiale,
+                les datacenters ont consommé 4 500 milliards de litres d&apos;eau en 2025, un doublement d&apos;ici
+                2030 (ONU, juin 2026)
+                <SourceTooltip
+                  className="ml-1 align-middle"
+                  source="ONU Info, juin 2026, d'après l'Institut ONU eau-environnement-santé"
+                  calculation="4 500 MdS L en 2025 = besoins de plus de 600 M de personnes en Afrique subsaharienne ; ×2 d'ici 2030"
+                  url="https://news.un.org/fr/story/2026/06/1158934"
+                />
+                .
               </p>
             </div>
           </div>
@@ -814,16 +823,31 @@ export default function DatacentersPage() {
             . L&apos;ADEME, avec un périmètre élargi à 352 sites, porte la consommation actuelle à 10 TWh, et RTE
             projette 23 à 28 TWh en 2035 (étude prospective ADEME-RTE, janvier 2026). La demande change
             d&apos;échelle : 28,6 GW de puissance demandée, dont ~18 GW déjà réservés en mai 2026, et un
-            raccordement accéléré pour 5 sites de 700 MW à 1 GW — dont le Campus IA de Fouju (240 MW fin 2027,
+            raccordement accéléré pour 5 sites de 400 MW à plus de 1 GW — dont le Campus IA de Fouju (240 MW fin 2027,
             jusqu&apos;à 1 400 MW)
             <SourceTooltip
               className="ml-1 align-middle"
-              source="RTE, 2026"
-              calculation="~18 GW réservés en mai 2026 contre 5 GW fin 2024, fast-track 5 sites, Fouju 240 MW → 1 400 MW"
+              source="RTE, chiffres clés datacenters, juin 2026"
+              calculation="~300 DC, ~10 TWh (~2 %), 18 GW réservés pour ~80 projets en mai 2026, 23 à 28 TWh en 2035 ; 5 sites fast-track"
+              url="https://www.rte-france.com/bases-electricite/consommation-electricite/essor-data-centers-france"
+            />
+            <SourceTooltip
+              className="ml-1 align-middle"
+              source="Presse spécialisée, septembre 2026 (Fouju)"
+              calculation="Campus IA de Fouju : 240 MW fin 2027, 700 MW fin 2029, 1 400 MW à terme"
               url="https://www.les-energies-renouvelables.eu/article/actualites/energies/datacenters-ia-electrification-france-rte-856/"
             />
             . L&apos;ADEME modélise 5 trajectoires : du tendanciel (×3,7 d&apos;ici 2035, deux tiers à
-            l&apos;étranger sur des mix plus carbonés) au frugal (5,7 TWh en 2050). Côté production pilotable, les
+            l&apos;étranger sur des mix plus carbonés) au frugal (5,7 TWh en 2050). Scénario haut : jusqu&apos;à
+            7,5 % de la demande en 2035, soit un quadruplement, si les annonces du sommet IA se réalisent
+            (Shift Project, octobre 2025)
+            <SourceTooltip
+              className="ml-1 align-middle"
+              source="Shift Project, rapport « IA, données, calculs », octobre 2025"
+              calculation="7,5 % contre 2 % actuels, scénario haut conditionnel ; annexes : 45 TWh avec annonces contre 33 TWh sans"
+              url="https://theshiftproject.org/publications/intelligence-artificielle-centres-de-donnees-rapport-final/"
+            />
+            . Côté production pilotable, les
             petits réacteurs avancent (permis Natrium en mars 2026, démo Aalo-Crusoe en 2027) avec un horizon
             réaliste de 2030-2034 : en attendant, gaz et batteries.
           </p>

@@ -1000,6 +1000,14 @@ const sheets: Record<string, any> = {
     ],
     sourceLinks: [
       {
+        label: "Shift Project, « Climat : l'insoutenable usage de la vidéo en ligne » (rapport 2019)",
+        url: "https://theshiftproject.org/app/uploads/2025/04/2019-02.pdf",
+      },
+      {
+        label: "Shift Project, « Deploying Digital Sobriety » (suivi 2020)",
+        url: "https://theshiftproject.org/app/uploads/2025/02/Deploying-digital-sobriety_TSP_2020_final.pdf",
+      },
+      {
         label: "Netflix, centre d'aide « Contrôler la quantité de données »",
         url: "https://help.netflix.com/fr/node/87",
       },

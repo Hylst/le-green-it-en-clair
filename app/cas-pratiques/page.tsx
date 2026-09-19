@@ -840,7 +840,7 @@ export default function CasPratiquesPage() {
                   </div>
                   <div className="rounded-xl bg-teal-50 p-4 dark:bg-teal-900/20">
                     <div className="mb-1 text-2xl font-bold text-teal-700 dark:text-teal-400">3-5 ans</div>
-                    <div className="text-sm text-slate-700 dark:text-slate-300">durée de vie des serveurs (le bâtiment, lui, dure 10-15 ans)</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">durée de vie des serveurs (~41 mois en moyenne en 2026, après 44 mois en 2023 — Uptime ; le bâtiment, lui, dure 10-15 ans)</div>
                   </div>
                 </div>
 

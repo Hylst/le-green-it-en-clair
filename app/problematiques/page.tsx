@@ -436,6 +436,13 @@ const futureSolutions = [
               calculation="8 000 h/an de free-air, Compute Nordic <1,1 (<1,15 haute densité), atNorth Islande ~1,2"
               url="https://w.media/special-feature-just-chill-cooling-innovations-in-nordic-data-centers-setting-new-sustainability-standards"
             />
+            . À Hamar (Norvège), Green Mountain vise 1,2 de PUE avec 71 chillers Daikin en free-cooling
+            <SourceTooltip
+              className="ml-1"
+              source="Institut International du Froid, mars 2025"
+              calculation="71 chillers free-cooling + 330 ventilateurs + 8 contrôles IA, 3 bâtiments de 30 MW, PUE maximal visé de 1,2"
+              url="https://iifiir.org/en/news/member-news-daikin-equips-the-cooling-system-of-norway-s-largest-data-centre"
+            />
             . Enjeu jumeau : ne pas échanger des kWh contre des litres d&apos;eau. Pourtant 23 % des
             exploitants tournent déjà sous 1,3 de PUE et 24 % ont des racks à 30 kW ou plus
             <SourceTooltip
@@ -543,6 +550,14 @@ const futureSolutions = [
               source="Idex, avril 2026"
               calculation="90 GWh géothermie + ~28 GWh chaleur fatale, réseau >120 GWh/an à plus de 75 % d'énergies renouvelables et de récupération"
               url="https://www.idex.fr/nos-actualites/idex-investit-70-meu-pour-valoriser-la-chaleur-du-sous-sol-et-la-chaleur-fatale-des-data-centers-et-fournir-levallois-une-energie-locale-propre-prix-stable-et-maitrise"
+            />
+            . Et le gisement est massif : en Île-de-France, les datacenters installés ou en projet depuis
+            quatre ans auraient pu alimenter au minimum 1 million de logements (potentiel, pas du réalisé)
+            <SourceTooltip
+              className="ml-1"
+              source="MRAe, via FNE Île-de-France, novembre 2025"
+              calculation="potentiel conditionnel francilien (« auraient pu »), pas de la chaleur récupérée"
+              url="https://fne-idf.fr/dossiers/l-essentiel-sur-l-impact-environnemental-des-data-centers"
             />
             . Mais potentiel théorique : moins de 1 % de la chaleur est réutilisée aujourd&apos;hui en France,
             contre 1,9 % en Europe

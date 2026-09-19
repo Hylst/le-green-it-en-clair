@@ -501,7 +501,7 @@ const sheets: Record<string, any> = {
         content:
           "Un smartphone contient 70 matériaux différents dont des métaux rares (or, argent, cuivre, terres rares). Le recyclage permet de les récupérer et d'éviter la pollution.",
         tips: [
-          "Évite d'extraire de nouvelles matières (~2 kg de CO₂ évités par smartphone recyclé, ordre de grandeur)",
+          "Évite d'extraire de nouvelles matières premières (cuivre, or, terres rares)",
           "Récupère une grande partie des matériaux pour fabriquer de nouveaux produits (~79 % des DEEE collectés sont recyclés ou réutilisés, Ecosystem 2024)",
           "Empêche les substances toxiques (plomb, mercure) de polluer les sols",
         ],

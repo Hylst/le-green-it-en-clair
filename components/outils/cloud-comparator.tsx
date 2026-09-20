@@ -232,17 +232,17 @@ export default function CloudComparator() {
       {
         name: "Google Cloud",
         country: "Global",
-        pue: 1.1,
+        pue: 1.09,
         renewableEnergy: 100,
         carbonNeutral: true,
         certifications: ["ISO 14001", "ISO 50001", "LEED"],
-        description: "Neutralité carbone annoncée depuis 2007 ; 100 % renouvelable en matching annuel depuis 2017, objectif 24/7 d'ici 2030.",
+        description: "Neutralité carbone annoncée depuis 2007 ; 100 % renouvelable en matching annuel depuis 2017, flotte mondiale à 1,09 en 2025.",
         color: "emerald",
       },
       {
         name: "Microsoft Azure",
         country: "Global",
-        pue: 1.18,
+        pue: 1.17,
         renewableEnergy: 100,
         carbonNeutral: true,
         certifications: ["ISO 14001", "LEED"],
@@ -252,11 +252,11 @@ export default function CloudComparator() {
       {
         name: "AWS",
         country: "Global",
-        pue: 1.2,
+        pue: 1.14,
         renewableEnergy: 100,
         carbonNeutral: false,
         certifications: ["ISO 14001", "ISO 50001"],
-        description: "100 % renouvelable atteint en 2023 (matching annuel), programme Climate Pledge.",
+        description: "100 % renouvelable en matching annuel (3e année en 2025), PUE mondial 1,14, programme Climate Pledge.",
         color: "cyan",
       },
       {
@@ -266,7 +266,7 @@ export default function CloudComparator() {
         renewableEnergy: 60,
         carbonNeutral: false,
         certifications: ["SOC 2"],
-        description: "Efforts en cours sur l'efficacité, mais encore limités sur le renouvelable.",
+        description: "Ne publie ni PUE ni part de renouvelable : valeurs prudentes par défaut, à interpréter avec réserve.",
         color: "orange",
       },
       {
@@ -585,7 +585,7 @@ export default function CloudComparator() {
             </p>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                • <strong>Infomaniak</strong> ou <strong>Hetzner</strong> pour le meilleur bilan environnemental
+                • <strong>Infomaniak</strong> ou <strong>Hetzner</strong> pour le meilleur bilan européen
               </li>
               <li>
                 • <strong>OVHcloud</strong> ou <strong>Scaleway</strong> pour rester en France (données

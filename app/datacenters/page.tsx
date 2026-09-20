@@ -675,11 +675,13 @@ export default function DatacentersPage() {
                 <div>
                   <h4 className="mb-2 font-semibold text-foreground">Scaleway (Paris)</h4>
                   <p className="mb-2 text-sm text-slate-700 dark:text-slate-300">
-                    Chiffres communiqués par Scaleway : PUE annoncé d'environ 1,2, refroidissement par air extérieur, électricité d'origine renouvelable et récupération de chaleur pour des logements.
+                    Chiffres communiqués par Scaleway (moyenne du parc 2024) : PUE moyen de 1,37
+                    (DC5 à 1,25 en free-cooling adiabatique), électricité d&apos;origine renouvelable et
+                    récupération de chaleur pour des logements.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="rounded-full bg-emerald-700 px-3 py-1 text-xs font-medium text-white">
-                      PUE 1,2
+                      PUE moyen 1,37 (2024)
                     </span>
                     <span className="rounded-full bg-emerald-700 px-3 py-1 text-xs font-medium text-white">
                       100 % renouvelable
@@ -899,6 +901,14 @@ export default function DatacentersPage() {
                   source="Le Nuage était sous nos pieds, 9 juillet 2026"
                   calculation="carte participative : 354 sites existants + 83 projets ; 35 sites clés-en-main ≈ 1 200 ha, dont Fouju et ses 70 ha de terres agricoles"
                   url="https://lenuageetaitsousnospieds.org/articles/2026-07-09-artificialisation-et-confiscation-des-territoires-par-les-datacenters.html"
+                />
+                . Côté État, la DGE recense 63 sites favorables (guide de novembre 2025) et chiffre
+                ~50 ETP pour 100 MW, avec un PUE de 1,20 visé en 2030 pour les plus de 10 000 m²
+                <SourceTooltip
+                  className="ml-1 align-middle"
+                  source="DGE, guide d'accompagnement « Implantation de centres de données », novembre 2025"
+                  calculation="63 sites favorables identifiés par la task force ; ~50 ETP pour 100 MW ; objectif PUE 1,20 en 2030 pour les +10 000 m² (décret tertiaire)"
+                  url="https://www.entreprises.gouv.fr/files/files/Publications/2025/Guide/25112025__Guide%20Datacenters.pdf"
                 />
                 .
               </p>

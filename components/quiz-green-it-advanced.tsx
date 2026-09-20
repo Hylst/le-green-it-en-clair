@@ -167,7 +167,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Le Green IT vise à réduire l'empreinte environnementale et sociale du numérique à toutes les étapes du cycle de vie.",
-    source: "GreenIT.fr",
+    source: "Culture du domaine",
     points: 10,
   },
   {
@@ -258,7 +258,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Un appareil reconditionné est un équipement d'occasion qui a été vérifié, réparé si nécessaire, nettoyé et remis en état de fonctionnement.",
-    source: "Ordre de grandeur — culture générale du domaine",
+    source: "Culture du domaine",
     points: 10,
   },
   {
@@ -337,7 +337,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 0,
     explanation:
       "Réduire la luminosité peut économiser une part notable de la consommation, variable selon l'écran et la luminosité initiale (ADEME).",
-    source: "Ordre de grandeur — culture générale du domaine",
+    source: "ADEME",
     points: 10,
   },
   {
@@ -453,7 +453,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["0,01 kWh", "0,05 kWh", "0,1 kWh", "0,5 kWh"],
     correctAnswer: 0,
     explanation: "Une charge complète de smartphone consomme environ 0,01 kWh, soit moins de 0,5 centime d'euro.",
-    source: "Ordre de grandeur — culture générale du domaine",
+    source: "Ordre de grandeur (batterie ≈ 15 Wh)",
     points: 15,
   },
 
@@ -533,7 +533,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Souvent 50 à 150 € selon le modèle et le réparateur ; le bonus réparation peut réduire la facture (25 € pour un smartphone).",
-    source: "Ordre de grandeur, QualiRépar 2025",
+    source: "QualiRépar 2025",
     points: 15,
   },
   {
@@ -619,7 +619,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "L'éco-conception web vise à concevoir des sites et applications numériques ayant un impact environnemental réduit.",
-    source: "GreenIT.fr",
+    source: "Culture du domaine",
     points: 15,
   },
   {
@@ -867,7 +867,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "La virtualisation permet de faire fonctionner plusieurs serveurs virtuels sur une seule machine physique, optimisant les ressources.",
-    source: "Ordre de grandeur — culture générale du domaine",
+    source: "Culture du domaine",
     points: 10,
   },
   {
@@ -1174,7 +1174,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "La première étape est de réaliser un bilan carbone du système d'information pour identifier les leviers d'action prioritaires.",
-    source: "GreenIT.fr, guide Green IT",
+    source: "Culture du domaine",
     points: 15,
   },
   {
@@ -1236,7 +1236,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctAnswer: 2,
     explanation: "Configurer l'impression recto-verso par défaut peut réduire la consommation de papier de 30 à 50 %.",
-    source: "Ordre de grandeur — culture générale du domaine",
+    source: "Culture du domaine",
     points: 10,
   },
   {
@@ -1270,7 +1270,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 0,
     explanation:
       "L'impact dépend du volume d'envois et de réceptions, de la taille des pièces jointes et du stockage ; il n'existe pas de nombre universel d'e-mails par employé.",
-    source: "Ordre de grandeur — culture générale du domaine",
+    source: "Culture du domaine",
     points: 15,
   },
   {
@@ -1381,7 +1381,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "L'edge computing traite les données au plus près de leur source : il peut réduire le trafic réseau, mais le bilan dépend des usages et des équipements déployés.",
-    source: "Ordre de grandeur — culture générale du domaine",
+    source: "Culture du domaine",
     points: 15,
   },
   {
@@ -1456,7 +1456,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Les bioplastiques issus de ressources renouvelables sont étudiés pour remplacer les plastiques pétrochimiques.",
-    source: "Ordre de grandeur — culture générale du domaine",
+    source: "Culture du domaine",
     points: 10,
   },
   {
@@ -1479,7 +1479,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
 ]
 
 // À incrémenter si les questions changent (invalide proprement les sessions en cours)
-const QUIZ_CONTENT_VERSION = 4
+const QUIZ_CONTENT_VERSION = 5
 
 const questionIndex = (question: QuizQuestion) => ALL_QUIZ_QUESTIONS.indexOf(question)
 

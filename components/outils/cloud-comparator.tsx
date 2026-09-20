@@ -212,18 +212,18 @@ export default function CloudComparator() {
       {
         name: "Scaleway",
         country: "France",
-        pue: 1.2,
+        pue: 1.37,
         renewableEnergy: 100,
-        carbonNeutral: true,
-        certifications: ["ISO 14001", "HDS", "DC4"],
+        carbonNeutral: false,
+        certifications: ["ISO 14001", "HDS", "EcoVadis Gold"],
         description: "Datacenters français éco-conçus avec refroidissement adiabatique.",
         color: "emerald",
       },
       {
         name: "OVHcloud",
         country: "France",
-        pue: 1.2,
-        renewableEnergy: 78,
+        pue: 1.24,
+        renewableEnergy: 100,
         carbonNeutral: false,
         certifications: ["ISO 14001", "ISO 50001"],
         description: "Refroidissement par eau innovant et démarche de réduction carbone.",
@@ -272,10 +272,10 @@ export default function CloudComparator() {
       {
         name: "Hetzner",
         country: "Allemagne",
-        pue: 1.15,
+        pue: 1.13,
         renewableEnergy: 100,
-        carbonNeutral: true,
-        certifications: ["ISO 14001", "TÜV"],
+        carbonNeutral: false,
+        certifications: ["EMAS"],
         description: "Datacenters allemands alimentés à 100 % par énergies renouvelables.",
         color: "emerald",
       },
@@ -588,7 +588,8 @@ export default function CloudComparator() {
                 • <strong>Infomaniak</strong> ou <strong>Hetzner</strong> pour le meilleur bilan environnemental
               </li>
               <li>
-                • <strong>Scaleway</strong> pour rester en France avec un excellent PUE
+                • <strong>OVHcloud</strong> ou <strong>Scaleway</strong> pour rester en France (données
+                2025 et 2024)
               </li>
               <li>
                 • <strong>Google Cloud</strong> si vous avez besoin d'un hyperscaler avec engagement environnemental fort

@@ -559,6 +559,15 @@ const futureSolutions = [
               calculation="potentiel conditionnel francilien (« auraient pu »), pas de la chaleur récupérée"
               url="https://fne-idf.fr/dossiers/l-essentiel-sur-l-impact-environnemental-des-data-centers"
             />
+            . À l&apos;échelle nationale, Idex chiffre à plus de 100 TWh par an la chaleur des 35 sites IA
+            prévus (2,5 fois le chauffage des logements du Grand Paris) : en récupérer 15 % couvrirait déjà
+            10 % de l&apos;objectif 2035 de chaleur renouvelable
+            <SourceTooltip
+              className="ml-1"
+              source="Idex (Benjamin Fremeaux), tribune Les Echos de mars 2025, relayée par Rexel en 2025"
+              calculation="plus de 100 TWh/an = 2,5 fois les besoins en chauffage des logements du Grand Paris ; 15 % récupérés = 10 % de l'objectif 2035"
+              url="https://entreprise.rexel.fr/courant-positif/tous-nos-articles/articles/data-centers-lenjeu-crucial-de-la-recuperation-de-chaleur-2"
+            />
             . Mais potentiel théorique : moins de 1 % de la chaleur est réutilisée aujourd&apos;hui en France,
             contre 1,9 % en Europe
             <SourceTooltip

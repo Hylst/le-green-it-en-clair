@@ -770,6 +770,36 @@ export default function DatacentersPage() {
                   </div>
                 </div>
               </div>
+
+              <div className="flex items-start gap-4 rounded-xl bg-purple-50 dark:bg-purple-900/20 p-6">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-purple-600">
+                  <CheckCircle2 className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="mb-2 font-semibold text-foreground">Telehouse et Magny-les-Hameaux (78)</h4>
+                  <p className="mb-2 text-sm text-slate-700 dark:text-slate-300">
+                    Sur le campus TH3, le bâtiment Magny 2 (18 MW, 12 000 m²) vise un PUE inférieur à 1,3
+                    grâce au free-chilling, avec une consommation d&apos;eau proche de zéro et une électricité
+                    100 % renouvelable
+                    <SourceTooltip
+                      className="ml-1 align-middle"
+                      source="Telehouse, page officielle Magny 2 (objectifs annoncés par l'exploitant)"
+                      calculation="PUE inférieur à 1,3 à 100 % de charge (1,5 à 50 %), WUE proche de 0, 2 arrivées Enedis de 18 MW"
+                      url="https://www.telehouse.net/data-centre-services/france/paris/telehouse-paris-magny-2"
+                    />
+                    . Un exemple de sobriété hydrique, rare dans le secteur.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="rounded-full bg-purple-700 px-3 py-1 text-xs font-medium text-white">PUE visé inférieur à 1,3</span>
+                    <span className="rounded-full bg-purple-700 px-3 py-1 text-xs font-medium text-white">
+                      Eau proche de zéro
+                    </span>
+                    <span className="rounded-full bg-purple-700 px-3 py-1 text-xs font-medium text-white">
+                      18 MW / 12 000 m²
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </Card>
         </div>

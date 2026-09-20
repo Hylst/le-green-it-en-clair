@@ -940,6 +940,23 @@ export default function DatacentersPage() {
                   calculation="63 sites favorables identifiés par la task force ; ~50 ETP pour 100 MW ; objectif PUE 1,20 en 2030 pour les +10 000 m² (décret tertiaire)"
                   url="https://www.entreprises.gouv.fr/files/files/Publications/2025/Guide/25112025__Guide%20Datacenters.pdf"
                 />
+                . Début 2026, 26 de ces sites sont sécurisés par un porteur de projet et 5 « fast-track »
+                dépassent 700 MW de raccordement potentiel
+                <SourceTooltip
+                  className="ml-1 align-middle"
+                  source="Ministère de l'Économie, Rencontres des centres de données, 30 janvier 2026"
+                  calculation="63 sites identifiés, 26 sécurisés, 5 fast-track à plus de 700 MW (Escaudain, Bosquel, Dunkerque, Fouju, Montereau) ; 28,6 GW demandés dont 5,8 GW engagés"
+                  url="https://www.economie.gouv.fr/actualites/rencontres-des-centres-de-donnees-la-dynamique-des-projets-dinfrastructures-numeriques-se-confirme"
+                />
+                . Le Sénat a adopté en première lecture une proposition de loi d&apos;encadrement (orientations
+                dans les documents d&apos;urbanisme, comité de projet obligatoire, refus de permis possible
+                en zone de tension sur l&apos;eau)
+                <SourceTooltip
+                  className="ml-1 align-middle"
+                  source="Sénat, texte n° 73 adopté le 25 mars 2026"
+                  calculation="PPL 1re lecture : article L. 141-6-1 (orientations DC), qualification PINM par décret avec comité de projet, refus de permis possible en tension eau, rapport du Gouvernement sous 6 mois"
+                  url="https://www.senat.fr/leg/tas25-073.html"
+                />
                 .
               </p>
             </div>

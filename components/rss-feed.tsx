@@ -20,9 +20,11 @@ export const RSS_FEEDS: Feed[] = [
   { id: "shift", name: "The Shift Project", url: "https://theshiftproject.org/feed/", lang: "fr", topic: "Think tank" },
   { id: "nextink", name: "Next.ink", url: "https://next.ink/feed/", lang: "fr", topic: "Tech & société", direct: true },
   { id: "numerama", name: "Numerama", url: "https://www.numerama.com/feed/", lang: "fr", topic: "Tech & société" },
-  { id: "dcd", name: "Data Center Dynamics", url: "https://www.datacenterdynamics.com/rss/", lang: "en", topic: "Datacenters" },
+  { id: "dcd", name: "Data Center Dynamics", url: "https://www.datacenterdynamics.com/en/rss/", lang: "en", topic: "Datacenters" },
   { id: "register", name: "The Register", url: "https://www.theregister.com/headlines.atom", lang: "en", topic: "Tech" },
-  { id: "unep", name: "UNEP", url: "https://www.unep.org/rss.xml", lang: "en", topic: "Environnement" },
+  { id: "dcmag", name: "DCmag", url: "https://dcmag.fr/feed/", lang: "fr", topic: "Datacenters FR" },
+  { id: "uptime", name: "Uptime Institute", url: "https://journal.uptimeinstitute.com/feed/", lang: "en", topic: "Datacenters" },
+  { id: "gwf", name: "Green Web Foundation", url: "https://www.thegreenwebfoundation.org/feed/", lang: "en", topic: "Numérique sobre" },
 ]
 
 const DEFAULT_SELECTED = ["greenit", "inr", "shift", "nextink"]

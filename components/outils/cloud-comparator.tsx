@@ -42,6 +42,8 @@ type CloudProvider = {
   carbonNeutral: boolean
   certifications: string[]
   description: string
+  /* Document primaire lu pour alimenter la fiche (rapports 2024-2026 vérifiés à la main). */
+  source: string
   color: string
 }
 
@@ -160,7 +162,7 @@ function exportProvidersCsv(all: ScoredProvider[]): void {
     "# Comparateur cloud : export des 8 hébergeurs (données indicatives 2024-2026)",
     `# Score éco (0-100) = 40${NBSP}% PUE (100 à 1,0, 0 à 1,5, linéaire) + 40${NBSP}% renouvelable (${NBSP}% affiché) + 20${NBSP}% engagements (10 pts neutralité déclarée + jusqu'à 10 pts certifications : 3 et + = 10, 2 = 7, 1 = 3)`,
     "# Sources : rapports RSE des fournisseurs, The Green Web Foundation, ADEME",
-    "nom;pays;PUE;renouvelable_%;neutralite_carbone;certifications;score_eco",
+    "nom;pays;PUE;renouvelable_%;neutralite_carbone;certifications;document_source;score_eco",
   ]
   const rows = [...all]
     .sort((a, b) => b.sustainabilityScore - a.sustainabilityScore)
@@ -172,6 +174,7 @@ function exportProvidersCsv(all: ScoredProvider[]): void {
         String(p.renewableEnergy),
         p.carbonNeutral ? "Déclarée" : "En cours",
         `"${p.certifications.join(" | ")}"`,
+        `"${p.source}"`,
         String(p.sustainabilityScore),
       ].join(";")
     )
@@ -207,6 +210,7 @@ export default function CloudComparator() {
         carbonNeutral: true,
         certifications: ["ISO 14001", "ISO 50001", "Engagement climat"],
         description: "Leader européen de l'hébergement écologique, 100 % énergies renouvelables locales.",
+        source: "Page officielle (PUE inférieur à 1,1, 100 % hydraulique, neutre depuis 2007)",
         color: "emerald",
       },
       {
@@ -217,6 +221,7 @@ export default function CloudComparator() {
         carbonNeutral: false,
         certifications: ["ISO 14001", "HDS", "EcoVadis Gold"],
         description: "Datacenters français éco-conçus avec refroidissement adiabatique.",
+        source: "Impact Report 2024 + page officielle (PUE moyen 1,37, 100 % garanties d'origine)",
         color: "emerald",
       },
       {
@@ -227,6 +232,7 @@ export default function CloudComparator() {
         carbonNeutral: false,
         certifications: ["ISO 14001", "ISO 50001"],
         description: "Refroidissement par eau innovant et démarche de réduction carbone.",
+        source: "Document d'enregistrement universel 2025 (PUE 1,24, WUE 0,34, 100 % renouvelable)",
         color: "teal",
       },
       {
@@ -237,6 +243,7 @@ export default function CloudComparator() {
         carbonNeutral: true,
         certifications: ["ISO 14001", "ISO 50001", "LEED"],
         description: "Neutralité carbone annoncée depuis 2007 ; 100 % renouvelable en matching annuel depuis 2017, flotte mondiale à 1,09 en 2025.",
+        source: "Page efficacité énergétique (flotte 2025 : PUE 1,09 en moyenne glissante)",
         color: "emerald",
       },
       {
@@ -247,6 +254,7 @@ export default function CloudComparator() {
         carbonNeutral: true,
         certifications: ["ISO 14001", "LEED"],
         description: "Objectif carbone négatif 2030, investissements massifs dans le renouvelable.",
+        source: "Rapport développement durable 2026, exercice FY25 (PUE 1,17, 100 % matched)",
         color: "teal",
       },
       {
@@ -257,6 +265,7 @@ export default function CloudComparator() {
         carbonNeutral: false,
         certifications: ["ISO 14001", "ISO 50001"],
         description: "100 % renouvelable en matching annuel (3e année en 2025), PUE mondial 1,14, programme Climate Pledge.",
+        source: "Sustainability summary 2025 (PUE 1,14, ISO 50001 dans 35 pays, 8 sites FR certifiés)",
         color: "cyan",
       },
       {
@@ -267,6 +276,7 @@ export default function CloudComparator() {
         carbonNeutral: false,
         certifications: ["SOC 2"],
         description: "Ne publie ni PUE ni part de renouvelable : valeurs prudentes par défaut, à interpréter avec réserve.",
+        source: "Page impact (volet social uniquement) : aucun PUE ni renouvelable publié",
         color: "orange",
       },
       {
@@ -277,6 +287,7 @@ export default function CloudComparator() {
         carbonNeutral: false,
         certifications: ["EMAS"],
         description: "Datacenters allemands alimentés à 100 % par énergies renouvelables.",
+        source: "Documentation officielle, màj 09/2026 (PUE 1,13, 100 % hydraulique en Allemagne)",
         color: "emerald",
       },
     ] as CloudProvider[]
@@ -533,6 +544,7 @@ export default function CloudComparator() {
                       </div>
                     </div>
                     <p className="text-sm text-muted-foreground mb-3">{provider.description}</p>
+                    <p className="text-xs text-muted-foreground mb-3">Source : {provider.source}</p>
                     <div className="flex flex-wrap gap-2">
                       {provider.certifications.map((cert) => (
                         <span

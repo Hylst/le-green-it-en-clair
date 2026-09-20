@@ -103,8 +103,10 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["18 mois", "2 à 3 ans", "4 ans", "6 ans"],
     correctAnswer: 1,
     explanation:
-      "On change de smartphone en moyenne tous les 3 ans, et sa durée de vie est de 2 à 3 ans (ADEME 2026). Bien entretenu, il peut tenir plus longtemps.",
-    source: "ADEME 2026",
+      "On change de smartphone en moyenne tous les 3 ans, et sa durée de vie est de 2 à 3 ans (ADEME 2025). Bien entretenu, il peut tenir plus longtemps.",
+    source: "ADEME, 2025",
+    sourceUrl:
+      "https://agirpourlatransition.ademe.fr/particuliers/actualites/etiquette-energie-smartphones-tablettes",
     points: 15,
   },
   {
@@ -134,6 +136,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "Le numérique représente environ 3,4 % des émissions mondiales de GES, soit 1,8 Gt CO₂e en 2023 (GreenIT EENM 2025).",
     source: "GreenIT EENM 2025",
+    sourceUrl: "https://www.greenit.fr/etude-empreinte-environnementale-du-numerique-mondial/",
     points: 20,
   },
   {
@@ -306,7 +309,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Un ordinateur portable bien entretenu peut durer 5 à 7 ans, voire plus avec des mises à niveau ciblées.",
-    source: "ADEME 2026",
+    source: "Culture du domaine",
     points: 10,
   },
   {
@@ -429,8 +432,10 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     question: "Combien de données un français consomme-t-il par mois en mobile en 2025 ?",
     options: ["2 Go", "8 Go", "18 Go", "30 Go"],
     correctAnswer: 2,
-    explanation: "La consommation mobile moyenne en France atteint environ 18 Go par mois en 2025 (Arcep).",
-    source: "Arcep 2025",
+    explanation: "La consommation mobile moyenne en France atteint environ 18 Go par mois en 2025 (Arcep, 18,3 Go au 4e trimestre).",
+    source: "Arcep, observatoire T4 2025",
+    sourceUrl:
+      "https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/observatoire-des-marches-des-communications-electroniques-en-france/t4-2025.html",
     points: 15,
   },
   {
@@ -545,7 +550,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 2,
     explanation:
       "Chaque français produit environ 24 kg de déchets électroniques par an, soit 1,6 million de tonnes au total.",
-    source: "ADEME 2026",
+    source: "ADEME 2024, Eurostat 2024",
     points: 20,
   },
   {
@@ -599,8 +604,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["10 millions", "30 millions", "54 millions", "100 millions"],
     correctAnswer: 3,
     explanation:
-      "Environ 100 millions d'appareils dorment dans les tiroirs français, dont des dizaines de millions de smartphones (ADEME 2026).",
-    source: "ADEME 2026",
+      "Environ 100 millions d'appareils dorment dans les tiroirs français, dont des dizaines de millions de smartphones (ADEME 2020, ordre de grandeur).",
+    source: "ADEME 2020",
     points: 20,
   },
 
@@ -656,6 +661,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "Le bundling regroupe plusieurs fichiers en un seul, réduisant le nombre de requêtes. Avec HTTP/2 et HTTP/3, il faut parfois au contraire découper pour mieux exploiter le cache.",
     source: "MDN, performance web",
+    sourceUrl: "https://developer.mozilla.org/fr/docs/Web/Performance",
     points: 15,
   },
   {
@@ -726,6 +732,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "Limiter à 2-3 polices web optimisées réduit le poids de la page tout en gardant une identité visuelle.",
     source: "Web.dev",
+    sourceUrl: "https://web.dev/articles/font-best-practices",
     points: 10,
   },
   {
@@ -757,6 +764,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "Le PUE (Power Usage Effectiveness) mesure l'efficacité énergétique d'un datacenter. Un PUE de 1 est idéal.",
     source: "The Green Grid",
+    sourceUrl: "https://www.thegreengrid.org/node/372",
     points: 15,
   },
   {
@@ -879,7 +887,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 0,
     explanation:
       "Le WUE rapporte les litres d'eau consommés par kWh consommé par l'IT ; sa valeur dépend fortement du site et du refroidissement, il n'existe pas de moyenne universelle.",
-    source: "The Green Grid",
+    source: "The Green Grid, white paper WUE 2011",
+    sourceUrl: "https://www.thegreengrid.org/system/files/store/WUE_v1.pdf",
     points: 20,
   },
 
@@ -1038,6 +1047,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation:
       "Le secteur numérique mondial émet environ 1,8 Gt CO₂e en 2023, soit 3,4 % des émissions mondiales (GreenIT EENM 2025).",
     source: "GreenIT EENM 2025",
+    sourceUrl: "https://www.greenit.fr/etude-empreinte-environnementale-du-numerique-mondial/",
     points: 15,
   },
   {
@@ -1207,8 +1217,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctAnswer: 1,
     explanation:
-      "Allonger la durée de vie évite de fabriquer de nouveaux équipements, dont l'impact est concentré à la fabrication ; le gain exact dépend du parc (ADEME).",
-    source: "ADEME 2026",
+      "Allonger la durée de vie évite de fabriquer de nouveaux équipements, dont l'impact est concentré à la fabrication ; le gain exact dépend du parc.",
+    source: "Culture du domaine",
     points: 15,
   },
   {
@@ -1253,7 +1263,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 0,
     explanation:
       "BYOD signifie « Bring Your Own Device ». Une politique responsable encadre sécurité, vie privée, support et fin de vie ; elle ne compense pas automatiquement l'impact.",
-    source: "Recommandations ANSSI/CNIL",
+    source: "CNIL, 2015",
+    sourceUrl: "https://www.cnil.fr/fr/byod-quelles-sont-les-bonnes-pratiques",
     points: 15,
   },
   {
@@ -1286,8 +1297,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctAnswer: 0,
     explanation:
-      "Le gain dépend des leviers : énergie, renouvellement évité, fin de vie. Aucun ROI moyen universel ne s'applique à toutes les entreprises (ADEME).",
-    source: "ADEME 2026",
+      "Le gain dépend des leviers : énergie, renouvellement évité, fin de vie. Aucun ROI moyen universel ne s'applique à toutes les entreprises.",
+    source: "Culture du domaine",
     points: 20,
   },
   {
@@ -1316,7 +1327,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Les enquêtes métier pointent souvent le manque de sensibilisation et de compétences avant les questions budgétaires.",
-    source: "Baromètre AGIT 2025",
+    source: "Culture du domaine",
     points: 15,
   },
 
@@ -1479,7 +1490,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
 ]
 
 // À incrémenter si les questions changent (invalide proprement les sessions en cours)
-const QUIZ_CONTENT_VERSION = 5
+const QUIZ_CONTENT_VERSION = 6
 
 const questionIndex = (question: QuizQuestion) => ALL_QUIZ_QUESTIONS.indexOf(question)
 

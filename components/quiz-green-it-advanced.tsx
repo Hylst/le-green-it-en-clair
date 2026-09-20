@@ -805,7 +805,8 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 1,
     explanation:
       "Le free cooling utilise l'air extérieur quand le climat le permet ; le gain dépend du site, du climat et du PUE visé.",
-    source: "The Green Grid",
+    source: "The Green Grid, cartes free cooling 2012",
+    sourceUrl: "https://archive.thegreengrid.org/en/resources/library-and-tools/385-WP",
     points: 15,
   },
   {
@@ -1490,7 +1491,7 @@ const ALL_QUIZ_QUESTIONS: QuizQuestion[] = [
 ]
 
 // À incrémenter si les questions changent (invalide proprement les sessions en cours)
-const QUIZ_CONTENT_VERSION = 6
+const QUIZ_CONTENT_VERSION = 7
 
 const questionIndex = (question: QuizQuestion) => ALL_QUIZ_QUESTIONS.indexOf(question)
 

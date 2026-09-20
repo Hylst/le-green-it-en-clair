@@ -25,6 +25,8 @@ export const RSS_FEEDS: Feed[] = [
   { id: "dcmag", name: "DCmag", url: "https://dcmag.fr/feed/", lang: "fr", topic: "Datacenters FR" },
   { id: "uptime", name: "Uptime Institute", url: "https://journal.uptimeinstitute.com/feed/", lang: "en", topic: "Datacenters" },
   { id: "gwf", name: "Green Web Foundation", url: "https://www.thegreenwebfoundation.org/feed/", lang: "en", topic: "Numérique sobre" },
+  { id: "lmi", name: "Le Monde Informatique", url: "https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml", lang: "fr", topic: "IT pro" },
+  { id: "actuenv", name: "Actu-Environnement", url: "https://www.actu-environnement.com/flux/rss/energie/", lang: "fr", topic: "Énergie-climat" },
 ]
 
 const DEFAULT_SELECTED = ["greenit", "inr", "shift", "nextink"]
@@ -106,7 +108,8 @@ function parseXml(text: string, feed: Feed): NewsItem[] {
       const date =
         parseDate(entry.getElementsByTagName("pubDate")[0]?.textContent) ||
         parseDate(entry.getElementsByTagName("published")[0]?.textContent) ||
-        parseDate(entry.getElementsByTagName("updated")[0]?.textContent)
+        parseDate(entry.getElementsByTagName("updated")[0]?.textContent) ||
+        parseDate(entry.getElementsByTagName("dc:date")[0]?.textContent)
       return { title, link, date, feedId: feed.id }
     })
     .filter((item) => item.title && item.link && isValidHttpUrl(item.link))

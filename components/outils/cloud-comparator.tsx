@@ -535,9 +535,12 @@ export default function CloudComparator() {
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div className="flex-1 min-w-[200px]">
                     <div className="flex items-center gap-3 mb-2">
-                      {sortBy === "score" && (
-                        <span className="text-2xl font-bold text-foreground" title="Rang selon le tri par score éco">{index + 1}</span>
-                      )}
+                        {sortBy === "score" && (
+                          <span className="text-2xl font-bold text-foreground" title="Rang selon le tri par score éco">
+                            <span className="sr-only">Rang {index + 1} selon le tri par score éco</span>
+                            <span aria-hidden="true">{index + 1}</span>
+                          </span>
+                        )}
                       <div>
                         <h3 className="text-xl font-bold text-foreground">{provider.name}</h3>
                         <span className="text-sm text-muted-foreground">{provider.country}</span>
@@ -575,9 +578,9 @@ export default function CloudComparator() {
                     <div className="bg-card p-3 rounded-lg text-center border border-border">
                       <div className="text-2xl font-bold text-foreground">
                         {provider.carbonNeutral ? (
-                          <CheckCircle2 className="mx-auto h-6 w-6 text-emerald-600 dark:text-emerald-400" aria-label="Neutre carbone" />
+                          <CheckCircle2 role="img" aria-label="Neutre carbone" className="mx-auto h-6 w-6 text-emerald-600 dark:text-emerald-400" />
                         ) : (
-                          <Clock className="mx-auto h-6 w-6 text-amber-600 dark:text-amber-400" aria-label="Objectif en cours" />
+                          <Clock role="img" aria-label="Objectif en cours" className="mx-auto h-6 w-6 text-amber-600 dark:text-amber-400" />
                         )}
                       </div>
                       <div className="text-xs text-muted-foreground">Neutre carbone</div>

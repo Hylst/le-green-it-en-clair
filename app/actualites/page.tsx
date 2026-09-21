@@ -96,10 +96,13 @@ export default function ActualitesPage() {
       id: "7",
       title: "IA générative : ce que dit l'ADEME en 2026",
       excerpt:
-        "L'avis de l'ADEME (juillet 2026) chiffre la trajectoire : ~485 TWh de consommation des datacenters mondiaux en 2025, un possible doublement d'ici 2030 et un facteur 3,7 en France d'ici 2035. Décryptage et bons réflexes.",
+        "L'avis de l'ADEME (juillet 2026) chiffre la trajectoire : ~485 TWh de consommation des datacenters mondiaux en 2025, un possible doublement d'ici 2030 et un facteur 3,7 en France d'ici 2035 (scénario tendanciel). Décryptage et bons réflexes.",
       category: "etude",
       date: "Exemple de dossier",
       relatedPage: "/fiches-pratiques/ia-generative",
+      sourceUrl:
+        "https://librairie.ademe.fr/economie-circulaire-et-dechets/9495-avis-de-l-ademe-l-intelligence-artificielle-generative-des-impacts-environnementaux-importants.html",
+      sourceLabel: "Avis ADEME n° 013279 (juillet 2026, PDF 13 p.)",
     },
     {
       id: "8",

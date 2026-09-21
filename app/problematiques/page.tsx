@@ -650,7 +650,14 @@ const futureSolutions = [
               calculation="16 m², sans eau, <5 mois, 35 MW et 29 000 GPU pour 280 unités"
               url="https://policloud.com/"
             />
-            . Batteries : 20 à 25 GW installés en datacenters en 2030 (AIE, 2026). En France, RTE présélectionne
+            . Batteries : 20 à 25 GW installés en datacenters en 2030
+            <SourceTooltip
+              className="ml-1"
+              source="AIE, Key Questions on Energy and AI (avril 2026)"
+              calculation="20-25 GW de stockage batteries en datacenters en 2030 (conditionnel), atout réseau si incitations"
+              url="https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary"
+            />
+            . En France, RTE présélectionne
             5 sites de 400 MW à plus de 1 GW en raccordement accéléré
             <SourceTooltip
               className="ml-1"

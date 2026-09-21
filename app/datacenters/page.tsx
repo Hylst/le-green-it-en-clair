@@ -157,6 +157,12 @@ export default function DatacentersPage() {
                     projection 2030, scénario central (<Acronym title="Agence Internationale de l'Énergie (IEA en anglais) : rapport Energy and AI, avril 2025">AIE</Acronym>, Energy and AI, 2025) <SourceTooltip className="ml-1 align-middle" source="AIE, Energy and AI (2025)" url="https://www.iea.org/reports/energy-and-ai" />
                   </p>
                 </div>
+                <div>
+                  <div className="mb-1 text-3xl font-bold text-cyan-700 dark:text-cyan-400"><CountUp to={17} prefix="+" suffix=" %" /></div>
+                  <p className="text-sm text-muted-foreground">
+                    demande d&apos;électricité des datacenters en 2025, contre +3 % pour la demande mondiale (<Acronym title="Agence Internationale de l'Énergie (IEA en anglais) : rapport Key Questions on Energy and AI, avril 2026" glossary="aie">AIE</Acronym>, avril 2026) <SourceTooltip className="ml-1 align-middle" source="AIE, Key Questions on Energy and AI (avril 2026)" calculation="+17 % datacenters (IA encore plus vite) contre +3 % monde ; doublement attendu d'ici 2030" url="https://www.iea.org/news/data-centre-electricity-use-surged-in-2025-even-with-tightening-bottlenecks-driving-a-scramble-for-solutions" />
+                  </p>
+                </div>
               </div>
               <p className="mt-6 text-xs text-muted-foreground">
                 Reporting public obligatoire pour les sites de plus de 500 kW depuis mai 2024 (directive EED refondue).
@@ -956,6 +962,13 @@ export default function DatacentersPage() {
                   source="Sénat, texte n° 73 adopté le 25 mars 2026"
                   calculation="PPL 1re lecture : article L. 141-6-1 (orientations DC), qualification PINM par décret avec comité de projet, refus de permis possible en tension eau, rapport du Gouvernement sous 6 mois"
                   url="https://www.senat.fr/leg/tas25-073.html"
+                />
+                . En Île-de-France, le schéma régional (SDRIF-E, approuvé en juin 2025) demande aux nouvelles implantations l&apos;exemplarité énergétique, la prise en compte du réseau électrique et de l&apos;eau, et la valorisation de la chaleur fatale (OR 126)
+                <SourceTooltip
+                  className="ml-1 align-middle"
+                  source="DRIEAT Île-de-France, fiche repère agrément datacenters, juin 2026"
+                  calculation="OR 126 citée in extenso : sites existants prioritaires, compacité, exemplarité énergétique, eau, réseau local, chaleur valorisée, insertion urbaine"
+                  url="https://www.drieat.ile-de-france.developpement-durable.gouv.fr/IMG/pdf/fiche_repere_relative_aux_demandes_agrement_des_centres_de_donnees_juin_2026.pdf"
                 />
                 .
               </p>

@@ -799,6 +799,13 @@ const futureSolutions = [
               calculation="1,5 GW max au port de Victoria, pont gaz puis nucléaire 2031 ; Blue Energy fondée en 2023 (MIT)"
               url="https://www.datacenterdynamics.com/en/news/crusoe-taps-blue-energy-to-supply-nuclear-power-for-up-to-15gw-data-center-in-port-of-victoria-texas"
             />
+            ; les promesses d&apos;achat conditionnelles entre opérateurs et projets SMR sont passées de 25 GW fin 2024 à 45 GW
+            <SourceTooltip
+              className="ml-1"
+              source="AIE, Key Questions on Energy and AI (avril 2026)"
+              calculation="25 GW fin 2024 → 45 GW début 2026, accords d'enlèvement conditionnels DC-SMR"
+              url="https://www.iea.org/news/data-centre-electricity-use-surged-in-2025-even-with-tightening-bottlenecks-driving-a-scramble-for-solutions"
+            />
             . Horizon réaliste : 2030-2034 ; en attendant, gaz et batteries (AIE).
           </>
         ),

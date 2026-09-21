@@ -841,7 +841,7 @@ const sheets: Record<string, any> = {
       {
         title: "1. Pourquoi l'IA générative pèse sur l'environnement",
         content:
-          "Entraîner et faire tourner les modèles demande des serveurs et des datacenters énergivores. La consommation électrique mondiale des centres de données était d'environ 485 TWh en 2025 et pourrait doubler d'ici 2030 ; en France, elle pourrait être multipliée par 3,7 d'ici 2035 (ADEME, avis IA générative, juillet 2026). Les usages numériques français dépendent aux deux tiers de datacenters hébergés à l'étranger, avec des mix électriques souvent plus carbonés qu'en France.",
+          "Entraîner et faire tourner les modèles demande des serveurs et des datacenters énergivores. La consommation électrique mondiale des centres de données était d'environ 485 TWh en 2025 et pourrait doubler d'ici 2030 ; en France, elle pourrait être multipliée par 3,7 d'ici 2035 (ADEME, avis IA générative, juillet 2026). Les usages numériques français dépendent aux deux tiers de datacenters hébergés à l'étranger, avec des mix électriques souvent plus carbonés qu'en France (ADEME, perspectives datacenters, janvier 2026).",
         tips: [
           "L'impact dépend surtout du mix électrique des datacenters utilisés",
           "La croissance des usages est le premier facteur d'augmentation",
@@ -917,6 +917,7 @@ const sheets: Record<string, any> = {
     ],
     sources: [
       "ADEME, avis « L'intelligence artificielle générative, des impacts environnementaux importants » (juillet 2026)",
+      "ADEME, « Centres de données numériques : perspectives d'évolution de leurs consommations » (communiqué, 6 janvier 2026)",
       "ADEME-Arcep (2023, empreinte du numérique en France)",
       "AIE, Energy and AI (2025)",
       "RGESN (INR) ; référentiel AFNOR IA frugale",
@@ -925,6 +926,10 @@ const sheets: Record<string, any> = {
       {
         label: "Avis ADEME : l'IA générative, des impacts importants (juillet 2026)",
         url: "https://librairie.ademe.fr/economie-circulaire-et-dechets/9495-avis-de-l-ademe-l-intelligence-artificielle-generative-des-impacts-environnementaux-importants.html",
+      },
+      {
+        label: "ADEME : perspectives d'évolution des consommations (janvier 2026)",
+        url: "https://www.ademe.fr/presse/communique-national/centres-de-donnees-numeriques-perspectives-devolution-de-leurs-consommations",
       },
       { label: "AIE, Energy and AI (2025)", url: "https://www.iea.org/reports/energy-and-ai" },
     ],

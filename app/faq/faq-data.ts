@@ -16,8 +16,8 @@ export const faqCategories = [
         a: "En France, le numérique représente 2,5 % des émissions nationales en 2020 (17,2 Mt CO₂eq) et 4,4 % en 2022 avec un périmètre élargi aux datacenters étrangers (29,5 Mt, ADEME-Arcep). En France, environ 1,6 million de tonnes de déchets électroniques sont produites chaque année, avec un taux de collecte d'environ 46 % (ADEME 2024, Eurostat 2024).",
       },
       {
-        q: "Le cloud, c'est vraiment dans des nuages ?",
-        a: "Non : le cloud, ce sont des datacenters bien physiques. En 2025, la consommation électrique mondiale des centres de données était d'environ 485 TWh, et elle pourrait doubler d'ici 2030 (ADEME, avis IA 2026). Les usages numériques français dépendent aux deux tiers de datacenters hébergés à l'étranger, souvent avec un mix électrique plus carboné qu'en France. Bonne nouvelle : le cloud mutualise des ressources souvent mieux utilisées qu'un serveur local, et le stockage pèse peu (0,24 g CO₂e/Go/an, ADEME, Impact CO₂). Le geste qui compte reste la durée de vie des appareils.",
+        q: "Où sont vraiment mes données quand elles sont « dans le cloud » ?",
+        a: "Dans des datacenters bien physiques. En 2025, la consommation électrique mondiale des centres de données était d'environ 485 TWh, et elle pourrait doubler d'ici 2030 (ADEME, avis IA 2026). Les usages numériques français dépendent aux deux tiers de datacenters hébergés à l'étranger, souvent avec un mix électrique plus carboné qu'en France. Bonne nouvelle : le cloud mutualise des ressources souvent mieux utilisées qu'un serveur local, et le stockage pèse peu (0,24 g CO₂e/Go/an, ADEME, Impact CO₂). Le geste qui compte reste la durée de vie des appareils.",
       },
       {
         q: "Peut-on vraiment faire une différence individuellement ?",

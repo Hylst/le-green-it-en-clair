@@ -43,9 +43,11 @@ export const ECO2MIX_FALLBACK: Eco2MixData = {
   timeFormatted: "15:30",
   tauxCo2: 10,
   consommationMw: 49398,
-  productionTotalMw: 55669,
-  decarbonePercent: 108.6,
-  renouvelablePercent: 42.7,
+  // Total = somme des filières (60 935), pas 55 669 : l'ancien total excluait
+  // le gaz du décompte, ce qui affichait une part décarbonée > 100 %.
+  productionTotalMw: 60935,
+  decarbonePercent: 99.68,
+  renouvelablePercent: 39.54,
   echangesPhysiquesMw: -10722,
   filières: {
     nucleaire: 36646,
@@ -79,9 +81,11 @@ export function parseEco2MixRecord(record: Eco2MixRawRecord): Eco2MixData | null
   const gaz = record.gaz ?? 0;
   const fioul = record.fioul ?? 0;
   const charbon = record.charbon ?? 0;
-  const charbonFioul = gaz + fioul + charbon;
+  // Gaz affiché à part dans le graphique : regrouper gaz + fioul + charbon
+  // sous « Charbon/Fioul » compterait le gaz deux fois.
+  const charbonFioul = fioul + charbon;
 
-  const productionTotalMw = nucleaire + eolien + solaire + hydraulique + bioenergies + charbonFioul;
+  const productionTotalMw = nucleaire + eolien + solaire + hydraulique + bioenergies + gaz + charbonFioul;
   const decarbonePercent = productionTotalMw > 0
     ? Math.round(((nucleaire + eolien + solaire + hydraulique + bioenergies) / productionTotalMw) * 10000) / 100
     : 0;

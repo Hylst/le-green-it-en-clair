@@ -340,7 +340,7 @@ export default function Eco2MixLive({ variant = "full", className }: Eco2MixLive
                 Données temps réel temporairement indisponibles
               </p>
               <p className="text-sm text-slate-600 dark:text-slate-400">
-                Les valeurs affichées sont des repères de référence (ADEME / RTE 2024).
+                Les valeurs affichées sont un relevé de référence du 16/09/2026.
                 {isOnline && (
                   <button
                     type="button"
@@ -456,8 +456,8 @@ export default function Eco2MixLive({ variant = "full", className }: Eco2MixLive
             </p>
             <p>
               Si l’interface ne répond pas, la page affiche des repères de référence avec la mention
-              « référence », au lieu du direct. Rien n’est inventé : les valeurs de repli viennent de
-              l’ADEME et de RTE (2024). Voir le jeu d’origine :{" "}
+              « référence », au lieu du direct. Rien n’est inventé : c’est un relevé réel daté du
+              16/09/2026, affiché tel quel. Voir le jeu d’origine :{" "}
               <a
                 href="https://odre.opendatasoft.com/explore/dataset/eco2mix-national-tr/table/"
                 target="_blank"

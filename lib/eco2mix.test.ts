@@ -51,22 +51,23 @@ describe("parseEco2MixRecord", () => {
 
   it("calcule la production totale correctement", () => {
     const result = parseEco2MixRecord(VALID_RECORD)
-    expect(result?.productionTotalMw).toBe(55669)
+    // somme des filières : 36695 + 5039 + 15034 + 2728 + 973 + 164 + 36 + 0 = 60669
+    expect(result?.productionTotalMw).toBe(60669)
   })
 
   it("calcule la part décarbonée correctement", () => {
     const result = parseEco2MixRecord(VALID_RECORD)
     // nucleaire + eolien + solaire + hydraulique + bioenergies = 60469
-    // productionTotal = 55669
-    // 60469 / 55669 * 100 = 108.62...%
-    expect(result?.decarbonePercent).toBeCloseTo(108.62, 1)
+    // productionTotal = 60669
+    // 60469 / 60669 * 100 = 99.67...%
+    expect(result?.decarbonePercent).toBeCloseTo(99.67, 1)
   })
 
   it("calcule la part renouvelable correctement", () => {
     const result = parseEco2MixRecord(VALID_RECORD)
     // eolien + solaire + hydraulique + bioenergies = 23774
-    // 23774 / 55669 * 100 = 42.71...%
-    expect(result?.renouvelablePercent).toBeCloseTo(42.71, 1)
+    // 23774 / 60669 * 100 = 39.19...%
+    expect(result?.renouvelablePercent).toBeCloseTo(39.19, 1)
   })
 
   it("gère les échanges physiques correctement", () => {

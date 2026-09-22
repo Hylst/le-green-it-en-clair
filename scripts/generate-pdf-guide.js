@@ -291,13 +291,16 @@ const stats = [
     ["42" + N + "000", "points de collecte en France (Ecosystem 2025)"]
 ];
 
-need(88);
-doc.setFillColor(245, 247, 245);
-stats.forEach(([value, label], i) => {
-    const col = i % 2, row = Math.floor(i / 2);
-    const x = LEFT + col * 86;
-    const yy = y + row * 44;
-    doc.roundedRect(x, yy, 84, 40, 3, 3, "F");
+    need(88);
+    stats.forEach(([value, label], i) => {
+        const col = i % 2, row = Math.floor(i / 2);
+        const x = LEFT + col * 86;
+        const yy = y + row * 44;
+        // jsPDF : setTextColor écrit aussi la couleur de remplissage (opérateur rg
+        // partagé) ; refixer le fond à chaque bloc, sinon les suivants reprennent
+        // la couleur du dernier texte (ardoise) au lieu du fond clair.
+        doc.setFillColor(245, 247, 245);
+        doc.roundedRect(x, yy, 84, 40, 3, 3, "F");
     doc.setTextColor(...COLORS.emerald);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(20);

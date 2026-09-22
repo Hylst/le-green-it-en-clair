@@ -33,10 +33,10 @@ interface VeilleSource {
 export default function ActualitesPage() {
   const [selectedCategory, setSelectedCategory] = useState<NewsCategory>("all")
 
-  // --- Exemples de mise en page (rédaction du site, PAS des dépêches) ---
-  // Ces encarts illustrent le format des futurs dossiers de fond. Ils ne
-  // doivent être cités comme des actualités par personne : aucune déclaration
-  // n'est attribuée à un organisme réel.
+  // --- Dossiers de la rédaction (Geoffroy Streit / Le Green IT en clair) ---
+  // Années indicatives, à vérifier une par une : ne pas citer ces encarts
+  // comme des dépêches. Ils renvoient vers nos pages ; seules les sources
+  // externes listées sont des publications réelles.
   const newsArticles: NewsArticle[] = [
     {
       id: "1",
@@ -44,7 +44,7 @@ export default function ActualitesPage() {
       excerpt:
         "La directive européenne 2024/1799 s'applique depuis le 31 juillet 2026 : obligation de réparer, garantie prolongée après réparation, pièces disponibles plusieurs années. Le détail dans notre page réglementation.",
       category: "reglementation",
-      date: "Exemple de dossier",
+      date: "2026 (date à vérifier)",
       relatedPage: "/reglementation",
     },
     {
@@ -53,7 +53,7 @@ export default function ActualitesPage() {
       excerpt:
         "Collecte, bonus réparation, reconditionné : les chiffres vérifiés et les ordres de grandeur à retenir, sans les idées reçues.",
       category: "etude",
-      date: "Exemple de dossier",
+      date: "2023 (date à vérifier)",
       relatedPage: "/chiffres",
     },
     {
@@ -62,7 +62,7 @@ export default function ActualitesPage() {
       excerpt:
         "L'IA tire la croissance de la consommation électrique des datacenters (Agence internationale de l'énergie, 2025), mais les chiffres qui circulent mélangent souvent tout. On fait le tri.",
       category: "tendance",
-      date: "Exemple de dossier",
+      date: "2025 (date à vérifier)",
       relatedPage: "/datacenters",
     },
     {
@@ -71,7 +71,7 @@ export default function ActualitesPage() {
       excerpt:
         "Langages, images, cache, hébergement : les leviers d'éco-conception web qui comptent vraiment, avec des exemples concrets.",
       category: "innovation",
-      date: "Exemple de dossier",
+      date: "2023 (date à vérifier)",
       relatedPage: "/developpement",
     },
     {
@@ -80,7 +80,7 @@ export default function ActualitesPage() {
       excerpt:
         "Pas de label officiel « site éco-conçu » en France : il existe en revanche des référentiels sérieux (GR491, RGESN, EcoIndex) pour progresser pas à pas.",
       category: "reglementation",
-      date: "Exemple de dossier",
+      date: "2024 (date à vérifier)",
       relatedPage: "/developpement",
     },
     {
@@ -89,7 +89,7 @@ export default function ActualitesPage() {
       excerpt:
         "Achat reconditionné, maintenance, réemploi : ce que les collectivités peuvent faire dès maintenant, avec les aides existantes.",
       category: "tendance",
-      date: "Exemple de dossier",
+      date: "2024 (date à vérifier)",
       relatedPage: "/fiches-pratiques/collectivites-action",
     },
     {
@@ -98,7 +98,7 @@ export default function ActualitesPage() {
       excerpt:
         "L'avis de l'ADEME (juillet 2026) chiffre la trajectoire : ~485 TWh de consommation des datacenters mondiaux en 2025, un possible doublement d'ici 2030 et un facteur 3,7 en France d'ici 2035 (scénario tendanciel). Décryptage et bons réflexes.",
       category: "etude",
-      date: "Exemple de dossier",
+      date: "2026 (date à vérifier)",
       relatedPage: "/fiches-pratiques/ia-generative",
       sourceUrl:
         "https://librairie.ademe.fr/economie-circulaire-et-dechets/9495-avis-de-l-ademe-l-intelligence-artificielle-generative-des-impacts-environnementaux-importants.html",
@@ -110,7 +110,7 @@ export default function ActualitesPage() {
       excerpt:
         "EcoIDEN, opéré par l'ADEME pour l'État (première relève le 29/10/2026) : soutenir les centres de données exemplaires et l'économie circulaire des équipements numériques. Contexte officiel : le numérique pèse 4,4 % de l'empreinte carbone française en 2022 (29,5 Mt CO₂e), et il faudrait extraire 59 % de métaux en plus en 2050 qu'en 2020 (ADEME).",
       category: "reglementation",
-      date: "Exemple de dossier",
+      date: "2026 (date à vérifier)",
       relatedPage: "/datacenters",
       sourceUrl:
         "https://www.ecologie.gouv.fr/presse/france-2030-gouvernement-lance-appel-projets-accelerer-developpement-dequipements-numeriques",
@@ -187,15 +187,12 @@ export default function ActualitesPage() {
             <div className="flex items-start gap-3 max-w-4xl mx-auto">
               <AlertCircle className="h-5 w-5 text-yellow-600 dark:text-yellow-400 mt-0.5 shrink-0" />
               <p className="text-sm text-yellow-800 dark:text-yellow-300">
-                <strong className="font-semibold">Page en reconstruction.</strong> Les encarts « À la une » sont des
-                exemples de mise en page rédigés par la rédaction du site, pas des dépêches : ne les citez pas comme
-                des actualités. Pour suivre l&apos;actu réelle, ouvrez l&apos;onglet Veille : les derniers titres y
-                sont récupérés en direct depuis les flux des sources.
+                <strong className="font-semibold">Page en reconstruction.</strong> L&apos;onglet « À la une » rassemble des dossiers rédigés par Geoffroy Streit / Le Green IT en clair, avec des dates indicatives encore à vérifier : ne les citez pas comme des dépêches. L&apos;onglet Veille, affiché par défaut, récupère les derniers titres en direct depuis les flux des sources.
               </p>
             </div>
           </div>
 
-          <Tabs defaultValue="featured" className="space-y-8">
+          <Tabs defaultValue="rss" className="space-y-8">
             <div className="flex justify-center">
               <TabsList className="grid w-full max-w-md grid-cols-2">
                 <TabsTrigger value="featured" className="flex items-center gap-2">
@@ -240,7 +237,7 @@ export default function ActualitesPage() {
                           {categories.find((c) => c.id === article.category)?.label}
                         </Badge>
                         <Badge variant="outline" className="text-xs">
-                          Exemple
+                          Dossier
                         </Badge>
                       </div>
                       <div className="flex items-center gap-1 text-sm text-muted-foreground">
@@ -268,7 +265,7 @@ export default function ActualitesPage() {
                     )}
 
                     <div className="flex items-center justify-between mt-auto">
-                      <span className="text-sm font-medium text-muted-foreground">La rédaction (exemple illustratif)</span>
+                      <span className="text-sm font-medium text-muted-foreground">Dossier par Geoffroy Streit / Le Green IT en clair</span>
 
                       {article.relatedPage && (
                         <Button asChild variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0 hover:bg-transparent">

@@ -102,6 +102,16 @@ const OUTBOUND_LINKS = [
   { href: "https://sustainablewebdesign.org/", label: "Sustainable Web Design" },
 ]
 
+// Presets vérifiés [V] (chapitre lu intégralement le 22/09/2026, fetch direct) :
+// médianes mobiles de juillet 2025, HTTP Archive Almanac 2025 chap. Poids des pages
+// (Barret / Indigo, publié 15/01/2026) : accueil 2 559 Ko, page intérieure 1 769 Ko.
+// Pas de ventilation par type de site (blog, vitrine, e-commerce) dans le chapitre :
+// volontairement absente, voir todo.md.
+const PAGE_PRESETS = [
+  { label: "Accueil médian", weight: "2.6" },
+  { label: "Page intérieure médiane", weight: "1.8" },
+]
+
 export function WebsiteCarbonCalculator() {
   const [url, setUrl] = useState("")
   const [weightMB, setWeightMB] = useState("2.1")
@@ -301,6 +311,19 @@ export function WebsiteCarbonCalculator() {
                 <Label htmlFor="poids" className="text-base font-semibold mb-2 block dark:text-gray-100">
                   Poids transféré par visite (Mo)
                 </Label>
+                <div className="flex flex-wrap gap-2 mb-2">
+                  {PAGE_PRESETS.map((preset) => (
+                    <Button
+                      key={preset.label}
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setWeightMB(preset.weight)}
+                      disabled={isAnalyzing}
+                    >
+                      {preset.label}
+                    </Button>
+                  ))}
+                </div>
                 <Input
                   id="poids"
                   type="text"
@@ -311,7 +334,9 @@ export function WebsiteCarbonCalculator() {
                   disabled={isAnalyzing}
                 />
                 <p className="text-sm text-slate-600 dark:text-gray-400 mt-2">
-                  Repère : une page moyenne pèse environ 2,5 Mo (HTTP Archive, 2025). La valeur pré-remplie est un
+                  Repère : une page moyenne pèse environ 2,5 Mo (HTTP Archive, 2025). Les boutons
+                  pré-remplissent les médianes mobiles de juillet 2025 : accueil 2,6 Mo, page intérieure
+                  1,8 Mo (HTTP Archive, Almanac 2025, chap. Poids des pages). La valeur pré-remplie est un
                   exemple : remplacez-la par votre mesure.
                 </p>
               </div>

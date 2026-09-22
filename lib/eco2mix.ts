@@ -151,10 +151,12 @@ function setCachedData(data: Eco2MixData): void {
   }
 }
 
-export async function fetchEco2MixRealtime(): Promise<Eco2MixData> {
-  const cached = getCachedData();
-  if (cached) {
-    return cached;
+export async function fetchEco2MixRealtime(forceRefresh = false): Promise<Eco2MixData> {
+  if (!forceRefresh) {
+    const cached = getCachedData();
+    if (cached) {
+      return cached;
+    }
   }
 
   const URL =

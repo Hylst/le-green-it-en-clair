@@ -239,13 +239,11 @@ export default function Eco2MixLive({ variant = "full", className }: Eco2MixLive
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [isOnline, setIsOnline] = useState(typeof navigator !== "undefined" ? navigator.onLine : true)
-  const [refreshKey, setRefreshKey] = useState(0)
-
-  const loadData = useCallback(async () => {
+  const loadData = useCallback(async (forceRefresh = false) => {
     setLoading(true)
     setError(false)
     try {
-      const result = await fetchEco2MixRealtime()
+      const result = await fetchEco2MixRealtime(forceRefresh)
       setData(result)
       // fetchEco2MixRealtime ne rejette jamais : en cas de panne il renvoie
       // le repli. Le bandeau d'erreur se base donc sur le drapeau isFallback.
@@ -256,7 +254,7 @@ export default function Eco2MixLive({ variant = "full", className }: Eco2MixLive
     } finally {
       setLoading(false)
     }
-  }, [refreshKey])
+  }, [])
 
   useEffect(() => {
     const handleOnline = () => setIsOnline(true)
@@ -326,7 +324,7 @@ export default function Eco2MixLive({ variant = "full", className }: Eco2MixLive
             </p>
             <button
               type="button"
-              onClick={() => setRefreshKey((k) => k + 1)}
+                    onClick={() => loadData(true)}
               disabled={loading || !isOnline}
               className="inline-flex items-center gap-1.5 rounded-lg border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 transition-colors hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Actualiser les données éCO2mix"
@@ -350,7 +348,7 @@ export default function Eco2MixLive({ variant = "full", className }: Eco2MixLive
                 {isOnline && (
                   <button
                     type="button"
-                    onClick={() => setRefreshKey((k) => k + 1)}
+              onClick={() => loadData(true)}
                     className="ml-1 font-medium text-emerald-700 underline underline-offset-2 dark:text-emerald-400"
                   >
                     Réessayer

@@ -8,7 +8,7 @@ const nextConfig = {
   },
   images: {
     unoptimized: true, // Requis pour l'export statique
-    qualities: [75, 85], // quality={85} utilisé partout (convention projet)
+    qualities: [70], // quality={70} utilisé partout (convention projet)
   },
 }
 

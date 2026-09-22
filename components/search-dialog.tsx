@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { BookOpen, Calculator, Calendar, Code2, Download, Eye, FileText, HelpCircle, Home, Info, Laptop, Leaf, Map, Newspaper, Recycle, Rocket, Router, Scale, Settings, Sparkles, User, Zap } from "lucide-react"
+import { BookOpen, Calculator, Calendar, Code2, Download, Eye, FileText, HelpCircle, Home, Info, Laptop, Leaf, Map, Newspaper, Recycle, Rocket, Router, Scale, Settings, Sparkles, User } from "lucide-react"
 import { useRouter } from "next/navigation"
 
 import {
@@ -75,7 +75,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                         <Home className="mr-2 h-4 w-4" />
                         <span>Accueil</span>
                     </CommandItem>
-                    <CommandItem onSelect={() => runCommand(() => router.push("/chiffres"))}>
+                    <CommandItem value="Chiffres clés données statistiques mix électrique direct" onSelect={() => runCommand(() => router.push("/chiffres"))}>
                         <Calculator className="mr-2 h-4 w-4" />
                         <span>Chiffres clés</span>
                     </CommandItem>
@@ -102,10 +102,6 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
                     <CommandItem value="Blog articles retours experience" onSelect={() => runCommand(() => router.push("/blog"))}>
                         <Newspaper className="mr-2 h-4 w-4" />
                         <span>Blog</span>
-                    </CommandItem>
-                    <CommandItem onSelect={() => runCommand(() => router.push("/chiffres"))}>
-                        <Zap className="mr-2 h-4 w-4" />
-                        <span>Chiffres clés : mix électrique en direct</span>
                     </CommandItem>
                     <CommandItem onSelect={() => runCommand(() => router.push("/par-ou-commencer"))}>
                         <Rocket className="mr-2 h-4 w-4" />

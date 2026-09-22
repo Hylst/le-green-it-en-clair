@@ -32,6 +32,7 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  ResponsiveContainer400,
 } from "@/components/recharts-dynamic"
 import { LanguageComparisonSVG } from "@/components/language-comparison-svg"
 import { useChartTheme } from "@/lib/chart-theme"
@@ -365,7 +366,7 @@ export default function DeveloppementPage() {
               <CardDescription className="text-muted-foreground">Nombre d'opérations selon la taille des données</CardDescription>
             </CardHeader>
             <CardContent>
-              <ResponsiveContainer width="100%" height={400}>
+              <ResponsiveContainer400 width="100%" height={400}>
                 <LineChart data={algoComplexity}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis
@@ -381,7 +382,7 @@ export default function DeveloppementPage() {
                   <Line type="monotone" dataKey="O(n log n)" stroke={chart.red} strokeWidth={2} />
                   <Line type="monotone" dataKey="O(n²)" stroke={chart.red} strokeWidth={3} strokeDasharray="5 5" />
                 </LineChart>
-              </ResponsiveContainer>
+              </ResponsiveContainer400>
             </CardContent>
           </Card>
 

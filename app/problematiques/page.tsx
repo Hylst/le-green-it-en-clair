@@ -41,6 +41,7 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  ResponsiveContainer400,
   PieChart,
   Pie,
   Cell,
@@ -918,7 +919,7 @@ export default function ProblematiquesPage() {
             L'explosion des déchets électroniques
           </h2>
           <Card className="border-2 border-border bg-white dark:bg-slate-900 p-8 lg:p-12">
-            <ResponsiveContainer width="100%" height={400}>
+            <ResponsiveContainer400 width="100%" height={400}>
               <LineChart data={eWasteGrowthData}>
                 <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
                 <XAxis dataKey="year" stroke={chart.tick} />
@@ -941,7 +942,7 @@ export default function ProblematiquesPage() {
                   dot={{ r: 5 }}
                 />
               </LineChart>
-            </ResponsiveContainer>
+            </ResponsiveContainer400>
             <p className="mt-6 text-center text-sm text-muted-foreground">
               <strong>+56 % en 10 ans</strong> - 62 Mt en 2022, environ 69-70 Mt en 2025, 82 Mt projetées en 2030
               (+2,6 Mt/an, Global E-waste Monitor 2024).
@@ -1210,7 +1211,7 @@ export default function ProblematiquesPage() {
             Taux de collecte des déchets électroniques en Europe (Eurostat/Ecosystem, 2024)
           </h2>
           <Card className="border-2 border-border bg-background p-8 lg:p-12">
-            <ResponsiveContainer width="100%" height={400}>
+            <ResponsiveContainer400 width="100%" height={400}>
               <BarChart data={recyclingRatesData} layout="vertical">
                 <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
                 <XAxis type="number" domain={[0, 100]} stroke={chart.tick} />
@@ -1226,7 +1227,7 @@ export default function ProblematiquesPage() {
                 />
                 <Bar dataKey="rate" fill={chart.emerald} radius={[0, 8, 8, 0]} name="Taux de recyclage (%)" />
               </BarChart>
-            </ResponsiveContainer>
+            </ResponsiveContainer400>
             <p className="mt-6 text-center text-sm text-slate-600 dark:text-slate-300">
               La France collecte environ 46 % de ses déchets électroniques, en progrès mais encore loin des leaders
               nordiques. Objectif européen : 65 % de collecte (directive <Acronym title="Déchets d'Équipements Électriques et Électroniques : appareils en fin de vie fonctionnant à l'électricité ou avec piles/batteries" glossary="deee">DEEE</Acronym>).

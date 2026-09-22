@@ -19,7 +19,7 @@ import {
   CheckCircle2,
   XCircle,
 } from "lucide-react"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from "@/components/recharts-dynamic"
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ResponsiveContainer400, BarChart, Bar } from "@/components/recharts-dynamic"
 import { useChartTheme } from "@/lib/chart-theme"
 import { PageHero } from "@/components/page-hero"
 import { ReadingProgress } from "@/components/reading-progress"
@@ -184,7 +184,7 @@ export default function PerspectivesPage() {
             <h3 className="mb-6 text-center text-xl font-semibold text-foreground">
               Projection de l'empreinte carbone du numérique (Gt CO₂eq)
             </h3>
-            <ResponsiveContainer width="100%" height={400}>
+            <ResponsiveContainer400 width="100%" height={400}>
               <LineChart data={projectionData}>
                 <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
                 <XAxis dataKey="year" stroke={chart.tick} />
@@ -217,7 +217,7 @@ export default function PerspectivesPage() {
                   dot={{ r: 4 }}
                 />
               </LineChart>
-            </ResponsiveContainer>
+            </ResponsiveContainer400>
             <p className="mt-6 text-center text-sm text-slate-600 dark:text-slate-300">
               Projection illustrative du site, périmètre mondial (Gt CO₂eq) : les ordres de grandeur sont indicatifs.
               La prospective ADEME-Arcep citée ci-dessous porte sur la France.

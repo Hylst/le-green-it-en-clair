@@ -25,10 +25,17 @@ type TooltipName = number | string
 // recharts (legendType élargi en string) — sans changer le typage vu par
 // les pages. Seul ResponsiveContainer a un fallback visible : les composants
 // internes résolvent sur le même chunk, dans un conteneur déjà dimensionné.
-// Hauteur 300 : majorité des usages.
+// Deux hauteurs : ResponsiveContainer (300, majorité des usages) et
+// ResponsiveContainer400 (graphiques hauts) pour un fallback à la bonne
+// taille et zéro décalage, même en navigation par ancre.
 export const ResponsiveContainer = dynamic(
   () => import("recharts").then((m) => m.ResponsiveContainer),
   { ssr: false, loading: () => <ChartFallback height={300} /> }
+)
+
+export const ResponsiveContainer400 = dynamic(
+  () => import("recharts").then((m) => m.ResponsiveContainer),
+  { ssr: false, loading: () => <ChartFallback height={400} /> }
 )
 
 export const LineChart = dynamic(() => import("recharts").then((m) => m.LineChart), {

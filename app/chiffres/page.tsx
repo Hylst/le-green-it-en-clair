@@ -17,6 +17,7 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  ResponsiveContainer400,
 } from "@/components/recharts-dynamic"
 import { Download, TrendingUp, Globe, MapPin, Zap } from "lucide-react"
 import Link from "next/link"
@@ -163,7 +164,7 @@ export default function ChiffresPage() {
           </div>
 
           <Card className="lift border-2 border-border bg-background p-6 lg:p-8">
-            <ResponsiveContainer width="100%" height={400}>
+            <ResponsiveContainer400 width="100%" height={400}>
               <LineChart data={eWasteData}>
                 <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
                 <XAxis dataKey="year" stroke={chart.tick} />
@@ -195,7 +196,7 @@ export default function ChiffresPage() {
                   dot={{ fill: chart.emerald, r: 5 }}
                 />
               </LineChart>
-            </ResponsiveContainer>
+            </ResponsiveContainer400>
             <div className="mt-6 rounded-lg bg-blue-50 dark:bg-blue-900/20 p-4">
               <p className="text-sm text-slate-700 dark:text-slate-300">
                 <strong>Analyse :</strong> La production mondiale de déchets électroniques
@@ -233,7 +234,7 @@ export default function ChiffresPage() {
 
           <div className="grid gap-8 lg:grid-cols-2">
             <Card className="lift border-2 border-border bg-background p-6 lg:p-8">
-              <ResponsiveContainer width="100%" height={400}>
+              <ResponsiveContainer400 width="100%" height={400}>
                 <PieChart>
                   <Pie
                     data={co2BreakdownData}
@@ -259,7 +260,7 @@ export default function ChiffresPage() {
                     itemStyle={{ color: "var(--foreground)" }}
                   />
                 </PieChart>
-              </ResponsiveContainer>
+              </ResponsiveContainer400>
             </Card>
 
             <div className="flex flex-col justify-center space-y-4">
@@ -329,7 +330,7 @@ export default function ChiffresPage() {
           </div>
 
           <Card className="lift border-2 border-border bg-background p-6 lg:p-8">
-            <ResponsiveContainer width="100%" height={400}>
+            <ResponsiveContainer400 width="100%" height={400}>
               <BarChart data={deviceComparisonData}>
                 <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
                 <XAxis dataKey="device" stroke={chart.tick} />
@@ -352,7 +353,7 @@ export default function ChiffresPage() {
                   }
                 />
               </BarChart>
-            </ResponsiveContainer>
+            </ResponsiveContainer400>
           </Card>
 
           <div className="mt-4 text-sm text-muted-foreground">CO₂ : ADEME, Impact CO₂ (mise à jour 2025), 11 appareils. Énergie et eau : ordres de grandeur (ADEME 2023) : eau de 1 500 L (eau bleue) à plus de 20 000 L (empreinte complète) pour un ordinateur portable selon la méthode. TV, box, casque VR, vidéoprojecteur, enceinte connectée et téléphone basique : CO₂ uniquement, énergie et eau en cours de vérification.</div>
@@ -407,7 +408,7 @@ export default function ChiffresPage() {
           </div>
 
           <Card className="lift border-2 border-border bg-background p-6 lg:p-8">
-            <ResponsiveContainer width="100%" height={400}>
+            <ResponsiveContainer400 width="100%" height={400}>
               <BarChart data={recyclingRatesData} layout="vertical">
                 <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
                 <XAxis type="number" stroke={chart.tick} unit="%" />
@@ -423,7 +424,7 @@ export default function ChiffresPage() {
                 />
                 <Bar dataKey="rate" fill={chart.teal} radius={[0, 8, 8, 0]} name="Taux de recyclage (%)" />
               </BarChart>
-            </ResponsiveContainer>
+            </ResponsiveContainer400>
             <div className="mt-6 rounded-lg bg-teal-50 dark:bg-teal-900/20 p-4">
               <p className="text-sm text-slate-700 dark:text-slate-300">
                 <strong>Analyse :</strong> La France collecte 46 % de ses déchets électroniques, soit le double de la

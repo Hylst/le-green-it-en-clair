@@ -19,7 +19,7 @@ import {
   CheckCircle2,
   XCircle,
 } from "lucide-react"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from "recharts"
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from "@/components/recharts-dynamic"
 import { useChartTheme } from "@/lib/chart-theme"
 import { PageHero } from "@/components/page-hero"
 import { ReadingProgress } from "@/components/reading-progress"

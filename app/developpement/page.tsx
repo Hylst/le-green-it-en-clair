@@ -32,7 +32,7 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-} from "recharts"
+} from "@/components/recharts-dynamic"
 import { LanguageComparisonSVG } from "@/components/language-comparison-svg"
 import { useChartTheme } from "@/lib/chart-theme"
 import { Reveal } from "@/components/reveal"

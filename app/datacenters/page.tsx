@@ -26,7 +26,7 @@ import { CountUp } from "@/components/count-up"
 import { Acronym } from "@/components/acronym"
 import { SourceTooltip } from "@/components/source-tooltip"
 import { useChartTheme } from "@/lib/chart-theme"
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts"
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "@/components/recharts-dynamic"
 
 // Data for energy consumption breakdown (ordre de grandeur, PUE moyen 1,52 : Uptime Institute, 2026)
 const energyBreakdownData = [

@@ -24,7 +24,7 @@ import {
   Tooltip as RechartsTooltip,
   ResponsiveContainer,
   Cell,
-} from "recharts"
+} from "@/components/recharts-dynamic"
 import { fetchEco2MixRealtime, ECO2MIX_FALLBACK, type Eco2MixData } from "@/lib/eco2mix"
 import { CHART_FALLBACKS } from "@/lib/chart-theme"
 import { SourceTooltip } from "@/components/source-tooltip"
@@ -130,7 +130,10 @@ function MixChart({ data }: { data: Eco2MixData }) {
               borderRadius: "0.5rem",
               color: "var(--foreground)",
             }}
-            formatter={(value: number) => [`${value.toLocaleString("fr-FR")} MW`, "Production"]}
+            formatter={(value) => [
+              `${typeof value === "number" ? value.toLocaleString("fr-FR") : String(value)} MW`,
+              "Production",
+            ]}
           />
           <Bar dataKey="value" radius={[0, 8, 8, 0]}>
             {chartData.map((entry, index) => (

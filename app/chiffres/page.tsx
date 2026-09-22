@@ -17,7 +17,7 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-} from "recharts"
+} from "@/components/recharts-dynamic"
 import { Download, TrendingUp, Globe, MapPin, Zap } from "lucide-react"
 import Link from "next/link"
 import { PageHero } from "@/components/page-hero"

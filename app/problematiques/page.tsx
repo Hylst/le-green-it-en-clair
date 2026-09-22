@@ -44,7 +44,7 @@ import {
   PieChart,
   Pie,
   Cell,
-} from "recharts"
+} from "@/components/recharts-dynamic"
 import { useChartTheme } from "@/lib/chart-theme"
 
 // Data for e-waste growth

@@ -44,7 +44,7 @@ import {
   PieChart,
   Pie,
   Cell,
-} from "recharts"
+} from "@/components/recharts-dynamic"
 
 const timelineData = [
   { year: "2020", event: "Loi AGEC", impact: 85 },

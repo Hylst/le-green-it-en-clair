@@ -45,6 +45,10 @@ type CloudProvider = {
   /* Document primaire lu pour alimenter la fiche (rapports 2024-2026 vérifiés à la main). */
   source: string
   color: string
+  /* Serveurs opérés en France : vrai uniquement si sourcé (page datacenters
+     du fournisseur + année). Le pays affiché reste celui du siège. */
+  serveursFrance: boolean
+  serveursFranceNote: string
 }
 
 /* Questionnaire besoin (chantier V3.2) : 3 questions maximum, logique 100 %
@@ -212,6 +216,8 @@ export default function CloudComparator() {
         description: "Leader européen de l'hébergement écologique, 100 % énergies renouvelables locales.",
         source: "Page officielle (PUE inférieur à 1,1, 100 % hydraulique, neutre depuis 2007)",
         color: "emerald",
+        serveursFrance: false,
+        serveursFranceNote: "",
       },
       {
         name: "Scaleway",
@@ -223,6 +229,8 @@ export default function CloudComparator() {
         description: "Datacenters français éco-conçus avec refroidissement adiabatique.",
         source: "Impact Report 2024 + page officielle (PUE moyen 1,37, 100 % garanties d'origine)",
         color: "emerald",
+        serveursFrance: true,
+        serveursFranceNote: "Datacenters en France (Impact Report 2024)",
       },
       {
         name: "OVHcloud",
@@ -234,6 +242,8 @@ export default function CloudComparator() {
         description: "Refroidissement par eau innovant et démarche de réduction carbone.",
         source: "Document d'enregistrement universel 2025 (PUE 1,24, WUE 0,34, 100 % renouvelable)",
         color: "teal",
+        serveursFrance: true,
+        serveursFranceNote: "Datacenters en France : Gravelines, Paris, Roubaix, Strasbourg (page infrastructures OVHcloud)",
       },
       {
         name: "Google Cloud",
@@ -245,6 +255,8 @@ export default function CloudComparator() {
         description: "Neutralité carbone annoncée depuis 2007 ; 100 % renouvelable en matching annuel depuis 2017, flotte mondiale à 1,09 en 2025.",
         source: "Page efficacité énergétique (flotte 2025 : PUE 1,09 en moyenne glissante)",
         color: "emerald",
+        serveursFrance: true,
+        serveursFranceNote: "Région Paris europe-west9, ouverte en 2022 (blog officiel Google Cloud)",
       },
       {
         name: "Microsoft Azure",
@@ -256,6 +268,8 @@ export default function CloudComparator() {
         description: "Objectif carbone négatif 2030, investissements massifs dans le renouvelable.",
         source: "Rapport développement durable 2026, exercice FY25 (PUE 1,17, 100 % matched)",
         color: "teal",
+        serveursFrance: false,
+        serveursFranceNote: "",
       },
       {
         name: "AWS",
@@ -267,6 +281,8 @@ export default function CloudComparator() {
         description: "100 % renouvelable en matching annuel (3e année en 2025), PUE mondial 1,14, programme Climate Pledge.",
         source: "Sustainability summary 2025 (PUE 1,14, ISO 50001 dans 35 pays, 8 sites FR certifiés)",
         color: "cyan",
+        serveursFrance: false,
+        serveursFranceNote: "",
       },
       {
         name: "DigitalOcean",
@@ -278,6 +294,8 @@ export default function CloudComparator() {
         description: "Ne publie ni PUE ni part de renouvelable : valeurs prudentes par défaut, à interpréter avec réserve.",
         source: "Page impact (volet social uniquement) : aucun PUE ni renouvelable publié",
         color: "orange",
+        serveursFrance: false,
+        serveursFranceNote: "",
       },
       {
         name: "Hetzner",
@@ -289,6 +307,99 @@ export default function CloudComparator() {
         description: "Datacenters allemands alimentés à 100 % par énergies renouvelables.",
         source: "Documentation officielle, màj 09/2026 (PUE 1,13, 100 % hydraulique en Allemagne)",
         color: "emerald",
+        serveursFrance: false,
+        serveursFranceNote: "",
+      },
+      {
+        name: "IONOS",
+        country: "Allemagne",
+        pue: 1.39,
+        renewableEnergy: 100,
+        carbonNeutral: false,
+        certifications: ["ISO 50001", "ISO 14001"],
+        description: "PUE moyen de 1,39 en 2024, 100 % d'électricité renouvelable et stratégie climat 2030.",
+        source: "Rapport développement durable 2024 (PUE 1,39, 100 % renouvelable, ISO 50001 + 14001)",
+        color: "teal",
+        serveursFrance: true,
+        serveursFranceNote: "Datacenter de Niederlauterbach, France (panneaux solaires installés en 2023, rapport 2024)",
+      },
+      {
+        name: "Hostinger",
+        country: "Lituanie",
+        pue: 1.45,
+        renewableEnergy: 100,
+        carbonNeutral: false,
+        certifications: ["ISO 14001", "ISO 50001"],
+        description: "100 % renouvelable en market-based en 2024 (67 % d'approvisionnement physique), PUE moyen de 1,45.",
+        source: "Rapport développement durable 2024 (PUE 1,45, 100 % market-based / 67 % physique)",
+        color: "orange",
+        serveursFrance: true,
+        serveursFranceNote: "Datacenter de Paris, 100 % renouvelable d'origine française (2024)",
+      },
+      {
+        name: "PlanetHoster",
+        country: "Canada",
+        pue: 1.2,
+        renewableEnergy: 100,
+        carbonNeutral: false,
+        certifications: [],
+        description: "PUE de 1,20 en France et 100 % d'énergie renouvelable, sans certification environnementale revendiquée.",
+        source: "Page Hébergement vert (PUE France 1,20, 100 % renouvelable)",
+        color: "cyan",
+        serveursFrance: true,
+        serveursFranceNote: "Datacenter de Paris, 100 % renouvelable (page Hébergement vert)",
+      },
+      {
+        name: "3DS Outscale",
+        country: "France",
+        pue: 1.3,
+        renewableEnergy: 100,
+        carbonNeutral: false,
+        certifications: ["ISO 50001", "ISO 14001"],
+        description: "100 % renouvelable en France ; PUE non publié (1,3 prudent par défaut, à interpréter avec réserve).",
+        source: "Page engagements RSE (100 % renouvelable en France, ISO 50001 + 14001 ; PUE non publié)",
+        color: "teal",
+        serveursFrance: true,
+        serveursFranceNote: "Datacenters en France (page engagements RSE)",
+      },
+      {
+        name: "Ikoula",
+        country: "France",
+        pue: 1.3,
+        renewableEnergy: 100,
+        carbonNeutral: false,
+        certifications: ["ISO 27001", "ISO 50001"],
+        description: "100 % renouvelable déclaré, datacenters en propre en France ; PUE non publié (1,3 prudent par défaut, à interpréter avec réserve).",
+        source: "Page présentation (100 % renouvelable déclaré, ISO 27001 + 50001 ; PUE non publié)",
+        color: "teal",
+        serveursFrance: true,
+        serveursFranceNote: "Datacenters en propre en France : Reims et Laon (page présentation)",
+      },
+      {
+        name: "Clever Cloud",
+        country: "France",
+        pue: 1.2,
+        renewableEnergy: 60,
+        carbonNeutral: false,
+        certifications: ["HDS", "ISO 27001", "SecNumCloud"],
+        description: "PUE inférieur à 1,2 annoncé pour certains datacenters (2026) ; part de renouvelable non publiée (60 % prudent par défaut, à interpréter avec réserve).",
+        source: "Page Cloud et Green IT (PUE <1,2 certains DC, 2026 ; renouvelable non publié)",
+        color: "cyan",
+        serveursFrance: true,
+        serveursFranceNote: "Majorité de l'infrastructure en France, énergie majoritairement bas-carbone (page Green IT, 2026)",
+      },
+      {
+        name: "Exoscale",
+        country: "Suisse",
+        pue: 1.3,
+        renewableEnergy: 90,
+        carbonNeutral: false,
+        certifications: [],
+        description: "90 % de renouvelable pondéré (Suisse et Allemagne à 100 %) ; PUE non publié (1,3 prudent par défaut, à interpréter avec réserve).",
+        source: "Page Sustainability (90 % renouvelable pondéré, 09/2026 ; PUE non publié)",
+        color: "orange",
+        serveursFrance: false,
+        serveursFranceNote: "",
       },
     ] as CloudProvider[]
   ).map((provider) => ({ ...provider, sustainabilityScore: computeSustainabilityScore(provider) }))
@@ -519,6 +630,11 @@ export default function CloudComparator() {
                 <strong>Score éco</strong> : synthèse propre au site pour ordonner les fiches, pas une certification.
                 Méthode transparente : scores recalculés : 40 % PUE (100 à 1,0, 0 à 1,5, linéaire) + 40 % renouvelable
                 + 20 % engagements (10 pts neutralité déclarée, jusqu'à 10 pts certifications : ≥ 3 = 10, 2 = 7, 1 = 3).
+              </li>
+              <li>
+                <strong>Serveurs en France</strong> : badge affiché quand l'hébergeur déclare des serveurs
+                en France, avec le détail sourcé et daté sous le badge. Le pays affiché reste celui du
+                siège : un hébergeur étranger peut donc avoir le badge (datacenter à Paris, par exemple).
               </li>
             </ul>
           </div>

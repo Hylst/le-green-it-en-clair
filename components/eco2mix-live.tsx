@@ -113,7 +113,11 @@ function MixChart({ data }: { data: Eco2MixData }) {
 
   return (
     <div className="rounded-lg border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-4 lg:p-6">
-      <h4 className="mb-4 text-lg font-semibold text-slate-900 dark:text-slate-100">Mix de production instantané</h4>
+      <h4 className="mb-2 text-lg font-semibold text-slate-900 dark:text-slate-100">Mix de production instantané</h4>
+      <p className="mb-4 text-sm text-slate-600 dark:text-slate-400">
+        Puissance produite à l&apos;instant par chaque filière, en mégawatts : nucléaire, éolien, solaire,
+        hydraulique, bioénergies, gaz, charbon et fioul.
+      </p>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={chartData} layout="vertical" margin={{ left: 20 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
@@ -297,6 +301,11 @@ export default function Eco2MixLive({ variant = "full", className }: Eco2MixLive
                 ? "Intensité carbone et mix électrique en direct"
                 : "Mix électrique et impact carbone en direct"}
             </h2>
+            <p className="mt-3 max-w-3xl text-slate-600 dark:text-slate-400">
+              Intensité carbone du kWh, part décarbonée, consommation nationale et échanges frontaliers, lus en
+              direct sur RTE éCO2mix, puis le détail de la production par filière : c&apos;est ce mix qui détermine
+              l&apos;empreinte de la phase d&apos;usage d&apos;un équipement branché en France.
+            </p>
             {!isOnline && (
               <p className="mt-2 flex items-center gap-1.5 text-sm text-amber-700 dark:text-amber-400">
                 <WifiOff className="h-4 w-4" />

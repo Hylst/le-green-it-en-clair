@@ -1,7 +1,7 @@
 // Service Worker for Le Green IT en clair
 // Enables offline-first functionality
 
-const CACHE_NAME = 'green-it-v1.4.3';
+const CACHE_NAME = 'green-it-v1.4.4';
 const STATIC_ASSETS = [
     '/greenit/',
     '/greenit/offline/',

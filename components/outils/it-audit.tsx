@@ -88,7 +88,7 @@ export default function ITAudit() {
       totalDevices += count
 
       // Calcul CO2 annuel : fabrication amortie sur la durée optimale (pas sur l'âge
-      // saisi — diviser par l'âge rendait un parc vieillissant artificiellement vertueux).
+      // saisi, diviser par l'âge rendait un parc vieillissant artificiellement vertueux).
       // La part reconditionnée réduit la fabrication : −75 % par appareil reconditionné
       // (ADEME 2022), soit fabrication × (1 − 0,75 × part). À 0 %, inchangé.
       const refurbFactor = 1 - 0.75 * (Math.min(100, Math.max(0, refurbPct)) / 100)
@@ -132,7 +132,7 @@ export default function ITAudit() {
     })
 
     // Score éco-efficacité (0-100) : 100 ≈ parc utilisé à environ 70 % de sa durée
-    // optimale (cible interne du site, non sourcée — à harmoniser, voir todo.md)
+    // optimale (cible interne du site, assumée comme telle dans l'UI sous le score ; voir todo.md)
     const avgLifeRatio =
       totalDevices > 0
         ? Object.entries(sourceInventory).reduce((acc, [type, { count, avgAge }]) => {

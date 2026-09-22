@@ -28,7 +28,7 @@ export default function SobrietySimulator() {
     const baselineImpact = 330 // kg CO₂e/an, ordre de grandeur mondial par internaute (1,8 Gt ÷ ~5,35 Md, Green IT 2025)
     let optimizedImpact = baselineImpact
 
-    // Durée de vie des appareils — hypothèse du site, ordre de grandeur (à vérifier) :
+    // Durée de vie des appareils (hypothèse du site, ordre de grandeur, à vérifier) :
     // allonger la durée de vie fait baisser l'impact annuel amorti, paliers indicatifs.
     // Le seuil « 5 ans ou plus » fait écho au règlement UE 2023/1670 (5 ans de mises à jour,
     // 7 ans de pièces, cité dans le quiz et la réglementation), mais les paliers −15/−25/−35 %
@@ -46,18 +46,18 @@ export default function SobrietySimulator() {
       scenario.repairChoice === "refurb" || scenario.deviceType === "refurb" ? 0.25 : 1
     optimizedImpact *= Math.min(repairFactor, refurbFactor)
 
-    // Qualité streaming — hypothèse du site, ordre de grandeur (à vérifier) : les données
+    // Qualité streaming (hypothèse du site, ordre de grandeur, à vérifier) : les données
     // chutent (7 → 3 → 0,9 Go/h affichés dans l'outil) mais l'effet sur le total reste faible,
     // les données ne pesant que via l'énergie du réseau (voir la note sous le réglage).
     if (scenario.streamingQuality === "720p") optimizedImpact *= 0.92
     else if (scenario.streamingQuality === "1080p") optimizedImpact *= 0.95
 
-    // Nettoyage e-mails — hypothèse du site, ordre de grandeur (à vérifier) : effet
+    // Nettoyage e-mails (hypothèse du site, ordre de grandeur, à vérifier) : effet
     // volontairement faible, les e-mails pèsent peu dans le total (voir calculateur carbone).
     if (scenario.emailCleanup === "monthly") optimizedImpact *= 0.99
     else if (scenario.emailCleanup === "weekly") optimizedImpact *= 0.98
 
-    // Stockage cloud — hypothèse du site, ordre de grandeur (à vérifier).
+    // Stockage cloud (hypothèse du site, ordre de grandeur, à vérifier).
     if (scenario.cloudStorage === "optimize") optimizedImpact *= 0.93
     else if (scenario.cloudStorage === "local") optimizedImpact *= 0.88
 

@@ -147,7 +147,7 @@ export function Navigation() {
           <div className="flex items-center gap-4 lg:hidden">
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className="text-slate-600 hover:text-emerald-700 transition-colors dark:text-slate-300 dark:hover:text-emerald-400"
+              className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="Rechercher"
             >
               <Search className="h-5 w-5" />

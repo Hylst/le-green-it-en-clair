@@ -540,7 +540,7 @@ export default function EnterpriseSimulator() {
                 </p>
               </div>
 
-              {/* Comparatif des 3 scénarios — pur affichage des totaux déjà
+              {/* Comparatif des 3 scénarios : pur affichage des totaux déjà
                   calculés par calculateProjections(), mêmes champs que le PDF. */}
               <div className="bg-card p-6 rounded-lg border border-border">
                 <h4 className="font-semibold text-lg text-foreground">

@@ -9,11 +9,13 @@ import { Slider } from "@/components/ui/slider";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Legend } from "recharts";
 import { CHART_FALLBACKS } from "@/lib/chart-theme";
-import { Euro, Lightbulb, Printer, RotateCcw, Wrench, ChevronLeft, ChevronRight, Sprout, Users, Zap } from "lucide-react";
+import { Euro, Lightbulb, Printer, RotateCcw, Wrench, ChevronLeft, ChevronRight, Sprout, Users, Zap, Save, Download, Upload, Trash2, History } from "lucide-react";
 import { SourceTooltip } from "@/components/source-tooltip";
 import Link from "next/link";
 import { SOBRIETY_PRESETS, SOBRIETY_BASELINE, calculateSobrietyImpact, buildProjection } from "@/lib/sobriety-calc";
 import type { SobrietyScenario, SobrietyPreset } from "@/lib/sobriety-calc";
+import { loadSobriety, saveSobrietyScenario, removeSobrietyScenario, importSobrietyStore } from "@/lib/sobriety-storage";
+import type { SobrietyStore } from "@/lib/sobriety-storage";
 
 const STEPS = [
   { n: 1, label: "Votre profil" },
@@ -59,6 +61,76 @@ export default function SobrietySimulator() {
   }
 
   const scenarioKey = JSON.stringify(scenario)
+
+  // Historique local (sur l'appareil uniquement, même pattern que l'estimateur)
+  const hasAction =
+    scenario.deviceLifespan < 5 ||
+    scenario.purchaseChoice === "new" ||
+    scenario.streamingQuality === "4k" ||
+    scenario.emailCleanup === "never" ||
+    scenario.cloudStorage === "keep"
+  const [sobStore, setSobStore] = useState<SobrietyStore | null>(null)
+  const [savedTick, setSavedTick] = useState(false)
+  const [importError, setImportError] = useState(false)
+  const sobFileRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    setSobStore(loadSobriety())
+  }, [])
+
+  const presetLabel = SOBRIETY_PRESETS.find((p) => JSON.stringify(p.scenario) === scenarioKey)?.label ?? "Personnalisé"
+
+  const handleSaveScenario = () => {
+    setSobStore(
+      saveSobrietyScenario({
+        name: `${presetLabel} ${new Date().toLocaleDateString("fr-FR")}`,
+        date: new Date().toISOString(),
+        scenario: { ...scenario },
+        percentage: impact.percentage,
+        savings: impact.savings,
+      })
+    )
+    setSavedTick(true)
+    window.setTimeout(() => setSavedTick(false), 2000)
+  }
+
+  const handleResumeScenario = (entryScenario: SobrietyScenario) => {
+    setScenario({ ...entryScenario })
+    setStep(2)
+  }
+
+  const handleExportSobJson = () => {
+    if (!sobStore) return
+    const blob = new Blob([JSON.stringify(sobStore, null, 2)], { type: "application/json" })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement("a")
+    link.href = url
+    link.download = `scenarios-sobriete-${new Date().toISOString().slice(0, 10)}.json`
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+    URL.revokeObjectURL(url)
+  }
+
+  const handleImportSobJson = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    event.target.value = ""
+    setImportError(false)
+    if (!file) return
+    let text = ""
+    try {
+      text = await file.text()
+    } catch {
+      setImportError(true)
+      return
+    }
+    const store = importSobrietyStore(text)
+    if (!store) {
+      setImportError(true)
+      return
+    }
+    setSobStore(store)
+  }
 
   return (
     <div className="space-y-8">
@@ -392,13 +464,31 @@ export default function SobrietySimulator() {
               </div>
 
               <div className="bg-blue-100 dark:bg-blue-900/10 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
-                <h4 className="font-semibold mb-2 text-foreground">Cela équivaut à:</h4>
+                <h4 className="font-semibold mb-2 text-foreground">Cela équivaut à :</h4>
                 <ul className="space-y-1 text-sm text-muted-foreground">
-                  <li>• {Math.round((impact.savings * 5) / 0.17)} km en voiture économisés</li>
-                  <li>• {Math.round((impact.savings * 5) / 20)} arbres pendant 1 an (20 kg/arbre, ADEME)</li>
-                  <li>• {Math.round((impact.savings * 5) / 7)} repas avec bœuf évités (7 kg/repas, ADEME)</li>
+                  <li>• {Math.round((impact.savings * 5) / 0.17)} km en voiture économisés <SourceTooltip source="Hypothèse du site (à vérifier)" info="Facteur utilisé par l'outil : 0,17 kg CO₂e/km. Source à vérifier, voir todo.md." /></li>
+                  <li>• {Math.round((impact.savings * 5) / 20)} arbres pendant 1 an (20 kg/arbre, ADEME) <SourceTooltip source="Hypothèse du site (à vérifier)" info="Facteur utilisé par l'outil : 20 kg CO₂e/arbre/an. Source à vérifier, voir todo.md." /></li>
+                  <li>• {Math.round((impact.savings * 5) / 7)} repas avec bœuf évités (7 kg/repas, ADEME) <SourceTooltip source="Hypothèse du site (à vérifier)" info="Facteur utilisé par l'outil : 7 kg CO₂e/repas. Source à vérifier, voir todo.md." /></li>
                 </ul>
               </div>
+
+              <details className="bg-card p-4 rounded-lg border border-border">
+                <summary className="cursor-pointer font-semibold text-foreground rounded-sm transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                  Détail du calcul : d&apos;où vient votre −{impact.percentage}{"\u00A0"}% ?
+                </summary>
+                <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                  {impact.lines.map((line) => (
+                    <li key={line.label} className="flex flex-col gap-0.5 rounded-lg bg-muted/50 p-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
+                      <span className="font-medium text-foreground">{line.label}</span>
+                      <span className="sm:text-right">{line.effect} <span className="text-xs">({line.origin})</span></span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Les facteurs sont multipliés entre eux. « Hypothèse du site » = ordre de grandeur du site, à affiner ;
+                  seul le reconditionné (−75{"\u00A0"}%) vient d&apos;une source externe (ADEME, 2022).
+                </p>
+              </details>
 
               <details className="bg-card p-4 rounded-lg border border-border">
                 <summary className="cursor-pointer font-semibold text-foreground rounded-sm transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
@@ -487,6 +577,11 @@ export default function SobrietySimulator() {
                 <h4 className="font-semibold text-lg mb-3 text-foreground">
                   Actions prioritaires pour vous
                 </h4>
+                {!hasAction && (
+                  <p className="text-sm text-muted-foreground">
+                    Vos choix sont déjà sobres, bravo : gardez vos appareils longtemps, c&apos;est le levier qui compte le plus.
+                  </p>
+                )}
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   {scenario.deviceLifespan < 5 && (
                     <li>
@@ -536,6 +631,71 @@ export default function SobrietySimulator() {
                   <RotateCcw className="w-4 h-4 mr-2" aria-hidden="true" />
                   Réinitialiser
                 </Button>
+              </div>
+
+              {/* Historique local : sur votre appareil uniquement */}
+              <div className="bg-card p-4 rounded-lg border border-border">
+                <h4 className="font-semibold mb-1 text-foreground flex items-center gap-2">
+                  <History className="h-4 w-4" aria-hidden="true" />
+                  Vos scénarios sauvegardés
+                </h4>
+                <p className="text-xs text-muted-foreground mb-3">Sur votre appareil uniquement, rien n&apos;est envoyé.</p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <Button variant="outline" onClick={handleSaveScenario}>
+                    <Save className="w-4 h-4 mr-2" aria-hidden="true" />
+                    Sauvegarder ce scénario
+                  </Button>
+                  {sobStore && sobStore.scenarios.length > 0 && (
+                    <Button variant="outline" onClick={handleExportSobJson}>
+                      <Download className="w-4 h-4 mr-2" aria-hidden="true" />
+                      Exporter (JSON)
+                    </Button>
+                  )}
+                  <Button variant="outline" onClick={() => sobFileRef.current?.click()}>
+                    <Upload className="w-4 h-4 mr-2" aria-hidden="true" />
+                    Importer (JSON)
+                  </Button>
+                  <input
+                    ref={sobFileRef}
+                    type="file"
+                    accept="application/json"
+                    className="hidden"
+                    onChange={handleImportSobJson}
+                    aria-label="Importer un historique de scénarios (JSON)"
+                  />
+                </div>
+                {savedTick && (
+                  <p className="mb-2 text-sm text-green-700 dark:text-green-300">Scénario sauvegardé.</p>
+                )}
+                {importError && (
+                  <p className="mb-2 text-sm text-red-700 dark:text-red-300">
+                    Import refusé : ce fichier n&apos;est pas un historique exporté par l&apos;outil.
+                  </p>
+                )}
+                {sobStore && sobStore.scenarios.length > 0 ? (
+                  <ul className="space-y-2">
+                    {sobStore.scenarios.map((entry) => (
+                      <li key={entry.date} className="flex flex-col gap-2 rounded-lg border border-border p-3 sm:flex-row sm:items-center sm:justify-between">
+                        <div className="text-sm">
+                          <span className="font-medium text-foreground">{entry.name}</span>{" "}
+                          <span className="text-muted-foreground">
+                            ({new Date(entry.date).toLocaleDateString("fr-FR")} • −{entry.percentage}{"\u00A0"}%)
+                          </span>
+                        </div>
+                        <div className="flex gap-2">
+                          <Button variant="outline" size="sm" onClick={() => handleResumeScenario(entry.scenario)}>
+                            Reprendre
+                          </Button>
+                          <Button variant="outline" size="icon" onClick={() => setSobStore(removeSobrietyScenario(entry.date))} aria-label={`Supprimer le scénario ${entry.name}`}>
+                            <Trash2 className="h-4 w-4" aria-hidden="true" />
+                          </Button>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-sm text-muted-foreground">Aucun scénario sauvegardé pour l&apos;instant.</p>
+                )}
               </div>
             </div>
           )}

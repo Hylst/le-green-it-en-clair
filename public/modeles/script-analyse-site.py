@@ -16,11 +16,18 @@ import re
 from urllib.parse import urlparse
 from datetime import datetime
 
+# Console Windows (cp1252) : les emojis feraient planter l'affichage sans ça
+try:
+    if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 try:
     import requests
     from bs4 import BeautifulSoup
 except ImportError:
-    print("❌ Dépendances manqu antes. Installez-les avec:")
+    print("❌ Dépendances manquantes. Installez-les avec:")
     print("   pip install requests beautifulsoup4")
     sys.exit(1)
 
@@ -45,8 +52,11 @@ class WebsiteAnalyzer:
         print(f"\n🌱 Analyse Green IT de: {self.url}\n")
         
         try:
-            # Récupération de la page
-            response = requests.get(self.url, timeout=10)
+            # Récupération de la page (UA navigateur : sans lui, beaucoup de sites bloquent les robots)
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) GreenIT-Analyzer/1.0"
+            }
+            response = requests.get(self.url, timeout=10, headers=headers)
             response.raise_for_status()
             
             html_content = response.text
@@ -55,7 +65,7 @@ class WebsiteAnalyzer:
             # Analyses
             self._analyze_weight(html_content, response)
             self._analyze_dom(soup)
-           self._analyze_resources(soup)
+            self._analyze_resources(soup)
             self._analyze_best_practices(soup, html_content)
             self._calculate_score()
             
@@ -105,7 +115,7 @@ class WebsiteAnalyzer:
         if total_elements > 1500:
             print("   ⚠️  DOM très complexe (>1500 éléments)")
         if depth > 15:
-            print("   ⚠️  Profondeur excessive (>{depth})")
+            print(f"   ⚠️  Profondeur excessive (>{depth})")
     
     def _get_dom_depth(self, element, depth=0):
         """Calcule la profondeur max du DOM"""
@@ -121,10 +131,11 @@ class WebsiteAnalyzer:
         scripts = soup.find_all('script', src=True)
         links_css = soup.find_all('link', rel='stylesheet')
         
-        # Analyse images
-        images_without_alt = [img for img in images if not img.get('alt')]
-        images_format_moderne = [img for img in images 
-                                if img.get('src', '').endswith(('.webp', '.avif'))]
+        # Analyse images (un alt vide est valide : image décorative)
+        images_without_alt = [img for img in images if img.get('alt') is None]
+        images_format_moderne = [img for img in images
+                                 if '.webp' in (img.get('src', '') + img.get('srcset', ''))
+                                 or '.avif' in (img.get('src', '') + img.get('srcset', ''))]
         
         self.results["ressources"] = {
             "images_total": len(images),
@@ -168,10 +179,9 @@ class WebsiteAnalyzer:
             'prefers-color-scheme' in html_content
         )
         
-        # Polices locales
-        font_faces = re.findall(r'@font-face', html_content)
+        # Polices locales (aucune police externe = parfait, pas un échec)
         external_fonts = soup.find_all('link', href=re.compile(r'fonts\.(googleapis|gstatic)'))
-        checks["polices_locales"] = len(font_faces) > len(external_fonts)
+        checks["polices_locales"] = len(external_fonts) == 0
         
         self.results["ecoconception"] = checks
         
@@ -227,29 +237,38 @@ class WebsiteAnalyzer:
         print(f"   Niveau: {niveau}")
         print(f"{'='*50}\n")
         
-        # Recommandations
+        # Recommandations (numérotées sans trou)
         print("💡 Recommandations principales:")
-        
+
+        reco = []
         if self.results["poids"]["html_ko"] > 100:
-            print("   1. Réduire le poids HTML (minification, compression)")
-        
+            reco.append("Réduire le poids HTML (minification, compression)")
+
         if self.results["ressources"]["images_sans_alt"] > 0:
-            print("   2. Ajouter des attributs alt à toutes les images")
-        
+            reco.append("Ajouter des attributs alt à toutes les images")
+
         if not self.results["ecoconception"].get("lazy_loading"):
-            print("   3. Implémenter le lazy loading pour les images")
-        
+            reco.append("Implémenter le lazy loading pour les images")
+
         if self.results["ressources"]["scripts_externes"] > 5:
-            print("   4. Réduire le nombre de scripts externes")
-        
+            reco.append("Réduire le nombre de scripts externes")
+
         if not self.results["ecoconception"].get("dark_mode_support"):
-            print("   5. Ajouter le support du mode sombre")
-        
+            reco.append("Ajouter le support du mode sombre")
+
+        for i, texte in enumerate(reco, 1):
+            print(f"   {i}. {texte}")
+
+        if not reco:
+            print("   Rien à signaler, bravo !")
+
         print()
     
     def _save_results(self):
         """Sauvegarde les résultats en JSON"""
-        filename = f"analyse_{self.domain}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        # Domaine assaini (un port comme :8123 est interdit dans les noms de fichiers Windows)
+        safe_domain = re.sub(r'[^A-Za-z0-9.-]+', '_', self.domain)
+        filename = f"analyse_{safe_domain}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
         
         with open(filename, 'w', encoding='utf-8') as f:
             json.dump(self.results, f, indent=2, ensure_ascii=False)

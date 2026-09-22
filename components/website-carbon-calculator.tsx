@@ -95,6 +95,8 @@ export function WebsiteCarbonCalculator() {
   const [url, setUrl] = useState("")
   const [weightMB, setWeightMB] = useState("2.1")
   const [visits, setVisits] = useState("10000")
+  // Poids cible optionnel du simulateur « et si j'allège ? » (vide = désactivé)
+  const [targetMB, setTargetMB] = useState("")
   const [greenHost, setGreenHost] = useState(false)
   const [gwf, setGwf] = useState<GwfState>(null)
   const [isAnalyzing, setIsAnalyzing] = useState(false)
@@ -105,6 +107,25 @@ export function WebsiteCarbonCalculator() {
   const parsedVisits = parseInt(visits.replace(/[\s\u202f]/g, ""), 10)
   const inputsValid =
     Number.isFinite(parsedWeight) && parsedWeight > 0 && parsedWeight <= 1000 && Number.isFinite(parsedVisits) && parsedVisits > 0 && parsedVisits <= 100000000
+
+  // Cible d'allègement : mêmes bornes que le poids, virgule acceptée
+  const parsedTarget = parseFloat(targetMB.replace(",", "."))
+  const targetValid =
+    Number.isFinite(parsedTarget) && parsedTarget > 0 && parsedTarget <= 1000
+
+  // Gain de l'objectif (réutilise computeEstimation tel quel, aucun nouveau modèle) :
+  // nul quand la cible est invalide ou supérieure au poids actuel.
+  const actualPreview = inputsValid ? computeEstimation(parsedWeight, parsedVisits, greenHost) : null
+  const targetPreview =
+    inputsValid && targetValid ? computeEstimation(parsedTarget, parsedVisits, greenHost) : null
+  const gainPreview =
+    actualPreview && targetPreview && targetPreview.co2PerVisit < actualPreview.co2PerVisit
+      ? {
+          perVisit: actualPreview.co2PerVisit - targetPreview.co2PerVisit,
+          perMonth: actualPreview.co2PerMonth - targetPreview.co2PerMonth,
+          pct: ((actualPreview.co2PerVisit - targetPreview.co2PerVisit) / actualPreview.co2PerVisit) * 100,
+        }
+      : null
 
   const estimate = async () => {
     if (!inputsValid || isAnalyzing) return
@@ -235,6 +256,35 @@ export function WebsiteCarbonCalculator() {
               </div>
             </div>
 
+            <div>
+              <Label htmlFor="objectif-poids" className="text-base font-semibold mb-2 block dark:text-gray-100">
+                Objectif d&apos;allègement (optionnel)
+              </Label>
+              <Input
+                id="objectif-poids"
+                type="text"
+                inputMode="decimal"
+                placeholder="Ex. 1"
+                value={targetMB}
+                onChange={(e) => setTargetMB(e.target.value)}
+                className="dark:bg-slate-700 dark:text-gray-100 dark:border-slate-600"
+                disabled={isAnalyzing}
+              />
+              <p aria-live="polite" className="text-sm text-slate-600 dark:text-gray-400 mt-2">
+                {!targetValid ? (
+                  "Fixez un poids cible pour voir le gain en direct."
+                ) : gainPreview ? (
+                  <>
+                    À {fr(parsedTarget, 1)} Mo : −{fr(gainPreview.perVisit)} g/visite (−
+                    {fr(gainPreview.pct, 0)}
+                    {"\u00a0"}%), soit −{fr(gainPreview.perMonth)} kg/mois.
+                  </>
+                ) : inputsValid ? (
+                  "Objectif supérieur ou égal au poids actuel : aucun gain."
+                ) : null}
+              </p>
+            </div>
+
             <div className="flex items-start gap-3 bg-slate-50 dark:bg-slate-700/50 p-4 rounded-lg border border-gray-200 dark:border-gray-600">
               <Checkbox
                 id="hebergeur-vert"
@@ -324,6 +374,22 @@ export function WebsiteCarbonCalculator() {
   }
 
   const rating = getCarbonRating(results.co2PerVisit)
+
+  // Rappel de l'objectif recalculé sur ce résultat (mêmes visites, même statut vert)
+  const targetGainResult =
+    targetValid && results.co2PerVisit > 0
+      ? (() => {
+          const target = computeEstimation(parsedTarget, results.visits, results.green)
+          const perVisit = results.co2PerVisit - target.co2PerVisit
+          if (perVisit <= 0) return { hasGain: false as const }
+          return {
+            hasGain: true as const,
+            perVisit,
+            perMonth: results.co2PerMonth - target.co2PerMonth,
+            pct: (perVisit / results.co2PerVisit) * 100,
+          }
+        })()
+      : null
 
   return (
     <div className="space-y-6" aria-live="polite">
@@ -426,6 +492,23 @@ export function WebsiteCarbonCalculator() {
               </div>
             </div>
           </div>
+
+          {/* Rappel de l'objectif d'allègement, recalculé sur ce résultat */}
+          {targetGainResult && (
+            <div className="p-4 rounded-lg border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20">
+              <p className="text-sm text-blue-800 dark:text-blue-300">
+                {targetGainResult.hasGain ? (
+                  <>
+                    Objectif {fr(parsedTarget, 1)} Mo : −{fr(targetGainResult.perVisit)} g/visite (−
+                    {fr(targetGainResult.pct, 0)}
+                    {"\u00a0"}%), soit −{fr(targetGainResult.perMonth)} kg/mois.
+                  </>
+                ) : (
+                  <>Objectif de {fr(parsedTarget, 1)} Mo : supérieur ou égal au poids estimé, aucun gain.</>
+                )}
+              </p>
+            </div>
+          )}
 
           {/* Recommandations génériques et honnêtes (aucun potentiel chiffré inventé) */}
           <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">

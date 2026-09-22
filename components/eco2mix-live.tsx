@@ -115,7 +115,7 @@ function MixChart({ data }: { data: Eco2MixData }) {
     <div className="rounded-lg border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-4 lg:p-6">
       <h4 className="mb-2 text-lg font-semibold text-slate-900 dark:text-slate-100">Mix de production instantané</h4>
       <p className="mb-4 text-sm text-slate-600 dark:text-slate-400">
-        Puissance produite à l&apos;instant par chaque filière, en mégawatts : nucléaire, éolien, solaire,
+        Puissance produite à l&apos;instant en France par chaque filière, en mégawatts : nucléaire, éolien, solaire,
         hydraulique, bioénergies, gaz, charbon et fioul.
       </p>
       <ResponsiveContainer width="100%" height={300}>

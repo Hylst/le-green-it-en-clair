@@ -37,7 +37,7 @@ export function Footer() {
               Site personnel pour sensibiliser et agir pour un numérique plus responsable en France.
             </p>
             <p className="text-xs text-muted-foreground italic">Créé par Geoffroy Streit, passionné d'écologie numérique</p>
-            <p className="text-xs text-muted-foreground mt-2">Illustrations créées avec l'assistance d'outils d'IA générative</p>
+            <p className="text-xs text-muted-foreground mt-2">Illustrations et mises en pages créées avec l'assistance d'outils d'IA générative</p>
           </div>
 
           {/* Navigation Links */}

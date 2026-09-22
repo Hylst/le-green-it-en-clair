@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -17,8 +17,19 @@ import {
   AlertCircle,
   CheckCircle2,
   ExternalLink,
+  FolderOpen,
+  Save,
+  Trash2,
 } from "lucide-react"
 import { ScopeNote } from "./outils/shared"
+import {
+  importWebsiteCarbonStore,
+  loadWebsiteCarbon,
+  removeWebsiteCarbonEstimation,
+  saveWebsiteCarbonEstimation,
+  type WebsiteCarbonSnapshot,
+  type WebsiteCarbonStore,
+} from "@/lib/website-carbon-storage"
 
 // Modèle Sustainable Web Design v4 (2024, Wholegrain Digital / Green Web Foundation) :
 // CO2e par visite = poids (Go) x 0,194 kWh/Go (AIE) x 494 gCO2e/kWh (Ember, 2023)
@@ -171,6 +182,75 @@ export function WebsiteCarbonCalculator() {
       const { co2PerVisit, co2PerMonth } = computeEstimation(prev.weightMB, prev.visits, checked)
       return { ...prev, green: checked, co2PerVisit, co2PerMonth }
     })
+  }
+
+  // Historique local (sur l'appareil uniquement, même pattern que l'audit de parc)
+  const [carbonStore, setCarbonStore] = useState<WebsiteCarbonStore | null>(null)
+  const [savedTick, setSavedTick] = useState(false)
+  const [importError, setImportError] = useState(false)
+  const carbonFileRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    setCarbonStore(loadWebsiteCarbon())
+  }, [])
+
+  const handleSaveEstimation = () => {
+    if (!results) return
+    const entry: WebsiteCarbonSnapshot = {
+      weightMB: results.weightMB,
+      visits: results.visits,
+      green: results.green,
+      date: new Date().toISOString(),
+    }
+    setCarbonStore(saveWebsiteCarbonEstimation(entry))
+    setSavedTick(true)
+    window.setTimeout(() => setSavedTick(false), 2000)
+  }
+
+  const handleDeleteEstimation = (date: string) => {
+    setCarbonStore(removeWebsiteCarbonEstimation(date))
+  }
+
+  const handleReloadEstimation = (entry: WebsiteCarbonSnapshot) => {
+    // On remplit le formulaire et on relance le parcours (le green-check est refait à neuf)
+    setWeightMB(String(entry.weightMB).replace(".", ","))
+    setVisits(entry.visits.toLocaleString("fr-FR"))
+    setGreenHost(entry.green)
+    setGwf(null)
+    setResults(null)
+  }
+
+  const handleExportCarbonJson = () => {
+    if (!carbonStore) return
+    const blob = new Blob([JSON.stringify(carbonStore, null, 2)], { type: "application/json" })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement("a")
+    link.href = url
+    link.download = `estimation-page-web-${new Date().toISOString().slice(0, 10)}.json`
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+    URL.revokeObjectURL(url)
+  }
+
+  const handleImportCarbonJson = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    event.target.value = ""
+    setImportError(false)
+    if (!file) return
+    let text = ""
+    try {
+      text = await file.text()
+    } catch {
+      setImportError(true)
+      return
+    }
+    const store = importWebsiteCarbonStore(text)
+    if (!store) {
+      setImportError(true)
+      return
+    }
+    setCarbonStore(store)
   }
 
   const getCarbonRating = (carbonPerVisit: number) => {
@@ -642,6 +722,84 @@ export function WebsiteCarbonCalculator() {
               {copied ? <Check className="w-4 h-4 mr-2" /> : <Share2 className="w-4 h-4 mr-2" />}
               {copied ? "Copié !" : "Partager"}
             </Button>
+            <Button
+              className="flex-1 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-300 dark:border-gray-600"
+              variant="outline"
+              onClick={handleSaveEstimation}
+            >
+              {savedTick ? <Check className="w-4 h-4 mr-2" /> : <Save className="w-4 h-4 mr-2" />}
+              {savedTick ? "Sauvegardé !" : "Sauvegarder"}
+            </Button>
+          </div>
+
+          {/* Historique local : sur votre appareil uniquement */}
+          <div className="p-4 rounded-lg border border-gray-200 dark:border-gray-600 bg-slate-50 dark:bg-slate-700/50">
+            <h4 className="font-semibold font-poppins text-sm mb-2 dark:text-gray-100">
+              Estimations sauvegardées (sur votre appareil uniquement)
+            </h4>
+            {carbonStore && carbonStore.estimations.length > 0 ? (
+              <ul className="space-y-2 text-sm">
+                {carbonStore.estimations.map((entry) => {
+                  const { co2PerVisit, co2PerMonth } = computeEstimation(entry.weightMB, entry.visits, entry.green)
+                  return (
+                    <li key={entry.date} className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-slate-600 dark:text-gray-300">
+                        {new Date(entry.date).toLocaleString("fr-FR", {
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
+                        {" : "}
+                        {fr(entry.weightMB, 1)} Mo, {fr(co2PerVisit)} g/visite, {fr(co2PerMonth)} kg/mois
+                        {entry.green ? " (vert)" : ""}
+                      </span>
+                      <span className="flex gap-2">
+                        <Button size="sm" variant="outline" onClick={() => handleReloadEstimation(entry)}>
+                          Recharger
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          aria-label={`Supprimer l'estimation du ${new Date(entry.date).toLocaleDateString("fr-FR")}`}
+                          onClick={() => handleDeleteEstimation(entry.date)}
+                        >
+                          <Trash2 className="h-4 w-4" aria-hidden="true" />
+                        </Button>
+                      </span>
+                    </li>
+                  )
+                })}
+              </ul>
+            ) : (
+              <p className="text-sm text-slate-600 dark:text-gray-400">Aucune estimation sauvegardée pour l&apos;instant.</p>
+            )}
+            {importError && (
+              <p className="text-sm text-slate-600 dark:text-gray-400 mt-2">
+                Import refusé : ce fichier n&apos;est pas un historique exporté par l&apos;outil.
+              </p>
+            )}
+            <div className="flex flex-wrap gap-2 mt-3">
+              {carbonStore && carbonStore.estimations.length > 0 && (
+                <Button size="sm" variant="outline" onClick={handleExportCarbonJson}>
+                  <Download className="mr-2 h-4 w-4" />
+                  Exporter (JSON)
+                </Button>
+              )}
+              <Button size="sm" variant="outline" onClick={() => carbonFileRef.current?.click()}>
+                <FolderOpen className="mr-2 h-4 w-4" />
+                Importer (JSON)
+              </Button>
+              <input
+                ref={carbonFileRef}
+                type="file"
+                accept="application/json,.json"
+                className="sr-only"
+                aria-label="Importer un historique depuis un fichier JSON"
+                onChange={handleImportCarbonJson}
+              />
+            </div>
           </div>
         </CardContent>
       </Card>

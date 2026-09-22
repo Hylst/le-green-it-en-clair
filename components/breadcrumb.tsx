@@ -5,6 +5,7 @@ import { ChevronRight, Home } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { JsonLd } from "@/components/json-ld"
 import { SITE_URL } from "@/lib/metadata"
+import { SEGMENT_LABELS as breadcrumbMap } from "@/lib/site-structure"
 
 export function Breadcrumb() {
   const pathname = usePathname()
@@ -12,61 +13,6 @@ export function Breadcrumb() {
   if (pathname === "/") return null
 
   const segments = pathname.split("/").filter(Boolean)
-
-  const breadcrumbMap: Record<string, string> = {
-    "par-ou-commencer": "Par où commencer",
-    comprendre: "Comprendre",
-    problematiques: "Problématiques",
-    mythes: "Mythes vs Réalités",
-    reglementation: "Réglementation",
-    chiffres: "Chiffres & Données",
-    "cas-pratiques": "Cas pratiques",
-    agir: "Comment agir",
-    datacenters: "Datacenters",
-    developpement: "Développement",
-    "fai-box": "Choisir son FAI / sa box",
-    recyclage: "Recyclage",
-    perspectives: "Perspectives",
-    outils: "Outils",
-    ressources: "Ressources",
-    "a-propos": "À propos",
-    actualites: "Dossiers et veille",
-    blog: "Blog",
-    "premier-audit-green-it-pme": "Premier audit Green IT en PME",
-    "reconditionne-vs-neuf-le-calcul": "Reconditionné ou neuf",
-    "comprendre-le-pue-en-5-minutes": "Comprendre le PUE",
-    "agec-reen-ce-qui-change": "AGEC et REEN",
-    "un-an-avec-un-smartphone-reparable": "Un an avec un smartphone réparable",
-    "back-market-portrait-reconditionne": "Back Market : portrait",
-    "que-consomme-vraiment-votre-box": "Que consomme votre box ?",
-    "fairphone-portrait-telephone-equitable": "Fairphone : portrait",
-    "envie-portrait-reemploi-solidaire": "Envie : portrait",
-    "rgesn-ecoconception-10-minutes": "RGESN en 10 minutes",
-    "bonus-reparation-mode-emploi": "Bonus réparation",
-    "ia-generative-avis-ademe-2026": "IA générative et ADEME",
-    faq: "FAQ",
-    "fiches-pratiques": "Fiches pratiques",
-    "sitemap-page": "Plan du site",
-    guide: "Guide",
-    "mentions-legales": "Mentions légales",
-    offline: "Hors-ligne",
-    "gestes-quotidiens": "Gestes quotidiens",
-    "achat-responsable": "Achat responsable",
-    "ecoconception-web": "Écoconception web",
-    "reparer-prolonger": "Réparer et prolonger",
-    "green-it-entreprise": "Green IT en entreprise",
-    "recyclage-mode-emploi": "Recyclage mode d'emploi",
-    "datacenters-verts": "Datacenters et cloud",
-    "collectivites-action": "Collectivités",
-    "plan-action-dsi": "Plan d'action DSI",
-    "politique-numerique": "Politique numérique",
-    "grille-audit": "Grille d'audit",
-    "cahier-charges-achat": "Cahier des charges",
-    "guide-sensibilisation": "Guide de sensibilisation",
-    "tableau-bord-impact": "Tableau de bord",
-    "charte-green-it": "Charte Green IT",
-    modeles: "Modèles téléchargeables",
-  }
 
   const items = [
     { name: "Accueil", item: `${SITE_URL}/` },

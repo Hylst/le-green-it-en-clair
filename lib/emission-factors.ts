@@ -63,8 +63,12 @@ export const EMAIL_KG_CO2E_PAR_MESSAGE_AN = 0.004 // ~4 g CO₂e par e-mail (ADE
 export const STREAMING_SD_KG_CO2E_PAR_HEURE_SEMAINE = 1.6 // ~31 g/h en SD × 52 semaines (ADEME/Shift)
 export const CLOUD_KG_CO2E_PAR_GO_AN = 0.00024 // ≈ 0,24 g CO₂e/Go/an (ADEME Impact CO₂ / Base Empreinte)
 export const RESEAUX_SOCIAUX_KG_CO2E_PAR_HEURE_JOUR = 2.55 // ~7 g/h hors vidéo (ADEME), × 365 jours dans l'outil
-// Valeur historique du site (millésime/source à vérifier, voir todo.md) :
-// conservée telle quelle, jamais remplacée par une autre valeur non sourcée.
+// Équivalence avion vérifiée le 22/09/2026 : 1 t CO2e = 6 allers-retours
+// Paris–Marseille par personne, soit 1000 ÷ 6 ≈ 167 kg CO2e/AR (DGAC,
+// éco-calculateur de l'aviation civile, Ministère chargé des transports ;
+// données calculateur 2024, màj 01/10/2025). Périmètre : CO2e vol + amont
+// kérosène (×1,22), hors traînées de condensation — avec traînées, ~2× plus
+// (ex. ~171 kg l'aller simple, ~0,26 kg/pkm, Alterna 2024 : autre périmètre).
 export const AVION_PARIS_MARSEILLE_AR_KG_CO2E = 167
 // Repère : empreinte numérique mondiale annuelle par internaute
 // (1,8 Gt CO₂e ÷ ~5,35 Md, GreenIT, étude EENM 2025).

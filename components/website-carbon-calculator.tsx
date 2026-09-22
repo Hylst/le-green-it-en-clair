@@ -443,7 +443,32 @@ export function WebsiteCarbonCalculator() {
               <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">
                 Pour {results.visits.toLocaleString("fr-FR")} visites
               </div>
+              <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                Soit {fr(results.co2PerMonth * 12)} kg CO₂e/an
+              </div>
             </div>
+          </div>
+
+          {/* Détail du calcul : que des nombres déjà présents (constantes + saisies) */}
+          <div className="p-4 rounded-lg border border-gray-200 dark:border-gray-600 bg-slate-50 dark:bg-slate-700/50">
+            <h4 className="font-semibold font-poppins text-sm mb-2 dark:text-gray-100">Détail du calcul</h4>
+            <ol className="list-decimal ml-5 space-y-1 text-sm text-slate-600 dark:text-gray-300">
+              <li>
+                {fr(results.weightMB, 1)} Mo = {fr(results.weightMB / 1024, 4)} Go
+              </li>
+              <li>
+                × 0,194 kWh/Go (AIE) = {fr((results.weightMB / 1024) * KWH_PER_GB, 4)} kWh par visite
+              </li>
+              <li>
+                × {results.green ? "494 × 0,757 ≈ 374" : "494"} gCO₂e/kWh{" "}
+                {results.green ? "(Ember 2023, hébergeur vert)" : "(Ember, 2023)"} = {fr(results.co2PerVisit)} g
+                par visite
+              </li>
+            </ol>
+            <p className="text-xs text-slate-600 dark:text-gray-400 mt-2">
+              Périmètre : émissions opérationnelles (datacenters, réseaux, terminal), hors fabrication des
+              équipements.
+            </p>
           </div>
 
           {/* Hébergement : résultat réel du green-check, pas un tirage au sort */}

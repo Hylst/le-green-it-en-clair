@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -10,6 +10,7 @@ import { SourceTooltip } from "@/components/source-tooltip";
 import {
   AUDIT_PARC_STORAGE_KEY,
   loadAuditParc,
+  parseAuditParcSnapshot,
   saveAuditParc,
   type AuditParcInventaire,
   type AuditParcSnapshot,
@@ -56,6 +57,87 @@ export default function ITAudit() {
   }
 
   const [showResults, setShowResults] = useState(false)
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  const handleExportJson = () => {
+    const snapshot = {
+      schemaVersion: 1,
+      inventaire: inventory,
+      partReconditionnee: refurbishedPct,
+      date: new Date().toISOString(),
+    }
+    const blob = new Blob([JSON.stringify(snapshot, null, 2)], { type: "application/json" })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement("a")
+    link.href = url
+    link.download = `parc-green-it-${new Date().toISOString().slice(0, 10)}.json`
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+    URL.revokeObjectURL(url)
+    setSaveMessage("Parc exporté en fichier JSON (à conserver ou à transmettre).")
+  }
+
+  const handleImportJson = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    event.target.value = ""
+    if (!file) return
+    let text = ""
+    try {
+      text = await file.text()
+    } catch {
+      setSaveMessage("Import impossible : le fichier est illisible.")
+      return
+    }
+    const snapshot = parseAuditParcSnapshot(text)
+    if (!snapshot) {
+      setSaveMessage("Import refusé : ce fichier n'est pas un parc exporté par l'outil.")
+      return
+    }
+    setInventory(snapshot.inventaire)
+    setRefurbishedPct(snapshot.partReconditionnee)
+    setSaveMessage("Parc importé depuis le fichier (pensez à le sauvegarder).")
+  }
+
+  // Parcs types en un clic (valeurs réalistes, modifiables ensuite au curseur)
+  const PRESETS: Array<{ label: string; inventory: AuditParcInventaire }> = [
+    {
+      label: "Bureau TPE",
+      inventory: {
+        desktops: { count: 6, avgAge: 4 },
+        laptops: { count: 4, avgAge: 3 },
+        monitors: { count: 10, avgAge: 4 },
+        smartphones: { count: 6, avgAge: 2 },
+        tablets: { count: 1, avgAge: 3 },
+        printers: { count: 1, avgAge: 5 },
+        servers: { count: 1, avgAge: 4 },
+      },
+    },
+    {
+      label: "Commerce",
+      inventory: {
+        desktops: { count: 2, avgAge: 5 },
+        laptops: { count: 1, avgAge: 3 },
+        monitors: { count: 4, avgAge: 5 },
+        smartphones: { count: 3, avgAge: 2 },
+        tablets: { count: 2, avgAge: 2 },
+        printers: { count: 2, avgAge: 6 },
+        servers: { count: 0, avgAge: 4 },
+      },
+    },
+    {
+      label: "Indépendant",
+      inventory: {
+        desktops: { count: 0, avgAge: 4 },
+        laptops: { count: 1, avgAge: 2 },
+        monitors: { count: 1, avgAge: 3 },
+        smartphones: { count: 1, avgAge: 2 },
+        tablets: { count: 0, avgAge: 3 },
+        printers: { count: 1, avgAge: 4 },
+        servers: { count: 0, avgAge: 4 },
+      },
+    },
+  ]
 
   const deviceData = {
     desktops: { name: "Ordinateurs fixes", fabricationCO2: 205, usageCO2: 9.1, optimalLife: 6, icon: PcCase },
@@ -156,6 +238,20 @@ export default function ITAudit() {
   const calculateResults = () => calculateResultsFor(inventory, refurbishedPct)
 
   const results = calculateResults()
+
+  // Gain annuel sur la fabrication à la part reconditionnée saisie (effet direct)
+  const refurbYearlySavings = Math.round(
+    Object.entries(inventory).reduce((acc, [type, { count }]) => {
+      const data = deviceData[type as keyof typeof deviceData]
+      return acc + (data.fabricationCO2 / data.optimalLife) * count
+    }, 0) * 0.75 * (refurbishedPct / 100),
+  )
+
+  // 3 postes qui pèsent le plus (que les parcs non vides)
+  const topLevers = [...results.details]
+    .filter((item) => item.count > 0)
+    .sort((a, b) => b.co2 - a.co2)
+    .slice(0, 3)
 
   const savedResults = savedSnapshot
     ? calculateResultsFor(savedSnapshot.inventaire, savedSnapshot.partReconditionnee)
@@ -321,6 +417,14 @@ export default function ITAudit() {
           {/* Formulaire d'inventaire */}
           <div>
               <h3 className="font-semibold text-lg mb-4 text-foreground"><Package className="mr-2 inline h-5 w-5" />Inventaire du parc</h3>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {PRESETS.map((preset) => (
+                <Button key={preset.label} variant="outline" size="sm" onClick={() => setInventory(preset.inventory)}>
+                  {preset.label}
+                </Button>
+              ))}
+              <span className="text-xs text-muted-foreground self-center">Parcs types modifiables au curseur</span>
+            </div>
             <div className="grid md:grid-cols-2 gap-4">
               {Object.entries(inventory).map(([type, { count, avgAge }]) => {
                 const data = deviceData[type as keyof typeof deviceData]
@@ -369,6 +473,11 @@ export default function ITAudit() {
                         />
                       </div>
                     </div>
+                    {count > 0 && avgAge >= data.optimalLife && (
+                      <p className="mt-2 text-xs font-medium text-yellow-700 dark:text-yellow-300">
+                        Au-delà de la durée optimale ({data.optimalLife} ans) : prévoyez un renouvellement en reconditionné (−75 % de fabrication, ADEME 2022).
+                      </p>
+                    )}
                   </div>
                 )
               })}
@@ -397,6 +506,11 @@ export default function ITAudit() {
               <p className="mt-1 text-xs text-muted-foreground">
                 Estimation prudente : seul l'impact de fabrication est réduit, l'usage annuel reste identique.
               </p>
+              <p aria-live="polite" className="mt-1 text-xs font-medium text-foreground">
+                {refurbishedPct === 0
+                  ? "À 0 % : aucun effet, les résultats sont inchangés."
+                  : `À ${refurbishedPct} % : −${refurbYearlySavings.toLocaleString("fr-FR")} kg CO₂e/an sur la fabrication.`}
+              </p>
             </div>
           </div>
 
@@ -413,6 +527,22 @@ export default function ITAudit() {
                   Recharger
                 </Button>
               )}
+              <Button variant="outline" size="sm" onClick={handleExportJson}>
+                <Download className="mr-2 h-4 w-4" />
+                Exporter (JSON)
+              </Button>
+              <Button variant="outline" size="sm" onClick={() => fileInputRef.current?.click()}>
+                <FolderOpen className="mr-2 h-4 w-4" />
+                Importer (JSON)
+              </Button>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="application/json,.json"
+                className="sr-only"
+                aria-label="Importer un parc depuis un fichier JSON"
+                onChange={handleImportJson}
+              />
             </div>
             <p className="mt-2 text-xs text-muted-foreground">
               Données sur votre appareil uniquement (clé {AUDIT_PARC_STORAGE_KEY}, sans compte ni envoi).
@@ -542,6 +672,26 @@ export default function ITAudit() {
                   />
                 </p>
               </div>
+
+              {/* Principaux leviers */}
+              {results.totalCO2 > 0 && topLevers.length > 0 && (
+                <div className="p-4 bg-card rounded-lg border border-border">
+                  <h4 className="font-semibold text-base mb-2 text-foreground">Vos {topLevers.length} principaux leviers</h4>
+                  <ul className="space-y-2 text-sm">
+                    {topLevers.map((item) => (
+                      <li key={item.type} className="flex flex-wrap items-baseline justify-between gap-2">
+                        <span className="text-foreground">
+                          <strong>{item.name}</strong>
+                          <span className="text-muted-foreground"> : {item.co2.toLocaleString("fr-FR")} kg CO₂e/an ({Math.round((item.co2 / results.totalCO2) * 100)} % du parc)</span>
+                        </span>
+                        <span className="text-muted-foreground">
+                          {item.status === "critical" ? "À renouveler en reconditionné" : item.status === "warning" ? "À prolonger, puis reconditionné" : "Continuer à prolonger"}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               {/* Détails par catégorie */}
               <div>

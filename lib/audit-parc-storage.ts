@@ -81,11 +81,18 @@ export function loadAuditParc(): AuditParcSnapshot | null {
   }
   if (!raw) return null
 
+  const snapshot = parseAuditParcSnapshot(raw)
+  if (!snapshot) clearAuditParc()
+  return snapshot
+}
+
+// Valide un JSON externe (import de fichier) sans toucher au stockage :
+// même règles que la sauvegarde locale (clés, bornes, version).
+export function parseAuditParcSnapshot(raw: string): AuditParcSnapshot | null {
   let parsed: unknown = null
   try {
     parsed = JSON.parse(raw)
   } catch {
-    clearAuditParc()
     return null
   }
 
@@ -102,10 +109,6 @@ export function loadAuditParc(): AuditParcSnapshot | null {
     (snapshot.partReconditionnee as number) <= 100 &&
     typeof snapshot.date === "string"
 
-  if (!valid) {
-    clearAuditParc()
-    return null
-  }
-
+  if (!valid) return null
   return snapshot as AuditParcSnapshot
 }

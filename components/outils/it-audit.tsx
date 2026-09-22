@@ -489,7 +489,7 @@ export default function ITAudit() {
                   <SourceTooltip
                     source="ADEME, 2022"
                     calculation="Fabrication × (1 − 0,75 × part reconditionnée)"
-                    info="Chaque appareil reconditionné évite environ 75 % de l'impact de fabrication (bas de la fourchette −75 à −90 % déjà citée). À 0 %, les résultats sont inchangés."
+                    info="Chaque appareil reconditionné évite environ 75 % de l'impact de fabrication (bas de la fourchette −75 à −90 % déjà citée). Ce potentiel est aussi celui rappelé sous chaque équipement au-delà de sa durée optimale. À 0 %, les résultats sont inchangés."
                   />
                 </span>
                 <span className="font-semibold text-foreground">{refurbishedPct.toLocaleString("fr-FR")} %</span>

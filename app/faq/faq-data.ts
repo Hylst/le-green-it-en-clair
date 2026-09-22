@@ -22,6 +22,17 @@ export interface FaqCategory {
   questions: FaqQuestion[]
 }
 
+// Ancre stable par question pour les liens profonds (/faq#ma-question).
+// Dérivée du libellé uniquement : aucun champ à maintenir, unicité vérifiée.
+export function faqSlug(q: string): string {
+  return q
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+}
+
 // Réponse structurée : le texte intégral `a` (recherche + JSON-LD) est
 // dérivé des mêmes morceaux que l'affichage (intro + puces + conclusion),
 // numérotés comme les anciennes réponses. Une seule source, pas de doublon.
@@ -85,10 +96,14 @@ export const faqCategories: FaqCategory[] = [
     category: "Achat & Équipement",
     color: "blue",
     questions: [
-      {
-        q: "Faut-il acheter neuf ou reconditionné ?",
-        a: "Le reconditionné est fortement recommandé : un appareil reconditionné a un impact environnemental réduit d'environ 75 à 90 % par rapport au neuf (ADEME, 2022). Choisissez un vendeur certifié : la garantie légale de conformité est de 2 ans, y compris pour le reconditionné, avec les défauts présumés antérieurs pendant 24 mois.",
-      },
+      structured(
+        "Faut-il acheter neuf ou reconditionné ?",
+        "Le reconditionné est fortement recommandé : son impact environnemental est réduit d'environ 75 à 90 % par rapport au neuf (ADEME, 2022).",
+        [
+          "Choisissez un vendeur certifié : la garantie légale de conformité est de 2 ans, y compris pour le reconditionné, avec les défauts présumés antérieurs pendant 24 mois.",
+          "Vérifiez l'état de la batterie et les conditions de reprise.",
+        ],
+      ),
       structured(
         "Comment choisir un appareil durable ?",
         "Vérifiez l'indice de réparabilité (obligatoire depuis 2021) et visez au moins 7/10.",
@@ -120,15 +135,6 @@ export const faqCategories: FaqCategory[] = [
           "10 ans pour une TV",
         ],
         "Actuellement, les Français changent de smartphone en moyenne tous les 3 ans (ADEME, 2026). Passer de 2 à 3 ans réduit l'impact annuel d'environ un tiers (ADEME 2026). La fabrication représentant environ 75 % des impacts tous indicateurs, allonger la durée d'usage est le geste le plus efficace.",
-      ),
-      structured(
-        "Un appareil reconditionné est-il fiable ?",
-        "Oui, à condition de bien le choisir : le reconditionné sérieux n'a rien d'un pari.",
-        [
-          "La garantie légale de conformité est de 2 ans, y compris pour le reconditionné, avec les défauts présumés antérieurs pendant 24 mois.",
-          "Son impact environnemental est réduit d'environ 75 à 90 % par rapport au neuf (ADEME, 2022).",
-          "Passez par un vendeur certifié, et vérifiez l'état de la batterie et les conditions de reprise.",
-        ],
       ),
     ],
   },
@@ -333,7 +339,7 @@ export const faqCategories: FaqCategory[] = [
           "Droit à la réparation européen (directive 2024/1799, applicable depuis juillet 2026)",
           "Indice de durabilité (TV et lave-linge depuis 2025 ; smartphones : étiquette énergie UE depuis juin 2025)",
         ],
-        "Obligations : affichage indices, disponibilité des pièces détachées 5 à 10 ans selon les produits, mises à jour logicielles longues.",
+        "Obligations : affichage des indices, pièces détachées disponibles 7 ans minimum (smartphones, tablettes, téléviseurs) à 10 ans (lave-linge) en droit européen, 5 ans minimum (ordinateurs portables, bricolage, sport, trottinettes) en droit français (DGCCRF, 2025), mises à jour logicielles longues.",
       ),
       {
         q: "Qu'est-ce que la REP (Responsabilité Élargie du Producteur) ?",

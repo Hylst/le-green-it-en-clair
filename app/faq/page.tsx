@@ -1,21 +1,23 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { ChevronDown, ChevronUp, HelpCircle, Search, ExternalLink, ArrowRight } from "lucide-react"
+import { ChevronDown, ChevronUp, HelpCircle, Search, ExternalLink, ArrowRight, Link2, Check } from "lucide-react"
 import Link from "next/link"
 import { JsonLd } from "@/components/json-ld"
 import { PageHero } from "@/components/page-hero"
-import { faqCategories } from "./faq-data"
+import { canonical } from "@/lib/site"
+import { faqCategories, faqSlug } from "./faq-data"
 
 
 export default function FAQPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCategory, setSelectedCategory] = useState<string>("Toutes")
   const [openQuestions, setOpenQuestions] = useState<string[]>([])
+  const [copiedSlug, setCopiedSlug] = useState<string | null>(null)
 
   const categories = ["Toutes", ...faqCategories.map((cat) => cat.category)]
 
@@ -31,10 +33,47 @@ export default function FAQPage() {
     }))
     .filter((cat) => cat.questions.length > 0)
 
-  const toggleQuestion = (categoryIndex: number, questionIndex: number) => {
+  const toggleQuestion = (categoryIndex: number, questionIndex: number, slug: string) => {
     const key = `${categoryIndex}-${questionIndex}`
+    const willOpen = !openQuestions.includes(key)
     setOpenQuestions((prev) => (prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]))
+    if (willOpen) window.history.replaceState(null, "", `#${slug}`)
+    else window.history.replaceState(null, "", window.location.pathname)
   }
+
+  // Lien profond /faq#mon-slug : copié dans le presse-papiers, avec repli.
+  const copyQuestionLink = async (slug: string) => {
+    const url = `${canonical("/faq")}#${slug}`
+    try {
+      if (navigator.clipboard) await navigator.clipboard.writeText(url)
+      else throw new Error("presse-papiers indisponible")
+    } catch {
+      const area = document.createElement("textarea")
+      area.value = url
+      document.body.appendChild(area)
+      area.select()
+      document.execCommand("copy")
+      document.body.removeChild(area)
+    }
+    setCopiedSlug(slug)
+    window.setTimeout(() => setCopiedSlug((current) => (current === slug ? null : current)), 2000)
+  }
+
+  // Ouverture directe via #ancre (depuis un lien copié ou partagé).
+  useEffect(() => {
+    const slug = window.location.hash.slice(1)
+    if (!slug) return
+    for (let catIndex = 0; catIndex < faqCategories.length; catIndex++) {
+      const qIndex = faqCategories[catIndex].questions.findIndex((entry) => faqSlug(entry.q) === slug)
+      if (qIndex !== -1) {
+        setSelectedCategory("Toutes")
+        setSearchTerm("")
+        setOpenQuestions([`${catIndex}-${qIndex}`])
+        window.setTimeout(() => document.getElementById(slug)?.scrollIntoView({ block: "start" }), 100)
+        return
+      }
+    }
+  }, [])
 
   const totalQuestions = faqCategories.reduce((sum, cat) => sum + cat.questions.length, 0)
 
@@ -124,13 +163,15 @@ export default function FAQPage() {
                   <div className="space-y-3">
                     {category.questions.map((item, qIndex) => {
                       const isOpen = openQuestions.includes(`${catIndex}-${qIndex}`)
+                      const slug = faqSlug(item.q)
                       return (
                         <Card
                           key={qIndex}
-                          className="border-2 border-border bg-card overflow-hidden transition-all hover:border-slate-300 dark:hover:border-slate-600"
+                          id={slug}
+                          className="border-2 border-border bg-card overflow-hidden scroll-mt-24 transition-all hover:border-slate-300 dark:hover:border-slate-600"
                         >
                           <button
-                            onClick={() => toggleQuestion(catIndex, qIndex)}
+                            onClick={() => toggleQuestion(catIndex, qIndex, slug)}
                             aria-expanded={isOpen}
                             className="flex w-full items-start justify-between gap-4 p-6 text-left transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50"
                           >
@@ -156,27 +197,43 @@ export default function FAQPage() {
                               ) : (
                                 <p className="text-muted-foreground leading-relaxed">{item.a}</p>
                               )}
-                              {item.link && (
-                                item.link.url.startsWith("http") ? (
-                                  <a
-                                    href={item.link.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
-                                  >
-                                    {item.link.label}
-                                    <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-                                  </a>
-                                ) : (
-                                  <Link
-                                    href={item.link.url}
-                                    className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
-                                  >
-                                    {item.link.label}
-                                    <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                                  </Link>
-                                )
-                              )}
+                              <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
+                                {item.link && (
+                                  item.link.url.startsWith("http") ? (
+                                    <a
+                                      href={item.link.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+                                    >
+                                      {item.link.label}
+                                      <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                                    </a>
+                                  ) : (
+                                    <Link
+                                      href={item.link.url}
+                                      className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+                                    >
+                                      {item.link.label}
+                                      <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                                    </Link>
+                                  )
+                                )}
+                                <button
+                                  type="button"
+                                  onClick={() => copyQuestionLink(slug)}
+                                  aria-label={`Copier le lien vers la question : ${item.q}`}
+                                  aria-live="polite"
+                                  className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                                >
+                                  {copiedSlug === slug ? (
+                                    <Check className="h-3.5 w-3.5" aria-hidden="true" />
+                                  ) : (
+                                    <Link2 className="h-3.5 w-3.5" aria-hidden="true" />
+                                  )}
+                                  {copiedSlug === slug ? "Lien copié !" : "Copier le lien"}
+                                </button>
+                              </div>
                             </div>
                           )}
                         </Card>

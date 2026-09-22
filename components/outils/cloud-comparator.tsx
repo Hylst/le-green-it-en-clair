@@ -491,7 +491,7 @@ export default function CloudComparator() {
                   {recommendation.items.map((item) => (
                     <li key={item.name}>
                       <strong className="text-foreground">{item.name}</strong>
-                      <span className="text-muted-foreground"> — {item.reason}</span>
+                      <span className="text-muted-foreground"> : {item.reason}</span>
                     </li>
                   ))}
                 </ol>
@@ -517,7 +517,7 @@ export default function CloudComparator() {
               </li>
               <li>
                 <strong>Score éco</strong> : synthèse propre au site pour ordonner les fiches, pas une certification.
-                Méthode transparente : scores recalculés — 40 % PUE (100 à 1,0, 0 à 1,5, linéaire) + 40 % renouvelable
+                Méthode transparente : scores recalculés : 40 % PUE (100 à 1,0, 0 à 1,5, linéaire) + 40 % renouvelable
                 + 20 % engagements (10 pts neutralité déclarée, jusqu'à 10 pts certifications : ≥ 3 = 10, 2 = 7, 1 = 3).
               </li>
             </ul>

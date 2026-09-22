@@ -2098,7 +2098,7 @@ export function QuizGreenITAdvanced() {
               Source : {currentQuestion.source}
               {currentQuestion.sourceUrl ? (
                 <>
-                  {" — "}
+                  {" · "}
                   <a
                     href={currentQuestion.sourceUrl}
                     target="_blank"

@@ -524,12 +524,12 @@ export default function EnterpriseSimulator() {
                   </div>
                   <div className="bg-card p-4 rounded-lg text-center border border-border">
                     <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">
-                      {implementationCost > 0 ? `${roiPercent.toLocaleString("fr-FR")}${" "}%` : "—"}
+                      {implementationCost > 0 ? `${roiPercent.toLocaleString("fr-FR")}${" "}%` : "–"}
                     </div>
                     <div className="text-sm text-muted-foreground">ROI</div>
                   </div>
                   <div className="bg-card p-4 rounded-lg text-center border border-border">
-                    <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">{selectedScenario === "baseline" ? "—" : results.payback === -1 ? "-" : results.payback}</div>
+                    <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">{selectedScenario === "baseline" ? "–" : results.payback === -1 ? "-" : results.payback}</div>
                     <div className="text-sm text-muted-foreground">{selectedScenario === "baseline" ? "Scénario de référence" : results.payback === -1 ? "Non rentable sur 5 ans" : "Mois pour rentabilité"}</div>
                   </div>
                 </div>
@@ -568,7 +568,7 @@ export default function EnterpriseSimulator() {
                         const isBestCo2 = !isReference && s.totalEmissions === bestCo2
                         const isBestPayback = !isReference && bestPayback !== null && s.payback === bestPayback
                         const paybackLabel = isReference
-                          ? "—"
+                          ? "–"
                           : s.payback === -1
                             ? "Non rentable"
                             : s.payback === 0

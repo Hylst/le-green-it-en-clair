@@ -26,6 +26,7 @@ import {
   BatteryCharging,
 } from "lucide-react"
 import { PageHero } from "@/components/page-hero"
+import { useChartTheme } from "@/lib/chart-theme"
 import { Reveal } from "@/components/reveal"
 import { Sommaire } from "@/components/sommaire"
 import { ReadingProgress } from "@/components/reading-progress"
@@ -69,10 +70,10 @@ const impactData = [
   { name: "Transparence", value: 15 },
 ]
 
-const COLORS = ["#10b981", "#3b82f6", "#8b5cf6", "#f59e0b"]
-
 export default function ReglementationPage() {
   const [selectedTab, setSelectedTab] = useState("france")
+  const chart = useChartTheme()
+  const COLORS = [chart.emerald, chart.blue, chart.violet, chart.amber]
 
   return (
     <div data-theme="indigo" className="min-h-screen bg-background">
@@ -128,7 +129,7 @@ export default function ReglementationPage() {
                   <YAxis />
                   <Tooltip />
                   <Legend />
-                  <Line type="monotone" dataKey="impact" stroke="#10b981" strokeWidth={3} name="Impact" />
+                  <Line type="monotone" dataKey="impact" stroke={chart.emerald} strokeWidth={3} name="Impact" />
                 </LineChart>
               </ResponsiveContainer>
             </CardContent>
@@ -785,9 +786,9 @@ export default function ReglementationPage() {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="conforme" fill="#10b981" name="Conforme" />
-                    <Bar dataKey="enCours" fill="#f59e0b" name="En cours" />
-                    <Bar dataKey="nonConforme" fill="#ef4444" name="Non conforme" />
+                    <Bar dataKey="conforme" fill={chart.emerald} name="Conforme" />
+                    <Bar dataKey="enCours" fill={chart.amber} name="En cours" />
+                    <Bar dataKey="nonConforme" fill={chart.red} name="Non conforme" />
                   </BarChart>
                 </ResponsiveContainer>
               </CardContent>
@@ -808,7 +809,7 @@ export default function ReglementationPage() {
                       labelLine={false}
                       label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                       outerRadius={80}
-                      fill="#8884d8"
+                      fill={chart.violet}
                       dataKey="value"
                     >
                       {impactData.map((entry, index) => (

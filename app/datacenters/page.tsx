@@ -861,7 +861,7 @@ export default function DatacentersPage() {
             . L&apos;ADEME, avec un périmètre élargi à 352 sites, porte la consommation actuelle à 10 TWh, et RTE
             projette 23 à 28 TWh en 2035 (étude prospective ADEME-RTE, janvier 2026). La demande change
             d&apos;échelle : 28,6 GW de puissance demandée, dont ~18 GW déjà réservés en mai 2026, et un
-            raccordement accéléré pour 5 sites de 400 MW à plus de 1 GW — dont le Campus IA de Fouju (240 MW fin 2027,
+            raccordement accéléré pour 5 sites de 400 MW à plus de 1 GW, dont le Campus IA de Fouju (240 MW fin 2027,
             jusqu&apos;à 1 400 MW)
             <SourceTooltip
               className="ml-1 align-middle"

@@ -25,8 +25,8 @@ export function ScopeNote() {
       <Info className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
       <span>
         Chaque outil a son périmètre, ne comparez pas les résultats entre eux : le calculateur couvre votre vie
-        numérique complète (équipements + usages, ≈ 195 kg CO₂e/an avec les réglages par défaut — smartphone,
-        portable et TV — à comparer aux ≈ 330 kg de la moyenne mondiale par internaute{" "}
+        numérique complète (équipements + usages, ≈ 195 kg CO₂e/an avec les réglages par défaut (smartphone,
+        portable et TV), à comparer aux ≈ 330 kg de la moyenne mondiale par internaute{" "}
         <SourceTooltip
           source="GreenIT, Étude empreinte numérique mondiale (EENM), 2025"
           calculation="1,8 Gt CO₂e ÷ ~5,35 Md d'internautes ≈ 330 kg CO₂e/an"

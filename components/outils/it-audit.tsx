@@ -533,8 +533,8 @@ export default function ITAudit() {
                 )}
                 <p className="mt-4 text-xs text-muted-foreground text-center">
                   Hypothèses : usage annuel forfaitaire par équipement, fabrication amortie sur la durée optimale
-                  (fixes 6 ans, portables 5 ans, écrans 6 ans, smartphones 5 ans, tablettes 3 ans — durée de référence
-                  ADEME, Impact CO₂ 2025 —, imprimantes 7 ans, serveurs 5 ans — durées internes du site){" "}
+                  (fixes 6 ans, portables 5 ans, écrans 6 ans, smartphones 5 ans, tablettes 3 ans (durée de référence
+                  ADEME, Impact CO₂ 2025), imprimantes 7 ans, serveurs 5 ans, durées internes du site){" "}
                   <SourceTooltip
                     source="Base Empreinte / ADEME-Arcep, 2024-2025"
                     calculation="Fabrication ÷ durée optimale + usage annuel forfaitaire, par équipement"

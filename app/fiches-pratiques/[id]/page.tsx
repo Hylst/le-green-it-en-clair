@@ -944,7 +944,7 @@ const sheets: Record<string, any> = {
       {
         title: "1. Pourquoi la vidéo pèse si lourd",
         content:
-          "La vidéo en ligne génère à elle seule 60 % des flux mondiaux de données, soit plus de 300 millions de tonnes de CO₂ par an : 20 % des émissions du numérique et 1 % des émissions mondiales, autant que l'Espagne (The Shift Project, rapports 2019, chiffres discutés depuis — voir la nuance ci-dessous).",
+          "La vidéo en ligne génère à elle seule 60 % des flux mondiaux de données, soit plus de 300 millions de tonnes de CO₂ par an : 20 % des émissions du numérique et 1 % des émissions mondiales, autant que l'Espagne (The Shift Project, rapports 2019, chiffres discutés depuis, voir la nuance ci-dessous).",
         tips: [
           "4 grandes familles se partagent ces 60 % : VOD, tubes, réseaux sociaux et autres (Shift, 2019)",
           "En toute honnêteté : un chiffre avancé lors d'une interview en 2019 était erroné (erreur de débit), sans remettre en cause les rapports publiés (Shift, 2020)",
@@ -1482,7 +1482,7 @@ const sheets: Record<string, any> = {
         url: "https://www.arcep.fr/la-regulation/grands-dossiers-thematiques-transverses/lempreinte-environnementale-du-numerique.html",
       },
       {
-        label: "ADEME, Panel Elecdom — consommations annuelles (open data)",
+        label: "ADEME, Panel Elecdom, consommations annuelles (open data)",
         url: "https://data.ademe.fr/datasets/elecdom-conso-annuelles",
       },
     ],

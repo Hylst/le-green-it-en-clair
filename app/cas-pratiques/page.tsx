@@ -798,7 +798,7 @@ export default function CasPratiquesPage() {
                   </div>
                   <div className="rounded-xl bg-teal-50 p-4 dark:bg-teal-900/20">
                     <div className="mb-1 text-2xl font-bold text-teal-700 dark:text-teal-400">3-5 ans</div>
-                    <div className="text-sm text-slate-700 dark:text-slate-300">durée de vie des serveurs (~41 mois en moyenne en 2026, après 44 mois en 2023 — Uptime ; le bâtiment, lui, dure 10-15 ans)</div>
+                    <div className="text-sm text-slate-700 dark:text-slate-300">durée de vie des serveurs (~41 mois en moyenne en 2026, après 44 mois en 2023, source Uptime ; le bâtiment, lui, dure 10-15 ans)</div>
                   </div>
                 </div>
 
@@ -998,7 +998,7 @@ export default function CasPratiquesPage() {
                         <span>
                           Gare à la <strong>veille connectée</strong> : le « smart wake » (réveil vocal ou par
                           casting) fait passer la veille de 0,6 W à 12,5 W mesurés en labo, soit 108 contre
-                          191 kWh par an (+76 %) — et deux fabricants prouvent qu&apos;on peut l&apos;éviter
+                          191 kWh par an (+76 %), alors que deux fabricants prouvent qu&apos;on peut l&apos;éviter
                           <SourceTooltip
                             className="ml-1"
                             source="NRDC, 24 mars 2021 (Noah Horowitz, mesures Pacific Crest Labs)"

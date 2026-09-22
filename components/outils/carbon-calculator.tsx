@@ -320,7 +320,7 @@ export default function CarbonCalculator() {
                 </ul>
                 <p className="mt-3 text-xs text-muted-foreground">
                   Hypothèses : fabrication amortie sur la durée de référence (smartphone 5 ans, portable 5 ans,
-                  tablette 3 ans, fixe 6 ans, TV 8 ans — durées déjà utilisées sur le site){" "}
+                  tablette 3 ans, fixe 6 ans, TV 8 ans, durées déjà utilisées sur le site){" "}
                   <SourceTooltip
                     source="ADEME, Impact CO₂, 2025"
                     calculation="79 ÷ 5 (smartphone), 182 ÷ 5 (portable), 84 ÷ 3 (tablette), 262 ÷ 6 (fixe), 328 ÷ 8 (TV), en kg CO₂e/an, + usage annuel au prorata"

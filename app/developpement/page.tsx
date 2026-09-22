@@ -34,11 +34,13 @@ import {
   ResponsiveContainer,
 } from "recharts"
 import { LanguageComparisonSVG } from "@/components/language-comparison-svg"
+import { useChartTheme } from "@/lib/chart-theme"
 import { Reveal } from "@/components/reveal"
 import { Sommaire } from "@/components/sommaire"
 import { ReadingProgress } from "@/components/reading-progress"
 
 export default function DeveloppementPage() {
+  const chart = useChartTheme()
   // Données de comparaison des langages
   const languageComparison = [
     { name: "C", energie: 1.0, performance: 1.0, co2: 1.0 },
@@ -373,11 +375,11 @@ export default function DeveloppementPage() {
                   <YAxis scale="log" domain={[1, 1000000]} />
                   <Tooltip />
                   <Legend />
-                  <Line type="monotone" dataKey="O(1)" stroke="#10b981" strokeWidth={2} />
-                  <Line type="monotone" dataKey="O(log n)" stroke="#3b82f6" strokeWidth={2} />
-                  <Line type="monotone" dataKey="O(n)" stroke="#f59e0b" strokeWidth={2} />
-                  <Line type="monotone" dataKey="O(n log n)" stroke="#ef4444" strokeWidth={2} />
-                  <Line type="monotone" dataKey="O(n²)" stroke="#dc2626" strokeWidth={3} strokeDasharray="5 5" />
+                  <Line type="monotone" dataKey="O(1)" stroke={chart.emerald} strokeWidth={2} />
+                  <Line type="monotone" dataKey="O(log n)" stroke={chart.blue} strokeWidth={2} />
+                  <Line type="monotone" dataKey="O(n)" stroke={chart.amber} strokeWidth={2} />
+                  <Line type="monotone" dataKey="O(n log n)" stroke={chart.red} strokeWidth={2} />
+                  <Line type="monotone" dataKey="O(n²)" stroke={chart.red} strokeWidth={3} strokeDasharray="5 5" />
                 </LineChart>
               </ResponsiveContainer>
             </CardContent>
@@ -585,7 +587,7 @@ res.json(users) // 150 KB compressé`}
                     <XAxis type="number" />
                     <YAxis dataKey="format" type="category" width={80} />
                     <Tooltip />
-                    <Bar dataKey="taille" fill="#8b5cf6" name="Taille (%)" />
+                    <Bar dataKey="taille" fill={chart.violet} name="Taille (%)" />
                   </BarChart>
                 </ResponsiveContainer>
               </CardContent>
@@ -604,8 +606,8 @@ res.json(users) // 150 KB compressé`}
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="sans" fill="#ef4444" name="Sans lazy loading" />
-                    <Bar dataKey="avec" fill="#10b981" name="Avec lazy loading" />
+                    <Bar dataKey="sans" fill={chart.red} name="Sans lazy loading" />
+                    <Bar dataKey="avec" fill={chart.emerald} name="Avec lazy loading" />
                   </BarChart>
                 </ResponsiveContainer>
               </CardContent>

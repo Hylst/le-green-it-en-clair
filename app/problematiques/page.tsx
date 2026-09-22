@@ -1335,8 +1335,8 @@ export default function ProblematiquesPage() {
                       calculation="415 TWh (1,5 % de l'électricité mondiale) en 2024 → ~945 TWh en 2030, scénario de base"
                       url="https://www.iea.org/reports/energy-and-ai"
                     />
-                    . Sans sobriété d&apos;usage et allongement de la durée de vie des serveurs — dont la fabrication
-                    concentre l&apos;essentiel de l&apos;empreinte — la tech seule ne décarbone pas (effet rebond).
+                    . Sans sobriété d&apos;usage et allongement de la durée de vie des serveurs, dont la fabrication
+                    concentre l&apos;essentiel de l&apos;empreinte : la tech seule ne décarbone pas (effet rebond).
                   </p>
                 </div>
               </div>

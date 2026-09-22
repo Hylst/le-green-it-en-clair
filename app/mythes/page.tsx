@@ -164,7 +164,7 @@ export default function MythesPage() {
       myth: "Rallumer une TV consomme plus que la laisser en veille",
       reality: "Faux - Même un démarrage gourmand coûte moins cher que 10 h de veille",
       explanation:
-        "Pire cas mesuré : un grand OLED 65 pouces qui démarrerait 1 minute à pleine puissance (environ 150 à 200 W en HDR) consomme environ 3 Wh — moins que les environ 5 Wh de 10 h de veille à 0,5 W (Tom's Guide 2024, Capital 2024). Et en veille connectée (réveil vocal, casting), certains modèles montent à 2 W voire 5 à 14 W en laboratoire (DOE et Pacific Crest 2021) : désactiver ces fonctions rapporte plus que tout le débat extinction/veille.",
+        "Pire cas mesuré : un grand OLED 65 pouces qui démarrerait 1 minute à pleine puissance (environ 150 à 200 W en HDR) consomme environ 3 Wh, moins que les environ 5 Wh de 10 h de veille à 0,5 W (Tom's Guide 2024, Capital 2024). Et en veille connectée (réveil vocal, casting), certains modèles montent à 2 W voire 5 à 14 W en laboratoire (DOE et Pacific Crest 2021) : désactiver ces fonctions rapporte plus que tout le débat extinction/veille.",
       source: "Tom's Guide 2024, Capital 2024, DOE/Pacific Crest 2021",
       relatedLink: { label: "Voir la FAQ sur l'extinction", href: "/faq" },
     },
@@ -175,7 +175,7 @@ export default function MythesPage() {
       myth: "Éteindre et rallumer use les appareils, mieux vaut laisser en veille",
       reality: "Nuancé - Aucune usure significative, sauf pour les imprimantes jet d'encre",
       explanation:
-        "L'électronique moderne supporte très bien les cycles marche/arrêt. Une box en veille profonde consomme moins de 0,3 W (Orange et SoftAtHome 2022) et un PC éteint 0,27 W (ASUS 2022) : éteindre reste gagnant. Seule exception : l'imprimante jet d'encre, qui lance un cycle de nettoyage — donc consomme de l'encre — à chaque rallumage.",
+        "L'électronique moderne supporte très bien les cycles marche/arrêt. Une box en veille profonde consomme moins de 0,3 W (Orange et SoftAtHome 2022) et un PC éteint 0,27 W (ASUS 2022) : éteindre reste gagnant. Seule exception : l'imprimante jet d'encre, qui lance un cycle de nettoyage (donc consomme de l'encre) à chaque rallumage.",
       source: "Orange/SoftAtHome 2022, ASUS ErP 2022, Epson",
       relatedLink: { label: "Découvrir les actions efficaces", href: "/agir" },
     },
@@ -241,7 +241,7 @@ export default function MythesPage() {
       myth: "Trier ses e-déchets ne sert à rien, tout finit mélangé",
       reality: "Faux - Les filières existent et progressent, mais la collecte reste insuffisante",
       explanation:
-        "En France, 44,2 % des e-déchets ont été collectés en 2023 (Eurostat), contre 37,5 % en moyenne dans l'UE — encore loin de l'objectif européen de 65 %. Les filières agréées récupèrent cuivre, or et terres rares : avec environ 62 milliards de dollars de matières perdues chaque année dans le monde (Global E-waste Monitor 2024), chaque appareil rapporté compte.",
+        "En France, 44,2 % des e-déchets ont été collectés en 2023 (Eurostat), contre 37,5 % en moyenne dans l'UE, encore loin de l'objectif européen de 65 %. Les filières agréées récupèrent cuivre, or et terres rares : avec environ 62 milliards de dollars de matières perdues chaque année dans le monde (Global E-waste Monitor 2024), chaque appareil rapporté compte.",
       source: "Eurostat 2023, Global E-waste Monitor 2024",
       relatedLink: { label: "Explorer le recyclage", href: "/recyclage" },
     },
@@ -263,7 +263,7 @@ export default function MythesPage() {
       myth: "Un site web, c'est immatériel, son poids ne compte pas",
       reality: "Faux - Une page médiane pèse plus de 2 Mo, et chaque octet voyage",
       explanation:
-        "La page web médiane pèse environ 2,6 Mo sur ordinateur et 2,3 Mo sur mobile (HTTP Archive, Web Almanac 2024) — et chaque octet transféré consomme de l'énergie sur le réseau, dans les datacenters et sur votre appareil. D'où l'éco-conception : images optimisées, scripts limités, pages sobres (RGESN 2024).",
+        "La page web médiane pèse environ 2,6 Mo sur ordinateur et 2,3 Mo sur mobile (HTTP Archive, Web Almanac 2024), et chaque octet transféré consomme de l'énergie sur le réseau, dans les datacenters et sur votre appareil. D'où l'éco-conception : images optimisées, scripts limités, pages sobres (RGESN 2024).",
       source: "HTTP Archive 2024, RGESN 2024",
       relatedLink: { label: "Guide développeur", href: "/developpement" },
     },

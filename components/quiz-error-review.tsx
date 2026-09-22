@@ -56,7 +56,7 @@ export function ErrorReview({ items }: { items: ErrorReviewItem[] }) {
                   Source : {question.source}
                   {question.sourceUrl ? (
                     <>
-                      {" — "}
+                      {" · "}
                       <a
                         href={question.sourceUrl}
                         target="_blank"

@@ -9,8 +9,8 @@
 // documentées comme telles dans leurs commentaires.
 
 // --- Repère commun : équivalence voiture (ADEME, Base Empreinte, 2023) ---
-// Utilisé par le bilan perso, le calculateur site web, l'audit de parc et le
-// simulateur de sobriété : un seul endroit à mettre à jour.
+// Utilisé par le bilan perso, le calculateur site web, le streaming, l'audit
+// de parc et le simulateur de sobriété : un seul endroit à mettre à jour.
 export const KG_CO2E_PAR_KM_VOITURE = 0.17 // kgCO₂e/km, voiture thermique moyenne France
 
 // --- Calculateur site web : modèle Sustainable Web Design v4 (2024,

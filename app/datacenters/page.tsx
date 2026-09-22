@@ -849,129 +849,162 @@ export default function DatacentersPage() {
               </p>
             </Card>
           </div>
-          <p className="mx-auto mt-10 max-w-3xl text-center text-sm text-muted-foreground">
-            En 2024, les datacenters français ont consommé 2,7 TWh d&apos;électricité, +12 % en un an (Arcep, enquête
-            2026). La consommation électrique des centres de données progresse vite : +38 % en 3 ans
-            <SourceTooltip
-              className="ml-1 align-middle"
-              source="Arcep, enquête annuelle « Pour un numérique soutenable », 2026"
-              calculation="+38 % en 3 ans pour les centres de données"
-              url="https://www.arcep.fr/la-regulation/grands-dossiers-thematiques-transverses/lempreinte-environnementale-du-numerique.html"
-            />
-            . L&apos;ADEME, avec un périmètre élargi à 352 sites, porte la consommation actuelle à 10 TWh, et RTE
-            projette 23 à 28 TWh en 2035 (étude prospective ADEME-RTE, janvier 2026). La demande change
-            d&apos;échelle : 28,6 GW de puissance demandée, dont ~18 GW déjà réservés en mai 2026, et un
-            raccordement accéléré pour 5 sites de 400 MW à plus de 1 GW, dont le Campus IA de Fouju (240 MW fin 2027,
-            jusqu&apos;à 1 400 MW)
-            <SourceTooltip
-              className="ml-1 align-middle"
-              source="RTE, chiffres clés datacenters, juin 2026"
-              calculation="~300 DC, ~10 TWh (~2 %), 18 GW réservés pour ~80 projets en mai 2026, 23 à 28 TWh en 2035 ; 5 sites fast-track"
-              url="https://www.rte-france.com/bases-electricite/consommation-electricite/essor-data-centers-france"
-            />
-            <SourceTooltip
-              className="ml-1 align-middle"
-              source="Presse spécialisée, septembre 2026 (Fouju)"
-              calculation="Campus IA de Fouju : 240 MW fin 2027, 700 MW fin 2029, 1 400 MW à terme"
-              url="https://www.les-energies-renouvelables.eu/article/actualites/energies/datacenters-ia-electrification-france-rte-856/"
-            />
-            . L&apos;ADEME modélise 5 trajectoires : du tendanciel (×3,7 d&apos;ici 2035, deux tiers à
-            l&apos;étranger sur des mix plus carbonés) au frugal (5,7 TWh en 2050). Scénario haut : jusqu&apos;à
-            7,5 % de la demande en 2035, soit un quadruplement, si les annonces du sommet IA se réalisent
-            (Shift Project, octobre 2025)
-            <SourceTooltip
-              className="ml-1 align-middle"
-              source="Shift Project, rapport « IA, données, calculs », octobre 2025"
-              calculation="7,5 % contre 2 % actuels, scénario haut conditionnel ; annexes : 45 TWh avec annonces contre 33 TWh sans"
-              url="https://theshiftproject.org/publications/intelligence-artificielle-centres-de-donnees-rapport-final/"
-            />
-            . Côté production pilotable, les
-            petits réacteurs avancent (permis Natrium en mars 2026, démo Aalo-Crusoe en 2027) avec un horizon
-            réaliste de 2030-2034 : en attendant, gaz et batteries.
-          </p>
+          <div className="mx-auto mt-10 max-w-3xl space-y-3 text-left text-sm text-muted-foreground">
+            <p>
+              En 2024, les datacenters français ont consommé 2,7 TWh d&apos;électricité, +12 % en un an (Arcep, enquête
+              2026). La consommation électrique des centres de données progresse vite : +38 % en 3 ans
+              <SourceTooltip
+                className="ml-1 align-middle"
+                source="Arcep, enquête annuelle « Pour un numérique soutenable », 2026"
+                calculation="+38 % en 3 ans pour les centres de données"
+                url="https://www.arcep.fr/la-regulation/grands-dossiers-thematiques-transverses/lempreinte-environnementale-du-numerique.html"
+              />
+              .
+            </p>
+            <p>
+              L&apos;ADEME, avec un périmètre élargi à 352 sites, porte la consommation actuelle à 10 TWh, et RTE
+              projette 23 à 28 TWh en 2035 (étude prospective ADEME-RTE, janvier 2026).
+            </p>
+            <p>
+              La demande change d&apos;échelle : 28,6 GW de puissance demandée, dont ~18 GW déjà réservés en mai 2026, et un
+              raccordement accéléré pour 5 sites de 400 MW à plus de 1 GW, dont le Campus IA de Fouju (240 MW fin 2027,
+              jusqu&apos;à 1 400 MW)
+              <SourceTooltip
+                className="ml-1 align-middle"
+                source="RTE, chiffres clés datacenters, juin 2026"
+                calculation="~300 DC, ~10 TWh (~2 %), 18 GW réservés pour ~80 projets en mai 2026, 23 à 28 TWh en 2035 ; 5 sites fast-track"
+                url="https://www.rte-france.com/bases-electricite/consommation-electricite/essor-data-centers-france"
+              />
+              <SourceTooltip
+                className="ml-1 align-middle"
+                source="Presse spécialisée, septembre 2026 (Fouju)"
+                calculation="Campus IA de Fouju : 240 MW fin 2027, 700 MW fin 2029, 1 400 MW à terme"
+                url="https://www.les-energies-renouvelables.eu/article/actualites/energies/datacenters-ia-electrification-france-rte-856/"
+              />
+              .
+            </p>
+            <p>
+              L&apos;ADEME modélise 5 trajectoires : du tendanciel (×3,7 d&apos;ici 2035, deux tiers à
+              l&apos;étranger sur des mix plus carbonés) au frugal (5,7 TWh en 2050). Scénario haut : jusqu&apos;à
+              7,5 % de la demande en 2035, soit un quadruplement, si les annonces du sommet IA se réalisent
+              (Shift Project, octobre 2025)
+              <SourceTooltip
+                className="ml-1 align-middle"
+                source="Shift Project, rapport « IA, données, calculs », octobre 2025"
+                calculation="7,5 % contre 2 % actuels, scénario haut conditionnel ; annexes : 45 TWh avec annonces contre 33 TWh sans"
+                url="https://theshiftproject.org/publications/intelligence-artificielle-centres-de-donnees-rapport-final/"
+              />
+              . Côté production pilotable, les
+              petits réacteurs avancent (permis Natrium en mars 2026, démo Aalo-Crusoe en 2027) avec un horizon
+              réaliste de 2030-2034 : en attendant, gaz et batteries.
+            </p>
+          </div>
 
           <div className="mt-6 rounded-xl bg-amber-50 dark:bg-amber-900/20 border-2 border-amber-200 dark:border-amber-800 p-6">
             <div className="flex items-start gap-3">
               <Globe className="mt-1 h-5 w-5 shrink-0 text-amber-700 dark:text-amber-400" />
-              <p className="text-slate-700 dark:text-slate-300">
-                <strong>Territoires : quand le datacenter devient voisin.</strong> À Slough (Royaume-Uni),
-                30 à 40 très gros sites (~1 GW au total) cohabitent avec le centre-ville : une pré-étude de
-                Cambridge mesure un îlot de chaleur de +2 °C en moyenne autour de ces complexes
-                (jusqu&apos;à +9 °C à proximité immédiate), et la station proche du parc tech a affiché
-                36,7 °C contre 34,7 °C en centre-ville
-                <SourceTooltip
-                  className="ml-1 align-middle"
-                  source="The Guardian, 26 juin 2026 (Aisha Down)"
-                  calculation="+2 °C robuste (décennies de données satellite, monde) / jusqu'à +9 °C à proximité ; 30-40 sites ~1 GW ; le gouvernement britannique veut valoriser cette chaleur pour des milliers de logements"
-                  url="https://www.theguardian.com/environment/2026/jun/26/slough-is-like-an-experiment-europes-largest-datacentre-hub-leaves-town-sweltering"
-                />
-                . En France, le campus CyrusOne pour AWS à Wissous (15 000 m², 83 MW) a vu ses permis
-                refusés en 2021 puis un déféré préfectoral en 2022, sans récupération de chaleur prévue
-                malgré un réseau à proximité
-                <SourceTooltip
-                  className="ml-1 align-middle"
-                  source="Journal du Net, 18 octobre 2022 (Antoine Crochet-Damais)"
-                  calculation="15 000 m² / 83 MW pour AWS ; refus du maire le 18/08/2021, déféré préfectoral le 15/04/2022 (TA Versailles) ; groupes à 380-480 °C sans filtre, site à moins de 100 m d'un accueil de mineurs"
-                  url="https://www.journaldunet.com/cloud/1515711-exclu-jdn-le-projet-secret-du-data-center-geant-d-amazon-en-ile-de-france-devoile"
-                />
-                ; à Brétigny, riverains et maire bloquent depuis 2021 un projet AWS (nappe phréatique,
-                lignes haute tension, stockage diesel)
-                <SourceTooltip
-                  className="ml-1 align-middle"
-                  source="Data Center Dynamics, 10 mai 2021 (Sebastian Moss)"
-                  calculation="~40 manifestants (Brétigny Transition, Amis de la Terre, Attac, Greenpeace) ; nappe déjà sollicitée + ferme l'Envol, 2 lignes THT, maire : dossier bloqué sans réponses d'AWS"
-                  url="https://www.datacenterdynamics.com/en/news/br%C3%A9tigny-sur-orge-residents-protest-proposed-amazon-web-services-data-center"
-                />
-                . D&apos;où l&apos;appel de La Quadrature du Net et du collectif Le Nuage était sous nos
-                pieds à un moratoire de deux ans sur les plus gros sites et à un vrai débat public
-                (article 15 de la loi simplification maintenu en avril 2025), adossé à leur carte
-                participative : 354 sites et 83 projets recensés en juillet 2026
-                <SourceTooltip
-                  className="ml-1 align-middle"
-                  source="La Quadrature du Net, 2025 (avec Le Nuage était sous nos pieds, coalition Hiatus)"
-                  calculation="moratoire 2 ans + rejet de l'article 15 ; article 15 maintenu le 30/04/2025 (71 voix contre, 33 pour)"
-                  url="https://www.laquadrature.net/moratoire-data-centers/"
-                />
-                <SourceTooltip
-                  className="ml-1 align-middle"
-                  source="Le Nuage était sous nos pieds, 9 juillet 2026"
-                  calculation="carte participative : 354 sites existants + 83 projets ; 35 sites clés-en-main ≈ 1 200 ha, dont Fouju et ses 70 ha de terres agricoles"
-                  url="https://lenuageetaitsousnospieds.org/articles/2026-07-09-artificialisation-et-confiscation-des-territoires-par-les-datacenters.html"
-                />
-                . Côté État, la DGE recense 63 sites favorables (guide de novembre 2025) et chiffre
-                ~50 ETP pour 100 MW, avec un PUE de 1,20 visé en 2030 pour les plus de 10 000 m²
-                <SourceTooltip
-                  className="ml-1 align-middle"
-                  source="DGE, guide d'accompagnement « Implantation de centres de données », novembre 2025"
-                  calculation="63 sites favorables identifiés par la task force ; ~50 ETP pour 100 MW ; objectif PUE 1,20 en 2030 pour les +10 000 m² (décret tertiaire)"
-                  url="https://www.entreprises.gouv.fr/files/files/Publications/2025/Guide/25112025__Guide%20Datacenters.pdf"
-                />
-                . Début 2026, 26 de ces sites sont sécurisés par un porteur de projet et 5 « fast-track »
-                dépassent 700 MW de raccordement potentiel
-                <SourceTooltip
-                  className="ml-1 align-middle"
-                  source="Ministère de l'Économie, Rencontres des centres de données, 30 janvier 2026"
-                  calculation="63 sites identifiés, 26 sécurisés, 5 fast-track à plus de 700 MW (Escaudain, Bosquel, Dunkerque, Fouju, Montereau) ; 28,6 GW demandés dont 5,8 GW engagés"
-                  url="https://www.economie.gouv.fr/actualites/rencontres-des-centres-de-donnees-la-dynamique-des-projets-dinfrastructures-numeriques-se-confirme"
-                />
-                . Le Sénat a adopté en première lecture une proposition de loi d&apos;encadrement (orientations
-                dans les documents d&apos;urbanisme, comité de projet obligatoire, refus de permis possible
-                en zone de tension sur l&apos;eau)
-                <SourceTooltip
-                  className="ml-1 align-middle"
-                  source="Sénat, texte n° 73 adopté le 25 mars 2026"
-                  calculation="PPL 1re lecture : article L. 141-6-1 (orientations DC), qualification PINM par décret avec comité de projet, refus de permis possible en tension eau, rapport du Gouvernement sous 6 mois"
-                  url="https://www.senat.fr/leg/tas25-073.html"
-                />
-                . En Île-de-France, le schéma régional (SDRIF-E, approuvé en juin 2025) demande aux nouvelles implantations l&apos;exemplarité énergétique, la prise en compte du réseau électrique et de l&apos;eau, et la valorisation de la chaleur fatale (OR 126)
-                <SourceTooltip
-                  className="ml-1 align-middle"
-                  source="DRIEAT Île-de-France, fiche repère agrément datacenters, juin 2026"
-                  calculation="OR 126 citée in extenso : sites existants prioritaires, compacité, exemplarité énergétique, eau, réseau local, chaleur valorisée, insertion urbaine"
-                  url="https://www.drieat.ile-de-france.developpement-durable.gouv.fr/IMG/pdf/fiche_repere_relative_aux_demandes_agrement_des_centres_de_donnees_juin_2026.pdf"
-                />
-                .
-              </p>
+              <div className="space-y-3 text-slate-700 dark:text-slate-300">
+                <p>
+                  <strong>Territoires : quand le datacenter devient voisin.</strong> À Slough (Royaume-Uni),
+                  30 à 40 très gros sites (~1 GW au total) cohabitent avec le centre-ville : une pré-étude de
+                  Cambridge mesure un îlot de chaleur de +2 °C en moyenne autour de ces complexes
+                  (jusqu&apos;à +9 °C à proximité immédiate), et la station proche du parc tech a affiché
+                  36,7 °C contre 34,7 °C en centre-ville
+                  <SourceTooltip
+                    className="ml-1 align-middle"
+                    source="The Guardian, 26 juin 2026 (Aisha Down)"
+                    calculation="+2 °C robuste (décennies de données satellite, monde) / jusqu'à +9 °C à proximité ; 30-40 sites ~1 GW ; le gouvernement britannique veut valoriser cette chaleur pour des milliers de logements"
+                    url="https://www.theguardian.com/environment/2026/jun/26/slough-is-like-an-experiment-europes-largest-datacentre-hub-leaves-town-sweltering"
+                  />
+                  .
+                </p>
+                <p>
+                  En France, le campus CyrusOne pour AWS à Wissous (15 000 m², 83 MW) a vu ses permis
+                  refusés en 2021 puis un déféré préfectoral en 2022, sans récupération de chaleur prévue
+                  malgré un réseau à proximité
+                  <SourceTooltip
+                    className="ml-1 align-middle"
+                    source="Journal du Net, 18 octobre 2022 (Antoine Crochet-Damais)"
+                    calculation="15 000 m² / 83 MW pour AWS ; refus du maire le 18/08/2021, déféré préfectoral le 15/04/2022 (TA Versailles) ; groupes à 380-480 °C sans filtre, site à moins de 100 m d'un accueil de mineurs"
+                    url="https://www.journaldunet.com/cloud/1515711-exclu-jdn-le-projet-secret-du-data-center-geant-d-amazon-en-ile-de-france-devoile"
+                  />
+                  .
+                </p>
+                <p>
+                  À Brétigny, riverains et maire bloquent depuis 2021 un projet AWS (nappe phréatique,
+                  lignes haute tension, stockage diesel)
+                  <SourceTooltip
+                    className="ml-1 align-middle"
+                    source="Data Center Dynamics, 10 mai 2021 (Sebastian Moss)"
+                    calculation="~40 manifestants (Brétigny Transition, Amis de la Terre, Attac, Greenpeace) ; nappe déjà sollicitée + ferme l'Envol, 2 lignes THT, maire : dossier bloqué sans réponses d'AWS"
+                    url="https://www.datacenterdynamics.com/en/news/br%C3%A9tigny-sur-orge-residents-protest-proposed-amazon-web-services-data-center"
+                  />
+                  .
+                </p>
+                <p>
+                  D&apos;où l&apos;appel de La Quadrature du Net et du collectif Le Nuage était sous nos
+                  pieds à un moratoire de deux ans sur les plus gros sites et à un vrai débat public
+                  (article 15 de la loi simplification maintenu en avril 2025), adossé à leur carte
+                  participative : 354 sites et 83 projets recensés en juillet 2026
+                  <SourceTooltip
+                    className="ml-1 align-middle"
+                    source="La Quadrature du Net, 2025 (avec Le Nuage était sous nos pieds, coalition Hiatus)"
+                    calculation="moratoire 2 ans + rejet de l'article 15 ; article 15 maintenu le 30/04/2025 (71 voix contre, 33 pour)"
+                    url="https://www.laquadrature.net/moratoire-data-centers/"
+                  />
+                  <SourceTooltip
+                    className="ml-1 align-middle"
+                    source="Le Nuage était sous nos pieds, 9 juillet 2026"
+                    calculation="carte participative : 354 sites existants + 83 projets ; 35 sites clés-en-main ≈ 1 200 ha, dont Fouju et ses 70 ha de terres agricoles"
+                    url="https://lenuageetaitsousnospieds.org/articles/2026-07-09-artificialisation-et-confiscation-des-territoires-par-les-datacenters.html"
+                  />
+                  .
+                </p>
+                <p>
+                  Côté État, la DGE recense 63 sites favorables (guide de novembre 2025) et chiffre
+                  ~50 ETP pour 100 MW, avec un PUE de 1,20 visé en 2030 pour les plus de 10 000 m²
+                  <SourceTooltip
+                    className="ml-1 align-middle"
+                    source="DGE, guide d'accompagnement « Implantation de centres de données », novembre 2025"
+                    calculation="63 sites favorables identifiés par la task force ; ~50 ETP pour 100 MW ; objectif PUE 1,20 en 2030 pour les +10 000 m² (décret tertiaire)"
+                    url="https://www.entreprises.gouv.fr/files/files/Publications/2025/Guide/25112025__Guide%20Datacenters.pdf"
+                  />
+                  .
+                </p>
+                <p>
+                  Début 2026, 26 de ces sites sont sécurisés par un porteur de projet et 5 « fast-track »
+                  dépassent 700 MW de raccordement potentiel
+                  <SourceTooltip
+                    className="ml-1 align-middle"
+                    source="Ministère de l'Économie, Rencontres des centres de données, 30 janvier 2026"
+                    calculation="63 sites identifiés, 26 sécurisés, 5 fast-track à plus de 700 MW (Escaudain, Bosquel, Dunkerque, Fouju, Montereau) ; 28,6 GW demandés dont 5,8 GW engagés"
+                    url="https://www.economie.gouv.fr/actualites/rencontres-des-centres-de-donnees-la-dynamique-des-projets-dinfrastructures-numeriques-se-confirme"
+                  />
+                  .
+                </p>
+                <p>
+                  Le Sénat a adopté en première lecture une proposition de loi d&apos;encadrement (orientations
+                  dans les documents d&apos;urbanisme, comité de projet obligatoire, refus de permis possible
+                  en zone de tension sur l&apos;eau)
+                  <SourceTooltip
+                    className="ml-1 align-middle"
+                    source="Sénat, texte n° 73 adopté le 25 mars 2026"
+                    calculation="PPL 1re lecture : article L. 141-6-1 (orientations DC), qualification PINM par décret avec comité de projet, refus de permis possible en tension eau, rapport du Gouvernement sous 6 mois"
+                    url="https://www.senat.fr/leg/tas25-073.html"
+                  />
+                  .
+                </p>
+                <p>
+                  En Île-de-France, le schéma régional (SDRIF-E, approuvé en juin 2025) demande aux nouvelles implantations l&apos;exemplarité énergétique, la prise en compte du réseau électrique et de l&apos;eau, et la valorisation de la chaleur fatale (OR 126)
+                  <SourceTooltip
+                    className="ml-1 align-middle"
+                    source="DRIEAT Île-de-France, fiche repère agrément datacenters, juin 2026"
+                    calculation="OR 126 citée in extenso : sites existants prioritaires, compacité, exemplarité énergétique, eau, réseau local, chaleur valorisée, insertion urbaine"
+                    url="https://www.drieat.ile-de-france.developpement-durable.gouv.fr/IMG/pdf/fiche_repere_relative_aux_demandes_agrement_des_centres_de_donnees_juin_2026.pdf"
+                  />
+                  .
+                </p>
+              </div>
             </div>
           </div>
         </div>

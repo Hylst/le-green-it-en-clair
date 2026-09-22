@@ -157,7 +157,7 @@ export default function SobrietySimulator() {
                     onClick={() => setStep(s.n)}
                     aria-current={active ? "step" : undefined}
                     aria-label={`Étape ${s.n} : ${s.label}`}
-                    className={`flex items-center gap-2 rounded-full border px-3 py-1.5 font-medium transition-colors ${
+                    className={`flex items-center gap-2 rounded-full border px-3 py-1.5 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
                       active
                         ? "border-teal-600 bg-teal-600 text-white"
                         : done
@@ -165,7 +165,7 @@ export default function SobrietySimulator() {
                           : "border-border bg-card text-muted-foreground hover:border-teal-400"
                     }`}
                   >
-                    <span aria-hidden="true" className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-current/20 font-bold">
+                    <span aria-hidden="true" className="inline-flex h-5 w-5 items-center justify-center rounded-full font-bold">
                       {s.n}
                     </span>
                     <span className="hidden sm:inline">{s.label}</span>

@@ -143,7 +143,19 @@ export default function FAQPage() {
                           </button>
                           {isOpen && (
                             <div className="border-t border-border bg-secondary/30 px-6 py-4">
-                              <p className="text-muted-foreground leading-relaxed">{item.a}</p>
+                              {item.display ? (
+                                <div className="text-muted-foreground leading-relaxed space-y-3">
+                                  <p>{item.display.intro}</p>
+                                  <ul className="list-disc space-y-1.5 pl-5">
+                                    {item.display.points.map((point, pointIndex) => (
+                                      <li key={pointIndex}>{point}</li>
+                                    ))}
+                                  </ul>
+                                  {item.display.outro && <p>{item.display.outro}</p>}
+                                </div>
+                              ) : (
+                                <p className="text-muted-foreground leading-relaxed">{item.a}</p>
+                              )}
                               {item.link && (
                                 item.link.url.startsWith("http") ? (
                                   <a

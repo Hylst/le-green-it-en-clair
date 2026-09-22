@@ -1,4 +1,38 @@
-export const faqCategories = [
+export interface FaqLink {
+  label: string
+  url: string
+}
+
+export interface FaqDisplay {
+  intro: string
+  points: string[]
+  outro?: string
+}
+
+export interface FaqQuestion {
+  q: string
+  a: string
+  display?: FaqDisplay
+  link?: FaqLink
+}
+
+export interface FaqCategory {
+  category: string
+  color: string
+  questions: FaqQuestion[]
+}
+
+// Réponse structurée : le texte intégral `a` (recherche + JSON-LD) est
+// dérivé des mêmes morceaux que l'affichage (intro + puces + conclusion),
+// numérotés comme les anciennes réponses. Une seule source, pas de doublon.
+function structured(q: string, intro: string, points: string[], outro = "", link?: FaqLink): FaqQuestion {
+  const parts = [intro, ...points.map((point, index) => `${index + 1}) ${point}`)]
+  if (outro) parts.push(outro)
+  const a = parts.join(" ")
+  return { q, a, display: { intro, points, ...(outro ? { outro } : {}) }, ...(link ? { link } : {}) }
+}
+
+export const faqCategories: FaqCategory[] = [
   {
     category: "Général",
     color: "emerald",
@@ -28,6 +62,11 @@ export const faqCategories = [
         a: "Méfiez-vous des formules globales sans preuve : « neutre en carbone », « 100 % compensé », « cloud vert », « dématérialisé donc écologique ». Depuis le 1er janvier 2023, ces allégations sont interdites sans bilan carbone public et trajectoire de réduction (décret 2022-539). Trois réflexes : exiger le chiffre sourcé, vérifier le périmètre et l'année, et comparer au cycle de vie complet (la fabrication concentre l'essentiel de l'empreinte).",
         link: { label: "Lire l'article : 3 réflexes anti-greenwashing", url: "/blog/greenwashing-numerique-reperes" },
       },
+      {
+        q: "C'est quoi le PUE d'un datacenter ?",
+        a: "Le PUE (efficacité d'usage de l'énergie) rapporte la consommation totale d'un datacenter à celle de ses seuls serveurs : un PUE de 1,5 signifie que pour 1 kW utile aux serveurs, le bâtiment consomme 1,5 kW au total (refroidissement, alimentation sans coupure, éclairage). La moyenne mondiale tourne autour de 1,52 et les meilleurs sites frôlent 1,1 (Uptime, 2026). Limite à connaître : le PUE ne dit ni d'où vient l'électricité, ni combien d'eau est utilisée.",
+        link: { label: "Comprendre le PUE en 5 minutes", url: "/blog/comprendre-le-pue-en-5-minutes" },
+      },
     ],
   },
   {
@@ -50,16 +89,35 @@ export const faqCategories = [
         q: "Combien de temps garder ses appareils ?",
         a: "Objectif minimum : 5 ans pour un smartphone, 7 ans pour un ordinateur, 10 ans pour une TV. Actuellement, les Français changent de smartphone en moyenne tous les 3 ans (ADEME, 2026). Passer de 2 à 3 ans réduit l'impact annuel d'environ un tiers (ADEME 2026). La fabrication représentant environ 75 % des impacts tous indicateurs, allonger la durée d'usage est le geste le plus efficace.",
       },
+      structured(
+        "Un appareil reconditionné est-il fiable ?",
+        "Oui, à condition de bien le choisir : le reconditionné sérieux n'a rien d'un pari.",
+        [
+          "La garantie légale de conformité est de 2 ans, y compris pour le reconditionné, avec les défauts présumés antérieurs pendant 24 mois.",
+          "Son impact environnemental est réduit d'environ 75 à 90 % par rapport au neuf (ADEME, 2022).",
+          "Passez par un vendeur certifié, et vérifiez l'état de la batterie et les conditions de reprise.",
+        ],
+      ),
     ],
   },
   {
     category: "Usage & Quotidien",
     color: "teal",
     questions: [
-      {
-        q: "Comment réduire la consommation électrique de mes appareils ?",
-        a: "Actions principales : 1) Éteindre complètement (pas juste en veille) la nuit et quand inutilisés, en visant d'abord les grosses veilles : box internet (environ 26 kWh/an économisés en la débranchant la nuit, soit ~5 €/an, Arcep 2026, ou sa veille profonde programmée : moins de 0,3 W sur une Livebox 6, Orange/SoftAtHome 2022), console en démarrage rapide (10 à 15 W en veille contre 0,5 W en arrêt économe, Microsoft 2023), appareils anciens. 2) Sur une TV ou un ordinateur récents, la veille simple est plafonnée à 0,5 W dans l'UE (règlement 2023/826) : 10 h d'extinction économisent ≈ 5 Wh par appareil (0,5 × 10), peu à l'unité : le gain vient du cumul. En veille connectée (réveil vocal, casting), ça monte à 2 W voire plus : des mesures en laboratoire relèvent jusqu'à 5-14 W sur certains modèles avec fonctions de réveil activées (DOE et Pacific Crest, 2021) : les désactiver rapporte davantage que le débat extinction/veille. 3) Le pic de courant au rallumage (recharge des condensateurs d'alimentation, ½CV² ≈ 5 à 25 J, soit des centièmes de Wh, ordres de grandeur des composants, note d'application TDK-EPCOS 2013) ne change pas le bilan, même sur un grand OLED : pire cas, 1 minute de démarrage à pleine puissance (≈ 150-200 W mesurés en HDR sur des OLED 65 pouces, Tom's Guide et Capital 2024), soit ≈ 3 Wh, toujours sous les ≈ 5 Wh de 10 h de veille. Côté PC complètement éteint (0,27 W, mesures constructeur ErP 2022, ASUS) : le démarrage monte brièvement à ~50 % au-dessus du ralenti (IEEE, 2009), soit ≈ 1 à 2 Wh, très loin des 10 à 40 Wh d'une nuit en veille simple (1 à 4 W). Éteindre reste donc toujours gagnant énergétiquement ; un redémarrage coûte surtout du temps (et de l'encre pour le jet d'encre), pas de l'énergie. 4) Exceptions : garder la box branchée si le téléphone fixe, un enregistrement programmé, la télésurveillance ou des objets connectés en dépendent (Orange déconseille sa mise en veille dans ces cas, 2025) ; laisser l'imprimante jet d'encre en veille entre deux impressions proches, chaque allumage lançant souvent un cycle de nettoyage qui consomme de l'encre (Epson, guides en ligne) ; en journée, mise en veille de l'ordinateur (réveil en quelques secondes) et extinction la nuit (Ressources naturelles Canada, 2014). 5) Régler luminosité à 50 % max, 6) Activer mode économie d'énergie, 7) Privilégier Wi-Fi à 4G/5G (environ 4 à 5 fois moins énergivore en streaming), 8) Utiliser multiprise avec interrupteur pour couper les veilles d'un geste (ADEME, 2026).",
-      },
+      structured(
+        "Comment réduire la consommation électrique de mes appareils ?",
+        "Actions principales :",
+        [
+          "Éteindre complètement (pas juste en veille) la nuit et quand inutilisés, en visant d'abord les grosses veilles : box internet (environ 26 kWh/an économisés en la débranchant la nuit, soit ~5 €/an, Arcep 2026, ou sa veille profonde programmée : moins de 0,3 W sur une Livebox 6, Orange/SoftAtHome 2022), console en démarrage rapide (10 à 15 W en veille contre 0,5 W en arrêt économe, Microsoft 2023), appareils anciens.",
+          "Sur une TV ou un ordinateur récents, la veille simple est plafonnée à 0,5 W dans l'UE (règlement 2023/826) : 10 h d'extinction économisent ≈ 5 Wh par appareil (0,5 × 10), peu à l'unité : le gain vient du cumul. En veille connectée (réveil vocal, casting), ça monte à 2 W voire plus : des mesures en laboratoire relèvent jusqu'à 5-14 W sur certains modèles avec fonctions de réveil activées (DOE et Pacific Crest, 2021) : les désactiver rapporte davantage que le débat extinction/veille.",
+          "Le pic de courant au rallumage (recharge des condensateurs d'alimentation, ½CV² ≈ 5 à 25 J, soit des centièmes de Wh, ordres de grandeur des composants, note d'application TDK-EPCOS 2013) ne change pas le bilan, même sur un grand OLED : pire cas, 1 minute de démarrage à pleine puissance (≈ 150-200 W mesurés en HDR sur des OLED 65 pouces, Tom's Guide et Capital 2024), soit ≈ 3 Wh, toujours sous les ≈ 5 Wh de 10 h de veille. Côté PC complètement éteint (0,27 W, mesures constructeur ErP 2022, ASUS) : le démarrage monte brièvement à ~50 % au-dessus du ralenti (IEEE, 2009), soit ≈ 1 à 2 Wh, très loin des 10 à 40 Wh d'une nuit en veille simple (1 à 4 W). Éteindre reste donc toujours gagnant énergétiquement ; un redémarrage coûte surtout du temps (et de l'encre pour le jet d'encre), pas de l'énergie.",
+          "Exceptions : garder la box branchée si le téléphone fixe, un enregistrement programmé, la télésurveillance ou des objets connectés en dépendent (Orange déconseille sa mise en veille dans ces cas, 2025) ; laisser l'imprimante jet d'encre en veille entre deux impressions proches, chaque allumage lançant souvent un cycle de nettoyage qui consomme de l'encre (Epson, guides en ligne) ; en journée, mise en veille de l'ordinateur (réveil en quelques secondes) et extinction la nuit (Ressources naturelles Canada, 2014).",
+          "Régler luminosité à 50 % max",
+          "Activer mode économie d'énergie",
+          "Privilégier Wi-Fi à 4G/5G (environ 4 à 5 fois moins énergivore en streaming)",
+          "Utiliser multiprise avec interrupteur pour couper les veilles d'un geste (ADEME, 2026).",
+        ],
+      ),
       {
         q: "Le streaming vidéo pollue-t-il vraiment ?",
         a: "Oui, de manière significative. 1h de streaming en 4K consomme ~7 Go de données et émet de l'ordre de 300 g de CO₂ ; en HD ~100 g, en qualité réduite ~30 g (fourchette 56-400 g/h selon les hypothèses, Shift 2019 / Kamiya 2020 ; très dépendant du mix électrique). Le streaming vidéo représente environ 60 % du trafic internet mondial (Sandvine, 2024). Actions : privilégier 720p, télécharger les contenus regardés plusieurs fois, désactiver lecture automatique, éviter le streaming sur mobile en 4G/5G.",
@@ -77,6 +135,39 @@ export const faqCategories = [
         q: "Faut-il supprimer ses données dans le cloud ?",
         a: "Bonne nouvelle : le stockage pèse très peu. Stocker 1 Go dans le cloud pendant un an émet environ 0,24 g de CO₂e (ADEME, Impact CO₂ / Base Empreinte). Trier vos photos en double reste une bonne habitude pour y voir plus clair, mais sans pression : le geste qui compte vraiment, c'est de garder votre smartphone le plus longtemps possible (environ 80 kg de CO₂e sur son cycle de vie, ADEME, Impact CO₂ 2025). Un petit tri de temps en temps, vider les téléchargements et désactiver les sauvegardes automatiques superflues suffit amplement.",
       },
+      structured(
+        "Le Wi-Fi consomme-t-il moins que la 4G/5G ?",
+        "Oui, nettement : pour la même quantité de données en streaming, le Wi-Fi consomme environ 4 à 5 fois moins d'énergie que la 4G/5G.",
+        [
+          "C'est un ordre de grandeur, pas une mesure exacte : le ratio varie selon le Wi-Fi, la génération du réseau mobile, la distance à l'antenne et l'appareil. Retenez la direction, pas le chiffre exact.",
+          "À la maison, passez par le Wi-Fi de la box plutôt que par les données mobiles du téléphone.",
+          "En déplacement, téléchargez vos contenus en Wi-Fi avant de partir plutôt que de les streamer en 4G/5G.",
+        ],
+        "",
+        { label: "Fiche : box, Wi-Fi et connexion", url: "/fiches-pratiques/box-wifi" },
+      ),
+      structured(
+        "La visioconférence consomme-t-elle beaucoup ?",
+        "Beaucoup moins que le streaming vidéo : comptez environ 1 Go de données par heure de visio (CableLabs, 2021).",
+        [
+          "Coupez la caméra quand elle n'apporte rien : c'est elle qui fait l'essentiel du débit.",
+          "Évitez la haute définition si l'échange ne l'exige pas.",
+          "Comme pour le streaming, préférez le Wi-Fi à la 4G/5G.",
+        ],
+        "",
+        { label: "Fiche : télétravail et visio", url: "/fiches-pratiques/teletravail-visio" },
+      ),
+      structured(
+        "Faut-il éteindre sa box internet la nuit ?",
+        "Oui, si rien n'en dépend : une box consomme 9,1 W en continu, soit environ 80 kWh/an (Arcep, 2026).",
+        [
+          "L'éteindre la nuit économise environ 26 kWh/an, soit ~5 €/an (Arcep, 2026).",
+          "Gardez-la branchée si le téléphone fixe, un enregistrement programmé, la télésurveillance ou des objets connectés en dépendent (Orange déconseille sa mise en veille dans ces cas, 2025).",
+          "Alternative : la veille profonde programmée, à moins de 0,3 W sur une Livebox 6 (Orange/SoftAtHome, 2022).",
+        ],
+        "",
+        { label: "Fiche : box, Wi-Fi et connexion", url: "/fiches-pratiques/box-wifi" },
+      ),
     ],
   },
   {
@@ -151,6 +242,17 @@ export const faqCategories = [
         a: "Oui, plusieurs dispositifs en France : 1) Bonus réparation : de 10 à 65 € selon l'appareil (25 € pour un smartphone), déduit directement de votre facture par un réparateur labellisé QualiRépar, hors garantie (Ecosystem/Ecologic), 2) Fonds réparation via éco-organismes, 3) Aides locales (certaines régions/communes). Trouvez un réparateur sur l'annuaire officiel (quefairedemesdechets.ademe.fr), et des conseils et tutos sur le site Épargnons nos ressources de l'ADEME (epargnonsnosressources.gouv.fr, ex-« Longue vie aux objets »).",
         link: { label: "Trouver un réparateur labellisé près de chez vous", url: "https://quefairedemesdechets.ademe.fr" },
       },
+      structured(
+        "C'est quoi l'obsolescence programmée, et que dit la loi ?",
+        "L'obsolescence programmée, c'est réduire volontairement la durée de vie d'un produit pour en accélérer le remplacement. La loi s'en mêle de plus en plus :",
+        [
+          "La loi AGEC (2020) a créé l'indice de réparabilité et lutte contre l'obsolescence programmée.",
+          "Le droit européen à la réparation (directive 2024/1799), applicable depuis le 31 juillet 2026, impose la réparation hors garantie à prix raisonnable, des pièces détachées et de la documentation accessibles, et 12 mois de garantie en plus après une réparation sous garantie.",
+          "L'indice de durabilité arrive sur les téléviseurs et les lave-linge, et l'étiquette énergie UE couvre les smartphones depuis juin 2025.",
+        ],
+        "",
+        { label: "Le détail dans notre page réglementation", url: "/reglementation" },
+      ),
     ],
   },
 ]

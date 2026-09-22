@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Target, Users, Heart, Award, Mail, ShieldCheck, Leaf } from "lucide-react"
+import { Target, Users, Heart, Award, Mail, ShieldCheck, Leaf, Sprout } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { Metadata } from "next"
 import { pageOpenGraph } from "@/lib/metadata"
@@ -234,6 +234,33 @@ export default function AProposPage() {
                   </p>
                 </div>
               </div>
+            </CardContent>
+          </Card>
+
+          {/* Éco-conception */}
+          <Card className="mb-8">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Sprout className="w-5 h-5 text-primary" />
+                Un site qui applique ce qu&apos;il raconte
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-muted-foreground">
+                Parler de sobriété numérique avec un site lourd et truffé de traceurs n&apos;aurait aucun sens.
+                Ce site est donc éco-conçu, avec des choix techniques simples et des résultats mesurés :
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>• 100 % statique : des pages pré-générées, sans serveur applicatif ni base de données à faire tourner en permanence</li>
+                <li>• Zéro traceur, zéro cookie, aucune mesure d&apos;audience : votre visite n&apos;alimente aucun profilage</li>
+                <li>• Images au format WebP, chargées en différé sauf les visuels principaux, aucune au-delà de 100 Ko<SourceTooltip source="Contrôle interne du site, septembre 2026" calculation="Poids maximal relevé après reconversion : 64 Ko" /></li>
+                <li>• JavaScript chargé à la demande : les 8 outils, la carte et les graphiques ne pèsent que si vous les utilisez. Résultat mesuré : environ 400 Ko de moins (-32 %) au chargement initial des pages de contenu<SourceTooltip source="Mesures internes du site, septembre 2026" calculation="JavaScript initial : 1 247 Ko avant contre 837 Ko après sur /chiffres (de -381 à -410 Ko sur 6 pages)" url={canonical("/modeles")} urlLabel="Voir la page modèles" /></li>
+                <li>• Contenu lisible sans JavaScript, thème sombre par défaut, page consultable hors-ligne</li>
+              </ul>
+              <p className="text-muted-foreground">
+                Ce site consomme lui aussi de l&apos;énergie à chaque visite : l&apos;objectif n&apos;est pas la
+                pureté, mais de réduire ce coût en continu, chiffres à l&apos;appui.
+              </p>
             </CardContent>
           </Card>
 

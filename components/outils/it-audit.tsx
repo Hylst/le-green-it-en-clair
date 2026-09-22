@@ -7,6 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { ClipboardCheck, Download, RotateCcw, Monitor, PcCase, Laptop, Smartphone, Tablet, Printer, Server, Package, BarChart3, Search, Coins, ClipboardList, Save, FolderOpen } from "lucide-react";
 import { LabeledSlider, PDF_COLORS } from "./shared";
 import { SITE_SHORT } from "@/lib/site";
+import { KG_CO2E_PAR_KM_VOITURE, facteurFr } from "@/lib/emission-factors";
 import { SourceTooltip } from "@/components/source-tooltip";
 import {
   AUDIT_PARC_STORAGE_KEY,
@@ -751,7 +752,7 @@ export default function ITAudit() {
                   </div>
                   <p className="text-sm text-muted-foreground">
                     En remplaçant les {results.renewalNeeded} équipements à renouveler par du reconditionné, vous économiseriez
-                    l'équivalent de {Math.round(results.potentialSavings / 0.17).toLocaleString("fr-FR")} km en voiture (0,17 kg/km, ADEME 2023).
+                    l'équivalent de {Math.round(results.potentialSavings / KG_CO2E_PAR_KM_VOITURE).toLocaleString("fr-FR")} km en voiture ({facteurFr(KG_CO2E_PAR_KM_VOITURE)} kg/km, ADEME 2023).
                     Hypothèse prudente : bas de la fourchette −75 à −90 % (ADEME 2022).
                   </p>
                 </div>

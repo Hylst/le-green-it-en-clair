@@ -8,35 +8,30 @@ import { Label } from "@/components/ui/label"
 import { MonitorPlay, Wifi, Signal, Info, Video, Printer, Share2, Check } from "lucide-react"
 import { LabeledSlider, ScopeNote } from "./shared"
 import { SourceTooltip } from "@/components/source-tooltip"
+import {
+  BOX_FABRICATION_KG_CO2E,
+  BOX_KWH_AN,
+  BOX_WATTS,
+  DECODEUR_KWH_AN,
+  DECODEUR_WATTS,
+  EQUIPEMENTS_KG_CO2E,
+  KG_CO2E_PAR_KM_VOITURE,
+  MIX_FR_KG_CO2E_PAR_KWH,
+  RESEAU_KWH_PAR_GO,
+  STREAMING_DEBITS,
+  TV_KWH_AN_REFERENCE,
+  TV_KWH_PAR_HEURE,
+  VISIO_GO_PAR_HEURE,
+  facteurFr,
+  type StreamingQualite,
+  type StreamingReseau,
+} from "@/lib/emission-factors"
 import Link from "next/link"
 
-// Débits plateformes : Netflix SD 1, HD 3, 4K 7 Go/h (centre d'aide, consulté 09/2026), en Go/heure
-const DEBITS = {
-  sd: { label: "Standard (480p)", goHeure: 1 },
-  hd: { label: "HD (720p-1080p)", goHeure: 3 },
-  uhd: { label: "Ultra HD (4K)", goHeure: 7 },
-} as const
-
-type Qualite = keyof typeof DEBITS
-
-// Énergie du réseau par Go transféré (Arcep, enquête 2026 sur données 2024), en kWh/Go
-const KWH_PAR_GO = { wifi: 0.02, mobile: 0.14 } as const
-type Reseau = keyof typeof KWH_PAR_GO
-
-const VISIO_GO_HEURE = 1 // CableLabs 2021 : ~1 Go/h en visioconférence
-const FACTEUR_FR = 0.0519 // kgCO₂e/kWh, Base Empreinte 2024 (mix moyen France)
-const KG_PAR_KM_VOITURE = 0.17 // kgCO₂e/km, ADEME Base Empreinte 2023 (même repère que les autres outils)
+// Débits, énergie réseau et facteurs : lib/emission-factors.ts (sources + millésimes).
+// Restent ici les constantes calendaires (pas des facteurs d'émission).
 const SEMAINES_PAR_MOIS = 52 / 12
 const SEMAINES_PAR_AN = 52
-
-// Périmètre optionnel « terminaux » (toggle OFF par défaut) : UNIQUEMENT des
-// chiffres déjà cités sur le site, chaque ligne avec son SourceTooltip.
-// TV : ~155 kWh/an pour 6 h quotidiennes (ADEME, Panel Elecdom 2025, cas pratiques TV).
-const TV_KWH_PAR_HEURE = 155 / (6 * 365) // ≈ 0,071 kWh par heure de visionnage
-// Box : 9,1 W en continu, soit ~80 kWh/an, dont ~90 % invariable (Arcep, 2026, page fai-box et fiche box-wifi).
-const BOX_KWH_AN = 80
-// Décodeur TV : 7,4 W en moyenne (Arcep, 2026, fiche box-wifi) → ~65 kWh/an en continu.
-const DECODEUR_KWH_AN = (7.4 * 24 * 365) / 1000 // ≈ 64,8 kWh/an
 
 // Petites valeurs : une décimale plutôt qu'un "0" qui décourage
 function fmtPetit(v: number) {
@@ -45,16 +40,16 @@ function fmtPetit(v: number) {
 
 export default function StreamingEstimator() {
   const [hVideo, setHVideo] = useState([7])
-  const [qualite, setQualite] = useState<Qualite>("hd")
+  const [qualite, setQualite] = useState<StreamingQualite>("hd")
   const [hVisio, setHVisio] = useState([3])
-  const [reseau, setReseau] = useState<Reseau>("wifi")
+  const [reseau, setReseau] = useState<StreamingReseau>("wifi")
   const [inclureTerminaux, setInclureTerminaux] = useState(false) // OFF par défaut : garde-fou, les résultats réseau restent identiques
   const [copied, setCopied] = useState(false)
 
-  const goMois = (hVideo[0] * DEBITS[qualite].goHeure + hVisio[0] * VISIO_GO_HEURE) * SEMAINES_PAR_MOIS
-  const kwhAn = goMois * 12 * KWH_PAR_GO[reseau]
-  const kgAn = kwhAn * FACTEUR_FR
-  const kmVoiture = kgAn / KG_PAR_KM_VOITURE
+  const goMois = (hVideo[0] * STREAMING_DEBITS[qualite].goHeure + hVisio[0] * VISIO_GO_PAR_HEURE) * SEMAINES_PAR_MOIS
+  const kwhAn = goMois * 12 * RESEAU_KWH_PAR_GO[reseau]
+  const kgAn = kwhAn * MIX_FR_KG_CO2E_PAR_KWH
+  const kmVoiture = kgAn / KG_CO2E_PAR_KM_VOITURE
 
   // Terminaux (optionnels) : TV au prorata des heures de streaming, box et
   // décodeur en forfait annuel (90 % de la box est invariable, Arcep 2026).
@@ -63,9 +58,9 @@ export default function StreamingEstimator() {
   const boxKwhAn = hVideo[0] + hVisio[0] > 0 ? BOX_KWH_AN : 0
   const decodeurKwhAn = hVideo[0] > 0 ? DECODEUR_KWH_AN : 0
   const terminauxKwhAn = tvKwhAn + boxKwhAn + decodeurKwhAn
-  const terminauxKgAn = terminauxKwhAn * FACTEUR_FR
+  const terminauxKgAn = terminauxKwhAn * MIX_FR_KG_CO2E_PAR_KWH
   const totalKgAn = kgAn + terminauxKgAn
-  const totalKmVoiture = totalKgAn / KG_PAR_KM_VOITURE
+  const totalKmVoiture = totalKgAn / KG_CO2E_PAR_KM_VOITURE
 
   const conseils: string[] = []
   if (qualite === "uhd") conseils.push("Passer de la 4K à la HD divise le débit par plus de deux, invisible sur petit écran.")
@@ -105,7 +100,7 @@ export default function StreamingEstimator() {
           <fieldset>
             <legend className="mb-2 text-sm font-semibold text-foreground">Qualité d&apos;image</legend>
             <div className="flex flex-wrap gap-2">
-              {(Object.keys(DEBITS) as Qualite[]).map((q) => (
+              {(Object.keys(STREAMING_DEBITS) as StreamingQualite[]).map((q) => (
                 <button
                   key={q}
                   type="button"
@@ -117,7 +112,7 @@ export default function StreamingEstimator() {
                       : "bg-muted text-muted-foreground hover:bg-muted/80"
                   }`}
                 >
-                  {DEBITS[q].label} · {DEBITS[q].goHeure} Go/h
+                  {STREAMING_DEBITS[q].label} · {STREAMING_DEBITS[q].goHeure} Go/h
                 </button>
               ))}
             </div>
@@ -211,31 +206,31 @@ export default function StreamingEstimator() {
                   • TV : {fmtPetit(tvKwhAn)} kWh/an au prorata de vos {hVideo[0]} h hebdo{" "}
                   <SourceTooltip
                     source="ADEME, Panel Elecdom, 2025"
-                    calculation="155 kWh/an ÷ (6 h/jour × 365 jours) ≈ 0,071 kWh/h, × vos heures de streaming"
+                    calculation={`${TV_KWH_AN_REFERENCE} kWh/an ÷ (6 h/jour × 365 jours) ≈ ${TV_KWH_PAR_HEURE.toFixed(3).replace(".", ",")} kWh/h, × vos heures de streaming`}
                     info="Repère cité dans nos cas pratiques TV. La visio n'est pas comptée ici : elle passe le plus souvent par un petit écran, sans chiffre sourcé sur le site."
                   />
                 </li>
                 <li>
-                  • Box internet : {boxKwhAn > 0 ? "≈ 80" : "0"} kWh/an (forfait, ~90 % invariable même sans streaming){" "}
+                  • Box internet : {boxKwhAn > 0 ? `≈ ${Math.round(BOX_KWH_AN)}` : "0"} kWh/an (forfait, ~90 % invariable même sans streaming){" "}
                   <SourceTooltip
                     source="Arcep, Enquête annuelle « Pour un numérique soutenable », 2026"
-                    calculation="9,1 W × 24 h × 365 jours ÷ 1 000 ≈ 80 kWh/an"
+                    calculation={`${facteurFr(BOX_WATTS, 1)} W × 24 h × 365 jours ÷ 1 000 ≈ ${Math.round(BOX_KWH_AN)} kWh/an`}
                     info="Même repère que notre page box et notre fiche box et Wi-Fi. Forfait compté seulement si vous streamez ou visioez."
                   />
                 </li>
                 <li>
-                  • Décodeur TV : {decodeurKwhAn > 0 ? "≈ 65" : "0"} kWh/an (forfait, lié à la TV){" "}
+                  • Décodeur TV : {decodeurKwhAn > 0 ? `≈ ${Math.round(DECODEUR_KWH_AN)}` : "0"} kWh/an (forfait, lié à la TV){" "}
                   <SourceTooltip
                     source="Arcep, Enquête annuelle « Pour un numérique soutenable », 2026"
-                    calculation="7,4 W × 24 h × 365 jours ÷ 1 000 ≈ 64,8 kWh/an"
+                    calculation={`${facteurFr(DECODEUR_WATTS, 1)} W × 24 h × 365 jours ÷ 1 000 ≈ ${DECODEUR_KWH_AN.toFixed(1).replace(".", ",")} kWh/an`}
                     info="Même repère que notre fiche box et Wi-Fi. Compté seulement si vous regardez des vidéos."
                   />
                 </li>
               </ul>
               <p className="text-xs text-muted-foreground">
-                Fabrication exclue (TV ≈ 328 kg à la fabrication, box ≈ 61 kg, ADEME Impact CO₂ 2025, voir nos cas
-                pratiques et notre page box). Conversion avec le même mix France que le réseau
-                (0,0519 kgCO₂e/kWh).
+                Fabrication exclue (TV ≈ {EQUIPEMENTS_KG_CO2E.tv.fabrication} kg à la fabrication, box ≈{" "}
+                {BOX_FABRICATION_KG_CO2E} kg, ADEME Impact CO₂ 2025, voir nos cas pratiques et notre page box).
+                Conversion avec le même mix France que le réseau ({facteurFr(MIX_FR_KG_CO2E_PAR_KWH)} kgCO₂e/kWh).
               </p>
             </div>
           )}
@@ -257,8 +252,11 @@ export default function StreamingEstimator() {
             <span>
               Estimation {inclureTerminaux ? "réseau + terminaux cochés" : "réseau uniquement"}, hors fabrication
               {inclureTerminaux ? " (détail des terminaux ci-dessus)" : " et consommation des terminaux (TV, smartphone, box)"}.
-              Débits : Netflix (SD 1, HD 3, 4K 7 Go/h, centre d'aide) et CableLabs 2021 (visio ~1 Go/h) · réseau : Arcep 2026 (0,02 kWh/Go fixe, 0,14 mobile) · électricité
-              France : 0,0519 kgCO₂e/kWh (Base Empreinte 2024). Détail dans nos fiches{" "}
+              Débits : Netflix (SD {STREAMING_DEBITS.sd.goHeure}, HD {STREAMING_DEBITS.hd.goHeure}, 4K{" "}
+              {STREAMING_DEBITS.uhd.goHeure} Go/h, centre d'aide) et CableLabs 2021 (visio ~{VISIO_GO_PAR_HEURE} Go/h) ·
+              réseau : Arcep 2026 ({facteurFr(RESEAU_KWH_PAR_GO.wifi)} kWh/Go fixe, {facteurFr(RESEAU_KWH_PAR_GO.mobile)}{" "}
+              mobile) · électricité France : {facteurFr(MIX_FR_KG_CO2E_PAR_KWH)} kgCO₂e/kWh (Base Empreinte 2024). Détail
+              dans nos fiches{" "}
               <Link href="/fiches-pratiques/streaming-video" className="font-medium text-primary hover:underline">
                 streaming
               </Link>{" "}

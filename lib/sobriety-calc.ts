@@ -1,6 +1,7 @@
 // Calcul pur du simulateur de sobriété numérique (aucune source inventée :
 // paliers et petits facteurs = hypothèses du site étiquetées ; reconditionné = ADEME 2022 ;
 // baseline = GreenIT EENM 2025, 1,8 Gt ÷ ~5,35 Md ≈ 330 kg CO₂e/an).
+import { EMPREINTE_NUMERIQUE_MONDIALE_KG_PAR_INTERNAUTE } from "./emission-factors"
 
 export interface SobrietyScenario {
   deviceLifespan: number // années, 2 à 7
@@ -38,7 +39,7 @@ export const SOBRIETY_PRESETS: SobrietyPreset[] = [
   },
 ]
 
-export const SOBRIETY_BASELINE = 330
+export const SOBRIETY_BASELINE = EMPREINTE_NUMERIQUE_MONDIALE_KG_PAR_INTERNAUTE
 
 export interface ImpactLine {
   label: string

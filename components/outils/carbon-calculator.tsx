@@ -8,6 +8,18 @@ import { Progress } from "@/components/ui/progress";
 import { Calculator, Printer, Share2, Check } from "lucide-react";
 import { LabeledSlider, ScopeNote } from "./shared";
 import { SourceTooltip } from "@/components/source-tooltip";
+import {
+  AVION_PARIS_MARSEILLE_AR_KG_CO2E,
+  CLOUD_KG_CO2E_PAR_GO_AN,
+  EMAIL_KG_CO2E_PAR_MESSAGE_AN,
+  EMPREINTE_NUMERIQUE_MONDIALE_KG_PAR_INTERNAUTE,
+  EQUIPEMENTS_KG_CO2E,
+  KG_CO2E_PAR_KM_VOITURE,
+  KG_CO2E_PAR_REPAS_BOEUF,
+  RESEAUX_SOCIAUX_KG_CO2E_PAR_HEURE_JOUR,
+  STREAMING_SD_KG_CO2E_PAR_HEURE_SEMAINE,
+  facteurFr,
+} from "@/lib/emission-factors";
 
 const DEVICE_LABELS: Record<string, string> = {
   smartphone: "Smartphone",
@@ -34,18 +46,13 @@ export default function CarbonCalculator() {
   })
   const [copied, setCopied] = useState(false)
 
-  // Calcul de l'empreinte carbone (facteurs ADEME, Impact CO₂, mise à jour 2025)
+  // Calcul de l'empreinte carbone : facteurs ADEME dans lib/emission-factors.ts
+  // (EQUIPEMENTS_KG_CO2E), hypothèses du site ci-dessous (durées et usages de référence).
   const calculateFootprint = () => {
     let total = 0
 
-    // Empreinte fabrication + usage annuel (kg CO2e), source ADEME Impact CO₂, mise à jour 2025
-    const deviceImpact = {
-      smartphone: { fabrication: 79, usage: 0.4 },
-      laptop: { fabrication: 182, usage: 2.1 },
-      tablet: { fabrication: 84, usage: 1.1 },
-      desktop: { fabrication: 262, usage: 6.4 },
-      tv: { fabrication: 328, usage: 5.2 },
-    }
+    // Empreinte fabrication + usage annuel (kg CO2e) : table ADEME centralisée.
+    const deviceImpact = EQUIPEMENTS_KG_CO2E
 
     // Durées de référence déjà assumées par le site (zéro valeur inventée) :
     // portable 5 ans, tablette 3 ans, TV 8 ans = durées de référence ADEME Impact CO₂ 2025
@@ -84,17 +91,17 @@ export default function CarbonCalculator() {
       }
     })
 
-    // Impact cloud et services (kg CO2e/an)
-    total += cloudUsage.email * 365 * 0.004 // ~4 g CO2e par e-mail, × 365 jours (ADEME)
-    total += cloudUsage.streaming * 1.6 // ~31 g/h en SD × 52 semaines (ADEME/Shift)
-    total += cloudUsage.cloud * 0.00024 // 0,00024 kg par Go/an (≈0,24 g CO2e/Go/an, ADEME Impact CO2 / Base Empreinte)
-    total += cloudUsage.social * 2.55 // ~7 g/h hors vidéo × 365 jours (ADEME)
+    // Impact cloud et services (kg CO2e/an) : constantes centralisées, mêmes valeurs.
+    total += cloudUsage.email * 365 * EMAIL_KG_CO2E_PAR_MESSAGE_AN // × 365 jours
+    total += cloudUsage.streaming * STREAMING_SD_KG_CO2E_PAR_HEURE_SEMAINE
+    total += cloudUsage.cloud * CLOUD_KG_CO2E_PAR_GO_AN
+    total += cloudUsage.social * RESEAUX_SOCIAUX_KG_CO2E_PAR_HEURE_JOUR
 
     return Math.round(total)
   }
 
   const totalFootprint = calculateFootprint()
-  const averageDigitalUser = 330 // Repère : empreinte numérique mondiale annuelle par internaute (1,8 Gt CO₂e ÷ ~5,35 Md, Green IT 2025)
+  const averageDigitalUser = EMPREINTE_NUMERIQUE_MONDIALE_KG_PAR_INTERNAUTE
   const percentage = Math.round((totalFootprint / averageDigitalUser) * 100)
 
   return (
@@ -290,7 +297,7 @@ export default function CarbonCalculator() {
             <div className="space-y-4">
               <div>
                 <div className="flex justify-between text-sm mb-2 text-foreground">
-                  <span>Comparé à l'empreinte numérique mondiale par internaute ({averageDigitalUser} kg) <SourceTooltip source="GreenIT, Étude empreinte numérique mondiale (EENM), 2025" calculation="1,8 Gt CO₂e ÷ ~5,35 Md d'internautes ≈ 330 kg CO₂e/an" /></span>
+                  <span>Comparé à l'empreinte numérique mondiale par internaute ({averageDigitalUser} kg) <SourceTooltip source="GreenIT, Étude empreinte numérique mondiale (EENM), 2025" calculation={`1,8 Gt CO₂e ÷ ~5,35 Md d'internautes ≈ ${averageDigitalUser} kg CO₂e/an`} /></span>
                   <span className="font-semibold">{percentage}%</span>
                 </div>
                 <Progress value={Math.min(percentage, 100)} className="h-3" aria-label="Comparé à l'empreinte numérique mondiale par internaute" />
@@ -314,19 +321,19 @@ export default function CarbonCalculator() {
               <div className="bg-card p-4 rounded-lg mt-4 border border-border">
                 <h4 className="font-semibold mb-2 text-foreground">Équivalences</h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>≈ {Math.round(totalFootprint / 0.17)} km en voiture</li>
-                  <li>≈ {Math.round(totalFootprint / 167)} aller-retours Paris-Marseille en avion</li>
-                  <li>≈ {Math.round(totalFootprint / 7)} repas avec bœuf</li>
+                  <li>≈ {Math.round(totalFootprint / KG_CO2E_PAR_KM_VOITURE)} km en voiture</li>
+                  <li>≈ {Math.round(totalFootprint / AVION_PARIS_MARSEILLE_AR_KG_CO2E)} aller-retours Paris-Marseille en avion</li>
+                  <li>≈ {Math.round(totalFootprint / KG_CO2E_PAR_REPAS_BOEUF)} repas avec bœuf</li>
                 </ul>
                 <p className="mt-3 text-xs text-muted-foreground">
                   Hypothèses : fabrication amortie sur la durée de référence (smartphone 5 ans, portable 5 ans,
                   tablette 3 ans, fixe 6 ans, TV 8 ans, durées déjà utilisées sur le site){" "}
                   <SourceTooltip
                     source="ADEME, Impact CO₂, 2025"
-                    calculation="79 ÷ 5 (smartphone), 182 ÷ 5 (portable), 84 ÷ 3 (tablette), 262 ÷ 6 (fixe), 328 ÷ 8 (TV), en kg CO₂e/an, + usage annuel au prorata"
+                    calculation={`${EQUIPEMENTS_KG_CO2E.smartphone.fabrication} ÷ 5 (smartphone), ${EQUIPEMENTS_KG_CO2E.laptop.fabrication} ÷ 5 (portable), ${EQUIPEMENTS_KG_CO2E.tablet.fabrication} ÷ 3 (tablette), ${EQUIPEMENTS_KG_CO2E.desktop.fabrication} ÷ 6 (fixe), ${EQUIPEMENTS_KG_CO2E.tv.fabrication} ÷ 8 (TV), en kg CO₂e/an, + usage annuel au prorata`}
                     info="Portable, tablette et TV : durées de référence ADEME (cas pratiques) ; smartphone et fixe : durées du site (FAQ et audit). L'âge saisi n'entre plus dans le calcul."
                   />{" "}
-                  Usage modulé au prorata des heures par rapport à l'usage typique (hypothèse du site : au réglage par défaut, on retombe sur le chiffre ADEME). Voiture 0,17 kg CO₂/km (ADEME, Base Empreinte 2023 <SourceTooltip source="ADEME, Base Empreinte, 2023" info="Facteur moyen voiture thermique en France" />). Streaming compté en
+                  Usage modulé au prorata des heures par rapport à l'usage typique (hypothèse du site : au réglage par défaut, on retombe sur le chiffre ADEME). Voiture {facteurFr(KG_CO2E_PAR_KM_VOITURE)} kg CO₂/km (ADEME, Base Empreinte 2023 <SourceTooltip source="ADEME, Base Empreinte, 2023" info="Facteur moyen voiture thermique en France" />). Streaming compté en
                   qualité SD (~31 g/h), réseaux sociaux hors vidéo (~7 g/h), e-mail ~4 g, cloud ~0,24 g/Go/an
                   (ADEME, Impact CO₂ / Base Empreinte).
                 </p>

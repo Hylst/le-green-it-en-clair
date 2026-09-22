@@ -13,6 +13,12 @@ import { Euro, Lightbulb, Printer, RotateCcw, Wrench, ChevronLeft, ChevronRight,
 import { SourceTooltip } from "@/components/source-tooltip";
 import Link from "next/link";
 import { SOBRIETY_PRESETS, SOBRIETY_BASELINE, calculateSobrietyImpact, buildProjection } from "@/lib/sobriety-calc";
+import {
+  KG_CO2E_PAR_ARBRE_AN,
+  KG_CO2E_PAR_KM_VOITURE,
+  KG_CO2E_PAR_REPAS_BOEUF,
+  facteurFr,
+} from "@/lib/emission-factors";
 import type { SobrietyScenario, SobrietyPreset } from "@/lib/sobriety-calc";
 import { loadSobriety, saveSobrietyScenario, removeSobrietyScenario, importSobrietyStore } from "@/lib/sobriety-storage";
 import type { SobrietyStore } from "@/lib/sobriety-storage";
@@ -214,7 +220,7 @@ export default function SobrietySimulator() {
               </div>
               <p className="text-sm text-muted-foreground">
                 Référence : {SOBRIETY_BASELINE} kg CO₂e/an par internaute{" "}
-                <SourceTooltip source="GreenIT, Étude empreinte numérique mondiale (EENM), 2025" calculation="1,8 Gt CO₂e ÷ ~5,35 Md d'internautes ≈ 330 kg CO₂e/an" />.
+                <SourceTooltip source="GreenIT, Étude empreinte numérique mondiale (EENM), 2025" calculation={`1,8 Gt CO₂e ÷ ~5,35 Md d'internautes ≈ ${SOBRIETY_BASELINE} kg CO₂e/an`} />.
                 Pour partir de votre cas réel, <Link href="/outils#onglet-calculator" className="underline underline-offset-2">calculez votre empreinte</Link>.
                 Les presets sont des hypothèses du site, modifiables à l&apos;étape suivante.
               </p>
@@ -458,7 +464,7 @@ export default function SobrietySimulator() {
                     Projection linéaire simplifiée, hors renouvellements.
                   </p>
                   <p className="mt-2 text-xs text-muted-foreground">
-                    Référence : {SOBRIETY_BASELINE} kg CO₂e/an par internaute <SourceTooltip source="GreenIT, Étude empreinte numérique mondiale (EENM), 2025" calculation="1,8 Gt CO₂e ÷ ~5,35 Md d'internautes ≈ 330 kg CO₂e/an" />. Pour partir de votre cas réel, <Link href="/outils#onglet-calculator" className="underline underline-offset-2">calculez votre empreinte</Link>.
+                    Référence : {SOBRIETY_BASELINE} kg CO₂e/an par internaute <SourceTooltip source="GreenIT, Étude empreinte numérique mondiale (EENM), 2025" calculation={`1,8 Gt CO₂e ÷ ~5,35 Md d'internautes ≈ ${SOBRIETY_BASELINE} kg CO₂e/an`} />. Pour partir de votre cas réel, <Link href="/outils#onglet-calculator" className="underline underline-offset-2">calculez votre empreinte</Link>.
                   </p>
                 </div>
               </div>
@@ -466,9 +472,9 @@ export default function SobrietySimulator() {
               <div className="bg-blue-100 dark:bg-blue-900/10 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
                 <h4 className="font-semibold mb-2 text-foreground">Cela équivaut à :</h4>
                 <ul className="space-y-1 text-sm text-muted-foreground">
-                  <li>• {Math.round((impact.savings * 5) / 0.17)} km en voiture économisés <SourceTooltip source="Hypothèse du site (à vérifier)" info="Facteur utilisé par l'outil : 0,17 kg CO₂e/km. Source à vérifier, voir todo.md." /></li>
-                  <li>• {Math.round((impact.savings * 5) / 20)} arbres pendant 1 an (20 kg/arbre, ADEME) <SourceTooltip source="Hypothèse du site (à vérifier)" info="Facteur utilisé par l'outil : 20 kg CO₂e/arbre/an. Source à vérifier, voir todo.md." /></li>
-                  <li>• {Math.round((impact.savings * 5) / 7)} repas avec bœuf évités (7 kg/repas, ADEME) <SourceTooltip source="Hypothèse du site (à vérifier)" info="Facteur utilisé par l'outil : 7 kg CO₂e/repas. Source à vérifier, voir todo.md." /></li>
+                  <li>• {Math.round((impact.savings * 5) / KG_CO2E_PAR_KM_VOITURE)} km en voiture économisés <SourceTooltip source="Hypothèse du site (à vérifier)" info={`Facteur utilisé par l'outil : ${facteurFr(KG_CO2E_PAR_KM_VOITURE)} kg CO₂e/km. Source à vérifier, voir todo.md.`} /></li>
+                  <li>• {Math.round((impact.savings * 5) / KG_CO2E_PAR_ARBRE_AN)} arbres pendant 1 an ({KG_CO2E_PAR_ARBRE_AN} kg/arbre, ADEME) <SourceTooltip source="Hypothèse du site (à vérifier)" info={`Facteur utilisé par l'outil : ${KG_CO2E_PAR_ARBRE_AN} kg CO₂e/arbre/an. Source à vérifier, voir todo.md.`} /></li>
+                  <li>• {Math.round((impact.savings * 5) / KG_CO2E_PAR_REPAS_BOEUF)} repas avec bœuf évités ({KG_CO2E_PAR_REPAS_BOEUF} kg/repas, ADEME) <SourceTooltip source="Hypothèse du site (à vérifier)" info={`Facteur utilisé par l'outil : ${KG_CO2E_PAR_REPAS_BOEUF} kg CO₂e/repas. Source à vérifier, voir todo.md.`} /></li>
                 </ul>
               </div>
 

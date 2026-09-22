@@ -30,15 +30,19 @@ import {
   type WebsiteCarbonSnapshot,
   type WebsiteCarbonStore,
 } from "@/lib/website-carbon-storage"
+import {
+  KG_CO2E_PAR_ARBRE_AN,
+  KG_CO2E_PAR_KM_VOITURE,
+  KG_CO2E_PAR_REPAS_BOEUF,
+  SWD_FACTEUR_VERT,
+  SWD_GCO2E_PAR_KWH,
+  SWD_KWH_PAR_GO,
+  SWD_MULTIPLICATEUR_VERT,
+  facteurFr,
+} from "@/lib/emission-factors"
 
-// Modèle Sustainable Web Design v4 (2024, Wholegrain Digital / Green Web Foundation) :
-// CO2e par visite = poids (Go) x 0,194 kWh/Go (AIE) x 494 gCO2e/kWh (Ember, 2023)
-// x 0,757 si hébergeur vert vérifié (facteur vert 0,243 de la Green Web Foundation).
-// Périmètre : émissions opérationnelles (datacenters + réseaux + terminal).
-// La fabrication des équipements (émissions embodied) n'est pas incluse.
-const KWH_PER_GB = 0.194
-const GCO2_PER_KWH = 494
-const GREEN_FACTOR = 0.243
+// Calcul : modèle Sustainable Web Design v4, facteurs dans
+// lib/emission-factors.ts (SWD_KWH_PAR_GO, SWD_GCO2E_PAR_KWH, SWD_FACTEUR_VERT).
 
 type GwfState =
   | { status: "checked"; green: boolean; hostedBy?: string; domain: string }
@@ -56,7 +60,7 @@ type Estimation = {
 }
 
 function computeEstimation(weightMB: number, visits: number, green: boolean): { co2PerVisit: number; co2PerMonth: number } {
-  const co2PerVisit = ((weightMB / 1024) * KWH_PER_GB * GCO2_PER_KWH * (green ? 1 - GREEN_FACTOR : 1))
+  const co2PerVisit = ((weightMB / 1024) * SWD_KWH_PAR_GO * SWD_GCO2E_PAR_KWH * (green ? 1 - SWD_FACTEUR_VERT : 1))
   return { co2PerVisit, co2PerMonth: (co2PerVisit * visits) / 1000 }
 }
 
@@ -438,8 +442,9 @@ export function WebsiteCarbonCalculator() {
               <Leaf className="h-8 w-8 text-green-600 dark:text-green-400 mb-3" />
               <h3 className="font-semibold mb-2 dark:text-gray-100 font-poppins">Méthodologie affichée</h3>
               <p className="text-sm text-gray-700 dark:text-gray-300">
-                CO₂e par visite = poids (Go) × 0,194 kWh/Go × 494 gCO₂e/kWh × 0,757 si hébergeur vert. Modèle
-                Sustainable Web Design v4 (2024).
+                CO₂e par visite = poids (Go) × {facteurFr(SWD_KWH_PAR_GO)} kWh/Go × {SWD_GCO2E_PAR_KWH}{" "}
+                gCO₂e/kWh × {facteurFr(SWD_MULTIPLICATEUR_VERT)} si hébergeur vert. Modèle Sustainable Web Design v4
+                (2024).
               </p>
             </div>
 
@@ -447,7 +452,8 @@ export function WebsiteCarbonCalculator() {
               <Globe className="h-8 w-8 text-blue-600 dark:text-blue-400 mb-3" />
               <h3 className="font-semibold mb-2 dark:text-gray-100 font-poppins">Données sourcées</h3>
               <p className="text-sm text-gray-700 dark:text-gray-300">
-                0,194 kWh/Go (AIE) • 494 gCO₂e/kWh (Ember, 2023) • −24,3 % si hébergeur vert (Green Web Foundation).
+                {facteurFr(SWD_KWH_PAR_GO)} kWh/Go (AIE) • {SWD_GCO2E_PAR_KWH} gCO₂e/kWh (Ember, 2023) • −
+                {facteurFr(SWD_FACTEUR_VERT * 100, 1)} % si hébergeur vert (Green Web Foundation).
               </p>
             </div>
 
@@ -562,10 +568,14 @@ export function WebsiteCarbonCalculator() {
                 {fr(results.weightMB, 1)} Mo = {fr(results.weightMB / 1024, 4)} Go
               </li>
               <li>
-                × 0,194 kWh/Go (AIE) = {fr((results.weightMB / 1024) * KWH_PER_GB, 4)} kWh par visite
+                × {facteurFr(SWD_KWH_PAR_GO)} kWh/Go (AIE) = {fr((results.weightMB / 1024) * SWD_KWH_PAR_GO, 4)} kWh par visite
               </li>
               <li>
-                × {results.green ? "494 × 0,757 ≈ 374" : "494"} gCO₂e/kWh{" "}
+                ×{" "}
+                {results.green
+                  ? `${SWD_GCO2E_PAR_KWH} × ${facteurFr(SWD_MULTIPLICATEUR_VERT)} ≈ ${Math.round(SWD_GCO2E_PAR_KWH * SWD_MULTIPLICATEUR_VERT)}`
+                  : `${SWD_GCO2E_PAR_KWH}`}{" "}
+                gCO₂e/kWh{" "}
                 {results.green ? "(Ember 2023, hébergeur vert)" : "(Ember, 2023)"} = {fr(results.co2PerVisit)} g
                 par visite
               </li>
@@ -681,7 +691,7 @@ export function WebsiteCarbonCalculator() {
                     <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-1">Hébergement vert</h4>
                     <p className="text-sm text-blue-800 dark:text-blue-300">
                       Un hébergeur alimenté en énergies renouvelables réduit la part datacenter de l&apos;estimation
-                      (facteur −24,3 % appliqué ci-dessus quand la case est cochée).
+                      (facteur −{facteurFr(SWD_FACTEUR_VERT * 100, 1)} % appliqué ci-dessus quand la case est cochée).
                     </p>
                   </div>
                 </div>
@@ -697,21 +707,27 @@ export function WebsiteCarbonCalculator() {
             <div className="grid md:grid-cols-3 gap-4 text-sm">
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-1">
-                  {Math.round(results.co2PerMonth / 0.17).toLocaleString("fr-FR")}
+                  {Math.round(results.co2PerMonth / KG_CO2E_PAR_KM_VOITURE).toLocaleString("fr-FR")}
                 </div>
-                <div className="text-gray-700 dark:text-gray-300">km en voiture (0,17 kg/km, ADEME 2023)</div>
+                <div className="text-gray-700 dark:text-gray-300">
+                  km en voiture ({facteurFr(KG_CO2E_PAR_KM_VOITURE)} kg/km, ADEME 2023)
+                </div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-1">
-                  {Math.round((results.co2PerMonth * 12) / 20).toLocaleString("fr-FR")}
+                  {Math.round((results.co2PerMonth * 12) / KG_CO2E_PAR_ARBRE_AN).toLocaleString("fr-FR")}
                 </div>
-                <div className="text-gray-700 dark:text-gray-300">arbres pendant 1 an (20 kg/arbre, ADEME)</div>
+                <div className="text-gray-700 dark:text-gray-300">
+                  arbres pendant 1 an ({KG_CO2E_PAR_ARBRE_AN} kg/arbre, ADEME)
+                </div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-1">
-                  {Math.round(results.co2PerMonth / 7).toLocaleString("fr-FR")}
+                  {Math.round(results.co2PerMonth / KG_CO2E_PAR_REPAS_BOEUF).toLocaleString("fr-FR")}
                 </div>
-                <div className="text-gray-700 dark:text-gray-300">repas avec bœuf (7 kg/repas, ADEME)</div>
+                <div className="text-gray-700 dark:text-gray-300">
+                  repas avec bœuf ({KG_CO2E_PAR_REPAS_BOEUF} kg/repas, ADEME)
+                </div>
               </div>
             </div>
           </div>
@@ -831,8 +847,9 @@ export function WebsiteCarbonCalculator() {
 
       <div className="text-sm text-gray-600 dark:text-gray-300 text-center space-y-2">
         <p>
-          Méthode : Sustainable Web Design v4 (2024) : 0,194 kWh/Go (AIE), 494 gCO₂e/kWh (Ember, 2023), facteur vert
-          0,243 (Green Web Foundation). Hors fabrication des équipements. Pour une mesure automatique :
+          Méthode : Sustainable Web Design v4 (2024) : {facteurFr(SWD_KWH_PAR_GO)} kWh/Go (AIE),{" "}
+          {SWD_GCO2E_PAR_KWH} gCO₂e/kWh (Ember, 2023), facteur vert {facteurFr(SWD_FACTEUR_VERT, 3)} (Green Web
+          Foundation). Hors fabrication des équipements. Pour une mesure automatique :
         </p>
         <p className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
           {OUTBOUND_LINKS.map((link) => (

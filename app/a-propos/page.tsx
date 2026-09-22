@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Target, Users, Heart, Award, Mail, AlertTriangle, Leaf } from "lucide-react"
+import { Target, Users, Heart, Award, Mail, ShieldCheck, Leaf } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { Metadata } from "next"
 import { pageOpenGraph } from "@/lib/metadata"
@@ -26,35 +26,27 @@ export default function AProposPage() {
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
 
-          <Card className="mb-8 border-warning/50 bg-warning/10">
+          <Card className="mb-8 border-primary/30 bg-primary/5">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-warning">
-                <AlertTriangle className="w-5 h-5 text-warning" />
-                Avertissement important
+              <CardTitle className="flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-primary" />
+                Une exigence sérieuse sur les données
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-muted-foreground">
-              <p className="font-semibold">
-                Ce site est un projet personnel en cours de développement, créé par un passionné et non par une
-                entreprise ou organisation officielle.
+              <p className="font-semibold text-foreground">
+                Ce site est un projet personnel, mais les chiffres y sont traités avec la rigueur d&apos;un travail
+                documentaire : veille continue, contrôle des sources et vérifications avant publication.
               </p>
-              <div className="space-y-2">
-                <p>Les informations présentées sont fournies à titre éducatif et peuvent comporter :</p>
-                <ul className="space-y-1 ml-4">
-                  <li>• Des données changeantes et évolutives selon les nouvelles études</li>
-                  <li>• Des possibilités d'erreurs humaines ou d'interprétation</li>
-                  <li>• Des biais d'analyse ou d'interprétation des sources</li>
-                  <li>• Des erreurs générées par l'assistance d'outils d'intelligence artificielle</li>
-                  <li>• Des contenus en cours de révision et d'amélioration continue</li>
-                </ul>
-              </div>
+              <ul className="space-y-1 ml-4">
+                <li>• Chaque chiffre affiché porte sa source et son année, avec le calcul détaillé dans son infobulle</li>
+                <li>• Les documents primaires (ADEME, Arcep, RTE, rapports officiels) sont lus avant d&apos;être cités</li>
+                <li>• Les données non vérifiables ne sont pas publiées ; les estimations sont signalées comme telles</li>
+                <li>• Veille et contrôles réguliers : flux RSS suivis, relectures, liens vérifiés</li>
+              </ul>
               <p>
-                Nous nous efforçons de maintenir les informations à jour et exactes, mais nous ne pouvons garantir
-                l'exhaustivité ou l'exactitude absolue de toutes les données. En cas de doute, référez-vous toujours aux
-                sources officielles citées (ADEME, GreenIT.fr, etc.).
-              </p>
-              <p className="font-semibold">
-                N'hésitez pas à signaler toute erreur ou inexactitude à l'adresse email ci-dessous.
+                Les études évoluent et une coquille reste possible : en cas de doute, référez-vous aux sources
+                citées, et signalez-nous toute erreur à l&apos;adresse ci-dessous — chaque signalement est vérifié.
               </p>
             </CardContent>
           </Card>
@@ -110,7 +102,7 @@ export default function AProposPage() {
                 <div className="space-y-2">
                   <h3 className="font-semibold text-primary">Transparence</h3>
                   <p className="text-sm text-muted-foreground">
-                    Toutes les données sont sourcées (ADEME, ONU, GreenIT.fr) et les méthodologies de calcul sont
+                    Toutes les données sont sourcées (ADEME, Arcep, RTE, ONU, GreenIT.fr) et les méthodologies de calcul sont
                     expliquées clairement.
                   </p>
                 </div>
@@ -170,6 +162,12 @@ export default function AProposPage() {
                     • <strong>ADEME</strong> - Agence de la transition écologique
                   </li>
                   <li>
+                    • <strong>Arcep</strong> - Enquête annuelle sur l&apos;empreinte environnementale du numérique
+                  </li>
+                  <li>
+                    • <strong>RTE (éCO2mix)</strong> - Données temps réel du mix électrique français
+                  </li>
+                  <li>
                     • <strong>GreenIT.fr</strong> - Communauté des acteurs du numérique responsable
                   </li>
                   <li>
@@ -200,8 +198,8 @@ export default function AProposPage() {
             <CardContent className="space-y-4">
               <p className="text-muted-foreground">
                 Les données présentées sur ce site sont issues de sources officielles et scientifiques, principalement
-                françaises pour garantir leur pertinence locale. Cependant, comme indiqué dans l'avertissement
-                ci-dessus, des erreurs d'interprétation ou d'actualisation peuvent survenir.
+                françaises pour garantir leur pertinence locale. Chaque chiffre est vérifié avant publication et porte
+                sa source ; les estimations sont signalées et les données non vérifiables ne sont pas publiées.
               </p>
               <div className="space-y-3">
                 <div className="bg-secondary p-4 rounded-lg">
@@ -275,7 +273,7 @@ export default function AProposPage() {
 
           {/* Mentions légales */}
           <div className="mt-8 text-center text-sm text-muted-foreground">
-            <p className="mb-2">Le Green IT en clair • Projet personnel de Geoffroy Streit • 2026</p>
+            <p className="mb-2">Le Green IT en clair • Projet personnel de Geoffroy Streit • {new Date().getFullYear()}</p>
             <p>
               Ce site est conçu selon les principes du Green IT (optimisation des
               ressources, accessibilité, sobriété numérique).

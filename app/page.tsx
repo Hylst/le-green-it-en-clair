@@ -109,7 +109,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg border border-border">
               <Image
-                src="/greenit/images/electronic-waste-pile-with-smartphones-tablets-and.webp"
+                src="/greenit/images/electronic-waste-pile-with-smartphones-tablets-and-768.webp"
                 alt="Impact des déchets électroniques - pile de smartphones et tablettes usagés montrant l'accumulation d'e-déchets"
                 fill
                 className="object-cover"

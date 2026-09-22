@@ -69,7 +69,7 @@ const practicalSheets = [
     target: "Entreprises",
     duration: "12 min",
     impact: "PUE optimisé < 1.3",
-    image: "/greenit/images/green-datacenter.webp",
+    image: "/greenit/images/green-datacenter-768.webp",
   },
   {
     id: "collectivites-action",
@@ -78,7 +78,7 @@ const practicalSheets = [
     target: "Collectivités",
     duration: "25 min",
     impact: "Exemplarité publique",
-    image: "/greenit/images/city-hall-with-sustainable-technology-infrastructu.webp",
+    image: "/greenit/images/city-hall-with-sustainable-technology-infrastructu-768.webp",
   },
   {
     id: "ia-generative",

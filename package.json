@@ -28,7 +28,8 @@
     "convert-images": "node scripts/convert-images-to-webp.js",
     "dev": "next dev",
     "generate-pdf": "node scripts/generate-pdf-guide.js",
-    "check:typo": "node scripts/check-typo.js"
+    "check:typo": "node scripts/check-typo.js",
+    "check:structure": "node scripts/check-structure.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

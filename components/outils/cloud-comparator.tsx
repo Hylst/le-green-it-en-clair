@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -52,6 +52,21 @@ function computeTransparencyScore(provider: {
   if (HAS_YEAR.test(provider.source)) score += 1
   if (provider.certifications.length > 0 || provider.carbonNeutral) score += 1
   return score
+}
+
+/* Face-à-face (chantier 3) : sélection max 3 dans l'ordre + meilleur par
+   ligne (null = non publié, ne gagne jamais ; ex æquo tous gagnants). */
+function toggleFavorite(favorites: string[], name: string, max = 3): string[] {
+  if (favorites.includes(name)) return favorites.filter((f) => f !== name)
+  if (favorites.length >= max) return favorites
+  return [...favorites, name]
+}
+
+function bestOf(values: (number | null)[], higherWins: boolean): boolean[] {
+  const valid = values.filter((v): v is number => v !== null)
+  if (valid.length === 0) return values.map(() => false)
+  const best = higherWins ? Math.max(...valid) : Math.min(...valid)
+  return values.map((v) => v !== null && v === best)
 }
 
 type CloudProvider = {
@@ -236,6 +251,126 @@ function exportProvidersCsv(all: ScoredProvider[]): void {
   URL.revokeObjectURL(url)
 }
 
+function WinnerCell({ win, children }: { win: boolean; children: ReactNode }) {
+  return (
+    <td className={`border border-border px-3 py-2 ${win ? "font-semibold text-emerald-700 dark:text-emerald-300" : "text-foreground"}`}>
+      {children}
+      {win && <span className="sr-only"> (meilleur de la ligne)</span>}
+    </td>
+  )
+}
+
+/* Tableau face-à-face : 2-3 favoris en colonnes (ordre de sélection),
+   10 lignes de critères, meilleure valeur chiffrée surlignée par ligne. */
+function FaceoffTable({ providers }: { providers: ScoredProvider[] }) {
+  const scoreWins = bestOf(providers.map((p) => p.sustainabilityScore), true)
+  const pueWins = bestOf(providers.map((p) => p.pue), false)
+  const renewableWins = bestOf(providers.map((p) => p.renewableEnergy), true)
+  const wueWins = bestOf(providers.map((p) => p.wue), false)
+  const cueWins = bestOf(providers.map((p) => p.cue), false)
+  const transparencyWins = bestOf(providers.map((p) => p.transparencyScore), true)
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full text-sm">
+        <caption className="sr-only">Comparaison des hébergeurs sélectionnés</caption>
+        <thead>
+          <tr>
+            <th scope="col" className="border border-border px-3 py-2 text-left text-muted-foreground">
+              Critère
+            </th>
+            {providers.map((p) => (
+              <th key={p.name} scope="col" className="border border-border px-3 py-2 text-left text-foreground">
+                {p.name}
+                <span className="block text-xs font-normal text-muted-foreground">{p.country}</span>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" className="border border-border px-3 py-2 text-left font-medium text-foreground">Score éco</th>
+            {providers.map((p, i) => (
+              <WinnerCell key={p.name} win={scoreWins[i]}>{p.sustainabilityScore}</WinnerCell>
+            ))}
+          </tr>
+          <tr>
+            <th scope="row" className="border border-border px-3 py-2 text-left font-medium text-foreground">PUE</th>
+            {providers.map((p, i) => (
+              <WinnerCell key={p.name} win={pueWins[i]}>
+                {p.pue.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 2 })}
+              </WinnerCell>
+            ))}
+          </tr>
+          <tr>
+            <th scope="row" className="border border-border px-3 py-2 text-left font-medium text-foreground">Renouvelable</th>
+            {providers.map((p, i) => (
+              <WinnerCell key={p.name} win={renewableWins[i]}>{p.renewableEnergy}{NBSP}%</WinnerCell>
+            ))}
+          </tr>
+          <tr>
+            <th scope="row" className="border border-border px-3 py-2 text-left font-medium text-foreground">Neutralité carbone</th>
+            {providers.map((p) => (
+              <td key={p.name} className="border border-border px-3 py-2 text-foreground">
+                {p.carbonNeutral ? "Déclarée" : "En cours"}
+              </td>
+            ))}
+          </tr>
+          <tr>
+            <th scope="row" className="border border-border px-3 py-2 text-left font-medium text-foreground">Certifications</th>
+            {providers.map((p) => (
+              <td key={p.name} className="border border-border px-3 py-2 text-foreground">
+                {p.certifications.length === 0 ? "Aucune" : `${p.certifications.length} : ${p.certifications.join(", ")}`}
+              </td>
+            ))}
+          </tr>
+          <tr>
+            <th scope="row" className="border border-border px-3 py-2 text-left font-medium text-foreground">Serveurs en France</th>
+            {providers.map((p) => (
+              <td key={p.name} className="border border-border px-3 py-2 text-foreground">
+                {p.serveursFrance ? `Oui, ${p.serveursFranceNote}` : "Non"}
+              </td>
+            ))}
+          </tr>
+          <tr>
+            <th scope="row" className="border border-border px-3 py-2 text-left font-medium text-foreground">WUE</th>
+            {providers.map((p, i) => (
+              <WinnerCell key={p.name} win={wueWins[i]}>
+                {p.wue === null
+                  ? (p.wueNote ?? "Non publié")
+                  : `${p.wue.toLocaleString("fr-FR", { maximumFractionDigits: 2 })} L/kWh (${p.wueNote})`}
+              </WinnerCell>
+            ))}
+          </tr>
+          <tr>
+            <th scope="row" className="border border-border px-3 py-2 text-left font-medium text-foreground">CUE</th>
+            {providers.map((p, i) => (
+              <WinnerCell key={p.name} win={cueWins[i]}>
+                {p.cue === null
+                  ? (p.cueNote ?? "Non publié")
+                  : `${p.cue.toLocaleString("fr-FR", { maximumFractionDigits: 3 })} gCO₂e/kWh (${p.cueNote})`}
+              </WinnerCell>
+            ))}
+          </tr>
+          <tr>
+            <th scope="row" className="border border-border px-3 py-2 text-left font-medium text-foreground">Transparence</th>
+            {providers.map((p, i) => (
+              <WinnerCell key={p.name} win={transparencyWins[i]}>{p.transparencyScore}/4</WinnerCell>
+            ))}
+          </tr>
+          <tr>
+            <th scope="row" className="border border-border px-3 py-2 text-left font-medium text-foreground">Cycle de vie</th>
+            {providers.map((p) => (
+              <td key={p.name} className="border border-border px-3 py-2 text-foreground">
+                {p.cycleVie ?? "Non publié"}
+              </td>
+            ))}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
 export default function CloudComparator() {
   const [sortBy, setSortBy] = useState<"score" | "pue" | "renewable" | "name" | "transparency">("score")
   const [filterGreen, setFilterGreen] = useState(false)
@@ -245,6 +380,18 @@ export default function CloudComparator() {
   const [region, setRegion] = useState<RegionAnswer | null>(null)
   const [priority, setPriority] = useState<PriorityAnswer | null>(null)
   const [recommendation, setRecommendation] = useState<RecommendationResult | null>(null)
+  /* Face-à-face : noms des favoris dans l'ordre de sélection (max 3). */
+  const [favorites, setFavorites] = useState<string[]>([])
+  const [faceoffOpen, setFaceoffOpen] = useState(true)
+  const faceoff = favorites
+    .map((name) => providers.find((p) => p.name === name))
+    .filter((p): p is (typeof providers)[number] => p !== undefined)
+
+  const handleToggleFavorite = (name: string) => {
+    const next = toggleFavorite(favorites, name)
+    if (next.length >= 2 && favorites.length < 2) setFaceoffOpen(true)
+    setFavorites(next)
+  }
 
   const providers: (CloudProvider & { sustainabilityScore: number; transparencyScore: number })[] = (
     [
@@ -656,6 +803,29 @@ export default function CloudComparator() {
             </div>
           </div>
 
+          {/* Face-à-face : apparaît dès 2 favoris, repliable, ouverte par défaut. */}
+          {favorites.length > 0 && (
+            <div className="rounded-lg border border-border bg-card p-4">
+              <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+                <h4 className="font-semibold text-foreground">Face-à-face : {favorites.join(" contre ")}</h4>
+                <div className="flex gap-2">
+                  <Button size="sm" variant="outline" onClick={() => setFaceoffOpen((open) => !open)}>
+                    {faceoffOpen ? "Replier" : "Déplier"}
+                  </Button>
+                  <Button size="sm" variant="outline" onClick={() => setFavorites([])}>
+                    Tout effacer
+                  </Button>
+                </div>
+              </div>
+              {faceoff.length < 2 ? (
+                <p className="text-sm text-muted-foreground">Cochez au moins 2 hébergeurs pour les comparer.</p>
+              ) : (
+                faceoffOpen && <FaceoffTable providers={faceoff} />
+              )}
+              <p className="mt-2 text-xs text-muted-foreground">Valeur en vert : meilleure de la ligne. « Non publié » ne gagne jamais.</p>
+            </div>
+          )}
+
           {/* Questionnaire besoin : panneau replié, ne touche pas au classement.
               Les recommandations se calculent uniquement à la validation. */}
           <MoreDetails title="Trouver l'hébergeur adapté à mon besoin (3 questions)">
@@ -850,6 +1020,21 @@ export default function CloudComparator() {
                         </span>
                       ))}
                     </div>
+                    <label className="mt-3 inline-flex cursor-pointer items-center gap-2 text-sm text-foreground">
+                      <input
+                        type="checkbox"
+                        checked={favorites.includes(provider.name)}
+                        disabled={!favorites.includes(provider.name) && favorites.length >= 3}
+                        onChange={() => handleToggleFavorite(provider.name)}
+                        title={
+                          !favorites.includes(provider.name) && favorites.length >= 3
+                            ? "3 maximum, décochez un favori pour changer"
+                            : "Comparer cet hébergeur en face-à-face"
+                        }
+                        className="h-4 w-4"
+                      />
+                      Comparer
+                    </label>
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">

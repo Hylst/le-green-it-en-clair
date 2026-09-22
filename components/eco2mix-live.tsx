@@ -244,6 +244,9 @@ export default function Eco2MixLive({ variant = "full", className }: Eco2MixLive
     try {
       const result = await fetchEco2MixRealtime()
       setData(result)
+      // fetchEco2MixRealtime ne rejette jamais : en cas de panne il renvoie
+      // le repli. Le bandeau d'erreur se base donc sur le drapeau isFallback.
+      setError(result.isFallback === true)
     } catch {
       setError(true)
       setData(ECO2MIX_FALLBACK)

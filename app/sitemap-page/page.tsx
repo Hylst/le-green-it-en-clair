@@ -3,10 +3,11 @@ import { Home, BookOpen, AlertCircle, Zap, FolderOpen } from "lucide-react"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { pageOpenGraph } from "@/lib/metadata"
+import { canonical, mailto } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Plan du site",
-  alternates: { canonical: "https://hylst.fr/greenit/sitemap-page" },
+  alternates: { canonical: canonical("/sitemap-page") },
   openGraph: pageOpenGraph("Plan du site | Le Green IT en clair", "Plan du site : toutes les pages du Green IT en clair, classées par thème.", "/sitemap-page"),
 }
 
@@ -196,7 +197,7 @@ export default function SitemapPage() {
                     Retour à l'accueil
                   </Link>
                   <a
-                    href="mailto:geoffroy.streit@gmail.com"
+                    href={mailto()}
                     className="inline-flex items-center justify-center gap-2 rounded-lg border border-emerald-600 px-6 py-2 text-sm font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 dark:text-emerald-300 dark:hover:bg-emerald-900/40"
                   >
                     Nous contacter

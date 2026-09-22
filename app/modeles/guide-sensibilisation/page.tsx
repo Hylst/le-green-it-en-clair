@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { SITE_NAME, SITE_SHORT } from "@/lib/site"
 import { Card } from "@/components/ui/card"
 import { ArrowLeft, Printer, Users, BookOpen, ClipboardCheck, Image, Mail, Zap, Database, Video, Recycle, Download, Check } from "lucide-react"
 import Link from "next/link"
@@ -306,7 +307,7 @@ export default function KitSensibilisationPage() {
                             </div>
                         </div>
                         <div className="mt-4 pt-4 border-t border-emerald-400 text-center text-xs text-emerald-100">
-                            hylst.fr/greenit
+                            {SITE_SHORT}
                         </div>
                     </Card>
 
@@ -330,7 +331,7 @@ export default function KitSensibilisationPage() {
 
                 {/* Footer document */}
                 <div className="mt-12 text-center text-xs text-muted-foreground">
-                    <p>Kit généré via Le Green IT en clair - hylst.fr/greenit</p>
+                    <p>Kit généré via {SITE_NAME} - {SITE_SHORT}</p>
                     <p>Contenus libres d'usage - À personnaliser selon vos besoins</p>
                 </div>
             </div>

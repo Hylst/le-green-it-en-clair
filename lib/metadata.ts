@@ -1,5 +1,8 @@
-export const SITE_URL = "https://hylst.fr/greenit"
-export const SITE_NAME = "Le Green IT en clair"
+import { SITE_URL, SITE_NAME } from "./site"
+
+// Réexportés pour les consommateurs existants (breadcrumb, JSON-LD...) :
+// la source unique reste lib/site.ts.
+export { SITE_URL, SITE_NAME } from "./site"
 export const SITE_DESCRIPTION =
   "Découvrez l'impact environnemental du numérique et adoptez des pratiques responsables. Informations, outils interactifs et ressources pour un Green IT en France."
 

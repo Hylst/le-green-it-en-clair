@@ -21,6 +21,7 @@ import {
 } from "@/components/blog-widgets"
 import { JsonLd } from "@/components/json-ld"
 import { SITE_NAME, SITE_URL, pageOpenGraph } from "@/lib/metadata"
+import { canonical } from "@/lib/site"
 import { posts, type BlogWidgetKey } from "../posts"
 
 export async function generateStaticParams() {
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${post.title} | Blog`,
     description: post.excerpt,
-    alternates: { canonical: `https://hylst.fr/greenit/blog/${slug}` },
+    alternates: { canonical: canonical(`/blog/${slug}`) },
     openGraph: pageOpenGraph(`${post.title} | Le Green IT en clair`, post.excerpt, `/blog/${slug}`),
   }
 }

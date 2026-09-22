@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { SITE_NAME, SITE_SHORT } from "@/lib/site"
 import { Card } from "@/components/ui/card"
 import { ArrowLeft, Printer, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
@@ -446,7 +447,7 @@ export default function GrilleAuditPage() {
 
                 {/* Footer */}
                 <div className="mt-12 text-center text-xs text-muted-foreground">
-                    <p>Grille générée via Le Green IT en clair - hylst.fr/greenit</p>
+                    <p>Grille générée via {SITE_NAME} - {SITE_SHORT}</p>
                     <p>Méthodologie libre d'usage - À adapter selon vos besoins</p>
                     <p className="mt-2 italic">Grille ouverte : adaptez et complétez selon vos besoins.</p>
                 </div>

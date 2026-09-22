@@ -6,6 +6,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Breadcrumb } from "@/components/breadcrumb"
 import { ThemeProvider } from "@/components/theme-provider"
+import { SITE_URL, SITE_DOMAIN, SITE_NAME, SITE_AUTHOR } from "@/lib/site"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const poppins = Poppins({
@@ -15,7 +16,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hylst.fr/greenit"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Le Green IT en clair - Écologie Numérique et Numérique Responsable",
     template: "%s | Le Green IT en clair",
@@ -34,20 +35,20 @@ export const metadata: Metadata = {
     "écoconception",
     "datacenters verts",
   ],
-  authors: [{ name: "Geoffroy Streit", url: "https://hylst.fr" }],
-  creator: "Geoffroy Streit",
-  publisher: "Le Green IT en clair",
+  authors: [{ name: SITE_AUTHOR, url: SITE_DOMAIN }],
+  creator: SITE_AUTHOR,
+  publisher: SITE_NAME,
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: "https://hylst.fr/greenit",
-    siteName: "Le Green IT en clair",
+    url: SITE_URL,
+    siteName: SITE_NAME,
     title: "Le Green IT en clair - Écologie Numérique et Numérique Responsable",
     description:
       "Découvrez l'impact environnemental du numérique et adoptez des pratiques responsables. Informations, outils interactifs et ressources pour un Green IT en France.",
     images: [
       {
-        url: "https://hylst.fr/greenit/og-cover.jpg",
+        url: `${SITE_URL}/og-cover.jpg`,
         width: 1200,
         height: 630,
         alt: "Le Green IT en clair - Écologie Numérique",
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["https://hylst.fr/greenit/og-cover.jpg"],
+    images: [`${SITE_URL}/og-cover.jpg`],
   },
   robots: {
     googleBot: {
@@ -68,7 +69,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://hylst.fr/greenit",
+    canonical: SITE_URL,
   },
   generator: 'Next.js',
   icons: {

@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Leaf, Mail, BadgeCheck } from "lucide-react"
 import { MotionToggle } from "@/components/motion-toggle"
+import { SITE_EMAIL, mailto } from "@/lib/site"
 
 export function Footer() {
   return (
@@ -15,8 +16,8 @@ export function Footer() {
                 Chaque chiffre affiché est sourcé et chaque calcul est détaillé dans son infobulle, à partir des
                 sources officielles citées sur chaque page. En cas de doute, référez-vous à ces sources. Une
                 coquille malgré tout ? Écrivez à{" "}
-                <a href="mailto:geoffroy.streit@gmail.com" className="underline font-medium link-slide">
-                  geoffroy.streit@gmail.com
+                <a href={mailto()} className="underline font-medium link-slide">
+                  {SITE_EMAIL}
                 </a>
                 , les signalements sont bienvenus.
               </p>
@@ -96,7 +97,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="mailto:geoffroy.streit@gmail.com" className="text-muted-foreground hover:text-primary link-slide">
+                <a href={mailto()} className="text-muted-foreground hover:text-primary link-slide">
                   Contact
                 </a>
               </li>
@@ -141,7 +142,7 @@ export function Footer() {
               </Link>
               <MotionToggle />
               <a
-                href="mailto:geoffroy.streit@gmail.com"
+                href={mailto()}
                 className="text-muted-foreground hover:text-primary"
                 title="Contact"
                 aria-label="Contact"

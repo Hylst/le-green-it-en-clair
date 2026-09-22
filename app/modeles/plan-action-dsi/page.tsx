@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { SITE_NAME, SITE_SHORT } from "@/lib/site"
 import { Card } from "@/components/ui/card"
 import { ArrowLeft, Printer, FileSpreadsheet, AlertTriangle, Check } from "lucide-react"
 import Link from "next/link"
@@ -426,7 +427,7 @@ export default function PlanActionDSIPage() {
 
                 {/* Footer */}
                 <div className="mt-12 text-center text-xs text-muted-foreground">
-                    <p>Plan d'action généré via Le Green IT en clair - hylst.fr/greenit</p>
+                    <p>Plan d'action généré via {SITE_NAME} - {SITE_SHORT}</p>
                     <p>Template libre d'usage - À adapter selon vos besoins et contexte</p>
                 </div>
             </div>

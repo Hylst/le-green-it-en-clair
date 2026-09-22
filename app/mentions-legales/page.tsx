@@ -3,10 +3,11 @@ import { Card } from "@/components/ui/card"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { pageOpenGraph } from "@/lib/metadata"
+import { canonical, SITE_EMAIL, SITE_SHORT, mailto } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Mentions légales",
-  alternates: { canonical: "https://hylst.fr/greenit/mentions-legales" },
+  alternates: { canonical: canonical("/mentions-legales") },
   description: "Mentions légales du site Le Green IT en clair.",
   openGraph: pageOpenGraph("Mentions légales | Le Green IT en clair", "Mentions légales du site Le Green IT en clair.", "/mentions-legales"),
 }
@@ -44,8 +45,8 @@ export default function MentionsLegalesPage() {
               </p>
               <p>
                 <strong className="text-foreground">Email :</strong>{" "}
-                <a href="mailto:geoffroy.streit@gmail.com" className="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 underline">
-                  geoffroy.streit@gmail.com
+                <a href={mailto()} className="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 underline">
+                  {SITE_EMAIL}
                 </a>
               </p>
             </div>
@@ -67,7 +68,7 @@ export default function MentionsLegalesPage() {
                 <strong className="text-foreground">Serveur :</strong> VPS géré via Coolify (Docker)
               </p>
               <p>
-                <strong className="text-foreground">URL :</strong> hylst.fr/greenit
+                <strong className="text-foreground">URL :</strong> {SITE_SHORT}
               </p>
             </div>
           </Card>
@@ -112,7 +113,7 @@ export default function MentionsLegalesPage() {
                 <strong className="text-foreground">Polices et mesures :</strong> les polices sont hébergées avec le site (aucun appel à Google Fonts) et il n'y a aucun outil d'analyse d'audience.
               </p>
               <p>
-                <strong className="text-foreground">Contact :</strong> si vous m'écrivez à geoffroy.streit@gmail.com, votre message sert juste à vous répondre. Rien d'autre.
+                <strong className="text-foreground">Contact :</strong> si vous m'écrivez à {SITE_EMAIL}, votre message sert juste à vous répondre. Rien d'autre.
               </p>
               <p>
                 <strong className="text-foreground">Conformité RGPD :</strong> aucune donnée personnelle n'étant collectée ni suivie, ce site est conforme au RGPD par défaut.

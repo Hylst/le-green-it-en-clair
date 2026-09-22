@@ -5,12 +5,13 @@ import { PageHero } from "@/components/page-hero"
 import { SectionDivider } from "@/components/section-divider"
 import { SourceTooltip } from "@/components/source-tooltip"
 import { pageOpenGraph } from "@/lib/metadata"
+import { canonical } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Choisir son FAI et sa box",
   description:
     "Comprendre le fonctionnement d'une box internet et choisir son fournisseur d'accès avec des critères sobres : juste besoin, réemploi et réglages économes.",
-  alternates: { canonical: "https://hylst.fr/greenit/fai-box" },
+  alternates: { canonical: canonical("/fai-box") },
   openGraph: pageOpenGraph(
     "Choisir son FAI et sa box | Le Green IT en clair",
     "Comprendre le fonctionnement d'une box internet et choisir son fournisseur d'accès avec des critères sobres.",

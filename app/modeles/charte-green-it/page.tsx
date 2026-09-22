@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { SITE_NAME, SITE_SHORT } from "@/lib/site"
 import { Card } from "@/components/ui/card"
 import { Download, ArrowLeft, Printer } from "lucide-react"
 import Link from "next/link"
@@ -59,7 +60,7 @@ export default function CharteGreenITPage() {
                     <div className="mt-12 space-y-2 text-muted-foreground">
                         <p>Document de référence</p>
                         <p>Version 1.0 - Janvier 2026</p>
-                        <p className="text-sm italic mt-4">Source : Le Green IT en clair - hylst.fr/greenit</p>
+                        <p className="text-sm italic mt-4">Source : {SITE_NAME} - {SITE_SHORT}</p>
                     </div>
                 </div>
 
@@ -434,7 +435,7 @@ export default function CharteGreenITPage() {
                         <li>• GreenIT.fr - Référentiel d'écoconception GR491</li>
                         <li>• Institut du Numérique Responsable (INR)</li>
                         <li>• Ecosystem et Écologic - Filières de recyclage</li>
-                        <li>• Le Green IT en clair - hylst.fr/greenit</li>
+                        <li>• {SITE_NAME} - {SITE_SHORT}</li>
                     </ul>
                 </div>
 
@@ -458,7 +459,7 @@ export default function CharteGreenITPage() {
 
                 {/* Footer document */}
                 <div className="mt-12 text-center text-xs text-muted-foreground">
-                    <p>Document généré via Le Green IT en clair - hylst.fr/greenit</p>
+                    <p>Document généré via {SITE_NAME} - {SITE_SHORT}</p>
                     <p>Template libre d'usage - À personnaliser selon vos besoins</p>
                 </div>
             </div>

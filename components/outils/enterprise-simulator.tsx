@@ -8,6 +8,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from "recharts";
 import { TrendingUp, TrendingDown, Download, RotateCcw, Building2, BarChart3, Calendar, ClipboardList, Info, Scale, Trophy } from "lucide-react";
 import { CHART_FALLBACKS } from "@/lib/chart-theme";
+import { SITE_SHORT } from "@/lib/site";
 import { LabeledSlider, PDF_COLORS } from "./shared";
 import { SourceTooltip } from "@/components/source-tooltip";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
@@ -198,7 +199,7 @@ export default function EnterpriseSimulator() {
     doc.setFontSize(22)
     doc.text("Simulation Stratégie Green IT", 20, 25)
     doc.setFontSize(10)
-    doc.text(`Généré le ${timestamp} - hylst.fr/greenit`, 20, 32)
+    doc.text(`Généré le ${timestamp} - ${SITE_SHORT}`, 20, 32)
 
     // Configuration
     doc.setTextColor(PDF_COLORS.text[0], PDF_COLORS.text[1], PDF_COLORS.text[2])

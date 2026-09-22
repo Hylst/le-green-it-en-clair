@@ -3,12 +3,13 @@ import { Target, Users, Heart, Award, Mail, ShieldCheck, Leaf } from "lucide-rea
 import { Button } from "@/components/ui/button"
 import type { Metadata } from "next"
 import { pageOpenGraph } from "@/lib/metadata"
+import { canonical, SITE_EMAIL, mailto } from "@/lib/site"
 import { SourceTooltip } from "@/components/source-tooltip"
 import { PageHero } from "@/components/page-hero"
 
 export const metadata: Metadata = {
   title: "À propos",
-  alternates: { canonical: "https://hylst.fr/greenit/a-propos" },
+  alternates: { canonical: canonical("/a-propos") },
   description: "À propos du Green IT en clair : la démarche, les sources et la méthode derrière ce site éducatif sur le numérique responsable.",
   openGraph: pageOpenGraph("À propos | Le Green IT en clair", "À propos du Green IT en clair : la démarche, les sources et la méthode derrière ce site éducatif sur le numérique responsable.", "/a-propos"),
 }
@@ -144,11 +145,11 @@ export default function AProposPage() {
                   Pour toute question, suggestion, signalement d'erreur ou proposition de contribution :
                 </p>
                 <a
-                  href="mailto:geoffroy.streit@gmail.com"
+                  href={mailto()}
                   className="inline-flex items-center gap-2 text-primary hover:opacity-80 font-medium"
                 >
                   <Mail className="w-4 h-4" />
-                  geoffroy.streit@gmail.com
+                  {SITE_EMAIL}
                 </a>
               </div>
               <div className="bg-muted p-4 rounded-lg">
@@ -259,13 +260,13 @@ export default function AProposPage() {
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild className="flex-1">
-                  <a href="mailto:geoffroy.streit@gmail.com">
+                  <a href={mailto()}>
                     <Mail className="w-4 h-4 mr-2" />
                     Me contacter
                   </a>
                 </Button>
                 <Button variant="outline" className="flex-1 bg-transparent" asChild>
-                  <a href="mailto:geoffroy.streit@gmail.com?subject=Signalement d'erreur">Signaler une erreur</a>
+                  <a href={mailto("Signalement d'erreur")}>Signaler une erreur</a>
                 </Button>
               </div>
             </CardContent>

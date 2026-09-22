@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { SITE_NAME, SITE_SHORT } from "@/lib/site"
 import { Card } from "@/components/ui/card"
 import { ArrowLeft, Printer, ShoppingCart, CheckCircle2, ClipboardList, Zap, Mail, Database, Video, Check } from "lucide-react"
 import Link from "next/link"
@@ -63,7 +64,7 @@ export default function PolitiqueNumeriquePage() {
                     <div className="mt-12 space-y-2 text-muted-foreground">
                         <p>[NOM DE L'ORGANISATION]</p>
                         <p>Version 1.0 - Janvier 2026</p>
-                        <p className="text-sm italic mt-4">Source : Le Green IT en clair - hylst.fr/greenit</p>
+                        <p className="text-sm italic mt-4">Source : {SITE_NAME} - {SITE_SHORT}</p>
                     </div>
                 </div>
 
@@ -477,7 +478,7 @@ export default function PolitiqueNumeriquePage() {
 
                 {/* Footer */}
                 <div className="mt-12 text-center text-xs text-muted-foreground">
-                    <p>Document généré via Le Green IT en clair - hylst.fr/greenit</p>
+                    <p>Document généré via {SITE_NAME} - {SITE_SHORT}</p>
                     <p>Template libre d'usage - À personnaliser selon vos besoins</p>
                 </div>
             </div>

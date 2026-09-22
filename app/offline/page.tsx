@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
+import { canonical } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Hors-ligne",
-  alternates: { canonical: "https://hylst.fr/greenit/offline" },
+  alternates: { canonical: canonical("/offline") },
   robots: { index: false, follow: false },
 }
 

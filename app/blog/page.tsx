@@ -6,13 +6,14 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { PageHero } from "@/components/page-hero"
 import { pageOpenGraph } from "@/lib/metadata"
+import { canonical } from "@/lib/site"
 import { posts } from "./posts"
 
 export const metadata: Metadata = {
   title: "Blog",
   description:
     "Retours d’expérience, calculs expliqués et décryptages : le blog du Green IT en clair, avec sources et approfondissements dépliables.",
-  alternates: { canonical: "https://hylst.fr/greenit/blog" },
+  alternates: { canonical: canonical("/blog") },
   openGraph: pageOpenGraph(
     "Blog | Le Green IT en clair",
     "Retours d’expérience, calculs expliqués et décryptages du numérique responsable.",

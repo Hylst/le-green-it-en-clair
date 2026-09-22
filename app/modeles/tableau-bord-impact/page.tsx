@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { SITE_NAME, SITE_SHORT } from "@/lib/site"
 import { Card } from "@/components/ui/card"
 import { ArrowLeft, Printer, BarChart3, Lightbulb, LineChart, Target, BookOpen, Check } from "lucide-react"
 import Link from "next/link"
@@ -401,13 +402,13 @@ export default function TableauBordPage() {
                         <li>• <strong>ADEME Base Empreinte</strong> - Facteurs d'émission officiels</li>
                         <li>• <strong>GreenIT.fr</strong> - Outils de calcul et benchmarks</li>
                         <li>• <strong>Bilan Carbone ADEME</strong> - Méthodologie complète</li>
-                        <li>• <strong>Le Green IT en clair</strong> - hylst.fr/greenit</li>
+                        <li>• <strong>{SITE_NAME}</strong> - {SITE_SHORT}</li>
                     </ul>
                 </Card>
 
                 {/* Footer */}
                 <div className="mt-12 text-center text-xs text-muted-foreground">
-                    <p>Guide généré via Le Green IT en clair - hylst.fr/greenit</p>
+                    <p>Guide généré via {SITE_NAME} - {SITE_SHORT}</p>
                     <p>Méthodologie libre d'usage - À adapter selon vos besoins</p>
                 </div>
             </div>

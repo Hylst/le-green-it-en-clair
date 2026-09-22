@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { ClipboardCheck, Download, RotateCcw, Monitor, PcCase, Laptop, Smartphone, Tablet, Printer, Server, Package, BarChart3, Search, Coins, ClipboardList, Save, FolderOpen } from "lucide-react";
 import { LabeledSlider, PDF_COLORS } from "./shared";
+import { SITE_SHORT } from "@/lib/site";
 import { SourceTooltip } from "@/components/source-tooltip";
 import {
   AUDIT_PARC_STORAGE_KEY,
@@ -316,7 +317,7 @@ export default function ITAudit() {
     doc.setFontSize(22)
     doc.text("Audit Environnemental IT", 20, 25)
     doc.setFontSize(10)
-    doc.text(`Généré le ${timestamp} - hylst.fr/greenit`, 20, 32)
+    doc.text(`Généré le ${timestamp} - ${SITE_SHORT}`, 20, 32)
 
     // Summary Section
     doc.setTextColor(PDF_COLORS.text[0], PDF_COLORS.text[1], PDF_COLORS.text[2])

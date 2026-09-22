@@ -104,6 +104,12 @@ export default function SobrietySimulator() {
             })}
           </ol>
 
+          {step === 2 && (
+            <p aria-live="polite" className="rounded-lg border border-teal-600/30 bg-teal-50 px-4 py-2 text-sm font-semibold text-teal-900 dark:bg-teal-900/20 dark:text-teal-100 md:sticky md:top-2">
+              D&apos;après vos choix actuels : −{impact.percentage}{"\u00A0"}% d&apos;impact pour l&apos;instant.
+            </p>
+          )}
+
           {step === 1 && (
             <div className="space-y-6">
               <h3 ref={stepRef} tabIndex={-1} className="font-poppins text-xl font-semibold text-foreground focus-visible:outline-none">

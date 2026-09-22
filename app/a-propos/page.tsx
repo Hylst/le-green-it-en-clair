@@ -261,7 +261,7 @@ export default function AProposPage() {
                 <Button asChild className="flex-1">
                   <a href="mailto:geoffroy.streit@gmail.com">
                     <Mail className="w-4 h-4 mr-2" />
-                    Nous contacter
+                    Me contacter
                   </a>
                 </Button>
                 <Button variant="outline" className="flex-1 bg-transparent" asChild>

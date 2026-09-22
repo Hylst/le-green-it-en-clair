@@ -100,6 +100,12 @@ export default function MentionsLegalesPage() {
                 <strong className="text-foreground">Données temps réel :</strong> les pages Chiffres et Datacenters affichent, à la demande, l'intensité carbone et le mix électrique de production en France (RTE éCO2mix via la plateforme ODRE / Open Data Réseaux Énergies, licence ouverte). Les données sont rafraîchies toutes les 10 minutes et mises en cache dans votre navigateur (clé <code>greenit-eco2mix-cache-v1</code>) ; en cas d'indisponibilité de l'API, des repères de référence (ADEME / RTE 2024) sont affichés. Votre adresse IP est transmise à l'API ODRE. Aucune donnée n'est envoyée à un autre tiers.
               </p>
               <p>
+                <strong className="text-foreground">Hébergement vert :</strong> l&apos;outil d&apos;analyse de site interroge, à la demande, l&apos;interface publique de la Green Web Foundation avec le nom de domaine que vous saisissez, pour vérifier si l&apos;hébergement est vert. Votre adresse IP lui est donc transmise. Rien d&apos;autre.
+              </p>
+              <p>
+                <strong className="text-foreground">Vidéos :</strong> la page Ressources affiche les affiches des vidéos Canal-U (serveurs de Canal-U / UVED) : votre adresse IP leur est transmise dès le chargement de la page. La vidéo distante elle-même ne charge que si vous cliquez sur lecture.
+              </p>
+              <p>
                 <strong className="text-foreground">Veille RSS :</strong> l'onglet Veille de la page Dossiers et veille (/actualites) affiche, à la demande, les titres des flux de plusieurs médias et organismes. Les flux qui l'autorisent sont lus directement ; les autres passent par le service tiers rss2json.com, auquel votre adresse IP est transmise. Seuls titre, date et lien sont affichés, le contenu reste hébergé chez la source. Votre sélection de flux est mémorisée localement (clé <code>greenit-selected-feeds-v1</code>) et les titres récupérés sont conservés 15 minutes dans la session de votre navigateur (clés <code>greenit-rss-cache-*</code>, supprimées à la fermeture de l'onglet) pour limiter les requêtes : rien ne quitte jamais votre appareil.
               </p>
               <p>
@@ -192,7 +198,7 @@ export default function MentionsLegalesPage() {
             </p>
             <Link href="/a-propos">
               <span className="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 font-medium underline">
-                Contactez-nous
+                Me contacter
               </span>
             </Link>
           </div>

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Cloud, Lightbulb, Leaf, CheckCircle2, Clock, Compass, Download, RotateCcw } from "lucide-react";
+import { Cloud, Lightbulb, Leaf, CheckCircle2, Clock, Compass, Download, RotateCcw, Server } from "lucide-react";
 import { SourceTooltip } from "@/components/source-tooltip";
 import { MoreDetails } from "@/components/more-details";
 
@@ -131,7 +131,10 @@ function sortByPriority(pool: ScoredProvider[], priority: PriorityAnswer): Score
 function buildReason(provider: ScoredProvider, rank: number, total: number): string {
   const pue = provider.pue.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 2 })
   const neutrality = provider.carbonNeutral ? "neutralité carbone déclarée" : "neutralité carbone encore en cours"
-  return `Score éco de ${provider.sustainabilityScore} (n° ${rank} sur ${total} au classement général), données hébergées en ${provider.country}, PUE de ${pue} et ${provider.renewableEnergy}${NBSP}% d'énergie renouvelable, ${neutrality}.`
+  const franceNote = provider.serveursFrance
+    ? ` Serveurs en France (${provider.serveursFranceNote}) : atout, l'électricité produite en France est bas-carbone à 95 % (RTE, bilan 2024).`
+    : ""
+  return `Score éco de ${provider.sustainabilityScore} (n° ${rank} sur ${total} au classement général), données hébergées en ${provider.country}, PUE de ${pue} et ${provider.renewableEnergy}${NBSP}% d'énergie renouvelable, ${neutrality}.${franceNote}`
 }
 
 /* Règles de recommandation (transparentes, 100 % basées sur les données affichées) :
@@ -158,15 +161,15 @@ function recommendProviders(
   }
 }
 
-/* Export CSV des 8 hébergeurs (Blob + URL.createObjectURL, sans dépendance) :
+/* Export CSV des 15 hébergeurs (Blob + URL.createObjectURL, sans dépendance) :
    ordre du classement général (score décroissant), formule du score rappelée
    en commentaire d'en-tête. */
 function exportProvidersCsv(all: ScoredProvider[]): void {
   const header = [
-    "# Comparateur cloud : export des 8 hébergeurs (données indicatives 2024-2026)",
+    "# Comparateur cloud : export des 15 hébergeurs (données indicatives 2024-2026)",
     `# Score éco (0-100) = 40${NBSP}% PUE (100 à 1,0, 0 à 1,5, linéaire) + 40${NBSP}% renouvelable (${NBSP}% affiché) + 20${NBSP}% engagements (10 pts neutralité déclarée + jusqu'à 10 pts certifications : 3 et + = 10, 2 = 7, 1 = 3)`,
     "# Sources : rapports RSE des fournisseurs, The Green Web Foundation, ADEME",
-    "nom;pays;PUE;renouvelable_%;neutralite_carbone;certifications;document_source;score_eco",
+    "nom;pays;PUE;renouvelable_%;neutralite_carbone;certifications;document_source;serveurs_france;note_serveurs_france;score_eco",
   ]
   const rows = [...all]
     .sort((a, b) => b.sustainabilityScore - a.sustainabilityScore)
@@ -179,6 +182,8 @@ function exportProvidersCsv(all: ScoredProvider[]): void {
         p.carbonNeutral ? "Déclarée" : "En cours",
         `"${p.certifications.join(" | ")}"`,
         `"${p.source}"`,
+        p.serveursFrance ? "Oui" : "Non",
+        `"${p.serveursFranceNote}"`,
         String(p.sustainabilityScore),
       ].join(";")
     )
@@ -660,8 +665,17 @@ export default function CloudComparator() {
                       <div>
                         <h3 className="text-xl font-bold text-foreground">{provider.name}</h3>
                         <span className="text-sm text-muted-foreground">{provider.country}</span>
+                        {provider.serveursFrance && (
+                          <span className="ml-2 inline-flex items-center gap-1 rounded-full border border-emerald-300 bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-800 dark:border-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
+                            <Server aria-hidden="true" className="h-3 w-3" />
+                            Serveurs en France
+                          </span>
+                        )}
                       </div>
                     </div>
+                    {provider.serveursFrance && (
+                      <p className="-mt-1 mb-2 text-xs text-muted-foreground">{provider.serveursFranceNote}</p>
+                    )}
                     <p className="text-sm text-muted-foreground mb-3">{provider.description}</p>
                     <p className="text-xs text-muted-foreground mb-3">Source : {provider.source}</p>
                     <div className="flex flex-wrap gap-2">
@@ -719,8 +733,8 @@ export default function CloudComparator() {
                 • <strong>Infomaniak</strong> ou <strong>Hetzner</strong> pour le meilleur bilan européen
               </li>
               <li>
-                • <strong>OVHcloud</strong> ou <strong>Scaleway</strong> pour rester en France (données
-                2025 et 2024)
+                • <strong>OVHcloud</strong>, <strong>Scaleway</strong>, <strong>3DS Outscale</strong>, <strong>Ikoula</strong> ou <strong>Clever Cloud</strong> pour
+                rester en France (données 2024 à 2026, dont certaines avec réserve explicite)
               </li>
               <li>
                 • <strong>Google Cloud</strong> si vous avez besoin d'un hyperscaler avec engagement environnemental fort

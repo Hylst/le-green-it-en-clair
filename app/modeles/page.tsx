@@ -15,6 +15,13 @@ import {
   CheckCircle2,
   Users,
   Leaf,
+  Gauge,
+  FlaskConical,
+  Zap,
+  Globe,
+  BookOpen,
+  ListChecks,
+  ExternalLink,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -100,7 +107,7 @@ const templates = [
       "Analyse automatique du DOM",
       "Calcul du poids des pages",
       "Vérification écoconception",
-      "Rapport JSON/HTML",
+      "Rapport JSON",
     ],
   },
   {
@@ -143,6 +150,72 @@ const templates = [
 ]
 
 const categories = ["Tous", "Gouvernance", "Mesure", "Audit", "Technique", "Stratégie", "Formation", "Achats"]
+
+// Outils et référentiels vérifiés un par un le 22/09/2026 (page d'accueil lue + opérateur confirmé).
+// Seul WebPageTest bloque les robots (403 + défi anti-robot, y compris via lecteur proxy) : [P],
+// description corroborée par sa page « about » et catchpoint.com (tests gratuits, Catchpoint,
+// créé par Patrick Meenan en 2008). Les autres sont [V].
+const onlineAnalyzers = [
+  {
+    name: "EcoIndex",
+    operator: "Collectif Green IT",
+    url: "https://www.ecoindex.fr",
+    description: "Évalue la performance environnementale d'une page web avec un score simple, en français comme en anglais.",
+    badges: ["Gratuit", "Sans compte"],
+    icon: Gauge,
+  },
+  {
+    name: "Website Carbon Calculator",
+    operator: "Wholegrain Digital",
+    url: "https://www.websitecarbon.com",
+    description: "Estime les émissions de CO₂e par page vue à partir du poids transféré (modèle Sustainable Web Design).",
+    badges: ["Gratuit", "Sans compte"],
+    icon: Leaf,
+  },
+  {
+    name: "Yellow Lab Tools",
+    operator: "Gaël Métais",
+    url: "https://yellowlab.tools",
+    description: "Audit gratuit et open source : bonnes pratiques de performance et qualité du code front-end (HTML, CSS, JS, images, polices).",
+    badges: ["Gratuit", "Sans compte"],
+    icon: FlaskConical,
+  },
+  {
+    name: "PageSpeed Insights",
+    operator: "Google",
+    url: "https://pagespeed.web.dev",
+    description: "Analyse mêlant données de terrain et de laboratoire, avec les Core Web Vitals et des pistes d'optimisation.",
+    badges: ["Gratuit", "Sans compte"],
+    icon: Zap,
+  },
+  {
+    name: "WebPageTest",
+    operator: "Catchpoint",
+    url: "https://www.webpagetest.org",
+    description: "Tests approfondis multi-navigateurs, lieux et débits, avec film de chargement et cascade détaillée.",
+    badges: ["Gratuit", "Compte gratuit"],
+    icon: Globe,
+  },
+]
+
+const freeReferentials = [
+  {
+    name: "RGESN",
+    operator: "Mission interministérielle numérique écoresponsable (DINUM)",
+    url: "https://ecoresponsable.numerique.gouv.fr/publications/referentiel-general-ecoconception/",
+    description: "Référentiel général d'écoconception des services numériques, version 2 de 2024 : critères par étape projet, outil d'évaluation et modèle de déclaration.",
+    badges: ["Gratuit", "Officiel"],
+    icon: BookOpen,
+  },
+  {
+    name: "Écoconception web : les 115 bonnes pratiques",
+    operator: "GreenIT.fr et contributeurs",
+    url: "https://collectif.greenit.fr/ecoconception-web/",
+    description: "Checklist gratuite des 115 pratiques d'écoconception web, 5e édition de 2025 avec correspondance RGESN.",
+    badges: ["Gratuit", "Checklist"],
+    icon: ListChecks,
+  },
+]
 
 export default function ModelesPage() {
   const [selectedCategory, setSelectedCategory] = useState("Tous")
@@ -247,6 +320,112 @@ export default function ModelesPage() {
                 </Card>
               )
             })}
+          </div>
+
+          <div className="mt-16">
+            <div className="mb-8 text-center">
+              <h2 className="mb-4 text-2xl font-bold text-slate-900 dark:text-slate-100 lg:text-3xl">
+                Analyseurs et référentiels gratuits en ligne
+              </h2>
+              <p className="mx-auto max-w-3xl text-pretty text-slate-600 dark:text-slate-300">
+                En complément du script, ces services gratuits analysent une page sans rien installer,
+                et ces référentiels cadrent la démarche. Liens directs vers les éditeurs, sans intermédiaire.
+              </p>
+            </div>
+
+            <h3 className="mb-4 text-xl font-bold text-slate-900 dark:text-slate-100">
+              Analyseurs en ligne
+            </h3>
+            <div className="mb-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {onlineAnalyzers.map((tool) => {
+                const Icon = tool.icon
+                return (
+                  <Card
+                    key={tool.url}
+                    className="group flex flex-col border-2 border-slate-200 transition-all hover:shadow-xl dark:border-slate-700 dark:bg-slate-800"
+                  >
+                    <div className="p-6 flex-1">
+                      <div className="mb-4 flex items-start justify-between gap-2">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-muted/10">
+                          <Icon className="h-6 w-6 text-emerald-700 dark:text-emerald-400" />
+                        </div>
+                        <div className="flex flex-wrap justify-end gap-1">
+                          {tool.badges.map((badge) => (
+                            <Badge key={badge} variant="secondary" className="text-xs">
+                              {badge}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      <h4 className="mb-1 text-balance text-lg font-bold text-slate-900 dark:text-slate-100">
+                        {tool.name}
+                      </h4>
+                      <p className="mb-3 text-xs text-slate-500 dark:text-slate-400">
+                        par {tool.operator}
+                      </p>
+                      <p className="text-pretty text-sm text-slate-600 dark:text-slate-300">
+                        {tool.description}
+                      </p>
+                    </div>
+                    <div className="border-t border-slate-200 p-4 dark:border-slate-700">
+                      <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700">
+                        <a href={tool.url} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          Ouvrir le site
+                        </a>
+                      </Button>
+                    </div>
+                  </Card>
+                )
+              })}
+            </div>
+
+            <h3 className="mb-4 text-xl font-bold text-slate-900 dark:text-slate-100">
+              Référentiels et guides
+            </h3>
+            <div className="grid gap-6 md:grid-cols-2">
+              {freeReferentials.map((tool) => {
+                const Icon = tool.icon
+                return (
+                  <Card
+                    key={tool.url}
+                    className="group flex flex-col border-2 border-slate-200 transition-all hover:shadow-xl dark:border-slate-700 dark:bg-slate-800"
+                  >
+                    <div className="p-6 flex-1">
+                      <div className="mb-4 flex items-start justify-between gap-2">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-muted/10">
+                          <Icon className="h-6 w-6 text-emerald-700 dark:text-emerald-400" />
+                        </div>
+                        <div className="flex flex-wrap justify-end gap-1">
+                          {tool.badges.map((badge) => (
+                            <Badge key={badge} variant="secondary" className="text-xs">
+                              {badge}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      <h4 className="mb-1 text-balance text-lg font-bold text-slate-900 dark:text-slate-100">
+                        {tool.name}
+                      </h4>
+                      <p className="mb-3 text-xs text-slate-500 dark:text-slate-400">
+                        par {tool.operator}
+                      </p>
+                      <p className="text-pretty text-sm text-slate-600 dark:text-slate-300">
+                        {tool.description}
+                      </p>
+                    </div>
+                    <div className="border-t border-slate-200 p-4 dark:border-slate-700">
+                      <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700">
+                        <a href={tool.url} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          Ouvrir le site
+                        </a>
+                      </Button>
+                    </div>
+                  </Card>
+                )
+              })}
+            </div>
           </div>
 
           <Card className="mt-12 border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 p-8 dark:border-emerald-800 dark:from-emerald-950 dark:to-teal-950">

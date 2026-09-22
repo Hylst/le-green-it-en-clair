@@ -4,7 +4,7 @@ import { useState, type ReactNode } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Cloud, Lightbulb, Leaf, CheckCircle2, Clock, Compass, Download, Eye, RotateCcw, Server } from "lucide-react";
+import { Cloud, Lightbulb, Leaf, CheckCircle2, Clock, Compass, Download, Eye, RotateCcw, Server, Calculator, TriangleAlert } from "lucide-react";
 import { SourceTooltip } from "@/components/source-tooltip";
 import { MoreDetails } from "@/components/more-details";
 
@@ -67,6 +67,24 @@ function bestOf(values: (number | null)[], higherWins: boolean): boolean[] {
   if (valid.length === 0) return values.map(() => false)
   const best = higherWins ? Math.max(...valid) : Math.min(...valid)
   return values.map((v) => v !== null && v === best)
+}
+
+/* Estimateur de gain (chantier 4) : kWh/an = conso IT × (PUE actuel − PUE
+   cible). Nul si conso invalide. Pas de CO₂e : aucun facteur d'émission
+   par fournisseur publié. */
+function computeGain(
+  itKwh: number,
+  pueFrom: number,
+  pueTo: number,
+  scoreFrom: number,
+  scoreTo: number
+): { kwhPerYear: number; pct: number; scoreDelta: number } | null {
+  if (!(itKwh > 0) || !(pueFrom > 0) || !(pueTo > 0)) return null
+  return {
+    kwhPerYear: itKwh * (pueFrom - pueTo),
+    pct: (pueFrom - pueTo) / pueFrom,
+    scoreDelta: scoreTo - scoreFrom,
+  }
 }
 
 type CloudProvider = {
@@ -380,18 +398,6 @@ export default function CloudComparator() {
   const [region, setRegion] = useState<RegionAnswer | null>(null)
   const [priority, setPriority] = useState<PriorityAnswer | null>(null)
   const [recommendation, setRecommendation] = useState<RecommendationResult | null>(null)
-  /* Face-à-face : noms des favoris dans l'ordre de sélection (max 3). */
-  const [favorites, setFavorites] = useState<string[]>([])
-  const [faceoffOpen, setFaceoffOpen] = useState(true)
-  const faceoff = favorites
-    .map((name) => providers.find((p) => p.name === name))
-    .filter((p): p is (typeof providers)[number] => p !== undefined)
-
-  const handleToggleFavorite = (name: string) => {
-    const next = toggleFavorite(favorites, name)
-    if (next.length >= 2 && favorites.length < 2) setFaceoffOpen(true)
-    setFavorites(next)
-  }
 
   const providers: (CloudProvider & { sustainabilityScore: number; transparencyScore: number })[] = (
     [
@@ -716,6 +722,45 @@ export default function CloudComparator() {
           return 0
       }
     })
+
+  /* Face-à-face : noms des favoris dans l'ordre de sélection (max 3).
+     Déclaré après `providers` (TDZ sinon au premier coché). */
+  const [favorites, setFavorites] = useState<string[]>([])
+  const [faceoffOpen, setFaceoffOpen] = useState(true)
+  const faceoff = favorites
+    .map((name) => providers.find((p) => p.name === name))
+    .filter((p): p is (typeof providers)[number] => p !== undefined)
+
+  const handleToggleFavorite = (name: string) => {
+    const next = toggleFavorite(favorites, name)
+    if (next.length >= 2 && favorites.length < 2) setFaceoffOpen(true)
+    setFavorites(next)
+  }
+  /* Estimateur de gain : noms triés + saisie, résultat calculé en direct. */
+  const gainNames = [...providers].map((p) => p.name).sort((a, b) => a.localeCompare(b, "fr"))
+  const [gainFrom, setGainFrom] = useState("")
+  const [gainTo, setGainTo] = useState("")
+  const [gainItKwh, setGainItKwh] = useState("")
+  const gainFromProvider = providers.find((p) => p.name === gainFrom)
+  const gainToProvider = providers.find((p) => p.name === gainTo)
+  const gain =
+    gainFromProvider !== undefined && gainToProvider !== undefined
+      ? computeGain(
+          Number(gainItKwh),
+          gainFromProvider.pue,
+          gainToProvider.pue,
+          gainFromProvider.sustainabilityScore,
+          gainToProvider.sustainabilityScore
+        )
+      : null
+  const gainUsesEstimated =
+    gainFromProvider !== undefined &&
+    (gainFromProvider.pueEstime ||
+      gainFromProvider.renouvelableEstime ||
+      gainToProvider?.pueEstime === true ||
+      gainToProvider?.renouvelableEstime === true)
+  const gainEstimatedName =
+    gainFromProvider?.pueEstime === true || gainFromProvider?.renouvelableEstime === true ? gainFrom : gainTo
 
   const getScoreColor = (score: number) => {
     if (score >= 90) return "text-emerald-600 dark:text-emerald-400"
@@ -1098,6 +1143,103 @@ export default function CloudComparator() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Estimateur de gain : actuel -> cible + conso IT, résultat en direct. */}
+          <div className="rounded-lg border border-border bg-card p-4">
+            <h4 className="mb-2 flex items-center gap-2 font-semibold text-foreground">
+              <Calculator aria-hidden="true" className="h-5 w-5" />
+              Estimer mon gain
+            </h4>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <div>
+                <Label htmlFor="gain-from">Mon fournisseur actuel</Label>
+                <select
+                  id="gain-from"
+                  value={gainFrom}
+                  onChange={(e) => setGainFrom(e.target.value)}
+                  className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
+                >
+                  <option value="">Choisir…</option>
+                  {gainNames.map((name) => (
+                    <option key={name} value={name}>
+                      {name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <Label htmlFor="gain-to">Mon fournisseur cible</Label>
+                <select
+                  id="gain-to"
+                  value={gainTo}
+                  onChange={(e) => setGainTo(e.target.value)}
+                  className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
+                >
+                  <option value="">Choisir…</option>
+                  {gainNames.map((name) => (
+                    <option key={name} value={name}>
+                      {name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <Label htmlFor="gain-it">Ma conso IT annuelle (kWh)</Label>
+                <input
+                  id="gain-it"
+                  type="number"
+                  min={1}
+                  value={gainItKwh}
+                  onChange={(e) => setGainItKwh(e.target.value)}
+                  placeholder="Ex. 100000"
+                  className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
+                />
+                <p className="mt-1 text-xs text-muted-foreground">Facture ou monitoring, serveurs seuls hors refroidissement.</p>
+              </div>
+            </div>
+            <div aria-live="polite" className="mt-3">
+              {gainFrom !== "" && gainTo !== "" && gainFrom === gainTo ? (
+                <p className="text-sm text-muted-foreground">Choisissez deux fournisseurs différents.</p>
+              ) : gain === null ? (
+                <p className="text-sm text-muted-foreground">Renseignez les 3 champs pour voir votre gain estimé.</p>
+              ) : (
+                <div className="space-y-2">
+                  {gainUsesEstimated && (
+                    <p className="flex items-start gap-2 text-sm text-amber-700 dark:text-amber-300">
+                      <TriangleAlert aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" />
+                      Donnée prudente par défaut pour {gainEstimatedName} : gain à interpréter avec réserve.
+                    </p>
+                  )}
+                  {gain.kwhPerYear < 0 ? (
+                    <p className="text-sm font-semibold text-amber-700 dark:text-amber-300">
+                      Surcoût estimé : +{Math.round(Math.abs(gain.kwhPerYear)).toLocaleString("fr-FR")} kWh/an (+
+                      {Math.round(Math.abs(gain.pct) * 100)}
+                      {NBSP}%)
+                    </p>
+                  ) : (
+                    <p className="text-sm">
+                      <strong className="text-2xl font-bold text-emerald-700 dark:text-emerald-300">
+                        {Math.round(gain.kwhPerYear).toLocaleString("fr-FR")} kWh/an
+                      </strong>{" "}
+                      <span className="text-muted-foreground">
+                        économisés (−{Math.round(gain.pct * 100)}
+                        {NBSP}%) · score {gain.scoreDelta >= 0 ? "+" : ""}
+                        {gain.scoreDelta} pts
+                      </span>
+                    </p>
+                  )}
+                  <p className="text-xs text-muted-foreground">
+                    PUE {gainFromProvider?.pue.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 2 })} →{" "}
+                    {gainToProvider?.pue.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 2 })} · renouvelable{" "}
+                    {gainFromProvider?.renewableEnergy}
+                    {NBSP}% → {gainToProvider?.renewableEnergy}
+                    {NBSP}% · Estimation indicative : conso IT identique, PUE moyens constants. Hors renouvelable (matching annuel, pas de
+                    facteur d'émission par fournisseur publié).
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Recommandation */}

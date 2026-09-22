@@ -88,13 +88,16 @@ export default function MentionsLegalesPage() {
                 <strong className="text-foreground">Quiz :</strong> le quiz conserve dans votre navigateur (clé <code>greenit-quiz-session-v1</code>) votre session en cours et vos derniers résultats, pour vous permettre de reprendre et de revoir vos erreurs. Ces données ne quittent jamais votre appareil.
               </p>
               <p>
+                <strong className="text-foreground">Outils :</strong> les outils conservent vos saisies et résultats dans votre navigateur pour l&apos;historique local et l&apos;export/import : sobriété (clé <code>greenit-sobriety-v1</code>), analyse de site (clé <code>greenit-website-carbon-v1</code>), audit de parc (clé <code>greenit-audit-parc-v1</code>), listes de contrôle du blog (clé <code>greenit-blog-audit-checklist-v1</code>). Ces données ne quittent jamais votre appareil.
+              </p>
+              <p>
                 <strong className="text-foreground">Hors-ligne :</strong> le site peut mettre en cache des pages et images sur votre appareil (service worker) pour fonctionner sans connexion. Même chose : tout reste chez vous.
               </p>
               <p>
                 <strong className="text-foreground">Cartes :</strong> les pages avec carte (Chiffres, Recyclage) chargent des fonds de carte depuis les serveurs d'OpenStreetMap. Votre adresse IP leur est donc transmise, comme pour n'importe quel site qui affiche du contenu tiers. Pas de compte, pas de suivi de notre côté.
               </p>
               <p>
-                <strong className="text-foreground">Données temps réel :</strong> la page Chiffres affiche, à la demande, l'intensité carbone et le mix électrique de production en France (RTE éCO2mix via la plateforme ODRE / Open Data Réseaux Énergies, licence ouverte). Les données sont rafraîchies toutes les 10 minutes et mises en cache dans votre navigateur (clé <code>greenit-eco2mix-cache-v1</code>) ; en cas d'indisponibilité de l'API, des repères de référence (ADEME / RTE 2024) sont affichés. Votre adresse IP est transmise à l'API ODRE. Aucune donnée n'est envoyée à un autre tiers.
+                <strong className="text-foreground">Données temps réel :</strong> les pages Chiffres et Datacenters affichent, à la demande, l'intensité carbone et le mix électrique de production en France (RTE éCO2mix via la plateforme ODRE / Open Data Réseaux Énergies, licence ouverte). Les données sont rafraîchies toutes les 10 minutes et mises en cache dans votre navigateur (clé <code>greenit-eco2mix-cache-v1</code>) ; en cas d'indisponibilité de l'API, des repères de référence (ADEME / RTE 2024) sont affichés. Votre adresse IP est transmise à l'API ODRE. Aucune donnée n'est envoyée à un autre tiers.
               </p>
               <p>
                 <strong className="text-foreground">Veille RSS :</strong> l'onglet Veille de la page Dossiers et veille (/actualites) affiche, à la demande, les titres des flux de plusieurs médias et organismes. Les flux qui l'autorisent sont lus directement ; les autres passent par le service tiers rss2json.com, auquel votre adresse IP est transmise. Seuls titre, date et lien sont affichés, le contenu reste hébergé chez la source. Votre sélection de flux est mémorisée localement (clé <code>greenit-selected-feeds-v1</code>) et les titres récupérés sont conservés 15 minutes dans la session de votre navigateur (clés <code>greenit-rss-cache-*</code>, supprimées à la fermeture de l'onglet) pour limiter les requêtes : rien ne quitte jamais votre appareil.
@@ -118,10 +121,10 @@ export default function MentionsLegalesPage() {
             </div>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                <strong className="text-foreground">Contenus textuels :</strong> Les contenus de ce site sont mis à disposition à titre informatif et éducatif. Ils peuvent être réutilisés librement avec attribution de la source.
+                <strong className="text-foreground">Textes et visuels du site :</strong> les contenus créés pour ce site peuvent être réutilisés avec citation de la source, pour un usage non commercial. Les contenus tiers (titres des flux RSS, vidéos embarquées, données des sources citées) restent soumis à leurs propres conditions.
               </p>
               <p>
-                <strong className="text-foreground">Illustrations :</strong> Les illustrations présentes sur ce site ont été créées avec l'assistance d'outils d'intelligence artificielle générative (IA). Elles sont utilisées dans un cadre personnel et éducatif non commercial.
+                <strong className="text-foreground">Illustrations et mises en pages :</strong> elles ont été créées avec l'assistance d'outils d'intelligence artificielle générative (IA). Elles sont utilisées dans un cadre personnel et éducatif non commercial.
               </p>
               <p>
                 <strong className="text-foreground">Code source :</strong> Le code source du site est public sur{" "}
@@ -148,6 +151,12 @@ export default function MentionsLegalesPage() {
                 </li>
                 <li>
                   <strong className="text-foreground">GreenIT.fr</strong> - Communauté des acteurs du numérique responsable
+                </li>
+                <li>
+                  <strong className="text-foreground">Arcep</strong> - Enquête annuelle sur l&apos;empreinte environnementale du numérique
+                </li>
+                <li>
+                  <strong className="text-foreground">RTE (éCO2mix)</strong> - Données temps réel du mix électrique français
                 </li>
                 <li>
                   <strong className="text-foreground">ONU</strong> - Global E-Waste Monitor

@@ -133,7 +133,7 @@ export function Footer() {
         <div className="mt-12 border-t border-border pt-8">
           <div className="flex flex-col items-center justify-between gap-4 lg:flex-row">
             <p className="text-sm text-muted-foreground">
-              © 2026 Le Green IT en clair. Créé par Geoffroy Streit. Projet personnel non commercial.
+              © <span title="Site en ligne depuis 2023">{new Date().getFullYear()}</span> Le Green IT en clair. Créé par Geoffroy Streit. Projet personnel non commercial. Textes et visuels réutilisables avec citation de la source, pour un usage non commercial.
             </p>
             <div className="flex items-center gap-4 text-sm">
               <Link href="/mentions-legales" className="text-muted-foreground hover:text-primary link-slide">

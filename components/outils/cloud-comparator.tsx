@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Cloud, Lightbulb, Leaf, CheckCircle2, Clock, Compass, Download, RotateCcw, Server } from "lucide-react";
+import { Cloud, Lightbulb, Leaf, CheckCircle2, Clock, Compass, Download, Eye, RotateCcw, Server } from "lucide-react";
 import { SourceTooltip } from "@/components/source-tooltip";
 import { MoreDetails } from "@/components/more-details";
 
@@ -34,6 +34,26 @@ function computeSustainabilityScore(provider: { pue: number; renewableEnergy: nu
   return Math.round(score)
 }
 
+/* Transparence (0-4, affichage seul, score éco inchangé) : 1 pt PUE publié
+   + 1 pt renouvelable publié + 1 pt source datée + 1 pt engagement
+   vérifiable (certification listée ou neutralité déclarée). */
+const HAS_YEAR = /\b(19|20)\d{2}\b/
+
+function computeTransparencyScore(provider: {
+  pueEstime: boolean
+  renouvelableEstime: boolean
+  source: string
+  carbonNeutral: boolean
+  certifications: string[]
+}): number {
+  let score = 0
+  if (!provider.pueEstime) score += 1
+  if (!provider.renouvelableEstime) score += 1
+  if (HAS_YEAR.test(provider.source)) score += 1
+  if (provider.certifications.length > 0 || provider.carbonNeutral) score += 1
+  return score
+}
+
 type CloudProvider = {
   name: string
   country: string
@@ -49,6 +69,17 @@ type CloudProvider = {
      du fournisseur + année). Le pays affiché reste celui du siège. */
   serveursFrance: boolean
   serveursFranceNote: string
+  /* Nouveaux critères (affichage seul) : null = non publié. Seul le vérifié
+     [V] s'affiche, partiel assumé avec mention explicite du manquant. Les
+     notes portent le document et l'année de chaque valeur. */
+  wue: number | null
+  wueNote: string | null
+  cue: number | null
+  cueNote: string | null
+  cycleVie: string | null
+  /* Vrai quand la valeur est prudente par défaut (non publiée par le fournisseur). */
+  pueEstime: boolean
+  renouvelableEstime: boolean
 }
 
 /* Questionnaire besoin (chantier V3.2) : 3 questions maximum, logique 100 %
@@ -58,7 +89,7 @@ type UsageAnswer = "site" | "services" | "mondial"
 type RegionAnswer = "france" | "europe" | "monde"
 type PriorityAnswer = "score" | "pue" | "renouvelable"
 
-type ScoredProvider = CloudProvider & { sustainabilityScore: number }
+type ScoredProvider = CloudProvider & { sustainabilityScore: number; transparencyScore: number }
 
 type RecommendationItem = { name: string; reason: string }
 type RecommendationResult = { intro: string; items: RecommendationItem[]; note: string }
@@ -169,7 +200,7 @@ function exportProvidersCsv(all: ScoredProvider[]): void {
     "# Comparateur cloud : export des 15 hébergeurs (données indicatives 2024-2026)",
     `# Score éco (0-100) = 40${NBSP}% PUE (100 à 1,0, 0 à 1,5, linéaire) + 40${NBSP}% renouvelable (${NBSP}% affiché) + 20${NBSP}% engagements (10 pts neutralité déclarée + jusqu'à 10 pts certifications : 3 et + = 10, 2 = 7, 1 = 3)`,
     "# Sources : rapports RSE des fournisseurs, The Green Web Foundation, ADEME",
-    "nom;pays;PUE;renouvelable_%;neutralite_carbone;certifications;document_source;serveurs_france;note_serveurs_france;score_eco",
+    "nom;pays;PUE;renouvelable_%;neutralite_carbone;certifications;document_source;serveurs_france;note_serveurs_france;score_eco;wue_l_kwh;note_wue;cue;note_cue;transparence_4;cycle_vie",
   ]
   const rows = [...all]
     .sort((a, b) => b.sustainabilityScore - a.sustainabilityScore)
@@ -185,6 +216,12 @@ function exportProvidersCsv(all: ScoredProvider[]): void {
         p.serveursFrance ? "Oui" : "Non",
         `"${p.serveursFranceNote}"`,
         String(p.sustainabilityScore),
+        p.wue === null ? "" : p.wue.toLocaleString("fr-FR", { maximumFractionDigits: 2 }),
+        `"${p.wueNote ?? ""}"`,
+        p.cue === null ? "" : p.cue.toLocaleString("fr-FR", { maximumFractionDigits: 3 }),
+        `"${p.cueNote ?? ""}"`,
+        String(p.transparencyScore),
+        `"${p.cycleVie ?? ""}"`,
       ].join(";")
     )
   const csv = `${CSV_BOM}${[...header, ...rows].join("\r\n")}\r\n`
@@ -200,7 +237,7 @@ function exportProvidersCsv(all: ScoredProvider[]): void {
 }
 
 export default function CloudComparator() {
-  const [sortBy, setSortBy] = useState<"score" | "pue" | "renewable" | "name">("score")
+  const [sortBy, setSortBy] = useState<"score" | "pue" | "renewable" | "name" | "transparency">("score")
   const [filterGreen, setFilterGreen] = useState(false)
   /* Questionnaire besoin : brouillon (radios) + résultat validé. Tant que
      l'utilisateur ne valide pas, le classement affiché reste inchangé. */
@@ -209,7 +246,7 @@ export default function CloudComparator() {
   const [priority, setPriority] = useState<PriorityAnswer | null>(null)
   const [recommendation, setRecommendation] = useState<RecommendationResult | null>(null)
 
-  const providers: (CloudProvider & { sustainabilityScore: number })[] = (
+  const providers: (CloudProvider & { sustainabilityScore: number; transparencyScore: number })[] = (
     [
       {
         name: "Infomaniak",
@@ -223,6 +260,13 @@ export default function CloudComparator() {
         color: "emerald",
         serveursFrance: false,
         serveursFranceNote: "",
+        wue: null,
+        wueNote: null,
+        cue: null,
+        cueNote: null,
+        cycleVie: null,
+        pueEstime: false,
+        renouvelableEstime: false,
       },
       {
         name: "Scaleway",
@@ -236,6 +280,13 @@ export default function CloudComparator() {
         color: "emerald",
         serveursFrance: true,
         serveursFranceNote: "Datacenters en France (Impact Report 2024)",
+        wue: null,
+        wueNote: null,
+        cue: null,
+        cueNote: null,
+        cycleVie: null,
+        pueEstime: false,
+        renouvelableEstime: false,
       },
       {
         name: "OVHcloud",
@@ -249,6 +300,13 @@ export default function CloudComparator() {
         color: "teal",
         serveursFrance: true,
         serveursFranceNote: "Datacenters en France : Gravelines, Paris, Roubaix, Strasbourg (page infrastructures OVHcloud)",
+        wue: 0.34,
+        wueNote: "Document d'enregistrement universel 2025",
+        cue: null,
+        cueNote: null,
+        cycleVie: null,
+        pueEstime: false,
+        renouvelableEstime: false,
       },
       {
         name: "Google Cloud",
@@ -262,6 +320,13 @@ export default function CloudComparator() {
         color: "emerald",
         serveursFrance: true,
         serveursFranceNote: "Région Paris europe-west9, ouverte en 2022 (blog officiel Google Cloud)",
+        wue: null,
+        wueNote: null,
+        cue: null,
+        cueNote: null,
+        cycleVie: null,
+        pueEstime: false,
+        renouvelableEstime: false,
       },
       {
         name: "Microsoft Azure",
@@ -275,6 +340,13 @@ export default function CloudComparator() {
         color: "teal",
         serveursFrance: false,
         serveursFranceNote: "",
+        wue: null,
+        wueNote: null,
+        cue: null,
+        cueNote: null,
+        cycleVie: null,
+        pueEstime: false,
+        renouvelableEstime: false,
       },
       {
         name: "AWS",
@@ -288,6 +360,13 @@ export default function CloudComparator() {
         color: "cyan",
         serveursFrance: false,
         serveursFranceNote: "",
+        wue: null,
+        wueNote: null,
+        cue: null,
+        cueNote: null,
+        cycleVie: null,
+        pueEstime: false,
+        renouvelableEstime: false,
       },
       {
         name: "DigitalOcean",
@@ -301,6 +380,13 @@ export default function CloudComparator() {
         color: "orange",
         serveursFrance: false,
         serveursFranceNote: "",
+        wue: null,
+        wueNote: null,
+        cue: null,
+        cueNote: null,
+        cycleVie: null,
+        pueEstime: true,
+        renouvelableEstime: true,
       },
       {
         name: "Hetzner",
@@ -314,6 +400,13 @@ export default function CloudComparator() {
         color: "emerald",
         serveursFrance: false,
         serveursFranceNote: "",
+        wue: null,
+        wueNote: null,
+        cue: null,
+        cueNote: null,
+        cycleVie: null,
+        pueEstime: false,
+        renouvelableEstime: false,
       },
       {
         name: "IONOS",
@@ -327,6 +420,13 @@ export default function CloudComparator() {
         color: "teal",
         serveursFrance: true,
         serveursFranceNote: "Datacenter de Niederlauterbach, France (panneaux solaires installés en 2023, rapport 2024)",
+        wue: null,
+        wueNote: null,
+        cue: 0.003,
+        cueNote: "Rapport développement durable 2024",
+        cycleVie: null,
+        pueEstime: false,
+        renouvelableEstime: false,
       },
       {
         name: "Hostinger",
@@ -340,6 +440,13 @@ export default function CloudComparator() {
         color: "orange",
         serveursFrance: true,
         serveursFranceNote: "Datacenter de Paris, 100 % renouvelable d'origine française (2024)",
+        wue: null,
+        wueNote: null,
+        cue: null,
+        cueNote: null,
+        cycleVie: "100 % des serveurs réemployés ou recyclés en 2024 (rapport développement durable 2024)",
+        pueEstime: false,
+        renouvelableEstime: false,
       },
       {
         name: "PlanetHoster",
@@ -353,6 +460,13 @@ export default function CloudComparator() {
         color: "cyan",
         serveursFrance: true,
         serveursFranceNote: "Datacenter de Paris, 100 % renouvelable (page Hébergement vert)",
+        wue: 1.63,
+        wueNote: "Page Hébergement vert, WUE France (consultée en 09/2026)",
+        cue: null,
+        cueNote: null,
+        cycleVie: null,
+        pueEstime: false,
+        renouvelableEstime: false,
       },
       {
         name: "3DS Outscale",
@@ -366,6 +480,13 @@ export default function CloudComparator() {
         color: "teal",
         serveursFrance: true,
         serveursFranceNote: "Datacenters en France (page engagements RSE)",
+        wue: null,
+        wueNote: null,
+        cue: null,
+        cueNote: null,
+        cycleVie: "Serveurs prolongés 7 ans minimum (page engagements RSE)",
+        pueEstime: true,
+        renouvelableEstime: false,
       },
       {
         name: "Ikoula",
@@ -379,6 +500,13 @@ export default function CloudComparator() {
         color: "teal",
         serveursFrance: true,
         serveursFranceNote: "Datacenters en propre en France : Reims et Laon (page présentation)",
+        wue: null,
+        wueNote: null,
+        cue: null,
+        cueNote: null,
+        cycleVie: null,
+        pueEstime: true,
+        renouvelableEstime: false,
       },
       {
         name: "Clever Cloud",
@@ -392,6 +520,13 @@ export default function CloudComparator() {
         color: "cyan",
         serveursFrance: true,
         serveursFranceNote: "Majorité de l'infrastructure en France, énergie majoritairement bas-carbone (page Green IT, 2026)",
+        wue: null,
+        wueNote: null,
+        cue: null,
+        cueNote: null,
+        cycleVie: null,
+        pueEstime: false,
+        renouvelableEstime: true,
       },
       {
         name: "Exoscale",
@@ -405,9 +540,16 @@ export default function CloudComparator() {
         color: "orange",
         serveursFrance: false,
         serveursFranceNote: "",
+        wue: null,
+        wueNote: null,
+        cue: null,
+        cueNote: null,
+        cycleVie: null,
+        pueEstime: true,
+        renouvelableEstime: false,
       },
     ] as CloudProvider[]
-  ).map((provider) => ({ ...provider, sustainabilityScore: computeSustainabilityScore(provider) }))
+  ).map((provider) => ({ ...provider, sustainabilityScore: computeSustainabilityScore(provider), transparencyScore: computeTransparencyScore(provider) }))
 
   const sortedProviders = [...providers]
     .filter((p) => !filterGreen || p.sustainabilityScore >= 85)
@@ -421,6 +563,8 @@ export default function CloudComparator() {
           return b.renewableEnergy - a.renewableEnergy
         case "name":
           return a.name.localeCompare(b.name, "fr")
+        case "transparency":
+          return b.transparencyScore - a.transparencyScore || b.sustainabilityScore - a.sustainabilityScore
         default:
           return 0
       }
@@ -475,6 +619,7 @@ export default function CloudComparator() {
                   { key: "pue", label: "PUE" },
                   { key: "renewable", label: "% Renouvelable" },
                   { key: "name", label: "Nom" },
+                  { key: "transparency", label: "Transparence" },
                 ].map((option) => (
                   <Button
                     key={option.key}
@@ -493,7 +638,7 @@ export default function CloudComparator() {
                 size="sm"
                 variant="outline"
                 onClick={() => exportProvidersCsv(providers)}
-                title="Télécharger les données des 8 hébergeurs au format CSV, dans l'ordre du classement général"
+                title="Télécharger les données des 15 hébergeurs au format CSV, dans l'ordre du classement général"
               >
                 <Download aria-hidden="true" />
                 Exporter en CSV
@@ -641,6 +786,19 @@ export default function CloudComparator() {
                 en France, avec le détail sourcé et daté sous le badge. Le pays affiché reste celui du
                 siège : un hébergeur étranger peut donc avoir le badge (datacenter à Paris, par exemple).
               </li>
+              <li>
+                <strong>WUE (Water Usage Effectiveness)</strong> : litres d'eau consommés par kWh informatique.
+                Plus il est proche de 0, mieux c'est. Quand l'hébergeur ne le publie pas, la fiche l'indique.
+              </li>
+              <li>
+                <strong>CUE (Carbon Usage Effectiveness)</strong> : intensité carbone du kWh informatique,
+                en gCO₂e/kWh. Même règle : non publié = indiqué comme tel.
+              </li>
+              <li>
+                <strong>Transparence (n/4)</strong> : note propre au site qui compte ce que la fiche publie
+                vraiment : PUE chiffré, part de renouvelable, document source daté, engagement vérifiable
+                (certification ou neutralité déclarée). Elle ne change pas le score éco.
+              </li>
             </ul>
           </div>
 
@@ -671,6 +829,10 @@ export default function CloudComparator() {
                             Serveurs en France
                           </span>
                         )}
+                        <span className="ml-2 inline-flex items-center gap-1 rounded-full border border-border bg-card px-2 py-0.5 text-xs font-medium text-foreground">
+                          <Eye aria-hidden="true" className="h-3 w-3" />
+                          Transparence {provider.transparencyScore}/4
+                        </span>
                       </div>
                     </div>
                     {provider.serveursFrance && (
@@ -717,6 +879,37 @@ export default function CloudComparator() {
                       <div className="text-xs font-medium text-foreground">{provider.carbonNeutral ? "Déclarée" : "En cours"}</div>
                     </div>
                   </div>
+                  <MoreDetails title="Eau, carbone et cycle de vie">
+                    <ul className="space-y-1 text-left text-sm text-muted-foreground">
+                      <li>
+                        <strong className="text-foreground">WUE</strong> :{" "}
+                        {provider.wue === null ? (
+                          <span>Non publié</span>
+                        ) : (
+                          `${provider.wue.toLocaleString("fr-FR", { maximumFractionDigits: 2 })} L/kWh (${provider.wueNote})`
+                        )}
+                      </li>
+                      <li>
+                        <strong className="text-foreground">CUE</strong> :{" "}
+                        {provider.cue === null ? (
+                          <span>Non publié</span>
+                        ) : (
+                          `${provider.cue.toLocaleString("fr-FR", { maximumFractionDigits: 3 })} gCO₂e/kWh (${provider.cueNote})`
+                        )}
+                      </li>
+                      <li>
+                        <strong className="text-foreground">Cycle de vie des serveurs</strong> :{" "}
+                        {provider.cycleVie ?? <span>Non publié</span>}
+                      </li>
+                      <li>
+                        <strong className="text-foreground">Transparence {provider.transparencyScore}/4</strong> :{" "}
+                        {!provider.pueEstime ? "PUE publié" : "PUE non publié (valeur prudente par défaut)"} ;{" "}
+                        {!provider.renouvelableEstime ? "renouvelable publié" : "renouvelable non publié (valeur prudente par défaut)"} ;{" "}
+                        {HAS_YEAR.test(provider.source) ? "document source daté" : "document source non daté"} ;{" "}
+                        {provider.certifications.length > 0 || provider.carbonNeutral ? "engagement vérifiable" : "aucun engagement vérifiable"}.
+                      </li>
+                    </ul>
+                  </MoreDetails>
                 </div>
               </div>
             ))}

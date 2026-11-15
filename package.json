@@ -25,6 +25,7 @@
   "author": "Geoffroy Streit <geoffroy.streit@ik.me>",
   "scripts": {
     "build": "next build",
+    "postbuild": "node scripts/flatten-rsc-segments.mjs",
     "convert-images": "node scripts/convert-images-to-webp.js",
     "dev": "next dev",
     "generate-pdf": "node scripts/generate-pdf-guide.js",

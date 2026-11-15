@@ -9,7 +9,7 @@ export const SITE_URL = `${SITE_DOMAIN}${SITE_BASE_PATH}`
 export const SITE_SHORT = "hylst.fr/greenit"
 export const SITE_NAME = "Le Green IT en clair"
 export const SITE_AUTHOR = "Geoffroy Streit"
-export const SITE_EMAIL = "geoffroy.streit@gmail.com"
+export const SITE_EMAIL = "geoffroy.streit@ik.me"
 
 export function canonical(path: string): string {
   return `${SITE_URL}${path}`

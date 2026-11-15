@@ -41,6 +41,6 @@ Next.js et React avec TypeScript, Tailwind CSS, cartes Leaflet, graphiques Recha
 
 ## Contact
 
-Geoffroy Streit (Hylst), développeur d'applications : geoffroy.streit@gmail.com
+Geoffroy Streit (Hylst), développeur d'applications : geoffroy.streit@ik.me
 
 Projet personnel, gratuit, sans publicité et sans traqueur. S'il reste une coquille quelque part, écrivez-moi, ça fait toujours plaisir.

@@ -44,3 +44,7 @@ Next.js et React avec TypeScript, Tailwind CSS, cartes Leaflet, graphiques Recha
 Geoffroy Streit (Hylst), développeur d'applications : geoffroy.streit@ik.me
 
 Projet personnel, gratuit, sans publicité et sans traqueur. S'il reste une coquille quelque part, écrivez-moi, ça fait toujours plaisir.
+
+## Licence
+
+Code et contenus rédigés sous **GNU Affero General Public License v3 (ou ultérieure)** : voir [LICENSE](LICENSE). Copyright (C) 2026 Geoffroy Streit (Hylst). Les polices, bibliothèques, images et autres éléments tiers gardent leurs propres licences.

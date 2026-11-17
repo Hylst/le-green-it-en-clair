@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Texte de licence, pas d'interface : hors du scan automatique (le mot « contents » y creerait la classe
+   .contents). */
+@source not "../LICENSE";
+
 /* Classes construites dynamiquement dans le code : safelist Tailwind v4 */
 @source inline("{bg,text,border}-{red,orange,amber,rose,blue,purple,emerald,teal,cyan,indigo,violet,pink,slate,gray}-{50,100,500,600,700}");
 @source inline("bg-{red,orange,amber,rose,blue,purple,emerald,teal,cyan,indigo,violet,pink,slate,gray}-900/30");
